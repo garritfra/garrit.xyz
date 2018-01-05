@@ -7,7 +7,7 @@ class ProjectPreview extends Component{
         this.divStyle = {
             width: "30%",
             height: "200px",
-            border: "5px solid green",
+            border: "2px solid black",
             margin: "1em",
             float: "left"
           }
