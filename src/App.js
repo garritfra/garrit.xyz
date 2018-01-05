@@ -4,6 +4,7 @@ import './App.css';
 import "./components/Button"
 import Button from './components/Button';
 import ProjectPreview from './components/ProjectPreview';
+import Header from "./components/Header";
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
     return (
 
       <div className="App">
+        <Header/>
         <ProjectPreview project = {this.projects[0]}/>
         <ProjectPreview projectName="Tic-Tac-Toe"/>
         <ProjectPreview projectName="Caesar Cipher"/>
