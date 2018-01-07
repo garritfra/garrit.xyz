@@ -12,7 +12,7 @@ class Header extends Component{
         }
 
         return (
-            <nav class="container" style={this.style}>
+            <nav className="container" style={this.style}>
                 <h1>Test</h1>
             </nav>
         );

@@ -17,7 +17,7 @@ class ProjectPreview extends Component{
             <div id="container" style={this.divStyle}>
                 <h3>{this.props.project.name}</h3>
                 <p>{this.props.project.description}</p>
-                <Button name="Go to Project" style={{float: "bottom"}}/>
+                <Button name="Go to Project"/>
 
             </div>
         );
