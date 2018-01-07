@@ -11,14 +11,12 @@ class ProjectPreview extends Component{
             margin: "1em",
             float: "left"
           }
-          let loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-        this.project = this.props.project;
+          //let loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
         return(
             <div id="container" style={this.divStyle}>
-                <h3>Name of Project</h3>
-                <p>{loremIpsum}</p>
+                <h3>{this.props.project.name}</h3>
+                <p>{this.props.project.description}</p>
                 <Button name="Go to Project" style={{float: "bottom"}}/>
 
             </div>

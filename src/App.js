@@ -8,9 +8,9 @@ import Header from "./components/Header";
 
 class App extends Component {
 
-  render() {
 
-      this.projects =  [
+  render() {
+    let projects = [
         {
           name: "Caesar Cipher",
           description: "Decrypt a string with the Ceasar Cipher method!",
@@ -19,11 +19,11 @@ class App extends Component {
       ]
     return (
 
-      <div className="App">
+      <div className = "App">
         <Header/>
-        <ProjectPreview project = {this.projects[0]}/>
-        <ProjectPreview projectName="Tic-Tac-Toe"/>
-        <ProjectPreview projectName="Caesar Cipher"/>
+        <ProjectPreview project = {projects[0]}/>
+        <ProjectPreview project= {projects[0]}/>
+        <ProjectPreview project= {projects[0]}/>
       </div>
     );
   }
