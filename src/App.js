@@ -34,7 +34,7 @@ class App extends Component {
   render() {
     return (
 
-      <div className = "App">
+      <div className = "App Railway">
         <Header/>
         <ProjectPreview project= {this.state.projects[0]}/>
         <ProjectPreview project= {this.state.projects[1]}/>
