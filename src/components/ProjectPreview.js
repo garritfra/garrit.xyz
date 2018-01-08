@@ -1,25 +1,28 @@
 import React, {Component} from "react";
-import Button from "./Button";
+import Card, { CardActions, CardContent } from 'material-ui/Card';
+import Button from 'material-ui/Button';
+import { withStyles } from 'material-ui/styles';
+
 
 class ProjectPreview extends Component{
     render(){
 
-        this.divStyle = {
-            width: "30%",
-            height: "200px",
-            border: "2px solid black",
-            margin: "1em",
-            float: "left"
+        const cardStyle = {
+            marginTop: 30,
+            margin: 16
           }
           //let loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
         return(
-            <div id="container" style={this.divStyle}>
+            <Card className="Card" style={cardStyle}>
+            <CardContent>
                 <h3>{this.props.project.name}</h3>
                 <p>{this.props.project.description}</p>
-                <Button name="Go to Project"/>
-
-            </div>
+            </CardContent>
+            <CardActions>
+                <Button dense color="primary">Go to Project</Button>
+            </CardActions>
+            </Card>
         );
     }
 }

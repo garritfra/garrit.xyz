@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import "./components/Button"
-import Button from './components/Button';
 import ProjectPreview from './components/ProjectPreview';
 import Header from "./components/Header";
+import Button from 'material-ui/Button';
+import Grid from "material-ui/Grid";
 
 class App extends Component {
 
@@ -36,10 +37,18 @@ class App extends Component {
 
       <div className = "App Railway">
         <Header/>
-        <ProjectPreview project= {this.state.projects[0]}/>
-        <ProjectPreview project= {this.state.projects[1]}/>
-        <ProjectPreview project= {this.state.projects[2]}/>
-        <Button>See all projects</Button>
+          <Grid container spacing={24}>
+            <Grid item xs>  
+              <ProjectPreview project= {this.state.projects[0]}/>
+            </Grid>
+            <Grid item xs>  
+              <ProjectPreview project= {this.state.projects[1]}/>
+            </Grid>
+            <Grid item xs>  
+              <ProjectPreview className="" project= {this.state.projects[2]}/>
+             {/*  <Button raised>See all projects</Button> */}
+            </Grid>
+          </Grid>
       </div>
     );
   }
