@@ -16,7 +16,7 @@ class ProjectPreview extends Component{
         return(
             <Card className="Card" style={cardStyle}>
             <CardContent>
-                <h3>{this.props.project.name}</h3>
+                <h1>{this.props.project.name}</h1>
                 <p>{this.props.project.description}</p>
             </CardContent>
             <CardActions>
