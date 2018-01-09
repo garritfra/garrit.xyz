@@ -2,4 +2,4 @@ install:
   npm install
 
 script:
-  npm test && npm start
+  npm test
