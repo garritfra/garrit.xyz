@@ -1,29 +1,55 @@
 import React, {Component} from "react";
-import Button from "./Button";
+import Card, { CardActions, CardContent } from 'material-ui/Card';
+import materialui from "material-ui";
+import Button from 'material-ui/Button';
+import { withStyles } from 'material-ui/styles';
+import Grid from 'material-ui/Grid';
+import ProjectCard from "./ProjectCard";
+
 
 class ProjectPreview extends Component{
+    
+    constructor(){
+        super();
+        this.state = {
+            projects: [
+              {
+                name: "Caesar Cipher",
+                description: "Decrypt a string with the Ceasar Cipher method!",
+                path: ""
+              },
+              {
+                name: "Tic Tac Toe",
+                description: "Plain ol' Tic Tac Toe",
+                path: ""
+              },
+              {
+                name: "Another Sample",
+                description: "Lorem Ipsum",
+                path: ""
+              }
+            ]
+          }
+    }
+
     render(){
 
-        this.divStyle = {
-            width: "30%",
-            height: "200px",
-            border: "2px solid black",
-            margin: "1em",
-            float: "left"
-          }
-          let loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-        this.project = this.props.project;
-
-        return(
-            <div id="container" style={this.divStyle}>
-                <h3>Name of Project</h3>
-                <p>{loremIpsum}</p>
-                <Button name="Go to Project" style={{float: "bottom"}}/>
-
-            </div>
-        );
+         return(
+            <Grid container spacing={24}>
+              <Grid item xs>  
+                <ProjectCard project= {this.state.projects[0]}/>
+              </Grid>
+              <Grid item xs>  
+                <ProjectCard project= {this.state.projects[1]}/>
+              </Grid>
+              <Grid item xs>  
+                <ProjectCard className="" project= {this.state.projects[2]}/>
+              </Grid>
+                <Button raised>See all projects</Button>
+            </Grid> 
+         );
     }
-}
+  }
 
 export default ProjectPreview;

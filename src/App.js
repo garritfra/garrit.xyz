@@ -1,30 +1,24 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import "./components/Button"
-import Button from './components/Button';
-import ProjectPreview from './components/ProjectPreview';
+import ProjectCard from './components/ProjectCard';
 import Header from "./components/Header";
+import Button from 'material-ui/Button';
+import ProjectPreview from './components/ProjectPreview';
+import { Router, Route, browserHistory } from 'react-router';
+import Home from "./routes/Home";
+import NotFound from "./routes/NotFound"
 
 class App extends Component {
 
-  render() {
 
-      this.projects =  [
-        {
-          name: "Caesar Cipher",
-          description: "Decrypt a string with the Ceasar Cipher method!",
-          path: ""
-        }
-      ]
+  render() {
     return (
 
-      <div className="App">
-        <Header/>
-        <ProjectPreview project = {this.projects[0]}/>
-        <ProjectPreview projectName="Tic-Tac-Toe"/>
-        <ProjectPreview projectName="Caesar Cipher"/>
-      </div>
+      <Router history = {browserHistory}>
+        <Route path={"/"} component={Home}/>
+        <Route path={"/*"} component={NotFound}/>
+      </Router>
     );
   }
 }
