@@ -1,30 +1,55 @@
 import React, {Component} from "react";
 import Card, { CardActions, CardContent } from 'material-ui/Card';
+import materialui from "material-ui";
 import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
+import Grid from 'material-ui/Grid';
+import ProjectCard from "./ProjectCard";
 
 
 class ProjectPreview extends Component{
+    
+    constructor(){
+        super();
+        this.state = {
+            projects: [
+              {
+                name: "Caesar Cipher",
+                description: "Decrypt a string with the Ceasar Cipher method!",
+                path: ""
+              },
+              {
+                name: "Tic Tac Toe",
+                description: "Plain ol' Tic Tac Toe",
+                path: ""
+              },
+              {
+                name: "Another Sample",
+                description: "Lorem Ipsum",
+                path: ""
+              }
+            ]
+          }
+    }
+
     render(){
 
-        const cardStyle = {
-            marginTop: 30,
-            margin: 16
-          }
-          //let loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-        return(
-            <Card className="Card" style={cardStyle}>
-            <CardContent>
-                <h1>{this.props.project.name}</h1>
-                <p>{this.props.project.description}</p>
-            </CardContent>
-            <CardActions>
-                <Button dense color="primary">Go to Project</Button>
-            </CardActions>
-            </Card>
-        );
+         return(
+            <Grid container spacing={24}>
+              <Grid item xs>  
+                <ProjectCard project= {this.state.projects[0]}/>
+              </Grid>
+              <Grid item xs>  
+                <ProjectCard project= {this.state.projects[1]}/>
+              </Grid>
+              <Grid item xs>  
+                <ProjectCard className="" project= {this.state.projects[2]}/>
+              </Grid>
+                <Button raised>See all projects</Button>
+            </Grid> 
+         );
     }
-}
+  }
 
 export default ProjectPreview;
