@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Button from 'material-ui/Button';
 import ProjectPreview from './components/ProjectPreview';
 import Home from "./routes/Home";
-import { Router, Route, browserHistory } from "react-router";
+import { Router, Route, browserHistory } from 'react-router';
 
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
     return (
 
       <Router history = {browserHistory}>
-        <Route path={"home"} component={Home}/>
+        <Route path={"/"} component={Home}/>
       </Router>
     );
   }
