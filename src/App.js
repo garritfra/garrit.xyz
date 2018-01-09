@@ -5,7 +5,9 @@ import ProjectCard from './components/ProjectCard';
 import Header from "./components/Header";
 import Button from 'material-ui/Button';
 import ProjectPreview from './components/ProjectPreview';
-//import Grid from 'material-ui/Grid';
+import Home from "./routes/Home";
+import { Router, Route, browserHistory } from "react-router";
+
 
 class App extends Component {
 
@@ -13,10 +15,9 @@ class App extends Component {
   render() {
     return (
 
-      <div className="App Railway">
-        <Header />
-        <ProjectPreview />
-      </div>
+      <Router history = {browserHistory}>
+        <Route path={"home"} component={Home}/>
+      </Router>
     );
   }
 }
