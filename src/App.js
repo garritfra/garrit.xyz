@@ -5,9 +5,9 @@ import ProjectCard from './components/ProjectCard';
 import Header from "./components/Header";
 import Button from 'material-ui/Button';
 import ProjectPreview from './components/ProjectPreview';
-import Home from "./routes/Home";
 import { Router, Route, browserHistory } from 'react-router';
-
+import Home from "./routes/Home";
+import NotFound from "./routes/NotFound"
 
 class App extends Component {
 
@@ -17,6 +17,7 @@ class App extends Component {
 
       <Router history = {browserHistory}>
         <Route path={"/"} component={Home}/>
+        <Route path={"/*"} component={NotFound}/>
       </Router>
     );
   }
