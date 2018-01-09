@@ -13,9 +13,9 @@ class App extends Component {
   render() {
     return (
 
-      <div className = "App Railway">
-        <Header/>
-        <ProjectPreview/>
+      <div className="App Railway">
+        <Header />
+        <ProjectPreview />
       </div>
     );
   }
