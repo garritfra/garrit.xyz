@@ -28,4 +28,7 @@ describe("ProjectCard", () => {
     it("renders without crashing", () => {
         ReactDOM.render(<ProjectCard project={state.projects[0]} />, div)
     });
+    it("crashes", () => {
+        expect(() => {ReactDOM.render(<ProjectCard project={state.projects[3]} />, div)}).toThrow()
+    });
 });
