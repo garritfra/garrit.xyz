@@ -4,6 +4,7 @@ import materialui from "material-ui";
 import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
+import ProjectCard from "./ProjectCard";
 
 
 class ProjectPreview extends Component{
@@ -34,22 +35,21 @@ class ProjectPreview extends Component{
     render(){
 
 
-        return(
-            
+         return(
             <Grid container spacing={24}>
               <Grid item xs>  
-                <ProjectPreview project= {this.state.projects[0]}/>
+                <ProjectCard project= {this.state.projects[0]}/>
               </Grid>
               <Grid item xs>  
-                <ProjectPreview project= {this.state.projects[1]}/>
+                <ProjectCard project= {this.state.projects[1]}/>
               </Grid>
               <Grid item xs>  
-                <ProjectPreview className="" project= {this.state.projects[2]}/>
+                <ProjectCard className="" project= {this.state.projects[2]}/>
               </Grid>
-                {/* <Button raised>See all projects</Button> */}
-            </Grid>
-        );
+                <Button raised>See all projects</Button>
+            </Grid> 
+         );
     }
-}
+  }
 
 export default ProjectPreview;

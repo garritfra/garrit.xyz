@@ -5,13 +5,10 @@ import ProjectCard from './components/ProjectCard';
 import Header from "./components/Header";
 import Button from 'material-ui/Button';
 import ProjectPreview from './components/ProjectPreview';
+//import Grid from 'material-ui/Grid';
 
 class App extends Component {
 
-  constructor(){
-    //super();
-
-  }
 
   render() {
     return (
