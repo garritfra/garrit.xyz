@@ -13,7 +13,7 @@ class App extends Component {
     return (
 
       <Router>
-        <div>
+        <div className="App Railway">
           <Header />
           <Switch>
             <Route path="/" exact component={Home} />

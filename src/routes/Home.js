@@ -9,7 +9,7 @@ class Home extends Component {
     render() {
       return (
   
-        <div className="App Railway">
+        <div>
           <ProjectPreview />
         </div>
       );

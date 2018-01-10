@@ -9,7 +9,7 @@ class Projects extends Component {
     render() {
       return (
   
-        <div className="App Railway">
+        <div>
           <p>Hello World</p>
         </div>
       );
