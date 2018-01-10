@@ -29,7 +29,7 @@ class ProjectCard extends Component {
 						</Typography>
 					</CardContent>
 					<CardActions>
-						<Button dense color="primary">Go to Project</Button>
+						<Button href={"/projects" + this.props.project.path} dense color="primary">Go to Project</Button>
 					</CardActions>
 				</Card>
 			</div>

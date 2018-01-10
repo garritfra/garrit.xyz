@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
 import ProjectCard from "./ProjectCard";
+import App from './../App';
+import { Link, Redirect, browserHistory } from 'react-router-dom';
 
 
 class ProjectPreview extends Component {
@@ -13,17 +15,17 @@ class ProjectPreview extends Component {
         {
           name: "Caesar Cipher",
           description: "Decrypt a string with the Ceasar Cipher method!",
-          path: ""
+          path: "/cipher"
         },
         {
           name: "Tic Tac Toe",
           description: "Plain ol' Tic Tac Toe",
-          path: ""
+          path: "/tictactoe"
         },
         {
           name: "Another Sample",
           description: "Lorem Ipsum",
-          path: ""
+          path: "/sample"
         }
       ]
     }
@@ -41,10 +43,10 @@ class ProjectPreview extends Component {
             <ProjectCard project={this.state.projects[1]} />
           </Grid>
           <Grid item xs>
-            <ProjectCard className="" project={this.state.projects[2]} />
+            <ProjectCard project={this.state.projects[2]} />
           </Grid>
         </Grid>
-        <Button raised>See all projects</Button>
+    <Button raised href="/projects">See all projects</Button>
       </div>
     );
   }
