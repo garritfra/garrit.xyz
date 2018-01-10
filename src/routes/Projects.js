@@ -3,17 +3,17 @@ import '../index.css';
 import Header from './../components/Header';
 import ProjectPreview from './../components/ProjectPreview';
 
-class Home extends Component {
+class Projects extends Component {
 
 
     render() {
       return (
   
         <div>
-          <ProjectPreview />
+          <p>Hello World</p>
         </div>
       );
     }
   }
   
-  export default Home;
+  export default Projects;
