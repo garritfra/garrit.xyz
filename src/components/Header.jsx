@@ -7,7 +7,8 @@ class Header extends Component{
         this.style = {
             
             height: "50px",
-            background: "grey"
+            background: "grey",
+            "text-align": "center"
             
         }
 
