@@ -1,8 +1,5 @@
 import React, {Component} from "react";
-import Card, { CardActions, CardContent } from 'material-ui/Card';
-import materialui from "material-ui";
 import Button from 'material-ui/Button';
-import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import ProjectCard from "./ProjectCard";
 
@@ -33,7 +30,6 @@ class ProjectPreview extends Component{
     }
 
     render(){
-
 
          return(
             <Grid container spacing={24}>

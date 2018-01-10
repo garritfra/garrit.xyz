@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Button from 'material-ui/Button';
-import { withStyles } from 'material-ui/styles';
 
 
 class ProjectCard extends Component {
