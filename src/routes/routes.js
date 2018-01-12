@@ -3,7 +3,7 @@ import NotFound from "./NotFound";
 
 export let routes = [
     { id: 0, component: "Home", link: "/home" },
-    { id: 1, component: "Projects", link: "/projects" },
+    { id: 1, component: Projects, link: "/projects" },
     { id: 2, component: NotFound, link: "/*" }
 
     
