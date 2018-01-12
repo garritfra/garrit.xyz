@@ -7,7 +7,8 @@ import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import MenuItem from "material-ui/Menu/MenuItem";
-import MenuIcon from "material-ui-icons/Menu"
+import MenuIcon from "material-ui-icons/Menu";
+import Drawer from "./Drawer"
 
 class Header extends Component {
     render() {
@@ -27,16 +28,20 @@ class Header extends Component {
         };
 
         return (
+
+            <div>
+            
             <AppBar position="static">
                 <Toolbar>
                     <IconButton color="contrast" aria-label="Menu">
-                        <MenuIcon />
+                        <Drawer/>
                     </IconButton>
                     <Typography type="title" color="inherit">
                         Garrit Franke
                     </Typography>
                 </Toolbar>
             </AppBar>
+            </div>
         );
     }
 
