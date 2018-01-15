@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
 import ProjectCard from "./ProjectCard";
-import App from './../App';
-import { Link, Redirect, browserHistory } from 'react-router-dom';
 
 
 class ProjectPreview extends Component {

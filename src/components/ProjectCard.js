@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Button from 'material-ui/Button';
-import _ from "lodash"
 import Typography from "material-ui/Typography"
-import { withStyles } from 'material-ui/styles';
 
 
 class ProjectCard extends Component {
