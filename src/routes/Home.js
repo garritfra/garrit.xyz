@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../index.css';
 import ProjectPreview from './../components/ProjectPreview';
+import Info from '../components/Info';
 
 class Home extends Component {
 
@@ -9,6 +10,7 @@ class Home extends Component {
       return (
   
         <div>
+          <Info/>
           <ProjectPreview />
         </div>
       );
