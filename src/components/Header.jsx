@@ -9,9 +9,8 @@ import { withRouter } from 'react-router-dom'
 
 class Header extends Component {
     render() {
-
-        console.log(this.props);
         const history = this.props.history;
+
         const styles = {
             root: {
                 width: '100%',
@@ -33,9 +32,9 @@ class Header extends Component {
                     </IconButton>
 
                     <IconButton onClick={() => { history.push("/") }}>
-                        <HomeIcon />
+                        <HomeIcon color="contrast"/>
                     </IconButton>
-                    
+
                     <Typography type="title" color="inherit">
                         Garrit Franke
                     </Typography>
