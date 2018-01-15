@@ -1,18 +1,15 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
-import MenuItem from "material-ui/Menu/MenuItem";
 import MenuIcon from "material-ui-icons/Menu";
-import Drawer from "./Drawer"
+import HomeIcon from "material-ui-icons/Home";
+import { withRouter } from 'react-router-dom'
 
 class Header extends Component {
     render() {
-
+        const history = this.props.history;
 
         const styles = {
             root: {
@@ -28,24 +25,25 @@ class Header extends Component {
         };
 
         return (
-
-            <div>
-            
             <AppBar position="static">
                 <Toolbar>
                     <IconButton color="contrast" aria-label="Menu">
-                        <Drawer/>
+                        <MenuIcon />
                     </IconButton>
+
+                    <IconButton onClick={() => { history.push("/") }}>
+                        <HomeIcon color="contrast"/>
+                    </IconButton>
+
                     <Typography type="title" color="inherit">
                         Garrit Franke
                     </Typography>
                 </Toolbar>
-            </AppBar>
-            </div>
+            </AppBar >
         );
     }
 
 
 }
 
-export default Header
+export default withRouter(Header);

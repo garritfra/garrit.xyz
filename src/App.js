@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch, } from "react-router-dom"
 import Home from "./routes/Home";
 import Projects from "./routes/Projects"
 import NotFound from "./routes/NotFound"
 import Header from './components/Header';
+import createBrowserHistory from 'history/createBrowserHistory';
+import PerlinNoise from './components/projects/PerlinNoise/PerlinNoise';
 
 class App extends Component {
 
-
   render() {
+    const history = createBrowserHistory();
     return (
 
-      <Router>
+      <Router history={history}>
         <div className="App Railway">
-          <Header />
+          <Header history={history} />
           <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/projects" component={Projects} />
-            <Route path="/*" component={NotFound} />
+            <Route path="/" exact render={(props) => <Home />} />
+            <Route path="/projects/perlinnoise" render={() => <PerlinNoise />} />
+            <Route path="/projects/*" render={() => <NotFound />} />
+            <Route path="/projects" render={() => <Projects/>}/>
+            <Route path="/*" render={() => <NotFound />} />
           </Switch>
         </div>
       </Router>
