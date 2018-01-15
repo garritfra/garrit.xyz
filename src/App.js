@@ -6,6 +6,7 @@ import Projects from "./routes/Projects"
 import NotFound from "./routes/NotFound"
 import Header from './components/Header';
 import createBrowserHistory from 'history/createBrowserHistory';
+import PerlinNoise from './components/projects/PerlinNoise/PerlinNoise';
 
 class App extends Component {
 
@@ -15,11 +16,12 @@ class App extends Component {
 
       <Router history={history}>
         <div className="App Railway">
-          <Header history = {history}/>
+          <Header history={history} />
           <Switch>
-            <Route path="/" exact render={(props) => <Home/>} />
-            <Route path="/projects" render={() => <Projects/>} />
-            <Route path="/*" render={() => <NotFound/>} />
+            <Route path="/" exact render={(props) => <Home />} />
+            <Route path="/projects/perlinnoise" render={() => <PerlinNoise />} />
+            <Route path="/projects" render={() => <Projects/>}/>
+            <Route path="/*" render={() => <NotFound />} />
           </Switch>
         </div>
       </Router>

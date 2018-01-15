@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from "material-ui/Typography"
+import { withRouter } from "react-router-dom"
 
 
 class ProjectCard extends Component {
@@ -12,7 +13,7 @@ class ProjectCard extends Component {
 			margin: 16,
 			maxHeight: 200
 		}
-		
+
 
 
 		return (
@@ -35,4 +36,4 @@ class ProjectCard extends Component {
 	}
 }
 
-export default ProjectCard;
+export default withRouter(ProjectCard);
