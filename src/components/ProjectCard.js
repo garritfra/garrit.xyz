@@ -36,4 +36,4 @@ class ProjectCard extends Component {
 	}
 }
 
-export default withRouter(ProjectCard);
+export default ProjectCard;
