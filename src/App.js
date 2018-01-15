@@ -20,6 +20,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact render={(props) => <Home />} />
             <Route path="/projects/perlinnoise" render={() => <PerlinNoise />} />
+            <Route path="/projects/*" render={() => <NotFound />} />
             <Route path="/projects" render={() => <Projects/>}/>
             <Route path="/*" render={() => <NotFound />} />
           </Switch>
