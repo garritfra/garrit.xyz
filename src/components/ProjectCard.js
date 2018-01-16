@@ -6,6 +6,13 @@ import { withRouter } from "react-router-dom"
 
 
 class ProjectCard extends Component {
+
+	constructor(props){
+		super();
+		this.props = props;
+	}
+
+
 	render() {
 
 		const cardStyle = {

@@ -33,6 +33,7 @@ class ProjectPreview extends Component {
 
     return (
       <div>
+        <h1 className="jumbotron">Projects</h1>
         <Grid container spacing={24}>
           <Grid item xs>
             <ProjectCard project={this.state.projects[0]} />

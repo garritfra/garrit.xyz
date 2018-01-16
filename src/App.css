@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
 .App {
   text-align: center;
 }
@@ -30,4 +31,8 @@
 
 .Railway{
   font-family: 'Raleway', sans-serif;
+}
+
+.Roboto{
+  font-family: "Roboto"
 }
