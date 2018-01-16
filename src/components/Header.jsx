@@ -6,42 +6,44 @@ import IconButton from 'material-ui/IconButton';
 import MenuIcon from "material-ui-icons/Menu";
 import HomeIcon from "material-ui-icons/Home";
 import { withRouter } from 'react-router-dom'
+import { Button, Icon, Menu } from 'semantic-ui-react'
+
+
 
 class Header extends Component {
-    render() {
-        const history = this.props.history;
+  state = { activeItem: this.props.Component }
+  history = this.props.history;
 
-        const styles = {
-            root: {
-                width: '100%',
-            },
-            flex: {
-                flex: 1,
-            },
-            menuButton: {
-                marginLeft: -12,
-                marginRight: 20,
-            },
-        };
+  handleHome = (e, { name }) => {
+    this.setState({ activeItem: name })
+    this.history.push("/")
+  }
+  handleProjects = (e, { name }) => {
+    this.setState({ activeItem: name })
+    this.history.push("/projects")
+  }
 
-        return (
-            <AppBar position="static">
-                <Toolbar>
-                    <IconButton color="contrast" aria-label="Menu">
-                        <MenuIcon />
-                    </IconButton>
 
-                    <IconButton onClick={() => { history.push("/") }}>
-                        <HomeIcon color="contrast"/>
-                    </IconButton>
+  render() {
+    const { activeItem } = this.state
 
-                    <Typography type="title" color="inherit">
-                        Garrit Franke
-                    </Typography>
-                </Toolbar>
-            </AppBar >
-        );
-    }
+
+    return (
+      <div>
+        <Menu size='big'>
+          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleHome} />
+          <Menu.Item name='projects' active={activeItem === 'projects'} onClick={this.handleProjects} />
+
+          <Menu.Menu position='right'>
+
+            <Menu.Item>
+              <Icon name="github" size="auto" />
+            </Menu.Item>
+          </Menu.Menu>
+        </Menu>
+      </div>
+    )
+  }
 
 
 }
