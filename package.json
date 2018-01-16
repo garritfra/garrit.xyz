@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "eslint": "^4.15.0",
+    "lodash": "^4.17.4",
     "p5": "^0.5.16",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
