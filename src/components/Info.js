@@ -1,26 +1,18 @@
 import React, { Component } from "react";
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import IconButton from 'material-ui/IconButton';
-import MenuIcon from "material-ui-icons/Menu";
-import HomeIcon from "material-ui-icons/Home";
-import Paper from 'material-ui/Paper';
 import { withRouter } from 'react-router-dom'
-import Grid from "material-ui/Grid/Grid";
-import {Transition} from "semantic-ui-react";
+import { Transition, Grid, Image } from "semantic-ui-react";
 
 class Info extends Component {
-    state = {imgVisible: false}
-    
+    state = { imgVisible: false }
 
-    componentDidMount(){
-        this.setState({imgVisible: true})
+
+    componentDidMount() {
+        this.setState({ imgVisible: true })
     }
 
     render() {
-        
-        let img = new URL("https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/20953090_1641167239286594_1135665268716135703_n.jpg?oh=bf74be88a6497e74df79a8abba9f0698&oe=5AE93C4B")
+
+        let src = new URL("https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/20953090_1641167239286594_1135665268716135703_n.jpg?oh=bf74be88a6497e74df79a8abba9f0698&oe=5AE93C4B")
 
         const imgStyle = {
             //position: "left",
@@ -35,16 +27,17 @@ class Info extends Component {
 
         return (
             <div style={style}>
-                <Grid container>
-                    <Grid item xs>
-                    <Transition visible={this.state.imgVisible}animation='scale' duration={500}>
-                        <img src={img} style={imgStyle} />
+                <Grid devided="vertically" columns={2}>
+                    <Grid.Column>
+                        <Transition visible={this.state.imgVisible} animation='scale' duration={500}>
+                            <Image src={src} fluid />
                         </Transition>
-                    </Grid>
-                    <Grid item xs>
+                    </Grid.Column>
+
+                    <Grid.Column>
                         <h1>Hello World</h1>
                         <p>Semi-Professional Hobby Developer</p>
-                    </Grid>
+                    </Grid.Column>
                 </Grid>
             </div>
         );
