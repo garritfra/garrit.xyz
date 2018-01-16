@@ -30,7 +30,7 @@ class Header extends Component {
 
     return (
       <div>
-        <Menu size='big'>
+        <Menu inverted size='big'>
           <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleHome} />
           <Menu.Item name='projects' active={activeItem === 'projects'} onClick={this.handleProjects} />
 
