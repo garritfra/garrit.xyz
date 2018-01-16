@@ -11,7 +11,7 @@ class ProjectCard extends Component {
 	}
 	cardStyle = {
 		marginTop: 30,
-		margin: 16,
+		//margin: 16,
 		//maxHeight: 200
 	}
 

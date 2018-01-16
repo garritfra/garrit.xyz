@@ -3,7 +3,6 @@ import '../index.css';
 import P5Wrapper from 'react-p5-wrapper';
 import PerlinNoise from "../components/projects/PerlinNoise/PerlinNoise"
 import ProjectCard from '../components/ProjectCard';
-import { type } from 'os';
 class Projects extends Component {
 
   constructor(){

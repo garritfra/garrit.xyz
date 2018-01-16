@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Grid } from 'semantic-ui-react'
-import Button from 'material-ui/Button';
+import { Grid, Button} from 'semantic-ui-react';
 import ProjectCard from "./ProjectCard";
 
 
@@ -33,7 +32,7 @@ class ProjectPreview extends Component {
 
     return (
       <div>
-        <h1 className="jumbotron">Projects</h1>
+        <h1>Projects</h1>
         <Grid container columns={3}>
           <Grid.Column>
             <ProjectCard project={this.state.projects[0]} />

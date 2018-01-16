@@ -16,7 +16,7 @@ class App extends Component {
     return (
 
       <Router history={history}>
-        <div className="App Roboto">
+        <div className="App">
           <Header history={history} />
           <Switch>
             <Route path="/" exact render={(props) => <Home />} />
