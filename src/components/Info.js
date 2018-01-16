@@ -8,10 +8,18 @@ import HomeIcon from "material-ui-icons/Home";
 import Paper from 'material-ui/Paper';
 import { withRouter } from 'react-router-dom'
 import Grid from "material-ui/Grid/Grid";
+import {Transition} from "semantic-ui-react";
 
 class Info extends Component {
-    render() {
+    state = {imgVisible: false}
+    
 
+    componentDidMount(){
+        this.setState({imgVisible: true})
+    }
+
+    render() {
+        
         let img = new URL("https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/20953090_1641167239286594_1135665268716135703_n.jpg?oh=bf74be88a6497e74df79a8abba9f0698&oe=5AE93C4B")
 
         const imgStyle = {
@@ -29,7 +37,9 @@ class Info extends Component {
             <div style={style}>
                 <Grid container>
                     <Grid item xs>
+                    <Transition visible={this.state.imgVisible}animation='scale' duration={500}>
                         <img src={img} style={imgStyle} />
+                        </Transition>
                     </Grid>
                     <Grid item xs>
                         <h1>Hello World</h1>
