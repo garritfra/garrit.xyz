@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Button, Header, Container } from 'semantic-ui-react';
+import { Grid, Button, Header, Container, Icon } from 'semantic-ui-react';
 import ProjectCard from "./ProjectCard";
 
 
@@ -33,6 +33,8 @@ class ProjectPreview extends Component {
     return (
       <Container>
         <Header as='h1' icon textAlign='center'>
+          
+          <Icon name="puzzle"/>
           <Header.Content>
             Projects
           </Header.Content>
