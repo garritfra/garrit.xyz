@@ -3,8 +3,9 @@ import '../index.css';
 import P5Wrapper from 'react-p5-wrapper';
 import PerlinNoise from "../components/projects/PerlinNoise/PerlinNoise"
 import ProjectCard from '../components/ProjectCard';
-import { type } from 'os';
-class Projects extends Component {
+import { Card, Grid} from 'semantic-ui-react';
+
+export default class Projects extends Component {
 
   constructor(){
     super();
@@ -29,22 +30,35 @@ class Projects extends Component {
           name: "Another Sample",
           description: "Lorem Ipsum",
           path: "/sample"
-        }
+        },
+        {
+          name: "Another Sample",
+          description: "Lorem Ipsum",
+          path: "/sample"
+        },
+        {
+          name: "Another Sample",
+          description: "Lorem Ipsum",
+          path: "/sample"
+        },
       ]
     }
   }
 
   render() {
 
-    let projects = this.state.projects.map((element) => {return <ProjectCard project={element}/>})
+    let projects = this.state.projects.map((element) => {
+      return (
+
+      <ProjectCard project={element}/>
+    )
+    })
 
     return (
 
-      <div>
+      <Grid container colums={3}>
         {projects}
-      </div>
+      </Grid>
     );
   }
 }
-
-export default Projects;

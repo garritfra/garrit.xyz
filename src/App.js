@@ -7,6 +7,7 @@ import NotFound from "./routes/NotFound"
 import Header from './components/Header';
 import createBrowserHistory from 'history/createBrowserHistory';
 import PerlinNoise from './components/projects/PerlinNoise/PerlinNoise';
+import 'semantic-ui-css/semantic.min.css';
 
 class App extends Component {
 
@@ -15,7 +16,7 @@ class App extends Component {
     return (
 
       <Router history={history}>
-        <div className="App Roboto">
+        <div className="App">
           <Header history={history} />
           <Switch>
             <Route path="/" exact render={(props) => <Home />} />

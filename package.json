@@ -3,15 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "material-design-icons": "^3.0.1",
-    "material-ui": "^1.0.0-beta.27",
-    "material-ui-icons": "^1.0.0-beta.17",
     "p5": "^0.5.16",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-p5-wrapper": "0.0.4",
+    "react-p5-wrapper": "^0.0.4",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.77.2"
   },
   "scripts": {
     "start": "react-scripts start",
