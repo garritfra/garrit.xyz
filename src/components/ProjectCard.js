@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import Card, { CardActions, CardContent } from 'material-ui/Card';
-import Button from 'material-ui/Button';
-import Typography from "material-ui/Typography"
+import { Card, Icon } from 'semantic-ui-react'
 import { withRouter } from "react-router-dom"
 
 
@@ -11,32 +9,23 @@ class ProjectCard extends Component {
 		super();
 		this.props = props;
 	}
-
+	cardStyle = {
+		marginTop: 30,
+		margin: 16,
+		//maxHeight: 200
+	}
 
 	render() {
-
-		const cardStyle = {
-			marginTop: 30,
-			margin: 16,
-			maxHeight: 200
-		}
 
 
 
 		return (
 			<div>
-				<Card className="Card" style={cardStyle}>
-					<CardContent>
-						<Typography type="headline">
-							{this.props.project.name}
-						</Typography>
-						<Typography component="p">
-							{this.props.project.description}
-						</Typography>
-					</CardContent>
-					<CardActions>
-						<Button href={"/projects" + this.props.project.path} dense color="primary">Go to Project</Button>
-					</CardActions>
+				<Card style={this.cardStyle}>
+					<Card.Content header={this.props.project.name}/>
+					<Card.Content description=
+							{this.props.project.description}/>
+						<Card.Content button href={"/projects" + this.props.project.path} color="primary">Go to Project</Card.Content>
 				</Card>
 			</div>
 		);
