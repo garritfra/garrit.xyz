@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Button} from 'semantic-ui-react';
+import { Grid, Button, Header, Container } from 'semantic-ui-react';
 import ProjectCard from "./ProjectCard";
 
 
@@ -31,21 +31,25 @@ class ProjectPreview extends Component {
   render() {
 
     return (
-      <div>
-        <h1>Projects</h1>
+      <Container>
+        <Header as='h1' icon textAlign='center'>
+          <Header.Content>
+            Projects
+          </Header.Content>
+        </Header>
         <Grid container columns={3}>
           <Grid.Column>
             <ProjectCard project={this.state.projects[0]} />
           </Grid.Column>
-            <Grid.Column>
+          <Grid.Column>
             <ProjectCard project={this.state.projects[1]} />
           </Grid.Column>
           <Grid.Column>
             <ProjectCard project={this.state.projects[2]} />
           </Grid.Column>
         </Grid>
-    <Button raised href="/projects">See all projects</Button>
-      </div>
+        <Button raised href="/projects">See all projects</Button>
+      </Container>
     );
   }
 }

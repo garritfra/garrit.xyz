@@ -10,9 +10,11 @@ class ProjectCard extends Component {
 		this.props = props;
 	}
 	cardStyle = {
-		marginTop: 30,
+		//marginTop: 30,
 		//margin: 16,
-		//maxHeight: 200
+		Height: "1em",
+		width: "100%",
+		
 	}
 
 	render() {
