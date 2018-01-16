@@ -6,10 +6,12 @@
     "eslint": "^4.15.0",
     "lodash": "^4.17.4",
     "p5": "^0.5.16",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-p5-wrapper": "^0.0.4",
     "react-router-dom": "^4.2.2",
+    "react-router-prop-types": "^0.0.3",
     "react-scripts": "1.0.17",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.77.2"
