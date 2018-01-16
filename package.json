@@ -9,7 +9,7 @@
     "p5": "^0.5.16",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-p5-wrapper": "0.0.4",
+    "react-p5-wrapper": "0.0.5",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17"
   },
