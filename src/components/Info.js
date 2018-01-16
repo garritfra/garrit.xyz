@@ -27,14 +27,14 @@ class Info extends Component {
 
         return (
             <div style={style}>
-                <Grid devided="vertically" columns={2}>
-                    <Grid.Column>
+                <Grid devided="vertically" columns={3}>
+                    <Grid.Column size={1}>
                         <Transition visible={this.state.imgVisible} animation='scale' duration={500}>
                             <Image src={src} fluid />
                         </Transition>
                     </Grid.Column>
 
-                    <Grid.Column>
+                    <Grid.Column size={2}>
                         <h1>Hello World</h1>
                         <p>Semi-Professional Hobby Developer</p>
                     </Grid.Column>
