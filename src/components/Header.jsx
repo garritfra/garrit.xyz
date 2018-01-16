@@ -48,7 +48,7 @@ class Header extends Component {
   }
 }
 
-Header.propTypes = { 
+Header.propTypes = {
   history: ReactRouterPropTypes.history.isRequired,
   Component: PropTypes.element.isRequired,
 };
