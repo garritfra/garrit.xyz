@@ -36,8 +36,8 @@ class Header extends Component {
 
           <Menu.Menu position='right'>
 
-            <Menu.Item>
-              <Icon name="github" size="auto" />
+            <Menu.Item href="https://github.com/garritfra" target= "_blank">
+              <Icon name="github" size="large"/>
             </Menu.Item>
           </Menu.Menu>
         </Menu>
