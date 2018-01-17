@@ -6,6 +6,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.15.0",
+    "history": "^4.7.2",
     "lodash": "^4.17.4",
     "p5": "^0.5.16",
     "prop-types": "^15.6.0",
@@ -21,22 +22,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "npm test -- --coverage",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "coverageThreshold": {
-    "global": {
-      "branches": 90,
-      "functions": 90,
-      "lines": 90,
-      "statements": 90
-    },
-    "coverageReporters": [
-      "text"
-    ],
-    "snapshotSerializers": [
-      "my-serializer-module"
-    ]
   },
   "devDependencies": {
     "eslint-config-airbnb": "^16.1.0",
