@@ -13,25 +13,24 @@ class Header extends Component {
   }
 
 
-  handleHome(e, { name }) {
-    this.setState({ activeItem: name });
-    this.history.push('/');
-  }
-  handleProjects(e, { name }) {
-    this.setState({ activeItem: name });
-    this.history.push('/projects');
-  }
-
-
   render() {
     const { activeItem } = this.state;
 
+    const handleHome = () => {
+      this.setState({ activeItem: this });
+      this.history.push('/');
+    };
+
+    const handleProjects = () => {
+      this.setState({ activeItem: this });
+      this.history.push('/projects');
+    };
 
     return (
       <div>
         <Menu inverted size="large">
-          <Menu.Item name="home" active={activeItem === 'home'} onClick={this.handleHome} />
-          <Menu.Item name="projects" active={activeItem === 'projects'} onClick={this.handleProjects} />
+          <Menu.Item name="home" active={activeItem === 'home'} onClick={handleHome} />
+          <Menu.Item name="projects" active={activeItem === 'projects'} onClick={handleProjects} />
 
           <Menu.Menu position="right">
             <Menu.Item href="https://github.com/garritfra" target="_blank">
@@ -48,23 +47,12 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  history: {
-    length: PropTypes.number,
-    scrollRestoration: PropTypes.string,
-    state: PropTypes.oneOf([
-      PropTypes.element,
-      PropTypes.string,
-    ]),
-  },
+  history: PropTypes.func,
   Component: PropTypes.element.isRequired,
 };
 
 Header.defaultProps = {
-  history: {
-    length: 0,
-    scrollRestoration: 'auto',
-    state: null,
-  },
+  history: null,
 };
 
 export default withRouter(Header);
