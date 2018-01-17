@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Icon, Menu } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import ReactRouterPropTypes from 'react-router-prop-types';
 
 
 class Header extends Component {
@@ -49,11 +48,23 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  history: ReactRouterPropTypes.history.isRequired,
+  history: {
+    length: PropTypes.number,
+    scrollRestoration: PropTypes.string,
+    state: PropTypes.oneOf([
+      PropTypes.element,
+      PropTypes.string,
+    ]),
+  },
   Component: PropTypes.element.isRequired,
 };
 
 Header.defaultProps = {
+  history: {
+    length: 0,
+    scrollRestoration: 'auto',
+    state: null,
+  },
 };
 
 export default withRouter(Header);
