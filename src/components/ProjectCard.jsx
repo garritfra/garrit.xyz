@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card } from 'semantic-ui-react';
 import _ from 'lodash';
+import propTypes from 'prop-types';
 
 
 class ProjectCard extends Component {
@@ -19,8 +20,6 @@ class ProjectCard extends Component {
   }
 
   render() {
-
-
     return (
       <div>
         <Card style={this.cardStyle}>
@@ -32,5 +31,21 @@ class ProjectCard extends Component {
     );
   }
 }
+
+ProjectCard.propTypes = {
+  project: {
+    name: propTypes.string.isRequired,
+    description: propTypes.string.isRequired,
+    url: propTypes.string.isRequired,
+  },
+};
+
+ProjectCard.defaultProps = {
+  project: {
+    name: '',
+    description: '',
+    url: '',
+  },
+};
 
 export default ProjectCard;
