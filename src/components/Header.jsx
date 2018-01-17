@@ -29,11 +29,11 @@ class Header extends Component {
     return (
       <div>
         <Menu inverted size="large">
-          <Menu.Item name="home" active={activeItem === 'home'} onClick={handleHome} />
-          <Menu.Item name="projects" active={activeItem === 'projects'} onClick={handleProjects} />
+          <Menu.Item className="home" name="home" active={activeItem === 'home'} onClick={handleHome} />
+          <Menu.Item className="projects" name="projects" active={activeItem === 'projects'} onClick={handleProjects} />
 
           <Menu.Menu position="right">
-            <Menu.Item href="https://github.com/garritfra" target="_blank">
+            <Menu.Item className="github" href="https://github.com/garritfra" target="_blank">
               <Icon link name="github" size="large" />
             </Menu.Item>
             <Menu.Item href="https://www.facebook.com/Garritfranke" target="_blank">
