@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import { Transition, Grid, Image } from 'semantic-ui-react';
 
 class Info extends Component {
@@ -15,7 +14,7 @@ class Info extends Component {
   }
 
   render() {
-    const src = new URL('https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/20953090_1641167239286594_1135665268716135703_n.jpg?oh=bf74be88a6497e74df79a8abba9f0698&oe=5AE93C4B');
+    const src = 'https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/20953090_1641167239286594_1135665268716135703_n.jpg?oh=bf74be88a6497e74df79a8abba9f0698&oe=5AE93C4B';
 
     const imgStyle = {
       // position: "left",
