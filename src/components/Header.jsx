@@ -55,4 +55,4 @@ Header.defaultProps = {
   history: null,
 };
 
-export default withRouter(Header);
+export default Header;
