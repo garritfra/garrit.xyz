@@ -3,11 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.15.0",
+    "history": "^4.7.2",
+    "lodash": "^4.17.4",
     "p5": "^0.5.16",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-p5-wrapper": "^0.0.4",
     "react-router-dom": "^4.2.2",
+    "react-router-prop-types": "^0.0.3",
     "react-scripts": "1.0.17",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.77.2"
@@ -17,5 +24,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1"
   }
 }

@@ -1,40 +1,38 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Grid, Button, Header, Container, Icon } from 'semantic-ui-react';
-import ProjectCard from "./ProjectCard";
+import ProjectCard from './ProjectCard';
 
 
 class ProjectPreview extends Component {
-
   constructor() {
     super();
     this.state = {
       projects: [
         {
-          name: "Caesar Cipher",
-          description: "Decrypt a string with the Ceasar Cipher method!",
-          path: "/cipher"
+          name: 'Caesar Cipher',
+          description: 'Decrypt a string with the Ceasar Cipher method!',
+          path: '/cipher',
         },
         {
-          name: "Tic Tac Toe",
+          name: 'Tic Tac Toe',
           description: "Plain ol' Tic Tac Toe",
-          path: "/tictactoe"
+          path: '/tictactoe',
         },
         {
-          name: "Another Sample",
-          description: "Lorem Ipsum",
-          path: "/sample"
-        }
-      ]
-    }
+          name: 'Another Sample',
+          description: 'Lorem Ipsum',
+          path: '/sample',
+        },
+      ],
+    };
   }
 
   render() {
-
     return (
       <Container>
-        <Header as='h1' icon textAlign='center'>
-          
-          <Icon name="puzzle"/>
+        <Header as="h1" icon textAlign="center">
+
+          <Icon name="puzzle" />
           <Header.Content>
             Projects
           </Header.Content>
