@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
+import { describe, it } from 'enzyme';
 import App from '../App';
 
 describe('App', () => {
