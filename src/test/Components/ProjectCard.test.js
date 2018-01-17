@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import App from '../../App';
 import ProjectCard from '../../components/ProjectCard';
 
+// Enzyme.configure({ Adapter: new Adapter() });
+
 const div = document.createElement('div');
 const state = {
   projects: [
@@ -27,8 +29,5 @@ const state = {
 describe('ProjectCard', () => {
   it('renders without crashing', () => {
     ReactDOM.render(<ProjectCard project={state.projects[0]} />, div);
-  });
-  it('crashes', () => {
-    expect(() => { ReactDOM.render(<ProjectCard project={state.projects[3]} />, div) ;}).toThrow();
   });
 });
