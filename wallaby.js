@@ -36,6 +36,6 @@ module.exports = function Wallaby(wallaby) {
       wallaby.testFramework.configure(jestConfig);
     },
 
-    testFramework: 'enzyme',
+    testFramework: 'jest',
   };
 };
