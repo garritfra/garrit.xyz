@@ -1,3 +1,3 @@
-Master Status: [![Build Status](https://travis-ci.org/garritfra/Portfolio.svg?branch=master)](https://travis-ci.org/garritfra/Portfolio)
+Master Status: [![CircleCI](https://circleci.com/gh/garritfra/Portfolio/tree/master.svg?style=svg)](https://circleci.com/gh/garritfra/Portfolio/tree/master)
 
-Development Status: [![Build Status](https://travis-ci.org/garritfra/Portfolio.svg?branch=Development)](https://travis-ci.org/garritfra/Portfolio)
+Development Status: [![CircleCI](https://circleci.com/gh/garritfra/Portfolio/tree/Development.svg?style=svg)](https://circleci.com/gh/garritfra/Portfolio/tree/Development)
