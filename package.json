@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "crypto-js": "^3.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.15.0",
@@ -17,8 +18,7 @@
     "react-router-prop-types": "^0.0.3",
     "react-scripts": "1.0.17",
     "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.77.2",
-    "crypto-js": "^3.0.0"
+    "semantic-ui-react": "^0.77.2"
   },
   "scripts": {
     "start": "react-scripts start",
