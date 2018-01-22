@@ -43,12 +43,11 @@ export default class Projects extends Component {
     ));
 
     return (
-
-      <Grid container colums={3}>
-        <CardGroup style={{ margin: '1em' }}>
+      <div className="centered">
+        <CardGroup className="centered" style={{ margin: '1em' }}>
           {projects}
         </CardGroup>
-      </Grid>
+      </div>
     );
   }
 }
