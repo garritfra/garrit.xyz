@@ -9,14 +9,14 @@ class ProjectPreview extends Component {
     this.state = {
       projects: [
         {
-          name: 'Caesar Cipher',
-          description: 'Decrypt a string with the Ceasar Cipher method!',
+          name: 'Perlin Noise',
+          description: 'Colorful Sketch done in p5',
           path: '/cipher',
         },
         {
-          name: 'Tic Tac Toe',
-          description: "Plain ol' Tic Tac Toe",
-          path: '/tictactoe',
+          name: 'Blockchain Demo',
+          description: 'Blockchain in action!',
+          path: '/blockchain',
         },
         {
           name: 'Another Sample',
