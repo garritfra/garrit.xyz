@@ -9,8 +9,8 @@ class ProjectCard extends Component {
     super();
     this.props = props;
     this.cardStyle = {
-      margin: '1em'
-    }
+      margin: '2em',
+    };
   }
 
 

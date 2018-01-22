@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Button, Header, Container, Icon } from 'semantic-ui-react';
+import { CardGroup, Button, Header, Icon } from 'semantic-ui-react';
 import ProjectCard from './ProjectCard';
 
 
@@ -29,7 +29,7 @@ class ProjectPreview extends Component {
 
   render() {
     return (
-      <Container>
+      <div className="centered">
         <Header as="h1" icon textAlign="center">
 
           <Icon name="puzzle" />
@@ -37,19 +37,13 @@ class ProjectPreview extends Component {
             Projects
           </Header.Content>
         </Header>
-        <Grid container columns={3}>
-          <Grid.Column>
-            <ProjectCard project={this.state.projects[0]} />
-          </Grid.Column>
-          <Grid.Column>
-            <ProjectCard project={this.state.projects[1]} />
-          </Grid.Column>
-          <Grid.Column>
-            <ProjectCard project={this.state.projects[2]} />
-          </Grid.Column>
-        </Grid>
+        <CardGroup className="centered">
+          <ProjectCard project={this.state.projects[0]} />
+          <ProjectCard project={this.state.projects[1]} />
+          <ProjectCard project={this.state.projects[2]} />
+        </CardGroup>
         <Button raised href="/projects">See all projects</Button>
-      </Container>
+      </div>
     );
   }
 }
