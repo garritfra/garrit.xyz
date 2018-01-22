@@ -10,6 +10,9 @@ export default class BlockComponent extends Component {
     this.block = this.props.block;
     this.state = {
     };
+    this.style = {
+      textAlign: 'left',
+    };
   }
 
   render() {
@@ -27,7 +30,7 @@ export default class BlockComponent extends Component {
       </Modal>
     );
     return (
-      <Card>
+      <Card style={this.style}>
         <Card.Content>
           <Card.Meta>Block ID: {(this.block.id === 0) ? 'Genesis' : this.block.id}</Card.Meta>
           <Card.Description>Hash: {`${this.block.hash.substring(0, 20)}...`}</Card.Description>
