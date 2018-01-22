@@ -14,14 +14,9 @@ export default class Projects extends Component {
           path: '/perlinnoise',
         },
         {
-          name: 'Caesar Cipher',
-          description: 'Decrypt a string with the Ceasar Cipher method!',
-          path: '/cipher',
-        },
-        {
-          name: 'Tic Tac Toe',
-          description: "Plain ol' Tic Tac Toe",
-          path: '/tictactoe',
+          name: 'Blockchain Demo',
+          description: 'Blockchain in action!',
+          path: '/blockchain',
         },
         {
           name: 'Another Sample',
