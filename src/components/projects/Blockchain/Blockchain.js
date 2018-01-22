@@ -1,21 +1,19 @@
-import Block from "./Block"
+import Block from './Block';
 
-export default class Blockchain{
+export default class Blockchain {
+  constructor() {
+    this.blocks = [];
+    this.genesisBlock = Block.createGenesisBlock();
 
-    constructor(){
-        this.blocks = [];
-        this.genesisBlock = Block.createGenesisBlock();
+    this.addBlock(this.genesisBlock);
+  }
 
-        this.addBlock(this.genesisBlock);
+  addBlock(block) {
+    this.blocks.push(block);
+  }
 
-    }
-
-    addBlock(block){
-        this.blocks.push(block);
-    }
-
-    getLastBlock(){
-        let lastBlock = this.blocks[this.blocks.length - 1]
-        return lastBlock
-    }
+  getLastBlock() {
+    const lastBlock = this.blocks[this.blocks.length - 1];
+    return lastBlock;
+  }
 }
