@@ -11,7 +11,7 @@ class ProjectPreview extends Component {
         {
           name: 'Perlin Noise',
           description: 'Colorful Sketch done in p5',
-          path: '/cipher',
+          path: '/perlinnoise',
         },
         {
           name: 'Blockchain Demo',
