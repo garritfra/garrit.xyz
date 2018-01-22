@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, CardGroup } from 'semantic-ui-react';
 import '../index.css';
 import ProjectCard from '../components/ProjectCard';
 
@@ -14,14 +14,9 @@ export default class Projects extends Component {
           path: '/perlinnoise',
         },
         {
-          name: 'Caesar Cipher',
-          description: 'Decrypt a string with the Ceasar Cipher method!',
-          path: '/cipher',
-        },
-        {
-          name: 'Tic Tac Toe',
-          description: "Plain ol' Tic Tac Toe",
-          path: '/tictactoe',
+          name: 'Blockchain Demo',
+          description: 'Blockchain in action!',
+          path: '/blockchain',
         },
         {
           name: 'Another Sample',
@@ -44,15 +39,15 @@ export default class Projects extends Component {
 
   render() {
     const projects = this.state.projects.map(element => (
-
       <ProjectCard project={element} />
     ));
 
     return (
-
-      <Grid container colums={3}>
-        {projects}
-      </Grid>
+      <div className="centered">
+        <CardGroup className="centered" style={{ margin: '1em' }}>
+          {projects}
+        </CardGroup>
+      </div>
     );
   }
 }

@@ -10,6 +10,9 @@ class Header extends Component {
     this.props = props;
     this.state = { activeItem: this.props.Component };
     this.history = this.props.history;
+    this.style = {
+      marginBottom: '1em',
+    };
   }
 
 
@@ -27,7 +30,7 @@ class Header extends Component {
     };
 
     return (
-      <div>
+      <div style={this.style}>
         <Menu inverted size="large">
           <Menu.Item className="home" name="home" active={activeItem === 'home'} onClick={handleHome} />
           <Menu.Item className="projects" name="projects" active={activeItem === 'projects'} onClick={handleProjects} />

@@ -8,6 +8,7 @@ import Projects from './routes/Projects';
 import NotFound from './routes/NotFound';
 import Header from './components/Header';
 import PerlinNoise from './components/projects/PerlinNoise/PerlinNoise';
+import BlockchainApp from './components/projects/Blockchain/BlockchainApp';
 
 class App extends Component {
   constructor(props) {
@@ -22,8 +23,9 @@ class App extends Component {
         <div className="App">
           <Header history={history} />
           <Switch>
-            <Route path="/" exact render={props => <Home />} />
+            <Route path="/" exact render={() => <Home />} />
             <Route path="/projects/perlinnoise" render={() => <PerlinNoise />} />
+            <Route path="/projects/Blockchain" render={() => <BlockchainApp />} />
             <Route path="/projects/*" render={() => <NotFound />} />
             <Route path="/projects" render={() => <Projects />} />
             <Route path="/*" render={() => <NotFound />} />
