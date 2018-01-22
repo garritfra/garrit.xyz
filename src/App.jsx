@@ -23,7 +23,7 @@ class App extends Component {
         <div className="App">
           <Header history={history} />
           <Switch>
-            <Route path="/" exact render={props => <Home />} />
+            <Route path="/" exact render={() => <Home />} />
             <Route path="/projects/perlinnoise" render={() => <PerlinNoise />} />
             <Route path="/projects/Blockchain" render={() => <BlockchainApp />} />
             <Route path="/projects/*" render={() => <NotFound />} />
