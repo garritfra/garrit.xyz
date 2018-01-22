@@ -8,6 +8,9 @@ class ProjectCard extends Component {
   constructor(props) {
     super();
     this.props = props;
+    this.cardStyle = {
+      margin: '1em'
+    }
   }
 
 

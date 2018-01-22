@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, CardGroup } from 'semantic-ui-react';
 import '../index.css';
 import ProjectCard from '../components/ProjectCard';
 
@@ -44,14 +44,15 @@ export default class Projects extends Component {
 
   render() {
     const projects = this.state.projects.map(element => (
-
       <ProjectCard project={element} />
     ));
 
     return (
 
       <Grid container colums={3}>
-        {projects}
+        <CardGroup style={{ margin: '1em' }}>
+          {projects}
+        </CardGroup>
       </Grid>
     );
   }
