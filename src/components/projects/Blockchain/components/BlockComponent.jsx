@@ -18,9 +18,8 @@ export default class BlockComponent extends Component {
   render() {
     const ViewButton = () => (
       <Modal trigger={<Button>View</Button>}>
-        <Modal.Header>Select a Photo</Modal.Header>
-        <Modal.Content image>
-          <Image wrapped size="medium" src="/assets/images/avatar/large/rachel.png" />
+        <Modal.Header>Block ID: {(this.block.id === 0) ? 'Genesis' : this.block.id}</Modal.Header>
+        <Modal.Content>
           <Modal.Description>
             <Header>Default Profile Image</Header>
             <p>We've found the following gravatar image associated with your e-mail address.</p>

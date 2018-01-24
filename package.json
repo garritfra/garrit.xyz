@@ -18,7 +18,8 @@
     "react-router-prop-types": "^0.0.3",
     "react-scripts": "1.0.17",
     "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.77.2"
+    "semantic-ui-react": "^0.77.2",
+    "static-eval": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
