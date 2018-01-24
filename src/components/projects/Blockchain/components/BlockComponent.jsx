@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Card, Button, Modal, Image, Header } from 'semantic-ui-react';
+import { Card, Button, Modal } from 'semantic-ui-react';
 import propTypes from 'prop-types';
 import Block from '../Block';
+import TransactionComponent from './TransactionsComponent';
 
 export default class BlockComponent extends Component {
   constructor(props) {
@@ -16,14 +17,13 @@ export default class BlockComponent extends Component {
   }
 
   render() {
-    const ViewButton = () => (
+    const ViewBlock = () => (
       <Modal trigger={<Button>View</Button>}>
         <Modal.Header>Block ID: {(this.block.id === 0) ? 'Genesis' : this.block.id}</Modal.Header>
         <Modal.Content>
+          <Modal.Header>Hash: {this.block.hash}</Modal.Header>
           <Modal.Description>
-            <Header>Default Profile Image</Header>
-            <p>We've found the following gravatar image associated with your e-mail address.</p>
-            <p>Is it okay to use this photo?</p>
+            <TransactionComponent transactions={this.block.data} />
           </Modal.Description>
         </Modal.Content>
       </Modal>
@@ -36,7 +36,7 @@ export default class BlockComponent extends Component {
           <Card.Description>Date: {this.block.timestamp.toUTCString()}</Card.Description>
           <Card.Description>Transaction Count: {this.block.data.length}</Card.Description>
           <br />
-          <ViewButton />
+          <ViewBlock />
           <Button>Change</Button>
         </Card.Content>
       </Card>
