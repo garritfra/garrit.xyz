@@ -22,6 +22,7 @@ export default class BlockComponent extends Component {
         <Modal.Header>Block ID: {(this.block.id === 0) ? 'Genesis' : this.block.id}</Modal.Header>
         <Modal.Content>
           <Modal.Header>Hash: {this.block.hash}</Modal.Header>
+          <Modal.Header>Previous Hash: {this.block.previousHash}</Modal.Header>
           <Modal.Description>
             <TransactionComponent transactions={this.block.data} />
           </Modal.Description>
