@@ -17,11 +17,10 @@ export default class TransactionsComponent extends Component {
         {this.transactions.map(transaction => (
           <Card>
             <Card.Content className="container" verticalAlign="middle">
-              <p>{transaction.sender}</p>
-              <p>{transaction.receiver}</p>
-              <p>{transaction.amount}</p>
+              <p>Sender: {transaction.sender}</p>
+              <p>Receiver: {transaction.receiver}</p>
+              <p>Amount: {transaction.amount} coins</p>
             </Card.Content>
-            <Divider />
           </Card>))}
       </CardGroup>
     );
