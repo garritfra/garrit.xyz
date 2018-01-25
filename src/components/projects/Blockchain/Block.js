@@ -16,6 +16,7 @@ export default class Block {
     this.data = [];
     this.previousHash = previousHash;
     this.hash = this.calculateHash();
+    this.nonce = 0;
   }
 
   /**

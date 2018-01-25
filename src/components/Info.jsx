@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Transition, Grid, Image } from 'semantic-ui-react';
+import { Transition, Grid, Icon } from 'semantic-ui-react';
 
 class Info extends Component {
   constructor(props) {
@@ -14,34 +14,41 @@ class Info extends Component {
   }
 
   render() {
-    const src = 'https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/20953090_1641167239286594_1135665268716135703_n.jpg?oh=bf74be88a6497e74df79a8abba9f0698&oe=5AE93C4B';
+    const src = 'https://lh3.googleusercontent.com/Cfdxky15vbU3eL0jEICc3w-DzDFvBWCkAH1lkYEJRDoqkzRIjfatlgYI2evJmwbroJqxlBPuufcvd6WBiM45V7LvavlCGTbygcVaTuicG7qe7vRNw1iX_cSlgLmpQyrXoahxur1Z_WTT1i9LKPrBcxHVgbCMKZJ5RD3e24moA7FVoS8T5mvH2nttxhukIJwiFekVqPh-mkBNFA8N5FwhsG4yy7_Y8ffhDe-K3cF93F50c_PNUORkhdjNxEXsTHL7IGAdibWgUBCdZo1hnCc03SvNLiAsj9COISt7G8lEaJCTLqvR2PNyfm0YE5oUpls49KhhsMOj8RevR65KQhKCsX_ZixIQfQKfLjGc2gA72FUXHnSLknqcKzw_AB0rdv7VwohD1QN_KPPVzhZaBLEKq-ymjJ6nWtPFRM10f6NV6MpWDNZB_vFsSlmpOQny4393_KeB7w6uwIDFDLKZoPdmXxf51-xq3qQrSdT7c2Dq8XCQbySje743dCepP1wohbScTKzusg3TkF6Rbn5t-LSxWLS9ikei6eZhnVnIi7RvQOlU-IC6O1de6l2sHdl9HmYhjP8Dr_aVDte9XCWO2x_Vctbxw2R9x0Ywb6vewyUY=s659-no';
 
     const imgStyle = {
       // position: "left",
-      width: '400px',
-      height: 'auto',
+      width: '1em',
+      height: '1em',
       margin: '10px',
+      position: 'static',
+      maxWidth: '200px',
     };
     const style = {
       margin: imgStyle.margin,
-      'text-align': 'left',
+      'text-align': 'right',
+      display: 'flex',
+      flexDirection: 'row',
+      maxHeight: '400px'
     };
 
     return (
-      <div style={style}>
-        <Grid devided="vertically" columns={3}>
-          <Grid.Column size={1}>
-            <Transition visible={this.state.imgVisible} animation="scale" duration={500}>
-              <Image src={src} fluid />
-            </Transition>
-          </Grid.Column>
 
-          <Grid.Column size={2}>
+      <Grid colums={2} style={style}>
+        <Grid.Column width={6}>
+          <div className="fluid" >
+            <Transition visible={this.state.imgVisible} animation="scale" duration={500}>
+              <Icon size="massive" style={imgStyle} name="hashtag" />
+            </Transition>
+          </div>
+        </Grid.Column>
+        <Grid.Column width={9}>
+          <div className="fluid">
             <h1>Hello World</h1>
-            <p>Semi-Professional Hobby Developer</p>
-          </Grid.Column>
-        </Grid>
-      </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus tincidunt ipsum id ultrices. Proin volutpat tortor neque, at consequat nunc mattis in. Suspendisse magna massa, accumsan non gravida sed, scelerisque laoreet nulla. Donec mauris arcu, dictum a ultricies eget, aliquam non lorem.</p>
+          </div>
+        </Grid.Column>
+      </Grid>
     );
   }
 }
