@@ -5,6 +5,7 @@ import Block from './Block';
 import BlockComponent from './components/BlockComponent';
 import Blockchain from './Blockchain';
 import Transaction from './Transaction';
+import AddBlockComponent from './components/AddBlockComponent'
 
 export default class BlockChainApp extends Component {
   constructor() {
