@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import { Icon, Menu } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
