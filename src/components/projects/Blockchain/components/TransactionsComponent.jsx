@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { CardGroup, Card } from 'semantic-ui-react';
-import Divider from 'semantic-ui-react/dist/commonjs/elements/Divider/Divider';
 import propTypes from 'prop-types';
 import Transaction from '../Transaction';
 
@@ -29,4 +28,8 @@ export default class TransactionsComponent extends Component {
 
 Transaction.propTypes = {
   transaction: propTypes.instanceOf(Transaction),
+};
+
+Transaction.defaultProps = {
+  transaction: new Transaction('Undefined', 'Undefined', 0),
 };
