@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
     "crypto-js": "^3.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -10,6 +12,7 @@
     "history": "^4.7.2",
     "lodash": "^4.17.4",
     "p5": "^0.5.16",
+    "parcel-bundler": "^1.5.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -22,8 +25,8 @@
     "static-eval": "^2.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "parcel public/index.html",
+    "build": "parcel build public/index.html",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
