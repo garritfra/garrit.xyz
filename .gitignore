@@ -6,5 +6,4 @@ package-lock.json
 .js.html
 .cache
 dist
-.lock
 
