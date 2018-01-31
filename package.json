@@ -25,8 +25,8 @@
     "static-eval": "^2.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "parcel public/index.html",
+    "build": "parcel build public/index.html",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
