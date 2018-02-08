@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Posts from '../components/Posts';
 
-export default class Blog extends Component {
+export default class Posts extends Component {
   constructor(props) {
     super();
     this.props = props;
@@ -9,10 +8,7 @@ export default class Blog extends Component {
 
   render() {
     return (
-      <div>
-        <Posts />
-      </div>
+      <h1>Hello World</h1>
     );
   }
 }
-
