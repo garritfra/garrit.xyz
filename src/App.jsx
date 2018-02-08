@@ -6,7 +6,7 @@ import './App.css';
 import Home from './routes/Home';
 import Projects from './routes/Projects';
 import NotFound from './routes/NotFound';
-import Blog from "./routes/Blog"
+import Blog from './routes/Blog';
 import Header from './components/Header';
 import PerlinNoise from './components/projects/PerlinNoise/PerlinNoise';
 import BlockchainApp from './components/projects/Blockchain/BlockchainApp';
