@@ -28,12 +28,17 @@ class Header extends Component {
       this.history.push('/projects');
     };
 
+    const handleBlog = () => {
+      this.setState({ activeItem: this });
+      this.history.push('/blog');
+    };
+
     return (
       <div style={this.style}>
         <Menu inverted size="large">
           <Menu.Item className="home" name="home" active={activeItem === 'home'} onClick={handleHome} />
           <Menu.Item className="projects" name="projects" active={activeItem === 'projects'} onClick={handleProjects} />
-          <Menu.Item className="blog" name="blog" active={activeItem === 'blog'} onClick={handleHome} />
+          <Menu.Item className="blog" name="blog" active={activeItem === 'blog'} onClick={handleBlog} />
           <Menu.Menu position="right">
             <Menu.Item className="github" href="https://github.com/garritfra" target="_blank">
               <Icon link name="github" size="large" />
