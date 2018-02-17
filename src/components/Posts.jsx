@@ -25,8 +25,7 @@ export default class Posts extends Component {
 
   render() {
     const postItems = this.state.postList.map(post =>
-      <PostCard />
-    );
+      <PostCard post={post} />);
 
     return (postItems);
   }
