@@ -11,7 +11,7 @@ export default class Blog extends Component {
     return (
       <div>
         <h1>Hello World</h1>
-        {/*<Posts />*/}
+        <Posts />
       </div>
     );
   }
