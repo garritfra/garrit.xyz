@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Feed } from 'semantic-ui-react';
 
 export default class PostCard extends Component {
   constructor(props) {
@@ -9,11 +10,18 @@ export default class PostCard extends Component {
 
   render() {
     return (
-      <div>
-        <p>{this.post.id}</p>
-        <p>{this.post.title}</p>
-        <p>{this.post.body}</p>
-      </div>
+      <Feed.Event>
+        <Feed.Content>
+          <Feed.Summary>
+            {this.post.title}
+          </Feed.Summary>
+          {this.post.body}
+        </Feed.Content>
+      </Feed.Event>
     );
   }
 }
+
+PostCard.propType = {
+
+};

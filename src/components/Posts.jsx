@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Container, { Feed } from 'semantic-ui-react';
 import PostCard from './PostCard';
 
 export default class Posts extends Component {
@@ -18,6 +19,12 @@ export default class Posts extends Component {
           title: 'This is the title of the second post',
           body: 'Lorem Ipsum lkajsdkjalöwd',
         },
+        {
+          id: 3,
+          title: 'This is the title of the second post',
+          body: 'Lorem Ipsum lkajsdkjalöwdLorem Ipsum lkajsdkjalöwdLorem Ipsum lkajsdkjalöwdLorem Ipsum lkajsdkjalöwdLorem Ipsum lkajsdkjalöwdLorem Ipsum lkajsdkjalöwd',
+        },
+        
 
       ],
     };
@@ -27,6 +34,13 @@ export default class Posts extends Component {
     const postItems = this.state.postList.map(post =>
       <PostCard post={post} />);
 
-    return (postItems);
+    return (
+      <div className="container">
+        <Feed>
+          {postItems}
+        </Feed>
+      </div>
+
+    );
   }
 }
