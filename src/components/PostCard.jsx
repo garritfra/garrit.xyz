@@ -21,7 +21,3 @@ export default class PostCard extends Component {
     );
   }
 }
-
-PostCard.propType = {
-
-};

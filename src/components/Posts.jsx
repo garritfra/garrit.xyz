@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Container, { Feed } from 'semantic-ui-react';
+import { Feed } from 'semantic-ui-react';
 import PostCard from './PostCard';
 
 export default class Posts extends Component {
@@ -24,7 +24,7 @@ export default class Posts extends Component {
           title: 'This is the title of the second post',
           body: 'Lorem Ipsum lkajsdkjalöwdLorem Ipsum lkajsdkjalöwdLorem Ipsum lkajsdkjalöwdLorem Ipsum lkajsdkjalöwdLorem Ipsum lkajsdkjalöwdLorem Ipsum lkajsdkjalöwd',
         },
-        
+
 
       ],
     };
