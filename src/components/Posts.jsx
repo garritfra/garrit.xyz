@@ -35,11 +35,9 @@ export default class Posts extends Component {
       <PostCard post={post} />);
 
     return (
-      <div className="container">
-        <Feed>
-          {postItems}
-        </Feed>
-      </div>
+      <Feed>
+        {postItems}
+      </Feed>
 
     );
   }
