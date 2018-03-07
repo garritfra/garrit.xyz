@@ -7,9 +7,10 @@ import Header from '../../components/Header';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+
 describe('Header', () => {
   it('Should reder', () => {
-    const div = document.createElement('div');
+    const div = ReactDOM.createElement('div');
     ReactDOM.render(<Header />, div);
   });
 });
@@ -21,7 +22,7 @@ describe('Home Button', () => {
     header.find('.home').simulate('click');
   });
 });
-
+[].map()
 describe('Projects Button', () => {
   it('is clickable', () => {
     const history = createBrowserHistory();

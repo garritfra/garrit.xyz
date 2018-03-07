@@ -7,7 +7,7 @@ import ProjectCard from '../../components/ProjectCard';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const div = document.createElement('div');
+const div = ReactDOM.createElement('div');
 const state = {
   projects: [
     {
@@ -30,6 +30,7 @@ const state = {
 
 describe('ProjectCard', () => {
   it('renders without crashing', () => {
-  const card = shallow(<ProjectCard project={state.projects[0]} />);
+    const card = shallow(<ProjectCard project={state.projects[0]} />);
+
   });
 });
