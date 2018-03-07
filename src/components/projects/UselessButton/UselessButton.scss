@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+$lightYellow: #FFC400;
+$darkYellow: #FF9100;
+$backgroundColor: #FFF522;
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+.uselessButtonBody {
+    background-color: $backgroundColor;
+}
+
+.uselessButtonDiv {
+    text-align: center;
+    font-family: "Raleway";
+}
+
+.uselessButtonHeader {
+    font-family: "Sans Serif";
+    font-weight: 20px;
+}
+
+.btn.uselessButton {
+    margin: 1em;
+    font-size: 2em;
+    text-transform: upper;
+    background-color: $lightYellow;
+    width: 300px;
+    height: 80px;
+    position: relative;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 10px $darkYellow;
+    outline: none;
+    cursor: pointer;
+    transition-duration: 0.1s;
+    transition-timing-function: $easeOutBack;
+}
+
+.btn.uselessButton:hover {
+    transform: translate(0, 5px);
+    box-shadow: 0 5px $darkYellow;
+}
+
+.btn.uselessButton:active {
+    transform: translate(0, 10px);
+    box-shadow: none;
+}
