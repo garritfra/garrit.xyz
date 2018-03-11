@@ -23,16 +23,6 @@ export default class Projects extends Component {
           description: 'Experience the useless button in action! ',
           path: '/uselessbutton',
         },
-        {
-          name: 'Another Sample',
-          description: 'Lorem Ipsum',
-          path: '/sample',
-        },
-        {
-          name: 'Another Sample',
-          description: 'Lorem Ipsum',
-          path: '/sample',
-        },
       ],
     };
   }
