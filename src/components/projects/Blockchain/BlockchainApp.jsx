@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import 'semantic-ui-css/semantic.min.css';
-import { CardGroup } from 'semantic-ui-react/';
+import { CardGroup, Popup, Button } from 'semantic-ui-react/';
 import Block from './Block';
 import BlockComponent from './components/BlockComponent';
 import Blockchain from './Blockchain';
 import Transaction from './Transaction';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button/Button';
+import AddBlockComponent from './components/AddBlockComponent'
 
 export default class BlockChainApp extends Component {
   constructor() {
@@ -30,7 +30,10 @@ export default class BlockChainApp extends Component {
 
     return (
       <div className="app">
-        <Button>Add Block</Button>
+        <Popup
+          trigger={<Button>Add Block</Button>}
+          content="Not Yet Implemented"
+        />
         <CardGroup style={{ margin: '1em' }}>
           {blocksPreview}
         </CardGroup>

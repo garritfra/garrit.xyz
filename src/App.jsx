@@ -6,9 +6,11 @@ import './App.css';
 import Home from './routes/Home';
 import Projects from './routes/Projects';
 import NotFound from './routes/NotFound';
+import Blog from './routes/Blog';
 import Header from './components/Header';
 import PerlinNoise from './components/projects/PerlinNoise/PerlinNoise';
 import BlockchainApp from './components/projects/Blockchain/BlockchainApp';
+import UselessButton from "./components/projects/UselessButton/UselessButton";
 
 class App extends Component {
   constructor(props) {
@@ -26,8 +28,10 @@ class App extends Component {
             <Route path="/" exact render={() => <Home />} />
             <Route path="/projects/perlinnoise" render={() => <PerlinNoise />} />
             <Route path="/projects/Blockchain" render={() => <BlockchainApp />} />
+            <Route path="/projects/uselessbutton" render={() => <UselessButton />} />
             <Route path="/projects/*" render={() => <NotFound />} />
             <Route path="/projects" render={() => <Projects />} />
+            <Route path="/blog" render={() => <Blog />} />
             <Route path="/*" render={() => <NotFound />} />
           </Switch>
         </div>

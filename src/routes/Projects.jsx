@@ -19,19 +19,9 @@ export default class Projects extends Component {
           path: '/blockchain',
         },
         {
-          name: 'Another Sample',
-          description: 'Lorem Ipsum',
-          path: '/sample',
-        },
-        {
-          name: 'Another Sample',
-          description: 'Lorem Ipsum',
-          path: '/sample',
-        },
-        {
-          name: 'Another Sample',
-          description: 'Lorem Ipsum',
-          path: '/sample',
+          name: 'Useless Button',
+          description: 'Experience the useless button in action! ',
+          path: '/uselessbutton',
         },
       ],
     };

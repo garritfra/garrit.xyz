@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button, Modal } from 'semantic-ui-react';
+import { Popup, Card, Button, Modal } from 'semantic-ui-react';
 import propTypes from 'prop-types';
 import Block from '../Block';
 import TransactionComponent from './TransactionsComponent';
@@ -22,6 +22,7 @@ export default class BlockComponent extends Component {
         <Modal.Header>Block ID: {(this.block.id === 0) ? 'Genesis' : this.block.id}</Modal.Header>
         <Modal.Content>
           <Modal.Header>Hash: {this.block.hash}</Modal.Header>
+          <Modal.Header>Previous Hash: {this.block.previousHash}</Modal.Header>
           <Modal.Description>
             <TransactionComponent transactions={this.block.data} />
           </Modal.Description>
@@ -37,7 +38,10 @@ export default class BlockComponent extends Component {
           <Card.Description>Transaction Count: {this.block.data.length}</Card.Description>
           <br />
           <ViewBlock />
-          <Button>Change</Button>
+          <Popup
+            trigger={<Button>Change</Button>}
+            content="Not Yet Implemented"
+          />
         </Card.Content>
       </Card>
     );

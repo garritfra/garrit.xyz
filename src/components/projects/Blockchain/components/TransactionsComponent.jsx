@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Item } from 'semantic-ui-react';
-import Divider from 'semantic-ui-react/dist/commonjs/elements/Divider/Divider';
-import ItemGroup from 'semantic-ui-react/dist/commonjs/views/Item/ItemGroup';
+import { CardGroup, Card } from 'semantic-ui-react';
+import propTypes from 'prop-types';
+import Transaction from '../Transaction';
 
 export default class TransactionsComponent extends Component {
   constructor(props) {
@@ -12,17 +12,24 @@ export default class TransactionsComponent extends Component {
 
   render() {
     return (
-      <ItemGroup>
+      <CardGroup>
         {this.transactions.map(transaction => (
-          <Item>
-            <Item.Content verticalAlign="middle">
-              <p>{transaction.sender}</p>
-              <p>{transaction.receiver}</p>
-              <p>{transaction.amount}</p>
-            </Item.Content>
-            <Divider />
-          </Item>))}
-      </ItemGroup>
+          <Card>
+            <Card.Content className="container" verticalAlign="middle">
+              <p>Sender: {transaction.sender}</p>
+              <p>Receiver: {transaction.receiver}</p>
+              <p>Amount: {transaction.amount} coins</p>
+            </Card.Content>
+          </Card>))}
+      </CardGroup>
     );
   }
 }
+
+Transaction.propTypes = {
+  transaction: propTypes.instanceOf(Transaction),
+};
+
+Transaction.defaultProps = {
+  transaction: new Transaction('Undefined', 'Undefined', 0),
+};
