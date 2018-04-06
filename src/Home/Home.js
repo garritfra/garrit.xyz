@@ -10,10 +10,10 @@ export default class Home extends Component {
     this.config = {
       particles: {
         number: {
-          value: 80,
+          value: 60,
           density: {
             enable: true,
-            value_area: 800
+            value_area: 1500
           }
         },
         color: {
@@ -26,7 +26,7 @@ export default class Home extends Component {
             color: "#000000"
           },
           polygon: {
-            nb_sides: 5
+            nb_sides: 1
           },
           image: {
             src: "img/github.svg",
@@ -56,7 +56,7 @@ export default class Home extends Component {
         },
         line_linked: {
           enable: true,
-          distance: 150,
+          distance: 100,
           color: "#ffffff",
           opacity: 0.26456299004281125,
           width: 0
