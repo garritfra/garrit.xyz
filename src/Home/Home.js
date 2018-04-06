@@ -10,7 +10,7 @@ export default class Home extends Component {
     this.config = {
       particles: {
         number: {
-          value: 60,
+          value: 100,
           density: {
             enable: true,
             value_area: 1500
@@ -63,7 +63,7 @@ export default class Home extends Component {
         },
         move: {
           enable: true,
-          speed: 6,
+          speed: 4,
           direction: "none",
           random: false,
           straight: false,
