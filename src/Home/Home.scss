@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
 
-.headline {
+#headline {
   text-align: center;
   font-family: Montserrat, sans-serif;
   font-size: 6em;
   color: white;
   position: relative;
   transition: 0.5s;
+  padding-top: 10%;
+  margin-top: 0;
 }
 
 #subheadline {
@@ -20,7 +22,6 @@
   size: 50%;
   position: relative;
   width: 80px;
-  margin: 4%;
   color: white;
   display: block;
   margin-left: auto;
@@ -33,6 +34,7 @@ body {
 canvas {
   display: inline-block;
   vertical-align: bottom;
+  position: absolute;
 }
 /* ---- particles.js container ---- */
 .particles-js {

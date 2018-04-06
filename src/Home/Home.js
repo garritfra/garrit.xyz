@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Particles from "react-particles-js";
 import styles from "./Home.scss";
 
+
 export default class Home extends Component {
   constructor(props) {
     super();
@@ -121,9 +122,9 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <Particles params={this.config} className="particles-js">
-          <h1>Hello World</h1>
-        </Particles>
+        <Particles params={this.config} className="particles-js" />
+        <h1 className="animated fadeInLeft" id="headline">hi,</h1>
+        <p id="subheadline" class="animated fadeInRight">Junior Software Engineer | Hobbyist</p>
       </div>
     );
   }
