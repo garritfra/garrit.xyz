@@ -18,10 +18,14 @@
   },
   "homepage": "https://github.com/garritfra/Portfolio#readme",
   "devDependencies": {
+    "babel-preset-env": "^1.6.1",
     "parcel-bundler": "^1.7.0"
   },
   "dependencies": {
+    "node-sass": "^4.8.3",
+    "particles.js": "^2.0.0",
     "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react-dom": "^16.3.1",
+    "react-particles-js": "^2.1.2"
   }
 }
