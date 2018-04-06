@@ -18,14 +18,23 @@
   transition: 1s;
 }
 
-#github {
+.icon-container {
+  text-align: center;
+}
+
+.logo {
   size: 50%;
   position: relative;
-  width: 80px;
+  width: 60px;
+  height: 60px;
   color: white;
-  display: block;
+  display: inline-grid;
   margin-left: auto;
   margin-right: auto;
+}
+
+#github {
+  filter: invert(100%);
 }
 body {
   margin: 0;

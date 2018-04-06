@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Particles from "react-particles-js";
 import styles from "./Home.scss";
-
+import github from "./GitHub.svg";
+import stackoverflow from "./StackOverflow.svg";
 
 export default class Home extends Component {
   constructor(props) {
@@ -123,8 +124,25 @@ export default class Home extends Component {
     return (
       <div>
         <Particles params={this.config} className="particles-js" />
-        <h1 className="animated fadeInLeft" id="headline">hi,</h1>
-        <p id="subheadline" class="animated fadeInRight">Junior Software Engineer | Hobbyist</p>
+        <h1 className="animated fadeInLeft" id="headline">
+          hi,
+        </h1>
+        <p id="subheadline" className="animated fadeInRight">
+          Junior Software Engineer | Hobbyist
+        </p>
+        <div className="icon-container">
+          <span>
+            <img className="logo" id="github" src={github} alt="GitHub" />
+          </span>
+          <span>
+            <img
+              className="logo"
+              id="stackoverflow"
+              src={stackoverflow}
+              alt="Stack Overflow"
+            />
+          </span>
+        </div>
       </div>
     );
   }
