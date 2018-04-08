@@ -139,7 +139,10 @@ export default class Home extends Component {
               alt="GitHub"
             />
           </a>
-          <a href="https://stackoverflow.com/users/story/9046809" target="_blank">
+          <a
+            href="https://stackoverflow.com/users/story/9046809"
+            target="_blank"
+          >
             <img
               className="animated fadeInUp logo"
               id="stackoverflow"
