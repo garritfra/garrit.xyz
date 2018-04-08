@@ -34,6 +34,8 @@
   color: white;
   display: inline-grid;
   margin: 1em;
+  cursor: default;
+  animation: 1s;
 }
 
 #github {
@@ -55,12 +57,12 @@ canvas {
 }
 /* ---- particles.js container ---- */
 .particles-js {
-  position:absolute; 
-  width: 100%; 
-  height: 100%; 
-  background-color: #0117a8; 
-  background-image: url(""); 
-  background-repeat: no-repeat; 
-  background-size: cover; 
-  background-position: 50% 50%; 
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #0117a8;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
 }
