@@ -4,7 +4,7 @@
   "description": "Personal portfolio",
   "main": "index.js",
   "scripts": {
-    "start": "parcel ./public/index.html",
+    "start": "parcel ./public/index.html -p 80",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
