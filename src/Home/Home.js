@@ -3,13 +3,12 @@ import Particles from "react-particles-js";
 import styles from "./Home.scss";
 import github from "./GitHub.svg";
 import stackoverflow from "./StackOverflow.svg";
-import particleConfig from "./particleConfig";
 
 export default class Home extends Component {
   constructor(props) {
     super();
     this.props = props;
-    this.config = particleConfig;
+    this.config = require("./particleConfig");
   }
 
   render() {
