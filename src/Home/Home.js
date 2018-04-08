@@ -125,23 +125,28 @@ export default class Home extends Component {
       <div>
         <Particles params={this.config} className="particles-js" />
         <h1 className="animated fadeInLeft" id="headline">
-          hi,
+          hi!
         </h1>
         <p id="subheadline" className="animated fadeInRight">
           Junior Software Engineer | Hobbyist
         </p>
         <div className="icon-container">
-          <span>
-            <img className="logo" id="github" src={github} alt="GitHub" />
-          </span>
-          <span>
+          <a href="https://github.com/garritfra" target="_blank">
             <img
-              className="logo"
+              className="animated fadeInUp logo"
+              id="github"
+              src={github}
+              alt="GitHub"
+            />
+          </a>
+          <a href="https://stackoverflow.com/users/story/9046809" target="_blank">
+            <img
+              className="animated fadeInUp logo"
               id="stackoverflow"
               src={stackoverflow}
               alt="Stack Overflow"
             />
-          </span>
+          </a>
         </div>
       </div>
     );
