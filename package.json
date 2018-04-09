@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/garritfra/Portfolio#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
     "parcel-bundler": "^1.7.0"
   },
   "dependencies": {
