@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel ./public/index.html -p 80",
-    "build": "parcel build ./public/index.html",
+    "build": "parcel build ./public/index.html --public-url ./",
     "server": "npm run build && serve dist/ -p 80",
     "test": ""
   },
