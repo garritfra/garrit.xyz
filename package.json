@@ -1,41 +1,36 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
+  "version": "1.0.0",
+  "description": "Personal portfolio",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel ./public/index.html -p 80",
+    "build": "parcel build ./public/index.html --public-url ./",
+    "server": "npm run build && cp -r . /var/www  && service apache2 stop && service apache2 start",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garritfra/Portfolio.git"
+  },
+  "author": "Garrit Franke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/garritfra/Portfolio/issues"
+  },
+  "homepage": "https://github.com/garritfra/Portfolio#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "crypto-js": "^3.0.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^4.15.0",
-    "history": "^4.7.2",
-    "lodash": "^4.17.4",
-    "p5": "^0.5.16",
-    "parcel-bundler": "^1.5.1",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-p5-wrapper": "^0.0.4",
-    "react-router-dom": "^4.2.2",
-    "react-router-prop-types": "^0.0.3",
-    "react-scripts": "1.0.17",
-    "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.77.2",
-    "static-eval": "^2.0.0"
+    "parcel-bundler": "^1.7.0"
   },
-  "scripts": {
-    "start": "parcel public/index.html",
-    "build": "parcel build public/index.html",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "count": "git ls-files | while read f; do git blame -w -M -C -C --line-porcelain $f | grep '^author '; done | sort -f | uniq -ic | sort -n"
-  },
-  "devDependencies": {
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.5.1",
-    "node-sass": "^4.7.2"
+  "dependencies": {
+    "node-sass": "^4.8.3",
+    "particles.js": "^2.0.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-particles-js": "^2.1.2",
+    "serve": "^6.5.4"
   }
 }
