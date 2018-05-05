@@ -37,7 +37,7 @@ npm-debug.log
 # dist folders will be marked as changed after every single change    #
 # in src files                                                        #
 #######################################################################
-dist/
+build/
 test-dist
 .DS_Store
 .vscode
