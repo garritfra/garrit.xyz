@@ -7,10 +7,10 @@ echo "building site"
 npm run build
 
 echo "copying to apache folder"
-cp -r ./dist /var/www
+sudo cp -r ./dist/* /var/www/html
 
-echo "stopping apache2""
-service apache2 stop
+echo "stopping apache2"
+sudo service apache2 stop
 
 echo "starting apache2"
-service apache2 start
+sudo service apache2 start
