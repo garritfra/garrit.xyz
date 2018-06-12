@@ -38,6 +38,7 @@ npm-debug.log
 # in src files                                                        #
 #######################################################################
 build/
+dist/
 test-dist
 .DS_Store
 .vscode
