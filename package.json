@@ -9,7 +9,8 @@
     "server": "npm run build && cp -r . /var/www  && service apache2 stop && service apache2 start",
     "test": "",
     "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "prepare": "npm run snyk-protect",
+    "gh-pages": " npm run build && gh-pages -d ./dist"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "parcel-bundler": "^1.7.0"
   },
   "dependencies": {
+    "gh-pages": "^1.2.0",
     "node-sass": "^4.8.3",
     "particles.js": "^2.0.0",
     "react": "^16.3.1",
