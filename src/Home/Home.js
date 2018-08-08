@@ -15,9 +15,7 @@ export default class Home extends Component {
     return (
       <div>
         <Particles params={this.config} className="particles-js" />
-        <h1 className="animated fadeInLeft" id="headline">
-          hi!
-        </h1>
+        <h1 className="animated fadeInLeft headline">hi! I'm Garrit.</h1>
         <p id="subheadline" className="animated fadeInRight">
           Junior Software Engineer | Hobbyist
         </p>
@@ -30,6 +28,7 @@ export default class Home extends Component {
               alt="GitHub"
             />
           </a>
+          <p className="animated fadeInUp description">See My Work</p>
           <a
             href="https://stackoverflow.com/users/story/9046809"
             target="_blank"
@@ -41,6 +40,7 @@ export default class Home extends Component {
               alt="Stack Overflow"
             />
           </a>
+          <p className="animated fadeInUp description">See my Questions</p>
         </div>
       </div>
     );

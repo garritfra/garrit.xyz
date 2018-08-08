@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
 
-#headline {
+.headline {
   text-align: center;
   font-family: Montserrat, sans-serif;
   font-size: 6em;
   color: white;
   position: relative;
   transition: 0.5s;
-  padding-top: 15%;
+  padding-top: 10%;
   margin-top: 0;
 }
 
@@ -16,6 +16,14 @@
   font-family: Montserrat, sans-serif;
   color: white;
   font-size: 120%;
+  transition: 1s;
+}
+
+.description {
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  color: white;
+  font-size: 150%;
   transition: 1s;
 }
 
