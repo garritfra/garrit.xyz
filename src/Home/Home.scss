@@ -49,6 +49,15 @@ body {
   margin-right: auto;
   align-content: center;
   grid-row: 4 / 5;
+  transition-duration: 200ms;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.logo:active {
+  transform: scale(20);
 }
 
 .github {
