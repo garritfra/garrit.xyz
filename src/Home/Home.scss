@@ -55,6 +55,9 @@ body {
   animation-delay: 0.3s;
   grid-column: 2;
 }
+.github img {
+  filter: invert(100%);
+}
 
 .stackoverflow {
   animation-delay: 0.6s;
