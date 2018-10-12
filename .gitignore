@@ -43,3 +43,4 @@ test-dist
 .DS_Store
 .vscode
 .cache
+.firebase
