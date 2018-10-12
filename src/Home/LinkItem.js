@@ -9,9 +9,6 @@ export default class LinkItem extends Component {
     this.link = this.props.link;
     this.description = this.props.description;
     this.logo = this.props.logo;
-    this.logoStyle = {
-      color: "white"
-    };
   }
 
   render() {
