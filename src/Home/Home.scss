@@ -1,5 +1,21 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
 
+body {
+  margin: 0;
+  font: normal 75% Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 10vh 20vh 20vh 20vh 30vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.section-header {
+  grid-row: 2;
+  grid-column: 1 / 5;
+}
+
 .headline {
   text-align: center;
   font-family: Montserrat, sans-serif;
@@ -7,15 +23,13 @@
   color: white;
   position: relative;
   transition: 0.5s;
-  padding-top: 10%;
-  margin-top: 0;
 }
 
 #subheadline {
   text-align: center;
+  font-size: 2em;
   font-family: Montserrat, sans-serif;
   color: white;
-  font-size: 120%;
   transition: 1s;
 }
 
@@ -27,34 +41,24 @@
   transition: 1s;
 }
 
-.icon-container {
-  text-align: center;
-  margin-top: 2%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .logo {
-  size: 50%;
-  position: relative;
-  width: 60px;
   height: 60px;
   color: white;
-  display: inline-grid;
-  margin: 1em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  grid-row: 4 / 5;
 }
 
-#github {
+.github {
   animation-delay: 0.3s;
-  filter: invert(100%);
+  grid-column: 2;
 }
 
-#stackoverflow {
+.stackoverflow {
   animation-delay: 0.6s;
-}
-body {
-  margin: 0;
-  font: normal 75% Arial, Helvetica, sans-serif;
+  grid-column: 3;
 }
 canvas {
   display: inline-block;

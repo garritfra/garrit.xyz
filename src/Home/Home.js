@@ -3,6 +3,7 @@ import Particles from "react-particles-js";
 import styles from "./Home.scss";
 import github from "./GitHub.svg";
 import stackoverflow from "./StackOverflow.svg";
+import LinkItem from "./LinkItem";
 
 export default class Home extends Component {
   constructor(props) {
@@ -15,32 +16,26 @@ export default class Home extends Component {
     return (
       <div>
         <Particles params={this.config} className="particles-js" />
-        <h1 className="animated fadeInLeft headline">hi! I'm Garrit.</h1>
-        <p id="subheadline" className="animated fadeInRight">
-          Junior Software Engineer | Hobbyist
-        </p>
-        <div className="icon-container">
-          <a href="https://github.com/garritfra" target="_blank">
-            <img
-              className="animated fadeInUp logo"
-              id="github"
-              src={github}
-              alt="GitHub"
-            />
-          </a>
-          <p className="animated fadeInUp description">See My Work</p>
-          <a
-            href="https://stackoverflow.com/users/story/9046809"
-            target="_blank"
-          >
-            <img
-              className="animated fadeInUp logo"
-              id="stackoverflow"
-              src={stackoverflow}
-              alt="Stack Overflow"
-            />
-          </a>
-          <p className="animated fadeInUp description">See my Questions</p>
+        <div className="container">
+          <div className="section-header">
+            <h1 className="animated fadeInLeft headline">hi! I'm Garrit.</h1>
+            <p id="subheadline" className="animated fadeInRight">
+              Junior Software Engineer | Hobbyist
+            </p>
+          </div>
+          <LinkItem
+            link="https://github.com/garritfra"
+            description="See my Work"
+            logo={github}
+            className="github"
+          />
+
+          <LinkItem
+            link="https://stackoverflow.com/users/story/9046809"
+            description="See my Questions"
+            logo={stackoverflow}
+            className="stackoverflow"
+          />
         </div>
       </div>
     );
