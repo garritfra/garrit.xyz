@@ -30,13 +30,13 @@
   },
   "dependencies": {
     "gh-pages": "^1.2.0",
-    "node-sass": "^4.8.3",
+    "node-sass": "^4.9.0",
     "particles.js": "^2.0.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-particles-js": "^2.1.2",
     "serve": "^6.5.4",
-    "snyk": "^1.85.0"
+    "snyk": "^1.95.3"
   },
   "snyk": true
 }
