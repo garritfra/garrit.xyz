@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Particles from "react-particles-js";
 import styles from "./Home.scss";
 import github from "./GitHub.svg";
-import stackoverflow from "./StackOverflow.svg";
+import linkedin from "./LinkedIn.svg";
 import LinkItem from "./LinkItem";
 
 export default class Home extends Component {
@@ -31,10 +31,10 @@ export default class Home extends Component {
           />
 
           <LinkItem
-            link="https://stackoverflow.com/users/story/9046809"
-            description="See my Questions"
-            logo={stackoverflow}
-            className="stackoverflow"
+            link="https://www.linkedin.com/in/garrit-franke-0558b1172"
+            description="My Profile"
+            logo={linkedin}
+            className="linkedin"
           />
         </div>
       </div>

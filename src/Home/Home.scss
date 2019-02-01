@@ -68,9 +68,13 @@ body {
   filter: invert(100%);
 }
 
-.stackoverflow {
+.linkedin {
   animation-delay: 0.6s;
   grid-column: 3;
+}
+
+.linkedin img {
+  filter: invert(100%);
 }
 canvas {
   display: inline-block;
