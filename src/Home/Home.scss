@@ -1,52 +1,80 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
 
-#headline {
+body {
+  margin: 0;
+  font: normal 75% Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 20vh 20vh 20vh 40vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.section-header {
+  grid-row: 2;
+  grid-column: 1 / 5;
+}
+
+.headline {
   text-align: center;
   font-family: Montserrat, sans-serif;
   font-size: 6em;
   color: white;
   position: relative;
   transition: 0.5s;
-  padding-top: 15%;
-  margin-top: 0;
 }
 
 #subheadline {
   text-align: center;
+  font-size: 2em;
   font-family: Montserrat, sans-serif;
   color: white;
-  font-size: 120%;
   transition: 1s;
 }
 
-.icon-container {
+.description {
   text-align: center;
-  margin-top: 2%;
-  margin-left: auto;
-  margin-right: auto;
+  font-family: Montserrat, sans-serif;
+  color: white;
+  font-size: 150%;
+  transition: 1s;
 }
 
 .logo {
-  size: 50%;
-  position: relative;
-  width: 60px;
   height: 60px;
   color: white;
-  display: inline-grid;
-  margin: 1em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  grid-row: 4 / 5;
+  transition-duration: 200ms;
 }
 
-#github {
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.logo:active {
+  transform: scale(20);
+}
+
+.github {
   animation-delay: 0.3s;
+  grid-column: 2;
+}
+.github img {
   filter: invert(100%);
 }
 
-#stackoverflow {
+.linkedin {
   animation-delay: 0.6s;
+  grid-column: 3;
 }
-body {
-  margin: 0;
-  font: normal 75% Arial, Helvetica, sans-serif;
+
+.linkedin img {
+  filter: invert(100%);
 }
 canvas {
   display: inline-block;

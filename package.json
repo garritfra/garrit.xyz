@@ -7,8 +7,10 @@
     "start": "parcel ./public/index.html -p 80",
     "build": "parcel build ./public/index.html --public-url ./",
     "server": "npm run build && cp -r . /var/www  && service apache2 stop && service apache2 start",
-    "gh-pages": " npm run build && gh-pages -d ./dist",
-    "test": ""
+    "test": "",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect",
+    "gh-pages": " npm run build && gh-pages -d ./dist"
   },
   "repository": {
     "type": "git",
@@ -22,17 +24,20 @@
   "homepage": "https://github.com/garritfra/Portfolio#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "parcel-bundler": "^1.7.0"
+    "parcel-bundler": "^1.11.0"
   },
   "dependencies": {
     "gh-pages": "^1.2.0",
-    "node-sass": "^4.8.3",
+    "node-sass": "^4.11.0",
     "particles.js": "^2.0.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-particles-js": "^2.1.2",
-    "serve": "^6.5.4"
-  }
+    "serve": "^6.5.4",
+    "snyk": "^1.129.0"
+  },
+  "snyk": true
 }
