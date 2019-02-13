@@ -4,6 +4,10 @@ COPY . /app
 WORKDIR /app
 RUN npm install && npm run build
 
-EXPOSE 80
+FROM nginx
 
-CMD [ "npm", "start" ]
+COPY dist .
+
+COPY dist /usr/share/nginx/html
+
+EXPOSE 80
