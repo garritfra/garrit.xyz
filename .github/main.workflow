@@ -2,7 +2,6 @@ workflow "New workflow" {
   on = "push"
   resolves = [
     "Deploy",
-    "Filters for GitHub Actions",
   ]
 }
 
