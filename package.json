@@ -27,7 +27,7 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "parcel-bundler": "^1.12.3"
+    "parcel-bundler": "1.11"
   },
   "dependencies": {
     "gh-pages": "^1.2.0",
