@@ -18,9 +18,9 @@ export default class Home extends Component {
         <Particles params={this.config} className="particles-js" />
         <div className="container">
           <div className="section-header">
-            <h1 className="animated fadeInLeft headline">hi!</h1>
+            <h1 className="animated fadeInLeft headline">Hi, I'm Garrit</h1>
             <p id="subheadline" className="animated fadeInRight">
-              Junior Software Engineer | Hobbyist
+              Software Development is my Passion. Open Source is the Future.
             </p>
           </div>
           <LinkItem
