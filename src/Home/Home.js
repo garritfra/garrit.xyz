@@ -20,7 +20,8 @@ export default class Home extends Component {
           <div className="section-header">
             <h1 className="animated fadeInLeft headline">Hi, I'm Garrit</h1>
             <p id="subheadline" className="animated fadeInRight">
-              Software Development is my Passion. Open Source is the Future.
+              Software Development is my Passion. Don't hesitate to check out my
+              projects!
             </p>
           </div>
           <LinkItem
