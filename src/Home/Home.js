@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Particles from "react-particles-js";
-import styles from "./Home.scss";
+import "./Home.scss";
 import github from "./GitHub.svg";
 import linkedin from "./LinkedIn.svg";
 import LinkItem from "./LinkItem";
