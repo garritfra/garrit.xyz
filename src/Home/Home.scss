@@ -92,3 +92,12 @@ canvas {
   background-size: cover;
   background-position: 50% 50%;
 }
+
+@media (max-width: 500px) {
+  .logo {
+    margin-top: 50px;
+  }
+  .headline {
+    margin-top: 0;
+  }
+}
