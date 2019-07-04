@@ -1,8 +1,35 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.12.0
+version: v1.13.5
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:tunnel-agent:20170305':
     - node-sass > request > tunnel-agent:
         patched: '2018-06-26T00:18:49.267Z'
+  SNYK-JS-LODASH-450202:
+    - snyk > snyk-config > lodash:
+        patched: '2019-07-04T05:50:38.438Z'
+    - snyk > lodash:
+        patched: '2019-07-04T05:50:38.438Z'
+    - node-sass > sass-graph > lodash:
+        patched: '2019-07-04T05:50:38.438Z'
+    - snyk > snyk-php-plugin > lodash:
+        patched: '2019-07-04T05:50:38.438Z'
+    - snyk > snyk-nuget-plugin > lodash:
+        patched: '2019-07-04T05:50:38.438Z'
+    - snyk > snyk-nodejs-lockfile-parser > lodash:
+        patched: '2019-07-04T05:50:38.438Z'
+    - gh-pages > async > lodash:
+        patched: '2019-07-04T05:50:38.438Z'
+    - snyk > inquirer > lodash:
+        patched: '2019-07-04T05:50:38.438Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2019-07-04T05:50:38.438Z'
+    - node-sass > gaze > globule > lodash:
+        patched: '2019-07-04T05:50:38.438Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2019-07-04T05:50:38.438Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2019-07-04T05:50:38.438Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-07-04T05:50:38.438Z'
