@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import AnalyticsProvider from "../util/AnalyticsProvider";
 
 export default class LinkItem extends Component {
   constructor(props) {
@@ -14,7 +15,16 @@ export default class LinkItem extends Component {
   render() {
     return (
       <div className={this.className + " logo"}>
-        <a href={this.link} target="_blank">
+        <a
+          href={this.link}
+          target="_blank"
+          onClick={() =>
+            AnalyticsProvider.getInstance().analytics.track("pageVisited", {
+              pageName: this.description,
+              url: this.link
+            })
+          }
+        >
           <img
             className="animated fadeInUp logo"
             style={this.logoStyle}
