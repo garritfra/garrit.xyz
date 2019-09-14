@@ -3,6 +3,7 @@ import Particles from "react-particles-js";
 import "./Home.scss";
 import github from "./GitHub.svg";
 import Typed from "react-typed";
+import Navbar from "../components/NavBar/Navbar";
 
 export default class Home extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ export default class Home extends Component {
     return (
       <div>
         <Particles params={this.config} className="particles-js" />
+        <Navbar />
         <div className="container">
           <div className="section-header">
             <h1 className="animated fadeInLeft headline">Hi, I'm Garrit</h1>
@@ -22,7 +24,7 @@ export default class Home extends Component {
               I love{" "}
               <Typed
                 strings={[
-                  "JavaScript",
+                  "Node.js",
                   "doing web stuff with React",
                   "doing web stuff with Express.js",
                   "building Apps for Android",
