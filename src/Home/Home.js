@@ -24,19 +24,6 @@ export default class Home extends Component {
               projects!
             </p>
           </div>
-          <LinkItem
-            link="https://github.com/garritfra"
-            description="See my Work"
-            logo={github}
-            className="github"
-          />
-
-          <LinkItem
-            link="https://www.linkedin.com/in/garrit-franke-0558b1172"
-            description="My Profile"
-            logo={linkedin}
-            className="linkedin"
-          />
         </div>
       </div>
     );

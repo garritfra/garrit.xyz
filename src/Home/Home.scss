@@ -6,14 +6,12 @@ body {
 }
 
 .container {
-  display: grid;
-  grid-template-rows: 20vh 20vh 20vh 40vh;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-.section-header {
-  grid-row: 2;
-  grid-column: 1 / 5;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin: 0 10%;
 }
 
 .headline {
@@ -48,7 +46,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   align-content: center;
-  grid-row: 4 / 5;
   transition-duration: 200ms;
 }
 
@@ -62,7 +59,6 @@ body {
 
 .github {
   animation-delay: 0.3s;
-  grid-column: 2;
 }
 .github img {
   filter: invert(100%);
@@ -70,7 +66,6 @@ body {
 
 .linkedin {
   animation-delay: 0.6s;
-  grid-column: 3;
 }
 
 .linkedin img {
@@ -91,13 +86,4 @@ canvas {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
-}
-
-@media (max-width: 500px) {
-  .logo {
-    margin-top: 50px;
-  }
-  .headline {
-    margin-top: 0;
-  }
 }
