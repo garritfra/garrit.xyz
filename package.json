@@ -8,8 +8,6 @@
     "build": "parcel build ./public/index.html --public-url ./",
     "server": "npm run build && cp -r . /var/www  && service apache2 stop && service apache2 start",
     "test": "",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect",
     "gh-pages": " npm run build && gh-pages -d ./dist"
   },
   "repository": {
@@ -40,8 +38,6 @@
     "react-dom": "^16.8.6",
     "react-particles-js": "^2.6.0",
     "react-typed": "^1.2.0",
-    "serve": "^10.1.2",
-    "snyk": "^1.216.1"
-  },
-  "snyk": true
+    "serve": "^10.1.2"
+  }
 }
