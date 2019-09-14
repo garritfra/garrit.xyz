@@ -39,6 +39,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-particles-js": "^2.6.0",
+    "react-typed": "^1.2.0",
     "serve": "^10.1.2",
     "snyk": "^1.216.1"
   },
