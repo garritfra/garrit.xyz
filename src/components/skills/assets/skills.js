@@ -10,7 +10,7 @@ export default [
       {
         name: "CSS",
         logo: require("./css.svg"),
-        rating: 3
+        rating: 4
       },
       {
         name: "Node.js",
@@ -44,9 +44,10 @@ export default [
     skills: [
       { name: "Express", logo: require("./express.svg"), rating: 4 },
       { name: "Firebase", logo: require("./firebase.svg"), rating: 5 },
-      { name: "MongoDB", logo: require("./mongodb.svg"), rating: 3 },
       { name: "NGINX", logo: require("./nginx.svg"), rating: 3 },
-      { name: "MySQL", logo: require("./mysql.svg"), rating: 4 }
+      { name: "MongoDB", logo: require("./mongodb.svg"), rating: 3 },
+      { name: "MySQL", logo: require("./mysql.svg"), rating: 4 },
+      { name: "Spring", logo: require("./spring.svg"), rating: 2 }
     ]
   },
   {
@@ -83,7 +84,7 @@ export default [
     name: "Misc",
     skills: [
       { name: "Python", logo: require("./python.svg"), rating: 3 },
-      { name: "Rust", logo: require("./rust.svg"), rating: 3 },
+      { name: "Rust", logo: require("./rust.svg"), rating: 2 },
       { name: "Go", logo: require("./go.svg"), rating: 3 },
       { name: "LaTeX", logo: require("./latex.svg"), rating: 4 }
     ]
