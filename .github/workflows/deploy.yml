@@ -8,16 +8,11 @@ jobs:
     name: deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: install
-        uses: actions/npm@4633da3702a5366129dca9d8cc3191476fc3433c
-        with:
-          args: install
-      - name: build
-        uses: actions/npm@4633da3702a5366129dca9d8cc3191476fc3433c
-        with:
-          args: run build
+      - uses: actions/checkout@master
       - name: Deploy
-        uses: actions/npm@4633da3702a5366129dca9d8cc3191476fc3433c
-        with:
-          args: run gh-pages
+        uses: JamesIves/github-pages-deploy-action@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: dist
+          BUILD_SCRIPT: npm install && npm run build
