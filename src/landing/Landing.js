@@ -2,6 +2,7 @@ import React from "react";
 import Typed from "react-typed";
 import smoothScroll from "smoothscroll";
 import "./Landing.scss";
+import "animate.css/animate.min.css";
 
 export default function Landing() {
   return (

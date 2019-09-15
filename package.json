@@ -34,6 +34,8 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "analytics": "^0.1.20",
     "analytics-plugin-ga": "^0.1.5",
+    "animate.css": "^3.7.2",
+    "animate.min.css": "0.0.3",
     "gh-pages": "^1.2.0",
     "node-sass": "^4.12.0",
     "particles.js": "^2.0.0",
