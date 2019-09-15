@@ -57,6 +57,7 @@ const TopicHeader = styled.p`
 const SkillsContainer = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   font: inherit;
   justify-content: center;
 `;
