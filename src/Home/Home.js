@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import Particles from "react-particles-js";
 import "./Home.scss";
-import github from "./GitHub.svg";
 import Typed from "react-typed";
 import Navbar from "../components/NavBar/Navbar";
+import SkillCard from "../components/skills/SkillCard/SkillCard";
+
+import html from "../components/skills/assets/html.svg";
 
 export default class Home extends Component {
   constructor(props) {
@@ -24,6 +26,7 @@ export default class Home extends Component {
               I love{" "}
               <Typed
                 strings={[
+                  "Open Source",
                   "Node.js",
                   "doing web stuff with React",
                   "doing web stuff with Express.js",

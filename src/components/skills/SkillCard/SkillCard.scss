@@ -1,14 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 .card {
   position: relative;
-  width: 110px;
-  height: 110px;
+  width: 10em;
+  height: fit-content;
+  align-content: center;
   background: linear-gradient(180deg, #56ccf2 0%, #00fff0 100%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 
-  display: grid;
-  grid-template-rows: 2fr 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  height: auto;
 }
 
 .text {
@@ -24,13 +26,16 @@
 
 /* image */
 .skill-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  margin: 1em;
+  max-height: 50px;
+  max-width: 80px;
+  justify-content: center;
+  align-self: center;
 }
 
 .star-container {
   display: flex;
+  margin-bottom: 1em;
   justify-content: center;
 }
 

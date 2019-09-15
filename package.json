@@ -34,6 +34,7 @@
     "gh-pages": "^1.2.0",
     "node-sass": "^4.12.0",
     "particles.js": "^2.0.0",
+    "public": "^0.1.5",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-particles-js": "^2.7.0",
