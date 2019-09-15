@@ -63,7 +63,8 @@ export default [
     skills: [
       { name: "Android", logo: require("./android.svg"), rating: 5 },
       { name: "iOS", logo: require("./ios.svg"), rating: 4 },
-      { name: "Flutter", logo: require("./flutter.svg"), rating: 3 }
+      { name: "Flutter", logo: require("./flutter.svg"), rating: 3 },
+      { name: "React Native", logo: require("./react.svg"), rating: 3 }
     ]
   },
   {
@@ -76,6 +77,15 @@ export default [
       { name: "Bash", logo: require("./bash.svg"), rating: 3 },
       { name: "npm", logo: require("./npm.svg"), rating: 5 },
       { name: "Jira", logo: require("./jira.svg"), rating: 5 }
+    ]
+  },
+  {
+    name: "Misc",
+    skills: [
+      { name: "Python", logo: require("./python.svg"), rating: 3 },
+      { name: "Rust", logo: require("./rust.svg"), rating: 3 },
+      { name: "Go", logo: require("./go.svg"), rating: 3 },
+      { name: "LaTeX", logo: require("./latex.svg"), rating: 4 }
     ]
   }
 ];
