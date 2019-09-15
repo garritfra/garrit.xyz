@@ -28,14 +28,14 @@ export default [
         rating: 3
       },
       {
-        name: "Jest",
-        logo: require("./jest.svg"),
-        rating: 3
-      },
-      {
         name: "ReactiveX",
         logo: require("./reactivex.svg"),
         rating: 4
+      },
+      {
+        name: "Jest",
+        logo: require("./jest.svg"),
+        rating: 3
       }
     ]
   },
