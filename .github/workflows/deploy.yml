@@ -8,6 +8,7 @@ jobs:
     name: deploy
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout
       - name: install
         uses: actions/npm@4633da3702a5366129dca9d8cc3191476fc3433c
         with:
