@@ -5,9 +5,5 @@ WORKDIR /app
 RUN npm install && npm run build
 
 FROM nginx
-
-COPY dist .
-
-COPY dist /usr/share/nginx/html
-
+COPY --from=0 /app/dist /usr/share/nginx/html
 EXPOSE 80
