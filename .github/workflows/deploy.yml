@@ -1,0 +1,22 @@
+on:
+  push:
+    branches:
+      - master
+name: Deploy to Github Pages
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: install
+        uses: actions/npm@4633da3702a5366129dca9d8cc3191476fc3433c
+        with:
+          args: install
+      - name: build
+        uses: actions/npm@4633da3702a5366129dca9d8cc3191476fc3433c
+        with:
+          args: run build
+      - name: Deploy
+        uses: actions/npm@4633da3702a5366129dca9d8cc3191476fc3433c
+        with:
+          args: run gh-pages

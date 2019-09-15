@@ -8,8 +8,6 @@
     "build": "parcel build ./public/index.html --public-url ./",
     "server": "npm run build && cp -r . /var/www  && service apache2 stop && service apache2 start",
     "test": "",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect",
     "gh-pages": " npm run build && gh-pages -d ./dist"
   },
   "repository": {
@@ -28,20 +26,18 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "parcel-bundler": "^1.12.3",
-    "typescript": "^3.5.3"
+    "typescript": "^3.6.3"
   },
   "dependencies": {
-    "analytics": "^0.1.16",
+    "analytics": "^0.1.20",
     "analytics-plugin-ga": "^0.1.5",
     "gh-pages": "^1.2.0",
     "node-sass": "^4.12.0",
     "particles.js": "^2.0.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-particles-js": "^2.6.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-particles-js": "^2.7.0",
     "react-typed": "^1.2.0",
-    "serve": "^10.1.2",
-    "snyk": "^1.216.1"
-  },
-  "snyk": true
+    "serve": "^10.1.2"
+  }
 }
