@@ -5,16 +5,16 @@ import SkillSet from "./assets/skills";
 import path from "path";
 
 export default function Skills() {
-  return SkillSet.map(topic => {
-    return (
-      <div key={topic.name}>
-        <h1>{topic.name}</h1>
-        {topic.subtopics.map(subtopic => {
-          return (
-            <div key={subtopic.name}>
-              <h2>{subtopic.name}</h2>
+  return (
+    <Container>
+      <Title>My Skills</Title>
+      {SkillSet.map(topic => {
+        return (
+          <div key={topic.name}>
+            <TopicHeader>{topic.name}</TopicHeader>
+            <div key={topic.name}>
               <SkillsContainer>
-                {subtopic.skills.map(skill => {
+                {topic.skills.map(skill => {
                   return (
                     <SkillCardContainer key={skill.name}>
                       <SkillCard
@@ -27,17 +27,38 @@ export default function Skills() {
                 })}
               </SkillsContainer>
             </div>
-          );
-        })}
-      </div>
-    );
-  });
+          </div>
+        );
+      })}
+    </Container>
+  );
 }
+
+const Container = styled.div`
+  margin-bottom: 1em;
+`;
+
+const Title = styled.h1`
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 6em;
+  color: white;
+  position: relative;
+`;
+
+const TopicHeader = styled.p`
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 2em;
+  color: white;
+  position: relative;
+`;
 
 const SkillsContainer = styled.div`
   display: flex;
   flex-direction: row;
   font: inherit;
+  justify-content: center;
 `;
 
 const SkillCardContainer = styled.div`
