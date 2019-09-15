@@ -2,6 +2,7 @@
 .card {
   position: relative;
   width: 10em;
+  height: 10em;
   height: fit-content;
   align-content: center;
   background: linear-gradient(180deg, #56ccf2 0%, #00fff0 100%);
@@ -27,8 +28,9 @@
 /* image */
 .skill-logo {
   margin: 1em;
-  max-height: 50px;
+  height: 50px;
   max-width: 80px;
+  align-content: center;
   justify-content: center;
   align-self: center;
 }

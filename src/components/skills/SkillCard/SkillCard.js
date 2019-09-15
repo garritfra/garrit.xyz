@@ -7,11 +7,9 @@ export default function SkillCard({ name, logo, rating }) {
       <img className="skill-logo" src={logo} />
       <div className="text">{name}</div>
       <div className="star-container">
-        <div className="star" />
-        <div className="star" />
-        <div className="star" />
-        <div className="star" />
-        <div className="star" />
+        {Array.from({ length: rating }).map(x => {
+          return <div className="star"></div>;
+        })}
       </div>
     </div>
   );
