@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import Particles from "react-particles-js";
 import "./Home.scss";
-import Typed from "react-typed";
 import Navbar from "../components/NavBar/Navbar";
-import SkillCard from "../components/skills/SkillCard/SkillCard";
 
-import html from "../components/skills/assets/html.svg";
+import Landing from "../landing/Landing";
 
 export default class Home extends Component {
   constructor(props) {
@@ -19,32 +17,7 @@ export default class Home extends Component {
       <div>
         <Particles params={this.config} className="particles-js" />
         <Navbar />
-        <div className="container">
-          <div className="section-header">
-            <h1 className="animated fadeInLeft headline">Hi, I'm Garrit</h1>
-            <p id="subheadline" className="animated fadeInRight">
-              I love{" "}
-              <Typed
-                strings={[
-                  "Open Source",
-                  "Node.js",
-                  "doing web stuff with React",
-                  "doing web stuff with Express.js",
-                  "building Apps for Android",
-                  "building Apps for iOS",
-                  "building Apps with Flutter",
-                  "going deep with Rust",
-                  "you! ❤️"
-                ]}
-                typeSpeed={50}
-                backSpeed={40}
-                backDelay={1000}
-                startDelay={1000}
-                smartBackspace
-              />
-            </p>
-          </div>
-        </div>
+        <Landing />
       </div>
     );
   }
