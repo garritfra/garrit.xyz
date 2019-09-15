@@ -62,7 +62,20 @@ export default [
     name: "Mobile",
     skills: [
       { name: "Android", logo: require("./android.svg"), rating: 5 },
-      { name: "iOS", logo: require("./ios.svg"), rating: 4 }
+      { name: "iOS", logo: require("./ios.svg"), rating: 4 },
+      { name: "Flutter", logo: require("./flutter.svg"), rating: 3 }
+    ]
+  },
+  {
+    name: "Tools",
+    skills: [
+      { name: "Git", logo: require("./git.svg"), rating: 5 },
+      { name: "GitHub", logo: require("./github.svg"), rating: 5 },
+      { name: "VSCode", logo: require("./vscode.svg"), rating: 5 },
+      { name: "Vim", logo: require("./vim.svg"), rating: 4 },
+      { name: "Bash", logo: require("./bash.svg"), rating: 3 },
+      { name: "npm", logo: require("./npm.svg"), rating: 5 },
+      { name: "Jira", logo: require("./jira.svg"), rating: 5 }
     ]
   }
 ];
