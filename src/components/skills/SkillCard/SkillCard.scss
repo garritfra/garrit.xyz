@@ -12,6 +12,11 @@
   display: flex;
   flex-direction: column;
   height: auto;
+  transition-duration: 200ms;
+}
+
+.card:hover {
+  transform: scale(1.1);
 }
 
 .text {
