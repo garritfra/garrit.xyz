@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Particles from "react-particles-js";
-import "./Home.scss";
 import Navbar from "../components/NavBar/Navbar";
+import Skills from "../components/skills/Skills";
+import "./Home.scss";
 
 import Landing from "../landing/Landing";
 
@@ -18,6 +19,7 @@ export default class Home extends Component {
         <Particles params={this.config} className="particles-js" />
         <Navbar />
         <Landing />
+        <Skills />
       </div>
     );
   }
