@@ -41,15 +41,28 @@ export default [
   },
   {
     name: "Backend",
-    skills: [{ name: "Express", logo: require("./express.svg"), rating: 4 }]
+    skills: [
+      { name: "Express", logo: require("./express.svg"), rating: 4 },
+      { name: "Firebase", logo: require("./firebase.svg"), rating: 5 },
+      { name: "MongoDB", logo: require("./mongodb.svg"), rating: 3 },
+      { name: "NGINX", logo: require("./nginx.svg"), rating: 3 },
+      { name: "MySQL", logo: require("./mysql.svg"), rating: 4 }
+    ]
   },
-
   {
-    name: "Android",
-    skills: [{ name: "Android", logo: require("./android.svg"), rating: 5 }]
+    name: "DevOps",
+    skills: [
+      { name: "Linux", logo: require("./linux.svg"), rating: 5 },
+      { name: "Docker", logo: require("./docker.svg"), rating: 3 },
+      { name: "Kubernetes", logo: require("./kubernetes.svg"), rating: 2 },
+      { name: "Google Cloud", logo: require("./google-cloud.svg"), rating: 4 }
+    ]
   },
   {
-    name: "iOS",
-    skills: [{ name: "iOS", logo: require("./ios.svg"), rating: 4 }]
+    name: "Mobile",
+    skills: [
+      { name: "Android", logo: require("./android.svg"), rating: 5 },
+      { name: "iOS", logo: require("./ios.svg"), rating: 4 }
+    ]
   }
 ];
