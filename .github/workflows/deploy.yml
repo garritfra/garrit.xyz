@@ -16,3 +16,4 @@ jobs:
           BRANCH: gh-pages
           FOLDER: dist
           BUILD_SCRIPT: npm install && npm run build
+          CNAME: garrit.xyz
