@@ -1,5 +1,6 @@
 import React from "react";
 import Typed from "react-typed";
+import smoothScroll from "smoothscroll";
 import "./Landing.scss";
 
 export default function Landing() {
@@ -27,6 +28,12 @@ export default function Landing() {
               backDelay={1000}
               startDelay={1000}
               smartBackspace
+              onComplete={() => {
+                setTimeout(() => {
+                  const skillsAnchor = document.querySelector("#skills");
+                  if (window.scrollY < 200) smoothScroll(skillsAnchor, 1000);
+                }, 1000);
+              }}
             />
           </p>
         </div>

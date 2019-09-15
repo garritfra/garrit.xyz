@@ -43,6 +43,7 @@
     "react-particles-js": "^2.7.0",
     "react-typed": "^1.2.0",
     "serve": "^10.1.2",
+    "smoothscroll": "^0.4.0",
     "src": "^1.1.2",
     "styled-components": "^4.3.2"
   }

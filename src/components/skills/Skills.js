@@ -6,7 +6,7 @@ import path from "path";
 
 export default function Skills() {
   return (
-    <Container>
+    <Container id="skills">
       <Title>My Skills</Title>
       {SkillSet.map(topic => {
         return (
@@ -36,6 +36,7 @@ export default function Skills() {
 
 const Container = styled.div`
   margin-bottom: 1em;
+  padding-top: 2em;
 `;
 
 const Title = styled.h1`
