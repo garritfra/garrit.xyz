@@ -1,8 +1,18 @@
 import React from "react";
 import "./Navbar.scss";
+import AnalyticsProvider from "../../util/AnalyticsProvider";
 const NavItem = ({ title, link }) => {
   return (
-    <div className="nav-item">
+    <div
+      className="nav-item"
+      onClick={() =>
+        AnalyticsProvider.getInstance().logEvent(
+          "Social Links",
+          "clicked",
+          link
+        )
+      }
+    >
       <a href={link} target="_blank">
         {title}
       </a>
