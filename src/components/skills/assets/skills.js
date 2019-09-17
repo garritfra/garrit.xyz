@@ -30,7 +30,7 @@ export default [
       {
         name: "ReactiveX",
         logo: require("./reactivex.svg"),
-        rating: 4
+        rating: 3
       },
       {
         name: "Jest",
@@ -46,7 +46,7 @@ export default [
       { name: "Firebase", logo: require("./firebase.svg"), rating: 5 },
       { name: "NGINX", logo: require("./nginx.svg"), rating: 3 },
       { name: "MongoDB", logo: require("./mongodb.svg"), rating: 3 },
-      { name: "MySQL", logo: require("./mysql.svg"), rating: 4 },
+      { name: "MySQL", logo: require("./mysql.svg"), rating: 3 },
       { name: "Spring", logo: require("./spring.svg"), rating: 2 }
     ]
   },
@@ -56,7 +56,7 @@ export default [
       { name: "Linux", logo: require("./linux.svg"), rating: 5 },
       { name: "Docker", logo: require("./docker.svg"), rating: 3 },
       { name: "Kubernetes", logo: require("./kubernetes.svg"), rating: 2 },
-      { name: "Google Cloud", logo: require("./google-cloud.svg"), rating: 4 }
+      { name: "Google Cloud", logo: require("./google-cloud.svg"), rating: 3 }
     ]
   },
   {
@@ -74,7 +74,7 @@ export default [
       { name: "Git", logo: require("./git.svg"), rating: 5 },
       { name: "GitHub", logo: require("./github.svg"), rating: 5 },
       { name: "VSCode", logo: require("./vscode.svg"), rating: 5 },
-      { name: "Vim", logo: require("./vim.svg"), rating: 4 },
+      { name: "Vim", logo: require("./vim.svg"), rating: 3 },
       { name: "Bash", logo: require("./bash.svg"), rating: 3 },
       { name: "npm", logo: require("./npm.svg"), rating: 5 },
       { name: "Jira", logo: require("./jira.svg"), rating: 5 }
