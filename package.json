@@ -1,52 +1,27 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
-  "description": "Personal portfolio",
-  "main": "index.js",
+  "name": "gatsby-starter-blog-theme",
+  "private": true,
+  "version": "0.0.1",
   "scripts": {
-    "start": "parcel ./public/index.html",
-    "build": "parcel build ./public/index.html --public-url ./",
-    "server": "npm run build && cp -r . /var/www  && service apache2 stop && service apache2 start",
-    "test": "",
-    "gh-pages": " npm run build && gh-pages -d ./dist"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/garritfra/Portfolio.git"
-  },
-  "author": "Garrit Franke",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/garritfra/Portfolio/issues"
-  },
-  "homepage": "https://github.com/garritfra/Portfolio#readme",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "parcel-bundler": "^1.12.3",
-    "typescript": "^3.6.3"
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.22",
-    "@fortawesome/free-solid-svg-icons": "^5.10.2",
-    "@fortawesome/react-fontawesome": "^0.1.4",
-    "analytics": "^0.1.20",
-    "analytics-plugin-ga": "^0.1.5",
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "animate.css": "^3.7.2",
-    "animate.min.css": "0.0.3",
-    "gh-pages": "^1.2.0",
-    "node-sass": "^4.12.0",
-    "particles.js": "^2.0.0",
-    "public": "^0.1.5",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "gatsby": "^2.17.6",
+    "gatsby-plugin-sass": "^2.1.20",
+    "gatsby-plugin-typescript": "^2.1.15",
+    "gatsby-theme-blog": "^1.1.11",
+    "node-sass": "^4.13.0",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
     "react-particles-js": "^2.7.0",
     "react-typed": "^1.2.0",
-    "serve": "^10.1.2",
     "smoothscroll": "^0.4.0",
-    "src": "^1.1.2",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.4.0"
   }
 }

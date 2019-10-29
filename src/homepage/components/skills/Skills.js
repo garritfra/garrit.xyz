@@ -1,8 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import SkillCard from "./SkillCard/SkillCard";
-import SkillSet from "./assets/skills";
-import path from "path";
+import React from "react"
+import styled from "styled-components"
+import SkillCard from "./SkillCard/SkillCard"
+import SkillSet from "./assets/skills"
 
 export default function Skills() {
   return (
@@ -23,21 +22,21 @@ export default function Skills() {
                         rating={skill.rating}
                       />
                     </SkillCardContainer>
-                  );
+                  )
                 })}
               </SkillsContainer>
             </div>
           </div>
-        );
+        )
       })}
     </Container>
-  );
+  )
 }
 
 const Container = styled.div`
   margin-bottom: 1em;
   padding-top: 2em;
-`;
+`
 
 const Title = styled.h1`
   text-align: center;
@@ -45,7 +44,7 @@ const Title = styled.h1`
   font-size: 6em;
   color: white;
   position: relative;
-`;
+`
 
 const TopicHeader = styled.p`
   text-align: center;
@@ -53,7 +52,7 @@ const TopicHeader = styled.p`
   font-size: 2em;
   color: white;
   position: relative;
-`;
+`
 
 const SkillsContainer = styled.div`
   display: flex;
@@ -61,8 +60,8 @@ const SkillsContainer = styled.div`
   flex-wrap: wrap;
   font: inherit;
   justify-content: center;
-`;
+`
 
 const SkillCardContainer = styled.div`
   margin: 1em;
-`;
+`

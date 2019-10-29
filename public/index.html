@@ -1,30 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="Description" content="Personal Website of Garrit Franke" />
-    <title>Welcome</title>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-122968527-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "UA-122968527-1");
-    </script>
+    <meta charSet="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="note" content="environment=development" />
+    <title data-react-helmet="true"></title>
+    <script src="/socket.io/socket.io.js"></script>
   </head>
-
   <body>
-    <div id="root"></div>
-    <script src="./index.js"></script>
+    <script>
+      (function() {
+        try {
+          var mode = localStorage.getItem("theme-ui-color-mode");
+          if (!mode) return;
+          document.body.classList.add("theme-ui-" + mode);
+        } catch (e) {}
+      })();</script
+    ><noscript id="gatsby-noscript"
+      >This app works best with JavaScript enabled.</noscript
+    >
+    <div id="___gatsby"></div>
+    <script src="/commons.js"></script>
   </body>
 </html>
