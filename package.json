@@ -5,7 +5,8 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build"
+    "build": "gatsby build",
+    "postbuild": "mv public dist"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
