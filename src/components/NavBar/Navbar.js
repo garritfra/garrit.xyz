@@ -13,9 +13,7 @@ const NavItem = ({ title, link }) => {
         )
       }
     >
-      <a href={link} target="_blank">
-        {title}
-      </a>
+      <a href={link}>{title}</a>
     </div>
   );
 };
@@ -23,10 +21,11 @@ const NavItem = ({ title, link }) => {
 export default () => {
   return (
     <div className="nav-container">
-      <NavItem title="Portfolio" link="https://github.com/garritfra" />
+      <NavItem title="Blog" link="https://garritfra.github.io/blog"></NavItem>
+      <NavItem title="GitHub" link="https://github.com/garritfra" />
 
       <NavItem
-        title="My Profile"
+        title="LinkedIn"
         link="https://www.linkedin.com/in/garrit-franke-0558b1172"
       />
     </div>
