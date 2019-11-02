@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - master
+      - release
 name: Deploy to Github Pages
 jobs:
   deploy:
@@ -13,7 +13,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@master
         env:
           ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
-          BRANCH: gh-pages
+          BRANCH: master
           FOLDER: dist
           BUILD_SCRIPT: npm install && npm run build
           CNAME: garrit.xyz
