@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Prepare repository
-        run: git checkout "${GITHUB_REF:11}"
+        with:
+          ref: release
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@master
         env:
