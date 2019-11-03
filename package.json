@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel ./public/index.html",
-    "build": "parcel build ./public/index.html --public-url ./ && cp -rf ./.well-known ./dist/.well-known",
+    "build": "parcel build ./public/index.html --public-url ./ && cp -rf ./.well-known ./dist/.well-known && echo garrit.xyz > ./dist/CNAME",
     "server": "npm run build && cp -r . /var/www  && service apache2 stop && service apache2 start",
     "test": "",
-    "gh-pages": " npm run build && gh-pages -d ./dist"
+    "gh-pages": " npm run build && gh-pages -b master -d ./dist"
   },
   "repository": {
     "type": "git",
