@@ -7,14 +7,13 @@ import AnalyticsProvider from "../../../util/AnalyticsProvider";
 
 export default function ProjectCard({ name, description, url, year }) {
   return (
-    <div
-      className="card"
+    <Container
       onClick={() =>
         AnalyticsProvider.getInstance().logEvent("Project", "clicked", name)
       }
     >
-      <div className="text">{name}</div>
-    </div>
+      <NameText className="text">{name}</NameText>
+    </Container>
   );
 }
 
@@ -32,4 +31,17 @@ const Container = styled.div`
   flex-direction: column;
   height: auto;
   transition-duration: 200ms;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
+const NameText = styled.div`
+  text-align: center;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
 `;
