@@ -13,6 +13,7 @@ export default function ProjectCard({ name, description, url, year }) {
       }
     >
       <NameText className="text">{name}</NameText>
+      <DescriptionText>{description}</DescriptionText>
     </Container>
   );
 }
@@ -39,9 +40,20 @@ const Container = styled.div`
 
 const NameText = styled.div`
   text-align: center;
-
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: 18px;
   line-height: 21px;
+  margin: 1em;
+`;
+
+const DescriptionText = styled.div`
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
 `;
