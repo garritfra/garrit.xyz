@@ -55,7 +55,7 @@ export default [
     skills: [
       { name: "Linux", logo: require("./linux.svg"), rating: 5 },
       { name: "Docker", logo: require("./docker.svg"), rating: 3 },
-      { name: "Kubernetes", logo: require("./kubernetes.svg"), rating: 2 },
+      { name: "Kubernetes", logo: require("./kubernetes.svg"), rating: 3 },
       { name: "Google Cloud", logo: require("./google-cloud.svg"), rating: 3 }
     ]
   },
@@ -84,7 +84,7 @@ export default [
     name: "Misc",
     skills: [
       { name: "Python", logo: require("./python.svg"), rating: 3 },
-      { name: "Rust", logo: require("./rust.svg"), rating: 2 },
+      { name: "Rust", logo: require("./rust.svg"), rating: 3 },
       { name: "Go", logo: require("./go.svg"), rating: 3 },
       { name: "LaTeX", logo: require("./latex.svg"), rating: 4 }
     ]
