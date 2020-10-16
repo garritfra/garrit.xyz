@@ -14,7 +14,6 @@ export default function Home() {
       <Navbar />
       <Landing />
       <Skills />
-      <Projects />
     </div>
   );
 }

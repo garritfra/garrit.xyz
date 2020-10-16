@@ -21,7 +21,8 @@ const NavItem = ({ title, link }) => {
 export default () => {
   return (
     <div className="nav-container">
-      <NavItem title="Blog" link="https://garritfra.github.io/blog"></NavItem>
+      <NavItem title="Resume" link="https://garritfra.github.io/cv"></NavItem>
+      <NavItem title="Blog" link="https://slashdev.space/"></NavItem>
       <NavItem title="GitHub" link="https://github.com/garritfra" />
 
       <NavItem
