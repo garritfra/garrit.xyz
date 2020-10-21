@@ -5,7 +5,7 @@ import Skills from "../components/skills/Skills";
 import "./Home.scss";
 import config from "./particleConfig";
 import Landing from "../landing/Landing";
-import Projects from "../components/projects/Projects";
+import Footer from "../components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +14,7 @@ export default function Home() {
       <Navbar />
       <Landing />
       <Skills />
+      <Footer />
     </div>
   );
 }
