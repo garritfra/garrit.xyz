@@ -8,11 +8,9 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/throwback">
-          <Throwback />
-        </Route>
-        <Route path="/">
-          <Home />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/throwback" component={Throwback} />
+    
         </Route>
       </Switch>
     </Router>
