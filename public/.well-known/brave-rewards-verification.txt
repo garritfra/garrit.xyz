@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: blog.garrit.xyz
+Token: 426e30fb7cb125131ef27dc902cb10fe14d3114f60c57a190adb672def1b59b5

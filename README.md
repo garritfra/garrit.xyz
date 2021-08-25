@@ -1,6 +1,14 @@
-# Garrits Portfolio
+# garrit.xyz
 
-## Workflow
+This is the repository for my personal website.
 
-**Development** happens on the `develop` branch.
-Once a deployment should be rolled out, merge `develop` into `release`
+## Generating posts
+
+Running the following command will generate a new blog post with the necessary boilerplate.
+
+```
+./contrib/gen-post.sh My first post
+# -> 2021-04-12-my-first-post.md
+```
+
+https://garrit.xyz
