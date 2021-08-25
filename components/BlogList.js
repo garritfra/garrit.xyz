@@ -12,39 +12,35 @@ function truncateSummary(content) {
 const BlogList = ({ posts }) => {
     return (
         <>
-            <ul className="list">
-                {posts.length > 1 &&
-                    posts
-                        // Filter drafts
-                        .filter((post) => !post.slug.startsWith("_"))
-                        // Ternary operator is used to fix chromium sorting
-                        // See: https://stackoverflow.com/a/36507611
-                        .sort((a, b) =>
-                            a.frontmatter.date < b.frontmatter.date ? 1 : -1
-                        )
-                        .map((post) => (
-                            <a href={`/posts/${post.slug}`}>
-                                <li>
-                                    <div className="blog__info">
-                                        <h2>{post.frontmatter.title}</h2>
-                                        <h3>
-                                            {" "}
-                                            {reformatDate(
-                                                post.frontmatter.date
+            {posts.length > 1 &&
+                posts
+                    // Filter drafts
+                    .filter((post) => !post.slug.startsWith("_"))
+                    // Ternary operator is used to fix chromium sorting
+                    // See: https://stackoverflow.com/a/36507611
+                    .sort((a, b) =>
+                        a.frontmatter.date < b.frontmatter.date ? 1 : -1
+                    )
+                    .map((post) => (
+                        <a href={`/posts/${post.slug}`}>
+                            <li>
+                                <div className="blog__info">
+                                    <h2>{post.frontmatter.title}</h2>
+                                    <h3>
+                                        {" "}
+                                        {reformatDate(post.frontmatter.date)}
+                                    </h3>
+                                    <p>
+                                        <ReactMarkdown
+                                            source={truncateSummary(
+                                                post.markdownBody
                                             )}
-                                        </h3>
-                                        <p>
-                                            <ReactMarkdown
-                                                source={truncateSummary(
-                                                    post.markdownBody
-                                                )}
-                                            />
-                                        </p>
-                                    </div>
-                                </li>
-                            </a>
-                        ))}
-            </ul>
+                                        />
+                                    </p>
+                                </div>
+                            </li>
+                        </a>
+                    ))}
             <style jsx>
                 {`
                     margin-bottom: 0;
