@@ -18,7 +18,7 @@ export default function BlogTemplate(props) {
     if (!props.frontmatter) return <></>;
 
     return (
-        <Page title={props.frontmatter.title} date={reformatDate(props.frontmatter.date)}>
+        <Page siteTitle="Garrit's Notes" title={props.frontmatter.title} date={reformatDate(props.frontmatter.date)}>
             <ReactMarkdown
                 source={props.markdownBody}
                 date={props.frontmatter.date}
@@ -49,7 +49,6 @@ export async function getStaticProps({ ...ctx }) {
 
     return {
         props: {
-            siteTitle: "~garrit",
             frontmatter: data.data,
             markdownBody: data.content,
         },

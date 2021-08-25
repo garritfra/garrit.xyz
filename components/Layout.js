@@ -27,7 +27,7 @@ export default function Layout({
   return (
     <section className={`layout`}>
       <Meta siteTitle={siteTitle} siteDescription={siteDescription} />
-      <Header siteTitle="~garrit" />
+      <Header siteTitle={siteTitle} />
       <div className="content">{children}</div>
       <Footer />
       <style jsx>
