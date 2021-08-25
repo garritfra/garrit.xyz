@@ -1,0 +1,27 @@
+.footer {
+    padding: 56px;
+    padding-bottom: 0px;
+    background: $color-accent-dark;
+    text-align: center;
+
+    @media (prefers-color-scheme: light) {
+        background: $color-accent-light;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        text-align: left;
+    }
+
+    section {
+        margin-bottom: 24px;
+        min-width: 250px;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+}

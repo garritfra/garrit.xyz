@@ -1,0 +1,57 @@
+@mixin header {
+    font-family: "Open Sans Regular", Arial, Helvetica, sans-serif;
+    color: $color-primary-dark;
+    font-weight: 400;
+    line-height: initial;
+    text-rendering: optimizeLegibility;
+    @media (prefers-color-scheme: light) {
+        color: $color-primary-light;
+    }
+
+}
+
+@mixin text {
+    color: $color-text-dark;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    font-family: "Source Sans Pro Light","Helvetica Neue", Helvetica, sans-serif;
+    @media (prefers-color-scheme: light) {
+        color: $color-text-light;
+    }
+}
+
+h1 {
+    @include header;
+    font-size: 47px;
+    font-weight: bold;
+}
+
+h2 {
+    @include header;
+    font-size: 40px;
+}
+
+h3 {
+    @include header;
+    font-size: 24px;
+}
+
+h4 {
+    @include header;
+    font-size: 20px;
+}
+
+p,
+li, 
+pre,
+a{
+    @include text;
+    font-size: 20px;
+    line-height: 30px;
+}
+

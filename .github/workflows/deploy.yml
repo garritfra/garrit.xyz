@@ -9,11 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+        name: Checkout
+      - name: Build
+        run: |
+          npm ci
+          npm run build
+          touch out/.nojekyll
+          echo "garrit.xyz" > CNAME
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@master
-        env:
-          ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: dist
-          BUILD_SCRIPT: npm install && npm run build
-          CNAME: garrit.xyz
+        uses: JamesIves/github-pages-deploy-action@4.1.3
+        with:
+          branch: gh-pages
+          folder: out

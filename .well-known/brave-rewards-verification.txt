@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: garrit.xyz
-Token: 90ba20eb49c04a51616eaf03fc6a04c19f63e02274a799b61e7f6b1e013a7fd2

@@ -1,53 +1,22 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
-  "description": "Personal portfolio",
-  "main": "index.js",
+  "name": "garrit.xyz",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "parcel ./public/index.html",
-    "build": "parcel build ./public/index.html --public-url ./ && cp -rf ./.well-known ./dist/.well-known",
-    "server": "npm run build && cp -r . /var/www  && service apache2 stop && service apache2 start",
-    "test": "",
-    "gh-pages": " npm run build && gh-pages -d ./dist"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/garritfra/Portfolio.git"
-  },
-  "author": "Garrit Franke",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/garritfra/Portfolio/issues"
-  },
-  "homepage": "https://github.com/garritfra/Portfolio#readme",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "parcel-bundler": "^1.12.4",
-    "typescript": "^3.9.5"
+    "start": "npm run build:rss && next dev",
+    "build": "npm run build:rss && next build && next export",
+    "build:rss": "node lib/rss.js"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.28",
-    "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "@fortawesome/react-fontawesome": "^0.1.10",
-    "analytics": "^0.1.20",
-    "analytics-plugin-ga": "^0.1.5",
-    "animate.css": "^3.7.2",
-    "animate.min.css": "0.0.3",
-    "gh-pages": "^1.2.0",
-    "node-sass": "^4.14.1",
-    "particles.js": "^2.0.0",
-    "public": "^0.1.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-particles-js": "^2.7.1",
-    "react-router-dom": "^5.2.0",
-    "react-typed": "^1.2.0",
-    "serve": "^10.1.2",
-    "smoothscroll": "^0.4.0",
-    "src": "^1.1.2",
-    "styled-components": "^4.4.1"
+    "glob": "^7.1.6",
+    "gray-matter": "^4.0.2",
+    "markdown": "^0.5.0",
+    "next": "11.1.0",
+    "raw-loader": "^4.0.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-markdown": "^4.3.1",
+    "rfc822-date": "0.0.3",
+    "sass": "^1.38.0"
   }
 }
