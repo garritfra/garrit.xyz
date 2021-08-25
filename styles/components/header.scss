@@ -6,11 +6,10 @@ nav {
     a h1 {
         margin: 0;
         color: $color-text-dark;
-        text-align: center;
         padding: 24px;
         font-weight: 400;
         font-family: 'Roboto Mono', Courier, monospace;
-        font-size: 40px;
+        font-size: 24px;
 
         @media (prefers-color-scheme: light) {
             color: $color-primary-light;

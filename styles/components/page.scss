@@ -2,10 +2,9 @@
     display: grid;
     grid-template-columns:
         1fr
-        min(650px, 85vw)
+        min(650px, 100%)
         1fr;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1em 24px;
     min-height: 80vh;
 }
 .page > * {
