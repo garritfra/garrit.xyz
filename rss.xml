@@ -1,0 +1,1715 @@
+<?xml version="1.0" ?>
+      <rss version="2.0">
+        <channel>
+            <title>garrit.xyz</title>
+            <link>https://garrit.xyz</link>
+            <description>Garrit Franke</description>
+            <language>en</language>
+            <lastBuildDate>Sun, 08 Aug 2021 00:00:00 +0000</lastBuildDate>
+            
+          <item>
+            <title>Fun with Pen and Paper: Race Cars</title>
+            <link>
+              https://garrit.xyz/posts/2021-08-08-fun-with-pen-and-paper-race-cars
+            </link>
+    
+            <pubDate>Sun, 08 Aug 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>I recently came across some fun games that can be played using nothing but a
+pen and some paper. One of those games was called &quot;Race Cars&quot; and I wondered
+how on earth you would play a racing game on paper, and the answer is: simple
+math!</p>
+
+<h2>The core idea</h2>
+
+<p>The goal of the game is to cross the finish line of a hand-drawn race track
+first without hitting the edge. Race cars have a velocity that can be adjusted
+each move. If you&#39;re too greedy, you will crash. If you hit the breaks too
+early, another player will win.</p>
+
+<h2>How it&#39;s played</h2>
+
+<p>We start out with a hand-drawn race track. The shape really can be anything you
+like. Just be creative!</p>
+
+<p><img alt="A race track on paper" src="/assets/paperracer/0.jpg"/></p>
+
+<p>Next, each player makes a cross on the starting line. This resembles the
+players racecar. Right now, none of the cars is moving. They have a velocity of
+0 on the x axis and 0 on the y axis.</p>
+
+<p><img alt="Two crosses on the starting line" src="/assets/paperracer/1.jpg"/></p>
+
+<p>Each move, a player can accelerate or decelerate his vehicle by 1 on any axis.
+The first move of each player is somewhat obvious. They want to accelerate
+straight forward. On our race track, that means accelerate by 1 on the y axis.</p>
+
+<p><img alt="A race car made a move" src="/assets/paperracer/2.jpg"/></p>
+
+<p>Next, we can either keep on accelerating like the red player does, or &quot;turn&quot;
+our vehicle left by changing our y velocity from 0 to -1, which gives us a
+velocity of -1, 1.</p>
+
+<p><img alt="Paper race cars after two moves" src="/assets/paperracer/3.jpg"/></p>
+
+<p>On a long stretch, the red player wants to overtake blue by keeping his foot on
+the paddle. Blue on the other hand plays it safe and hits the breaks.</p>
+
+<p><img alt="Paper race cars on a long stretch" src="/assets/paperracer/4.jpg"/></p>
+
+<p>Soon after, red realizes his mistake. Being so busy trying to turn, he&#39;s unable
+to hit the breaks. A crash is inevitable. Blue however continues to take the
+turn nice and slow. His humble mind brought him victory!</p>
+
+<p><img alt="The red player right before crashing into a wall" src="/assets/paperracer/5.jpg"/></p>
+
+<h2>It&#39;s all about fun</h2>
+
+<p>The concept of this game is very flexible. You can play it with a friend and
+see who&#39;s the fastest paper racer, or by yourself and try to beat your record.
+Getting tired of just cruising around? Introduce the concept of &quot;items&quot; that
+give you a boost or slow down the opponent (think Mario Kart!). If ordinary
+tracks are boring, try adding intersections or obstacles. Can you add a third
+dimension? The sky is the limit. Get out there and be creative.</p>
+
+<p>This is post 018 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Docker healthchecks using healthchecks.io</title>
+            <link>
+              https://garrit.xyz/posts/2021-05-15-healthchecks-io-with-docker
+            </link>
+    
+            <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>I&#39;m currently in the midst of improving the monitoring of my infrastructure. I
+make heavy use of docker and docker-compose for my hosting, so it&#39;s vital to add
+monitoring for most of the containers.</p>
+
+<p>I&#39;m hosting my own instance of <a href="https://healthchecks.io/">healthchecks.io</a>.
+Their solution to monitoring involves <strong>you</strong> having to ping <strong>them</strong>, instead
+of the other way around. This let&#39;s you add healthchecks to virtually anything
+that can ping a http-endpoint.</p>
+
+<p>docker-compose let&#39;s you define healthchecks to your config that, when
+completing sucessfully, mark the container as &quot;healthy&quot;. The process of adding
+such a healthcheck is simple. First, create a new check in your healthchecks.io
+account and set the ping interval to 1 minute, or a value you prefer. Then, add
+this snippet to your docker-compose file:</p>
+
+<p><code>yaml
+app:
+    image: nextcloud
+    ports:
+        - 127.0.0.1:8080:80
+    healthcheck:
+        test:
+            [
+                &quot;CMD&quot;,
+                &quot;curl&quot;,
+                &quot;-f&quot;,
+                &quot;https://app-endpoint.tld&quot;,
+                &quot;&amp;&amp;&quot;,
+                &quot;curl&quot;,
+                &quot;-fsS&quot;,
+                &quot;-m&quot;,
+                &quot;10&quot;,
+                &quot;--retry&quot;,
+                &quot;5&quot;,
+                &quot;-o&quot;,
+                &quot;/dev/null&quot;,
+                &quot;https://healthchecks.io/ping/&lt;UUID&gt;&quot;,
+            ]
+        interval: 60s
+        timeout: 10s
+        retries: 6
+</code></p>
+
+<p>Change the first url to the url of your app. The second URL is the endpoint of
+your healthchecks.io instance. You can obtain it from the check you configured
+earlier.</p>
+
+<p>This configuration will try to ping your application and, if successful, notify
+the healthcheck that the application is healthy. If the app is not reachable or
+the container is down, the latter request will not be executed and your service
+is marked as &quot;down&quot;.</p>
+
+<p>In addition to the healthchecks of my docker containers, I also added basic
+healthchecks to my servers cronfiles and its backup-commands.</p>
+
+<p>Do you have any suggestions regarding this topic? Feel free to reach out to me
+via Matrix or email!</p>
+
+<p>This is post 017 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>A pretty good guide to pretty good privacy</title>
+            <link>
+              https://garrit.xyz/posts/2021-04-07-pgp-guide
+            </link>
+    
+            <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>In the past week, I&#39;ve been experimenting with PGP, or GPG in particular. In a nutshell, PGP is an encryption standard with a wide range of use cases. For quite some time, I didn&#39;t see the point of keeping a PGP keypair. It seemed like a burden to securely keep track of the key(s). Once you loose it, you will loose the trust of others. But after doing some research on the topic, I found that it&#39;s not actually that much of a hassle, while giving you many benefits.</p>
+
+<h1>The Why</h1>
+
+<p>The most obvious benefit is encrypting and decrypting messages and files. If you upload your public key, I can encrypt our private conversations. Nobody will be able to read what we&#39;re chatting about. If you fear that cloud providers will read through your documents, you can also go ahead and encrypt all of your data with your keypair.</p>
+
+<p>But PGP is not just about encryption. A keypair also gives you a proof of identity. If I see that a piece of work is signed by you, I can be certain that you and only you have worked on this. By signing the keys of people we trust, we build a &quot;chain of trust&quot;. A key with many signatures generally has a higher reputation than one without any signatures.</p>
+
+<p>Take Git commits for example. All it takes is a <code>git config user.email &quot;elon@spacex.com&quot;</code> and I can publish code under a different identity. But if everyone on the team signed their work, they will quickly see that a commit is missing its signature, because I&#39;m simply not able to sign my work with Elon Musk&#39;s keypair. Only if they see a badge like this, they will know that they can trust it.</p>
+
+<p>Your keypair can also come in handy as a SSH key. Before I knew about PGP, I always had to install one key per machine I was working on. With PGP, you only have a single identity, and therefore you only have to install one key on your servers.</p>
+
+<h1>The How</h1>
+
+<p>Let&#39;s first go over the process of setting up a keypair. For this, we will need the <code>gpg</code> command installed on our system. Usually, this is just a <code>&lt;package manager&gt; install gpg</code> away. Then, we will have to generate a keypair. The quickest way to get one is to use <code>gpg --gen-key</code>, but that will make some quirky assumptions about how you want to use your key.</p>
+
+<p>In PGP, there is this concept of a <strong>keyring</strong>. A keyring has one master key and many subkeys. It is generally a good idea to have one fat master key that never expires and many small subkeys that last about a year or two. The benefit of structuring your keys like this is that you will always have your trusted keychain, and in case something goes south, E.g. your key gets compromised, you can replace that subkey and keep your identity.</p>
+
+<p>With that in mind, let&#39;s create our master key. Run <code>gpg --full-gen-key</code> and follow the instructions. You probably want to use the <code>RSA and RSA (default)</code> option, and a key that is 4096 bits long (remember, this is the fat master key that never expires, so it must be secure). The comment can be left blank, unless you know what you are doing with that field. Enter a strong passphrase! If your private key were to get compromised, this passphrase is your last line of defense. Make it long, hard to crack but still rememberable. If everything went well, your key should be generated. Here&#39;s the full example output:</p>
+
+<p><code></code>`
+root@c6acc9eb4fd1:/# gpg --full-gen-key
+gpg (GnuPG) 2.2.19; Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.</p>
+
+<p>Please select what kind of key you want:
+   (1) RSA and RSA (default)
+   (2) DSA and Elgamal
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+  (14) Existing key from card
+Your selection? 1
+RSA keys may be between 1024 and 4096 bits long.
+What keysize do you want? (3072) 4096
+Requested keysize is 4096 bits
+Please specify how long the key should be valid.
+         0 = key does not expire
+      &lt;n&gt;  = key expires in n days
+      &lt;n&gt;w = key expires in n weeks
+      &lt;n&gt;m = key expires in n months
+      &lt;n&gt;y = key expires in n years
+Key is valid for? (0)
+Key does not expire at all
+Is this correct? (y/N) y</p>
+
+<p>GnuPG needs to construct a user ID to identify your key.</p>
+
+<p>Real name: Foo
+Name must be at least 5 characters long
+Real name: Foo Bar
+Email address: foo@bar.com
+Comment:
+You selected this USER-ID:
+    &quot;Foo Bar <a href="mailto:foo@bar.com">foo@bar.com</a>&quot;</p>
+
+<p>Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+gpg: key C8E4854970B7A1A3 marked as ultimately trusted
+gpg: revocation certificate stored as &#39;/root/.gnupg/openpgp-revocs.d/4E83F95221E92EDB933F155AC8E4854970B7A1A3.rev&#39;
+public and secret key created and signed.</p>
+
+<p>pub   rsa4096 2021-04-07 [SC]
+      4E83F95221E92EDB933F155AC8E4854970B7A1A3
+uid                      Foo Bar <a href="mailto:foo@bar.com">foo@bar.com</a>
+sub   rsa4096 2021-04-07 [E]
+<code></code>`</p>
+
+<p>You could stop here and use this key, but let&#39;s instead create some subkeys under that key, to make our lives a bit easier. Take the fingerprint of the key (that large number in the output) and run <code>gpg --edit-key --expert &lt;your fingerprint&gt;</code>. Run <code>addkey</code> three times to add these three keys:</p>
+
+<h2>Signing key</h2>
+
+<p>This key will be used to sign your work (git commits, tags, etc.).</p>
+
+<p><code>
+gpg&gt; addkey
+</code></p>
+
+<ol><li>Choose option &quot;RSA (set your own capabilities)&quot;, which is currently number 8.</li><li>Toggle E (Encryption) so the &quot;Current allowed actions&quot; only lists Sign and confirm with Q.</li><li>Choose the keysize 2048 (or whatever you prefer).</li><li>Choose the key expire date 1y (or whatever you prefer).</li><li>Confirm twice, then enter your passphrase.</li></ol>
+
+<h2>Encryption key</h2>
+
+<p>This key will be used to encrypt and decrypt messages.</p>
+
+<p><code>
+gpg&gt; addkey
+</code></p>
+
+<ol><li>Choose option &quot;RSA (set your own capabilities)&quot;, which is currently number 8.</li><li>Toggle S (Sign) so the &quot;Current allowed actions&quot; only lists Encryption and confirm with Q.</li><li>Choose the keysize 2048 (or whatever you prefer).</li><li>Choose the key expire date 1y (or whatever you prefer).</li><li>Confirm twice, then enter your passphrase.</li></ol>
+
+<h2>Authentication key</h2>
+
+<p>This key will be used for SSH authentication.</p>
+
+<p><code>
+gpg&gt; addkey
+</code></p>
+
+<ol><li>Choose option &quot;RSA (set your own capabilities)&quot;, which is currently number 8.</li><li>Toggle S (Signing), E (Encryption) and A (Authentication) so the &quot;Current allowed actions&quot; only lists Authenticate and confirm with Q.</li><li>Choose the keysize 2048 (or whatever you prefer).</li><li>Choose the key expire date 1y (or whatever you prefer).</li><li>Confirm twice, then enter your passphrase.</li></ol>
+
+<p>Now you should have one key per use case: signing, encrypting and authentication, each with an expiration date:</p>
+
+<p><code>
+sec  rsa4096/C8E4854970B7A1A3
+     created: 2021-04-07  expires: never       usage: SC
+     trust: ultimate      validity: ultimate
+ssb  rsa4096/C5F71423813B40A0
+     created: 2021-04-07  expires: never       usage: E
+ssb  rsa2048/52D4D1D19533D8A5
+     created: 2021-04-07  expires: 2022-04-07  usage: S
+ssb  rsa2048/072D841844E3F949
+     created: 2021-04-07  expires: 2022-04-07  usage: E
+ssb  rsa2048/42E4F6E376DD92F6
+     created: 2021-04-07  expires: 2022-04-07  usage: A
+[ultimate] (1). Foo Bar &lt;foo@bar.com&gt;
+</code></p>
+
+<p>Save your key, and optionally upload it to one of the many keyservers:</p>
+
+<p><code></code>`
+gpg&gt; save</p>
+
+<p>$ gpg --keyserver keys.openpgp.org  --send-keys foo@bar.com
+<code></code>`</p>
+
+<p><strong>Pro tip</strong>: To set a default keyserver (I use <code>keys.opengpg.org</code>, but there are many others out there!), simply add it in your <code>~/.gnupg/gpg.conf</code> file:</p>
+
+<p><code>
+keyserver keys.openpgp.org
+</code></p>
+
+<p>People can now import your public key via <code>gpg --keyserver keys.opengpg.org --search-keys foo@bar.com</code>.</p>
+
+<p>We&#39;re done with the setup, let&#39;s put our keys to use!</p>
+
+<h2>Code Signing</h2>
+
+<p>To sign your code, you will have to tell git which key to use. Edit your global git options (<code>~/.gitconfig</code>) and add these fields:</p>
+
+<p><code>
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[user]
+    name = Foo Bar
+	signingkey = 52D4D1D19533D8A5      # Use the ID of your signing key
+	email = foo@bar.com
+</code></p>
+
+<p>Now, whenever you add a commit, git will sign it with your key. You will have to let your git hosting provider know that this key is yours. Go to your account settings and look for a tab that says &quot;Manage (GPG) keys&quot;. Where this tab is depends on your choice of service. Next, run <code>gpg --export --armor &lt;your master key id&gt;</code> and copy the resulting key into the input field of your git hosting service.</p>
+
+<p>Whenever you push a commit, its signature will be checked against that of your account. And that&#39;s all the magic!</p>
+
+<p><img alt="A signed commit" src="/assets/signed_commit.png"/></p>
+
+<h2>Encrypting messages</h2>
+
+<p>In order to send an encrypted message to someone, you will need his public key. There are numerous ways to obtain a public key of someone. The simplest way is to ask the person for the raw key. If it&#39;s in a text file, you can import it like so:</p>
+
+<p><code>
+cat some_key.txt | gpg --import
+</code></p>
+
+<p>Oftentimes, people will store their keys on a keyserver, just like you have probably done it. To import someones key, simply search for it on a keyserver. I&#39;ll use my key here as an example.</p>
+
+<p><code>
+gpg --keyserver keys.openpgp.org  --search-keys garrit@slashdev.space
+</code></p>
+
+<p>Now, your computer should know about my key. To verify that it&#39;s actually me you have imported, you can check if the output of <code>gpg --fingerprint garrit@slashdev.space</code> matches my actual fingerprint: <code>2218 337E 54AA 1DBE 207B  404D BB54 AF7E B093 9F3D</code>.</p>
+
+<p>Optionally, if you trust that the key is actually associated to me, you can sign it. This let&#39;s other people know that you trust me, which helps build a so called &quot;chain of trust&quot;. A key which has been signed by many people is generally more trustworthy than one that has no signatures.</p>
+
+<p><code>
+gpg --sign-key garrit@slashdev.space
+</code></p>
+
+<p>Now, let&#39;s encrypt a message that only I will be able to read:</p>
+
+<p><code>
+printf &quot;If you can read this, you&#39;ve successfully decrypted this message&quot; | gpg --encrypt --sign --armor -r garrit@slashdev.space
+</code></p>
+
+<p>Feel free to send this message to my email-address, I&#39;m happy to chat with you!</p>
+
+<p>Decrypting something is as easy as encrypting something. Say the encrypted message lives in <code>message.txt.asc</code>. If you are the recipient, all you have to do is to run <code>gpg --decrypt message.txt.asc</code>.</p>
+
+<h2>SSH</h2>
+
+<p>Your PGP key can also be used as an SSH key to authenticate on your servers.</p>
+
+<p>First we need to add the following to <code>~/.gnupg/gpg-agent.conf</code> to enable SSH support in gpg-agent.</p>
+
+<p><code>
+enable-ssh-support
+</code></p>
+
+<p>Next, we&#39;ll need to tell gpg which key to use. We need to get the so called <code>keygrip</code> of your authentication key and add it to the <code>~/.gnupg/sshcontrol</code>. The keygrip can be obtained by running <code>gpg -K --with-keygrip</code>. Just copy the keygrip of the authentication key and paste it into the <code>~/.gnupg/sshcontrol</code> file.</p>
+
+<p>Then, we want the ssh agent to know where to look for the key. Put this in your <code>.bashrc</code> file (or corresponding config):</p>
+
+<p><code>
+export GPG_TTY=$(tty)
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+</code></p>
+
+<p>Then, run <code>ssh-add -l</code> to load the key directly. </p>
+
+<p>To get the public ssh key of your keypair, run this command:</p>
+
+<p><code>
+gpg --export-ssh-key foo@bar.com
+</code></p>
+
+<p>and add the output to the <code>~/.ssh/authorized_keys</code> file on your server. When signing in, you should be prompted to enter the passphrase of your key and then authenticated.</p>
+
+<h2>Closing thoughts</h2>
+
+<p>I hope by now you see the benefits you gain from having a PGP keypair. Whether you find it useful enough to set one up is of course up to you. It is however a good practice to at least sign your git commits as a proof of identity. There are services like <a href="https://keyoxide.org">Keyoxide</a> that let you keep a &quot;public record&quot; of your key, so that other people can verify your identity more easily. If you set up your key, let me know by sending an encrypted message!</p>
+
+<p>This is post 016 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Git's built-in lifesaver</title>
+            <link>
+              https://garrit.xyz/posts/2021-03-13-git-builtin-lifesaver
+            </link>
+    
+            <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>Everyone was in this situation at some point. You wasted a days worth of work by accidentally deleting a branch. But, all hope is not lost! Git never forgets. </p>
+
+<p>Every action, be it committing changes, deleting or switching branches, is noted down by Git. To see your latest actions, you can simply run <code>git reflog</code> (It&#39;s pronounced <code>ref-log</code> but <code>re-flog</code> sounds just as reasonable):</p>
+
+<p><code>
+5704fba HEAD@{45}: commit: docs: update changelog
+b471457 HEAD@{46}: commit: chore: refactor binop checks in parse_expression
+5f5c5d4 HEAD@{47}: commit: fix: struct imports
+76db271 HEAD@{48}: commit: chore: fix clippy warning
+ac3e11c HEAD@{49}: commit: fix: circular imports
+0cbdc88 HEAD@{50}: am: lexer: handle &#39; or &quot; within the string properly
+27699f9 HEAD@{51}: commit: docs: spec: add notation
+</code></p>
+
+<p>Commits in Git are just data that is not associated by anything. If you accidentally delete a branch, the commits will stay where they are, and you can reference them directly. To recreate your deleted branch, simply run this command:</p>
+
+<p><code>
+git checkout -b &lt;branch&gt; &lt;sha&gt;
+</code></p>
+
+<p>And that&#39;s it! Your branch is restored. Remember to commit early and often, or prepare to loose your work!</p>
+
+<p>This is post 015 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Strategies to use a terminal alongside (Neo)Vim</title>
+            <link>
+              https://garrit.xyz/posts/2021-02-24-vim-terminal-strategies
+            </link>
+    
+            <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>One thing that bothered me about vim for a long time, was the lack of a terminal
+directly in your editor. If I&#39;m not using Vim, I&#39;m most definetely using VSCode
+and its built-in Terminal. After searching the webs for possible solutions, I
+came across a couple of strategies to achive this.</p>
+
+<h2>Executing single commands</h2>
+
+<p>If you just want to issue a single command without spawning an entire shell,
+you can just use the <code>:!</code> command:</p>
+
+<p><code>
+:! printf &quot;Hello Sailor&quot;
+</code></p>
+
+<h2>Vims builtin terminal</h2>
+
+<p>I couldn&#39;t believe my eyes when I read this, but Vim ships with a builtin
+terminal! Executing <code>:term</code> will spawn it in your current buffer. How you 
+integrate it in your workflow is up to you. You could use tabs or open a 
+horizontal buffer and spawn it there. I must say that it is rather clunky to
+use, since its literally a Vim buffer that forwards stdin and stdout to the
+buffer, but it&#39;s there for you to use.</p>
+
+<h2>Vim x Tmux</h2>
+
+<p>Another great alternative is to set up Tmux with two windows, one for Vim and 
+one for your terminal, and switch between them. This works great on a minimal
+system, but on MacOS for example, it is easier to simply use cmd+1 and cmd+2 to
+switch between two tabs of the Terminal application.</p>
+
+<h2>Pausing and resuming Vim</h2>
+
+<p>This one is my personal favorite. The idea comes from
+<a href="https://stackoverflow.com/a/1258318/9046809">this</a> stackoverflow answer.</p>
+
+<p>The plan is to pause the Vim process and resume it later. To pause Vim, you 
+press <code>&lt;ctrl&gt;-z</code>. This sends the process in the background. Then, to resume the
+process, simply issue the <code>fg</code> command and Vims process resumes in the 
+foreground.</p>
+
+<h2>Conclusion</h2>
+
+<p>I&#39;m sure there are many more strategies that could be added to this list. I&#39;d be
+interested to hear how your setup works! If you liked these techniques, you 
+might be interested in 
+<a href="https://fosstodon.org/web/accounts/211905">@lopeztel</a>s 
+<a href="https://lopeztel.xyz/2021/02/21/my-neovim-cheatsheet/">cheat sheet</a> for Vim.</p>
+
+<p>This is post 014 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Writing good changelogs</title>
+            <link>
+              https://garrit.xyz/posts/2021-02-20-changelogs
+            </link>
+    
+            <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>Today, I finally added a proper changelog to <a href="https://github.com/garritfra/sabre/blob/master/CHANGELOG.md">my current project</a>. My obvious first step was to search the web for <code>changelog.md</code>, since that&#39;s the naming convention many projects are using for their changelog. I was surprised that I was immediately redirected to &quot;<a href="https://changelog.md">changelog.md</a>&quot;, since it is a valid domain name. This website is a great guide on the essense of a good changelog. This is also where I got most of my findings from. Let me walk you through some of the most important ones:</p>
+
+<h2>Changelogs are a vital part of every serious project</h2>
+
+<p>The whole point of a changelog is to keep track of how the project evolves over time. When working with multiple people, it helps getting everyone on the same page. Keeping a changelog reduces a possible monopoly of information, since all contributers know what is going on. Of course, users also benefit from your changelog. They will know what changes they can expect when they do an update.</p>
+
+<h2>Entries should have a standardized format</h2>
+
+<p>Changelogs are mainly meant to be readable by humans. Here are some important points to watch out for when writing a changelog:</p>
+
+<ul><li>Every version of your software (major, minor and patch) should have one section and one section only</li><li>Recent releases should be added at the top of the changelog (reverse chronological order)</li><li>Each version <em>should</em> display its release date in ISO format (YYYY-MM-DD) next to the version name</li></ul>
+
+<h2>What types of changes need to be included?</h2>
+
+<p>You could just go ahead and throw some changes in a big list and call it a day. To make the changelog more readable though, you should categorize every change by its type. Here&#39;s an example of a set of categories that could be included:</p>
+
+<ul><li><strong>Features</strong>: New features or additions</li><li><strong>Fixes</strong>: Bugfixes</li><li><strong>Security</strong> Important changes regarding holes in your security</li><li><strong>Documentation</strong>: Changes or additions in your documentation should go here</li></ul>
+
+<p>This is just an example that illustrates how <strong>I</strong> decided to note down my changes. <a href="https://changelog.md">changelog.md</a> suggests a slightly different convention, but how you&#39;re handling it doesn&#39;t really matter.</p>
+
+<h2>An example</h2>
+
+<p>Here&#39;s an example of how a changelog could look like. It&#39;s taken from <a href="https://github.com/garritfra/sabre">Sabre</a>, a project I&#39;m currently working on. The full changelog can be found <a href="https://github.com/garritfra/sabre/blob/master/CHANGELOG.md">here</a>.</p>
+
+<p><code></code>`md</p>
+
+<h1>Changelog</h1>
+
+<h2>v0.4.0 (2021-02-20)</h2>
+
+<p>This release introduces the concept of structs, alongside many improvements to the documentation.</p>
+
+<p><strong>Features</strong></p>
+
+<ul><li>Assignment operators (#10)</li><li>Structs (#12)</li></ul>
+
+<p><strong>Fixes</strong></p>
+
+<p>None</p>
+
+<p><strong>Documentation</strong></p>
+
+<ul><li>Fixed some typose and broken links</li><li>Document boolean values</li><li>Added this changelog!</li></ul>
+
+<h2>v0.3.0 (2021-02-12)</h2>
+
+<p>This release adds type inference to Sabre. There are also a lot of improvements in terms of documentation. The docs are now at a state that can be considered &quot;usable&quot;.</p>
+
+<p><strong>Features</strong></p>
+
+<ul><li>Type inference</li><li>The <code>any</code> type</li><li>First attempt of LLVM backend</li></ul>
+
+<p><strong>Fixes</strong></p>
+
+<ul><li>Fixed an error when printing numbers</li></ul>
+
+<p><strong>Documentation</strong></p>
+
+<ul><li>Added documentation for for loops</li><li>Added documentation for while loops</li><li>Documented LLVM backend</li><li>Documented comments</li><li>Updated contributing guidelines
+<code></code>`</li></ul>
+
+<h2>Personal recommendations</h2>
+
+<p>When releasing a new version, don&#39;t just add an entry to your changelog. You should use <strong>git tags</strong> whenever working with versions, to mark the exact commit of the released version.</p>
+
+<p>Read up on <strong>semantic versioning</strong>! This is the most common convention when it comes to versioning your software. (<a href="https://www.geeksforgeeks.org/introduction-semantic-versioning/">here</a> is a simple guide, <a href="https://semver.org/">here</a> is the official specification).</p>
+
+<p>I&#39;d also advise you to keep a log of your commits in the description of the tag. Here&#39;s a command that does all of this for you:</p>
+
+<p><code>
+git tag -a &lt;new release&gt; -m &quot;$(git shortlog &lt;last release&gt;..HEAD)&quot;
+</code></p>
+
+<p>So, if you&#39;re releasing version <code>v0.2.0</code> after <code>v0.1.5</code>, you would run this command to tag your current commit with a good commit history:</p>
+
+<p><code>
+git tag -a v0.2.0 -m &quot;$(git shortlog v0.1.5..HEAD)&quot;
+</code></p>
+
+<p>This is post 013 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Flutter Web - the Good, the Bad and the Ugly</title>
+            <link>
+              https://garrit.xyz/posts/2021-02-17-notes-on-flutter-web
+            </link>
+    
+            <pubDate>Wed, 17 Feb 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>These are some notes I took for the evaluation of Flutter web for a potential project at work. I decided to build a frontend for <a href="https://miniflux.app/">Miniflux</a>, since I figured it may enclose many pitfalls an application could potentially have. You can find the current prototype <a href="https://github.com/garritfra/FlutterFlux">here</a>.</p>
+
+<h2>The Good</h2>
+
+<ul><li><p><strong>Trivial to set up</strong>: Running a Flutter application in a browser, no matter if it is an existing app or a fresh project, can be done by simply specifying the -d chrome flag.</p></li><li><p><strong>Same behavior compared to mobile app</strong>: Since the app is quite literally a mobile application running in the browser, the page looks and feels like a mobile application. It gives the app a consistent look and feel across all devices. I can imagine this coming in handy for web applications that are primarily used on phones and tablets.</p></li><li><p><strong>Browser API integration</strong>: It seems like many of the libraries make use of Web APIs. For example: I was able to get location updates using the location package, and store data using <a href="https://pub.dev/packages/localstorage">localstorage</a>. Whether the Web target is supported, is noted as a flag in the package documentation.</p></li><li><p><strong>Alternative Backends</strong>: There are two <a href="https://flutter.dev/docs/development/tools/web-renderers">rendering backends</a>, both with its own benefits and drawbacks. The HTML renderer optimizes the page for the browser, which improves performance at the cost of consistency. The CanvasKit renderer renders WebGL using WebAssembly. This gives a consistent look and feel across all devices, at the cost of Performance and download size. If auto is specified, the renderer will be determined based on the device type. Here’s a comparison of the same app rendered with both backends:</p></li></ul>
+
+<p>|           HTML           |         CanvasKit         |
+| :----------------------: | :-----------------------: |
+| <img alt="" src="/assets/flutter_web_renderer_html.png"/> | <img alt="" src="/assets/flutter_web_renderer_canvaskit.png"/> |</p>
+
+<h2>The Bad</h2>
+
+<ul><li><p><strong>Still in Beta</strong>: Flutter web requires the developer to use the beta channel of Flutter. I didn’t encounter any issues, but it could be that some features are unstable.</p></li><li><p><strong>No native HTML (With an exception)</strong>: Flutter Web renders the application into its own container, which is not using semantic HTML. The resulting application is also not debuggable using standard web-dev tools, but flutters debugging features can be used. There is a workaround though. Using the <a href="https://pub.dev/packages/easy_web_view">easy<em>web</em>view</a> package, I was able to embed html components as flutter widgets. The embedded code is actual HTML code that the browser itself is rendering, not Flutter. This solution is cross-platform, meaning that it also works flawlessly for mobile builds of the application. This might come in handy if the project demands to embed a javascript component like a video player. This approach could technically also improve SEO, but I’m unsure how a full-blown application only using this approach would behave.</p></li></ul>
+
+<h2>The Ugly</h2>
+
+<ul><li><p><strong>Scrolling feels sluggish</strong>: The scrolling behavior is implemented by flutter itself and does not feel as smooth as the native scrolling behavior of modern browsers.</p></li><li><p><strong>SEO nearly impossible</strong>: Since the application is a SPA and it is not using semantic HTML, it’s very difficult to do any kind of SEO. Lighthouse rated the demo application with a perfect 100 for SEO, but this is probably because it is only aware of the html that surrounds the flutter container. I didn’t find a way to Inject Metatags on a per-site basis.</p></li><li><p><strong>Heavy and slow on old devices</strong>: Even a basic application like the Todo app is very heavy and slow when compared to a “regular” website.</p></li></ul>
+
+<h2>Conclusion</h2>
+
+<p>Flutter Web seems to be a viable candidate to build truly cross-platform applications. Adding Web as a target for existing Flutter mobile apps should be relatively easy. The layout will probably need to be optimized to get the full experience. Native Web APIs seem to be well supported and documented.</p>
+
+<p>The resulting web application is a PWA running inside a container. It is relatively heavy and requires much more resources to run, when compared to a “regular” web application.</p>
+
+<p>I hope you found this useful!</p>
+
+<p>This is post 012 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Thoughts after 10 Days of 100DaysToOffload</title>
+            <link>
+              https://garrit.xyz/posts/2021-02-11-10-percent-100daystooffload
+            </link>
+    
+            <pubDate>Thu, 11 Feb 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>Coming into this, I didn&#39;t know what to expect. I&#39;m not a huge writer, but so far I am pleasantly surprised about how relaxing this challenge is.</p>
+
+<p>At first glance, writing a blog post every 3-5 days seems daunting. But the more I write, the more it becomes an enjoyable habit. I&#39;m oftentimes looking forward to writing these posts. Whenever I have something on my mind, I jot it down without a plan or structure. And that&#39;s exactly the point of <a href="https://100daystooffload.com/">#100DaysToOffload</a>: <strong>Just. Write.</strong></p>
+
+<p>So far, these blog posts have helped me get a lot of my thoughts out of my head and onto paper (or on a screen). While writing, I reflect on what I think. I sometimes realize that what I thought is utter nonsense, but this in itself is an important reflection. With each post, I feel like I am getting more confident about the process.</p>
+
+<p>If you&#39;re reading this and you don&#39;t have a blog yet, I would encourage you to give this technique a try. It doesn&#39;t matter that you produce quality content, nor does anyone have to see this. It&#39;s not the content that matters, but the process of producing it. Set up your own blog on <a href="https://write.as/">write.as</a> or simply open your text editor of your choice and <strong>Just. Write.</strong></p>
+
+<p>This is post 011 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>My storage setup (Feburary 2021)</title>
+            <link>
+              https://garrit.xyz/posts/2021-02-07-storage-setup
+            </link>
+    
+            <pubDate>Sun, 07 Feb 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>I used to rely on Google Drive and Photos to store my entire data. Now, that <a href="https://blog.google/products/photos/storage-changes/">Google has decided to ditch unlimited photo storage in the near future</a> and Google basically being the devil himself, I decided to step up my game and get my hands dirty on a DIY storage solution.</p>
+
+<h2>The goal</h2>
+
+<p>Before I got started, I thought about the expectations I have towards a system like this. It boils down to these four points (in this order): I want my solution to be <strong>resiliant</strong>, <strong>scalable</strong>, <strong>easy to maintain</strong> and <strong>easy to access</strong>. Looking back, I think I met all of these requirements fairly well. Let me walk you through how I managed to do that.</p>
+
+<h2>Data resiliance</h2>
+
+<p>Keeping data on a single device is obviously a really bad idea. Drives eventually fail, which means that your data will be lost. Heck, even my house could burn down, which means that any number of local copies could burn to ashes. To prevent data loss, I strictly adhere to the <a href="https://www.backblaze.com/blog/the-3-2-1-backup-strategy/">3-2-1 backup strategy</a>. A 3-2-1 strategy means having <strong>at least three total copies of your data, two of which are local but on different mediums (read: devices), and at least one copy off-site</strong>. If a drive fails, I can replace it. If my house burns down, I get two new drives and clone my offsite backup to them.</p>
+
+<p>To get an offsite backup, I set up a spare Raspberry Pi with a single large HDD and instructed it to do daily backups of my entire data. I asked a family member if they would be willing to have a tiny computer plugged in to their router 24/7, and they kindly agreed. A Pi and a HDD are very efficient in terms of power, so there is not a lot to worry about.</p>
+
+<h2>Scalability</h2>
+
+<p>I currently don&#39;t have a huge amount of data. If that were to change (i.e. if I continue to shoot a lot of high-res photos and shove them into my setup), I need a way to simply attach more drives, or ones with more capacity. I looked at different file-systems that allowed to easy extendability while also being resiliant.</p>
+
+<p>An obvious candidate was <strong>ZFS</strong>, but there are a couple of reasons I ditched this idea. First of all, it is really hard to get up and running on Raspberry Pi running Linux, since it&#39;s not natively supported by all distributions. This increases the complexity of the setup. Another reason is that I don&#39;t like the way it scales. Please correct me if I&#39;m wrong here, since I only did limited research on this. From what I know though, ZFS can only be extended by shoving a large amount of drives in the setup to achieve perfect redundancy.</p>
+
+<p>In the end, I settled on <strong>BTRFS</strong>. For me, it scratches all the itches that ZFS has. It is baked into the linux kernel, which makes it really easy to install on most distributions, and I can scale it to any number of drives I want. If I find a spare drive somewhere with any storage capacity, I can plug it into the system and it will just work, without having to think about balancing or redundancy shenanigans.</p>
+
+<h2>Maintainability</h2>
+
+<p>I need my setup to be easy to maintain. If a drive fails, I want to be able to replace it within a matter of minutes, not hours. If my host (a Raspberry Pi) bursts into flames, I want to be able to swap in a new one and still access my data. If I&#39;m out and about and something goes south, I want to be able to fix it remotely. BTRFS helps a lot here. It&#39;s really the foundation for all the key points mentioned here. It gives me a simple interface to maintain the data on the drives, and tries to fix issues itself whenever possible.</p>
+
+<p>Exposing random ports to the general public is a huge security risk. To still be able to access the Pi remotely, I set up <strong>an encrypted WireGuard tunnel</strong>. This way, I only have to expose a single port for WireGuard to talk to the device as if I&#39;m sitting next to it.</p>
+
+<h2>Accessibility</h2>
+
+<p>Since the data needs to be accessed frequently, I need a simple interface for it that can be used on any device. I decided to host a <strong>Nextcloud</strong> instance and mount the drive as external storage. Why external storage? Because Nextcloud does some weird thing with the data it stores. If I decide to ditch Nextcloud at some point, I have the data on the disks &quot;as is&quot;, without some sort of abstraction on top of it. This also has the benefit of allowing access from multiple sources. I don&#39;t have to use Nextcloud, but instead can mount the volume as a FTP, SMB or NFS share and do whatever I want with it. From the nextcloud perspective, this has some drawbacks like inefficient caching or file detection, but I&#39;m willing to make that tradeoff.</p>
+
+<h2>In a nutshell</h2>
+
+<p>This entire setup cost me about 150€ in total. Some components were scraped from old PC parts. So, what does the solution look like? Here is the gist:</p>
+
+<ul><li>A Raspberry Pi 4 as a main host and an older Raspberry Pi 3 for offsite backup, both running Raspberry Pi OS</li><li>Two external harddrives in a RAID 1 (mirrored) configuration, running on an external USB3 hub</li><li>A single internal HDD that served no purpose in my old PC, now serving as backup storage</li><li>All drives are using BTRFS</li><li>WireGuard tunnels between main and remote host, as well as most access devices</li><li>Nextcloud on main host, accessible over TLS (if I need to access data from outside the secure tunnel-network)</li><li>SMB share accessible from within the tunnel-network</li><li>Circa 4.5 terabyte total disk size; 1.5 terabyte of usable storage</li><li>Snapper for local incremental backups on main host; BTRBK for remote incremental backups</li><li>Cron jobs for regular backups and repairs (scrub/rebalance)</li></ul>
+
+<p>This is post 010 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Notes about BEM (Block Element Modifier)</title>
+            <link>
+              https://garrit.xyz/posts/2021-02-02-bem-methodology
+            </link>
+    
+            <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>In the coming weeks, months and years, I will be working on frontend-development as part of my dayjob. These are some personal notes I took during my research about the BEM methodology. If you want to read the official introduction, you should visit <a href="http://getbem.com/">their website</a>.</p>
+
+<h1>Overview - What is BEM?</h1>
+
+<p>BEM — Block Element Modifier is a methodology that helps you to create reusable components and code sharing in front-end development. It aims to group css-classes in a meaningful way, making it easier to understand</p>
+
+<ol><li>where this class is used</li><li>what it describes and</li><li>what state the element is in.</li></ol>
+
+<p>The BEM-notation is divided into three main parts: Blocks, Elements and Modifiers.</p>
+
+<h2>Blocks</h2>
+
+<p>A standalone entity that is meaningful on its own. Some examples might be <strong>headers, containers, menus, inputs, checkboxes</strong>, etc.</p>
+
+<h2>Elements</h2>
+
+<p>A part of a block that has no standalone meaning and is semantically tied to its block. This could be a <strong>menu item or an input placeholder</strong>.</p>
+
+<h2>Modifiers</h2>
+
+<p>A flag on a block or an element. Used to change appearance or behavior. This might be <strong>disabled, checked, fixed, big</strong>, etc.</p>
+
+<h1>Putting it together</h1>
+
+<p>A block itself is referenced though its name.</p>
+
+<p><code>css
+.button {
+}
+</code></p>
+
+<p>To reference elements inside of the block, you add it to the block element with two underscores (<code>__</code>):</p>
+
+<p><code>css
+.button {
+}
+.button__text {
+}
+</code></p>
+
+<p>If you want to add a modifier to a block or an element, you separate it with two dashes (<code>--</code>):</p>
+
+<p><code>css
+.button {
+}
+.button--disabled {
+}
+.button__text--inverted {
+}
+</code></p>
+
+<h1>Benefits of BEM</h1>
+
+<p><strong>Modularity</strong>: Block styles never depend on one another. They can easily be moved to other parts of the app.</p>
+
+<p><strong>Reusability</strong>: Composing styles in a meaningful way reduces the amount of code duplication.</p>
+
+<p><strong>Structure</strong>: BEM gives your code a solid structure that is both easy to understand and to expand.</p>
+
+<h1>References</h1>
+
+<ul><li>http://getbem.com/</li><li>https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/</li></ul>
+
+<p>This is post 009 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>From sudo to doas</title>
+            <link>
+              https://garrit.xyz/posts/2021-01-29-sudo-to-doas
+            </link>
+    
+            <pubDate>Fri, 29 Jan 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>You might have heard that there is currently <a href="https://www.qualys.com/2021/01/26/cve-2021-3156/baron-samedit-heap-based-overflow-sudo.txt">a pretty significant vulnerability</a> affecting <code>sudo</code>, the program we all know and love. It is the de facto standard for when you want to run a command as a priviledged user, but that&#39;s really it. Under the hood, sudo is a very powerful tool with a lot of features. It can be used to build out complex permission-systems that span across entire clusters of servers. But all of these features come at a price: <strong>complexity</strong>. Last time I checked, the <a href="https://www.sudo.ws/repos/sudo">source code</a> of sudo had about 330k lines of code (using cloc as a benchmark). This massive complexity plays a large role in its security.</p>
+
+<p>Luckily, there is a <strong>far</strong> more lightweight alternative to sudo called <a href="https://github.com/Duncaen/OpenDoas.git">doas</a>. It essentially does all the things you&#39;d expect from sudo for your average end user. Doas is written in just over 3k lines of code, which, if you think of it, should be more than enough to provide a tool that executes a command as a priviledged user.</p>
+
+<h2>Setup</h2>
+
+<p>While there are packages for <a href="https://github.com/slicer69/doas#installation-via-packagesrepositories">some distibutions</a>, I personally had trouble setting it up on arch using yay (for permission reasons, ironically). I recommend going the extra mile and building it from source, which consists of a few commands and some seconds of your time:</p>
+
+<p><code>sh
+git clone https://github.com/slicer69/doas
+cd doas
+make
+sudo make install
+</code></p>
+
+<p>Next, you will need to create a config file at <code>/usr/local/etc/doas.conf</code>. Paste the following line into it to give your user root access:</p>
+
+<p><code>sh
+permit alice as root
+</code></p>
+
+<p>You obviously want to substitute alice with your username. If you have multiple users on your system, simply duplicate that line and substitute the username accordingly. Just restart your terminal window, and you should be able to run programs as root using doas instead of sudo:</p>
+
+<p><code>sh
+➜  ~ doas id
+uid=0(root) gid=0(root) groups=0(root)
+</code></p>
+
+<h2>Bonus: Save your muscle memory</h2>
+
+<p>If you still want to &quot;use&quot; sudo on your machine, you can set up a simple alias in your <code>.{bash|zsh|fish}rc</code>. This will also help with compatibility issues of some scripts, if you decide to ditch the actual sudo from your Box entirely. Just paste this line into your corresponding rc file:</p>
+
+<p><code>
+alias sudo=&quot;doas&quot;
+</code></p>
+
+<h2>Bonus Bonus: Passwordless authentification</h2>
+
+<p>You can setup doas to skip the password prompt every time you run a command with it. Simply add the <code>nopass</code> option in your doas configuration file:</p>
+
+<p><code>sh
+permit nopass alice as root
+</code></p>
+
+<p>I hope you found this useful!</p>
+
+<p>This is post 008 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Using Macros in Vim</title>
+            <link>
+              https://garrit.xyz/posts/2021-01-26-vim-macros
+            </link>
+    
+            <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>For a long time, macros in Vim were a huge mystery for me. I knew they existed, but I didn&#39;t know how or why you&#39;d use them. A recent task of mine involved replacing the unsafe operator (<code>!!</code>) in a large kotlin codebase with a null-safe operator (<code>?</code>). This game me a good opportunity to learn about macros. This is a snippet I encountered numerous times:</p>
+
+<p><code>kt
+mLeftButton!!.text = &quot;Left&quot;
+mLeftButton!!.setOnClickListener(leftListener)
+mLeftButton!!.visibility = View.VISIBLE
+mRightButton!!.text = &quot;Right&quot;
+mRightButton!!.setOnClickListener(rightListener)
+mRightButton!!.visibility = View.VISIBLE
+</code></p>
+
+<p>You could go ahead and change each line individually, or use the IDEs built in &quot;multi-cursor&quot; tool to save you some work. But, let me show you how I automated this using a Vim-Plugin for Android Studio. Not that the plugin matter, it will work in every Vim-like editor.</p>
+
+<p>A macro in Vim works like this:</p>
+
+<ol><li>Record any sequence of keystrokes and assign them to a key</li><li>Execute that sequence as often as you wish</li></ol>
+
+<p>So let&#39;s see how we&#39;d do that.</p>
+
+<h2>Recording a macro</h2>
+
+<p>To record a macro in Vim, you press <code>q</code> (In normal mode) followed by a key you want to assign the macro to. So, if you wanted to record a macro and save it to the <code>q</code> key, you&#39;d press <code>qq</code>. Vim will notify you that a macro is being recorded. Now, you can press the keystrokes that define your actions. When you&#39;re done, press <code>q</code> in normal mode again to quit your macro.</p>
+
+<p>Coming back to my task, I would want to do the following:</p>
+
+<ol><li><code>qq</code> Record a macro and save it to the <code>q</code> key</li><li><code>_</code> - Jump to the beginning of the line</li><li><code>f!</code> - Find next occurrence of <code>!</code></li><li><code>cw</code> - Change word (Delete word and enter insert mode)</li><li><code>?.</code> - Insert the new characters</li><li><code>&lt;esc&gt;</code> - Enter normal mode</li><li><code>j</code> - go down a line</li><li><code>q</code> - Finish macro</li></ol>
+
+<p>If everything went right, this line:</p>
+
+<p><code>
+mLeftButton!!.text = &quot;Left&quot;
+</code></p>
+
+<p>Should now look like this:</p>
+
+<p><code>
+mLeftButton?.text = &quot;Left&quot;
+</code></p>
+
+<p>and your macro should be saved under the <code>q</code> key.</p>
+
+<h2>Using the macro</h2>
+
+<p>In order to use a macro in vim, you press the <code>@</code> key, followed by the key the macro is saved under. Since our macro is defined as <code>q</code>, we&#39;d press <code>@q</code>, and the macro is executed immediately.</p>
+
+<p>Let&#39;s take this further. You might have noticed that I went down a line before closing the macro. This becomes handy when you want to execute it many times. In our case we have 6 lines we want to refactor. 1 line has already been altered, so we have to execute it 5 more times. As per usual with vim, you can execute an action n times by specifying a number before doing the action. Let&#39;s press <code>5@q</code> to execute the macro 5 times. And voila! Our unsafe code is now null-safe.</p>
+
+<p><code>kt
+mLeftButton?.text = &quot;Left&quot;
+mLeftButton?.setOnClickListener(leftListener)
+mLeftButton?.visibility = View.VISIBLE
+mRightButton?.text = &quot;Right&quot;
+mRightButton?.setOnClickListener(rightListener)
+mRightButton?.visibility = View.VISIBLE
+</code></p>
+
+<p>Macros are really satisfying to watch, if you ask me!</p>
+
+<p>This is post 007 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Signal-to-Noise, or why nobody cares about your GitHub project</title>
+            <link>
+              https://garrit.xyz/posts/2021-01-23-signal-to-noise
+            </link>
+    
+            <pubDate>Sat, 23 Jan 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>For a very long time, the thought of leaving GitHub and moving to another platform daunted me. Having more users on one platforms means that more people will contribute to my project, right? Wrong.</p>
+
+<p>The problem with GitHub is that there&#39;s a lot of things going on around you. How many times have you discovered a cool project on GitHub, starred it and never heard from it again? In essence, this is the same phenomenon as with modern social media. A bombardment of positive stimulants makes the user crave for more, letting them forget about previously consumed content. Sure, if you just want to get your code out there, GitHub might be a great place, but if you are just starting out as a developer and you&#39;re looking for contributers and feedback, you will probably be very bummed to find out that nobody cares about your work. Many developers are using the platform because other developers are using it. Your project on GitHub is a drop in an ocean of other projects.</p>
+
+<p>A few months ago, I decided to make the leap and switch most of my development over to <a href="https://sourcehut.org/">Sourcehut</a>, a free and open source code-hosting platform. Besides its great tooling (mailing lists, automated builds, etc.), it has the benefit of a high <strong>signal-to-noise ratio</strong>. Less developers are using the platform, but most of them are very passionate about their work. They care about collaborating with others and they believe in what they are doing, which probably lead them to sign up for this platform in the first place.</p>
+
+<p>Of course, switching away from a platform like GitHub alone does not ensure more contributions. You might be trying to advertise your projects by spamming links on popular newsboards and forums, but this only generates <strong>noise</strong>. Instead, you should intentionally talk about your personal journey with the project in a smaller circle. If other developers in your niche see that you continuously give updates about the project and its improvements, they will eventually start to relate to it. Some of them will look at your project and give feedback, or even contribute patches.</p>
+
+<p>This is post 006 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>6 reasons the Fediverse is better than regular social media</title>
+            <link>
+              https://garrit.xyz/posts/2021-01-18-reasons-the-fediverse-is-better
+            </link>
+    
+            <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>Social media sucks. Platforms like Twitter, Facebook and Instagram are designed to turn your precious free time into money. What we see as a nice way to stay in touch with our friends, in reality are just many hits of dopamine stimulating precise spots in your brain, leading to you spending more time on the platform consuming ads.</p>
+
+<p>But what if I told you that there is a huge ad-free social network out there, not governed by a central authority, full of great people and completely free to use? This place is called the fediverse. Well, it&#39;s not really <strong>a</strong> place, it&#39;s many places.</p>
+
+<h2>What is the fediverse?</h2>
+
+<p>At its core, the fediverse is a mesh of interconnected nodes on the internet, all communicating in the same language. Every instance on the fediverse implements the <a href="https://activitypub.rocks/">ActivityPub</a> protocol, which allows it to talk to other instances on the network. The phrase &quot;Fedi&quot; comes from &quot;federated&quot;, meaning that content on the network is shared and accessible by anyone.</p>
+
+<p>There are many different software projects for the fediverse out there. If you like the concept of Twitter, you could take a look at <a href="https://joinmastodon.org/">Mastodon</a>, a microblogging-platform for the fediverse. There&#39;s also <a href="https://joinpeertube.org/">PeerTube</a>, a federated clone of YouTube (PeerTube recently <a href="https://framablog.org/2021/01/07/peertube-v3-its-a-live-a-liiiiive/">released support for peer2peer live streaming support</a>, like what?! 🤯). You like instagram? <a href="https://pixelfed.org/">Pixelfed</a> got you covered. Of course, there are many other services worth mentioning, so feel free to dig around a bit! As mentioned, the great thing about the fediverse is that all of these services are connected with each other. If I signed up for an account on a mastodon instance, I can subscribe to your posts on Pixelfed, and vice versa. If I want to get notified about your videos on PeerTube, I can just go ahead and follow your account and comment on your videos.</p>
+
+<blockquote><p>&quot;This all sounds great, but why should I bother?&quot;</p></blockquote>
+
+<p>Let me give you 6 reasons why the fediverse is far superior to all other social media platforms out there, and why you should consider signing up for an account on one of the many instances of the fediverse.</p>
+
+<h2>Reason 1: It&#39;s decentralized</h2>
+
+<p>Regular social media platforms like Facebook have a <strong>single point of failure</strong>. If their servers go down, your content goes down with it. Content on the fediverse on the other hand is scattered around many instances, which means it is very resilient. If your instance dies, you can move to a new instance. This goes hand in hand with the next reason.</p>
+
+<h2>Reason 2: It can&#39;t be censored</h2>
+
+<p>You probably heard that the Twitter-account of Donald Trump recently got compromised by the owners of the platform. I don&#39;t want to engage in any political discussions, but the main flaw with this is the violation of <strong>freedom of speech</strong>. Even if everything someone says is controversial nonsense, it is still in his good right to express his thoughts.</p>
+
+<p>On the fediverse, a scenario like this would certainly not happen, given its decentralized nature. Some instances still moderate their content, meaning that if someone posts inappropriate content, it might get blocked. The twist here is, if that person disagrees with the rules of the instance, he is free to join another instance.</p>
+
+<h2>Reason 3: Free as in freedom</h2>
+
+<p>There&#39;s this saying, criticizing modern software projects:</p>
+
+<blockquote><p>&quot;If it&#39;s free, you&#39;re the product&quot;</p></blockquote>
+
+<p>This is not true in all cases. &quot;Free&quot; can be understood in two ways.</p>
+
+<p><strong>&quot;Free as in beer&quot;</strong> means that something might seem free at first glance (E.g. Free beer at Oktoberfest), but in the end you often leave with less than you came with. In the case of beer, you often buy another beer after the first free one. Therefore, even though you think you&#39;ve saved the money for one beer, in reality bought an extra beer. In the case of proprietary software, it&#39;s a similar story. While you think that a service is free, you give up your privacy and get monetized with ads.</p>
+
+<p><strong>&quot;Free as in freedom&quot;</strong> on the other hand means that you won&#39;t get &quot;screwed over&quot; like this. Most, if not all of the software for the fediverse is <strong>free and open source software</strong> (FOSS). If you don&#39;t like how a certain feature works, <strong>you are completely free to change it</strong>. You can look at the source code and propose changes to the main project, or launch your own spin of that product.</p>
+
+<p>Since everyone can openly look at the source code, it is <strong>audited</strong> by many people, including security experts. This vastly improves the security and stability of the product. If the developers would do shady things, they will most certainly get called out by people, as soon as that code enters the main repositories. Proprietary (closed sourced) platforms like Facebook and Twitter can not be audited. The owners can do whatever they want, including spying on their users, or collect and sell the data of their users.</p>
+
+<h2>Reason 4: It respects your privacy</h2>
+
+<p>Since the software on the fediverse is audited by a lot of people, you can be almost 100% certain that joining an instance will not collect any of your personal data. If you are still concerned about your privacy though, you can still be part of the network by launching your own instance, with your own rules. There are tutorials out there, explaining how you can set up a small instance for a very cheap price on your local network.</p>
+
+<h2>Reason 5: It&#39;s all about the community</h2>
+
+<p>I used to spend a lot of time on &quot;regular&quot; social media platforms. From personal experiences, these platforms are all about promoting yourself and building up your follower count. Connecting with your friends is of little importance. In the eye of some people, you are not worthy to talk to if the amount of followers or likes-per-post didn&#39;t exceed a certain threshold.</p>
+
+<p>It has now been about 5 months since I created <a href="https://fosstodon.org/@garritfra">my mastodon account</a>. Talking to people on the fediverse is a completely different experience compared to Facebook or Twitter. Almost everyone I talked to is a polite, grounded person, willing to engage in constructive and fun discussions. I met many people who disagree with my views, but instead of leaving a comment saying that this post sucks, all of them took the time to express their alternative opinions. Every member of the fediverse wants to drive the network forward, which is reflected in their posts.</p>
+
+<h2>Reason 6: There&#39;s an instance for everyone</h2>
+
+<p>Whether you&#39;re into Gaming, Painting, or Spanish dancing music, there is an instance for you. If it isn&#39;t, you are free to create one and promote it to people of that niche. You won&#39;t loose the social aspect by launching your own instance, since you are still available to other people on the network. If you just want to get started with the fediverse, I recommend that you check out one of the many <a href="https://instances.social/">lists of mastodon instances</a>. If you like instagram and want to stay in a familiar environment, take a look at <a href="https://pixelfed.org/">Pixelfed</a>, and join an instance from the list they provide.</p>
+
+<p>I myself am a person who cares a lot about free and open source software, therefore my choice of instance was <a href="https://fosstodon.org/">fosstodon.org</a>, a mastodon instance geared towards awesome like-minded people.</p>
+
+<p><strong>Note</strong>: This post has generated some interesting discussions on <a href="https://news.ycombinator.com/item?id=25820646">Hacker News</a>.</p>
+
+<p>This is post 005 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Compiling your own kernel</title>
+            <link>
+              https://garrit.xyz/posts/2021-01-15-compiling-your-own-kernel
+            </link>
+    
+            <pubDate>Fri, 15 Jan 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>I&#39;m currently in the midst of fiddling around with the kernel a bit, and I figured I just documented my process a bit. Unfortunately, since I&#39;m using a Mac for day to day work, I have to rely on a virtual machine to run anything Linux-related. VirtualBox doesn&#39;t support the most recent kernels (5.9 is the most recent supported one), so there won&#39;t be any cutting-edge development happening here. I decided to use ubuntu as my guest system, since it&#39;s very easy to set up.</p>
+
+<p>So, the first step is to get the sources. You could simply go ahead and download a specific release from <a href="https://kernel.org/">kernel.org</a>, but since I want to hack on it, I decided to go the git-route. Simply download the sources from <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/">their repo</a> and check out the tag you want to build.</p>
+
+<blockquote><p><strong>Note</strong>: this might take a while. Their repository is huge! If you want to only need the <code>HEAD</code> and want to build on bare-metal (no VirtualBox), you could only clone the latest commit using <code>git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git --depth=1</code>.</p></blockquote>
+
+<p>Next up, you need to generate a <code>.config</code>. This file describes which features you want to compile into your kernel. To make a generic config that only compiles drivers for the hardware of your system, you can run the following commands:</p>
+
+<p><code></code>`bash</p>
+
+<h1>Copy the config of your current kernel into the repo</h1>
+
+<p>make oldconfig</p>
+
+<h1>Only enable modules that are currently used by the system</h1>
+
+<p>make localmodconfig
+<code></code>`</p>
+
+<p>Now, let&#39;s get to actually compiling the kernel. In my case, I assigned 4 cores to my VM. The <code>-j</code> option tells make to run 4 jobs in parallel.</p>
+
+<blockquote><p><strong>Caution</strong>: Just providing -j will freeze your system, since make will try to launch an infinite amount of processes!</p></blockquote>
+
+<p><code>
+make -j4
+</code></p>
+
+<p>Again, this might take some time. Go for a walk, get a coffee or watch your favorite TV-show. After compilation has finished, we need to install the kernel. To do so, run the following commands:</p>
+
+<p><code>
+sudo make modules_install
+sudo make install
+</code></p>
+
+<p>In order to boot, we need to tell our bootloader about our new kernel. Run this command to update your grub config:</p>
+
+<p><code>
+sudo update-grub2
+</code></p>
+
+<p>And voila! Your new kernel should be ready.</p>
+
+<p>Reboot the system, and grub should pick up the new kernel and boot to it. If that&#39;s not the case, you should be able to pick the kernel from the grub menu under <code>advanced options</code>.</p>
+
+<h2>Retrospective</h2>
+
+<p>I found that building my own kernel is a highly educational and fun experience. Using VirtualBox is a pain in the <code>/dev/null</code> to work with, since it has to add a lot of overhead to the system in order to work. You sometimes have to wait over 6 month until the support for a new kernel arrives. This problem should not apply if you compile on bare metal systems.</p>
+
+<p>Thanks for your time!</p>
+
+<p>This is post 004 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>I joined the 512KB club</title>
+            <link>
+              https://garrit.xyz/posts/2021-01-13-512kb-club
+            </link>
+    
+            <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>JavaScript rules the web, literally. In fact, this website is built with JavaScript (Next.js). I recently started to think about if I really needed this much overhead for a simple site like this. After all, I don&#39;t have any fancy user interaction features or complex animation that would justify the JavaScript on this page.</p>
+
+<p>There is a new (no, not that new) philosophy called <a href="https://leanweb.dev/">the lean web</a>. It essentially tries to keep websites tiny and semantically correct. This has many benefits, ranging from less pollution generated by your site to improved SEO, since many search engines favor a semantically correct website over a site that abuses JavaScript to mimic the features, that are baked into html anyway.</p>
+
+<p>In order to get lean, I decided to join <a href="https://512kb.club/">the 512KB club</a>. This website lists sites that are below 512KB in total (uncompressed, with all dependencies). To get below that mark, I had to remove my face from the frontpage (I&#39;m sure you&#39;ll miss it😅), since the image itself was roughly 750KB. I&#39;m now just below 500KB, which qualifies me to join the blue team.</p>
+
+<p><a href="https://512kb.club"><img alt="Blue Team" src="https://512kb.club/images/blue-team.svg"/></a></p>
+
+<p>I&#39;m not planning to stop here though. I think keeping a website small and simple is an excellent practice. My next step will be to get rid of all the JS junk on this site and only rely on HTML and CSS. I still want to be able to write my posts in Markdown, so I will have to come up with a way to generate pages from them. A safe bet for this would be to use a SSG like <a href="https://gohugo.io/">Hugo</a>. Frankly, <a href="https://erikwinter.nl/articles/2020/why-i-built-my-own-shitty-static-site-generator/">writing my own simple SSG probably wouldn&#39;t hurt either</a>. Let&#39;s see how high I can climb the ranks of the 512KB club. Care to join me?</p>
+
+<p>This is post 003 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Are humans still evolving?</title>
+            <link>
+              https://garrit.xyz/posts/2021-01-11-are-humans-still-evolving
+            </link>
+    
+            <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>This is by no means a scientifically accurate article. These are my thoughts, and I&#39;d be happy to discuss this topic. Take it with a grain of salt.</p>
+
+<p>Evolution builds upon natural selection. With every generation of a species, there is a slight chance of mutation, possibly giving an individual advantages or disadvantages in the ability to survive and give offspring. Somewhere way up in our evolutionary tree, a microbe might have mutated a gene that allowed it expand and retract a part of its body. As it turns out, this proves useful in fleeing from predators, while other individuals of this species might fall prey on their first day. The microbe has a slightly larger chance to survive and give offspring. On the other hand, mutations might also result in a fatal illness (cancer, in other words). Oftentimes, this individual does not survive long enough to give offspring.</p>
+
+<p>150 years ago, giving birth was literally an act of life and death. Many children died at a young age. They were not tough enough from an evolutionary standpoint, and were therefore &quot;filtered&quot; out by natural selection. Only the strongest survived and gave offspring.</p>
+
+<p>Todays medicine is (fortunately!) very powerful. Very few children die at birth and a lot less people are dying from an illness like the flu. This is an evolutionary anomaly. Natural selection has been defeated to a certain degree. We don&#39;t need to run from predators anymore and are less prone to desease. Every one of us is more or less equally able to give offspring. We can&#39;t really gain an advantage over others anymore. We are not evolving.</p>
+
+<p>This is post 002 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>100DaysToOffload</title>
+            <link>
+              https://garrit.xyz/posts/2021-01-11-100daystooffload
+            </link>
+    
+            <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>For some time now, I&#39;ve seen this #100DaysToOffload hashtag on my social medias. I knew that it was some kind of writing challenge, but I never thought about taking part in it. Since I recently started to blog more frequently though, I think this challenge could be very beneficial to my writing skills, and just jotting my thoughts down in general. So, starting with this entry, I will try to publish 100 (hopefully) useful posts on this blog within one year. My &quot;deadline&quot; for this will be January 11, 2022. I will post every entry to <a href="https://fosstodon.org/@garritfra">my mastodon account</a>.</p>
+
+<p>This is post 001 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>I closed my Facebook account, and you should too</title>
+            <link>
+              https://garrit.xyz/posts/2021-01-07-delete-facebook
+            </link>
+    
+            <pubDate>Thu, 07 Jan 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>I know I should have done this a while ago, but with ever-increasing scandals about data privacy surrounding Facebook, I finally decided to get rid of it.</p>
+
+<p>I haven&#39;t used the service in a long time anyway, but I always told myself &quot;what if I needed the data later?&quot;, or &quot;what if a friend contacted me, and I didn&#39;t respond?&quot;, &quot;what if I missed the birthday of someone I&#39;m close with?!&quot;. Well, according to my facebook inbox, the only messages I received lately were some random links from people I&#39;m not really in touch with anymore. Birthdays? Do you think someone you haven&#39;t talked to in over three years will get mad at you, for forgetting their birthday? And regarding your data: you won&#39;t loose it! <a href="https://www.facebook.com/help/212802592074644">This guide</a> describes how you can download a copy of your data as html and/or json.</p>
+
+<p>Go ahead and ask yourself: Is there anything holding you back from deleting your Facebook account? What would you loose? How often do you even use the service? Do the social benefits of Facebook <strong>really</strong> outweigh the negative aspects (privacy concerns, data collection, etc.)?</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Updates, December 2020</title>
+            <link>
+              https://garrit.xyz/posts/2020-12-18-update-december
+            </link>
+    
+            <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>It&#39;s christmas season! I hope you and your family are safe and sound. My main focus this month is to expand my knowledge about compilers, by <a href="https://sr.ht/~garritfra/sabre/">building one from scratch</a>. It&#39;s a compiler for a very simple language, but it gets the job done. So far, you can write <a href="https://git.sr.ht/~garritfra/sabre/tree/master/examples">simple algorithms</a>, and compile them to JavaScript. A more sophisticated C backend is in development, but I still need a plan for expanding the target-specific builtin functions to provide more features in the standard library. An important topic at the moment is the <a href="https://garritfra.github.io/sabre/">documentation of the project</a>. Since the compiler itself has gotten relatively stable, all the language-features now need to be captured and written down. There is also a <a href="https://garritfra.github.io/sabre/developers/contributing.html">contributing guide</a>, if you want to help out, or want to get into compiler design.</p>
+
+<p>Stay home and stay safe!</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Booleans are wasted memory</title>
+            <link>
+              https://garrit.xyz/posts/2020-11-17-booleans-are-wasted-memory
+            </link>
+    
+            <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>A boolean is either <code>true</code> or <code>false</code>. That translates to <code>1</code> or <code>0</code>. If you think that one bit is enough to store this information, you&#39;d be wrong.</p>
+
+<p>In order to keep the binary layout of a program simple and convenient, most languages store information in 8 bit (1 byte) blocks.
+If you allocate a <code>bool</code> in Rust or (most) other languages that are based on LLVM, <a href="https://llvm.org/docs/LangRef.html#simple-constants">it will take up 1 <code>i1</code>, or 1 byte of memory</a>. If you allocate a boolean value in C, you will get <a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/stdbool.h.html">an integer constant with a value of either 1 or 0</a>.</p>
+
+<p>If you find yourself having to store multiple boolean states somewhere, you might simply declare those booleans and call it a day:</p>
+
+<p><code></code>`c</p>
+
+<h1>include &lt;stdbool.h&gt;</h1>
+
+<h1>include &lt;stdio.h&gt;</h1>
+
+<p>int main()
+{
+    bool can<em>read = true;
+    bool can</em>write = true;
+    bool can_execute = false;</p>
+
+<pre><code>if (can_read)
+    printf(&quot;read bit set\n&quot;);
+if (can_write)
+    printf(&quot;write bit set\n&quot;);
+if (can_execute)
+    printf(&quot;execute bit set\n&quot;);
+
+// Output:
+// read bit set
+// write bit set</code></pre>
+
+<p>}
+<code></code>`</p>
+
+<h2>We can do better than this</h2>
+
+<p>An alternative approach to store boolean values is to share a &quot;chunk&quot; of bits with other values. This is usually done using bitwise operations:</p>
+
+<p><code></code>`c</p>
+
+<h1>include &lt;stdbool.h&gt;</h1>
+
+<h1>include &lt;stdio.h&gt;</h1>
+
+<p>// Define permissions</p>
+
+<h1>define PERM_NONE       0b000</h1>
+
+<h1>define PERM_READ       0b001</h1>
+
+<h1>define PERM_WRITE      0b010</h1>
+
+<h1>define PERM_EXECUTE    0b100</h1>
+
+<h1>define PERM<em>ALL        PERM</em>READ | PERM<em>WRITE | PERM</em>EXECUTE</h1>
+
+<p>int main()
+{
+    // Allocate 1 byte for permissions
+    char permissions = PERM<em>READ | PERM</em>WRITE;</p>
+
+<pre><code>if (permissions &amp; PERM_READ)
+    printf(&quot;write bit set\n&quot;);
+if (permissions &amp; PERM_WRITE)
+    printf(&quot;read bit set\n&quot;);
+if (permissions &amp; PERM_EXECUTE)
+    printf(&quot;execute bit set\n&quot;);
+
+// Output:
+// read bit set
+// write bit set</code></pre>
+
+<p>}
+<code></code>`</p>
+
+<p>This example still wastes 5 bits since we only use 3 out of 8 possible bits of the char type, but I&#39;m sure you get the point. Allocating 3 boolean values independently would waste 7 * 3 = 21 bits, so it&#39;s a massive improvement. Whenever you find yourself needing multiple boolean values, think twice if you can use this pattern.</p>
+
+<p>Microcontrollers have a very constrainted environment, therefore bitwise operations are essential in those scenarios. 7 wasted bits are a lot if there are only 4 kb of total memory available. For larger systems we often forget about these constraints, until they add up.</p>
+
+<h2>My Plea</h2>
+
+<ul><li>Be mindful about the software you create.</li><li>Appreciate the resources at your disposal.</li></ul>]]>
+            </description>
+        </item>
+          <item>
+            <title>Updates, November 2020</title>
+            <link>
+              https://garrit.xyz/posts/2020-11-06-current-doings
+            </link>
+    
+            <pubDate>Fri, 06 Nov 2020 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>Hi, I wanted to share some things I&#39;m currently working on. Maybe I&#39;ll turn this into a monthly thing, who knows. :)</p>
+
+<p>One major goal I set for myself in the upcoming months is to build a SaaS for freelancers. Some features of this will include handling clients, projects and expenses. A thing I&#39;m struggeling with right now it to find a lightweight way to host it. It is currently deployable through docker containers, but I am not 100% satisfied with my current setup. I will give some updates on this in the future. I aim to release a very early alpha version for free soon, so that some people can stress test it extensively. For now, you can of course self-host it. I really don&#39;t want to impose subscription fees for it&#39;s users, but I will see how it goes. You can find the source code for it <a href="https://github.com/garritfra/omega-crm">here</a>.</p>
+
+<p>Recently, I increasingly gained interested in the <a href="https://gemini.circumlunar.space/">Gemini project</a>. In a nutshell, this is a very minimal alternative to HTTP, with a strong emphasis on simplicity. The maintainers clearly embrace a DIY mindset, which I want to follow. I set myself the rule to only interact with gemini using tools I wrote myself. To achive this, I am currently writing <a href="https://git.sr.ht/~garritfra/taurus">my own Gemini server called &quot;Taurus&quot;</a> to eventually set up my own geminispace. I have not yet looked deeply into building a client, but I might do this once I&#39;m happy with my server. I admit that I&#39;m currently cheating a bit, by testing my server using a browser recommended by the gemini team ;)
+If you are interested in this project, I highly recommend to check out the <a href="https://gemini.circumlunar.space/docs/specification.html">gemini specification</a>, and play around with some geminispaces. Maybe you could set up a server for yourself?</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Introducing my new blog - slashdev.space</title>
+            <link>
+              https://garrit.xyz/posts/introducing-slashdev-space
+            </link>
+    
+            <pubDate>Thu, 08 Oct 2020 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>Hi! Welcome to the new home of my blog. Let me give you a small tour of why I built it, its underlying architecture and my ambitions with this project.</p>
+
+<p>My old blog was based on <a href="https://www.gatsbyjs.com/">Gatsby.js</a>, a static site generator built on React. Back then, I used a quick and dirty blogging template I stole from the Gatsby themes page. Gatsby themes are essentially npm packages, that you throw in your project as a dependency. While it was super easy to set up, I had a hard time configuring it to my likings, since I relied on a framework someone else has provided.</p>
+
+<p>The real turning point came, when I tried to build the blog after a few months of not maintaining it. I wasn&#39;t able to compile it, since some dependency of the blog template broke. Of course I could have forked the template and fixed it to my likings, but I didn&#39;t want to maintain yet another library until the end of my blogs life. You could draw some parallels to propriotary software, where you don&#39;t have the chance to look under the hood and see what&#39;s wrong, except in this case, it was just me being lazy.</p>
+
+<h2>A new approach</h2>
+
+<p>What I want is a project that I have full control over. I want to be able to customize styling and add features whenever I want to. Gatsby would have been able to give me all of this, but I have the feeling that it sometimes overcomplicates things too much (Having a GraphQL backend is nice, but do you really need that?). I looked at frameworks like <a href="https://gohugo.io/">Hugo</a> which offers lightning fast compilation, but with it, I would have been tied to &quot;the Hugo way&quot; of templating and configuring the project.</p>
+
+<p>In the end it was <a href="https://nextjs.org/">Next.js</a> that caught my attention the most, given how simple it is. There&#39;s not much configuration involved in the setup process (although getting it to work with github pages was somewhat tedious). Each component in the <code>pages/</code> directory corresponds to a full page on the website. The <code>public/</code> directory is served statically. That&#39;s really all I needed to build a modular webpage.</p>
+
+<h2>Wiring things up</h2>
+
+<p>Because Next.js is so minimalistic, there are some parts that you have to set up by yourself. Rendering markdown files for example does not come included, it has to be done manually. Thankfully, there are some packages that can do this for you. All you have to do is write the markdown to the specific pages. It basically boils down to this:</p>
+
+<p><code></code>`js
+const posts = ((context) =&gt; {
+  const keys = context.keys();
+  const values = keys.map(context);</p>
+
+<p>  const data = keys.map((key, index) =&gt; {
+    // Create slug from filename
+    const slug = key
+      .replace(/^.*[\\/]/, &quot;&quot;)
+      .split(&quot;.&quot;)
+      .slice(0, -1)
+      .join(&quot;.&quot;);
+    const value = values[index];
+    // Parse yaml metadata &amp; markdownbody in document
+    const document = matter(value.default);
+    return {
+      frontmatter: document.data,
+      markdownBody: document.content,
+      slug,
+    };
+  });
+  return data;
+})(require.context(&quot;../content/posts&quot;, true, /.md$/));
+<code></code>`</p>
+
+<p>Another special case was setting up a RSS feed. I basically had to write a simple script that generates the feed from all posts in the <code>content/posts</code> directory, let it run during every build and throws the output in the <code>public/</code> directory, so that it can be served as <code>/rss.xml</code>. You might argue that this is quite a tedious process for such a feature, but it gives me all the flexibility I want over the features of this project.</p>
+
+<h2>Deployment</h2>
+
+<p>I&#39;ve considered self hosting this blog on my server. While that would have been a fun learning-experience, I wanted to stick to the simple deploy-and-forget workflow I was used to from GitHub Actions. Every push to the master branch triggers a full deployment. No manual work required. Doing it this way, I also save the time and energy to set up SSL encryption, plus it is highly scalable (not that I expect a traffic-explosion, but you never know). Setting Next.js up to deploy to GitHub Pages takes some time, because there are some pitfalls that you have to be aware of. <a href="https://dev.to/jameswallis/deploying-a-next-js-app-to-github-pages-24pn">This article</a> helped me a lot.</p>
+
+<h2>Ambitions</h2>
+
+<p>In the future, I want /dev.space to become more than just a blog. I want it to become a platform for my thoughts and ideas. I&#39;m also playing with the idea to migrate my main website (https://garrit.xyz) over to /dev.space, therefore made sure that my current setup is very future-proof and can be easily extended.</p>
+
+<p>Feel free to dig through the source code for this project. You can find it on my GitHub: https://github.com/garritfra/slashdev.space</p>
+
+<p>Let me know if there is anything that you miss on this blog. Searchable posts? Dark-mode? This is only the beginning of /dev.space!</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>The Patch-Based Git Workflow</title>
+            <link>
+              https://garrit.xyz/posts/patch-based-git-workflow
+            </link>
+    
+            <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>If you have ever contributed to an open source project, chances are you have opened a pull request on GitHub or a similar platform to present your code to the maintainers. While this is a very approachable way of getting your code reviewed, some projects have decided against using pull requests and instead accept patches via email.</p>
+
+<h2>An introduction to patches</h2>
+
+<p>A patch is essentially a git commit expressed in plain text. It describes what commit the change is based on, and what has changed. A basic patch looks like this:</p>
+
+<p><code></code>`
+From 92132241233033a123c4fa833449d6a0d550219c Mon Sep 17 00:00:00 2001
+From: Bob <a href="mailto:bob@example.com">bob@example.com</a>
+Date: Tue, 25 May 2009 15:42:16 +0200
+Subject: [PATCH 1/2] first change</p>
+
+<hr/>
+
+<p> test.txt |    1 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)</p>
+
+<p>diff --git a/test.txt b/test.txt
+index 7634da4..270eb95 100644
+--- a/test.txt
++++ b/test.txt
+@@ -1 +1 @@
+-Hallo Bob
++Hallo Alice!
+<code></code>`</p>
+
+<p>As you can see, it is very readable for both the reviewer and the machine.</p>
+
+<h2>Sending and receiving patches</h2>
+
+<p>The easiest way you can generate a patch from a commit is to use <code>git-format-patch</code>:</p>
+
+<p><code>
+git format-patch HEAD^
+</code></p>
+
+<p>This will generate a <code>.patch</code> file, that can be embedded into an email and sent to the maintainers. Oftentimes they will then reply to your mail with some inline comments about your code.</p>
+
+<p>To simplify this process further, git has the <code>send-email</code> command, which let&#39;s you send the patch directly to someone without needing to embed it manually. I won&#39;t go into details about this, but there is a <a href="https://git-send-email.io/">well written guide</a> on how to set it up.</p>
+
+<p>If you have received a patch from someone, you can apply it to your tree with the <code>am</code> (apply mail) command:</p>
+
+<p><code>
+git am &lt; 0001-first-change.patch
+</code></p>
+
+<p>check your <code>git log</code> to see the patch in form of the latest commit.</p>
+
+<h2>Why even bother</h2>
+
+<p>You might think that this is just a silly and outdated approach to collaborative development. &quot;Why not simply open a pull request?&quot; you might ask. Some projects, especially low-level oriented ones like the Linux kernel, do not want to rely on third-party platforms like GitHub to host their code, with good reasons:</p>
+
+<ol><li>Everyone can participate! You don&#39;t need to register an account on some proprietary website to collaborate in a project that uses a patch-based workflow. You don&#39;t even have to expose your identity, if you don&#39;t want to. All you need is an email-address, and frankly most of us have one.</li><li>It&#39;s plain simple! Once you get used to generating and applying patches on the command line, it is in fact easier and faster than opening a pull request in some clunky GUI. It doesn&#39;t get simpler than plain text.</li><li>It is rewarding! Once you have submitted a patch to a project, there is no better feeling than getting a simple &quot;Applied, thanks!&quot; response from a maintainer. And if it&#39;s a response that contains feedback rather than an approval, it feels even better to submit that reworked code again and get it eventually applied.</li></ol>
+
+<h2>Conclusion</h2>
+
+<p>The patch-based workflow is an alternative way to collaborate with developers. If it helps you in your day to day business depends on the projects you are contributing to, but in the end it is always good to have many tools under your belt.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Quick Tip! Setting up a lightweight Server-Client VPN with wireguard</title>
+            <link>
+              https://garrit.xyz/posts/lightweight-vpn-with-wireguard
+            </link>
+    
+            <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>This blog post has been taken over from my <a href="https://garrit.xyz/til">collection of &quot;Today I Learned&quot; articles</a>.</p>
+
+<p>You can easily set up a private network of your devices. This way you can &quot;talk&quot; to your phone, raspberry pi etc. over an <strong>encrypted</strong> network, with simple IP-addresses.</p>
+
+<p><img alt="" src="https://images.unsplash.com/photo-1505659903052-f379347d056f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80"/></p>
+
+<p>Firstly, install wireguard on all of your systems. Simply install the <code>wireguard</code> package from your package manager respectively. Check out <a href="https://www.wireguard.com/install/">the official installation guide</a> if you can&#39;t find the package. If you&#39;re on debian, try <a href="https://wiki.debian.org/WireGuard?action=show&amp;redirect=Wireguard">this</a> guide. There&#39;s also an app for Android, iOS and MacOS.</p>
+
+<p>Every participent (Client and server) needs a key-pair. To generate this, run this command first on the server, and on all clients:</p>
+
+<p><code>bash
+wg genkey | tee wg-private.key | wg pubkey &gt; wg-public.key
+</code></p>
+
+<p>It might make sense to do this as root. This way you don&#39;t have to type <code>sudo</code> with every command.</p>
+
+<h2>Server Configuration</h2>
+
+<p>You will need to create a configuration for the server. Save this template at <code>/etc/wireguard/wg0.conf</code>, and replace the fields where needed:</p>
+
+<p><code></code>`conf
+[Interface]
+PrivateKey = &lt;Server private key from wg-private.key&gt;
+Address = 10.0.0.1/24 # IP Address of the server. Using this IP Address, you can assign IPs ranging from 10.0.0.2 - 10.0.0.254 to your clients
+ListenPort = 51820 # This is the standard port for wireguard</p>
+
+<h1>The following fields will take care of routing</h1>
+
+<p>PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE</p>
+
+<h1>Laptop</h1>
+
+<p>[Peer]
+PublicKey = &lt;Public Key of Laptop Client&gt;
+AllowedIPs = 10.0.0.2/32 # The client will be reachable at this address</p>
+
+<h1>Android Phone</h1>
+
+<p>[Peer]
+PublicKey = &lt;Public Key of Phone Client&gt;
+AllowedIPs = 10.0.0.3/32</p>
+
+<h1>...</h1>
+
+<p><code></code>`</p>
+
+<p>Then run <code>wg-quick up wg0</code> to start the wireguard interface with the configuration from <code>/etc/wireguard/wg0</code>.</p>
+
+<h2>Setting up clients</h2>
+
+<p>Setting up clients is very similar to the server setup process. Generate a keypair on each client, save the following config to <code>/etc/wireguard/wg0.conf</code> and replace the nessessary fields:</p>
+
+<p><code></code>`conf
+[Interface]
+PrivateKey = &lt;Client Private Key from wg-private.key&gt;
+Address = 10.0.0.2/32 # The fixed address of the client. Needs to be specified in the server config as well</p>
+
+<p>[Peer]
+PublicKey = &lt;Server Public key&gt;
+AllowedIPs = 10.0.0.0/24 # Routes all traffic in this subnet to the server. If you want to tunnel all traffic through the wireguard connection, use 0.0.0.0/0 here instead
+Endpoint = &lt;Public Server IP&gt;:51820
+PersistentKeepalive = 25 # Optional. Will ping the server every 25 seconds to remain connected.
+<code></code>`</p>
+
+<p>On every client, run <code>wg-quick up wg0</code> to start the interface using the config at <code>/etc/wireguard/wg0.conf</code>.</p>
+
+<p>This whole proccess might be easier on GUIs like Android or MacOS.</p>
+
+<p>Now, try to ping your phone from your laptop:</p>
+
+<p><code>
+ping 10.0.0.3
+PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
+64 bytes from 10.0.0.3: icmp_seq=1 ttl=64 time=5382 ms
+64 bytes from 10.0.0.3: icmp_seq=2 ttl=64 time=4364 ms
+</code></p>
+
+<h3>References</h3>
+
+<ul><li><a href="https://www.wireguard.com/">Official Documentation</a></li><li><a href="https://www.stavros.io/posts/how-to-configure-wireguard/">https://www.stavros.io/posts/how-to-configure-wireguard/</a></li></ul>]]>
+            </description>
+        </item>
+          <item>
+            <title>Whom do you trust?</title>
+            <link>
+              https://garrit.xyz/posts/whom-do-you-trust
+            </link>
+    
+            <pubDate>Tue, 17 Mar 2020 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>Nowadays, password managers are a necessity if you care even the slightest about your personal belongings on the interwebs. But think about it, do you really want to trust another company to store your most sensitive information?</p>
+
+<p><img alt="" src="https://images.unsplash.com/photo-1522251670181-320150ad6dab?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2566&amp;q=80"/></p>
+
+<h5>TL;DR</h5>
+
+<p>Use a <strong>stateless</strong> password manager like <a href="https://lesspass.com/">LessPass</a> to access your password without relying on a third party to store your data.</p>
+
+<h2>Why use a password manager in the first place?</h2>
+
+<p>Having a single password for multiple accounts is convenient. What&#39;s also convenient, is <strong>using</strong> this password on multiple accounts once you have access to a single one. What might be convenient to you, might also be convenient to others. Many people, <a href="https://web.archive.org/web/20170225163642/http://uk.businessinsider.com/twitter-says-it-wasnt-hacked-passwords-reused-older-hacks-malware-to-blame-2016-6">especially celebrities</a>, fall victim to this trap of comfort.</p>
+
+<p>To counteract this, people are (and should be) using different passwords for different accounts. These passwords differ in a single letter or digit (Twitter: <code>porridge4president</code>, GitHub: <code>poridge5president</code>, etc.), or they don&#39;t match at all (Twitter: <code>porridge4president</code>, GitHub: <code>YouWontGuessThisOne</code>).</p>
+
+<p>The problem that most likely arises from this technique is called <em>password chaos</em> (<a href="https://encyclopedia2.thefreedictionary.com/password+chaos">Source</a>):</p>
+
+<blockquote><p><em>&quot;The confusion that arises when users have many unique passwords.&quot;</em></p></blockquote>
+
+<p>The aim of a password manager is <a href="https://www.businessinsider.com/how-to-use-password-manager-store-protect-yourself-hackers-lastpass-1password-dashlane-2017-2?r=DE&amp;IR=T">to solve this problem by storing all of your passwords in a single place and securing it with an <em>ultra secure superpassword!</em> (©)</a>. This way, you can use arbitrary passwords - preferebly gibberish that doesn&#39;t make sense to humans (nor machines) - without losing them, as long as you have your <em>ultra secure superpassword!</em> (©) - aka your masterpassword. The benefits are obvious: You get rid of the password chaos problem while staying relatively secure. Eventhough password managers are quite benificial, some people (including myself) see a catch in them.</p>
+
+<h2>Relying on a third party</h2>
+
+<p>Relying on third party companies doesn&#39;t seem like a big deal. After all, you are probably using some form of cloud service to host your photos. Yet there&#39;s a lot of trust involved in letting others handle your private data, especially your passwords. In 2017, <a href="https://www.zdnet.com/article/onelogin-hit-by-data-breached-exposing-sensitive-customer-data/">a major password manager got hacked, exposing sensitive data including users and their passwords</a>. This shows the potential for security breaches in an application that inherently seemed safe. But what if I told you that there is an alternative to this? A password manager that does not store your data at all?</p>
+
+<h2>A Stateless password manager</h2>
+
+<p>Recently, I stumbled across <a href="https://lesspass.com/#/">LessPass</a>. LessPass is a password manager that is very different from what I have seen so far. Instead of storing passwords that either you or a random password generator came up with, it computes passwords on the fly, given a website, username, your masterpassword and some options.</p>
+
+<p><img alt="LessPass" src="../assets/lesspass.gif"/></p>
+
+<p>The key here is that LessPass uses a <strong>pure function</strong>, i.e. a function that given the same parameters will always give the same result. Using this technique, there&#39;s no need to store your password in a database owned by a large company, nor do you have to sync your passwords between your devices (<a href="https://play.google.com/store/apps/details?id=com.lesspass.android&amp;hl=de">but there&#39;s an app</a>). The computation happens right on your machine, and <strong>only</strong> on your machine. If you want to find out more about how it works under the hood, you can check out <a href="https://blog.lesspass.com/lesspass-how-it-works-dde742dd18a4#.vbgschksh">the authors blog post</a>. He goes into great detail on what alorithm is used to compute your passwords and how to utilize every feature of LessPass.</p>
+
+<h2>Conclusion</h2>
+
+<p>Being a little privacy nerd myself, I often think twice about what services I want to use, often even looking into self-hosted alternatives to major products. There are multiple products that offer self hosted solutions to store your passwords, however I also don&#39;t even trust <em>myself</em> with such sensitive data either. LessPass eliminates the need to have a third party watch over your data, let alone to store it on their servers.</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Quick Tip! Sharing terminal output with Termbin</title>
+            <link>
+              https://garrit.xyz/posts/quick-tip-terminal-pastebin
+            </link>
+    
+            <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>Ever find yourself in a situation where you simply want to save or share the output of a terminal command? Selecting, copying and pasting text from stdout always feels quite tedious, if you just want to share the contents of a file.</p>
+
+<p>A project called <a href="https://termbin.com/">Termbin</a> tries to simplify this process. Just pipe the command you want to save to the following url on port <code>9999</code>, using Netcat:</p>
+
+<p><code>sh
+echo &quot;Hello, Blog!&quot; | nc termbin.com 9999
+</code></p>
+
+<p>Instead of showing the output, it will be forwarded to Termbin and show the URL, under which your output will be available:</p>
+
+<p><code>sh
+➜  blog git:(master) ✗ cat ./some_file.txt | nc termbin.com 9999
+https://termbin.com/faos
+➜  blog git:(master) ✗
+</code></p>
+
+<p>Sure enough, after navigating to <a href="https://termbin.com/faos"><code>https://termbin.com/faos</code></a>, we will see the contents of <code>some_file.txt</code>. Neat!</p>
+
+<h3>⚠️Word of Caution⚠️</h3>
+
+<p>Do not pipe any personal information, credentials or any other private data into termbin. It will be instantly available to the general public, and theres no quick way to remove it.</p>
+
+<p>Happy Pasting!✨</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Testing isn't hard</title>
+            <link>
+              https://garrit.xyz/posts/testing-isnt-hard
+            </link>
+    
+            <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>&quot;I write two tests before implementing a method&quot;, &quot;My project has 90% coverage&quot;.</p>
+
+<p>I don&#39;t know about you, but that&#39;s something I don&#39;t hear very often. But why is that?</p>
+
+<p>Testing is not even that difficult to do, but yet it is always coming short in my projects. About a year ago, I&#39;ve tried to implement tests in my React applications with little success, mostly because integrating <code>enzyme</code> and configuring it correctly is not that intuitive as a relatively new developer. I want to share my (partly opinionated) approach to JavaScript testing with <code>jest</code>, to get you started. In a later post I will demonstrate a way to implement <code>enzyme</code> into your React projects.</p>
+
+<h1>The basics of testing JavaScript functions</h1>
+
+<p>To get started, you need a npm-project. I don&#39;t think I have to explain that, but just in case:</p>
+
+<p><code>bash
+mkdir awesome-testing-project
+cd awesome-testing-project
+npm init -y
+</code></p>
+
+<p>Of course, we need a unit we want to test. What about a method that returns the first element of an array?</p>
+
+<p><code>js
+module.exports = function firstElement(arr) {
+  return arr[1];
+};
+</code></p>
+
+<p>You already spotted a bug, huh? Let&#39;s keep it simple for now.</p>
+
+<p>Install and initialize Jest, an open-source testing framework maintained by Facebook. When initializing, you should check every question with <code>y</code>.</p>
+
+<p><code>bash
+npm i --save-dev jest
+npx jest --init
+</code></p>
+
+<p>Next up, we need to define our first test. Conventionally, we create a folder named <code>__tests__</code> in the directory of the module we want to test. inside it, there should be a file named <code>&lt;module&gt;.test.js</code>. Something like this:</p>
+
+<p><code>bash
+▶ tree
+.
+├── package.json
+└── src
+    ├── __tests__
+    │   └── firstElement.test.js
+    └── firstElement.js
+</code></p>
+
+<p>Jest provides global functions that do not need to be imported in a file. A simple test can look like this:</p>
+
+<p><code></code>`js
+const firstElement = require(&quot;../firstElement.js&quot;);</p>
+
+<p>test(&quot;firstElement gets first element of array&quot;, () =&gt; {
+  expect(firstElement([1, 2])).toBe(1);
+});
+<code></code>`</p>
+
+<p><code>expect</code> is another word for <code>assert</code>. If you ask me, &quot;Expect firstElement of [1, 2] to be 1&quot; sounds reasonably english, doesn&#39;t it? After defining the test, all there is to do left is to run the <code>npm test</code> command, which has been created for us by running <code>npx jest --init</code> earlier.</p>
+
+<p><code></code>`bash
+▶ npm test</p>
+
+<blockquote><p>jest</p></blockquote>
+
+<p> FAIL  src/<strong>tests</strong>/firstElement.test.js
+  ✕ firstElement (6ms)</p>
+
+<p>  ● firstElement</p>
+
+<pre><code>expect(received).toBe(expected) // Object.is equality
+
+Expected: 1
+Received: 2
+
+  2 |
+  3 | test(&#39;firstElement&#39;, () =&gt; {
+&gt; 4 |   expect(firstElement([1, 2])).toBe(1);
+    |                                ^
+  5 | });
+  6 |
+
+  at Object.&lt;anonymous&gt;.test (src/__tests__/firstElement.test.js:4:32)</code></pre>
+
+<p>Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        1.1s
+Ran all test suites.
+npm ERR! Test failed.  See above for more details.
+<code></code>`</p>
+
+<p>Whoops! Looks like we have found a bug! Let&#39;s fix it by adjusting the index of the return value in the firstElement function:</p>
+
+<p><code>js
+module.exports = function firstElement(arr) {
+  return arr[0];
+};
+</code></p>
+
+<p>And after rerunning <code>npm test</code>:</p>
+
+<p><code></code>`bash
+▶ npm test</p>
+
+<blockquote><p>jest</p></blockquote>
+
+<p> PASS  src/<strong>tests</strong>/firstElement.test.js
+  ✓ firstElement (4ms)</p>
+
+<p>Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.666s, estimated 2s
+Ran all test suites.
+<code></code>`</p>
+
+<p>Yay, your first unit test! Of course, there is much more to find out about the Jest framework. To see a full guide, read the <a href="https://jestjs.io/">official docs</a>.</p>
+
+<p>I have prepared a <a href="https://github.com/garritfra/react-parcel-boilerplate">template repository</a> for building react apps. It also uses Jest to run tests, you don&#39;t have to worry about a thing! If you found this interesting, consider checking out my other blog posts, and/or check out my <a href="https://github.com/garritfra">GitHub</a>!</p>]]>
+            </description>
+        </item>
+          <item>
+            <title>Fighting Array Functions with ES6</title>
+            <link>
+              https://garrit.xyz/posts/fighting-array-functions-with-es6
+            </link>
+    
+            <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>Yesterday, I came across an interesting bug regarding JavaScript Arrays, and I wanted to share my approach to fixing it.
+At a basic level, I wanted to pass part of an array to a function, but wanted to use the original array later on.</p>
+
+<p><code>js
+let arr = [1, 2, 3, 4, 5]
+let something = arr.splice(0, 3)
+do(something) // []
+DoSomethingWithOriginal(arr)
+</code></p>
+
+<p>Thinking that Array.prototype functions don’t mutate the array directly, I moved on with my day. This lead to a bunch of problems down the line.
+Some array methods in the EcmaScript specification are designed to mutate arrays, while others do not.</p>
+
+<h3>Non-mutating functions</h3>
+
+<ul><li>Array.prototype.map()</li><li>Array.prototype.slice()</li><li>Array.prototype.join()</li><li>…</li></ul>
+
+<p>These functions do not mutate the array they are called on. For example:</p>
+
+<p><code>js
+let arr = [1, 2, 3, 4, 5];
+let partOfArr = arr.slice(1, 2);
+console.log(partOfArr); // [2, 3]
+console.log(arr); // [1, 2, 3, 4, 5]
+</code></p>
+
+<h3>Mutating functions</h3>
+
+<ul><li>Array.prototype.sort()</li><li>Array.prototype.splice()</li><li>Array.prototype.reverse()</li><li>…</li></ul>
+
+<p>These methods mutate the array directly. This can lead to unreadable code, as the value can be manipulated from anywhere. For example:</p>
+
+<p><code>js
+let arr = [5, 2, 4];
+arr.sort();
+console.log(arr); // [2, 4, 5]
+</code></p>
+
+<p>To me, it is very unclear, which functions do, and which don’t mutate arrays directly. But, there’s a simple trick you can use to stop letting the functions mutate arrays directly, ultimately leading to more readable and reliable code.</p>
+
+<h2>Enter: The ES6 Spread Operator!</h2>
+
+<p><img alt="Spread Operator" src="https://images.unsplash.com/photo-1518297056586-889f796873e0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1225&amp;q=80"/></p>
+
+<p>Take a look at this snippet:</p>
+
+<p><code>js
+let arr = [3, 5, 1, 2, 4];
+let sorted = [...arr].sort();
+console.log(arr); // [3, 5, 1, 2, 4]
+console.log(sorted); // [1, 2, 3, 4, 5]
+</code></p>
+
+<p>Voilà! We have a sorted array, and the original one is also around. The spread operator(<code>[...arr]</code>) is used to create a new array with every value of arr .
+You can use this for arrays, as well as objects:</p>
+
+<p><code>js
+let obj = {
+  field: &quot;example&quot;,
+};
+let extendedObj = {
+  ...obj,
+  anotherField: 42,
+};
+console.log(extendedObj.field); // &quot;example&quot;
+</code></p>
+
+<h2>Conclusion</h2>
+
+<p>ES6 brought us awesome features like let and const assignments, as well as arrow functions. A more unknown feature however is the spread operator. I hope you now know how to use the spread operator, and that you can adopt it for cleaner and simpler code.</p>]]>
+            </description>
+        </item>
+        </channel>
+      </rss>
