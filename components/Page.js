@@ -1,9 +1,9 @@
 import Layout from "./Layout";
 
 export default function Page(props) {
-    const { title, date } = props;
+    const { title, date, siteTitle } = props;
     return (
-        <Layout siteTitle={title}>
+        <Layout siteTitle={siteTitle}>
             <article className="page">
                 { title && <div className="page__info">
                     <h1>{title}</h1>

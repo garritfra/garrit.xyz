@@ -1,0 +1,16 @@
+.blog__list {
+    &__post {
+        margin-bottom: 3em;
+        &__date {
+            color: $color-text-dark;
+            font-weight: 300;
+
+            @media (prefers-color-scheme: light) {
+                color: $color-text-light;
+            }
+        }
+    }
+    a {
+        text-decoration: none;
+    }
+}

@@ -1,5 +1,6 @@
 ---
 title: "Curriculum Vitae"
+siteTitle: "Garrit's CV"
 ---
 
 ## Education

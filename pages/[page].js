@@ -11,8 +11,10 @@ export default function PageTemplate(props) {
      */
     if (!props.frontmatter) return <></>;
 
+    const siteTitle = props.frontmatter.siteTitle || props.siteTitle;
+
     return (
-        <Page title={props.frontmatter.title}>
+        <Page title={props.frontmatter.title} siteTitle={siteTitle}>
             <ReactMarkdown source={props.markdownBody} />
         </Page>
     );
@@ -25,7 +27,7 @@ export async function getStaticProps({ ...ctx }) {
 
     return {
         props: {
-            siteTitle: "~garrit",
+            siteTitle: "Garrit's Site",
             frontmatter: data.data,
             markdownBody: data.content,
         },
