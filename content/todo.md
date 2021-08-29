@@ -7,8 +7,10 @@ for instagram
 - C compiler for [uxn](https://wiki.xxiivv.com/site/uxn.html) (or
   [antimony](https://github.com/antimony-lang/antimony) backend?)
 - Mirror this blog to [Gemini](https://gemini.circumlunar.space/)
+- Tower-Defense Game as FUSE filesystem
+- A Vim-like editor
 
---- 
+---
 
 - ~~Turn this blog into my main website~~
 - [~~"todo" Page on website (this list)~~](/todo)
