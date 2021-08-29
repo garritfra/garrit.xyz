@@ -22,10 +22,12 @@ const BlogList = ({ posts }) => {
                         a.frontmatter.date < b.frontmatter.date ? 1 : -1
                     )
                     .map((post) => (
-                        <a href={`/posts/${post.slug}`}>
-                            <div className="blog__list__post">
+                        <div className="blog__list__post">
+                            <a href={`/posts/${post.slug}`}>
                                 <h2>{post.frontmatter.title}</h2>
-                                <h4 className="blog__list__post__date">{reformatDate(post.frontmatter.date)}</h4>
+                                <h4 className="blog__list__post__date">
+                                    {reformatDate(post.frontmatter.date)}
+                                </h4>
                                 <p>
                                     <ReactMarkdown
                                         source={truncateSummary(
@@ -33,8 +35,8 @@ const BlogList = ({ posts }) => {
                                         )}
                                     />
                                 </p>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     ))}
         </div>
     );

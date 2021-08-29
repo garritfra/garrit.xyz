@@ -2,7 +2,6 @@ import Layout from "./Layout";
 
 export default function Page(props) {
     const { title, date, siteTitle } = props;
-    console.log(props);
     return (
         <Layout siteTitle={siteTitle}>
             <article className="page">
