@@ -55,10 +55,10 @@ Pure functional lazy-evaluated programming language targeting decentralized and
 distributed systems. It is made to take advantage of multiple CPUs and CPU
 cores (parallelism) by default, to run on clusters and on the cloud easily.
 
-### [Imf & Firus - Developer](https://imfundfirus.de/)
+### Imf & Firus - Developer
 
 Daily challenges for children of parents that are working from home during the
-pandemic. This tool gives children fun and interesting activities they can do
+pandemic. This app gives children fun and interesting activities they can do
 on their own or with a sibling.
 
 ### [Antimony Programming language - Maintainer](https://github.com/antimony-lang/antimony)
