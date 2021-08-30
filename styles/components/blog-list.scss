@@ -1,6 +1,13 @@
 .blog__list {
     &__post {
         margin-bottom: 3em;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+        transition: opacity 0.2s ease;
+        opacity: 0.7;
+        text-decoration-color: inherit;
+        }
         &__date {
             color: $color-text-dark;
             font-weight: 300;
