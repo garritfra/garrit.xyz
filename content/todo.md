@@ -10,6 +10,7 @@ for instagram
 - Tower-Defense Game as FUSE filesystem
 - A Vim-like editor
 - A farming simulator ([Gemini](https://gemini.circumlunar.space/) or FUSE frontend?)
+- Template Engine for Gemini applications
 
 ---
 
