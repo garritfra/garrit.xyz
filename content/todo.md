@@ -9,6 +9,7 @@ for instagram
 - Mirror this blog to [Gemini](https://gemini.circumlunar.space/)
 - Tower-Defense Game as FUSE filesystem
 - A Vim-like editor
+- A farming simulator ([Gemini](https://gemini.circumlunar.space/) or FUSE frontend?)
 
 ---
 
