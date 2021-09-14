@@ -20,7 +20,7 @@ setup</a>. As discribed in that blog post, I set
 up daily backups to <a href="https://www.backblaze.com/b2/cloud-storage.html">Backblaze
 B2</a> using their amazing CLI
 through a cron script. A day went by and I noticed that the
-<a href="/2021-05-15-healthchecks-io-with-docker">healthcheck</a> didn&#39;t pass.
+<a href="/posts/2021-05-15-healthchecks-io-with-docker">healthcheck</a> didn&#39;t pass.
 Unfortunately I didn&#39;t have time to fix this problem immediately, so instead I
 executed the command by hand every couple of days. One could argue that this in
 total took way more time than the actual fix, but hey, I was lazy. In the end,
