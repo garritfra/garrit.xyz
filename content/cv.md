@@ -31,7 +31,7 @@ Development of a companion app for a leading automotive company
 
 Development of a mobile smart-home application
 
-* Implementaion of a Bluetooth and ZigBee pairing solution
+* Implementation of a Bluetooth and ZigBee pairing solution
 * Reactive development using ReactiveX for iOS and Android
 * Managing IoT devices using AWS IoT Core
 * Maintaining a RESTful API using AWS Lambda
