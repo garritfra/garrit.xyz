@@ -18,6 +18,10 @@ _**Software Developer, March 2021 - present**_
 Development of a web-based convention application
 
 * Development of APIs using Node.js and GraphQL
+* Development of a content management system using React and Material Design
+* Implementation of a [server-side caching solution](/posts/2021-10-04-server-side-caching-with-apollo-graphql)
+using Redis
+* Support for auto-scalable databases using AWS Aurora
 
 ### CGI Germany
 
