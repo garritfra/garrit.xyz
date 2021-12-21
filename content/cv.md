@@ -19,9 +19,10 @@ Development of a web-based convention application
 
 * Development of APIs using Node.js and GraphQL
 * Development of a content management system using React and Material Design
-* Implementation of a [server-side caching solution](/posts/2021-10-04-server-side-caching-with-apollo-graphql)
-using Redis
-* Support for auto-scalable databases using AWS Aurora
+* Various performance optimizations to the platform
+    * [Server-side caching](/posts/2021-10-04-server-side-caching-with-apollo-graphql) solution using Redis
+    * Support for auto-scalable databases using AWS Aurora
+    * Incremental rendering
 
 ### CGI Germany
 
