@@ -1,5 +1,5 @@
 ---
-title: Quick tip: React useToggle Hook
+title: Quick tip! React useToggle Hook
 date: "2021-12-21"
 ---
 
