@@ -2,7 +2,7 @@ export default function Footer() {
     return (
         <footer className="footer">
             <div className="footer__content">
-                <section classname="footer__content__links">
+                <section className="footer__content__links">
                     <h3>Links of Interest</h3>
                     <a href="/rss.xml">RSS Feed</a>
                     <br />
@@ -12,7 +12,7 @@ export default function Footer() {
                         PGP Key
                     </a>
                 </section>
-                <section classname="footer__content__social">
+                <section className="footer__content__social">
                     <h3>Elsewhere</h3>
                     <a href="https://github.com/garritfra">Github</a>
                     <br />
