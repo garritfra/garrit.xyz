@@ -19,10 +19,9 @@ export default function BlogTemplate(props) {
 
     return (
         <Page siteTitle="Garrit's Notes" title={props.frontmatter.title} date={reformatDate(props.frontmatter.date)}>
-            <ReactMarkdown
-                source={props.markdownBody}
-                date={props.frontmatter.date}
-            />
+            <ReactMarkdown date={props.frontmatter.date}>
+                {props.markdownBody}
+            </ReactMarkdown>
             <hr />
             <p>
                 If you enjoyed this post, consider{" "}

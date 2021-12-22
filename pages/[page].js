@@ -15,7 +15,9 @@ export default function PageTemplate(props) {
 
     return (
         <Page title={props.frontmatter.title} siteTitle={siteTitle}>
-            <ReactMarkdown source={props.markdownBody} />
+            <ReactMarkdown>
+                {props.markdownBody}
+            </ReactMarkdown>
         </Page>
     );
 }

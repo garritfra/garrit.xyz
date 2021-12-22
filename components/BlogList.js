@@ -29,11 +29,9 @@ const BlogList = ({ posts }) => {
                                     {reformatDate(post.frontmatter.date)}
                                 </h4>
                                 <p>
-                                    <ReactMarkdown
-                                        source={truncateSummary(
-                                            post.markdownBody
-                                        )}
-                                    />
+                                    <ReactMarkdown>
+                                        {truncateSummary(post.markdownBody)}
+                                    </ReactMarkdown>
                                 </p>
                             </a>
                         </div>
