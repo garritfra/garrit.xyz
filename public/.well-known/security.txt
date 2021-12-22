@@ -3,17 +3,17 @@ Hash: SHA256
 
 Contact: mailto:garrit@slashdev.space
 Expires: 2030-01-01T00:00:00.000Z
-Encryption: https://keys.openpgp.org/pks/lookup?op=get&options=mr&search=garrit@slashdev.space
+Encryption: https://keys.openpgp.org/vks/v1/by-fingerprint/2218337E54AA1DBE207B404DBB54AF7EB0939F3D
 Preferred-Languages: en, de
 Canonical: https://garrit.xyz/.well-known/security.txt
 -----BEGIN PGP SIGNATURE-----
 
-iQFKBAEBCAA0FiEE0D9T0M78qTSJAQakZVhsTdpV6iwFAmHC+GEWHGdhcnJpdEBz
-bGFzaGRldi5zcGFjZQAKCRBlWGxN2lXqLOV1B/47ur8UGbpbP9pQJFiZdpBZ937A
-OIWHdLo6r5WraxycLHG2qKjJx3llvdqOYVWPPVMo2P65/WOXw+C+4HckGUJ3yxp5
-Pwj8zWze1afhJJUxBNQ7ug9VhXeX7YjdWBBg+HXMsy/zalawqiSVR6ulhqfLjH57
-Dfw2o00xxcS3otGkmEzVzvnxlQKhssfo0QXYbTvFeKOrTAOc1pSQ+jJs1eKcHSJj
-zZ9Xl4Npv2tB56pwcdTAJNK8IGie8InSUZbEcQuvIiei7ClpfsSbfV3WnKULp0qb
-85B4Uyz7f9y6VqiKaqPRHMv1/etaHnNvIpzmjjdgaarigpP7kg0/YNrL0fEK
-=7RMG
+iQFKBAEBCAA0FiEE0D9T0M78qTSJAQakZVhsTdpV6iwFAmHC+yUWHGdhcnJpdEBz
+bGFzaGRldi5zcGFjZQAKCRBlWGxN2lXqLCI8B/9BAF6YEZVyxCmP/wpSTd0dNUdA
+9q5B3Mdc8gEC0UHMj9jgk0B4FMrKrd72yqypSIMBwbKlGTWgvAmwvFcdbWpmejSD
+byWmrC+LFc4f4LZ3qZ2ZWNoviUSwm46IOjLMXK5WFd3OX1oxGv+9wEu0amXsUkg8
+5B9FLknmQ1usjomfXKqxmIV/4nSm0K5GnMEhQK8FsxlOr6EOzPkXrpJWHHyZ/Mim
+HuBPPWN1Eq8w2jT5DHUxquS1bX8Ch/WLIU3UaGWoKDHILNSWPHYfC6Ftg6xw0DfP
+eaB9VmlcMoJn6GjvVT23yFg4gJPiSj1uJKuQVK7QOwYOWJfQOUs/3gcUB2eq
+=q0tt
 -----END PGP SIGNATURE-----
