@@ -1,0 +1,19 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Contact: mailto:garrit@slashdev.space
+Expires: 2030-01-01T00:00:00.000Z
+Encryption: https://keys.openpgp.org/pks/lookup?op=get&options=mr&search=garrit@slashdev.space
+Preferred-Languages: en, de
+Canonical: https://garrit.xyz/.well-known/security.txt
+-----BEGIN PGP SIGNATURE-----
+
+iQFKBAEBCAA0FiEE0D9T0M78qTSJAQakZVhsTdpV6iwFAmHC+GEWHGdhcnJpdEBz
+bGFzaGRldi5zcGFjZQAKCRBlWGxN2lXqLOV1B/47ur8UGbpbP9pQJFiZdpBZ937A
+OIWHdLo6r5WraxycLHG2qKjJx3llvdqOYVWPPVMo2P65/WOXw+C+4HckGUJ3yxp5
+Pwj8zWze1afhJJUxBNQ7ug9VhXeX7YjdWBBg+HXMsy/zalawqiSVR6ulhqfLjH57
+Dfw2o00xxcS3otGkmEzVzvnxlQKhssfo0QXYbTvFeKOrTAOc1pSQ+jJs1eKcHSJj
+zZ9Xl4Npv2tB56pwcdTAJNK8IGie8InSUZbEcQuvIiei7ClpfsSbfV3WnKULp0qb
+85B4Uyz7f9y6VqiKaqPRHMv1/etaHnNvIpzmjjdgaarigpP7kg0/YNrL0fEK
+=7RMG
+-----END PGP SIGNATURE-----
