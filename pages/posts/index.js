@@ -1,12 +1,23 @@
-import Layout from "../../components/Layout";
+import { useRouter } from "next/router";
 import BlogList from "../../components/BlogList";
 import Page from "../../components/Page";
 import matter from "gray-matter";
 
 const Index = (props) => {
+    const { query } = useRouter();
+
+    const filteredPosts = query.tags
+        ? props.posts.filter((post) =>
+              post.frontmatter.tags
+                  ?.split(",")
+                  .map((tag) => tag.trim().toLowerCase())
+                  .includes(query.tags.trim().toLowerCase())
+          )
+        : props.posts;
+
     return (
         <Page siteTitle="Garrit's Notes">
-            <BlogList posts={props.posts} />
+            <BlogList posts={filteredPosts} />
         </Page>
     );
 };

@@ -22,7 +22,7 @@ const BlogList = ({ posts }) => {
                         a.frontmatter.date < b.frontmatter.date ? 1 : -1
                     )
                     .map((post) => (
-                        <div className="blog__list__post">
+                        <div className="blog__list__post" key={post.slug}>
                             <a href={`/posts/${post.slug}`}>
                                 <h2>{post.frontmatter.title}</h2>
                                 <h4 className="blog__list__post__date">

@@ -3,8 +3,6 @@ import Page from "../components/Page";
 import matter from "gray-matter";
 
 const Index = (props) => {
-    console.log(props.tags);
-
     return (
         <Page siteTitle="Garrit's Notes">
             <h1>Filter posts by tag</h1>
