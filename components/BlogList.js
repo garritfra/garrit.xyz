@@ -12,7 +12,7 @@ function truncateSummary(content) {
 const BlogList = ({ posts }) => {
     return (
         <div className="blog__list">
-            {posts.length > 1 &&
+            {posts.length > 0 &&
                 posts
                     // Filter drafts
                     .filter((post) => !post.slug.startsWith("_"))
