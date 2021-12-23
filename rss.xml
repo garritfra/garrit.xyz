@@ -5,8 +5,49 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Tue, 21 Dec 2021 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Fri, 24 Dec 2021 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>Notes on pruning chinese elms</title>
+            <link>
+              https://garrit.xyz/posts/2021-12-24-notes-on-pruning-chinese-elms
+            </link>
+    
+            <pubDate>Fri, 24 Dec 2021 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>I recently bought a chinese elm bonsai. To keep it alive and healthy, I devoted
+some time to learning how to properly prune it.</p>
+
+<p>Chinese elms are very robust trees with strong growth. Even in the winter
+season, I can prune it on a weekly basis. I just watched <a href="https://www.youtube.com/watch?v=Nsvc2Ll1X2A">this
+video</a> which gives some helpful
+tips on pruning.</p>
+
+<p>I noticed that the author let the tree grow heavily to develop stronger
+branches. Until now, I pruned the branches back to one leaf whenever it had
+about 5 leaves. However, a branch should only be cut on its woody parts in order
+to develop more shoots, and a branch needs some growth in order to turn to wood.
+<strong>Don&#39;t prune the branches too early</strong>!</p>
+
+<p>Secondly, I thought that cutting the branches just behind a leaf would lead to
+more growth, but I found that this is not true. The branches should be cut just
+a bit above the leaf to prevent branch to die back and kill the leaf. It could
+also lead to the shoot coming out straight instead of angled, which is not
+desired.</p>
+
+<p>Lastly I learned that branches pointing upwards should most likely be pruned,
+since they take a lot of energy that the tree could use elsewhere, which is also
+pointed out in <a href="https://www.youtube.com/watch?v=93c985zOwhs">this video</a>.</p>
+
+<p>Here&#39;s a picture of my chinese elm just how I bought it. You can clearly tell
+that it was cheaply imported from china. It needs a lot of work, but I&#39;m having
+a lot of fun learning about this tree!</p>
+
+<p><img alt="Chinese Elm" src="/assets/chinese_elm.jpeg"/></p>
+
+<p>This is post 022 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>Quick tip! React useToggle Hook</title>
             <link>
