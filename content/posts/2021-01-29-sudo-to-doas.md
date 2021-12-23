@@ -1,7 +1,7 @@
 ---
 title: From sudo to doas
 date: "2021-01-29"
-tags: "unix, linux, 100DaysToOffload, guide"
+tags: "linux, 100DaysToOffload, guide"
 ---
 
 You might have heard that there is currently [a pretty significant vulnerability](https://www.qualys.com/2021/01/26/cve-2021-3156/baron-samedit-heap-based-overflow-sudo.txt) affecting `sudo`, the program we all know and love. It is the de facto standard for when you want to run a command as a priviledged user, but that's really it. Under the hood, sudo is a very powerful tool with a lot of features. It can be used to build out complex permission-systems that span across entire clusters of servers. But all of these features come at a price: **complexity**. Last time I checked, the [source code](https://www.sudo.ws/repos/sudo) of sudo had about 330k lines of code (using cloc as a benchmark). This massive complexity plays a large role in its security.

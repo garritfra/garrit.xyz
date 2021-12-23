@@ -1,7 +1,7 @@
 ---
 title: Notes about BEM (Block Element Modifier)
 date: "2021-02-02"
-tags: "note, CSS, 100DaysToOffload, programming"
+tags: "note, css, 100DaysToOffload, programming"
 ---
 
 In the coming weeks, months and years, I will be working on frontend-development as part of my dayjob. These are some personal notes I took during my research about the BEM methodology. If you want to read the official introduction, you should visit [their website](http://getbem.com/).

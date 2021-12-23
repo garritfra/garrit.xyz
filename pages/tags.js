@@ -7,9 +7,11 @@ const Index = (props) => {
         <Page siteTitle="Garrit's Notes">
             <h1>Filter posts by tag</h1>
             <div className="tag-list">
-                {props.tags.map((tag) => (
+                {props.tags.map(({ tag, count }) => (
                     <div className="tag-list__tag" key={tag}>
-                        <a href={`/posts?tags=${tag}`}>{tag}</a>
+                        <a href={`/posts?tags=${tag}`}>
+                            {tag} ({count})
+                        </a>
                     </div>
                 ))}
             </div>
@@ -23,20 +25,32 @@ export async function getStaticProps() {
         const keys = context.keys();
         const values = keys.map(context);
 
-        const tags = keys.map((key, index) => {
-            console.log(values);
-            const value = values[index];
-            // Parse yaml metadata & markdownbody in document
+        const postTags = keys
+            .map((key, index) => {
+                console.log(values);
+                const value = values[index];
+                // Parse yaml metadata & markdownbody in document
 
-            const document = matter(value.default);
-            const rawTags = document.data?.tags || "";
-            return rawTags.split(",").map((tag) => tag.trim());
-        });
-        return tags
+                const document = matter(value.default);
+                const rawTags = document.data?.tags || "";
+                return rawTags.split(",").map((tag) => tag.trim());
+            })
+            .flat()
+            .filter((value) => value !== "");
+
+        const tagMap = {};
+
+        for (const tag of postTags) {
+            tagMap[tag] ? tagMap[tag]++ : (tagMap[tag] = 1);
+        }
+
+        return postTags
             .flat()
             .filter((value, index, array) => array.indexOf(value) === index) // Deduplicate
             .filter((value) => value !== "")
-            .sort();
+            .sort()
+            .map((tag) => ({ tag, count: tagMap[tag] }))
+            .sort((a, b) => b.count - a.count);
     })(require.context("../content/posts", true, /\.md$/));
 
     return {
