@@ -1,6 +1,7 @@
 ---
 title: Fighting Array Functions with ES6
 date: "2019-04-07"
+tags: "javascript, guide, programming, web"
 ---
 
 Yesterday, I came across an interesting bug regarding JavaScript Arrays, and I wanted to share my approach to fixing it.

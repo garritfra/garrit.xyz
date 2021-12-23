@@ -1,6 +1,7 @@
 ---
 title: Updates, November 2020
 date: "2020-11-06"
+tags: "update, note"
 ---
 
 Hi, I wanted to share some things I'm currently working on. Maybe I'll turn this into a monthly thing, who knows. :)

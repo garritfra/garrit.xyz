@@ -1,6 +1,7 @@
 ---
 title: The Patch-Based Git Workflow
 date: "2020-09-28"
+tags: "git, guide, programming"
 ---
 
 If you have ever contributed to an open source project, chances are you have opened a pull request on GitHub or a similar platform to present your code to the maintainers. While this is a very approachable way of getting your code reviewed, some projects have decided against using pull requests and instead accept patches via email.

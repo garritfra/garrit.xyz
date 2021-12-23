@@ -1,6 +1,7 @@
 ---
 title: Flutter Web - the Good, the Bad and the Ugly
 date: "2021-02-17"
+tags: "flutter, 100DaysToOffload, note, programming"
 ---
 
 These are some notes I took for the evaluation of Flutter web for a potential project at work. I decided to build a frontend for [Miniflux](https://miniflux.app/), since I figured it may enclose many pitfalls an application could potentially have. You can find the current prototype [here](https://github.com/garritfra/FlutterFlux).

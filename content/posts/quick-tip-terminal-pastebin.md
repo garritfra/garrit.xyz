@@ -1,6 +1,7 @@
 ---
 title: Quick Tip! Sharing terminal output with Termbin
 date: "2019-12-31"
+tags: "tools, quick-tip"
 ---
 
 Ever find yourself in a situation where you simply want to save or share the output of a terminal command? Selecting, copying and pasting text from stdout always feels quite tedious, if you just want to share the contents of a file.

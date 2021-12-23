@@ -1,6 +1,7 @@
 ---
 title: Testing isn't hard
 date: "2019-11-08"
+tags: "javascript, testing, guide, web, programming"
 ---
 
 "I write two tests before implementing a method", "My project has 90% coverage".

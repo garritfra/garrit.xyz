@@ -1,6 +1,7 @@
 ---
 title: Quick Tip! Setting up a lightweight Server-Client VPN with wireguard
 date: "2020-08-19"
+tags: "infrastructure, guide"
 ---
 
 This blog post has been taken over from my [collection of "Today I Learned" articles](https://garrit.xyz/til).

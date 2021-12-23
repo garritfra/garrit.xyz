@@ -1,6 +1,7 @@
 ---
 title: Compiling your own kernel
 date: "2021-01-15"
+tags: "linux, guide, 100DaysToOffload, infrastructure"
 ---
 
 I'm currently in the midst of fiddling around with the kernel a bit, and I figured I just documented my process a bit. Unfortunately, since I'm using a Mac for day to day work, I have to rely on a virtual machine to run anything Linux-related. VirtualBox doesn't support the most recent kernels (5.9 is the most recent supported one), so there won't be any cutting-edge development happening here. I decided to use ubuntu as my guest system, since it's very easy to set up.

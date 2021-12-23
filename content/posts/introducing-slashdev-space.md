@@ -1,6 +1,7 @@
 ---
 title: Introducing my new blog - slashdev.space
 date: "2020-10-08"
+tags: "meta"
 ---
 
 Hi! Welcome to the new home of my blog. Let me give you a small tour of why I built it, its underlying architecture and my ambitions with this project.

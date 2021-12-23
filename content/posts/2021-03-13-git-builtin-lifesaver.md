@@ -1,6 +1,7 @@
 ---
 title: Git's built-in lifesaver
 date: "2021-03-13"
+tags: "git, 100DaysToOffload, guide"
 ---
 
 Everyone was in this situation at some point. You wasted a days worth of work by accidentally deleting a branch. But, all hope is not lost! Git never forgets. 

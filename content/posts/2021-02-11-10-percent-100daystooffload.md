@@ -1,6 +1,7 @@
 ---
 title: Thoughts after 10 Days of 100DaysToOffload
 date: "2021-02-11"
+tags: "note, 100DaysToOffload"
 ---
 
 Coming into this, I didn't know what to expect. I'm not a huge writer, but so far I am pleasantly surprised about how relaxing this challenge is.
