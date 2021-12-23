@@ -6,7 +6,12 @@ function reformatDate(fullDate) {
 }
 
 function truncateSummary(content) {
-    return content.slice(0, 200).trimEnd() + "...";
+    const firstParagraph = content.split("\n\n")[0];
+    if (firstParagraph.length > 200) {
+        return content.slice(0, 200).trimEnd() + "...";
+    } else {
+        return firstParagraph;
+    }
 }
 
 const BlogList = ({ posts }) => {

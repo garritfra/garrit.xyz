@@ -2,12 +2,20 @@
     &__post {
         margin-bottom: 3em;
         transition: opacity 0.2s ease;
+        background: $color-accent-dark;
+        padding: 0.2em 2em;
 
         &:hover {
         transition: opacity 0.2s ease;
         opacity: 0.7;
         text-decoration-color: inherit;
         }
+
+        @media (prefers-color-scheme: light) {
+            background: $color-accent-light;
+            color: $color-text-light;
+        }
+
         &__date {
             color: $color-text-dark;
             font-weight: 300;
