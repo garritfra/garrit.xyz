@@ -13,6 +13,7 @@ mail](mailto:garrit@slashdev.space)!
 * [Devine Lu Linvega](https://wiki.xxiivv.com/)
 * [Drew DeVault](https://drewdevault.com/)
 * [Kev Quirk](https://kevq.uk/)
+* [Randall Munroe (xkcd)](https://xkcd.com/)
 * [Ru Singh](https://rusingh.com/)
 * [Sotolf](https://wordsmith.social/sotolf/)
 
