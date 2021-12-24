@@ -6,15 +6,11 @@ export default function Footer() {
                     <h3>Links of Interest</h3>
                     <a href="/rss.xml">RSS Feed</a>
                     <br />
+                    <a href="/todo">Todo List</a>
+                    <br />
                     <a href="https://keyoxide.org/hkp/garrit@slashdev.space">
                         PGP Key
                     </a>
-                    <br />
-                    <a href="/blogroll">
-                        Blogroll
-                    </a>
-                    <br />
-                    <a href="/todo">Todo List</a>
                 </section>
                 <section className="footer__content__social">
                     <h3>Elsewhere</h3>
@@ -31,8 +27,7 @@ export default function Footer() {
                     </a>
                 </section>
             </div>
-            <p>© 2019-{new Date().getFullYear()} Garrit Franke</p>
-            <p>All work licensed under <strong>CC BY-SA 4.0</strong> unless otherwise stated.</p>
+            <p>© 2019-2021 Garrit Franke</p>
         </footer>
     );
 }
