@@ -1,0 +1,28 @@
+---
+title: "Blogroll"
+siteTitle: "Garrit's Feed"
+---
+
+This page lists some of my favorite content outlets. If you have any
+recommendations or you think your name fits on this list, feel free to [drop a
+mail](mailto:garrit@slashdev.space)!
+
+### Blogs
+
+* [Ben Stokes (Tiny Projects)](https://tinyprojects.dev/)
+* [Devine Lu Linvega](https://wiki.xxiivv.com/)
+* [Drew DeVault](https://drewdevault.com/)
+* [Kev Quirk](https://kevq.uk/)
+* [Ru Singh](https://rusingh.com/)
+* [Sotolf](https://wordsmith.social/sotolf/)
+
+### Newsboards
+
+* [Hacker News](https://news.ycombinator.com/)
+
+### Podcasts
+
+* [CoRecursive: Coding Stories](https://corecursive.com/)
+* [Linux Action News](https://linuxactionnews.com/)
+* [Linux Unplugged](https://linuxunplugged.com/)
+* [Self-Hosted](https://selfhosted.show/)
