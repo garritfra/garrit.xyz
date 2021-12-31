@@ -27,7 +27,6 @@ export async function getStaticProps() {
 
         const postTags = keys
             .map((key, index) => {
-                console.log(values);
                 const value = values[index];
                 // Parse yaml metadata & markdownbody in document
 
