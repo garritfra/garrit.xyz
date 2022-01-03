@@ -11,6 +11,8 @@ export default function Footer() {
                     <a href="https://keyoxide.org/hkp/garrit@slashdev.space">
                         PGP Key
                     </a>
+                    <br />
+                    <a href="/blogroll">Blogroll</a>
                 </section>
                 <section className="footer__content__social">
                     <h3>Elsewhere</h3>
@@ -27,7 +29,7 @@ export default function Footer() {
                     </a>
                 </section>
             </div>
-            <p>© 2019-2021 Garrit Franke</p>
+            <p>© 2019-2022 Garrit Franke</p>
         </footer>
     );
 }
