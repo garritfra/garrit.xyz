@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - master
+name: Deploy to IPFS
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        name: Checkout
+      - name: Build
+        run: |
+          npm ci
+          npm run build
+          touch out/.nojekyll
+          echo "garrit.xyz" > CNAME
+      - uses: aquiladev/ipfs-action@v1
+        name: Deploy to IPFS
+        id: ipfs
+        with:
+          path: ./out
+          port: 443
+          protocol: https
+          timeout: 180000
+          verbose: true
