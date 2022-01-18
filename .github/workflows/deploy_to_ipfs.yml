@@ -16,7 +16,7 @@ jobs:
           npm run build
           touch out/.nojekyll
           echo "garrit.xyz" > CNAME
-      - uses: aquiladev/ipfs-action@v1
+      - uses: aquiladev/ipfs-action@v0.2.0
         name: Deploy to IPFS
         id: ipfs
         with:
