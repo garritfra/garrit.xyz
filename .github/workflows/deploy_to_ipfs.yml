@@ -22,6 +22,7 @@ jobs:
         with:
           path: ./out
           port: 443
+          host: gateway.ipfs.io
           protocol: https
           timeout: 180000
           verbose: true
