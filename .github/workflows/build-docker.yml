@@ -15,7 +15,7 @@ jobs:
         name: Build & push Docker image
         with:
           image: garrit.xyz
-          tags: latest, ${{ github.head_ref }}, ${{ github.sha }}
+          tags: latest, ${{ github.ref_name }}, ${{ github.sha }}
           registry: ${{ secrets.DOCKER_REGISTRY }}
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
