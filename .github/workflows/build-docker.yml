@@ -16,7 +16,5 @@ jobs:
         with:
           image: ${{ secrets.DOCKER_REGISTRY }}/garrit.xyz
           tags: latest, ${{ github.head_ref }}, ${{ github.sha }}
-          registry: ${{ secrets.DOCKER_REGISTRY }}
-          dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
