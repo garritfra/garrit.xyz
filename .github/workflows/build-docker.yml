@@ -14,7 +14,7 @@ jobs:
       - uses: mr-smithers-excellent/docker-build-push@v5.6
         name: Build & push Docker image
         with:
-          image: ${{ secrets.REGISTRY_HOST }}/garrit.xyz
+          image: ${{ secrets.DOCKER_REGISTRY }}/garrit.xyz
           tags: latest
           registry: ${{ secrets.DOCKER_REGISTRY }}
           dockerfile: Dockerfile
