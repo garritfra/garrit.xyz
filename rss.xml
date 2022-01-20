@@ -10,7 +10,7 @@
           <item>
             <title>BTRFS on Alpine Linux</title>
             <link>
-              https://garrit.xyz/posts/2021-12-31-btrfs-on-alpine
+              https://garrit.xyz/posts/2021-12-31-btrfs-on-alpine?utm_source=rss
             </link>
     
             <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
@@ -88,7 +88,7 @@ UUID=abcdef-0055-4958-990f-1413ed1186ec  /var/data  btrfs   defaults,nofail,subv
           <item>
             <title>Notes on pruning chinese elms</title>
             <link>
-              https://garrit.xyz/posts/2021-12-24-notes-on-pruning-chinese-elms
+              https://garrit.xyz/posts/2021-12-24-notes-on-pruning-chinese-elms?utm_source=rss
             </link>
     
             <pubDate>Fri, 24 Dec 2021 00:00:00 +0000</pubDate>
@@ -129,7 +129,7 @@ a lot of fun learning about this tree!</p>
           <item>
             <title>Quick tip! React useToggle Hook</title>
             <link>
-              https://garrit.xyz/posts/2021-12-21-usetoggle-react-hook
+              https://garrit.xyz/posts/2021-12-21-usetoggle-react-hook?utm_source=rss
             </link>
     
             <pubDate>Tue, 21 Dec 2021 00:00:00 +0000</pubDate>
@@ -182,7 +182,7 @@ const SomeComponent = () =&gt; {
           <item>
             <title>Server-Side Caching with Apollo GraphQL</title>
             <link>
-              https://garrit.xyz/posts/2021-10-04-server-side-caching-with-apollo-graphql
+              https://garrit.xyz/posts/2021-10-04-server-side-caching-with-apollo-graphql?utm_source=rss
             </link>
     
             <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
@@ -394,7 +394,7 @@ individual users, you might also want to take a look at client-side caching via
           <item>
             <title>Finally fixing that annoying Cron gotcha</title>
             <link>
-              https://garrit.xyz/posts/2021-09-13-fixing-an-annoying-cron-gotcha
+              https://garrit.xyz/posts/2021-09-13-fixing-an-annoying-cron-gotcha?utm_source=rss
             </link>
     
             <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
@@ -438,7 +438,7 @@ about this. Have a great day!</p>
           <item>
             <title>Fun with Pen and Paper: Race Cars</title>
             <link>
-              https://garrit.xyz/posts/2021-08-08-fun-with-pen-and-paper-race-cars
+              https://garrit.xyz/posts/2021-08-08-fun-with-pen-and-paper-race-cars?utm_source=rss
             </link>
     
             <pubDate>Sun, 08 Aug 2021 00:00:00 +0000</pubDate>
@@ -506,7 +506,7 @@ dimension? The sky is the limit. Get out there and be creative.</p>
           <item>
             <title>Docker healthchecks using healthchecks.io</title>
             <link>
-              https://garrit.xyz/posts/2021-05-15-healthchecks-io-with-docker
+              https://garrit.xyz/posts/2021-05-15-healthchecks-io-with-docker?utm_source=rss
             </link>
     
             <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
@@ -575,7 +575,7 @@ via Matrix or email!</p>
           <item>
             <title>A pretty good guide to pretty good privacy</title>
             <link>
-              https://garrit.xyz/posts/2021-04-07-pgp-guide
+              https://garrit.xyz/posts/2021-04-07-pgp-guide?utm_source=rss
             </link>
     
             <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
@@ -815,7 +815,7 @@ gpg --export-ssh-key foo@bar.com
           <item>
             <title>Git's built-in lifesaver</title>
             <link>
-              https://garrit.xyz/posts/2021-03-13-git-builtin-lifesaver
+              https://garrit.xyz/posts/2021-03-13-git-builtin-lifesaver?utm_source=rss
             </link>
     
             <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
@@ -848,7 +848,7 @@ git checkout -b &lt;branch&gt; &lt;sha&gt;
           <item>
             <title>Strategies to use a terminal alongside (Neo)Vim</title>
             <link>
-              https://garrit.xyz/posts/2021-02-24-vim-terminal-strategies
+              https://garrit.xyz/posts/2021-02-24-vim-terminal-strategies?utm_source=rss
             </link>
     
             <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
@@ -907,7 +907,7 @@ might be interested in
           <item>
             <title>Writing good changelogs</title>
             <link>
-              https://garrit.xyz/posts/2021-02-20-changelogs
+              https://garrit.xyz/posts/2021-02-20-changelogs?utm_source=rss
             </link>
     
             <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
@@ -997,7 +997,7 @@ git tag -a v0.2.0 -m &quot;$(git shortlog v0.1.5..HEAD)&quot;
           <item>
             <title>Flutter Web - the Good, the Bad and the Ugly</title>
             <link>
-              https://garrit.xyz/posts/2021-02-17-notes-on-flutter-web
+              https://garrit.xyz/posts/2021-02-17-notes-on-flutter-web?utm_source=rss
             </link>
     
             <pubDate>Wed, 17 Feb 2021 00:00:00 +0000</pubDate>
@@ -1034,7 +1034,7 @@ git tag -a v0.2.0 -m &quot;$(git shortlog v0.1.5..HEAD)&quot;
           <item>
             <title>Thoughts after 10 Days of 100DaysToOffload</title>
             <link>
-              https://garrit.xyz/posts/2021-02-11-10-percent-100daystooffload
+              https://garrit.xyz/posts/2021-02-11-10-percent-100daystooffload?utm_source=rss
             </link>
     
             <pubDate>Thu, 11 Feb 2021 00:00:00 +0000</pubDate>
@@ -1053,7 +1053,7 @@ git tag -a v0.2.0 -m &quot;$(git shortlog v0.1.5..HEAD)&quot;
           <item>
             <title>My storage setup (Feburary 2021)</title>
             <link>
-              https://garrit.xyz/posts/2021-02-07-storage-setup
+              https://garrit.xyz/posts/2021-02-07-storage-setup?utm_source=rss
             </link>
     
             <pubDate>Sun, 07 Feb 2021 00:00:00 +0000</pubDate>
@@ -1100,7 +1100,7 @@ git tag -a v0.2.0 -m &quot;$(git shortlog v0.1.5..HEAD)&quot;
           <item>
             <title>Notes about BEM (Block Element Modifier)</title>
             <link>
-              https://garrit.xyz/posts/2021-02-02-bem-methodology
+              https://garrit.xyz/posts/2021-02-02-bem-methodology?utm_source=rss
             </link>
     
             <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
@@ -1174,7 +1174,7 @@ git tag -a v0.2.0 -m &quot;$(git shortlog v0.1.5..HEAD)&quot;
           <item>
             <title>From sudo to doas</title>
             <link>
-              https://garrit.xyz/posts/2021-01-29-sudo-to-doas
+              https://garrit.xyz/posts/2021-01-29-sudo-to-doas?utm_source=rss
             </link>
     
             <pubDate>Fri, 29 Jan 2021 00:00:00 +0000</pubDate>
@@ -1231,7 +1231,7 @@ permit nopass alice as root
           <item>
             <title>Using Macros in Vim</title>
             <link>
-              https://garrit.xyz/posts/2021-01-26-vim-macros
+              https://garrit.xyz/posts/2021-01-26-vim-macros?utm_source=rss
             </link>
     
             <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
@@ -1300,7 +1300,7 @@ mRightButton?.visibility = View.VISIBLE
           <item>
             <title>Signal-to-Noise, or why nobody cares about your GitHub project</title>
             <link>
-              https://garrit.xyz/posts/2021-01-23-signal-to-noise
+              https://garrit.xyz/posts/2021-01-23-signal-to-noise?utm_source=rss
             </link>
     
             <pubDate>Sat, 23 Jan 2021 00:00:00 +0000</pubDate>
@@ -1319,7 +1319,7 @@ mRightButton?.visibility = View.VISIBLE
           <item>
             <title>6 reasons the Fediverse is better than regular social media</title>
             <link>
-              https://garrit.xyz/posts/2021-01-18-reasons-the-fediverse-is-better
+              https://garrit.xyz/posts/2021-01-18-reasons-the-fediverse-is-better?utm_source=rss
             </link>
     
             <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
@@ -1386,7 +1386,7 @@ mRightButton?.visibility = View.VISIBLE
           <item>
             <title>Compiling your own kernel</title>
             <link>
-              https://garrit.xyz/posts/2021-01-15-compiling-your-own-kernel
+              https://garrit.xyz/posts/2021-01-15-compiling-your-own-kernel?utm_source=rss
             </link>
     
             <pubDate>Fri, 15 Jan 2021 00:00:00 +0000</pubDate>
@@ -1447,7 +1447,7 @@ sudo update-grub2
           <item>
             <title>I joined the 512KB club</title>
             <link>
-              https://garrit.xyz/posts/2021-01-13-512kb-club
+              https://garrit.xyz/posts/2021-01-13-512kb-club?utm_source=rss
             </link>
     
             <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
@@ -1468,7 +1468,7 @@ sudo update-grub2
           <item>
             <title>Are humans still evolving?</title>
             <link>
-              https://garrit.xyz/posts/2021-01-11-are-humans-still-evolving
+              https://garrit.xyz/posts/2021-01-11-are-humans-still-evolving?utm_source=rss
             </link>
     
             <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
@@ -1487,7 +1487,7 @@ sudo update-grub2
           <item>
             <title>100DaysToOffload</title>
             <link>
-              https://garrit.xyz/posts/2021-01-11-100daystooffload
+              https://garrit.xyz/posts/2021-01-11-100daystooffload?utm_source=rss
             </link>
     
             <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
@@ -1500,7 +1500,7 @@ sudo update-grub2
           <item>
             <title>I closed my Facebook account, and you should too</title>
             <link>
-              https://garrit.xyz/posts/2021-01-07-delete-facebook
+              https://garrit.xyz/posts/2021-01-07-delete-facebook?utm_source=rss
             </link>
     
             <pubDate>Thu, 07 Jan 2021 00:00:00 +0000</pubDate>
@@ -1515,7 +1515,7 @@ sudo update-grub2
           <item>
             <title>Updates, December 2020</title>
             <link>
-              https://garrit.xyz/posts/2020-12-18-update-december
+              https://garrit.xyz/posts/2020-12-18-update-december?utm_source=rss
             </link>
     
             <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
@@ -1528,7 +1528,7 @@ sudo update-grub2
           <item>
             <title>Booleans are wasted memory</title>
             <link>
-              https://garrit.xyz/posts/2020-11-17-booleans-are-wasted-memory
+              https://garrit.xyz/posts/2020-11-17-booleans-are-wasted-memory?utm_source=rss
             </link>
     
             <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
@@ -1619,7 +1619,7 @@ if (permissions &amp; PERM_EXECUTE)
           <item>
             <title>Updates, November 2020</title>
             <link>
-              https://garrit.xyz/posts/2020-11-06-current-doings
+              https://garrit.xyz/posts/2020-11-06-current-doings?utm_source=rss
             </link>
     
             <pubDate>Fri, 06 Nov 2020 00:00:00 +0000</pubDate>
@@ -1635,7 +1635,7 @@ If you are interested in this project, I highly recommend to check out the <a hr
           <item>
             <title>Introducing my new blog - slashdev.space</title>
             <link>
-              https://garrit.xyz/posts/introducing-slashdev-space
+              https://garrit.xyz/posts/introducing-slashdev-space?utm_source=rss
             </link>
     
             <pubDate>Thu, 08 Oct 2020 00:00:00 +0000</pubDate>
@@ -1699,7 +1699,7 @@ const posts = ((context) =&gt; {
           <item>
             <title>The Patch-Based Git Workflow</title>
             <link>
-              https://garrit.xyz/posts/patch-based-git-workflow
+              https://garrit.xyz/posts/patch-based-git-workflow?utm_source=rss
             </link>
     
             <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
@@ -1766,7 +1766,7 @@ git am &lt; 0001-first-change.patch
           <item>
             <title>Quick Tip! Setting up a lightweight Server-Client VPN with wireguard</title>
             <link>
-              https://garrit.xyz/posts/lightweight-vpn-with-wireguard
+              https://garrit.xyz/posts/lightweight-vpn-with-wireguard?utm_source=rss
             </link>
     
             <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
@@ -1857,7 +1857,7 @@ PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
           <item>
             <title>Whom do you trust?</title>
             <link>
-              https://garrit.xyz/posts/whom-do-you-trust
+              https://garrit.xyz/posts/whom-do-you-trust?utm_source=rss
             </link>
     
             <pubDate>Tue, 17 Mar 2020 00:00:00 +0000</pubDate>
@@ -1902,7 +1902,7 @@ PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
           <item>
             <title>Quick Tip! Sharing terminal output with Termbin</title>
             <link>
-              https://garrit.xyz/posts/quick-tip-terminal-pastebin
+              https://garrit.xyz/posts/quick-tip-terminal-pastebin?utm_source=rss
             </link>
     
             <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
@@ -1935,7 +1935,7 @@ https://termbin.com/faos
           <item>
             <title>Testing isn't hard</title>
             <link>
-              https://garrit.xyz/posts/testing-isnt-hard
+              https://garrit.xyz/posts/testing-isnt-hard?utm_source=rss
             </link>
     
             <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
@@ -2062,7 +2062,7 @@ Ran all test suites.
           <item>
             <title>Fighting Array Functions with ES6</title>
             <link>
-              https://garrit.xyz/posts/fighting-array-functions-with-es6
+              https://garrit.xyz/posts/fighting-array-functions-with-es6?utm_source=rss
             </link>
     
             <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
