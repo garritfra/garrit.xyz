@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "npm run build:rss && next dev",
-    "build": "npm run build:rss && next build && next export",
+    "start:prod": "npm run build && next start",
+    "build": "npm run build:rss && next build",
+    "build:static": "npm run build && next export",
     "build:rss": "node lib/rss.js"
   },
   "dependencies": {
