@@ -4,7 +4,7 @@ import Page from "../components/Page";
 
 const Index = (props) => {
     return (
-        <Page siteTitle="Garrit's Site">
+        <Page siteTitle="Garrit Franke">
             <ReactMarkdown>
                 {props.markdownBody}
             </ReactMarkdown>

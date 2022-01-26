@@ -13,7 +13,7 @@ export default function Meta(props) {
                 <title>{props.siteTitle}</title>
                 <meta
                     name="Description"
-                    content="Random thoughts, tips and rants about software"
+                    content="Generalist developer writing about fullstack development, system administration and free software."
                 ></meta>
                 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
