@@ -32,6 +32,6 @@ jobs:
 
         # TODO: This might save an old copy of the site, since it's not rolled out yet
       - name: Save my blog
-        uses: JamieMagee/wayback@v1.13.16
+        uses: JamieMagee/wayback@v1.13.15
         with:
           url: garrit.xyz
