@@ -16,6 +16,7 @@ mail](mailto:garrit@slashdev.space)!
 * [Randall Munroe (xkcd)](https://xkcd.com/)
 * [Ru Singh](https://rusingh.com/)
 * [Sotolf](https://wordsmith.social/sotolf/)
+* [Tomaso Marmo](https://tommi.space/)
 
 ### Newsboards
 
