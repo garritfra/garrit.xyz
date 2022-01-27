@@ -40,3 +40,5 @@ jobs:
         uses: JamieMagee/wayback@v1.3.15
         with:
           url: garrit.xyz
+          saveOutlinks: true
+          saveScreenshot: true
