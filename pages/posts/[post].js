@@ -1,5 +1,6 @@
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
+import gfm from 'remark-gfm'
 import Page from "../../components/Page";
 import glob from "glob";
 
@@ -19,7 +20,7 @@ export default function BlogTemplate(props) {
 
     return (
         <Page siteTitle="Garrit's Notes" title={props.frontmatter.title} date={reformatDate(props.frontmatter.date)}>
-            <ReactMarkdown date={props.frontmatter.date}>
+            <ReactMarkdown date={props.frontmatter.date} remarkPlugins={[gfm]}>
                 {props.markdownBody}
             </ReactMarkdown>
             <hr />

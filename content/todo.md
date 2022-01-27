@@ -12,7 +12,18 @@ for instagram
 - A farming simulator ([Gemini](https://gemini.circumlunar.space/) or FUSE frontend?)
 - Template Engine for Gemini applications
 
----
+## Website Roadmap
 
 - ~~Turn this blog into my main website~~
 - [~~"todo" Page on website (this list)~~](/todo)
+- Join a webring
+- Implement content tags (somewhat in the making)
+- Integrate webmentions
+- Have multiple lists of contents (guides, notes, garden, etc.)
+- Anchor links to headings
+- Make analytics public
+- Add a search
+- Add backlinks
+- Add a privacy policy
+- Add a "donate" button
+- Add a "Uses" page

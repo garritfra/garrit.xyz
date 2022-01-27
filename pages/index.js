@@ -1,11 +1,12 @@
 import ReactMarkdown from "react-markdown";
 import matter from "gray-matter";
+import gfm from 'remark-gfm'
 import Page from "../components/Page";
 
 const Index = (props) => {
     return (
         <Page siteTitle="Garrit Franke">
-            <ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[gfm]}>
                 {props.markdownBody}
             </ReactMarkdown>
         </Page>

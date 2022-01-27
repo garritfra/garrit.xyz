@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import gfm from 'remark-gfm'
 
 function reformatDate(fullDate) {
     const date = new Date(fullDate);
@@ -34,7 +35,7 @@ const BlogList = ({ posts }) => {
                                     {reformatDate(post.frontmatter.date)}
                                 </h4>
                                 <p>
-                                    <ReactMarkdown>
+                                    <ReactMarkdown remarkPlugins={[gfm]}>
                                         {truncateSummary(post.markdownBody)}
                                     </ReactMarkdown>
                                 </p>
