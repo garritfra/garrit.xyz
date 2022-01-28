@@ -5,8 +5,43 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Fri, 31 Dec 2021 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Fri, 28 Jan 2022 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>TIL how to get the selected language of a browser</title>
+            <link>
+              https://garrit.xyz/posts/2022-01-28-til-how-to-get-the-selected-language-of-a-browser?utm_source=rss
+            </link>
+    
+            <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>Today I learned how to get the selected language of a browser.</p>
+
+<p>It&#39;s so simple!</p>
+
+<p><code>js
+const userLang = navigator.language || navigator.userLanguage;
+</code></p>
+
+<h2>An interesting discovery</h2>
+
+<p>Eventhough I&#39;m using a chromium-based browser, the user-agent and some other
+fields of the <code>navigator</code> object imply that I&#39;m running Mozilla Netscape 5.0.
+This is a relic of the past, where the user agent heavily influenced the look
+and feel of a served website. Nowadays, all rendering engines work more or less
+equally, but back then, browsers tried to be as good as the market leader, so
+they disquised themselves as Netscape. This podcast episode goes into more
+detail about how this developed (jump to minute 3 to listen to this topic):</p>
+
+<p>&lt;iframe style=&quot;border-radius:12px&quot; src=&quot;https://open.spotify.com/embed/episode/71URVFdhF6pcUBRhxerDIV?utm_source=generator&amp;t=190&quot; width=&quot;100%&quot; height=&quot;232&quot; frameBorder=&quot;0&quot; allowfullscreen=&quot;&quot; allow=&quot;autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture&quot;&gt;&lt;/iframe&gt;</p>
+
+<p>This is post 024 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>
+
+<h2>Resources</h2>
+
+<ul><li><a href="https://stackoverflow.com/questions/8199760/how-to-get-the-browser-language-using-javascript">Stack Overflow Thread on getting the user language</a></li><li><a href="https://corecursive.com/internet-is-duct-tape/#">Full link to the Podcast episode</a></li></ul>]]>
+            </description>
+        </item>
           <item>
             <title>BTRFS on Alpine Linux</title>
             <link>
