@@ -6,7 +6,7 @@ tags: "note, til, javascript, web, 100DaysToOffload"
 
 Today I learned how to get the selected language of a browser.
 
-It's so simple!
+It's super simple!
 
 ```js
 const userLang = navigator.language || navigator.userLanguage;
