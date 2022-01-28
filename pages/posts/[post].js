@@ -1,6 +1,7 @@
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
-import gfm from 'remark-gfm'
+import gfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import Page from "../../components/Page";
 import glob from "glob";
 
@@ -19,8 +20,16 @@ export default function BlogTemplate(props) {
     if (!props.frontmatter) return <></>;
 
     return (
-        <Page siteTitle="Garrit's Notes" title={props.frontmatter.title} date={reformatDate(props.frontmatter.date)}>
-            <ReactMarkdown date={props.frontmatter.date} remarkPlugins={[gfm]}>
+        <Page
+            siteTitle="Garrit's Notes"
+            title={props.frontmatter.title}
+            date={reformatDate(props.frontmatter.date)}
+        >
+            <ReactMarkdown
+                date={props.frontmatter.date}
+                remarkPlugins={[gfm]}
+                rehypePlugins={[rehypeRaw]}
+            >
                 {props.markdownBody}
             </ReactMarkdown>
             <hr />

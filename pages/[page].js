@@ -1,6 +1,7 @@
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
-import gfm from 'remark-gfm'
+import gfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import glob from "glob";
 import Page from "../components/Page";
 
@@ -16,7 +17,7 @@ export default function PageTemplate(props) {
 
     return (
         <Page title={props.frontmatter.title} siteTitle={siteTitle}>
-            <ReactMarkdown remarkPlugins={[gfm]}>
+            <ReactMarkdown remarkPlugins={[gfm]} rehypePlugins={[rehypeRaw]}>
                 {props.markdownBody}
             </ReactMarkdown>
         </Page>
