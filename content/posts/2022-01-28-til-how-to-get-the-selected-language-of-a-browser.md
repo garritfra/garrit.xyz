@@ -24,6 +24,8 @@ detail about how this developed (jump to minute 3 to listen to this topic):
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/71URVFdhF6pcUBRhxerDIV?utm_source=generator&t=190" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
+---
+
 This is post 024 of [#100DaysToOffload](https://100daystooffload.com/).
 
 ## Resources
