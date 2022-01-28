@@ -1,5 +1,5 @@
 ---
-title: TIL how to get the selected language of a browser
+title: TIL how to get the active language of a browser
 date: "2022-01-28"
 tags: "note, til, javascript, web, 100DaysToOffload"
 ---
