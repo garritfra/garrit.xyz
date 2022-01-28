@@ -17,7 +17,7 @@
             <description>
             <![CDATA[<p>Today I learned how to get the selected language of a browser.</p>
 
-<p>It&#39;s so simple!</p>
+<p>It&#39;s super simple!</p>
 
 <p><code>js
 const userLang = navigator.language || navigator.userLanguage;
