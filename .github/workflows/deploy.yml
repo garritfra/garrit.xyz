@@ -24,11 +24,6 @@ jobs:
           npm run build:static
           touch out/.nojekyll
           echo "garrit.xyz" > CNAME
-      - uses: actions/checkout@v2
-      - name: Run Lighthouse test suite
-        uses: treosh/lighthouse-ci-action@v8
-        with:
-          configPath: './lighthouserc.json'
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
