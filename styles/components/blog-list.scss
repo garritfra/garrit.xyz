@@ -16,6 +16,10 @@
             color: $color-text-light;
         }
 
+        h2 {
+            margin-bottom: 0;
+        }
+
         &__date {
             color: $color-text-dark;
             font-weight: 300;
