@@ -16,6 +16,9 @@ export default function Meta(props) {
                 ></meta>
                 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+                <link rel="webmention" href="https://webmention.io/garrit.xyz/webmention" />
+                <link rel="pingback" href="https://webmention.io/garrit.xyz/xmlrpc" />
+
                 <script
                     async
                     defer
