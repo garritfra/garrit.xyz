@@ -16,13 +16,13 @@ export default function Footer() {
                 </section>
                 <section className="footer__content__social">
                     <h3>Elsewhere</h3>
-                    <a href="https://github.com/garritfra">Github</a>
+                    <a href="https://github.com/garritfra" rel="me">Github</a>
                     <br />
                     <a href="https://www.linkedin.com/in/garritfranke/">
                         LinkedIn
                     </a>
                     <br />
-                    <a href="mailto:garrit@slashdev.space">Email</a>
+                    <a href="mailto:garrit@slashdev.space" rel="me">Email</a>
                     <br />
                     <a href="https://matrix.to/#/@garrit:matrix.slashdev.space">
                         Matrix
