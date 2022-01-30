@@ -5,7 +5,7 @@ import Page from "../components/Page";
 
 const Index = (props) => {
     return (
-        <Page siteTitle="Garrit Franke">
+        <Page className="h-card" siteTitle="Garrit Franke">
             <ReactMarkdown remarkPlugins={[gfm]}>
                 {props.markdownBody}
             </ReactMarkdown>
