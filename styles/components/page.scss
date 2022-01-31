@@ -50,15 +50,17 @@
 
 .page__body a {
     text-decoration: underline;
+    text-decoration-color: $color-tertiary-dark;
     padding-bottom: 1.5rem;
-    color: $color-primary-dark;
+    color: $color-text-dark;
     @media (prefers-color-scheme: light) {
-        color: $color-primary-light;
+        color: $color-text-light;
     }
 }
 .page__body a,
 .page__footer a {
     text-decoration: underline;
+    text-decoration-color: $color-tertiary-dark;
 }
 
 .page__body:last-child {
