@@ -3,3 +3,6 @@ Allow: /posts
 Allow: /cv
 Allow: /todo
 Allow: /blogroll
+
+# Sitemaps
+Sitemap: https://garrit.xyz/sitemap-0.xml
