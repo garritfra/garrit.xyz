@@ -4,7 +4,7 @@ export default function Page(props) {
     const { title, date, siteTitle } = props;
     return (
         <Layout siteTitle={siteTitle}>
-            <article className="page e-entry">
+            <article className="page h-entry">
                 { title && <div className="page__info">
                     <h1 className="p-name">{title}</h1>
                     {date && <h3 className="page__info__date">{date}</h3>}
