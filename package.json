@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "npm run build:rss && next dev",
+    "start": "npm run build && next dev",
     "start:prod": "npm run build && next start",
-    "build": "npm run build:rss && next build",
+    "build": "next build && npm run build:rss && npm run build:sitemap && next build",
     "build:static": "npm run build && next export",
-    "build:rss": "node lib/rss.js"
+    "build:rss": "node lib/rss.js",
+    "build:sitemap": "next-sitemap"
   },
   "dependencies": {
     "glob": "^7.1.6",
@@ -23,6 +24,7 @@
     "typeit-react": "2.0.1"
   },
   "devDependencies": {
+    "next-sitemap": "^2.1.5",
     "raw-loader": "^4.0.2",
     "sass": "1.45.1"
   }
