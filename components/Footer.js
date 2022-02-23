@@ -29,7 +29,7 @@ export default function Footer() {
                     </a>
                 </section>
             </div>
-            <p>© 2019-2022 Garrit Franke</p>
+            <p>© 2018-2022 Garrit Franke</p>
         </footer>
     );
 }
