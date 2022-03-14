@@ -11,6 +11,7 @@ for instagram
 - A Vim-like editor
 - A farming simulator ([Gemini](https://gemini.circumlunar.space/) or FUSE frontend?)
 - Template Engine for Gemini applications
+- A platform for abandoned projects to find new maintainers
 
 ## Website Roadmap
 
