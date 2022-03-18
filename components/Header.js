@@ -1,5 +1,3 @@
-import TypeIt from "typeit-react";
-
 export default function Header(props) {
     return (
         <header className="header">
