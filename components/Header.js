@@ -1,6 +1,14 @@
 export default function Header(props) {
     return (
         <header className="header">
+            <a
+                href="https://donate.redcrossredcrescent.org/ua/donate/~my-donation?_cv=1"
+                style={{ height: "64px", textAlign: "center" }}
+                className="flag--ukraine"
+                target="_blank"
+            >
+                Help Ukraine
+            </a>
             <nav className="nav" role="navigation" aria-label="main navigation">
                 <div className="header__container">
                     <a href="/" className="header__container__logo underlined">

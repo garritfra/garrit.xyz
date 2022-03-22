@@ -1,0 +1,16 @@
+// https://codepen.io/esironal/pen/yLzaOb
+
+// Two halfs flag
+@function halfs($first, $second, $or: -180deg) {
+    @return linear-gradient($or, $first 50%, $second 50%);
+}
+
+%flag {
+    width: 100%;
+    height: 100%;
+}
+
+.flag--ukraine {
+    @extend %flag;
+    background: halfs(royalblue, yellow);
+}
