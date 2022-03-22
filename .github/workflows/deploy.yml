@@ -30,15 +30,3 @@ jobs:
           branch: gh-pages
           folder: out
 
-  archive:
-    needs: deploy
-    runs-on: ubuntu-latest
-    name: Archive
-    steps:
-        # TODO: This might save an old copy of the site, since it's not rolled out yet
-      - name: Save to archive.org
-        uses: JamieMagee/wayback@v1.3.15
-        with:
-          url: garrit.xyz
-          saveOutlinks: true
-          saveScreenshot: true
