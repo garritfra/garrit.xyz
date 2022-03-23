@@ -51,7 +51,6 @@
 .page__body a {
     text-decoration: underline;
     text-decoration-color: $color-tertiary-dark;
-    padding-bottom: 1.5rem;
     color: $color-text-dark;
     @media (prefers-color-scheme: light) {
         color: $color-text-light;
