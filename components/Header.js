@@ -22,6 +22,11 @@ export default function Header(props) {
                         </a>
                     </li>
                     <li>
+                        <a href="/contact" className="underlined">
+                            Contact
+                        </a>
+                    </li>
+                    <li>
                         <a href="/cv" className="underlined">
                             Resume
                         </a>
