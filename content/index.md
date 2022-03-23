@@ -16,6 +16,4 @@ out my [todos](/todo) if you need inspiration for your next project.
 I maintain [/dev.space](https://slashdev.space), an online community for
 developers.
 
-I'm always up for a chat. Feel free to reach out via
-[Email](mailto:garrit@slashdev.space) or
-[Matrix](https://matrix.to/#/@garrit:matrix.slashdev.space).
+I'm always up for a chat. Feel free to [reach out](/contact)!
