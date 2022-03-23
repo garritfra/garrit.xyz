@@ -22,10 +22,12 @@ export default function Footer() {
                         LinkedIn
                     </a>
                     <br />
-                    <a href="mailto:garrit@slashdev.space" rel="me">Email</a>
+                    <a href="https://fosstodon.org/@garritfra">
+                        Mastodon (ActivityPub)
+                    </a>
                     <br />
-                    <a href="https://matrix.to/#/@garrit:matrix.slashdev.space">
-                        Matrix
+                    <a href="/contact">
+                        Contact
                     </a>
                 </section>
             </div>
