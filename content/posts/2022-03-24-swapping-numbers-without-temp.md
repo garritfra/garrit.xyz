@@ -14,13 +14,13 @@ In school, we get taught to use a temporary
 variable to swap two numbers:
 
 ```js
-let a = 5;
-let b = 10;
+let a = 5
+let b = 10
 
-let temp = a; 
+let temp = a;
 
-a = b;    // a = 10
-b = temp; // b = 5
+a = b    // a = 10
+b = temp // b = 5
 ```
 
 But by using some arithmetic, we can save us a few bytes of memory:
