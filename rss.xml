@@ -25,13 +25,13 @@ programming, it blew my mind.</p>
 variable to swap two numbers:</p>
 
 <p><code></code>`js
-let a = 5;
-let b = 10;</p>
+let a = 5
+let b = 10</p>
 
-<p>let temp = a; </p>
+<p>let temp = a;</p>
 
-<p>a = b;    // a = 10
-b = temp; // b = 5
+<p>a = b    // a = 10
+b = temp // b = 5
 <code></code>`</p>
 
 <p>But by using some arithmetic, we can save us a few bytes of memory:</p>
