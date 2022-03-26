@@ -1,35 +1,8 @@
 .blog__list {
     &__post {
-        margin-bottom: 3em;
-        transition: opacity 0.2s ease;
-        background: $color-accent-dark;
-        padding: 0.2em 2em;
-
-        &:hover {
-        transition: opacity 0.2s ease;
-        opacity: 0.7;
-        text-decoration-color: inherit;
-        }
-
-        @media (prefers-color-scheme: light) {
-            background: $color-accent-light;
-            color: $color-text-light;
-        }
-
-        h2 {
+        margin-bottom: 1.5em;
+        &__date {
             margin-bottom: 0;
         }
-
-        &__date {
-            color: $color-text-dark;
-            font-weight: 300;
-
-            @media (prefers-color-scheme: light) {
-                color: $color-text-light;
-            }
-        }
-    }
-    a {
-        text-decoration: none;
     }
 }
