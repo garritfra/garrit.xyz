@@ -1,4 +1,9 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
+
 const BlogList = ({ posts }) => {
+    const router = useRouter();
+
     const isPublicPost = (post) => !post.slug.startsWith("_");
     const publicPosts = posts.filter(isPublicPost);
 
@@ -10,9 +15,15 @@ const BlogList = ({ posts }) => {
     const renderRandomButton = () => {
         const randomIndex = Math.floor(Math.random() * publicPosts.length);
         const randomPost = publicPosts[randomIndex];
+        const randomUrl = `/posts/${randomPost?.slug}`;
         return (
             <p>
-                <a href={`/posts/${randomPost?.slug}`}>✨ Random Post ✨</a>
+                <Link
+                    href={randomUrl}
+                    onClick={() => plausible("random_post_clicked")}
+                >
+                    ✨ Random Post ✨
+                </Link>
             </p>
         );
     };
@@ -22,7 +33,7 @@ const BlogList = ({ posts }) => {
             <p className="blog__list__post__date">
                 {reformatDate(post.frontmatter.date)}
             </p>
-            <a href={`/posts/${post.slug}`}>{post.frontmatter.title}</a>
+            <Link href={`/posts/${post.slug}`}>{post.frontmatter.title}</Link>
         </div>
     );
 

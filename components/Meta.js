@@ -1,8 +1,29 @@
 import Head from "next/head";
+import Script from "next/script";
+import { useEffect } from "react";
 
 export default function Meta(props) {
+    const isClient = () => !!window;
+    useEffect(() => {
+        if (isClient()) {
+            window.plausible =
+                window.plausible ||
+                function () {
+                    " ";
+                };
+            {
+                (window.plausible.q = window.plausible.q || []).push(arguments);
+            }
+        }
+    }, []);
+
     return (
         <>
+            <Script
+                defer
+                data-domain="garrit.xyz"
+                src="https://analytics.slashdev.space/js/plausible.js"
+            ></Script>
             <Head>
                 <meta
                     name="viewport"
@@ -16,15 +37,14 @@ export default function Meta(props) {
                 ></meta>
                 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-                <link rel="webmention" href="https://webmention.io/garrit.xyz/webmention" />
-                <link rel="pingback" href="https://webmention.io/garrit.xyz/xmlrpc" />
-
-                <script
-                    async
-                    defer
-                    data-domain="garrit.xyz"
-                    src="https://analytics.slashdev.space/js/plausible.js"
-                ></script>
+                <link
+                    rel="webmention"
+                    href="https://webmention.io/garrit.xyz/webmention"
+                />
+                <link
+                    rel="pingback"
+                    href="https://webmention.io/garrit.xyz/xmlrpc"
+                />
             </Head>
         </>
     );
