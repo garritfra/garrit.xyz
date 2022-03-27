@@ -21,13 +21,15 @@ export default function BlogTemplate(props) {
     if (!props.frontmatter) return <></>;
 
     const addAnchorTag = ({ node, children, ...props }) => {
-        const headerSlug = node.children[0].value.replaceAll(" ", "-").toLowerCase();
-        return React.createElement(node.tagName, { 
+        const headerSlug = node.children[0].value
+            .replaceAll(" ", "-")
+            .toLowerCase();
+        return React.createElement(node.tagName, {
             id: headerSlug,
             children: [children],
             ...props,
         });
-    }
+    };
 
     return (
         <Page
@@ -46,25 +48,18 @@ export default function BlogTemplate(props) {
                     h4: addAnchorTag,
                     h5: addAnchorTag,
                     h6: addAnchorTag,
-                  }}
+                }}
             >
                 {props.markdownBody}
             </ReactMarkdown>
             <hr />
-            <p>
-                If you enjoyed this post, consider{" "}
-                <a href="https://donate.slashdev.space">buying me a coffee</a>!
-                Got comments? Send me a{" "}
-                <a href="mailto:garrit@slashdev.space">Mail</a>, or shoot me a
-                message on{" "}
-                <a href="https://matrix.to/#/@garrit:matrix.slashdev.space">
-                    Matrix
-                </a>
-                .
-            </p>
-            <div className="blog__footer">
-                <h3>Written By: Garrit Franke</h3>
-            </div>
+            <a
+                href={`mailto:garrit@slashdev.space?subject=Re: ${encodeURIComponent(
+                    props.frontmatter.title
+                )}`}
+            >
+                Reply via E-Mail
+            </a>
         </Page>
     );
 }
