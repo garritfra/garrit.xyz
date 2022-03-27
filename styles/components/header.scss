@@ -27,6 +27,7 @@ nav {
 
     &__container {
         padding: 24px;
+        padding-bottom: 0px;
 
         &__logo {
             margin: 0;
@@ -70,6 +71,10 @@ nav {
     .header {
         left: 0;
         top: 0;
+
+        &__container {
+            padding-bottom: 24px;
+        }
 
         &__logo {
             border-bottom: none;
