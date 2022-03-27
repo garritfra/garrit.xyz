@@ -10,7 +10,6 @@ export default function Page(props) {
                     {date && <h3 className="page__info__date">{date}</h3>}
                 </div> }
                 <div className="page__body e-content">{props.children}</div>
-                <div className="page__footer"></div>
             </article>
         </Layout>
     );
