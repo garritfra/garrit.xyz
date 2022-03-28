@@ -2,7 +2,7 @@ export default function Header(props) {
     return (
         <header className="header">
             <a
-                href="https://savelife.in.ua/donate/"
+                href="https://www.comebackalive.in.ua/"
                 style={{ height: "64px", textAlign: "center" }}
                 className="flag--ukraine"
                 target="_blank"
