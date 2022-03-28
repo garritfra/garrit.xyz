@@ -2,7 +2,7 @@ export default function Header(props) {
     return (
         <header className="header">
             <a
-                href="https://donate.redcrossredcrescent.org/ua/donate/~my-donation?_cv=1"
+                href="https://www.comebackalive.in.ua/"
                 style={{ height: "64px", textAlign: "center" }}
                 onClick={() => plausible("ukraine_banner_clicked")}
                 className="flag--ukraine"
