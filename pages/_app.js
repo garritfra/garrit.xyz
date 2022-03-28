@@ -6,7 +6,6 @@ function MyApp({ Component, pageProps }) {
         <PlausibleProvider
             domain="garrit.xyz"
             customDomain="https://analytics.slashdev.space"
-            trackOutboundLinks
         >
             <Component {...pageProps} />;
         </PlausibleProvider>
