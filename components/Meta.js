@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Script from "next/script";
 import { useEffect } from "react";
 
 export default function Meta(props) {
@@ -19,11 +18,6 @@ export default function Meta(props) {
 
     return (
         <>
-            <Script
-                defer
-                data-domain="garrit.xyz"
-                src="https://analytics.slashdev.space/js/plausible.js"
-            ></Script>
             <Head>
                 <meta
                     name="viewport"

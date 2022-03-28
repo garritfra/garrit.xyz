@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { usePlausible } from 'next-plausible'
 
 const BlogList = ({ posts }) => {
     const router = useRouter();
+    const plausible = usePlausible();
 
     const isPublicPost = (post) => !post.slug.startsWith("_");
     const publicPosts = posts.filter(isPublicPost);
@@ -18,12 +20,12 @@ const BlogList = ({ posts }) => {
         const randomUrl = `/posts/${randomPost?.slug}`;
         return (
             <p>
-                <Link
+                <a
                     href={randomUrl}
                     onClick={() => plausible("random_post_clicked")}
                 >
                     ✨ Random Post ✨
-                </Link>
+                </a>
             </p>
         );
     };
