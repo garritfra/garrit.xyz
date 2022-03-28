@@ -1,5 +1,8 @@
 import Link from "next/link";
+import { usePlausible } from 'next-plausible'
+
 const BlogList = ({ posts }) => {
+    const plausible = usePlausible();
 
     const isPublicPost = (post) => !post.slug.startsWith("_");
     const publicPosts = posts.filter(isPublicPost);
@@ -17,7 +20,7 @@ const BlogList = ({ posts }) => {
             <p>
                 <a
                     href={randomUrl}
-                    data-analytics='"random_post_clicked"'
+                    onClick={() => plausible("random_post_clicked")}
                 >
                     ✨ Random Post ✨
                 </a>
