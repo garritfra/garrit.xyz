@@ -94,6 +94,25 @@
 .page__footer a svg {
     width: 20px;
 }
+
+.page__tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+}
+
+.page__tag-icon {
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+@media (prefers-color-scheme: light) {
+    .page__tag-icon {
+        filter: invert(1);
+    }
+}
+
 @media (max-width: 768px) {
     .page__footer {
         display: none;

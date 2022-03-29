@@ -5,6 +5,7 @@ import rehypeRaw from "rehype-raw";
 import Page from "../../components/Page";
 import glob from "glob";
 import React from "react";
+import TagIcon from "../../components/TagIcon";
 
 export default function BlogTemplate(props) {
     function reformatDate(fullDate) {
@@ -31,6 +32,21 @@ export default function BlogTemplate(props) {
         });
     };
 
+    const renderTagList = () => {
+        const tags = props.frontmatter.tags
+            ?.split(",")
+            .map((tag) => tag.trim());
+
+        return (
+            <div className="page__tag-list">
+                <TagIcon />
+                {tags.map((tag) => (
+                    <a href={`/posts?tags=${tag}`}>#{tag}</a>
+                ))}
+            </div>
+        );
+    };
+
     return (
         <Page
             siteTitle="Garrit's Notes"
@@ -53,13 +69,16 @@ export default function BlogTemplate(props) {
                 {props.markdownBody}
             </ReactMarkdown>
             <hr />
-            <a
-                href={`mailto:garrit@slashdev.space?subject=Re: ${encodeURIComponent(
-                    props.frontmatter.title
-                )}`}
-            >
-                Reply via E-Mail
-            </a>
+            <p>
+                <a
+                    href={`mailto:garrit@slashdev.space?subject=Re: ${encodeURIComponent(
+                        props.frontmatter.title
+                    )}`}
+                >
+                    Reply via E-Mail
+                </a>
+            </p>
+            {renderTagList()}
         </Page>
     );
 }
