@@ -1,5 +1,5 @@
 @mixin header {
-    font-family: "Open Sans Regular", Arial, Helvetica, sans-serif;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
     color: $color-primary-dark;
     font-weight: 400;
     line-height: initial;
@@ -19,7 +19,7 @@
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    font-family: "Source Sans Pro Light","Helvetica Neue", Helvetica, sans-serif;
+    font-family: "Source Sans Pro","Helvetica Neue", Helvetica, sans-serif;
     @media (prefers-color-scheme: light) {
         color: $color-text-light;
     }
