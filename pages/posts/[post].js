@@ -78,7 +78,7 @@ export default function BlogTemplate(props) {
                     Reply via E-Mail
                 </a>
             </p>
-            {renderTagList()}
+            {props.frontmatter.tags && renderTagList()}
         </Page>
     );
 }
