@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
             selfHosted
             trackOutboundLinks
         >
-            <Component {...pageProps} />;
+            <Component {...pageProps} />
         </PlausibleProvider>
     );
 }
