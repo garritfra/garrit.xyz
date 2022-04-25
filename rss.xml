@@ -40,8 +40,13 @@ the link at the bottom of the page.</p>
 
 <h2>On this blog</h2>
 
-<p>I&#39;m playing around with ideas about comments on this static website. No news
-here yet, but stay tuned.</p>
+<p>I&#39;m playing around with ideas about comments on this static website. I yanked
+out some thoughts in this thread, but I&#39;ll have to think about it a bit more:</p>
+
+<p>&lt;iframe src=&quot;https://fosstodon.org/@garritfra/108180821665987615/embed&quot;
+class=&quot;mastodon-embed&quot; style=&quot;max-width: 100%; border: 0&quot; width=&quot;400&quot; height=&quot;350&quot;
+allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;script
+src=&quot;https://fosstodon.org/embed.js&quot; async=&quot;async&quot;&gt;&lt;/script&gt;</p>
 
 <h2>Plants</h2>
 
