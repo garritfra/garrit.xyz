@@ -44,7 +44,7 @@ the link at the bottom of the page.</p>
 out some thoughts in this thread, but I&#39;ll have to think about it a bit more:</p>
 
 <p>&lt;iframe src=&quot;https://fosstodon.org/@garritfra/108180821665987615/embed&quot;
-class=&quot;mastodon-embed&quot; style=&quot;max-width: 100%; border: 0&quot; width=&quot;400&quot; height=&quot;350&quot;
+class=&quot;mastodon-embed&quot; style=&quot;max-width: 100%; border: 0; height: 21rem&quot; width=&quot;400&quot;
 allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;script
 src=&quot;https://fosstodon.org/embed.js&quot; async=&quot;async&quot;&gt;&lt;/script&gt;</p>
 
