@@ -31,6 +31,13 @@ one. As I&#39;m currently the only developer on the project, building a concept
 and realizing it will mostly be my part. I&#39;m somewhat frightened about this
 undertaking, but I think I will learn a whole lot.</p>
 
+<p>I also introduced versioned deployments for our application. To keep it simple,
+releases are versioned by date (E.g. <code>v2022.04.21</code>). Alongside this, I also
+added a changelog describing each release. I&#39;m still unsure whether this gives
+us a benefit or if it&#39;s just unnecessary work, but time will tell. I&#39;m curious
+of what you - the reader - thinks of this. Feel free to reply to this post via
+the link at the bottom of the page.</p>
+
 <h2>On this blog</h2>
 
 <p>I&#39;m playing around with ideas about comments on this static website. No news
