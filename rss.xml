@@ -5,8 +5,63 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Thu, 24 Mar 2022 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Mon, 25 Apr 2022 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>Weeknote 16/2022</title>
+            <link>
+              https://garrit.xyz/posts/2022-04-25-weeknote-16-2022?utm_source=rss
+            </link>
+    
+            <pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>This is my first (already belated) weeknote. Even though it&#39;s the monday of the
+next week, I thought I&#39;d reflect on what happened last week. I already tried <a href="/posts/2020-12-18-update-december">a
+similar format</a> on this blog in a monthly
+fashion, but didn&#39;t stick to it. With these &quot;weeknotes&quot;, I will try to sit down
+for half an hour each friday. This is heavily inspired by <a href="https://dougbelshaw.com/blog/">Doug Belshaw&#39;s posts
+with the same name</a>.</p>
+
+<h2>At work</h2>
+
+<p>There&#39;s currently an effort to integrate a whole new backend into our
+application. Fundamental features like user- and role-management will have to be
+migrated to this new backend, which is mostly incompatible with our current
+one. As I&#39;m currently the only developer on the project, building a concept
+and realizing it will mostly be my part. I&#39;m somewhat frightened about this
+undertaking, but I think I will learn a whole lot.</p>
+
+<h2>On this blog</h2>
+
+<p>I&#39;m playing around with ideas about comments on this static website. No news
+here yet, but stay tuned.</p>
+
+<h2>Plants</h2>
+
+<p>My girlfriend and I are in love with plants. This week, we went to a nursery and
+got ourselves a new member to our family: a Monstera Adansonii.</p>
+
+<p><img alt="Monstera Adansonii" src="/assets/monstera_adansonii.jpeg"/></p>
+
+<p>I also did a little experiment with one of my eucalyptus citriodoras. I cut it
+from 50cm back to the first &quot;node&quot; in the trunk, at about 2cm. I&#39;m quite happy
+with how it evolved in just about 10 months. It&#39;s now time to develop some
+branches. Here&#39;s it before the pruning:</p>
+
+<p><img alt="Eucalyptus before pruning" src="/assets/eucalyptus_before_pruning.jpeg"/></p>
+
+<p>And this is what it looks like now:</p>
+
+<p><img alt="Eucalyptus after pruning" src="/assets/eucalyptus_after_pruning.jpeg"/></p>
+
+<p>I also made cuttings from the rest of the stem. Not sure if they&#39;ll survive, but
+what could I lose?</p>
+
+<p>That&#39;s it for this week. Thanks for reading!</p>
+
+<p>This is post 027 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>Swapping two Numbers without Temporary Variables</title>
             <link>
