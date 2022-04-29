@@ -54,23 +54,37 @@ Development of an application to look up car dealership data
 
 ## Projects
 
-### [Clio Programming Language - Core Contributer](https://clio-lang.org/)
+### 🌿 [512kb.club - Collaborator & Code Review](https://512kb.club/)
+
+The 512KB Club is a collection of performance-focused web pages from across the
+Internet.
+
+### 🌿 [seeking-maintainers.net - Maintainer](https://seeking-maintainers.net/)
+
+An index of open source projects seeking new maintainers.
+
+### 🌿 [qbe-rs - Maintainer](https://github.com/garritfra/qbe-rs)
+
+A Rust crate that seeks to provide a Rust-y representation of QBE IR. It can be
+used for code generation of compilers. A way to parse existing IR is planned.
+
+### 🪦 [Clio Programming Language - Core Contributer](https://clio-lang.org/)
 
 Pure functional lazy-evaluated programming language targeting decentralized and
 distributed systems. It is made to take advantage of multiple CPUs and CPU
 cores (parallelism) by default, to run on clusters and on the cloud easily.
 
-### Imf & Firus - Developer
+🪦 **Imf & Firus - Developer**
 
 Daily challenges for children of parents that are working from home during the
 pandemic. This app gives children fun and interesting activities they can do
 on their own or with a sibling.
 
-### [Antimony Programming language - Maintainer](https://github.com/antimony-lang/antimony)
+### 🪦 [Antimony Programming language - Maintainer](https://github.com/antimony-lang/antimony)
 
 A bullshit-free programming language that compiles to JavaScript and C.
 
-### [Taurus - Maintainer](https://github.com/garritfra/taurus)
+### 🪦 [Taurus - Maintainer](https://github.com/garritfra/taurus)
 
 Concurrent Gemini server written in Rust. Very lightweight and hackable.
 
