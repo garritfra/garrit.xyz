@@ -5,8 +5,48 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Thu, 28 Apr 2022 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Fri, 29 Apr 2022 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>Weeknote 17/2022</title>
+            <link>
+              https://garrit.xyz/posts/2022-04-29-weeknote-17-2022?utm_source=rss
+            </link>
+    
+            <pubDate>Fri, 29 Apr 2022 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>This week was quite ordinary. We enjoyed the weather during walks in the park
+and got some chores done.</p>
+
+<h2>At work</h2>
+
+<p>A major news this week was that GitLab decided to remove <a href="https://docs.gitlab.com/ee/user/project/clusters/deploy_to_cluster.html#deploy-to-a-kubernetes-cluster-with-cluster-certificates-deprecated">certificate-based
+cluster
+access</a>
+to Kubernetes clusters sooner as we hoped. We&#39;re now fleshing out how to migrate
+to the newer
+<a href="https://docs.gitlab.com/ee/user/clusters/agent/install/index.html">gitlab-agent</a>.</p>
+
+<p>I also got some refactoring work done. In one of our projects, we&#39;re currently
+migrating our GraphQL queries away from a HOC-pattern towards React hooks, using
+the amazing
+<a href="https://github.com/appmotion/apollo-augmented-hooks">apollo-augmented-hooks</a>
+library for additional caching features.</p>
+
+<h2>Sideprojects</h2>
+
+<p>I continued to work on a secret side-project of mine, but I don&#39;t want to spoil
+anything just yet.</p>
+
+<p>BUT! If you&#39;re good at writing and would like to help out writing a couple of
+paragraphs that can catch the users attention, <a href="/contact">I&#39;d love to hear from
+you</a>.</p>
+
+<p>That&#39;s it for this week. Thanks for reading!</p>
+
+<p>This is post 029 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>Hello to all the new Mastodon users</title>
             <link>
