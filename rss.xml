@@ -5,8 +5,58 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Fri, 29 Apr 2022 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Fri, 06 May 2022 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>Weeknote 18/2022</title>
+            <link>
+              https://garrit.xyz/posts/2022-05-06-weeknote-18-2022?utm_source=rss
+            </link>
+    
+            <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>It&#39;s friday, my dudes! Here are some notes on what happened during my week.</p>
+
+<h2>At Work</h2>
+
+<p>I wanted to start off my week by looking into migrating our deployment workflow
+to a GitLab Agent, as described <a href="/posts/2022-04-29-weeknote-17-2022">last week</a>.
+That didn&#39;t really go well, since a database from another project bursted into
+flames (not literally) for a reason I still couldn&#39;t figure out. As a
+workaround, I just beefed up the AWS RDS instance size until we find a proper
+solution.</p>
+
+<p>While looking through the docs, I also read more about <a href="https://aws.amazon.com/de/rds/aurora/serverless/">Aurora
+Serverless</a>, which would be a
+match made in heaven, at least for this specific project. Instead of keeping
+multiple instances running even without any load, serverless automatically
+scales to as many resources as you need. This <strong>drastically</strong> improves
+performance (according to the docs it&#39;s instantaneous, but I&#39;ll have to see that
+with my own eyes), while keeping the price at a minimum. Once we&#39;re done with
+that migration, I&#39;ll probably follow up with a blog post on this.</p>
+
+<h2>Motorbike Maintenance</h2>
+
+<p>I was long due to dust off my motorbike, but I finally did. Also, I did my first
+oil change on a vehicle <strong>ever</strong>!</p>
+
+<p><img alt="Motorbike oil change" src="/assets/posts/2022-05-06-weeknote-18-2022/motorbike_oil_change.jpeg"/></p>
+
+<p>Feels great to finally be back on the road.</p>
+
+<h2>Fun Fun Fun</h2>
+
+<p>Besides riding my motorbike, we went to a fair in our town. It was the first
+time in years that I&#39;ve been to a fair, and to ride bumper cars.</p>
+
+<p>Also, I met up with a friend I haven&#39;t seen in a while. It was great taking a
+walk and talking about life.</p>
+
+<p>That&#39;s it for this week. Thanks for reading!</p>
+
+<p>This is post 030 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>Weeknote 17/2022</title>
             <link>
