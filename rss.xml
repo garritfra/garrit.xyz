@@ -35,6 +35,20 @@ performance (according to the docs it&#39;s instantaneous, but I&#39;ll have to 
 with my own eyes), while keeping the price at a minimum. Once we&#39;re done with
 that migration, I&#39;ll probably follow up with a blog post on this.</p>
 
+<h2>Home Automation</h2>
+
+<p>We recently wanted to configure a light in our bedroom to turn on early and the
+morning, stay on for a few hours and then turn off. Same for the evening.</p>
+
+<p>Soo, I ordered two power plugs pre-flashed with
+<a href="https://tasmota.github.io/docs/">Tasmota</a> and yanked HomeAssistant onto an old
+Pi. The plugs came as a pair, so I automated another light in our home. I think
+this will be the beginning of a deep deep rabbit hole.</p>
+
+<p>We&#39;ll be moving to a new flat soon, where humidity is higher than usual. I&#39;m
+thinking to monitor this and react with some counter-measures, like air filters.
+Sky is the limit, really. More to follow...</p>
+
 <h2>Motorbike Maintenance</h2>
 
 <p>I was long due to dust off my motorbike, but I finally did. Also, I did my first
