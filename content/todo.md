@@ -29,3 +29,4 @@ for instagram
 - Add a "donate" button
 - Add a "Uses" page
 - "Share via Mastodon, Twitter, Facebook..." buttons
+- Page changelog (page slug to git history link)
