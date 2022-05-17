@@ -18,7 +18,7 @@ for instagram
 - ~~Turn this blog into my main website~~
 - [~~"todo" Page on website (this list)~~](/todo)
 - Join a webring
-- Implement content tags (somewhat in the making)
+- ~~Implement content tags~~
 - Integrate webmentions
 - Have multiple lists of contents (guides, notes, garden, etc.)
 - Anchor links to headings
@@ -28,3 +28,4 @@ for instagram
 - Add a privacy policy
 - Add a "donate" button
 - Add a "Uses" page
+- "Share via Mastodon, Twitter, Facebook..." buttons
