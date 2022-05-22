@@ -13,6 +13,7 @@ for instagram
 - Template Engine for Gemini applications
 - [~~A platform for abandoned projects to find new maintainers~~](https://seeking-maintainers.net/)
 - Terminal-based spreadsheet program
+- A web-based kernel and graphical operating system
 
 ## Website Roadmap
 
