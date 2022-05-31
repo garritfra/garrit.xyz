@@ -5,7 +5,7 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Tue, 24 May 2022 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Tue, 31 May 2022 00:00:00 +0000</lastBuildDate>
             
           <item>
             <title>Postgres Docker Container Migration Cheat Sheet</title>
@@ -13,7 +13,7 @@
               https://garrit.xyz/posts/2022-05-31-database-server-migration-cheat-sheet?utm_source=rss
             </link>
     
-            <pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate>
+            <pubDate>Tue, 31 May 2022 00:00:00 +0000</pubDate>
             <description>
             <![CDATA[<p>I just finished migrating a postgres database to a new host. To remember how to
 do it next time, I&#39;m writing down the commands I used here.</p>
