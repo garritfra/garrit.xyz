@@ -5,8 +5,44 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Tue, 31 May 2022 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Thu, 02 Jun 2022 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>Here's the tar command you keep looking for</title>
+            <link>
+              https://garrit.xyz/posts/2022-06-02-tar-commands?utm_source=rss
+            </link>
+    
+            <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>God dammit. I can&#39;t tell you how often I had to look up how to create or extract a tar archive on linux. There are SOO many options!!</p>
+
+<h2>To settle this once and for all</h2>
+
+<p>Here&#39;s how you create an archive:</p>
+
+<p><code>
+tar cf archive.tar directory
+</code></p>
+
+<p>Try to remember &quot;Create File&quot;.</p>
+
+<p>And here&#39;s how you extract an archive:</p>
+
+<p><code>
+tar xf archive.tar
+</code></p>
+
+<p>For this one, try to remember &quot;(e)Xtract File&quot;.</p>
+
+<p>And if there&#39;s some other compressions in the mix: keep looking it up!
+A more comprehensive cheat sheet can be found here: https://simplecheatsheet.com/linux-tar-files/</p>
+
+<p>Sorry for this dumb post. I&#39;m sure you can relate to my feelings. ;)</p>
+
+<p>This is post 033 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>Postgres Docker Container Migration Cheat Sheet</title>
             <link>
