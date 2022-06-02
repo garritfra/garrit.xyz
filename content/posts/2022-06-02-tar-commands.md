@@ -6,7 +6,9 @@ tags: "note, 100DaysToOffload, linux"
 
 God dammit. I can't tell you how often I had to look up how to create or extract a tar archive on linux. There are SOO many options!!
 
-## To settle this once and for all
+![xkcd 1168](https://imgs.xkcd.com/comics/tar_2x.png)
+
+## Let's settle this once and for all
 
 Here's how you create an archive:
 
