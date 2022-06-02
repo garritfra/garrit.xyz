@@ -14,6 +14,7 @@ for instagram
 - [~~A platform for abandoned projects to find new maintainers~~](https://seeking-maintainers.net/)
 - Terminal-based spreadsheet program
 - A web-based kernel and graphical operating system
+- A compliant redis server implementation
 
 ## Website Roadmap
 
