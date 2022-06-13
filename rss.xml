@@ -15,7 +15,13 @@
     
             <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
             <description>
-            <![CDATA[<p>God dammit. I can&#39;t tell you how often I had to look up how to create or extract a tar archive on linux. There are SOO many options!!</p>
+            <![CDATA[<blockquote><p><strong>Update</strong>: <a href="https://mastodon.technology/@kaushalmodi">@kaushalmodi@mastodon.technology</a>
+replied to this post with a way more complete cheat sheet. If you don&#39;t want
+to hear me rant about tar and actually want to get good at it, go read their
+post instead:</p><p>https://scripter.co/disarming-the-tar-bomb-in-10-seconds/</p></blockquote>
+
+<p>God dammit. I can&#39;t tell you how often I had to look up how to create or
+extract a tar archive on linux. There are SOO many options!!</p>
 
 <p><img alt="xkcd 1168" src="https://imgs.xkcd.com/comics/tar_2x.png"/></p>
 
@@ -37,8 +43,9 @@ tar xf archive.tar
 
 <p>For this one, try to remember &quot;(e)Xtract File&quot;.</p>
 
-<p>And if there&#39;s some other compressions in the mix: keep looking it up!
-A more comprehensive cheat sheet can be found here: https://simplecheatsheet.com/linux-tar-files/</p>
+<p>And if there&#39;s some other compressions in the mix: keep looking it up! A more
+comprehensive cheat sheet can be found here:
+https://simplecheatsheet.com/linux-tar-files/</p>
 
 <p>Sorry for this dumb post. I&#39;m sure you can relate to my feelings. ;)</p>
 
