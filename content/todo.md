@@ -15,6 +15,7 @@ for instagram
 - Terminal-based spreadsheet program
 - A web-based kernel and graphical operating system
 - A compliant redis server implementation
+- A website that calls out bloated technology/websites
 
 ## Website Roadmap
 
