@@ -24,7 +24,7 @@ export default function Meta(props) {
                     content="width=device-width, initial-scale=1"
                 />
                 <meta charSet="utf-8" />
-                <title>{props.siteTitle}</title>
+                <title>{props.pageTitle || props.siteTitle}</title>
                 <meta
                     name="Description"
                     content="Generalist developer writing about fullstack development, system administration and free software."

@@ -3,7 +3,7 @@ import Layout from "./Layout";
 export default function Page(props) {
     const { title, date, siteTitle } = props;
     return (
-        <Layout siteTitle={siteTitle}>
+        <Layout siteTitle={siteTitle} pageTitle={title}>
             <article className="page h-entry">
                 { title && <div className="page__info">
                     <h1 className="p-name">{title}</h1>
