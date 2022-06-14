@@ -24,8 +24,3 @@ I'm on Matrix at
 
 You can follow me on the Fediverse at
 [@garritfra@fosstodon.org](https://fosstodon.org/@garritfra).
-
-## IRC
-
-I try to be active on [libera.chat](https://libera.chat) whenever I can. Nick:
-`garrit`.
