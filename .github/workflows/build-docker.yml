@@ -1,7 +1,8 @@
-on:
-  push:
-    branches:
-      - master
+# TODO: Should push to docker hub
+# on:
+#   push:
+#     branches:
+#       - master
 name: Build Docker Container
 jobs:
   deploy:
