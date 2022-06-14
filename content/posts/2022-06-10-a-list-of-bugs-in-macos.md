@@ -16,5 +16,7 @@ whenever I encounter new issues.
   sometimes stays visible. Has to be manually hovered to hide.
 * When using a chromium-based browser on an external monitor in
   fullscreen-mode, the menu-bar sometimes doesn't appear when hovered.
+* When switching from the internal to an external monitor, the workspace
+  alignment is not how I left it.
 
 This is post 034 of [#100DaysToOffload](https://100daystooffload.com/).
