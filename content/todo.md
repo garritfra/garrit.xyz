@@ -16,6 +16,7 @@ for instagram
 - A web-based kernel and graphical operating system
 - A compliant redis server implementation
 - A website that calls out bloated technology/websites
+- A transpiled JavaScript dialect for German syntax
 
 ## Website Roadmap
 
