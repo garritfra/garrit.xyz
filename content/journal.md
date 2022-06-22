@@ -1,5 +1,9 @@
 # Journal
 
+### 2022-06-21
+
+- Got into Django for a side project
+
 ### 2022-06-20
 
 - I started a journal!
