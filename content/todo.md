@@ -17,6 +17,7 @@ for instagram
 - A compliant redis server implementation
 - A website that calls out bloated technology/websites
 - A transpiled JavaScript dialect for German syntax
+- A newsletter/feed that aggregates news from outlets covering the entire political spectrum
 
 ## Website Roadmap
 
