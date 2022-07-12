@@ -7,7 +7,7 @@ You stumbled upon my secret page!
 
 There are 2 secret flags scattered across this website. Can you find them?
 
-A flag looks something like this: `***{***********}`. If you manage to find a
+A flag looks something like this: `****{***********}`. If you manage to find a
 flag, feel free to send me an email with a short writeup, and I will proudly add
 your name to the "Hall of Fame". I will add more flags over time, so check back
 later for updates.
