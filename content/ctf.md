@@ -3,9 +3,11 @@ title: "Capture the Flag"
 siteTitle: "Garrit's Secret🤭"
 ---
 
+![White Flag](/assets/white_flag.png)
+
 You stumbled upon my secret page!
 
-There are 2 secret flags scattered across this website. Can you find them?
+There are 3 secret flags scattered across this website. Can you find them?
 
 A flag looks something like this: `****{***********}`. If you manage to find a
 flag, feel free to send me an email with a short writeup, and I will proudly add
