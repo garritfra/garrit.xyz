@@ -5,7 +5,7 @@ siteTitle: "Garrit's Secret🤭"
 
 ![White Flag](/assets/white_flag.png)
 
-You stumbled upon my secret page!
+You stumbled upon a secret page!
 
 There are 4 secret flags scattered across this website. Can you find them?
 
