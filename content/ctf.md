@@ -20,3 +20,4 @@ If you have an idea for a new flag, [I'd love to hear it](/contact)!
 ## Hall of Fame
 
 -   [Garrit Franke](https://garrit.xyz) - 2 Flags found, last updated 2022-07-12
+-   [Pixelcode](https://social.tchncs.de/@pixelcode) - 1 Flags found, last updated 2022-07-12
