@@ -1,5 +1,5 @@
 ---
-title: "CTF"
+title: "Capture the Flag"
 siteTitle: "Garrit's Secret🤭"
 ---
 
