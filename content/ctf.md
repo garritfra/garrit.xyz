@@ -10,11 +10,13 @@ You stumbled upon a secret page!
 There are 5 secret flags hidden across this website. Can you find them?
 
 A flag looks something like this: `GXYZ{***********}`. If you manage to find
-one, feel free to send me an email with a short writeup, and I will proudly add
-your name to the "Hall of Fame". I will add more flags over time, so check back
-later for updates.
+one, feel free to [send me an email](/contact) with a short writeup, and I will
+proudly add your name to the "Hall of Fame". I will add more flags over time, so
+check back later for updates.
 
-If you have an idea for a new flag, [I'd love to hear it](/contact)!
+This challenge is about learning new things and having fun. If you're stuck and
+need a hint, just let me know. Also, if you have an idea for a new flag, I'd
+love to hear it!
 
 > **Disclaimer**: Cheating is easy, and this website is open source. Please
 > don't ruin the fun for yourself, and keep your eyes off the source code! :)
