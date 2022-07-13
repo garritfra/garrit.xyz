@@ -21,7 +21,22 @@ If you have an idea for a new flag, [I'd love to hear it](/contact)!
 
 ## Hall of Fame
 
--   [F1ndus](https://f1ndus.de/) - 2 flags found, last updated 2022-07-13
+-   n0thing maybe - 4 flags found, last updated 2022-07-13
+
+---
+
+-   [Ben Fiedler](https://3fx.ch) - 3 flags found, last updated 2022-07-13
+-   [F1ndus](https://f1ndus.de/) - 3 flags found, last updated 2022-07-13
+-   [Fabio Alessandro Locati](https://fale.io) - 3 flags found, last updated 2022-07-13
+-   [Manuel Romei](https://fosstodon/@kriive) - 3 flags found, last updated 2022-07-13
+-   [Nikita Karamov](https://www.kytta.dev/) - 3 flags found, last updated 2022-07-13
+
+---
+
+-   [Jure Šumak](https://jsumak.github.io/about/) - 2 flags found, last updated 2022-07-13
 -   [Kev Quirk](https://kevq.uk/) - 2 flags found, last updated 2022-07-12
--   [Nikita Karamov](https://www.kytta.dev/) - 2 flags found, last updated 2022-07-12
+
+---
+
 -   [Pixelcode](https://social.tchncs.de/@pixelcode) - 1 flag found, last updated 2022-07-12
+-   macbury - 1 flag found, last updated 2022-07-13
