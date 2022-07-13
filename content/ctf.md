@@ -21,6 +21,7 @@ If you have an idea for a new flag, [I'd love to hear it](/contact)!
 
 ## Hall of Fame
 
+-   [F1ndus](https://f1ndus.de/) - 2 flags found, last updated 2022-07-13
 -   [Kev Quirk](https://kevq.uk/) - 2 flags found, last updated 2022-07-12
 -   [Nikita Karamov](https://www.kytta.dev/) - 2 flags found, last updated 2022-07-12
 -   [Pixelcode](https://social.tchncs.de/@pixelcode) - 1 flag found, last updated 2022-07-12
