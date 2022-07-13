@@ -30,6 +30,7 @@ If you have an idea for a new flag, [I'd love to hear it](/contact)!
 -   [Fabio Alessandro Locati](https://fale.io) - 3 flags found, last updated 2022-07-13
 -   [Manuel Romei](https://fosstodon/@kriive) - 3 flags found, last updated 2022-07-13
 -   [Nikita Karamov](https://www.kytta.dev/) - 3 flags found, last updated 2022-07-13
+-   Gaeulbyul - 3 flags found, last updated 2022-07-13
 
 ---
 
