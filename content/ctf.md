@@ -21,13 +21,21 @@ If you have an idea for a new flag, [I'd love to hear it](/contact)!
 
 ## Hall of Fame
 
--   n0thing maybe - 4 flags found, last updated 2022-07-13
+-   [F1ndus](https://f1ndus.de/) - 5 flags found, last updated 2022-07-13
+-   Ezequiel Gonzalez Rial - 5 flags found, last updated 2022-07-13
+-   n0thing maybe - 5 flags found, last updated 2022-07-13
+
+---
+
+-   [Nasir](https://lobste.rs/u/thesnarky1) - 4 flags found, last updated 2022-07-13
+-   [Ordoviz](https://fosstodon.org/@Ordoviz) - 4 flags found, last updated 2022-07-13
+-   [Team Krosse Flagge](https://ctftime.org/team/82581) - 4 flags found, last updated 2022-07-13
 
 ---
 
 -   [Ben Fiedler](https://3fx.ch) - 3 flags found, last updated 2022-07-13
--   [F1ndus](https://f1ndus.de/) - 3 flags found, last updated 2022-07-13
 -   [Fabio Alessandro Locati](https://fale.io) - 3 flags found, last updated 2022-07-13
+-   [George](https://fosstodon.org/@george_) - 3 flags found, last updated 2022-07-13
 -   [Manuel Romei](https://fosstodon/@kriive) - 3 flags found, last updated 2022-07-13
 -   [Nikita Karamov](https://www.kytta.dev/) - 3 flags found, last updated 2022-07-13
 -   Gaeulbyul - 3 flags found, last updated 2022-07-13
@@ -36,8 +44,14 @@ If you have an idea for a new flag, [I'd love to hear it](/contact)!
 
 -   [Jure Šumak](https://jsumak.github.io/about/) - 2 flags found, last updated 2022-07-13
 -   [Kev Quirk](https://kevq.uk/) - 2 flags found, last updated 2022-07-12
+-   Marat Validov - 2 flag found, last updated 2022-07-13
 
 ---
 
+-   [Askar Mirzajanov](https://t.me/gmmdt) - 1 flag found, last updated 2022-07-13
+-   [Frederik Braun](https://frederik-braun.com/) - 1 flag found, last updated 2022-07-13
+-   [Gioele Barabucci](https://gioele.io/) - 1 flag found, last updated 2022-07-13
 -   [Pixelcode](https://social.tchncs.de/@pixelcode) - 1 flag found, last updated 2022-07-12
+-   hub - 1 flag found, last updated 2022-07-13
 -   macbury - 1 flag found, last updated 2022-07-13
+-   lemmyz4n3771 - 1 flag found, last updated 2022-07-13
