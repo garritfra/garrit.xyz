@@ -5,9 +5,11 @@
 ##
 FROM golang:1.18.3-bullseye AS build
 
-COPY *.go ./
+WORKDIR /app
 
-RUN go build -o /app main.go
+COPY main.go ./
+
+RUN go build -o /jurassic main.go
 
 ##
 ## Deploy
@@ -16,10 +18,11 @@ FROM gcr.io/distroless/base-debian11
 
 WORKDIR /
 
-COPY --from=build /app /app
+COPY --from=build /jurassic /jurassic
 
 EXPOSE 8080
 
 USER nonroot:nonroot
 
-ENTRYPOINT ["/app"]
+ENTRYPOINT ["/jurassic"]
+
