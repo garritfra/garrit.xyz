@@ -5,11 +5,11 @@
 ##
 FROM golang:1.18.3-bullseye AS build
 
-WORKDIR /app
+WORKDIR /go/src
 
-COPY *.go .
+COPY . /go/src
 
-RUN go build -o /jurassic main.go
+RUN GO111MODULE=off go build -o /jurassic main.go
 
 ##
 ## Deploy
