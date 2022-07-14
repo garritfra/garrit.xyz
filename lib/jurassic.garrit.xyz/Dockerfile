@@ -7,7 +7,7 @@ FROM golang:1.18.3-bullseye AS build
 
 WORKDIR /app
 
-COPY main.go ./
+COPY *.go .
 
 RUN go build -o /jurassic main.go
 
