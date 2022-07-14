@@ -20,3 +20,17 @@ jobs:
           registry: ${{ secrets.DOCKER_REGISTRY }}
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+  build-jurassic-park-image:
+    runs-on: "ubuntu-22.04"
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # https://github.com/marketplace/actions/push-to-ghcr
+      - name: Build and publish a Docker image for garritfra/jurassic.garrit.xyz
+        uses: macbre/push-to-ghcr@v8
+        with:
+          image_name: garritfra/jurassic.garrit.xyz
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          dockerfile: lib/jurassic.garrit.xyz/Dockerfile
