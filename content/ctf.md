@@ -29,9 +29,11 @@ love to hear it!
 
 ---
 
+-   [Felix Hanley](https://felixhanley.info) - 4 flags found, last updated 2022-07-13
 -   [Nasir](https://lobste.rs/u/thesnarky1) - 4 flags found, last updated 2022-07-13
 -   [Ordoviz](https://fosstodon.org/@Ordoviz) - 4 flags found, last updated 2022-07-13
 -   [Team Krosse Flagge](https://ctftime.org/team/82581) - 4 flags found, last updated 2022-07-13
+-   Barbas Bonitas - 4 flags found, last updated 2022-07-13
 
 ---
 
@@ -40,13 +42,17 @@ love to hear it!
 -   [George](https://fosstodon.org/@george_) - 3 flags found, last updated 2022-07-13
 -   [Manuel Romei](https://fosstodon/@kriive) - 3 flags found, last updated 2022-07-13
 -   [Nikita Karamov](https://www.kytta.dev/) - 3 flags found, last updated 2022-07-13
+-   [Sergii](https://www.linkedin.com/in/serhiy-m-618020107/) - 3 flags found, last updated 2022-07-14
 -   Gaeulbyul - 3 flags found, last updated 2022-07-13
+-   runejuhl - 3 flags found, last updated 2022-07-14
 
 ---
 
 -   [Jure Šumak](https://jsumak.github.io/about/) - 2 flags found, last updated 2022-07-13
 -   [Kev Quirk](https://kevq.uk/) - 2 flags found, last updated 2022-07-12
+-   Inbar Aran - 2 flag found, last updated 2022-07-14
 -   Marat Validov - 2 flag found, last updated 2022-07-13
+-   swordfischer - 2 flag found, last updated 2022-07-14
 
 ---
 
