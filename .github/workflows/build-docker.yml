@@ -1,29 +1,12 @@
-# TODO: Should push to docker hub
-# on:
-#   push:
-#     branches:
-#       - master
-name: Build Docker Container
+on:
+  push:
+    branches:
+      - master
+
+name: Build Docker images
 jobs:
-  deploy:
-    name: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        name: Check out code
-
-      - uses: mr-smithers-excellent/docker-build-push@v5.6
-        name: Build & push Docker image
-        with:
-          image: garrit.xyz
-          tags: latest, ${{ github.ref_name }}, ${{ github.sha }}
-          registry: ${{ secrets.DOCKER_REGISTRY }}
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
   build-jurassic-park-image:
     runs-on: "ubuntu-22.04"
-
     steps:
       - uses: actions/checkout@v2
 
