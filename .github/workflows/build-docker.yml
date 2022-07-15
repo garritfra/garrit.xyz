@@ -2,6 +2,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'lib/jurassic/**/*'
 
 name: Build Docker images
 jobs:
