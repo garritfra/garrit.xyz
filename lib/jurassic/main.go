@@ -9,6 +9,7 @@ import (
 func handleRequest(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Methods", "HACK")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
+
 	if r.Method != "HACK" {
 		w.WriteHeader(http.StatusMethodNotAllowed)
 		return
