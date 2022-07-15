@@ -7,7 +7,7 @@ siteTitle: "Garrit's Secret🤭"
 
 You stumbled upon a secret page!
 
-There are 5 secret flags hidden across this website. Can you find them?
+There are 6 secret flags hidden across this website. Can you find them?
 
 A flag looks something like this: `GXYZ{***********}`. If you manage to find
 one, feel free to [send me an email](/contact) with a short writeup, and I will
