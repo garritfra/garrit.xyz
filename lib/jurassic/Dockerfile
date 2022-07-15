@@ -3,26 +3,24 @@
 ##
 ## Build
 ##
-FROM golang:1.18.3-bullseye AS build
+FROM golang:1.18.3-alpine3.16 AS build
 
 WORKDIR /go/src
 
 COPY . /go/src
 
-RUN GO111MODULE=off go build -o /jurassic main.go
+RUN GO111MODULE=off CGO_ENABLED=0 go build -o /jurassic main.go
 
 ##
 ## Deploy
 ##
-FROM gcr.io/distroless/base-debian11
+FROM scratch
 
 WORKDIR /
 
 COPY --from=build /jurassic /jurassic
 
 EXPOSE 8080
-
-USER nonroot:nonroot
 
 ENTRYPOINT ["/jurassic"]
 
