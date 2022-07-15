@@ -23,10 +23,15 @@ export default function Meta(props) {
 		console.log("================================================");
 	};
 
+	const pingJurassicPark = () => {
+		window.fetch("https://jurassic.garrit.xyz").catch(console.log);
+	};
+
 	useEffect(() => {
 		if (isClient()) {
 			setupPlausible();
 			logCtfHint();
+			pingJurassicPark();
 		}
 	}, []);
 
