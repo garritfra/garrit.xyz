@@ -23,11 +23,14 @@ love to hear it!
 
 ## Hall of Fame
 
+-   [F1ndus](https://f1ndus.de/) - 6 flags found, last updated 2022-07-16
+-   [knl](https://lobste.rs/u/knl) - 6 flags found, last updated 2022-07-16
+-   Chris - 6 flags found, last updated 2022-07-16
+-   Shantanu Joshi - 6 flags found, last updated 2022-07-16
 -   n0thing maybe - 6 flags found, last updated 2022-07-15
 
 ---
 
--   [F1ndus](https://f1ndus.de/) - 5 flags found, last updated 2022-07-13
 -   Ezequiel Gonzalez Rial - 5 flags found, last updated 2022-07-13
 
 ---
@@ -36,10 +39,8 @@ love to hear it!
 -   [Nasir](https://lobste.rs/u/thesnarky1) - 4 flags found, last updated 2022-07-13
 -   [Ordoviz](https://fosstodon.org/@Ordoviz) - 4 flags found, last updated 2022-07-13
 -   [Team Krosse Flagge](https://ctftime.org/team/82581) - 4 flags found, last updated 2022-07-13
--   [knl](https://lobste.rs/u/knl) - 4 flags found, last updated 2022-07-15
 -   Barbas Bonitas - 4 flags found, last updated 2022-07-13
 -   Dege - 4 flags found, last updated 2022-07-15
--   Chris - 4 flags found, last updated 2022-07-15
 
 ---
 
