@@ -155,8 +155,8 @@ article a[href^="https://"]::after {
 }
 }
 
-article a[href^="http"]::after,
-article a[href^="https://"]::after
+article p a[href^="http"]::after,
+article p a[href^="https://"]::after
 {
     content: "";
     width: 11px;
