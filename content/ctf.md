@@ -43,6 +43,7 @@ love to hear it!
 -   Barbas Bonitas - 4 flags found, last updated 2022-07-13
 -   Dege - 4 flags found, last updated 2022-07-15
 -   Harry Cover - 4 flags found, last updated 2022-07-18
+-   swordfischer - 4 flag found, last updated 2022-07-19
 
 ---
 
@@ -62,7 +63,6 @@ love to hear it!
 -   [belkarx](https://belkarx.github.io) - 2 flags found, last updated 2022-07-15
 -   Inbar Aran - 2 flag found, last updated 2022-07-14
 -   Marat Validov - 2 flag found, last updated 2022-07-13
--   swordfischer - 2 flag found, last updated 2022-07-14
 
 ---
 
