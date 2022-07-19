@@ -18,6 +18,7 @@ for instagram
 - A website that calls out bloated technology/websites
 - A transpiled JavaScript dialect for German syntax
 - A newsletter/feed that aggregates news from outlets covering the entire political spectrum
+- A Typescript library that mimics some safety features of Rust
 
 ## Website Roadmap
 
