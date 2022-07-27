@@ -32,6 +32,7 @@ love to hear it!
 
 ---
 
+-   [Nikita Karamov](https://www.kytta.dev/) - 5 flags found, last updated 2022-07-27
 -   Ezequiel Gonzalez Rial - 5 flags found, last updated 2022-07-13
 
 ---
@@ -52,7 +53,6 @@ love to hear it!
 -   [Fabio Alessandro Locati](https://fale.io) - 3 flags found, last updated 2022-07-13
 -   [George](https://fosstodon.org/@george_) - 3 flags found, last updated 2022-07-13
 -   [Manuel Romei](https://fosstodon/@kriive) - 3 flags found, last updated 2022-07-13
--   [Nikita Karamov](https://www.kytta.dev/) - 3 flags found, last updated 2022-07-13
 -   Gaeulbyul - 3 flags found, last updated 2022-07-13
 -   runejuhl - 3 flags found, last updated 2022-07-14
 
