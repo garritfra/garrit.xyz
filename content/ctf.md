@@ -24,6 +24,7 @@ love to hear it!
 ## Hall of Fame
 
 -   [F1ndus](https://f1ndus.de/) - 6 flags found, last updated 2022-07-16
+-   [Nikita Karamov](https://www.kytta.dev/) - 6 flags found, last updated 2022-07-28
 -   [knl](https://lobste.rs/u/knl) - 6 flags found, last updated 2022-07-16
 -   Chris - 6 flags found, last updated 2022-07-16
 -   Fabian Dürkop - 6 flags found, last updated 2022-07-26
@@ -32,7 +33,7 @@ love to hear it!
 
 ---
 
--   [Nikita Karamov](https://www.kytta.dev/) - 5 flags found, last updated 2022-07-27
+-   [Team Krosse Flagge](https://ctftime.org/team/82581) - 5 flags found, last updated 2022-07-22
 -   Ezequiel Gonzalez Rial - 5 flags found, last updated 2022-07-13
 
 ---
@@ -41,7 +42,6 @@ love to hear it!
 -   [Nasir](https://lobste.rs/u/thesnarky1) - 4 flags found, last updated 2022-07-13
 -   [Ordoviz](https://fosstodon.org/@Ordoviz) - 4 flags found, last updated 2022-07-13
 -   [Sergii](https://www.linkedin.com/in/serhiy-m-618020107/) - 4 flags found, last updated 2022-07-18
--   [Team Krosse Flagge](https://ctftime.org/team/82581) - 4 flags found, last updated 2022-07-13
 -   Barbas Bonitas - 4 flags found, last updated 2022-07-13
 -   Dege - 4 flags found, last updated 2022-07-15
 -   Harry Cover - 4 flags found, last updated 2022-07-18
