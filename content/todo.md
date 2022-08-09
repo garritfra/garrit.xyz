@@ -20,6 +20,7 @@ for instagram
 - A newsletter/feed that aggregates news from outlets covering the entire political spectrum
 - A Typescript library that mimics some safety features of Rust
 - Pacman but you're the ghost 
+- A community-forum where users can post "nuggets" of interesting information. Inspired by HackerNews, Reddit and Twitter
 
 ## Website Roadmap
 
