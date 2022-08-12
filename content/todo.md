@@ -21,6 +21,7 @@ for instagram
 - A Typescript library that mimics some safety features of Rust
 - Pacman but you're the ghost 
 - A community-forum where users can post "nuggets" of interesting information. Inspired by HackerNews, Reddit and Twitter
+- A gameboy/nes emulator
 
 ## Website Roadmap
 
