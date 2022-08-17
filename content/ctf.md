@@ -30,6 +30,7 @@ love to hear it!
 -   Fabian Dürkop - 6 flags found, last updated 2022-07-26
 -   Shantanu Joshi - 6 flags found, last updated 2022-07-16
 -   n0thing maybe - 6 flags found, last updated 2022-07-15
+-   [Yigit Sever](https://yigitsever.com) - 6 flags found, last updated 2022-08-17
 
 ---
 
