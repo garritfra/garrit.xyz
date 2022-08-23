@@ -22,6 +22,7 @@ for instagram
 - Pacman but you're the ghost 
 - A community-forum where users can post "nuggets" of interesting information. Inspired by HackerNews, Reddit and Twitter
 - A gameboy/nes emulator
+- A HackerNews CLI
 
 ## Website Roadmap
 
