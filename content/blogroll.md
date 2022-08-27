@@ -13,6 +13,7 @@ mail](mailto:garrit@slashdev.space)!
 * [Devine Lu Linvega](https://wiki.xxiivv.com/)
 * [Drew DeVault](https://drewdevault.com/)
 * [Kev Quirk](https://kevq.uk/)
+* [Matt Rickard](https://matt-rickard.com/)
 * [Randall Munroe (xkcd)](https://xkcd.com/)
 * [Ru Singh](https://rusingh.com/)
 * [Sotolf](https://wordsmith.social/sotolf/)
@@ -25,6 +26,9 @@ mail](mailto:garrit@slashdev.space)!
 ### Podcasts
 
 * [CoRecursive: Coding Stories](https://corecursive.com/)
+* [Darknet Diaries](https://darknetdiaries.com/)
 * [Linux Action News](https://linuxactionnews.com/)
 * [Linux Unplugged](https://linuxunplugged.com/)
 * [Self-Hosted](https://selfhosted.show/)
+* [Smashing Security](https://www.smashingsecurity.com/)
+
