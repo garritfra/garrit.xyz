@@ -23,6 +23,8 @@ for instagram
 - A community-forum where users can post "nuggets" of interesting information. Inspired by HackerNews, Reddit and Twitter
 - A gameboy/nes emulator
 - A HackerNews CLI
+- git-commit-later: schedule a commit for later
+- An app like Google Maps to discover cool and interesting places in your area
 
 ## Website Roadmap
 
