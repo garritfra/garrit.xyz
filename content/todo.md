@@ -25,6 +25,7 @@ for instagram
 - A HackerNews CLI
 - git-commit-later: schedule a commit for later
 - An app like Google Maps to discover cool and interesting places in your area
+- A VPN SaaS?
 
 ## Website Roadmap
 
