@@ -26,11 +26,13 @@ love to hear it!
 -   [F1ndus](https://f1ndus.de/) - 6 flags found, last updated 2022-07-16
 -   [Nikita Karamov](https://www.kytta.dev/) - 6 flags found, last updated 2022-07-28
 -   [knl](https://lobste.rs/u/knl) - 6 flags found, last updated 2022-07-16
+-   [Yigit Sever](https://yigitsever.com) - 6 flags found, last updated 2022-08-17
 -   Chris - 6 flags found, last updated 2022-07-16
 -   Fabian Dürkop - 6 flags found, last updated 2022-07-26
 -   Shantanu Joshi - 6 flags found, last updated 2022-07-16
 -   n0thing maybe - 6 flags found, last updated 2022-07-15
--   [Yigit Sever](https://yigitsever.com) - 6 flags found, last updated 2022-08-17
+-   Will Kinderman - 6 flags found, last updated 2022-08-31
+
 
 ---
 
