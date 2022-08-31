@@ -1,5 +1,5 @@
 ---
-title: "What's in my feed? (2022)"
+title: "What's on my feed? (2022)"
 date: "2022-08-31"
 tags: "note, 100DaysToOffload, update"
 ---
@@ -25,7 +25,7 @@ publish a list of **your** favorite feeds?
 - t3n ([Pretty](https://t3n.de), [RSS](https://t3n.de/rss.xml)) - Another german news source, focused around technology and NewWork topics. I thought about removing the description though, as the articles are somewhat poorly written. Still looking for alternatives!
 - xkcd ([Pretty](https://xkcd.com/), [RSS](https://xkcd.com/atom.xml)) - come on, did you really think I wasn't subscribed to Randall?
 
-Wrote a "What's in my feed?" entry yourself? Let me know, and I'll link it here!
+Wrote a "What's on my feed?" entry yourself? Let me know, and I'll link it here!
 
 This is post 036 of [#100DaysToOffload](https://100daystooffload.com/).
 
