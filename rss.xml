@@ -5,8 +5,32 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Wed, 29 Jun 2022 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Wed, 31 Aug 2022 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>What's in my feed? (2022)</title>
+            <link>
+              https://garrit.xyz/posts/2022-08-31-whats-in-my-feed?utm_source=rss
+            </link>
+    
+            <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>RSS is - in my humble opinion - one of the best ways to consume content today.
+Its only downside is that it&#39;s quite difficult to find new interesting feeds.
+If you&#39;re looking for inspiration, here&#39;s a list of the RSS-feeds I&#39;m subscribed
+to as of August, 2022. Some of the entries may intersect with my
+<a href="/blogroll">blogroll</a>.</p>
+
+<p>Let&#39;s not keep this one-sided! If you&#39;re also using RSS and have a blog, why not
+publish a list of <strong>your</strong> favorite feeds?</p>
+
+<ul><li>HackerNews (<a href="https://news.ycombinator.com/">Pretty</a>, <a href="https://hnrss.org/frontpage">RSS</a>) - This one&#39;s obvious!</li><li>Matt Rickard (<a href="https://matt-rickard.com/">Pretty</a>, <a href="https://matt-rickard.com/rss">RSS</a>) - Highly interesting posts about software and startups</li><li>Drew DeVault (<a href="https://drewdevault.com">Pretty</a>, <a href="https://drewdevault.com/blog/index.xml">RSS</a>) - While Drew&#39;s opinions are highly controversial, I do think it&#39;s valuable to read his posts</li><li>Wandering Thoughts (<a href="https://utcc.utoronto.ca/~cks/space/blog/">Pretty</a>, <a href="https://utcc.utoronto.ca/~cks/space/blog/?atom">RSS</a>) - Interesting articles about UNIX and infrastructure</li><li>Kev Quirk (<a href="https://kevq.uk">Pretty</a>, <a href="https://kevq.uk/feed/">RSS</a>) - Kev&#39;s posts are always a fun read!</li><li>Seth Godin (<a href="https://seths.blog">Pretty</a>, <a href="https://feeds.feedblitz.com/sethsblog">RSS</a>) - I don&#39;t actively follow this blog, but it occasionally gives me food for inspiration</li><li>The New Oil (<a href="https://blog.thenewoil.org/">Pretty</a>, <a href="https://blog.thenewoil.org/feed/">RSS</a>) - Some occasional technology reviews</li><li>Tiny Projects/Ben Stokes (<a href="https://tinyprojects.dev/">Pretty</a>, <a href="https://tinyprojects.dev/feed.xml">RSS</a>) - Ben doesn&#39;t post as much as he used to, but his posts are full of great ideas!</li><li>Tagesschau (<a href="https://www.tagesschau.de">Pretty</a>, <a href="https://www.tagesschau.de/xml/rss2/">RSS</a>) - My source of german news</li><li>t3n (<a href="https://t3n.de">Pretty</a>, <a href="https://t3n.de/rss.xml">RSS</a>) - Another german news source, focused around technology and NewWork topics. I thought about removing the description though, as the articles are somewhat poorly written. Still looking for alternatives!</li><li>xkcd (<a href="https://xkcd.com/">Pretty</a>, <a href="https://xkcd.com/atom.xml">RSS</a>) - come on, did you really think I wasn&#39;t subscribed to Randall?</li></ul>
+
+<p>Wrote a &quot;What&#39;s in my feed?&quot; entry yourself? Let me know, and I&#39;ll link it here!</p>
+
+<p>This is post 036 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>The only true answer to 'tabs vs spaces'</title>
             <link>
