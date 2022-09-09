@@ -32,6 +32,7 @@ love to hear it!
 -   Shantanu Joshi - 6 flags found, last updated 2022-07-16
 -   n0thing maybe - 6 flags found, last updated 2022-07-15
 -   Will Kinderman - 6 flags found, last updated 2022-08-31
+-   Jesse Gibson - 6 flags found, last updated 2022-05-09
 
 
 ---
