@@ -43,5 +43,6 @@ for instagram
 - Add a privacy policy
 - Add a "donate" button
 - Add a "Uses" page
-- "Share via Mastodon, Twitter, Facebook..." buttons
+- ~~"Share via Mastodon, Twitter, Facebook..." buttons~~
 - Page changelog (page slug to git history link)
+- Press "." on any page to get redirected to the edit page. Inspired by GitHub's shortcut.
