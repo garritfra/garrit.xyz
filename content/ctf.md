@@ -25,6 +25,7 @@ love to hear it!
 
 -   [F1ndus](https://f1ndus.de/) - 6 flags found, last updated 2022-07-16
 -   [Nikita Karamov](https://www.kytta.dev/) - 6 flags found, last updated 2022-07-28
+-   [Jesse Gibson](https://psychollama.io/) - 6 flags found, last updated 2022-05-09
 -   [knl](https://lobste.rs/u/knl) - 6 flags found, last updated 2022-07-16
 -   [Yigit Sever](https://yigitsever.com) - 6 flags found, last updated 2022-08-17
 -   Chris - 6 flags found, last updated 2022-07-16
@@ -32,7 +33,6 @@ love to hear it!
 -   Shantanu Joshi - 6 flags found, last updated 2022-07-16
 -   n0thing maybe - 6 flags found, last updated 2022-07-15
 -   Will Kinderman - 6 flags found, last updated 2022-08-31
--   Jesse Gibson - 6 flags found, last updated 2022-05-09
 
 
 ---
@@ -78,3 +78,7 @@ love to hear it!
 -   hub - 1 flag found, last updated 2022-07-13
 -   macbury - 1 flag found, last updated 2022-07-13
 -   lemmyz4n3771 - 1 flag found, last updated 2022-07-13
+
+## Backlinks
+
+-   [CTFs are fun](https://sergiiwrites.online/2022/09/12/ctfs-are-fun.html)
