@@ -6,8 +6,8 @@ tags: "note, 100DaysToOffload, infrastructure, kubernetes"
 
 I just finished listening to [an
 episode](https://kubernetespodcast.com/episode/129-linkerd/) of the Kubernetes
-podcast. In it, Thomas Rampelberg makes an analogy that I think is worth
-sharing:
+podcast. In it, [Thomas Rampelberg](https://saunter.org/) makes an analogy that
+I think is worth sharing:
 
 > "[...] Kubernetes is really a domain-specific database. And you need to look at it
 that way. The YAML is literally writing a select statement or an insert
