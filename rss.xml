@@ -5,8 +5,52 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Wed, 31 Aug 2022 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Thu, 22 Sep 2022 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>Kubernetes is a domain specific database</title>
+            <link>
+              https://garrit.xyz/posts/2022-09-22-kubernetes-is-a-domain-specific-database?utm_source=rss
+            </link>
+    
+            <pubDate>Thu, 22 Sep 2022 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>I just finished listening to <a href="https://kubernetespodcast.com/episode/129-linkerd/">an
+episode</a> of the Kubernetes
+podcast. In it, Thomas Rampelberg makes an analogy that I think is worth
+sharing:</p>
+
+<blockquote><p>&quot;[...] Kubernetes is really a domain-specific database. And you need to look at it
+that way. The YAML is literally writing a select statement or an insert
+statement for a database. That&#39;s what the YAML is. And it&#39;s awesome that it is
+already configured for how it is. And it&#39;s awesome that it&#39;s got a schema. But
+the YAML is you writing an insert statement into Kubernetes. [...]&quot;</p></blockquote>
+
+<p>The Kubernetes API abstracts two types of states: desired state and actual
+state. Whenever you apply a manifest, you update the <em>desired state</em> of the
+cluster, just like you do in a regular, non domain-specific database like
+PostgreSQL or Redis. Kubernetes then frequently compares the desired state with
+the <em>actual</em> state of the cluster. If they don&#39;t match, Kubernetes will do
+whatever it does to match these two states. Usually, this data is persisted
+using a key-value database like <a href="https://etcd.io/">etcd</a> running in a cluster,
+though one could theoretically also hook up an external MySQL or Postgres
+database for this purpose.</p>
+
+<p>I found this great diagram by <a href="https://downey.io/blog/desired-state-vs-actual-state-in-kubernetes/">Tim
+Downey</a>,
+showing an oversimplified analogy of this pattern:</p>
+
+<p>![Thermostat
+Example](/assets/posts/2022-09-22-kubernetes-is-a-domain-specific-database/desired-state-hvac-diagram.png)</p>
+
+<p>You <em>insert</em> your desired state into the system, and the system adjusts the
+actual state to match the desired state. In the case of thermostats the state is
+a temperature. In Kubernetes, it&#39;s <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/">resource
+objects</a></p>
+
+<p>This is post 037 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>What's on my feed? (2022)</title>
             <link>
