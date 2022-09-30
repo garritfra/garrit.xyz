@@ -5,8 +5,80 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Mon, 26 Sep 2022 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Fri, 30 Sep 2022 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>Debugging Docker containers</title>
+            <link>
+              https://garrit.xyz/posts/2022-09-30-debugging-docker-containers?utm_source=rss
+            </link>
+    
+            <pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>Docker builds images incrementally. Every line in a Dockerfile will generate a
+new image that builds on top of the last one. This can be really handy if
+something is not right in your build.</p>
+
+<p>Since version 18.09 Docker has added a new backend for building images,
+<a href="https://github.com/moby/buildkit#buildkit">buildkit</a>. Unfortunately, buildkit
+does not let you view the IDs of the intermediate containers it uses under the
+hood. To work around that, you can opt out of buildkit by running a build with
+buildkit disabled:</p>
+
+<p><code>sh
+DOCKER_BUILDKIT=0 docker build --pull --rm -t myproject:latest .
+</code></p>
+
+<p>You should now see the IDs of the intermediate containers:</p>
+
+<p><code>sh
+Sending build context to Docker daemon  87.84MB
+Step 1/16 : FROM node:16.15.1-alpine3.16 AS development
+16.15.1-alpine3.16: Pulling from library/node
+Digest: sha256:c785e617c8d7015190c0d41af52cc69be8a16e3d9eb7cb21f0bb58bcfca14d6b
+Status: Image is up to date for node:16.15.1-alpine3.16
+ ---&gt; e548f8c9983f
+Step 2/16 : WORKDIR /usr/src/app
+ ---&gt; Using cache
+ ---&gt; 34e5c9bdb910
+Step 3/16 : COPY package*.json ./
+ ---&gt; Using cache
+ ---&gt; 626e4ae998fc
+Step 4/16 : RUN npm install glob rimraf
+ ---&gt; Using cache
+ ---&gt; 2d036b8354e0
+Step 5/16 : RUN npm install
+ ---&gt; Using cache
+ ---&gt; 948709b4957f      &lt;-- HERE
+Step 6/16 : COPY . .
+...
+</code></p>
+
+<p>As mentioned, these IDs are valid docker images, so you can just launch them
+and attach a shell like every other image:</p>
+
+<p><code>sh
+docker run -ti --rm 948709b4957f
+</code></p>
+
+<p>If you&#39;re not seeing a regular shell, but a Node.js REPL for example, this
+might be because the <code>ENTRYPOINT</code> of that image was set to the binary of that
+REPL. To work around that, you can override the entrypoint:</p>
+
+<p><code>sh
+docker run -ti --rm --entrypoint=/bin/sh 948709b4957f
+</code></p>
+
+<h2>When is this helpful?</h2>
+
+<p>If your build fails at a particular step, you can attach a shell to the <strong>last
+working</strong> step, inspect the filesystem, and execute the failing command manually.</p>
+
+<p>That&#39;s all!</p>
+
+<p>This is post 039 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>Self-hosted software I'm thankful for</title>
             <link>
