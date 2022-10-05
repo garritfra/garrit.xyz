@@ -5,8 +5,55 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Fri, 30 Sep 2022 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Wed, 05 Oct 2022 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>A simple guestbook</title>
+            <link>
+              https://garrit.xyz/posts/2022-10-05-simple-guestbook?utm_source=rss
+            </link>
+    
+            <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>For a while now, I wanted to have a quick way to update the pages on my website.</p>
+
+<p>GitHub has the
+<a href="https://docs.github.com/en/get-started/using-github/keyboard-shortcuts#source-code-editing">&quot;.&quot;</a>
+hotkey, which opens a web based editor for the file you&#39;re currently viewing.
+This site now has this feature as well! To try it out, just hit <code>.</code>, and you&#39;ll
+be redirected to the file editor for this page.</p>
+
+<p>To see how I implemented this feature, you take a look at
+<a href="https://github.com/garritfra/garrit.xyz/commit/658efa3a3ebfebebbf74d0eb6aae6c1cc9566516">this</a>
+commit. It boils down to this snippet of code:</p>
+
+<p><code></code><code>js
+window.addEventListener(&quot;keypress&quot;, (e) =&gt; {
+    if (e.key === &quot;.&quot;) {
+        const baseUrl =
+            &quot;https://github.com/garritfra/garrit.xyz/edit/main/content&quot;;
+        const filePath = window.location.pathname;
+        const url = </code>${baseUrl}${filePath}.md`;</p>
+
+<pre><code>    window.location.href = url;
+}</code></pre>
+
+<p>});
+<code></code>`</p>
+
+<p>Pretty simple, huh?</p>
+
+<p>Since this doesn&#39;t work on mobile devices, I also added <a href="https://github.com/garritfra/garrit.xyz/commit/8c374a8bc0b66192c454300489fee52e7299c9dd#diff-2cbafea0c9dff483ebab9ad670b1cdb3eb7aac552f9c161e42fee84c2efe3a69">a custom 404
+page</a>
+which also redirects to the editor, if the filepath ends with in <code>/edit</code>.</p>
+
+<p>Let&#39;s have some fun and put this feature to use. I added a simple
+<a href="/guestbook">guestbook</a> to this site, which is open to receive pull requests.
+I&#39;d love to hear from you!</p>
+
+<p>This is post 040 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>Debugging Docker images</title>
             <link>
