@@ -4,6 +4,8 @@ date: "2022-10-05"
 tags: "note, 100DaysToOffload, guide"
 ---
 
+> **TL;DR**: Click [here](/guestbook) to view the guestbook.
+
 For a while now, I wanted to have a quick way to update the pages on my website.
 
 GitHub has the
