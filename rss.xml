@@ -15,7 +15,9 @@
     
             <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
             <description>
-            <![CDATA[<p>For a while now, I wanted to have a quick way to update the pages on my website.</p>
+            <![CDATA[<blockquote><p><strong>TL;DR</strong>: Click <a href="/guestbook">here</a> to view the guestbook.</p></blockquote>
+
+<p>For a while now, I wanted to have a quick way to update the pages on my website.</p>
 
 <p>GitHub has the
 <a href="https://docs.github.com/en/get-started/using-github/keyboard-shortcuts#source-code-editing">&quot;.&quot;</a>
