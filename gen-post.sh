@@ -15,6 +15,7 @@ cat > $FULL_PATH <<EOF
 ---
 title: $TITLE
 date: "$DATE"
+tags: "note, 100DaysToOffload"
 ---
 
 EOF

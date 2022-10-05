@@ -12,6 +12,8 @@ export default function Footer() {
                         PGP Key
                     </a>
                     <br />
+                    <a href="/guestbook">Guestbook</a>
+                    <br />
                     <a href="/blogroll">Blogroll</a>
                 </section>
                 <section className="footer__content__social">
