@@ -13,7 +13,11 @@ are encouraged.
 If you prefer [sending patches via e-mail](/posts/patch-based-git-workflow),
 please also send them to this address.
 
-PGP: `2218 337E 54AA 1DBE 207B 404D BB54 AF7E B093 9F3D`
+PGP Fingerprint:
+
+```
+2218 337E 54AA 1DBE 207B 404D BB54 AF7E B093 9F3D
+```
 
 ## Matrix
 
