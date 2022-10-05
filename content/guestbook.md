@@ -8,6 +8,8 @@ pull request to this page. Alternatively, you can [click
 here](https://github.com/garritfra/garrit.xyz/edit/main/content/guestbook.md) to
 get redirected to the page editor.
 
+---
+
 ### Garrit, on 2022-10-05:
 
 Want to add your own? Copy this paragraph to a new section above!
