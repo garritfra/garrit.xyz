@@ -42,7 +42,7 @@ Too power hungry for my taste. No easy way to host inside docker, which made it 
 
 ### FreshRSS
 
-I tried replacing Miniflux once, but failed. Noting beats Miniflux.
+I tried replacing Miniflux once, but failed. Nothing beats Miniflux.
 
 ### Prometheus + Grafana
 
