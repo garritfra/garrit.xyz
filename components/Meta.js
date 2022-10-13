@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Script from "next/script";
 import { useEffect } from "react";
 
 export default function Meta(props) {
@@ -63,12 +64,12 @@ export default function Meta(props) {
 					href="https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.min.css"
 					rel="stylesheet"
 				/>
-				<script
-					src="https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.iife.js"
-					defer
-					init
-				></script>
 			</Head>
+			<Script
+				src="https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.iife.js"
+				defer
+				init
+			></Script>
 		</>
 	);
 }
