@@ -30,9 +30,10 @@ const BlogList = ({ posts }) => {
 
     const renderPost = (post) => (
         <div key={post.slug} className="blog__list__post">
-            <p className="blog__list__post__date">
+            <time className="blog__list__post__date">
                 {reformatDate(post.frontmatter.date)}
-            </p>
+            </time>
+            <br />
             <Link href={`/posts/${post.slug}`}>{post.frontmatter.title}</Link>
         </div>
     );
