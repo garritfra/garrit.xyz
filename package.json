@@ -27,6 +27,6 @@
     "next-sitemap": "2.1.5",
     "raw-loader": "4.0.2",
     "rfc822-date": "0.0.3",
-    "sass": "1.45.1"
+    "sass": "1.55.0"
   }
 }
