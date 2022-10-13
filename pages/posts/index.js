@@ -40,7 +40,6 @@ export async function getStaticProps() {
             const document = matter(value.default);
             return {
                 frontmatter: document.data,
-                markdownBody: document.content,
                 slug,
             };
         });
