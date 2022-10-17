@@ -15,6 +15,10 @@ Mobile Software Developer (Traineeship); 2017 - 2020
 
 _**Software Developer, March 2021 - present**_
 
+Development of a HBBTV media library for public television
+
+* Design and implementation of a BFF (backend for frontend) using [Nest.js](https://nestjs.com/)
+
 Development of a web-based convention application
 
 * Development of APIs using Node.js and GraphQL
