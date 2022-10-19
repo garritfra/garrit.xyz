@@ -9,10 +9,11 @@
 
 body {
     margin: 0;
-    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica,
-        sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+    "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
+    "Helvetica Neue", sans-serif;
     overflow-x: hidden;
-    font-size: 16px;
+    font-size: 1.15rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -55,7 +56,6 @@ img {
 pre,
 code {
     background: $color-accent-dark;
-    font-size: 18px;
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;

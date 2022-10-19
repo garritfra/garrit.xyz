@@ -1,8 +1,10 @@
 @mixin header {
-    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+    "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
+    "Helvetica Neue", sans-serif;
     color: $color-primary-dark;
     font-weight: 400;
-    line-height: initial;
+    line-height: 1.1;
     text-rendering: optimizeLegibility;
     @media (prefers-color-scheme: light) {
         color: $color-primary-light;
@@ -19,7 +21,9 @@
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    font-family: "Source Sans Pro","Helvetica Neue", Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+    "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
+    "Helvetica Neue", sans-serif;
     @media (prefers-color-scheme: light) {
         color: $color-text-light;
     }
@@ -27,22 +31,32 @@
 
 h1 {
     @include header;
-    font-size: 47px;
+    font-size: 3rem;
 }
 
 h2 {
     @include header;
-    font-size: 40px;
+    font-size: 2.6rem;
 }
 
 h3 {
     @include header;
-    font-size: 24px;
+    font-size: 2rem;
 }
 
 h4 {
     @include header;
-    font-size: 20px;
+    font-size: 1.44rem;
+}
+
+h5 {
+    @include header;
+    font-size: 1.15rem;
+}
+
+h6 {
+    @include header;
+    font-size: 0.96rem;
 }
 
 p,
@@ -50,7 +64,7 @@ li,
 pre,
 a{
     @include text;
-    font-size: 20px;
+    font-size: 1.15rem;
     line-height: 1.8;
 }
 
