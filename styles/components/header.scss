@@ -31,13 +31,9 @@ nav {
 
         &__logo {
             margin: 0;
-            color: $color-text-dark;
+            color: var(--text);
             font-weight: 400;
             font-size: 24px;
-
-            @media (prefers-color-scheme: light) {
-                color: $color-primary-light;
-            }
         }
     }
 }
