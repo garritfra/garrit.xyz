@@ -1,15 +1,5 @@
 .page {
-    display: grid;
-    grid-template-columns:
-        1fr
-        min(650px, 100%)
-        1fr;
-    margin: 1em 24px;
-    margin-bottom: 3em;
-    min-height: 80vh;
-}
-.page > * {
-    grid-column: 2;
+    margin-bottom: 3rem;
 }
 .page__hero {
     min-height: 300px;
