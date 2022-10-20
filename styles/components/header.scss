@@ -9,9 +9,6 @@ nav {
 }
 
 .header {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
     &__links {
         list-style-type: none;
         display: flex;
@@ -26,7 +23,7 @@ nav {
     }
 
     &__container {
-        padding: 24px;
+        padding: 24px 0px;
         padding-bottom: 0px;
 
         &__logo {
