@@ -31,13 +31,12 @@ commit. It boils down to this snippet of code:</p>
 
 <p><code></code><code>js
 window.addEventListener(&quot;keypress&quot;, (e) =&gt; {
-    if (e.key === &quot;.&quot;) {
-        const baseUrl =
-            &quot;https://github.com/garritfra/garrit.xyz/edit/main/content&quot;;
-        const filePath = window.location.pathname;
-        const url = </code>${baseUrl}${filePath}.md`;</p>
+	if (e.key === &quot;.&quot;) {
+		const baseUrl = &quot;https://github.com/garritfra/garrit.xyz/edit/main/content&quot;;
+		const filePath = window.location.pathname;
+		const url = </code>${baseUrl}${filePath}.md`;</p>
 
-<pre><code>    window.location.href = url;
+<pre><code>	window.location.href = url;
 }</code></pre>
 
 <p>});
@@ -142,7 +141,7 @@ working</strong> step, inspect the filesystem, and execute the failing command m
 
 <h2>Miniflux</h2>
 
-<p><a href="https://miniflux.app/">Miniflux</a> is a very minimal, self-hostable RSS reader. It&#39;s been rock-solid since they day I started using it. The data for the application entirely lives In a Postgres database, which makes migrating the application to new infrastructure setups an absolute breeze.  I&#39;ve been meaning to support the author for quite some time now, but the cost of maintaining an instance yourself is basically zero, so I&#39;ve yet to find the time to switch to their paid hosted instance.</p>
+<p><a href="https://miniflux.app/">Miniflux</a> is a very minimal, self-hostable RSS reader. It&#39;s been rock-solid since they day I started using it. The data for the application entirely lives In a Postgres database, which makes migrating the application to new infrastructure setups an absolute breeze. I&#39;ve been meaning to support the author for quite some time now, but the cost of maintaining an instance yourself is basically zero, so I&#39;ve yet to find the time to switch to their paid hosted instance.</p>
 
 <h2>Plausible Analytics</h2>
 
@@ -178,7 +177,7 @@ working</strong> step, inspect the filesystem, and execute the failing command m
 
 <h3>Prometheus + Grafana</h3>
 
-<p>Monitoring <strong>*inside</strong>* your infra works until the infra goes down, at which point you&#39;re essentially driving blindfolded. I switched to Grafana Cloud, which includes a very generous free tier.</p>
+<p>Monitoring <strong><em>inside</em></strong> your infra works until the infra goes down, at which point you&#39;re essentially driving blindfolded. I switched to Grafana Cloud, which includes a very generous free tier.</p>
 
 <p>This is post 038 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
@@ -767,24 +766,24 @@ programming, it blew my mind.</p>
 variable to swap two numbers:</p>
 
 <p><code></code>`js
-let a = 5
-let b = 10</p>
+let a = 5;
+let b = 10;</p>
 
 <p>let temp = a;</p>
 
-<p>a = b    // a = 10
-b = temp // b = 5
+<p>a = b; // a = 10
+b = temp; // b = 5
 <code></code>`</p>
 
 <p>But by using some arithmetic, we can save us a few bytes of memory:</p>
 
 <p><code></code>`js
-let a = 5
-let b = 10</p>
+let a = 5;
+let b = 10;</p>
 
-<p>a = a + b // a = 15 ; b = 10
-b = a - b // a = 15 ; b = 5
-a = a - b // a = 10 ; b = 5 
+<p>a = a + b; // a = 15 ; b = 10
+b = a - b; // a = 15 ; b = 5
+a = a - b; // a = 10 ; b = 5
 <code></code>`</p>
 
 <p>Please <strong>never</strong> use this in any production code. The less we have to think
@@ -834,18 +833,17 @@ In my setup, I use a <code>webSecure</code> entrypoint listening for SSL/TLS tra
 
 <p><code></code>`yaml
 entryPoints:
-    web:
-        address: :80
-        http:
-            redirections:
-                entryPoint:
-                    to: &quot;websecure&quot;
-                    scheme: &quot;https&quot;</p>
+  web:
+    address: :80
+    http:
+      redirections:
+        entryPoint:
+          to: &quot;websecure&quot;
+          scheme: &quot;https&quot;</p>
 
-<pre><code>websecure:
-    address: :443</code></pre>
-
-<p><code></code>`</p>
+<p>  websecure:
+    address: :443
+<code></code>`</p>
 
 <p>Apparently, some services send requests to the <code>web</code> entrypoint, and the
 <code>x-forwarded-for</code> headers are dropped. To prevent this, you can set the
@@ -854,13 +852,13 @@ like so:</p>
 
 <p><code></code>`yaml
 entryPoints:
-    web:
-        address: :80
-        proxyProtocol:
-            insecure: true
-        forwardedHeaders:
-            insecure: true
-        # ...</p>
+  web:
+    address: :80
+    proxyProtocol:
+      insecure: true
+    forwardedHeaders:
+      insecure: true
+    # ...</p>
 
 <h1>...</h1>
 
@@ -1047,24 +1045,20 @@ a lot of fun learning about this tree!</p>
 state of a dialog, popup, etc.:</p>
 
 <p><code></code>`js
-import { useState } from &#39;react&#39;;</p>
+import { useState } from &quot;react&quot;;</p>
 
 <p>export default (value) =&gt; {
-    const [state, setState] = useState(value);</p>
+	const [state, setState] = useState(value);</p>
 
 <pre><code>const setStateActive = () =&gt; {
-    setState(true);
+	setState(true);
 };
 
 const setStateInactive = () =&gt; {
-    setState(false);
+	setState(false);
 };
 
-return [
-    state,
-    setStateActive,
-    setStateInactive,
-];</code></pre>
+return [state, setStateActive, setStateInactive];</code></pre>
 
 <p>};
 <code></code>`</p>
@@ -1073,13 +1067,14 @@ return [
 
 <p><code></code>`js
 const SomeComponent = () =&gt; {
-    const [isDeleteDialogOpen, openDeleteDialog, closeDeleteDialog] = useToggle(false);</p>
+	const [isDeleteDialogOpen, openDeleteDialog, closeDeleteDialog] =
+		useToggle(false);</p>
 
 <pre><code>return (
-    &lt;&gt;
-        &lt;Button onClick={openDeleteDialog}&gt;Open Delete Dialog&lt;/Button&gt;
-        &lt;Dialog isOpen={isDeleteDialogOpen} onClose={closeDeleteDialog}&gt;&lt;/Dialog&gt;
-    &lt;/&gt;
+	&lt;&gt;
+		&lt;Button onClick={openDeleteDialog}&gt;Open Delete Dialog&lt;/Button&gt;
+		&lt;Dialog isOpen={isDeleteDialogOpen} onClose={closeDeleteDialog}&gt;&lt;/Dialog&gt;
+	&lt;/&gt;
 );</code></pre>
 
 <p>};
@@ -1120,11 +1115,11 @@ configuration as shown
 <a href="https://www.apollographql.com/docs/apollo-server/performance/caching/#caching-with-responsecacheplugin-advanced">here</a>:</p>
 
 <p><code></code>`js
-import responseCachePlugin from &#39;apollo-server-plugin-response-cache&#39;;</p>
+import responseCachePlugin from &quot;apollo-server-plugin-response-cache&quot;;</p>
 
 <p>const server = new ApolloServer({
-  // ...other options...
-  plugins: [responseCachePlugin()],
+	// ...other options...
+	plugins: [responseCachePlugin()],
 });
 <code></code>`</p>
 
@@ -1135,17 +1130,17 @@ Redis</a>
 multiple instances of the same backend.</p>
 
 <p><code></code>`js
-const { BaseRedisCache } = require(&#39;apollo-server-cache-redis&#39;);
-const Redis = require(&#39;ioredis&#39;);</p>
+const { BaseRedisCache } = require(&quot;apollo-server-cache-redis&quot;);
+const Redis = require(&quot;ioredis&quot;);</p>
 
 <p>const server = new ApolloServer({
-  // ...
-  cache: new BaseRedisCache({
-    plugins: [responseCachePlugin()],
-    client: new Redis({
-      host: &#39;redis-server&#39;,
-    }),
-  }),
+	// ...
+	cache: new BaseRedisCache({
+		plugins: [responseCachePlugin()],
+		client: new Redis({
+			host: &quot;redis-server&quot;,
+		}),
+	}),
 });
 <code></code>`</p>
 
@@ -1170,14 +1165,14 @@ only have to do this once):</p>
 
 <p><code></code>`gql
 enum CacheControlScope {
-  PUBLIC
-  PRIVATE
+	PUBLIC
+	PRIVATE
 }</p>
 
 <p>directive @cacheControl(
-  maxAge: Int
-  scope: CacheControlScope
-  inheritMaxAge: Boolean
+	maxAge: Int
+	scope: CacheControlScope
+	inheritMaxAge: Boolean
 ) on FIELD_DEFINITION | OBJECT | INTERFACE | UNION
 <code></code>`</p>
 
@@ -1188,10 +1183,10 @@ enum CacheControlScope {
 <h1>This type will be cached for 30 seconds</h1>
 
 <p>type Post @cacheControl(maxAge: 30) {
-  id: ID!
-  title: String
-  author: Author
-  comments: [Comment]
+	id: ID!
+	title: String
+	author: Author
+	comments: [Comment]
 }
 <code></code>`</p>
 
@@ -1214,20 +1209,20 @@ setting the <code>maxAge</code> explicitly or by inheriting it from the parent:<
 
 <p><code></code>`gql
 type Post @cacheControl(maxAge: 30) {
-  id: ID!
-  title: String
-  author: Author
-  comments: [Comment]
+	id: ID!
+	title: String
+	author: Author
+	comments: [Comment]
 }</p>
 
 <p>type Author @cacheControl(inheritMaxAge: true) {
-  id: ID!
-  name: String
+	id: ID!
+	name: String
 }</p>
 
 <p>type Comment @cacheControl(inheritMaxAge: true) {
-  id: ID!
-  body: String
+	id: ID!
+	body: String
 }
 <code></code>`</p>
 
@@ -1272,9 +1267,9 @@ directive. This will only cache the response if a user is logged in:</p>
 
 <p><code>gql
 type Post {
-  id: ID!
-  title: String
-  author: Author @cacheControl(maxAge: 10, scope: PRIVATE)
+	id: ID!
+	title: String
+	author: Author @cacheControl(maxAge: 10, scope: PRIVATE)
 }
 </code></p>
 
@@ -1282,12 +1277,15 @@ type Post {
 function has returned a value other than <code>null</code>.</p>
 
 <p><code>js
-import responseCachePlugin from &#39;apollo-server-plugin-response-cache&#39;;
+import responseCachePlugin from &quot;apollo-server-plugin-response-cache&quot;;
 const server = new ApolloServer({
-  // ...other settings...
-  plugins: [responseCachePlugin({
-    sessionId: (requestContext) =&gt; (requestContext.request.http.headers.get(&#39;sessionid&#39;) || null),
-  })],
+	// ...other settings...
+	plugins: [
+		responseCachePlugin({
+			sessionId: (requestContext) =&gt;
+				requestContext.request.http.headers.get(&quot;sessionid&quot;) || null,
+		}),
+	],
 });
 </code></p>
 
@@ -1437,30 +1435,30 @@ this snippet to your docker-compose file:</p>
 
 <p><code>yaml
 app:
-    image: nextcloud
-    ports:
-        - 127.0.0.1:8080:80
-    healthcheck:
-        test:
-            [
-                &quot;CMD&quot;,
-                &quot;curl&quot;,
-                &quot;-f&quot;,
-                &quot;https://app-endpoint.tld&quot;,
-                &quot;&amp;&amp;&quot;,
-                &quot;curl&quot;,
-                &quot;-fsS&quot;,
-                &quot;-m&quot;,
-                &quot;10&quot;,
-                &quot;--retry&quot;,
-                &quot;5&quot;,
-                &quot;-o&quot;,
-                &quot;/dev/null&quot;,
-                &quot;https://healthchecks.io/ping/&lt;UUID&gt;&quot;,
-            ]
-        interval: 60s
-        timeout: 10s
-        retries: 6
+  image: nextcloud
+  ports:
+    - 127.0.0.1:8080:80
+  healthcheck:
+    test:
+      [
+        &quot;CMD&quot;,
+        &quot;curl&quot;,
+        &quot;-f&quot;,
+        &quot;https://app-endpoint.tld&quot;,
+        &quot;&amp;&amp;&quot;,
+        &quot;curl&quot;,
+        &quot;-fsS&quot;,
+        &quot;-m&quot;,
+        &quot;10&quot;,
+        &quot;--retry&quot;,
+        &quot;5&quot;,
+        &quot;-o&quot;,
+        &quot;/dev/null&quot;,
+        &quot;https://healthchecks.io/ping/&lt;UUID&gt;&quot;,
+      ]
+    interval: 60s
+    timeout: 10s
+    retries: 6
 </code></p>
 
 <p>Change the first url to the url of your app. The second URL is the endpoint of
@@ -1666,7 +1664,7 @@ cat some_key.txt | gpg --import
 gpg --keyserver keys.openpgp.org  --search-keys garrit@slashdev.space
 </code></p>
 
-<p>Now, your computer should know about my key. To verify that it&#39;s actually me you have imported, you can check if the output of <code>gpg --fingerprint garrit@slashdev.space</code> matches my actual fingerprint: <code>2218 337E 54AA 1DBE 207B  404D BB54 AF7E B093 9F3D</code>.</p>
+<p>Now, your computer should know about my key. To verify that it&#39;s actually me you have imported, you can check if the output of <code>gpg --fingerprint garrit@slashdev.space</code> matches my actual fingerprint: <code>2218 337E 54AA 1DBE 207B 404D BB54 AF7E B093 9F3D</code>.</p>
 
 <p>Optionally, if you trust that the key is actually associated to me, you can sign it. This let&#39;s other people know that you trust me, which helps build a so called &quot;chain of trust&quot;. A key which has been signed by many people is generally more trustworthy than one that has no signatures.</p>
 
@@ -1704,7 +1702,7 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 </code></p>
 
-<p>Then, run <code>ssh-add -l</code> to load the key directly. </p>
+<p>Then, run <code>ssh-add -l</code> to load the key directly.</p>
 
 <p>To get the public ssh key of your keypair, run this command:</p>
 
@@ -1729,7 +1727,7 @@ gpg --export-ssh-key foo@bar.com
     
             <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
             <description>
-            <![CDATA[<p>Everyone was in this situation at some point. You wasted a days worth of work by accidentally deleting a branch. But, all hope is not lost! Git never forgets. </p>
+            <![CDATA[<p>Everyone was in this situation at some point. You wasted a days worth of work by accidentally deleting a branch. But, all hope is not lost! Git never forgets.</p>
 
 <p>Every action, be it committing changes, deleting or switching branches, is noted down by Git. To see your latest actions, you can simply run <code>git reflog</code> (It&#39;s pronounced <code>ref-log</code> but <code>re-flog</code> sounds just as reasonable):</p>
 
@@ -1779,15 +1777,15 @@ you can just use the <code>:!</code> command:</p>
 <h2>Vims builtin terminal</h2>
 
 <p>I couldn&#39;t believe my eyes when I read this, but Vim ships with a builtin
-terminal! Executing <code>:term</code> will spawn it in your current buffer. How you 
-integrate it in your workflow is up to you. You could use tabs or open a 
+terminal! Executing <code>:term</code> will spawn it in your current buffer. How you
+integrate it in your workflow is up to you. You could use tabs or open a
 horizontal buffer and spawn it there. I must say that it is rather clunky to
 use, since its literally a Vim buffer that forwards stdin and stdout to the
 buffer, but it&#39;s there for you to use.</p>
 
 <h2>Vim x Tmux</h2>
 
-<p>Another great alternative is to set up Tmux with two windows, one for Vim and 
+<p>Another great alternative is to set up Tmux with two windows, one for Vim and
 one for your terminal, and switch between them. This works great on a minimal
 system, but on MacOS for example, it is easier to simply use cmd+1 and cmd+2 to
 switch between two tabs of the Terminal application.</p>
@@ -1797,17 +1795,17 @@ switch between two tabs of the Terminal application.</p>
 <p>This one is my personal favorite. The idea comes from
 <a href="https://stackoverflow.com/a/1258318/9046809">this</a> stackoverflow answer.</p>
 
-<p>The plan is to pause the Vim process and resume it later. To pause Vim, you 
+<p>The plan is to pause the Vim process and resume it later. To pause Vim, you
 press <code>&lt;ctrl&gt;-z</code>. This sends the process in the background. Then, to resume the
-process, simply issue the <code>fg</code> command and Vims process resumes in the 
+process, simply issue the <code>fg</code> command and Vims process resumes in the
 foreground.</p>
 
 <h2>Conclusion</h2>
 
 <p>I&#39;m sure there are many more strategies that could be added to this list. I&#39;d be
-interested to hear how your setup works! If you liked these techniques, you 
-might be interested in 
-<a href="https://fosstodon.org/web/accounts/211905">@lopeztel</a>s 
+interested to hear how your setup works! If you liked these techniques, you
+might be interested in
+<a href="https://fosstodon.org/web/accounts/211905">@lopeztel</a>s
 <a href="https://lopeztel.xyz/2021/02/21/my-neovim-cheatsheet/">cheat sheet</a> for Vim.</p>
 
 <p>This is post 014 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
@@ -1917,8 +1915,8 @@ git tag -a v0.2.0 -m &quot;$(git shortlog v0.1.5..HEAD)&quot;
 
 <ul><li><p><strong>Trivial to set up</strong>: Running a Flutter application in a browser, no matter if it is an existing app or a fresh project, can be done by simply specifying the -d chrome flag.</p></li><li><p><strong>Same behavior compared to mobile app</strong>: Since the app is quite literally a mobile application running in the browser, the page looks and feels like a mobile application. It gives the app a consistent look and feel across all devices. I can imagine this coming in handy for web applications that are primarily used on phones and tablets.</p></li><li><p><strong>Browser API integration</strong>: It seems like many of the libraries make use of Web APIs. For example: I was able to get location updates using the location package, and store data using <a href="https://pub.dev/packages/localstorage">localstorage</a>. Whether the Web target is supported, is noted as a flag in the package documentation.</p></li><li><p><strong>Alternative Backends</strong>: There are two <a href="https://flutter.dev/docs/development/tools/web-renderers">rendering backends</a>, both with its own benefits and drawbacks. The HTML renderer optimizes the page for the browser, which improves performance at the cost of consistency. The CanvasKit renderer renders WebGL using WebAssembly. This gives a consistent look and feel across all devices, at the cost of Performance and download size. If auto is specified, the renderer will be determined based on the device type. Here’s a comparison of the same app rendered with both backends:</p></li></ul>
 
-<p>|           HTML           |         CanvasKit         |
-| :----------------------: | :-----------------------: |
+<p>|                    HTML                    |                    CanvasKit                    |
+| :----------------------------------------: | :---------------------------------------------: |
 | <img alt="" src="/assets/flutter_web_renderer_html.png"/> | <img alt="" src="/assets/flutter_web_renderer_canvaskit.png"/> |</p>
 
 <h2>The Bad</h2>
@@ -2567,27 +2565,28 @@ If you are interested in this project, I highly recommend to check out the <a hr
 
 <p><code></code>`js
 const posts = ((context) =&gt; {
-  const keys = context.keys();
-  const values = keys.map(context);</p>
+	const keys = context.keys();
+	const values = keys.map(context);</p>
 
-<p>  const data = keys.map((key, index) =&gt; {
-    // Create slug from filename
-    const slug = key
-      .replace(/^.*[\\/]/, &quot;&quot;)
-      .split(&quot;.&quot;)
-      .slice(0, -1)
-      .join(&quot;.&quot;);
-    const value = values[index];
-    // Parse yaml metadata &amp; markdownbody in document
-    const document = matter(value.default);
-    return {
-      frontmatter: document.data,
-      markdownBody: document.content,
-      slug,
-    };
-  });
-  return data;
-})(require.context(&quot;../content/posts&quot;, true, /.md$/));
+<pre><code>const data = keys.map((key, index) =&gt; {
+	// Create slug from filename
+	const slug = key
+		.replace(/^.*[\\\/]/, &quot;&quot;)
+		.split(&quot;.&quot;)
+		.slice(0, -1)
+		.join(&quot;.&quot;);
+	const value = values[index];
+	// Parse yaml metadata &amp; markdownbody in document
+	const document = matter(value.default);
+	return {
+		frontmatter: document.data,
+		markdownBody: document.content,
+		slug,
+	};
+});
+return data;</code></pre>
+
+<p>})(require.context(&quot;../content/posts&quot;, true, /.md$/));
 <code></code>`</p>
 
 <p>Another special case was setting up a RSS feed. I basically had to write a simple script that generates the feed from all posts in the <code>content/posts</code> directory, let it run during every build and throws the output in the <code>public/</code> directory, so that it can be served as <code>/rss.xml</code>. You might argue that this is quite a tedious process for such a feature, but it gives me all the flexibility I want over the features of this project.</p>
@@ -2869,7 +2868,7 @@ npm init -y
 
 <p><code>js
 module.exports = function firstElement(arr) {
-  return arr[1];
+	return arr[1];
 };
 </code></p>
 
@@ -2900,7 +2899,7 @@ npx jest --init
 const firstElement = require(&quot;../firstElement.js&quot;);</p>
 
 <p>test(&quot;firstElement gets first element of array&quot;, () =&gt; {
-  expect(firstElement([1, 2])).toBe(1);
+	expect(firstElement([1, 2])).toBe(1);
 });
 <code></code>`</p>
 
@@ -2942,7 +2941,7 @@ npm ERR! Test failed.  See above for more details.
 
 <p><code>js
 module.exports = function firstElement(arr) {
-  return arr[0];
+	return arr[0];
 };
 </code></p>
 
@@ -3034,11 +3033,11 @@ You can use this for arrays, as well as objects:</p>
 
 <p><code>js
 let obj = {
-  field: &quot;example&quot;,
+	field: &quot;example&quot;,
 };
 let extendedObj = {
-  ...obj,
-  anotherField: 42,
+	...obj,
+	anotherField: 42,
 };
 console.log(extendedObj.field); // &quot;example&quot;
 </code></p>
