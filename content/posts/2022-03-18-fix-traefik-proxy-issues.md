@@ -34,16 +34,16 @@ In my setup, I use a `webSecure` entrypoint listening for SSL/TLS traffic, and a
 
 ```yaml
 entryPoints:
-    web:
-        address: :80
-        http:
-            redirections:
-                entryPoint:
-                    to: "websecure"
-                    scheme: "https"
+  web:
+    address: :80
+    http:
+      redirections:
+        entryPoint:
+          to: "websecure"
+          scheme: "https"
 
-    websecure:
-        address: :443
+  websecure:
+    address: :443
 ```
 
 Apparently, some services send requests to the `web` entrypoint, and the
@@ -53,13 +53,13 @@ like so:
 
 ```yaml
 entryPoints:
-    web:
-        address: :80
-        proxyProtocol:
-            insecure: true
-        forwardedHeaders:
-            insecure: true
-        # ...
+  web:
+    address: :80
+    proxyProtocol:
+      insecure: true
+    forwardedHeaders:
+      insecure: true
+    # ...
 # ...
 ```
 

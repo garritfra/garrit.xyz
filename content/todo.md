@@ -1,7 +1,7 @@
 # A comprehensive list of projects that I want to build but probably never will
 
 - A fork of [birdsite.live](https://github.com/NicolasConstant/BirdsiteLive)
-for instagram
+  for instagram
 - Battle Royale App for habit tracking
 - Federated sports tracker ([somewhat in the making already](https://github.com/SamR1/FitTrackee/issues/16))
 - C compiler for [uxn](https://wiki.xxiivv.com/site/uxn.html) (or
@@ -19,7 +19,7 @@ for instagram
 - A transpiled JavaScript dialect for German syntax
 - A newsletter/feed that aggregates news from outlets covering the entire political spectrum
 - A Typescript library that mimics some safety features of Rust
-- Pacman but you're the ghost 
+- Pacman but you're the ghost
 - A community-forum where users can post "nuggets" of interesting information. Inspired by HackerNews, Reddit and Twitter
 - A gameboy/nes emulator
 - A HackerNews CLI

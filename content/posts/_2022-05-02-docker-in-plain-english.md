@@ -25,7 +25,7 @@ your application.
 Things running in a container also can't break out of this "sandbox". A process
 in a container is only aware of the resources around it, not on the host
 machine. Each container is kind of like an operating system **inside** your
-actual operating system. 
+actual operating system.
 
 To describe what a container should look like, we need to write a "recipe" for
 it. In it, you describe a starting point from which you want to build upon, and
@@ -54,7 +54,7 @@ actually there, try running `docker image ls`. This will list all images on your
 system:
 
 ```
-➜  garrit.xyz git:(master) ✗ docker image ls 
+➜  garrit.xyz git:(master) ✗ docker image ls
 REPOSITORY               TAG             IMAGE ID       CREATED          SIZE
 hello-world              latest          6e2240011a89   8 minutes ago    109MB
 ```
@@ -68,8 +68,7 @@ docker run hello-world
 ```
 
 And, as instructed with the `CMD` line, you should see the words "Hello World!"
-printed on the screen. You can verify that it's still there by running `docker
-ps -a`, which will list all containers on your system, including the one you
+printed on the screen. You can verify that it's still there by running `docker ps -a`, which will list all containers on your system, including the one you
 just ran:
 
 ```
@@ -120,10 +119,10 @@ Like above, you can build this Dockerfile using `docker build -t testapp .`, or
 any name you'd like to use.
 
 > **Quick Tip**: You might also want to add a `.Dockerignore` file, which lists
-files and directories which should not be copied inside the container, just like
-a `.gitignore` file. I usually add `node_modules` since it will be recreated
-when building the image, and some files that are not relevant at runtime, like a
-README.
+> files and directories which should not be copied inside the container, just like
+> a `.gitignore` file. I usually add `node_modules` since it will be recreated
+> when building the image, and some files that are not relevant at runtime, like a
+> README.
 
 Running `docker image ls` should now show the image you just created:
 
@@ -158,7 +157,7 @@ Example app listening at http://:::8080
 You'll soon discover that you can't access port 8080 on your machine. Docker has
 a powerful networking engine, and each container has its own IP. You _could_
 figure out the IP of your container and access it like that. A simpler approach
-though is to just bind a port of your host machine to the container.  For
+though is to just bind a port of your host machine to the container. For
 example, let's bind our port 4000 to port 8081 of the container. This can be
 done using the `-p` flag of the cli:
 
@@ -167,28 +166,28 @@ docker run -p 4000:8081 -it testapp
 ```
 
 > **Quick Tip**: To remember the order of the container- and the host-port, I
-always think of the container as laying on my desk. First, I grab the cable (the
-host machine) and then plug it into the container. Weird analogy, I know. But it
-really helped me make sense of this!
+> always think of the container as laying on my desk. First, I grab the cable (the
+> host machine) and then plug it into the container. Weird analogy, I know. But it
+> really helped me make sense of this!
 
 If you now access `http://localhost:4000` on your host machine, you should see
 your application!
 
 ## Docker Compose 101
 
-* Volumes
-* Networking
-* Env Variables
+- Volumes
+- Networking
+- Env Variables
 
 ## How I deploy my services
 
-* Walkthrough of a simple deployment (miniflux?)
-* Traefik
-* Local volumes
-* Permissions
+- Walkthrough of a simple deployment (miniflux?)
+- Traefik
+- Local volumes
+- Permissions
 
 ## Conclusion
 
-* Image size optimizations
+- Image size optimizations
 
 This is post 030 of [#100DaysToOffload](https://100daystooffload.com/).

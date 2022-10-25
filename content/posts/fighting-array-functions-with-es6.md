@@ -68,11 +68,11 @@ You can use this for arrays, as well as objects:
 
 ```js
 let obj = {
-  field: "example",
+	field: "example",
 };
 let extendedObj = {
-  ...obj,
-  anotherField: 42,
+	...obj,
+	anotherField: 42,
 };
 console.log(extendedObj.field); // "example"
 ```

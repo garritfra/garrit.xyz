@@ -14,24 +14,24 @@ In school, we get taught to use a temporary
 variable to swap two numbers:
 
 ```js
-let a = 5
-let b = 10
+let a = 5;
+let b = 10;
 
 let temp = a;
 
-a = b    // a = 10
-b = temp // b = 5
+a = b; // a = 10
+b = temp; // b = 5
 ```
 
 But by using some arithmetic, we can save us a few bytes of memory:
 
 ```js
-let a = 5
-let b = 10
+let a = 5;
+let b = 10;
 
-a = a + b // a = 15 ; b = 10
-b = a - b // a = 15 ; b = 5
-a = a - b // a = 10 ; b = 5 
+a = a + b; // a = 15 ; b = 10
+b = a - b; // a = 15 ; b = 5
+a = a - b; // a = 10 ; b = 5
 ```
 
 Please **never** use this in any production code. The less we have to think

@@ -6,7 +6,7 @@ export default function Page(props) {
 	const { title, date, siteTitle } = props;
 
 	const setupEditHook = () => {
-        window.addEventListener("keypress", (e) => {
+		window.addEventListener("keypress", (e) => {
 			const baseUrl =
 				"https://github.com/garritfra/garrit.xyz/edit/main/content";
 			if (e.key === ".") {

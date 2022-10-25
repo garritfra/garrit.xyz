@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Page from "../components/Page"
+import Page from "../components/Page";
 
 const SSR = typeof window === "undefined";
 

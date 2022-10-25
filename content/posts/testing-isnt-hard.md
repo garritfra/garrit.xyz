@@ -24,7 +24,7 @@ Of course, we need a unit we want to test. What about a method that returns the 
 
 ```js
 module.exports = function firstElement(arr) {
-  return arr[1];
+	return arr[1];
 };
 ```
 
@@ -55,7 +55,7 @@ Jest provides global functions that do not need to be imported in a file. A simp
 const firstElement = require("../firstElement.js");
 
 test("firstElement gets first element of array", () => {
-  expect(firstElement([1, 2])).toBe(1);
+	expect(firstElement([1, 2])).toBe(1);
 });
 ```
 
@@ -96,7 +96,7 @@ Whoops! Looks like we have found a bug! Let's fix it by adjusting the index of t
 
 ```js
 module.exports = function firstElement(arr) {
-  return arr[0];
+	return arr[0];
 };
 ```
 

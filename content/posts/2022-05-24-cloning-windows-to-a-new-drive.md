@@ -10,7 +10,7 @@ relatively normal to use a HDD as a primary hard drive, which adds to the slow
 experience. It was time for an upgrade!
 
 > **TL;DR**: Use [Clonezilla](https://clonezilla.org/) on a live usb stick to
-create an exact copy of your old drive onto your new one.
+> create an exact copy of your old drive onto your new one.
 
 I got him a 512 GB SSD, which, conveniently, is the same size of his current
 HDD. While installing the new drive alongside his existing one, I thought about

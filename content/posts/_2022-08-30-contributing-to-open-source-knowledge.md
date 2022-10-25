@@ -20,7 +20,7 @@ But you don't have to be on a roadtrip to contribute to OpenStreetMap! Chances a
 
 ## Wikipedia (and other wikis)
 
-I often feel like I can't contribute much to the vast knowledge of Wikipedia. *Other people are way smarter than me* and whatnot. But while you might not be able to publish worthy edits to a well-known topic, you might know some things that others haven't thought of. Is there an entry about your local town? Is there an interesting member of your (past) family that others might want to read about?
+I often feel like I can't contribute much to the vast knowledge of Wikipedia. _Other people are way smarter than me_ and whatnot. But while you might not be able to publish worthy edits to a well-known topic, you might know some things that others haven't thought of. Is there an entry about your local town? Is there an interesting member of your (past) family that others might want to read about?
 
 Of course, there are other wikis beside Wikipedia. Are you using a little-known tool that has open source documentation in the form of a wiki? How can it be improved?
 
@@ -31,8 +31,8 @@ You might have never heard of [observation.org](https://observation.org). It's a
 The idea is simple: snap a picture of an interesting looking insect or plant, upload it using the website (or one of their apps) and create an "observation". Using this information, researchers will be able to understand the biodiversity of your area. The information is free to use, and anyone can contribute!
 
 ## Wardriving
-"Wardriving" is the process of driving around by bike or car and mapping out the networks around you. 
 
+"Wardriving" is the process of driving around by bike or car and mapping out the networks around you.
 
 ## folding@home
 

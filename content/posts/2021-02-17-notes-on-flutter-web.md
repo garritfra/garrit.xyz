@@ -16,8 +16,8 @@ These are some notes I took for the evaluation of Flutter web for a potential pr
 
 - **Alternative Backends**: There are two [rendering backends](https://flutter.dev/docs/development/tools/web-renderers), both with its own benefits and drawbacks. The HTML renderer optimizes the page for the browser, which improves performance at the cost of consistency. The CanvasKit renderer renders WebGL using WebAssembly. This gives a consistent look and feel across all devices, at the cost of Performance and download size. If auto is specified, the renderer will be determined based on the device type. Here’s a comparison of the same app rendered with both backends:
 
-|           HTML           |         CanvasKit         |
-| :----------------------: | :-----------------------: |
+|                    HTML                    |                    CanvasKit                    |
+| :----------------------------------------: | :---------------------------------------------: |
 | ![](/assets/flutter_web_renderer_html.png) | ![](/assets/flutter_web_renderer_canvaskit.png) |
 
 ## The Bad

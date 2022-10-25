@@ -10,7 +10,7 @@ However, there are a few projects that I stuck with over the years, and which I 
 
 ## Miniflux
 
-[Miniflux](https://miniflux.app/) is a very minimal, self-hostable RSS reader. It's been rock-solid since they day I started using it. The data for the application entirely lives In a Postgres database, which makes migrating the application to new infrastructure setups an absolute breeze.  I've been meaning to support the author for quite some time now, but the cost of maintaining an instance yourself is basically zero, so I've yet to find the time to switch to their paid hosted instance.
+[Miniflux](https://miniflux.app/) is a very minimal, self-hostable RSS reader. It's been rock-solid since they day I started using it. The data for the application entirely lives In a Postgres database, which makes migrating the application to new infrastructure setups an absolute breeze. I've been meaning to support the author for quite some time now, but the cost of maintaining an instance yourself is basically zero, so I've yet to find the time to switch to their paid hosted instance.
 
 ## Plausible Analytics
 
@@ -46,6 +46,6 @@ I tried replacing Miniflux once, but failed. Nothing beats Miniflux.
 
 ### Prometheus + Grafana
 
-Monitoring ***inside*** your infra works until the infra goes down, at which point you're essentially driving blindfolded. I switched to Grafana Cloud, which includes a very generous free tier.
+Monitoring **_inside_** your infra works until the infra goes down, at which point you're essentially driving blindfolded. I switched to Grafana Cloud, which includes a very generous free tier.
 
 This is post 038 of [#100DaysToOffload](https://100daystooffload.com/).

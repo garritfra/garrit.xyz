@@ -22,26 +22,26 @@ Because Next.js is so minimalistic, there are some parts that you have to set up
 
 ```js
 const posts = ((context) => {
-  const keys = context.keys();
-  const values = keys.map(context);
+	const keys = context.keys();
+	const values = keys.map(context);
 
-  const data = keys.map((key, index) => {
-    // Create slug from filename
-    const slug = key
-      .replace(/^.*[\\\/]/, "")
-      .split(".")
-      .slice(0, -1)
-      .join(".");
-    const value = values[index];
-    // Parse yaml metadata & markdownbody in document
-    const document = matter(value.default);
-    return {
-      frontmatter: document.data,
-      markdownBody: document.content,
-      slug,
-    };
-  });
-  return data;
+	const data = keys.map((key, index) => {
+		// Create slug from filename
+		const slug = key
+			.replace(/^.*[\\\/]/, "")
+			.split(".")
+			.slice(0, -1)
+			.join(".");
+		const value = values[index];
+		// Parse yaml metadata & markdownbody in document
+		const document = matter(value.default);
+		return {
+			frontmatter: document.data,
+			markdownBody: document.content,
+			slug,
+		};
+	});
+	return data;
 })(require.context("../content/posts", true, /\.md$/));
 ```
 

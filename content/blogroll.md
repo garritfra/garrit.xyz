@@ -9,26 +9,25 @@ mail](mailto:garrit@slashdev.space)!
 
 ### Blogs
 
-* [Ben Stokes (Tiny Projects)](https://tinyprojects.dev/)
-* [Devine Lu Linvega](https://wiki.xxiivv.com/)
-* [Drew DeVault](https://drewdevault.com/)
-* [Kev Quirk](https://kevq.uk/)
-* [Matt Rickard](https://matt-rickard.com/)
-* [Randall Munroe (xkcd)](https://xkcd.com/)
-* [Ru Singh](https://rusingh.com/)
-* [Sotolf](https://wordsmith.social/sotolf/)
-* [Tomaso Marmo](https://tommi.space/)
+- [Ben Stokes (Tiny Projects)](https://tinyprojects.dev/)
+- [Devine Lu Linvega](https://wiki.xxiivv.com/)
+- [Drew DeVault](https://drewdevault.com/)
+- [Kev Quirk](https://kevq.uk/)
+- [Matt Rickard](https://matt-rickard.com/)
+- [Randall Munroe (xkcd)](https://xkcd.com/)
+- [Ru Singh](https://rusingh.com/)
+- [Sotolf](https://wordsmith.social/sotolf/)
+- [Tomaso Marmo](https://tommi.space/)
 
 ### Newsboards
 
-* [Hacker News](https://news.ycombinator.com/)
+- [Hacker News](https://news.ycombinator.com/)
 
 ### Podcasts
 
-* [CoRecursive: Coding Stories](https://corecursive.com/)
-* [Darknet Diaries](https://darknetdiaries.com/)
-* [Linux Action News](https://linuxactionnews.com/)
-* [Linux Unplugged](https://linuxunplugged.com/)
-* [Self-Hosted](https://selfhosted.show/)
-* [Smashing Security](https://www.smashingsecurity.com/)
-
+- [CoRecursive: Coding Stories](https://corecursive.com/)
+- [Darknet Diaries](https://darknetdiaries.com/)
+- [Linux Action News](https://linuxactionnews.com/)
+- [Linux Unplugged](https://linuxunplugged.com/)
+- [Self-Hosted](https://selfhosted.show/)
+- [Smashing Security](https://www.smashingsecurity.com/)

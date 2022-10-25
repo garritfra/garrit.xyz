@@ -2,11 +2,11 @@
 
 My interests include...
 
-* Fullstack Development
-* System Administration
-* Programming Language Design
-* Minimalist Software
-* Free Software
+- Fullstack Development
+- System Administration
+- Programming Language Design
+- Minimalist Software
+- Free Software
 
 &emsp;
 

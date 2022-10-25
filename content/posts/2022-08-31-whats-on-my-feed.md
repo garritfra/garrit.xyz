@@ -28,4 +28,3 @@ publish a list of **your** favorite feeds?
 Wrote a "What's on my feed?" entry yourself? Let me know, and I'll link it here!
 
 This is post 036 of [#100DaysToOffload](https://100daystooffload.com/).
-

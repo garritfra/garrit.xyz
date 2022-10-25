@@ -33,9 +33,7 @@ export default function BlogTemplate(props) {
 	};
 
 	const renderTagList = () => {
-		const tags = props.frontmatter.tags
-			?.split(",")
-			.map((tag) => tag.trim());
+		const tags = props.frontmatter.tags?.split(",").map((tag) => tag.trim());
 
 		return (
 			<p className="page__tag-list">

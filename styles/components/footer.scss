@@ -1,19 +1,19 @@
 .footer {
-    border-top: 1px solid var(--border);
-    padding-bottom: 0px;
-    text-align: center;
+	border-top: 1px solid var(--border);
+	padding-bottom: 0px;
+	text-align: center;
 
-    &__content {
-        text-align: left;
-        margin-bottom: 3rem;
-    }
+	&__content {
+		text-align: left;
+		margin-bottom: 3rem;
+	}
 
-    section {
-        min-width: 250px;
-        border-bottom: none;
-    }
+	section {
+		min-width: 250px;
+		border-bottom: none;
+	}
 
-    a {
-        text-decoration: underline;
-    }
+	a {
+		text-decoration: underline;
+	}
 }

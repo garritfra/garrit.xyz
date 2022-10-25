@@ -20,14 +20,13 @@ commit. It boils down to this snippet of code:
 
 ```js
 window.addEventListener("keypress", (e) => {
-    if (e.key === ".") {
-        const baseUrl =
-            "https://github.com/garritfra/garrit.xyz/edit/main/content";
-        const filePath = window.location.pathname;
-        const url = `${baseUrl}${filePath}.md`;
+	if (e.key === ".") {
+		const baseUrl = "https://github.com/garritfra/garrit.xyz/edit/main/content";
+		const filePath = window.location.pathname;
+		const url = `${baseUrl}${filePath}.md`;
 
-        window.location.href = url;
-    }
+		window.location.href = url;
+	}
 });
 ```
 

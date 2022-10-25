@@ -67,10 +67,11 @@ int main()
 }
 ```
 
-This example still wastes 5 bits since we only use 3 out of 8 possible bits of the char type, but I'm sure you get the point. Allocating 3 boolean values independently would waste 7 * 3 = 21 bits, so it's a massive improvement. Whenever you find yourself needing multiple boolean values, think twice if you can use this pattern.
+This example still wastes 5 bits since we only use 3 out of 8 possible bits of the char type, but I'm sure you get the point. Allocating 3 boolean values independently would waste 7 \* 3 = 21 bits, so it's a massive improvement. Whenever you find yourself needing multiple boolean values, think twice if you can use this pattern.
 
 Microcontrollers have a very constrainted environment, therefore bitwise operations are essential in those scenarios. 7 wasted bits are a lot if there are only 4 kb of total memory available. For larger systems we often forget about these constraints, until they add up.
 
 ## My Plea
-* Be mindful about the software you create.
-* Appreciate the resources at your disposal.
+
+- Be mindful about the software you create.
+- Appreciate the resources at your disposal.

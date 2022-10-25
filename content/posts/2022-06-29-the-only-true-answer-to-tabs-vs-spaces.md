@@ -52,4 +52,3 @@ I hope you now know why using a single tab of indentation makes the most sense i
 you're working in a team. Let me know your thoughts!
 
 This is post 035 of [#100DaysToOffload](https://100daystooffload.com/).
-

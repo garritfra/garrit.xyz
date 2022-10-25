@@ -28,11 +28,11 @@ configuration as shown
 [here](https://www.apollographql.com/docs/apollo-server/performance/caching/#caching-with-responsecacheplugin-advanced):
 
 ```js
-import responseCachePlugin from 'apollo-server-plugin-response-cache';
+import responseCachePlugin from "apollo-server-plugin-response-cache";
 
 const server = new ApolloServer({
-  // ...other options...
-  plugins: [responseCachePlugin()],
+	// ...other options...
+	plugins: [responseCachePlugin()],
 });
 ```
 
@@ -43,17 +43,17 @@ Redis](https://www.apollographql.com/docs/apollo-server/data/data-sources/#using
 multiple instances of the same backend.
 
 ```js
-const { BaseRedisCache } = require('apollo-server-cache-redis');
-const Redis = require('ioredis');
+const { BaseRedisCache } = require("apollo-server-cache-redis");
+const Redis = require("ioredis");
 
 const server = new ApolloServer({
-  // ...
-  cache: new BaseRedisCache({
-    plugins: [responseCachePlugin()],
-    client: new Redis({
-      host: 'redis-server',
-    }),
-  }),
+	// ...
+	cache: new BaseRedisCache({
+		plugins: [responseCachePlugin()],
+		client: new Redis({
+			host: "redis-server",
+		}),
+	}),
 });
 ```
 
@@ -78,14 +78,14 @@ only have to do this once):
 
 ```gql
 enum CacheControlScope {
-  PUBLIC
-  PRIVATE
+	PUBLIC
+	PRIVATE
 }
 
 directive @cacheControl(
-  maxAge: Int
-  scope: CacheControlScope
-  inheritMaxAge: Boolean
+	maxAge: Int
+	scope: CacheControlScope
+	inheritMaxAge: Boolean
 ) on FIELD_DEFINITION | OBJECT | INTERFACE | UNION
 ```
 
@@ -94,10 +94,10 @@ Now you can add the `@cacheControl` directive to every type that should be cache
 ```gql
 # This type will be cached for 30 seconds
 type Post @cacheControl(maxAge: 30) {
-  id: ID!
-  title: String
-  author: Author
-  comments: [Comment]
+	id: ID!
+	title: String
+	author: Author
+	comments: [Comment]
 }
 ```
 
@@ -120,20 +120,20 @@ setting the `maxAge` explicitly or by inheriting it from the parent:
 
 ```gql
 type Post @cacheControl(maxAge: 30) {
-  id: ID!
-  title: String
-  author: Author
-  comments: [Comment]
+	id: ID!
+	title: String
+	author: Author
+	comments: [Comment]
 }
 
 type Author @cacheControl(inheritMaxAge: true) {
-  id: ID!
-  name: String
+	id: ID!
+	name: String
 }
 
 type Comment @cacheControl(inheritMaxAge: true) {
-  id: ID!
-  body: String
+	id: ID!
+	body: String
 }
 ```
 
@@ -178,9 +178,9 @@ directive. This will only cache the response if a user is logged in:
 
 ```gql
 type Post {
-  id: ID!
-  title: String
-  author: Author @cacheControl(maxAge: 10, scope: PRIVATE)
+	id: ID!
+	title: String
+	author: Author @cacheControl(maxAge: 10, scope: PRIVATE)
 }
 ```
 
@@ -188,12 +188,15 @@ Apollo determines if a user is logged in or not, based on if the `sessionId`
 function has returned a value other than `null`.
 
 ```js
-import responseCachePlugin from 'apollo-server-plugin-response-cache';
+import responseCachePlugin from "apollo-server-plugin-response-cache";
 const server = new ApolloServer({
-  // ...other settings...
-  plugins: [responseCachePlugin({
-    sessionId: (requestContext) => (requestContext.request.http.headers.get('sessionid') || null),
-  })],
+	// ...other settings...
+	plugins: [
+		responseCachePlugin({
+			sessionId: (requestContext) =>
+				requestContext.request.http.headers.get("sessionid") || null,
+		}),
+	],
 });
 ```
 

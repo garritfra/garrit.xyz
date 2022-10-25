@@ -32,6 +32,3 @@ This is post 024 of [#100DaysToOffload](https://100daystooffload.com/).
 
 - [Stack Overflow Thread on getting the user language](https://stackoverflow.com/questions/8199760/how-to-get-the-browser-language-using-javascript)
 - [Full link to the Podcast episode](https://corecursive.com/internet-is-duct-tape/#)
-
-
-

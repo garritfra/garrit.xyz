@@ -40,5 +40,4 @@ https://simplecheatsheet.com/linux-tar-files/
 
 Sorry for this dumb post. I'm sure you can relate to my feelings. ;)
 
-
 This is post 033 of [#100DaysToOffload](https://100daystooffload.com/).

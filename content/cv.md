@@ -17,16 +17,16 @@ _**Software Developer, March 2021 - present**_
 
 Development of a HBBTV media library for public television
 
-* Design and implementation of a BFF (backend for frontend) using [Nest.js](https://nestjs.com/)
+- Design and implementation of a BFF (backend for frontend) using [Nest.js](https://nestjs.com/)
 
 Development of a web-based convention application
 
-* Development of APIs using Node.js and GraphQL
-* Development of a content management system using React and Material Design
-* Various performance optimizations to the platform
-    * [Server-side caching](/posts/2021-10-04-server-side-caching-with-apollo-graphql) solution using Redis
-    * Support for auto-scalable databases using AWS Aurora
-    * Incremental rendering
+- Development of APIs using Node.js and GraphQL
+- Development of a content management system using React and Material Design
+- Various performance optimizations to the platform
+  - [Server-side caching](/posts/2021-10-04-server-side-caching-with-apollo-graphql) solution using Redis
+  - Support for auto-scalable databases using AWS Aurora
+  - Incremental rendering
 
 ### CGI Germany
 
@@ -34,16 +34,16 @@ _**Mobile Software Developer, 2020 - Feburary 2021**_
 
 Development of a companion app for a leading automotive company
 
-* Development for leading mobile platforms
-* Complete redesign of legacy application
-* Agile workflow using the Atlassian Toolchain (Jira, Bitbucket, Confluence)
+- Development for leading mobile platforms
+- Complete redesign of legacy application
+- Agile workflow using the Atlassian Toolchain (Jira, Bitbucket, Confluence)
 
 Development of a mobile smart-home application
 
-* Implementation of a Bluetooth and ZigBee pairing solution
-* Reactive development using ReactiveX for iOS and Android
-* Managing IoT devices using AWS IoT Core
-* Maintaining a RESTful API using AWS Lambda
+- Implementation of a Bluetooth and ZigBee pairing solution
+- Reactive development using ReactiveX for iOS and Android
+- Managing IoT devices using AWS IoT Core
+- Maintaining a RESTful API using AWS Lambda
 
 _**Trainee, 2017 - 2020**_
 

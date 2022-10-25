@@ -39,10 +39,7 @@ export default function Meta(props) {
 	return (
 		<>
 			<Head>
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1"
-				/>
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<meta charSet="utf-8" />
 				<title>{props.pageTitle || props.siteTitle}</title>
 				<meta
@@ -55,10 +52,7 @@ export default function Meta(props) {
 					rel="webmention"
 					href="https://webmention.io/garrit.xyz/webmention"
 				/>
-				<link
-					rel="pingback"
-					href="https://webmention.io/garrit.xyz/xmlrpc"
-				/>
+				<link rel="pingback" href="https://webmention.io/garrit.xyz/xmlrpc" />
 
 				<link
 					href="https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.min.css"

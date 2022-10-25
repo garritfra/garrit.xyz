@@ -21,30 +21,30 @@ this snippet to your docker-compose file:
 
 ```yaml
 app:
-    image: nextcloud
-    ports:
-        - 127.0.0.1:8080:80
-    healthcheck:
-        test:
-            [
-                "CMD",
-                "curl",
-                "-f",
-                "https://app-endpoint.tld",
-                "&&",
-                "curl",
-                "-fsS",
-                "-m",
-                "10",
-                "--retry",
-                "5",
-                "-o",
-                "/dev/null",
-                "https://healthchecks.io/ping/<UUID>",
-            ]
-        interval: 60s
-        timeout: 10s
-        retries: 6
+  image: nextcloud
+  ports:
+    - 127.0.0.1:8080:80
+  healthcheck:
+    test:
+      [
+        "CMD",
+        "curl",
+        "-f",
+        "https://app-endpoint.tld",
+        "&&",
+        "curl",
+        "-fsS",
+        "-m",
+        "10",
+        "--retry",
+        "5",
+        "-o",
+        "/dev/null",
+        "https://healthchecks.io/ping/<UUID>",
+      ]
+    interval: 60s
+    timeout: 10s
+    retries: 6
 ```
 
 Change the first url to the url of your app. The second URL is the endpoint of

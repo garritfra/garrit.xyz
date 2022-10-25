@@ -3,7 +3,7 @@ on:
     branches:
       - main
     paths:
-      - 'lib/jurassic/**/*'
+      - "lib/jurassic/**/*"
 
 name: Build Docker images
 jobs:
