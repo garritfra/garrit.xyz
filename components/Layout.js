@@ -18,23 +18,6 @@ export default function Layout({
 			<Header siteTitle={siteTitle} />
 			<div className="content">{children}</div>
 			<Footer />
-			<style jsx>
-				{`
-					.layout {
-						overflow-x: hidden;
-						display: flex;
-						flex-direction: column;
-						min-height: 100vh;
-					}
-					.layout .info_page {
-						color: #ebebeb;
-					}
-					.content {
-					}
-					@media (min-width: 768px) {
-					}
-				`}
-			</style>
 		</section>
 	);
 }
