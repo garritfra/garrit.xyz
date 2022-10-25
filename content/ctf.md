@@ -1,6 +1,6 @@
 ---
 title: "Capture the Flag"
-siteTitle: "Garrit's Secret🤭"
+siteTitle: "Garrit's Challenge"
 ---
 
 ![White Flag](/assets/white_flag.png)

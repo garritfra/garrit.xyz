@@ -12,6 +12,8 @@ export default function Footer() {
         <a href="/guestbook">Guestbook</a>
         <br />
         <a href="/blogroll">Blogroll</a>
+        <br />
+        <a href="/ctf">Capture the Flag</a>
         <h3>Elsewhere</h3>
         <a href="https://github.com/garritfra" rel="me">
           Github
