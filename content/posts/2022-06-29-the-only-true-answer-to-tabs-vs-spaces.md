@@ -48,7 +48,7 @@ code, without forcing anyone else to do as you do.
 Even GitHub, GitLab and friends are able to respect this setting, giving
 everyone the opportunity to view code in their preferred style.
 
-I hope you now know why using a single tab of indendation makes the most sense if
+I hope you now know why using a single tab of indentation makes the most sense if
 you're working in a team. Let me know your thoughts!
 
 This is post 035 of [#100DaysToOffload](https://100daystooffload.com/).
