@@ -113,13 +113,7 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
-blockquote {
-    border-left: 5px solid #ccc;
-    font-style: italic;
-    margin-left: 0;
-    margin: 1.5em 10px;
-    padding: 0.5em 10px;
-}
+
 strong {
     font-weight: bold;
 }
@@ -133,9 +127,6 @@ ul {
     }
 }
 
-blockquote *:last-child {
-    margin-bottom: 0;
-}
 li *:last-child {
     margin-bottom: 0;
 }
