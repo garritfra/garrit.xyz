@@ -16,4 +16,4 @@ out my [todos](/todo) if you need inspiration for your next project.
 I'm always up for a chat. Feel free to [reach out](/contact), or leave a note in
 my [guestbook](/guestbook)!
 
-Are you up for a challenge? See if you can find all [hidden flags](/ctf) on this page!
+Up for a challenge? See if you can find all [hidden flags](/ctf) on this page!
