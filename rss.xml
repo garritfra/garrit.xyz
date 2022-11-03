@@ -5,8 +5,70 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Wed, 05 Oct 2022 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Thu, 03 Nov 2022 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>Reselling Kubernetes</title>
+            <link>
+              https://garrit.xyz/posts/2022-11-03-reselling-managed-kubernetes?utm_source=rss
+            </link>
+    
+            <pubDate>Thu, 03 Nov 2022 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>I&#39;m currently working on a side project involving reselling Kubernetes clusters.
+What I discovered is that it&#39;s impossible to resell <em>managed</em> Kubernetes, as in
+<a href="https://aws.amazon.com/de/eks/">EKS</a> and
+<a href="https://cloud.google.com/kubernetes-engine/">GKE</a>.</p>
+
+<p>The only possible scenario where reselling Kubernetes to your and the
+end-customers advantage is to manage the nodes yourself. The reason is the
+scaling of cost per CPU.</p>
+
+<p>When renting VMs, the price per CPU often varies for the size of the machine. 
+This leaves the reseller flexibility in the choice of resources. To give you an
+example, here is the pricing for virtual machines at
+<a href="https://www.hetzner.com/">Hetzner</a>, and the price per CPU:</p>
+
+<p>| Product         | Number of vCPUs    | Price (in €/month) | Price per vCPU (in €/month) |
+|-----------------|--------------------|--------------------|-----------------------------|
+| CX11            | 1                  | 4.51               | 4.51                        |
+| CPX11           | 2                  | 5.18               | 2.59                        |
+| CPX21           | 3                  | 8.98               | 2.99                        |
+| CPX31           | 4                  | 16.18              | 4.05                        |
+| CPX41           | 8                  | 29.99              | 3.75                        |
+| CPX51           | 16                 | 65.33              | 4.08                        |</p>
+
+<p>When comparing this to a managed Kubernetes product like
+<a href="https://www.civo.com">CIVO</a>, we see that the price per CPU stays constant:</p>
+
+<p>| Product         | Number of vCPUs    | Price (in €/month) | Price per vCPU (in €/month) |
+|-----------------|--------------------|--------------------|-----------------------------|
+| Extra Small     | 1                  | 5                  | 5                           |
+| Small           | 2                  | 10                 | 5                           |
+| Medium          | 4                  | 20                 | 5                           |
+| Large           | 8                  | 40                 | 5                           |</p>
+
+<p>This pricing model is nice and predictable for the customer, but it makes it
+impossible to justify a resell product. If CIVO charges 5€/month per vCPU, we
+would need to charge extra to be profitable, which in turn overcuts the
+competition.</p>
+
+<p>When choosing Hetzner (or any other platform offering VMs), we are still able to
+undercut the competition and even optimize how the resources are layed out on
+the nodes. The obvious downside of course being that we have to manage the
+clusters ourselves.</p>
+
+<h2>Share your thoughts</h2>
+
+<p>Reselling Kubernetes is tricky. I&#39;m currently sketching out ideas for an
+alternative way to sell Kubernetes hosting at an ultra cheap price. The project
+is still in its infancyb but if you&#39;re interested, you&#39;re more than welcome to
+share your thoughts in our <a href="https://matrix.to/#/!cTXkqtlnbHScIxnlqO:matrix.org?via=matrix.org&amp;via=envs.net">Matrix
+Room</a>!</p>
+
+<p>This is post 041 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>A simple guestbook</title>
             <link>
