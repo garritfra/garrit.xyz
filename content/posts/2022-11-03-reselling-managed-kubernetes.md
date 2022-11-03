@@ -43,7 +43,7 @@ would need to charge extra to be profitable, which in turn overcuts the
 competition.
 
 When choosing Hetzner (or any other platform offering VMs), we are still able to
-undercut the competition and even optimize how the resources are layed out on
+undercut the competition and even optimize how the resources are laid out on
 the nodes. The obvious downside of course being that we have to manage the
 clusters ourselves.
 
