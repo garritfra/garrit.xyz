@@ -51,7 +51,7 @@ clusters ourselves.
 
 Reselling Kubernetes is tricky. I'm currently sketching out ideas for an
 alternative way to sell Kubernetes hosting at an ultra cheap price. The project
-is still in its infancyb but if you're interested, you're more than welcome to
+is still in its infancy but if you're interested, you're more than welcome to
 share your thoughts in our [Matrix
 Room](https://matrix.to/#/!cTXkqtlnbHScIxnlqO:matrix.org?via=matrix.org&via=envs.net)!
 
