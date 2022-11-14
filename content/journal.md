@@ -4,6 +4,7 @@
 
 - Remembered I have this journal
 - Implemented HbbTV support to a user agent parser ([garritfra/ua-parser-js#8](https://github.com/garritfra/ua-parser-js/pull/8))
+- Used my lunch-break for a brainbump. Wrote two pages in my notebook.
 
 ### 2022-06-21
 
