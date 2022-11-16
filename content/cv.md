@@ -58,16 +58,20 @@ Development of an application to look up car dealership data
 
 ## Projects
 
-### 🌿 [512kb.club - Collaborator & Code Review](https://512kb.club/)
+### ✅ [512kb.club - Collaborator & Code Review](https://512kb.club/)
 
 The 512KB Club is a collection of performance-focused web pages from across the
 Internet.
 
-### 🌿 [seeking-maintainers.net - Maintainer](https://seeking-maintainers.net/)
+### ✅ [darktheme.club - Maintainer](https://darktheme.club/)
+
+The Darktheme Club is a collection of accessible web pages from across the Internet.
+
+### ✅ [seeking-maintainers.net - Maintainer](https://seeking-maintainers.net/)
 
 An index of open source projects seeking new maintainers.
 
-### 🌿 [qbe-rs - Maintainer](https://github.com/garritfra/qbe-rs)
+### ✅ [qbe-rs - Maintainer](https://github.com/garritfra/qbe-rs)
 
 A Rust crate that seeks to provide a Rust-y representation of QBE IR. It can be
 used for code generation of compilers. A way to parse existing IR is planned.
@@ -78,7 +82,7 @@ Pure functional lazy-evaluated programming language targeting decentralized and
 distributed systems. It is made to take advantage of multiple CPUs and CPU
 cores (parallelism) by default, to run on clusters and on the cloud easily.
 
-🪦 **Imf & Firus - Developer**
+### 🪦 Imf & Firus - Developer
 
 Daily challenges for children of parents that are working from home during the
 pandemic. This app gives children fun and interesting activities they can do
