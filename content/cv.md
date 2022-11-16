@@ -18,6 +18,7 @@ _**Software Developer, March 2021 - present**_
 Development of a HBBTV media library for public television
 
 - Design and implementation of a BFF (backend for frontend) using [Nest.js](https://nestjs.com/)
+- Design and implementation of a device configuration microservice
 
 Development of a web-based convention application
 
