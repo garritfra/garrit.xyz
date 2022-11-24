@@ -24,3 +24,9 @@ services.
 Smart move, Google.
 
 This is post 043 of [#100DaysToOffload](https://100daystooffload.com/).
+
+---
+
+This post generated some interesting discussions on
+[HackerNews](https://news.ycombinator.com/item?id=33729345).
+
