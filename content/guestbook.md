@@ -10,6 +10,10 @@ get redirected to the page editor.
 
 ---
 
+### copyrip, on 2022-11-24:
+
+This has to be the cutest guestbook i've stumbled accross in a while 🙊 ! Well, it's actually the only i've signed in years...
+
 ### sørenpeter, on 2022-10-06:
 
 Hi there, this is a cool idea, but what about for people, who does not have a github account?
