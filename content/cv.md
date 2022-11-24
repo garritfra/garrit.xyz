@@ -60,7 +60,9 @@ Development of an application to look up car dealership data
 ## Projects
 
 ✅ - Done
+
 🌱 - Doing
+
 🪦 - Dead
 
 ### ✅ [512kb.club - Collaborator & Code Review](https://512kb.club/)
