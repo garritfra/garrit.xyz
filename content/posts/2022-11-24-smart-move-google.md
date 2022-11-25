@@ -30,3 +30,10 @@ This is post 043 of [#100DaysToOffload](https://100daystooffload.com/).
 This post generated some interesting discussions on
 [HackerNews](https://news.ycombinator.com/item?id=33729345).
 
+### Backlinks
+
+- [Google Bypasses Privacy, Puts Users’ Data on the Map](https://analyticsindiamag.com/google-bypasses-privacy-puts-users-data-on-the-map/)
+- [Softantenna](https://softantenna.com/blog/google-smart-move/) ([English](https://softantenna-com.translate.goog/blog/google-smart-move/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=de&_x_tr_pto=wapp))
+
+
+
