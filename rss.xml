@@ -54,7 +54,9 @@ services.</p>
     
             <pubDate>Fri, 11 Nov 2022 00:00:00 +0000</pubDate>
             <description>
-            <![CDATA[<p>I&#39;m currently <a href="https://github.com/garritfra/ua-parser-js/pull/8">fiddling
+            <![CDATA[<blockquote><p><strong>Warning</strong>: This is a rather ranty post. I just needed a place to dump my emotions about this topic. Please take it with a grain of salt. :)</p></blockquote>
+
+<p>I&#39;m currently <a href="https://github.com/garritfra/ua-parser-js/pull/8">fiddling
 around</a> with User-Agents of
 Smart TVs, or more specifically <a href="https://www.hbbtv.org/">HbbTV</a>. Interpreting
 them is an absolute nightmare, so let me rant about interesting edge-cases I
