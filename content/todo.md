@@ -27,6 +27,7 @@
 - An app like Google Maps to discover cool and interesting places in your area
 - A VPN SaaS
 - A recommendation engine for your existing RSS-feed (OPML)
+- A simple service for managing arbitrary web redirects. Used to prevent old links from dying.
 
 ## Website Roadmap
 
