@@ -4,6 +4,8 @@ date: "2022-11-11"
 tags: "note, 100DaysToOffload, web"
 ---
 
+> **Warning**: This is a rather ranty post. I just needed a place to dump my emotions about this topic. Please take it with a grain of salt. :)
+
 I'm currently [fiddling
 around](https://github.com/garritfra/ua-parser-js/pull/8) with User-Agents of
 Smart TVs, or more specifically [HbbTV](https://www.hbbtv.org/). Interpreting
