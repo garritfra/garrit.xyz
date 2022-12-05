@@ -61,6 +61,7 @@ love to hear it!
 - [Manuel Romei](https://fosstodon/@kriive) - 3 flags found, last updated 2022-07-13
 - Gaeulbyul - 3 flags found, last updated 2022-07-13
 - runejuhl - 3 flags found, last updated 2022-07-14
+- [Jeremi R](https://jrb.nz) - 3 flags found, last updated 2022-12-05
 
 ---
 
