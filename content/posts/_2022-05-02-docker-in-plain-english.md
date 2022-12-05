@@ -175,9 +175,55 @@ your application!
 
 ## Docker Compose 101
 
-- Volumes
-- Networking
-- Env Variables
+Now that we've looked at the basics of Docker, let's talk about Docker Compose.
+Docker Compose is a tool that allows you to define and manage multi-container
+applications. This means you can use a single docker-compose.yml file to define
+the services and dependencies of your application, and then use Docker Compose
+to start and stop all of the containers at once.
+
+Using Docker Compose can save you a lot of time and hassle, especially if you
+have a complex application with multiple components that need to work together.
+With Docker Compose, you can specify the dependencies between your containers,
+as well as the ports, volumes, and other settings that they need to run
+properly. This makes it much easier to manage and maintain your application, and
+allows you to make changes to your environment quickly and easily.
+
+Here is an example docker-compose.yml file for a simple Node.js application:
+
+```yaml
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+    command: npm start
+```
+
+In this file, we define a single service called "app" that uses the Dockerfile
+in the current directory to build an image. We then map port 3000 on the host
+machine to port 3000 on the container, mount the current directory as a volume,
+and specify the command to run when the container is started.
+
+To start the containers defined in this docker-compose.yml file, you can run the following command:
+
+```
+docker-compose up
+```
+
+This will build the images, create the containers, and start all of the
+services. You can then access your application at http://localhost:3000.
+
+To stop the containers and remove them, you can run the following command:
+
+```
+docker-compose down
+```
+
+This will stop and remove the containers, as well as the networks and volumes
+that we've created.
 
 ## How I deploy my services
 
