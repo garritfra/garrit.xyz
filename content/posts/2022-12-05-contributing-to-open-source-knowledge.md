@@ -14,9 +14,8 @@ OpenStreetMap-based apps lack important features, but we recently stumbled upon
 [MagicEarth](https://www.magicearth.com/), which perfectly fills the void.
 OpenStreetMap has been 95% accurate for us. Those last 5% are mostly less famous
 hiking trails and attractions that could easily be filled in by people like you
-and I, which served as the inspiration for this blog-post.
-
-Here are 6 ways to contribute open source knowledge right now:
+and me. This inspired me to write this blog post, where I share six ways that
+you can contribute to open source knowledge right now.
 
 ## OpenStreetMap
 
