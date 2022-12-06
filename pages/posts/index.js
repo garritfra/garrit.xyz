@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import BlogList from "../../components/BlogList";
 import Page from "../../components/Page";
 import matter from "gray-matter";
+import { render } from "preact";
 
 const Index = (props) => {
 	const { query } = useRouter();
@@ -15,8 +16,23 @@ const Index = (props) => {
 		  )
 		: props.posts;
 
+	const renderRandomButton = () => {
+		const randomIndex = Math.floor(Math.random() * filteredPosts.length);
+		const randomPost = filteredPosts[randomIndex];
+		const randomUrl = `/posts/${randomPost?.slug}`;
+		return (
+			<p>
+				<a href={randomUrl} onClick={() => plausible("random_post_clicked")}>
+					✨ Random Post ✨
+				</a>
+			</p>
+		);
+	};
+
 	return (
 		<Page siteTitle="Garrit's Notes">
+			{renderRandomButton()}
+			<hr />
 			<BlogList posts={filteredPosts} />
 		</Page>
 	);

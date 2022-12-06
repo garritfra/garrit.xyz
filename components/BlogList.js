@@ -12,19 +12,6 @@ const BlogList = ({ posts }) => {
 		return date.toDateString().slice(4);
 	};
 
-	const renderRandomButton = () => {
-		const randomIndex = Math.floor(Math.random() * publicPosts.length);
-		const randomPost = publicPosts[randomIndex];
-		const randomUrl = `/posts/${randomPost?.slug}`;
-		return (
-			<p>
-				<a href={randomUrl} onClick={() => plausible("random_post_clicked")}>
-					✨ Random Post ✨
-				</a>
-			</p>
-		);
-	};
-
 	const renderPost = (post) => (
 		<div key={post.slug} className="blog__list__post">
 			<time className="blog__list__post__date">
@@ -37,8 +24,6 @@ const BlogList = ({ posts }) => {
 
 	return (
 		<>
-			{renderRandomButton()}
-			<hr />
 			<div>
 				{publicPosts.length > 0 &&
 					publicPosts
