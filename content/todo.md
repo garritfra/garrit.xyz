@@ -41,7 +41,7 @@
 - Make analytics public
 - Add a search
 - Add backlinks
-- Add a privacy policy
+- [~~Add a privacy policy~~](/privacy)
 - Add a "donate" button
 - Add a "Uses" page
 - ~~"Share via Mastodon, Twitter, Facebook..." buttons~~
