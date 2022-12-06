@@ -1,5 +1,10 @@
 # Journal
 
+### 2022-12-06
+
+- Got really into [ChatGPT](https://openai.com/blog/chatgpt/)
+- Added a privacy policy to this site
+
 ### 2022-11-14
 
 - Remembered I have this journal

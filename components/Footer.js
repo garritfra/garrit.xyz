@@ -14,6 +14,8 @@ export default function Footer() {
 				<a href="/blogroll">Blogroll</a>
 				<br />
 				<a href="/ctf">Capture the Flag</a>
+				<br />
+				<a href="/privacy">Privacy Policy</a>
 				<h3>Elsewhere</h3>
 				<a href="https://github.com/garritfra" rel="me">
 					Github
