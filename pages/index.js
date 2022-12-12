@@ -1,12 +1,35 @@
 import ReactMarkdown from "react-markdown";
+import Snowfall from "react-snowfall";
 import matter from "gray-matter";
 import gfm from "remark-gfm";
 import Page from "../components/Page";
 import BlogList from "../components/BlogList";
 
+const SSR = typeof window === "undefined";
+
 const Index = (props) => {
+	const mediaQuery =
+		!SSR && window.matchMedia("(prefers-reduced-motion: reduce)");
+	const prefersReducedMotion = !mediaQuery || mediaQuery.matches;
+
+	const isWinter = new Date().getMonth() > 10 || new Date().getMonth() < 1;
+
+	const buildSnow = () => {
+		return (
+			<Snowfall
+				snowflakeCount={100}
+				style={{
+					position: "fixed",
+					width: "100vw",
+					height: "100vh",
+				}}
+			/>
+		);
+	};
+
 	return (
 		<Page className="h-card" siteTitle="Garrit Franke">
+			{isWinter && !prefersReducedMotion && buildSnow()}
 			<ReactMarkdown remarkPlugins={[gfm]}>{props.markdownBody}</ReactMarkdown>
 			<h2>Recent posts</h2>
 			<BlogList posts={props.recentPosts}></BlogList>
