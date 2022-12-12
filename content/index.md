@@ -20,13 +20,13 @@ Pssst! Can you find all [hidden flags](/ctf) on this page?
 
 ## Projects
 
-**[darktheme.club](https://darktheme.club/)**
-
-The Darktheme Club is a collection of accessible web pages from across the Internet.
-
 **[seeking-maintainers.net](https://seeking-maintainers.net/)**
 
 An index of open source projects seeking new maintainers.
+
+**[darktheme.club](https://darktheme.club/)**
+
+The Darktheme Club is a collection of accessible web pages from across the Internet.
 
 **[qbe-rs](https://github.com/garritfra/qbe-rs)**
 
