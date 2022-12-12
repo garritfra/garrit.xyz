@@ -31,7 +31,7 @@ An index of open source projects seeking new maintainers.
 **[qbe-rs](https://github.com/garritfra/qbe-rs)**
 
 A Rust crate that seeks to provide a Rust-y representation of QBE IR. It can be
-used for code generation of compilers. A way to parse existing IR is planned.
+used by compilers for code generation.
 
 **[Antimony Programming language](https://github.com/antimony-lang/antimony)**
 
