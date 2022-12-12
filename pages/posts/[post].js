@@ -76,6 +76,9 @@ export default function BlogTemplate(props) {
 					Reply via E-Mail
 				</a>
 			</p>
+			<a href="https://www.buymeacoffee.com/garrit" target="_blank">
+				<img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=garrit&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" />
+			</a>
 
 			{props.frontmatter.tags && renderTagList()}
 
