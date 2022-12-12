@@ -1,4 +1,6 @@
 export default function Footer() {
+	const currentYear = new Date().getFullYear();
+
 	return (
 		<footer className="footer">
 			<div className="footer__content">
@@ -27,7 +29,7 @@ export default function Footer() {
 				<br />
 				<a href="/contact">Contact</a>
 			</div>
-			<p>© 2018-2022 Garrit Franke</p>
+			<p>© 2018-{currentYear} Garrit Franke</p>
 		</footer>
 	);
 }
