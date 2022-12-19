@@ -1,7 +1,7 @@
 # Kubernetes & Cloud Native Advent Calendar
 
 - Cluster Setup (Distributions, Providers, ...)
-- hello-world.yaml
+- Dashboard
 - kubeCTL
 - nginx-ingress
 - cert-manager
