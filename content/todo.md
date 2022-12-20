@@ -48,3 +48,4 @@
 - Page changelog (page slug to git history link)
 - ~~Press "." on any page to get redirected to the edit page. Inspired by GitHub's shortcut.~~ ([blog post](/posts/2022-10-05-simple-guestbook))
 - Links to previous and next posts
+- Add a static API for data access
