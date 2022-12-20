@@ -38,7 +38,7 @@ const Index = (props) => {
 };
 
 export async function getStaticProps() {
-	const content = await import(`../content/index.md`);
+	const content = await import('../content/index.md');
 	const data = matter(content.default);
 
 	const posts = ((context) => {

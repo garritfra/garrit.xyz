@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import BlogList from "../../components/BlogList";
 import Page from "../../components/Page";
 import matter from "gray-matter";
-import { render } from "preact";
 
 const Index = (props) => {
 	const { query } = useRouter();

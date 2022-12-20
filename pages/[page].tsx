@@ -5,7 +5,13 @@ import rehypeRaw from "rehype-raw";
 import glob from "glob";
 import Page from "../components/Page";
 
-export default function PageTemplate(props) {
+interface PageTemplateProps {
+	frontmatter: { siteTitle: string; title: string };
+	siteTitle: string;
+	markdownBody: string;
+}
+
+export default function PageTemplate(props: PageTemplateProps) {
 	/*
 	 ** Odd fix to get build to run
 	 ** It seems like on first go the props
@@ -38,7 +44,7 @@ export async function getStaticProps({ ...ctx }) {
 	};
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths(): Promise<{ paths: string[]; fallback: boolean; }> {
 	//get all .md files in the posts dir
 	const pages = glob.sync("content/*.md");
 

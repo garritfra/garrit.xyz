@@ -39,7 +39,9 @@ export default function BlogTemplate(props) {
 			<p className="page__tag-list">
 				<TagIcon />
 				{tags.map((tag) => (
-					<a href={`/posts?tags=${tag}`}>#{tag}</a>
+					<a key={tag} href={`/posts?tags=${tag}`}>
+						#{tag}
+					</a>
 				))}
 			</p>
 		);
@@ -52,7 +54,6 @@ export default function BlogTemplate(props) {
 			date={reformatDate(props.frontmatter.date)}
 		>
 			<ReactMarkdown
-				date={props.frontmatter.date}
 				remarkPlugins={[gfm]}
 				rehypePlugins={[rehypeRaw]}
 				components={{
@@ -82,15 +83,15 @@ export default function BlogTemplate(props) {
 
 			{props.frontmatter.tags && renderTagList()}
 
-			<div class="shareon">
-				<a class="facebook"></a>
-				<a class="linkedin"></a>
-				<a class="mastodon"></a>
-				<a class="pocket"></a>
-				<a class="reddit"></a>
-				<a class="telegram"></a>
-				<a class="twitter"></a>
-				<a class="whatsapp"></a>
+			<div className="shareon">
+				<a className="facebook"></a>
+				<a className="linkedin"></a>
+				<a className="mastodon"></a>
+				<a className="pocket"></a>
+				<a className="reddit"></a>
+				<a className="telegram"></a>
+				<a className="twitter"></a>
+				<a className="whatsapp"></a>
 			</div>
 		</Page>
 	);
