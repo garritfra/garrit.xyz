@@ -70,6 +70,10 @@ Development of an application to look up car dealership data
 
 🪦 - Dead
 
+### 🌱 [Fling - Maintainer](https://github.com/garritfra/fling)
+
+A simple mobile app that simplifies household management. Still very basic, but I've been dogfooding it since early 2021.
+
 ### ✅ [512kb.club - Collaborator & Code Review](https://512kb.club/)
 
 The 512KB Club is a collection of performance-focused web pages from across the
