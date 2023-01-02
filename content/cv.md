@@ -20,6 +20,11 @@ Development of a HBBTV media library for public television
 - Design and implementation of a BFF (backend for frontend) using [Nest.js](https://nestjs.com/)
 - Design and implementation of a device configuration microservice
 
+Development of a prototype for a sleep monitoring application
+
+- Flutter-based mobile application
+- Integration of platform-dependent features (iOS, Android) for native background tasks and microphone usage
+
 Development of a web-based convention application
 
 - Development of APIs using Node.js and GraphQL
