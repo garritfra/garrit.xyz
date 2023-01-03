@@ -16,8 +16,6 @@ export default function Footer() {
 				<a href="/blogroll">Blogroll</a>
 				<br />
 				<a href="/ctf">Capture the Flag</a>
-				<br />
-				<a href="/privacy">Privacy Policy</a>
 				<h3>Elsewhere</h3>
 				<a href="https://github.com/garritfra" rel="me">
 					Github
@@ -29,7 +27,17 @@ export default function Footer() {
 				<br />
 				<a href="/contact">Contact</a>
 			</div>
-			<p>© 2018-{currentYear} Garrit Franke</p>
+			<p>
+				👻 Proud member of <a target="_blank" href="https://darktheme.club/">darktheme.club</a>{" "}
+				👻
+			</p>
+
+			<p>
+				© 2018-{currentYear} Garrit Franke
+				<br />
+				<a href="/privacy">Privacy</a> |{" "}
+				<a target="_blank" href="https://github.com/garritfra/garrit.xyz">Source Code</a>
+			</p>
 		</footer>
 	);
 }
