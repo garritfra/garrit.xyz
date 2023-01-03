@@ -25,7 +25,7 @@ export default function Page(props) {
 				{title && (
 					<div className="page__info">
 						<h1 className="p-name">{title}</h1>
-						{date && <h3 className="page__info__date">{date}</h3>}
+						{date && <time className="page__info__date">{date}</time>}
 					</div>
 				)}
 				<div className="page__body e-content">{props.children}</div>
