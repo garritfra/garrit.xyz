@@ -35,6 +35,7 @@ This post generated some interesting discussions on
 - [Google Bypasses Privacy, Puts Users’ Data on the Map](https://analyticsindiamag.com/google-bypasses-privacy-puts-users-data-on-the-map/)
 - [Softantenna](https://softantenna.com/blog/google-smart-move/) ([English](https://softantenna-com.translate.goog/blog/google-smart-move/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=de&_x_tr_pto=wapp))
 - [Google kann euren Standort unter Umständen mit allen Services verfolgen](https://stadt-bremerhaven.de/google-kann-euren-standort-unter-umstaenden-mit-allen-services-verfolgen/) ([English](https://stadt--bremerhaven-de.translate.goog/google-kann-euren-standort-unter-umstaenden-mit-allen-services-verfolgen/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=de&_x_tr_pto=wapp))
+- [zive.cz](https://www.zive.cz/clanky/google-vymyslel-figl-jak-nas-plosne-sledovat-stacilo-mapam-zmenit-adresu/sc-3-a-219564/default.aspx) ([English](https://www-zive-cz.translate.goog/clanky/google-vymyslel-figl-jak-nas-plosne-sledovat-stacilo-mapam-zmenit-adresu/sc-3-a-219564/default.aspx?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=de&_x_tr_pto=wapp))
 
 
 
