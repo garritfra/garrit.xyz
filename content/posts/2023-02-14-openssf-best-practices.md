@@ -1,7 +1,7 @@
 ---
 title: OpenSSF Best Practices
 date: "2023-02-14"
-tags: "note, 100DaysToOffload"
+tags: "note, 100DaysToOffload, practices"
 ---
 
 The Open Source Security Foundation (OpenSSF) provides [a list of best
