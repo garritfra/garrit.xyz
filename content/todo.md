@@ -43,7 +43,7 @@
 - Add a search
 - Add backlinks
 - [~~Add a privacy policy~~](/privacy)
-- Add a "donate" button
+- ~~Add a "donate" button~~
 - Add a "Uses" page
 - ~~"Share via Mastodon, Twitter, Facebook..." buttons~~
 - Page changelog (page slug to git history link)
