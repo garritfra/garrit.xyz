@@ -26,184 +26,198 @@ matter its license, alongside some personal notes.</p>
 
 <h3>Basic project website content</h3>
 
-<blockquote><p>The project website MUST succinctly describe what the software does (what problem does it solve?).</p></blockquote>
+<p>The project website MUST succinctly describe what the software does (what problem does it solve?).</p>
 
-<p>A website might not always apply, but a README is a good place to put this information.</p>
+<blockquote><p>A website might not always apply, but a README is a good place to put this information.</p></blockquote>
 
-<blockquote><p>The information on how to contribute MUST explain the contribution process (e.g., are pull requests used?)</p></blockquote>
+<p>The information on how to contribute MUST explain the contribution process (e.g., are pull requests used?)</p>
 
-<p>This information is also best placed in the README.</p>
+<blockquote><p>This information is also best placed in the README.</p></blockquote>
 
-<blockquote><p>The information on how to contribute SHOULD include the requirements for acceptable contributions (e.g., a reference to any required coding standard)</p></blockquote>
+<p>The information on how to contribute SHOULD include the requirements for acceptable contributions (e.g., a reference to any required coding standard)</p>
 
-<p>-&gt; README.</p>
+<blockquote><p>-&gt; README.</p></blockquote>
 
 <h3>Documentation</h3>
 
-<blockquote><p>The project MUST provide basic documentation for the software produced by the
-project.</p><p>The project MUST provide reference documentation that describes the external
-interface (both input and output) of the software produced by the project.</p></blockquote>
+<p>The project MUST provide basic documentation for the software produced by the
+project.</p>
 
-<p>I wouldn&#39;t consider reference documentation a requirement, but it&#39;s nice to
-have.</p>
+<p>The project MUST provide reference documentation that describes the external
+interface (both input and output) of the software produced by the project.</p>
+
+<blockquote><p>I wouldn&#39;t consider reference documentation a requirement, but it&#39;s nice to
+have.</p></blockquote>
 
 <h3>Other</h3>
 
-<blockquote><p>The project sites (website, repository, and download URLs) MUST support HTTPS using TLS.</p></blockquote>
+<p>The project sites (website, repository, and download URLs) MUST support HTTPS using TLS.</p>
 
 <h2>Change Control</h2>
 
 <h3>Public version-controlled source repository</h3>
 
-<blockquote><p>The project MUST have a version-controlled source repository ~~that is publicly readable and has a URL~~.</p><p>The project&#39;s source repository MUST track what changes were made, who made
-the changes, and when the changes were made.</p><p>To enable collaborative review, the project&#39;s source repository MUST include interim versions for review between releases; it MUST NOT include only final releases.</p></blockquote>
+<p>The project MUST have a version-controlled source repository ~~that is publicly readable and has a URL~~.</p>
 
-<p>In some cases, code can&#39;t or shouldn&#39;t be versioned. For most website projects,
+<p>The project&#39;s source repository MUST track what changes were made, who made
+the changes, and when the changes were made.</p>
+
+<p>To enable collaborative review, the project&#39;s source repository MUST include interim versions for review between releases; it MUST NOT include only final releases.</p>
+
+<blockquote><p>In some cases, code can&#39;t or shouldn&#39;t be versioned. For most website projects,
 review environments in merge requests (Vercel, Netlify, GitLab) could be
-considered.</p>
+considered.</p></blockquote>
 
-<blockquote><p>It is SUGGESTED that common distributed version control software be used (e.g., git) for the project&#39;s source repository.</p></blockquote>
+<p>It is SUGGESTED that common distributed version control software be used (e.g., git) for the project&#39;s source repository.</p>
 
 <h3>Unique version numbering</h3>
 
-<blockquote><p>The project results MUST have a unique version identifier for each release
-intended to be used by users.</p></blockquote>
+<p>The project results MUST have a unique version identifier for each release
+intended to be used by users.</p>
 
-<p>Commit hashes can be used as unique version numbers in some cases.</p>
+<blockquote><p>Commit hashes can be used as unique version numbers in some cases.</p></blockquote>
 
-<blockquote><p>It is SUGGESTED that the Semantic Versioning (SemVer) or Calendar Versioning
+<p>It is SUGGESTED that the Semantic Versioning (SemVer) or Calendar Versioning
 (CalVer) version numbering format be used for releases. It is SUGGESTED that
-those who use CalVer include a micro level value.</p></blockquote>
+those who use CalVer include a micro level value.</p>
 
-<p>As mentioned above, projects that are constantly in motion (e.g.
+<blockquote><p>As mentioned above, projects that are constantly in motion (e.g.
 <a href="https://darktheme.club/">darktheme.club</a>) might want to consider using commit
-hashes for version numbers instead.</p>
+hashes for version numbers instead.</p></blockquote>
 
-<blockquote><p>It is SUGGESTED that projects identify each release within their version
+<p>It is SUGGESTED that projects identify each release within their version
 control system. For example, it is SUGGESTED that those using git identify each
-release using git tags.</p></blockquote>
+release using git tags.</p>
 
-<p>Git tags are often neglected during development, but can be very useful.</p>
+<blockquote><p>Git tags are often neglected during development, but can be very useful.</p></blockquote>
 
 <h3>Release notes</h3>
 
-<blockquote><p>The project MUST provide, in each release, release notes that are a
+<p>The project MUST provide, in each release, release notes that are a
 human-readable summary of major changes in that release to help users determine
 if they should upgrade and what the upgrade impact will be. The release notes
 MUST NOT be the raw output of a version control log (e.g., the &quot;git log&quot; command
 results are not release notes). Projects whose results are not intended for
 reuse in multiple locations (such as the software for a single website or
-service) AND employ continuous delivery MAY select &quot;N/A&quot;.</p></blockquote>
+service) AND employ continuous delivery MAY select &quot;N/A&quot;.</p>
 
-<p>I wrote <a href="/posts/2021-02-20-changelogs">a post</a> about changelogs a while back.</p>
+<blockquote><p>I wrote <a href="/posts/2021-02-20-changelogs">a post</a> about changelogs a while back.</p></blockquote>
 
-<blockquote><p>The release notes MUST identify every publicly known run-time vulnerability
+<p>The release notes MUST identify every publicly known run-time vulnerability
 fixed in this release that already had a CVE assignment or similar when the
 release was created. This criterion may be marked as not applicable (N/A) if
 users typically cannot practically update the software themselves (e.g., as
 is often true for kernel updates). This criterion applies only to the
 project results, not to its dependencies. If there are no release notes or
-there have been no publicly known vulnerabilities, choose N/A.</p></blockquote>
+there have been no publicly known vulnerabilities, choose N/A.</p>
 
 <h2>Reporting</h2>
 
 <h3>Vulnerability report process</h3>
 
-<blockquote><p>If private vulnerability reports are supported, the project MUST include how
-to send the information in a way that is kept private.</p></blockquote>
+<p>If private vulnerability reports are supported, the project MUST include how
+to send the information in a way that is kept private.</p>
 
-<p>For private projects, it&#39;s often a good idea to have a public &quot;Report an issue&quot;
-feature.</p>
+<blockquote><p>For proprietary projects, it&#39;s often a good idea to have a public &quot;Report an issue&quot;
+feature.</p></blockquote>
 
 <h2>Quality</h2>
 
 <h3>Working build system</h3>
 
-<blockquote><p>If the software produced by the project requires building for use, the
+<p>If the software produced by the project requires building for use, the
 project MUST provide a working build system that can automatically rebuild
-the software from source code.</p><p>It is SUGGESTED that common tools be used for building the software.</p></blockquote>
+the software from source code.</p>
+
+<p>It is SUGGESTED that common tools be used for building the software.</p>
 
 <h3>Automated test suite</h3>
 
-<blockquote><p>The project MUST use at least one automated test suite ~~that is publicly
+<p>The project MUST use at least one automated test suite ~~that is publicly
 released as FLOSS (this test suite may be maintained as a separate FLOSS
 project)~~. The project MUST clearly show or document how to run the test
 suite(s) (e.g., via a continuous integration (CI) script or via documentation in
-files such as BUILD.md, README.md, or CONTRIBUTING.md).</p><p>A test suite SHOULD be invocable in a standard way for that language.</p></blockquote>
+files such as BUILD.md, README.md, or CONTRIBUTING.md).</p>
+
+<p>A test suite SHOULD be invocable in a standard way for that language.</p>
 
 <p>E.g. <code>npm run test</code>, <code>cargo test</code>, etc.</p>
 
-<blockquote><p>It is SUGGESTED that the test suite cover most (or ideally all) the code
-branches, input fields, and functionality.</p></blockquote>
+<p>It is SUGGESTED that the test suite cover most (or ideally all) the code
+branches, input fields, and functionality.</p>
 
-<p>Write tests if they are useful, not for the sake of having 100% test coverage.</p>
+<blockquote><p>Write tests if they are useful, not for the sake of having 100% test coverage.</p></blockquote>
 
-<blockquote><p>It is SUGGESTED that the project implement continuous integration (where new
+<p>It is SUGGESTED that the project implement continuous integration (where new
 or changed code is frequently integrated into a central code repository and
-automated tests are run on the result).</p></blockquote>
+automated tests are run on the result).</p>
 
 <h3>New functionality testing</h3>
 
-<blockquote><p>The project MUST have a general policy (formal or not) that as major new
+<p>The project MUST have a general policy (formal or not) that as major new
 functionality is added to the software produced by the project, tests of that
-functionality should be added to an automated test suite.</p><p>The project MUST have evidence that the test policy for adding tests has been
+functionality should be added to an automated test suite.</p>
+
+<p>The project MUST have evidence that the test policy for adding tests has been
 adhered to in the most recent major changes to the software produced by the
-project.</p></blockquote>
+project.</p>
 
-<p>This is often covered if you have a CI pipeline.</p>
+<blockquote><p>This is often covered if you have a CI pipeline.</p></blockquote>
 
-<blockquote><p>It is SUGGESTED that this policy on adding tests (see test_policy) be
-documented in the instructions for change proposals.</p></blockquote>
+<p>It is SUGGESTED that this policy on adding tests (see test_policy) be
+documented in the instructions for change proposals.</p>
 
-<p>Consider adding a checkbox to your merge request template. For reference, here&#39;s
-a checklist that I often use in templates:</p>
-
-<p><code></code>`</p>
-
-<h1>Checklist:</h1>
-
-<ul><li>[ ] documented in the changelog</li><li>[ ] sufficiently tested</li><li>[ ] sufficiently documented
-<code></code>`</li></ul>
+<blockquote><p>Consider adding a checkbox to your merge request template. For reference, here&#39;s
+a checklist that I often use in templates:</p><p><code></code>`</p><h1>Checklist:</h1><ul><li>[ ] documented in the changelog</li><li>[ ] sufficiently tested</li><li>[ ] sufficiently documented
+<code></code>`</li></ul></blockquote>
 
 <h3>Warning flags</h3>
 
-<blockquote><p>The project MUST enable one or more compiler warning flags, a &quot;safe&quot;
+<p>The project MUST enable one or more compiler warning flags, a &quot;safe&quot;
 language mode, or use a separate &quot;linter&quot; tool to look for code quality
 errors or common simple mistakes, if there is at least one FLOSS tool that
-can implement this criterion in the selected language.</p><p>The project MUST address warnings.</p></blockquote>
+can implement this criterion in the selected language.</p>
 
-<p>Ensure this by disallowing warnings in your CI pipeline.</p>
+<p>The project MUST address warnings.</p>
 
-<blockquote><p>It is SUGGESTED that projects be maximally strict with warnings in the
-software produced by the project, where practical.</p></blockquote>
+<blockquote><p>Ensure this by disallowing warnings in your CI pipeline.</p></blockquote>
+
+<p>It is SUGGESTED that projects be maximally strict with warnings in the
+software produced by the project, where practical.</p>
 
 <h2>Security</h2>
 
 <h3>Secure development knowledge</h3>
 
-<blockquote><p>The project MUST have at least one primary developer who knows how to design
-secure software.</p><p>At least one of the project&#39;s primary developers MUST know of common kinds of
-errors that lead to vulnerabilities in this kind of software, as well as at
-least one method to counter or mitigate each of them.</p></blockquote>
+<p>The project MUST have at least one primary developer who knows how to design
+secure software.</p>
 
-<p>Easier said than done, but be vocal if you&#39;re hesitant towards a feature or
-implementation path.</p>
+<p>At least one of the project&#39;s primary developers MUST know of common kinds of
+errors that lead to vulnerabilities in this kind of software, as well as at
+least one method to counter or mitigate each of them.</p>
+
+<blockquote><p>Easier said than done, but be vocal if you&#39;re hesitant towards a feature or
+implementation path.</p></blockquote>
 
 <h3>Use basic good cryptographic practices</h3>
 
-<blockquote><p>The software produced by the project MUST use, by default, only cryptographic
+<p>The software produced by the project MUST use, by default, only cryptographic
 protocols and algorithms that are publicly published and reviewed by experts (if
-cryptographic protocols and algorithms are used).</p><p>If the software produced by the project is an application or library, and its
+cryptographic protocols and algorithms are used).</p>
+
+<p>If the software produced by the project is an application or library, and its
 primary purpose is not to implement cryptography, then it SHOULD only call on
 software specifically designed to implement cryptographic functions; it SHOULD
-NOT re-implement its own.</p></blockquote>
+NOT re-implement its own.</p>
 
-<p>Don&#39;t reinvent the wheel. Not just for cryptography.</p>
+<blockquote><p>Don&#39;t reinvent the wheel. Not just for cryptography.</p></blockquote>
 
-<blockquote><p>The security mechanisms within the software produced by the project MUST use
+<p>The security mechanisms within the software produced by the project MUST use
 default keylengths that at least meet the NIST minimum requirements through the
 year 2030 (as stated in 2012). It MUST be possible to configure the software so
-that smaller keylengths are completely disabled.</p><p>The default security mechanisms within the software produced by the project
+that smaller keylengths are completely disabled.</p>
+
+<p>The default security mechanisms within the software produced by the project
 MUST NOT depend on broken cryptographic algorithms (e.g., MD4, MD5, single DES,
 RC4, Dual<em>EC</em>DRBG), or use cipher modes that are inappropriate to the context,
 unless they are necessary to implement an interoperable protocol (where the
@@ -212,73 +226,95 @@ supported by the network ecosystem, that ecosystem requires the use of such an
 algorithm or mode, and that ecosystem does not offer any more secure
 alternative). The documentation MUST describe any relevant security risks and
 any known mitigations if these broken algorithms or modes are necessary for an
-interoperable protocol.</p><p>The default security mechanisms within the software produced by the project
+interoperable protocol.</p>
+
+<p>The default security mechanisms within the software produced by the project
 SHOULD NOT depend on cryptographic algorithms or modes with known serious
 weaknesses (e.g., the SHA-1 cryptographic hash algorithm or the CBC mode in
-SSH).</p><p>The security mechanisms within the software produced by the project SHOULD
+SSH).</p>
+
+<p>The security mechanisms within the software produced by the project SHOULD
 implement perfect forward secrecy for key agreement protocols so a session key
 derived from a set of long-term keys cannot be compromised if one of the
-long-term keys is compromised in the future.</p><p>If the software produced by the project causes the storing of passwords for
+long-term keys is compromised in the future.</p>
+
+<p>If the software produced by the project causes the storing of passwords for
 authentication of external users, the passwords MUST be stored as iterated
 hashes with a per-user salt by using a key stretching (iterated) algorithm
 (e.g., Argon2id, Bcrypt, Scrypt, or PBKDF2). See also OWASP Password Storage
-Cheat Sheet).</p><p>The security mechanisms within the software produced by the project MUST
+Cheat Sheet).</p>
+
+<p>The security mechanisms within the software produced by the project MUST
 generate all cryptographic keys and nonces using a cryptographically secure
 random number generator, and MUST NOT do so using generators that are
-cryptographically insecure.</p></blockquote>
+cryptographically insecure.</p>
 
 <h3>Secured delivery against man-in-the-middle (MITM) attacks</h3>
 
-<blockquote><p>The project MUST use a delivery mechanism that counters MITM attacks. Using
-https or ssh+scp is acceptable.</p><p>A cryptographic hash (e.g., a sha1sum) MUST NOT be retrieved over http and
-used without checking for a cryptographic signature.</p></blockquote>
+<p>The project MUST use a delivery mechanism that counters MITM attacks. Using
+https or ssh+scp is acceptable.</p>
+
+<p>A cryptographic hash (e.g., a sha1sum) MUST NOT be retrieved over http and
+used without checking for a cryptographic signature.</p>
 
 <h3>Publicly known vulnerabilities fixed</h3>
 
-<blockquote><p>There MUST be no unpatched vulnerabilities of medium or higher severity that
-have been publicly known for more than 60 days.</p></blockquote>
+<p>There MUST be no unpatched vulnerabilities of medium or higher severity that
+have been publicly known for more than 60 days.</p>
 
-<p>This can be ensured using
+<blockquote><p>This can be ensured using
 <a href="https://docs.github.com/en/code-security/dependabot/working-with-dependabot">Dependabot</a>
-or <a href="https://docs.renovatebot.com/">Renovate</a></p>
+or <a href="https://docs.renovatebot.com/">Renovate</a></p></blockquote>
 
-<blockquote><p>Projects SHOULD fix all critical vulnerabilities rapidly after they are reported.</p></blockquote>
+<p>Projects SHOULD fix all critical vulnerabilities rapidly after they are reported.</p>
 
-<p>Again, use automatic dependency updating mechanisms for this.</p>
+<blockquote><p>Again, use automatic dependency updating mechanisms for this.</p></blockquote>
 
 <h3>Other security issues</h3>
 
-<blockquote><p>The public repositories MUST NOT leak a valid private credential (e.g., a
-working password or private key) that is intended to limit public access.</p></blockquote>
+<p>The public repositories MUST NOT leak a valid private credential (e.g., a
+working password or private key) that is intended to limit public access.</p>
 
 <h2>Analysis</h2>
 
 <h3>Static code analysis</h3>
 
-<blockquote><p>At least one static code analysis tool (beyond compiler warnings and &quot;safe&quot;
+<p>At least one static code analysis tool (beyond compiler warnings and &quot;safe&quot;
 language modes) MUST be applied to any proposed major production release of the
 software before its release, if there is at least one ~~FLOSS~~ tool that implements
-this criterion in the selected language.</p><p>It is SUGGESTED that at least one of the static analysis tools used for the
+this criterion in the selected language.</p>
+
+<p>It is SUGGESTED that at least one of the static analysis tools used for the
 static_analysis criterion include rules or approaches to look for common
-vulnerabilities in the analyzed language or environment.</p><p>All medium and higher severity exploitable vulnerabilities discovered with
-static code analysis MUST be fixed in a timely way after they are confirmed.</p><p>It is SUGGESTED that static source code analysis occur on every commit or at
-least daily.</p></blockquote>
+vulnerabilities in the analyzed language or environment.</p>
+
+<p>All medium and higher severity exploitable vulnerabilities discovered with
+static code analysis MUST be fixed in a timely way after they are confirmed.</p>
+
+<p>It is SUGGESTED that static source code analysis occur on every commit or at
+least daily.</p>
 
 <h3>Dynamic code analysis</h3>
 
-<blockquote><p>It is SUGGESTED that at least one dynamic analysis tool be applied to any
-proposed major production release of the software before its release.</p><p>It is SUGGESTED that if the software produced by the project includes
+<p>It is SUGGESTED that at least one dynamic analysis tool be applied to any
+proposed major production release of the software before its release.</p>
+
+<p>It is SUGGESTED that if the software produced by the project includes
 software written using a memory-unsafe language (e.g., C or C++), then at
 least one dynamic tool (e.g., a fuzzer or web application scanner) be
 routinely used in combination with a mechanism to detect memory safety
-problems such as buffer overwrites.</p></blockquote>
+problems such as buffer overwrites.</p>
 
-<p>This is often overlooked.</p>
+<blockquote><p>This is often overlooked.</p></blockquote>
 
-<blockquote><p>It is SUGGESTED that the project use a configuration for at least some dynamic
+<p>It is SUGGESTED that the project use a configuration for at least some dynamic
 analysis (such as testing or fuzzing) which enables many assertions. In many
-cases these assertions should not be enabled in production builds.</p><p>All medium and higher severity exploitable vulnerabilities discovered with
-dynamic code analysis MUST be fixed in a timely way after they are confirmed.</p></blockquote>
+cases these assertions should not be enabled in production builds.</p>
+
+<p>All medium and higher severity exploitable vulnerabilities discovered with
+dynamic code analysis MUST be fixed in a timely way after they are confirmed.</p>
+
+<hr/>
 
 <p>This is post 046 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
