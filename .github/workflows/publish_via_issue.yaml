@@ -8,7 +8,7 @@ jobs:
     if: github.event.label.name == 'publish-me'
     runs-on: ubuntu-latest
     env:
-      POST_BODY: "${{ github.event.issue.body }}"
+      POST_BODY: '${{ github.event.issue.body }}'
     steps:
       - uses: actions/checkout@v3
       - name: Create commits
@@ -30,8 +30,7 @@ jobs:
 
           EOF
 
-          echo $POST_BODY
-          echo $POST_BODY >> $FULL_PATH
+          echo "$POST_BODY" >> $FULL_PATH
 
           git add $FULL_PATH
           git commit -m "Publish $POST_TITLE"
