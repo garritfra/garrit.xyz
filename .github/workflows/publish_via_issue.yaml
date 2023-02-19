@@ -1,12 +1,38 @@
 on:
   issues:
-    types: [opened, edited]
+    types: [labeled]
   
 name: Publish issue as post
 jobs:
   publish-issue:
+    if: github.event.label.name == 'publish-me'
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ github.event.issue.body }}"
-      - run: echo "${{ github.event.issue.user }}"
-      
+      - uses: actions/checkout@v3
+      - name: Create commits
+        run: |
+          export POST_BODY="${{ github.event.issue.body }}"
+          export POST_DATE=$(date +"%Y-%m-%d")
+          export POST_TITLE="${{ github.event.issue.title }}"
+          export FILE_TITLE=$(printf "$POST_TITLE" | tr " " "-" | tr "[A-Z]" "[a-z]")
+          export FILE_NAME="$POST_DATE-$FILE_TITLE.md"
+          export FULL_PATH="content/posts/$FILE_NAME"
+          git config user.name 'Publish Bot'
+          git config user.email 'publish-bot@github.com'
+          cat > $FULL_PATH <<EOF
+          ---
+          title: $TITLE
+          date: "$DATE"
+          tags: "note"
+          ---
+
+          "$POST_BODY"
+
+          EOF
+          git add $FULL_PATH
+          git commit -m "Publish $POST_TITLE"
+
+      # Make changes to pull request here
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
