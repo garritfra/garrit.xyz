@@ -5,8 +5,44 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Tue, 14 Feb 2023 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Sun, 19 Feb 2023 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>TIL about CSS Insets</title>
+            <link>
+              https://garrit.xyz/posts/2023-02-19-til-about-css-insets?utm_source=rss
+            </link>
+    
+            <pubDate>Sun, 19 Feb 2023 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>Just a quick tip that I thought is worth sharing. Instead of declaring:</p>
+
+<p><code>css
+.foo { 
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+</code></p>
+
+<p>you can just use:</p>
+
+<p><code>css
+.foo {
+  inset: 0;
+}
+</code></p>
+
+<p>It&#39;s supported everywhere computers are sold!</p>
+
+<p>MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/inset</p>
+
+<p>Source: https://front-end.social/@estelle/109878532782943511</p>
+
+<p>This is post 047 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>OpenSSF Best Practices</title>
             <link>
