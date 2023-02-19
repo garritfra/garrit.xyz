@@ -5,8 +5,31 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Sun, 19 Feb 2023 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Mon, 20 Feb 2023 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>What problem does Kubernetes solve?</title>
+            <link>
+              https://garrit.xyz/posts/2023-02-20-what-problem-does-kubernetes-solve?utm_source=rss
+            </link>
+    
+            <pubDate>Mon, 20 Feb 2023 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>This is a common question that many people (including me) ask themselves.</p>
+
+<p>I recently came across a great <a href="https://blog.adamchalmers.com/kubernetes-problems/">post</a> which explains the problem really well:</p>
+
+<blockquote><p>Kubernetes exists to solve one problem: how do I run m containers across n servers?</p></blockquote>
+
+<p>The post also nails the answer to <strong>how</strong> Kubernetes solves this problem:</p>
+
+<blockquote><p>It&#39;s a big abstract virtual computer, with its own virtual IP stack, networks, disk, RAM and CPU. It lets you deploy containers as if you were deploying them on one machine that didn&#39;t run anything else. Clusters abstract over the various physical machines that run the cluster.</p></blockquote>
+
+<p>I&#39;d highly encourage you to read through the article if you want to learn more about why Kubernetes exists.</p>
+
+<p>This is post 048 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>TIL about CSS Insets</title>
             <link>
