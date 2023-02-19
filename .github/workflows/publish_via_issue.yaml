@@ -19,7 +19,8 @@ jobs:
           export FULL_PATH="content/posts/$FILE_NAME"
           git config user.name 'Publish Bot'
           git config user.email 'publish-bot@github.com'
-          cat > $FULL_PATH <<EOF
+
+          read -d '' POST << EOF
           ---
           title: "$POST_TITLE"
           date: "$POST_DATE"
@@ -29,6 +30,8 @@ jobs:
           $POST_BODY
 
           EOF
+
+          "$POST" > $FULL_PATH
           git add $FULL_PATH
           git commit -m "Publish $POST_TITLE"
 
