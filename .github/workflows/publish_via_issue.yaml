@@ -42,3 +42,6 @@ jobs:
         with:
           title: "New Post: ${{ github.event.issue.title }}"
           body: "Closes #${{ github.event.issue.number }}.\n\n This PR has been generated automatically."
+      - uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          labels: publish-me
