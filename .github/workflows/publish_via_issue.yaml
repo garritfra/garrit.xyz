@@ -1,0 +1,12 @@
+on:
+  issues:
+    types: [opened, edited]
+  
+name: Publish issue as post
+jobs:
+  publish-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ github.event.issue.body }}"
+      - run: echo "${{ github.event.issue.user }}"
+      
