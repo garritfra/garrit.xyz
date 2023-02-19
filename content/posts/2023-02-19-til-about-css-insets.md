@@ -1,7 +1,7 @@
 ---
 title: "TIL about CSS Insets"
 date: "2023-02-19"
-tags: "note"
+tags: "note, css, 100DaysToOffload"
 ---
 
 Instead of declaring:
