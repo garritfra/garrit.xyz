@@ -20,16 +20,25 @@ jobs:
           git config user.name 'Publish Bot'
           git config user.email 'publish-bot@github.com'
 
-          cat > $FULL_PATH << 'POST_EOF'
+          MARKDOWN=$(cat << 'POST_EOF'
           ---
-          title: "$POST_TITLE"
-          date: "$POST_DATE"
+          title: "POST_TITLE"
+          date: "POST_DATE"
           tags: "note"
           ---
 
-          $POST_BODY
+          POST_BODY
 
           POST_EOF
+          )
+
+          # Expand variables in body
+          # TODO: Can this be simplified?
+          read -r -d '' FULL_POST <<< "$MARKDOWN"
+          FULL_POST=${FULL_POST/POST_TITLE/$POST_TITLE}
+          FULL_POST=${FULL_POST/POST_DATE/$POST_DATE}
+          FULL_POST=${FULL_POST/POST_BODY/$POST_BODY}
+          echo $FULL_POST
 
           git add $FULL_PATH
           git commit -m "Publish $POST_TITLE"
