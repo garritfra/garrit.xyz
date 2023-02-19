@@ -20,18 +20,17 @@ jobs:
           git config user.name 'Publish Bot'
           git config user.email 'publish-bot@github.com'
 
-          read -d '' POST << EOF
+          cat > $FULL_PATH <<POST_EOF
           ---
-          title: "$POST_TITLE"
-          date: "$POST_DATE"
-          tags: "note"
+          title: \"$POST_TITLE\"
+          date: \"$POST_DATE\"
+          tags: \"note\"
           ---
 
           $POST_BODY
 
-          EOF
+          POST_EOF
 
-          "$POST" > $FULL_PATH
           git add $FULL_PATH
           git commit -m "Publish $POST_TITLE"
 
