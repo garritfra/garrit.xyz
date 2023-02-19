@@ -6,7 +6,7 @@
 
 DATE=$(date +"%Y-%m-%d")
 TITLE="$@" 
-FILE_TITLE=$(printf "$TITLE" | tr " " "-" | tr "[A-Z]" "[a-z]")
+FILE_TITLE=$(printf "$TITLE" | tr " " "-" | tr "[A-Z]" "[a-z]" | sed s/\?//g)
 FILE_NAME="$DATE-$FILE_TITLE.md"
 
 FULL_PATH="content/posts/$FILE_NAME"
