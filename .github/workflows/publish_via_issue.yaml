@@ -38,4 +38,4 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           title: "New Post: ${{ github.event.issue.title }}"
-          body: "Closes #${{ github.event.issue.id }}.\n\n This PR has been generated automatically."
+          body: "Closes #${{ github.event.issue.number }}.\n\n This PR has been generated automatically."
