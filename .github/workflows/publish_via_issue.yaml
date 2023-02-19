@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Create commits
         run: |
-          export POST_BODY="${{ github.event.issue.body }}"
+          export POST_BODY='${{ github.event.issue.body }}'
           export POST_DATE=$(date +"%Y-%m-%d")
           export POST_TITLE="${{ github.event.issue.title }}"
           export FILE_TITLE=$(printf "$POST_TITLE" | tr " " "-" | tr "[A-Z]" "[a-z]")
@@ -20,25 +20,16 @@ jobs:
           git config user.name 'Publish Bot'
           git config user.email 'publish-bot@github.com'
 
-          MARKDOWN=$(cat << 'POST_EOF'
+          cat << EOF > $FULL_PATH
           ---
-          title: "POST_TITLE"
-          date: "POST_DATE"
+          title: "$POST_TITLE"
+          date: "$POST_DATE"
           tags: "note"
           ---
 
-          POST_BODY
+          EOF
 
-          POST_EOF
-          )
-
-          # Expand variables in body
-          # TODO: Can this be simplified?
-          read -r -d '' FULL_POST <<< "$MARKDOWN"
-          FULL_POST=${FULL_POST/POST_TITLE/$POST_TITLE}
-          FULL_POST=${FULL_POST/POST_DATE/$POST_DATE}
-          FULL_POST=${FULL_POST/POST_BODY/$POST_BODY}
-          echo $FULL_POST
+          echo $POST_BODY >> $FULL_PATH
 
           git add $FULL_PATH
           git commit -m "Publish $POST_TITLE"
