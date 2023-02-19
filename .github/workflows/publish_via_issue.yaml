@@ -20,7 +20,7 @@ jobs:
           git config user.name 'Publish Bot'
           git config user.email 'publish-bot@github.com'
 
-          cat << 'POST_EOF'
+          cat > $FULL_PATH << 'POST_EOF'
           ---
           title: "$POST_TITLE"
           date: "$POST_DATE"
