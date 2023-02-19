@@ -1,10 +1,10 @@
 ---
 title: "TIL about CSS Insets"
 date: "2023-02-19"
-tags: "note, css, 100DaysToOffload"
+tags: "note"
 ---
 
-Just a quick tip that I thought is worth sharing. Instead of declaring:
+Instead of declaring:
 
 ```css
 .foo { 
