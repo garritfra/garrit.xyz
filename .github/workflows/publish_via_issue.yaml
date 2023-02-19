@@ -29,7 +29,8 @@ jobs:
 
           EOF
 
-          echo "$POST_BODY" >> $FULL_PATH
+          echo $POST_BODY
+          echo $POST_BODY >> $FULL_PATH
 
           git add $FULL_PATH
           git commit -m "Publish $POST_TITLE"
