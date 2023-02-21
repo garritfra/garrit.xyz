@@ -1,7 +1,7 @@
 ---
 title: "What's next for modern infrastructure?"
 date: "2023-02-21"
-tags: "note"
+tags: "note, infrastructure, kubernetes"
 ---
 
 Modern infrastructure is incredibly complex. I identified 4 main "levels" of infrastructure abstraction:
