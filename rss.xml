@@ -5,8 +5,25 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Tue, 21 Feb 2023 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Wed, 22 Feb 2023 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>Dockerignore troubles</title>
+            <link>
+              https://garrit.xyz/posts/2023-02-22-dockerignore-troubles?utm_source=rss
+            </link>
+    
+            <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>I commonly used to create a <code>.Dockerignore</code> file next to my <code>Dockerfile</code>. After countless hours of ignoring the problems in my setup, I found out that the uppercase <code>.Dockerignore</code> doesn&#39;t get picked up by Docker on MacOS. Only the lowercase <code>.dockerignore</code> is valid.</p>
+
+<p>I didn&#39;t find official documentation on this, but I think it&#39;s because both MacOS and Linux are case-sensitive, while Windows isn&#39;t. I don&#39;t remember why I got used to the <code>.Dockerignore</code> convention, but I swear I saw someone using it in the wild. Or it&#39;s my (un)logical reasoning that, because <code>Dockerfile</code> is uppercased, <code>.Dockerignore</code> should be uppercased as well.</p>
+
+<p>Either way, stay away from <code>.Dockerfile</code>s and stick to <code>.dockerfile</code>s.</p>
+
+<p>This is post 050 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>What's next for modern infrastructure?</title>
             <link>
