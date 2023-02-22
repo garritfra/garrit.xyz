@@ -1,7 +1,7 @@
 ---
 title: "Dockerignore troubles"
 date: "2023-02-22"
-tags: "note"
+tags: "note, docker, web"
 ---
 
 I commonly used to create a `.Dockerignore` file next to my `Dockerfile`. After countless hours of ignoring the problems in my setup, I found out that the uppercase `.Dockerignore` doesn't get picked up by Docker on MacOS. Only the lowercase `.dockerignore` is valid.
