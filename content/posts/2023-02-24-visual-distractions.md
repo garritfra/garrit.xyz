@@ -1,7 +1,7 @@
 ---
 title: "Visual Distractions"
 date: "2023-02-24"
-tags: "note"
+tags: "note, guide, life, 100DaysToOffload"
 ---
 
 Everywhere we look, we're bombarded with flashy symbols trying to grab our attention. This is even the case where we **think** that we're in control of what we're looking at. I made two simple changes that reduce visual distractions in my life.
