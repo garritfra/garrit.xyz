@@ -43,5 +43,40 @@ As you can see, I'm using the official PHP docker image. The PHP maintainers kno
 
 Grasping this took me some time, but after it clicked it made many things a lot clearer.
 
+## More complete Dockerfile example
+
+The Dockerfile above is meant to demonstrate how PHP applications differ from other languages. The following is a more complete example you can use to containerize your PHP application. In this case it’s a Laravel app, so your mileage may vary.
+
+```dockerfile
+FROM php:8.1-apache-bullseye
+
+RUN apt-get clean && \
+    apt-get update && \
+    apt-get install --fix-missing -y \
+        zip && \
+    docker-php-ext-install \
+        pdo \
+        pdo_mysql \
+        bcmath
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+COPY . /var/www/html
+WORKDIR /var/www/html
+
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+
+RUN composer install --no-dev --optimize-autoloader --no-interaction && \
+    sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf && \
+    sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf && \
+    php artisan config:cache && \
+    php artisan view:cache && \
+    php artisan route:cache && \
+    php artisan storage:link && \
+    chmod 777 -R /var/www/html/storage/ && \
+    chown -R www-data:www-data /var/www/ && \
+    a2enmod rewrite
+```
+
 ---
 This is post 052 of [#100DaysToOffload](https://100daystooffload.com/).
