@@ -1,7 +1,7 @@
 ---
 title: "Notes on containerizing PHP applications"
 date: "2023-03-03"
-tags: "note"
+tags: "note, infrastructure, docker, php, 100DaysToOffload"
 ---
 
 I was recently tasked with building a rudimentary infrastructure for a PHP application. Coming from a Node.js-driven world where every human and their grandmother has a blog post about containerizing your application, it was very interesting to see where PHP differs to other applications.
