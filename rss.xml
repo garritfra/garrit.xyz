@@ -5,8 +5,96 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Fri, 24 Feb 2023 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Fri, 03 Mar 2023 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>Notes on containerizing PHP applications</title>
+            <link>
+              https://garrit.xyz/posts/2023-03-03-notes-on-containerizing-php-applications?utm_source=rss
+            </link>
+    
+            <pubDate>Fri, 03 Mar 2023 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>I was recently tasked with building a rudimentary infrastructure for a PHP application. Coming from a Node.js-driven world where every human and their grandmother has a blog post about containerizing your application, it was very interesting to see where PHP differs to other applications.</p>
+
+<p>One major gotcha for me was that PHP code is executed on <strong>request-time</strong>, meaning a new process is spawned for each incoming request. Most other languages have dedicated runtimes that handle incoming requests. This unique approach is very flexible and scalable, but it comes with the implication that there is a <strong>separate webserver</strong> that calls into the PHP interpreter when it needs to.</p>
+
+<p>In Node.js (and most other languages), you can &quot;just run the app&quot;, as demonstrated by this Dockerfile:</p>
+
+<p><code></code>`dockerfile
+FROM node:18.14.2-alpine3.17 AS build</p>
+
+<p>WORKDIR /usr/src/app</p>
+
+<p>COPY package*.json ./</p>
+
+<p>RUN npm ci</p>
+
+<p>COPY . .</p>
+
+<p>EXPOSE 3000</p>
+
+<p>CMD [ &quot;node&quot;, &quot;server.js&quot; ]
+<code></code>`</p>
+
+<p>PHP on the other side is rarely used on its own. Most of the time, it needs a webserver alongside it:</p>
+
+<p><code></code>`dockerfile
+FROM php:8.1-apache-bullseye</p>
+
+<h1>&lt;snip&gt;</h1>
+
+<p>COPY . /var/www/html
+WORKDIR /var/www/html</p>
+
+<h1>&lt;snip&gt;</h1>
+
+<p><code></code>`</p>
+
+<p>As you can see, I&#39;m using the official PHP docker image. The PHP maintainers know that adding a webserver alongside PHP is a very common pattern, so most of the variants of the image ship with a webserver. In this example I&#39;m using Apache, but we might as well use NGINX or some other webserver. There&#39;s also the option to use <a href="https://www.php.net/manual/de/install.fpm.php">FPM</a> as a FastCGI implementation and a webserver in a <strong>separate</strong> container.</p>
+
+<p>Grasping this took me some time, but after it clicked it made many things a lot clearer.</p>
+
+<h2>More complete Dockerfile example</h2>
+
+<p>The Dockerfile above is meant to demonstrate how PHP applications differ from other languages. The following is a more complete example you can use to containerize your PHP application. In this case it’s a Laravel app, so your mileage may vary.</p>
+
+<p><code></code>`dockerfile
+FROM php:8.1-apache-bullseye</p>
+
+<p>RUN apt-get clean &amp;&amp; \
+    apt-get update &amp;&amp; \
+    apt-get install --fix-missing -y \
+        zip &amp;&amp; \
+    docker-php-ext-install \
+        pdo \
+        pdo_mysql \
+        bcmath</p>
+
+<p>COPY --from=composer:2 /usr/bin/composer /usr/bin/composer</p>
+
+<p>COPY . /var/www/html
+WORKDIR /var/www/html</p>
+
+<p>ENV APACHE<em>DOCUMENT</em>ROOT /var/www/html/public</p>
+
+<p>RUN composer install --no-dev --optimize-autoloader --no-interaction &amp;&amp; \
+    sed -ri -e &#39;s!/var/www/html!${APACHE<em>DOCUMENT</em>ROOT}!g&#39; /etc/apache2/sites-available/*.conf &amp;&amp; \
+    sed -ri -e &#39;s!/var/www/!${APACHE<em>DOCUMENT</em>ROOT}!g&#39; /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf &amp;&amp; \
+    php artisan config:cache &amp;&amp; \
+    php artisan view:cache &amp;&amp; \
+    php artisan route:cache &amp;&amp; \
+    php artisan storage:link &amp;&amp; \
+    chmod 777 -R /var/www/html/storage/ &amp;&amp; \
+    chown -R www-data:www-data /var/www/ &amp;&amp; \
+    a2enmod rewrite
+<code></code>`</p>
+
+<hr/>
+
+<p>This is post 052 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>Visual Distractions</title>
             <link>
