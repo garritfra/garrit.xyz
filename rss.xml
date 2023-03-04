@@ -5,8 +5,29 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Fri, 03 Mar 2023 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Sat, 04 Mar 2023 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>Pods vs. Containers</title>
+            <link>
+              https://garrit.xyz/posts/2023-03-04-pods-vs.-containers?utm_source=rss
+            </link>
+    
+            <pubDate>Sat, 04 Mar 2023 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>In Kubernetes, pods and containers are often confused. I found a <a href="https://iximiuz.com/en/posts/containers-vs-pods/">great article</a> going over the differences of the two terms.</p>
+
+<blockquote><p>Containers and Pods are alike. Under the hood, they heavily rely on Linux namespaces and cgroups. However, Pods aren&#39;t just groups of containers. A Pod is a self-sufficient higher-level construct. All pod&#39;s containers run on the same machine (cluster node), their lifecycle is synchronized, and mutual isolation is weakened to simplify the inter-container communication. This makes Pods much closer to traditional VMs, <a href="https://www.mirantis.com/blog/multi-container-pods-and-container-communication-in-kubernetes/">bringing back the familiar deployment patterns like sidecar or reverse proxy</a>.</p></blockquote>
+
+<p>In my own words: Containers are made up of Linux namespaces and cgroups. Pods can be thought of as a cgroup of cgroups (though not really), mimicing the behavior of a virtual machine that runs multiple containers with a synchronized lifecycle. The containers in a pod are losely isolated, making it easy to communicate between each other. Containers in a pod can however set individual resource requests, enabled by Linux namespaces.</p>
+
+<p>I&#39;d highly encourage you to check out <a href="https://iximiuz.com/en/posts/containers-vs-pods/">the original article</a> if you want to learn more about this topic.</p>
+
+<hr/>
+
+<p>This is post 052 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>Notes on containerizing PHP applications</title>
             <link>
