@@ -1,7 +1,7 @@
 ---
 title: "Terraform and Kubernetes are fundamentally different"
 date: "2023-03-08"
-tags: "note"
+tags: "note, infrastructure, terraform, kubernetes, 100DaysToOffload"
 ---
 
 On the surface, Infrastructure as Code tools like Terraform or CloudFoundation may seem to behave similar to Kubernetes YAMLs, but they are in fact fundamentally different approaches to cloud infrastructure.
@@ -10,3 +10,6 @@ Terraform tries to provide a declarative way to express imperative actions. If y
 
 Kubernetes on the other hand is a fully declarative system. In a [previous post](https://garrit.xyz/posts/2022-09-22-kubernetes-is-a-domain-specific-database) I touched on how Kubernetes constantly compares the *desired* state with the *actual* state of the resources and tries to match the two. Although it is theoretically possible to issue imperative actions, Kubernetes is built from the ground up to be declarative.
 
+---
+
+This is post 054 of [#100DaysToOffload](https://100daystooffload.com/).
