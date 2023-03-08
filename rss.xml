@@ -15,7 +15,7 @@
     
             <pubDate>Wed, 08 Mar 2023 00:00:00 +0000</pubDate>
             <description>
-            <![CDATA[<p>On the surface, Infrastructure as Code tools like Terraform or CloudFoundation may seem to behave similar to Kubernetes YAMLs, but they are in fact fundamentally different approaches to cloud infrastructure.</p>
+            <![CDATA[<p>On the surface, Infrastructure as Code tools like <a href="https://www.terraform.io/">Terraform</a> or <a href="https://aws.amazon.com/de/cloudformation/">CloudFormation</a> may seem to behave similar to <a href="https://kubernetes.io/">Kubernetes</a> YAMLs, but they are in fact fundamentally different approaches to cloud infrastructure.</p>
 
 <p>Terraform tries to provide a declarative way to express imperative actions. If you tell Terraform that you need an EC2 instance, it will notice that no such resource exists and instruct the AWS API to create one. If you don&#39;t need the instance anymore and remove the resource definition from your code, Terraform will also pick that up and instruct the AWS API to delete the instance. This works well in most cases, but every once in a while the declarative state may get out of sync with the real world, resulting in errors that are hard to debug and resolve.</p>
 
