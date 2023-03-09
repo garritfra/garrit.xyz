@@ -46,7 +46,7 @@ export async function getStaticProps({ ...ctx }) {
 
 export async function getStaticPaths(): Promise<{ paths: string[]; fallback: boolean; }> {
 	//get all .md files in the posts dir
-	const pages = glob.sync("content/*.md");
+	const pages = await glob("content/*.md");
 
 	//remove path and extension to leave filename only
 	const pageSlugs = pages.map((file) =>
