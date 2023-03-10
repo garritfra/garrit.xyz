@@ -5,8 +5,68 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Wed, 08 Mar 2023 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Fri, 10 Mar 2023 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>Debugging ECS Tasks</title>
+            <link>
+              https://garrit.xyz/posts/2023-03-10-debugging-ecs-tasks?utm_source=rss
+            </link>
+    
+            <pubDate>Fri, 10 Mar 2023 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>I just had to debug an application on AWS ECS. The whole procedure is documented in more detail in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html">documentation</a>, but I think it&#39;s beneficial (both for my future self and hopefully to someone out there) to write down the proccess in my own words.</p>
+
+<p>First of all, you need access to the cluster via the <a href="https://aws.amazon.com/de/cli/">CLI</a>. In addition to the CLI, you need the <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">AWS Session Manager plugin for the CLI</a>. If you&#39;re on MacOS, you can install that via <a href="https://formulae.brew.sh/cask/session-manager-plugin">Homebrew</a>:</p>
+
+<p><code>
+brew install --cask session-manager-plugin
+</code></p>
+
+<p>Next, you need to allow the task you want to debug to be able to execute commands. Since I&#39;m using Terraform, this was just a matter of adding the <a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service#enable_execute_command"><code>enable_execute_command</code></a> attribute to the service:</p>
+
+<p><code>tf
+resource &quot;aws_ecs_service&quot; &quot;my_service&quot; {
+  name            = &quot;my-service&quot;
+  cluster         = aws_ecs_cluster.my_cluster.id
+  task_definition = aws_ecs_task_definition.my_task_definition.id
+  desired_count   = var.app_count
+  launch_type     = &quot;FARGATE&quot;
+  enable_execute_command = true # TODO: Disable after debugging
+}
+</code></p>
+
+<p>You may also need specify an execution role in the task definition:</p>
+
+<p><code>tf
+resource &quot;aws_ecs_task_definition&quot; &quot;my_task_definition&quot; {
+  family              = &quot;my-task&quot;
+  task_role_arn       = aws_iam_role.ecs_task_execution_role.arn
+  execution_role_arn  = aws_iam_role.ecs_task_execution_role.arn  # &lt;-- Add this
+}
+</code></p>
+
+<p>Make sure that this role has the correct access rights. There&#39;s a nice <a href="https://aws.amazon.com/de/premiumsupport/knowledge-center/ecs-error-execute-command/">troubleshooting guide</a> going over the required permissions.</p>
+
+<p>If you had to do some modifications, make sure to roll out a new deployment with the fresh settings:</p>
+
+<p><code>
+aws ecs update-service --cluster my-cluster --service my-service --force-new-deployment
+</code></p>
+
+<p>Now, you should be able to issue commands against any running container!</p>
+
+<p><code>
+aws ecs execute-command --cluster westfalen --task &lt;task-id-or-arn&gt; --container my-container --interactive --command=&quot;/bin/sh&quot;
+</code></p>
+
+<p>I hope this helps!</p>
+
+<hr/>
+
+<p>This is post 055 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>The fundamental difference between Terraform and Kubernetes</title>
             <link>
