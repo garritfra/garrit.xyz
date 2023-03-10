@@ -12,7 +12,7 @@ First of all, you need access to the cluster via the [CLI](https://aws.amazon.co
 brew install --cask session-manager-plugin
 ```
 
-Next, you need to allow the task you want to debug to be able to execute commands. Since I'm using Terraform, this was just a manner of adding the [`enable_execute_command`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service#enable_execute_command) attribute to the service:
+Next, you need to allow the task you want to debug to be able to execute commands. Since I'm using Terraform, this was just a matter of adding the [`enable_execute_command`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service#enable_execute_command) attribute to the service:
 
 ```tf
 resource "aws_ecs_service" "my_service" {
@@ -32,6 +32,7 @@ resource "aws_ecs_task_definition" "my_task_definition" {
   family              = "my-task"
   task_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   execution_role_arn  = aws_iam_role.ecs_task_execution_role.arn  # <-- Add this
+}
 ```
 
 Make sure that this role has the correct access rights. There's a nice [troubleshooting guide](https://aws.amazon.com/de/premiumsupport/knowledge-center/ecs-error-execute-command/) going over the required permissions.
