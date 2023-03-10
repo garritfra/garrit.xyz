@@ -15,7 +15,7 @@ jobs:
         run: |
           export POST_DATE=$(date +"%Y-%m-%d")
           export POST_TITLE="${{ github.event.issue.title }}"
-          export POST_TAGS=$(echo "{{ join(github.event.issue.labels.*.name, ', ') }}"')
+          export POST_TAGS=$(echo "{{ join(github.event.issue.labels.*.name, ', ') }}")
           export FILE_TITLE=$(printf "$POST_TITLE" | tr " " "-" | tr "[A-Z]" "[a-z]" | sed s/\?//g)
           export FILE_NAME="$POST_DATE-$FILE_TITLE.md"
           export FULL_PATH="content/posts/$FILE_NAME"
