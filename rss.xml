@@ -5,8 +5,64 @@
             <link>https://garrit.xyz</link>
             <description>Garrit Franke</description>
             <language>en</language>
-            <lastBuildDate>Fri, 10 Mar 2023 00:00:00 +0000</lastBuildDate>
+            <lastBuildDate>Sat, 11 Mar 2023 00:00:00 +0000</lastBuildDate>
             
+          <item>
+            <title>A software requirements checklist</title>
+            <link>
+              https://garrit.xyz/posts/2023-03-11-a-software-requirements-checklist?utm_source=rss
+            </link>
+    
+            <pubDate>Sat, 11 Mar 2023 00:00:00 +0000</pubDate>
+            <description>
+            <![CDATA[<p>I just found a <a href="https://www.etsy.com/codeascraft/a-checklist-manifetsy">great post</a> on the Etsy Engineering blog suggesting a possible checklist for new product requirements. In reality, this checklist is very hard to fulfill, but it&#39;s a nice reminder of what a well thought out requirement could look like.</p>
+
+<h3>Scope</h3>
+
+<ul><li>Is the feature meant to be very polished and finished or are we just trying to get user feedback as an MVP?</li><li>If we are running a MVP, is the current feature a true MVP? How can we simplify or cut scope?</li></ul>
+
+<h3>Eligibility</h3>
+
+<ul><li>What populations should be included or excluded from the experiment? When should users see this feature? (Which pages, signed in/signed out, mobile, desktop, etc.)
+Where/when should bucketing occur?</li><li>Will the experiment conflict with any other experiments? Do the experiments need to run exclusively?</li><li>What countries should the experiment run in (can impact translations)?</li></ul>
+
+<h3>A11Y</h3>
+
+<ul><li>Is there any special accessibility work this feature will require? If extra work is anticipated, check in early with our a11y team.</li><li>When testing and developing we should keep two users in mind - a keyboard user and a voice over user, do we need to add other code for these users?</li></ul>
+
+<h3>Translations</h3>
+
+<ul><li>Are there any strings to be translated that should be submitted ASAP?</li><li>Do we need to translate any labels for a11y?</li></ul>
+
+<h3>Observability</h3>
+
+<ul><li>How will we know that the feature is working? Are there existing graphs we can use or do we need new ones?</li><li>Should any of these metrics have a threshold or alerting?</li><li>Are we missing any key events to obtain user feedback?</li><li>How will we compare our control and variant?</li></ul>
+
+<h3>Performance</h3>
+
+<ul><li>Is there anything in my experiment that could degrade performance of the site?</li><li>Do I need an operational experiment to verify that I’m not impacting performance?</li></ul>
+
+<h3>Error States</h3>
+
+<ul><li>Do we have designs for loading states?</li><li>Do we have designs for unsuccessful requests and error handling?</li><li>Do we have informative logging when there are errors?</li></ul>
+
+<h3>QA</h3>
+
+<ul><li>What set of browsers and devices should we test our new feature against?</li><li>Which user perspectives do we need to test?</li></ul>
+
+<h3>Ramping</h3>
+
+<ul><li>What will our ramping strategy be?</li></ul>
+
+<hr/>
+
+<p>Check out the <a href="https://www.etsy.com/codeascraft/a-checklist-manifetsy">original post</a> for a full writeup and the intentions behind this checklist.</p>
+
+<hr/>
+
+<p>This is post 056 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
           <item>
             <title>Debugging ECS Tasks</title>
             <link>
