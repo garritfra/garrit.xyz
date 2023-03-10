@@ -55,3 +55,10 @@ Where/when should bucketing occur?
 
 - What will our ramping strategy be?
 
+---
+
+Check out the [original post](https://www.etsy.com/codeascraft/a-checklist-manifetsy) for a full writeup and the intentions behind this checklist.
+
+---
+
+This is post 056 of [#100DaysToOffload](https://100daystooffload.com/).
