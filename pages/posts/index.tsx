@@ -55,7 +55,10 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			posts,
+			posts: posts.map((post) => ({
+				frontmatter: post.frontmatter,
+				slug: post.slug,
+			})),
 			description: "",
 		},
 	};
