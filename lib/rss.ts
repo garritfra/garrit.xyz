@@ -1,11 +1,13 @@
 import { getPosts, Post } from "./posts";
 
 import fs from "fs/promises";
+import { existsSync } from "fs";
 import path from "path";
 
 import xmlFormat from "xml-formatter";
 import rfc822Date from "rfc822-date";
 import { markdown } from "markdown";
+import { getAllTags } from "./tags";
 
 const buildRss = async () => {
 	const posts = await getPosts();
@@ -53,8 +55,25 @@ const buildRss = async () => {
 	};
 
 	const feedPath = path.join(__dirname, "../public/rss.xml");
-
 	await fs.writeFile(feedPath, xmlFormat(getRssXml(posts)), { flag: "w" });
+
+	const feedsDir = path.join(__dirname, "../public/feeds");
+
+	if (!existsSync(feedsDir)) {
+		await fs.mkdir(feedsDir);
+	}
+
+	const tags = (await getAllTags()).map(({ tag }) => tag);
+
+	tags.forEach(async (tag) => {
+		const feedPath = path.join(feedsDir, `${tag}.xml`);
+
+		const postsMatchingTags = posts.filter((post) => post.tags.includes(tag));
+
+		await fs.writeFile(feedPath, xmlFormat(getRssXml(postsMatchingTags)), {
+			flag: "w",
+		});
+	});
 };
 
 buildRss();
