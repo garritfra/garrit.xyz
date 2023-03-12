@@ -1,21 +1,33 @@
-<?xml version="1.0" ?>
-      <rss version="2.0">
-        <channel>
-            <title>garrit.xyz</title>
-            <link>https://garrit.xyz</link>
-            <description>Garrit Franke</description>
-            <language>en</language>
-            <lastBuildDate>Sat, 11 Mar 2023 00:00:00 +0000</lastBuildDate>
-            
-          <item>
-            <title>A software requirements checklist</title>
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Sat, 11 Mar 2023 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                A software requirements checklist
+            </title>
             <link>
-              https://garrit.xyz/posts/2023-03-11-a-software-requirements-checklist?utm_source=rss
+                https://garrit.xyz/posts/2023-03-11-a-software-requirements-checklist?utm_source=rss
             </link>
-    
-            <pubDate>Sat, 11 Mar 2023 00:00:00 +0000</pubDate>
+            <pubDate>
+                Sat, 11 Mar 2023 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I just found a <a href="https://www.etsy.com/codeascraft/a-checklist-manifetsy">great post</a> on the Etsy Engineering blog suggesting a possible checklist for new product requirements. In reality, this checklist is very hard to fulfill, but it&#39;s a nice reminder of what a well thought out requirement could look like.</p>
+                <![CDATA[<p>I just found a <a href="https://www.etsy.com/codeascraft/a-checklist-manifetsy">great post</a> on the Etsy Engineering blog suggesting a possible checklist for new product requirements. In reality, this checklist is very hard to fulfill, but it&#39;s a nice reminder of what a well thought out requirement could look like.</p>
 
 <h3>Scope</h3>
 
@@ -63,15 +75,18 @@ Where/when should bucketing occur?</li><li>Will the experiment conflict with any
 <p>This is post 056 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Debugging ECS Tasks</title>
+        <item>
+            <title>
+                Debugging ECS Tasks
+            </title>
             <link>
-              https://garrit.xyz/posts/2023-03-10-debugging-ecs-tasks?utm_source=rss
+                https://garrit.xyz/posts/2023-03-10-debugging-ecs-tasks?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 10 Mar 2023 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 10 Mar 2023 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I just had to debug an application on AWS ECS. The whole procedure is documented in more detail in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html">documentation</a>, but I think it&#39;s beneficial (both for my future self and hopefully to someone out there) to write down the proccess in my own words.</p>
+                <![CDATA[<p>I just had to debug an application on AWS ECS. The whole procedure is documented in more detail in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html">documentation</a>, but I think it&#39;s beneficial (both for my future self and hopefully to someone out there) to write down the proccess in my own words.</p>
 
 <p>First of all, you need access to the cluster via the <a href="https://aws.amazon.com/de/cli/">CLI</a>. In addition to the CLI, you need the <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">AWS Session Manager plugin for the CLI</a>. If you&#39;re on MacOS, you can install that via <a href="https://formulae.brew.sh/cask/session-manager-plugin">Homebrew</a>:</p>
 
@@ -123,15 +138,18 @@ aws ecs execute-command --cluster westfalen --task &lt;task-id-or-arn&gt; --cont
 <p>This is post 055 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>The fundamental difference between Terraform and Kubernetes</title>
+        <item>
+            <title>
+                The fundamental difference between Terraform and Kubernetes
+            </title>
             <link>
-              https://garrit.xyz/posts/2023-03-08-terraform-and-kubernetes-are-fundamentally-different?utm_source=rss
+                https://garrit.xyz/posts/2023-03-08-terraform-and-kubernetes-are-fundamentally-different?utm_source=rss
             </link>
-    
-            <pubDate>Wed, 08 Mar 2023 00:00:00 +0000</pubDate>
+            <pubDate>
+                Wed, 08 Mar 2023 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>On the surface, Infrastructure as Code tools like <a href="https://www.terraform.io/">Terraform</a> or <a href="https://aws.amazon.com/de/cloudformation/">CloudFormation</a> may seem to behave similar to <a href="https://kubernetes.io/">Kubernetes</a> YAMLs, but they are in fact fundamentally different approaches to cloud infrastructure.</p>
+                <![CDATA[<p>On the surface, Infrastructure as Code tools like <a href="https://www.terraform.io/">Terraform</a> or <a href="https://aws.amazon.com/de/cloudformation/">CloudFormation</a> may seem to behave similar to <a href="https://kubernetes.io/">Kubernetes</a> YAMLs, but they are in fact fundamentally different approaches to cloud infrastructure.</p>
 
 <p>Terraform tries to provide a declarative way to express imperative actions. If you tell Terraform that you need an EC2 instance, it will notice that no such resource exists and instruct the AWS API to create one. If you don&#39;t need the instance anymore and remove the resource definition from your code, Terraform will also pick that up and instruct the AWS API to delete the instance. This works well in most cases, but every once in a while the declarative state may get out of sync with the real world, resulting in errors that are hard to debug and resolve.</p>
 
@@ -142,15 +160,18 @@ aws ecs execute-command --cluster westfalen --task &lt;task-id-or-arn&gt; --cont
 <p>This is post 054 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Pods vs. Containers</title>
+        <item>
+            <title>
+                Pods vs. Containers
+            </title>
             <link>
-              https://garrit.xyz/posts/2023-03-04-pods-vs.-containers?utm_source=rss
+                https://garrit.xyz/posts/2023-03-04-pods-vs.-containers?utm_source=rss
             </link>
-    
-            <pubDate>Sat, 04 Mar 2023 00:00:00 +0000</pubDate>
+            <pubDate>
+                Sat, 04 Mar 2023 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>In Kubernetes, pods and containers are often confused. I found a <a href="https://iximiuz.com/en/posts/containers-vs-pods/">great article</a> going over the differences of the two terms.</p>
+                <![CDATA[<p>In Kubernetes, pods and containers are often confused. I found a <a href="https://iximiuz.com/en/posts/containers-vs-pods/">great article</a> going over the differences of the two terms.</p>
 
 <blockquote><p>Containers and Pods are alike. Under the hood, they heavily rely on Linux namespaces and cgroups. However, Pods aren&#39;t just groups of containers. A Pod is a self-sufficient higher-level construct. All pod&#39;s containers run on the same machine (cluster node), their lifecycle is synchronized, and mutual isolation is weakened to simplify the inter-container communication. This makes Pods much closer to traditional VMs, <a href="https://www.mirantis.com/blog/multi-container-pods-and-container-communication-in-kubernetes/">bringing back the familiar deployment patterns like sidecar or reverse proxy</a>.</p></blockquote>
 
@@ -163,15 +184,18 @@ aws ecs execute-command --cluster westfalen --task &lt;task-id-or-arn&gt; --cont
 <p>This is post 053 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Notes on containerizing PHP applications</title>
+        <item>
+            <title>
+                Notes on containerizing PHP applications
+            </title>
             <link>
-              https://garrit.xyz/posts/2023-03-03-notes-on-containerizing-php-applications?utm_source=rss
+                https://garrit.xyz/posts/2023-03-03-notes-on-containerizing-php-applications?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 03 Mar 2023 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 03 Mar 2023 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I was recently tasked with building a rudimentary infrastructure for a PHP application. Coming from a Node.js-driven world where every human and their grandmother has a blog post about containerizing your application, it was very interesting to see where PHP differs to other applications.</p>
+                <![CDATA[<p>I was recently tasked with building a rudimentary infrastructure for a PHP application. Coming from a Node.js-driven world where every human and their grandmother has a blog post about containerizing your application, it was very interesting to see where PHP differs to other applications.</p>
 
 <p>One major gotcha for me was that PHP code is executed on <strong>request-time</strong>, meaning a new process is spawned for each incoming request. Most other languages have dedicated runtimes that handle incoming requests. This unique approach is very flexible and scalable, but it comes with the implication that there is a <strong>separate webserver</strong> that calls into the PHP interpreter when it needs to.</p>
 
@@ -251,15 +275,18 @@ WORKDIR /var/www/html</p>
 <p>This is post 052 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Visual Distractions</title>
+        <item>
+            <title>
+                Visual Distractions
+            </title>
             <link>
-              https://garrit.xyz/posts/2023-02-24-visual-distractions?utm_source=rss
+                https://garrit.xyz/posts/2023-02-24-visual-distractions?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 24 Feb 2023 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 24 Feb 2023 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Everywhere we look, we&#39;re bombarded with flashy symbols trying to grab our attention. This is even the case where we <strong>think</strong> that we&#39;re in control of what we&#39;re looking at. I made two simple changes that reduce visual distractions in my life.</p>
+                <![CDATA[<p>Everywhere we look, we&#39;re bombarded with flashy symbols trying to grab our attention. This is even the case where we <strong>think</strong> that we&#39;re in control of what we&#39;re looking at. I made two simple changes that reduce visual distractions in my life.</p>
 
 <h2>Android App Icons</h2>
 
@@ -290,15 +317,18 @@ WORKDIR /var/www/html</p>
 <p>This is post 051 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Dockerignore troubles</title>
+        <item>
+            <title>
+                Dockerignore troubles
+            </title>
             <link>
-              https://garrit.xyz/posts/2023-02-22-dockerignore-troubles?utm_source=rss
+                https://garrit.xyz/posts/2023-02-22-dockerignore-troubles?utm_source=rss
             </link>
-    
-            <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
+            <pubDate>
+                Wed, 22 Feb 2023 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I commonly used to create a <code>.Dockerignore</code> file next to my <code>Dockerfile</code>. After countless hours of ignoring the problems in my setup, I found out that the uppercase <code>.Dockerignore</code> doesn&#39;t get picked up by Docker on MacOS. Only the lowercase <code>.dockerignore</code> is valid.</p>
+                <![CDATA[<p>I commonly used to create a <code>.Dockerignore</code> file next to my <code>Dockerfile</code>. After countless hours of ignoring the problems in my setup, I found out that the uppercase <code>.Dockerignore</code> doesn&#39;t get picked up by Docker on MacOS. Only the lowercase <code>.dockerignore</code> is valid.</p>
 
 <p>I didn&#39;t find official documentation on this, but I think it&#39;s because both MacOS and Linux are case-sensitive, while Windows isn&#39;t. I don&#39;t remember why I got used to the <code>.Dockerignore</code> convention, but I swear I saw someone using it in the wild. Or it&#39;s my (un)logical reasoning that, because <code>Dockerfile</code> is uppercased, <code>.Dockerignore</code> should be uppercased as well.</p>
 
@@ -307,15 +337,18 @@ WORKDIR /var/www/html</p>
 <p>This is post 050 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>What's next for modern infrastructure?</title>
+        <item>
+            <title>
+                What's next for modern infrastructure?
+            </title>
             <link>
-              https://garrit.xyz/posts/2023-02-21-what's-next-for-modern-infrastructure?utm_source=rss
+                https://garrit.xyz/posts/2023-02-21-what's-next-for-modern-infrastructure?utm_source=rss
             </link>
-    
-            <pubDate>Tue, 21 Feb 2023 00:00:00 +0000</pubDate>
+            <pubDate>
+                Tue, 21 Feb 2023 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Modern infrastructure is incredibly complex. I identified 4 main &quot;levels&quot; of infrastructure abstraction:</p>
+                <![CDATA[<p>Modern infrastructure is incredibly complex. I identified 4 main &quot;levels&quot; of infrastructure abstraction:</p>
 
 <h2>Level 1: A website on a server</h2>
 
@@ -340,15 +373,18 @@ WORKDIR /var/www/html</p>
 <p>This is post 049 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>What problem does Kubernetes solve?</title>
+        <item>
+            <title>
+                What problem does Kubernetes solve?
+            </title>
             <link>
-              https://garrit.xyz/posts/2023-02-20-what-problem-does-kubernetes-solve?utm_source=rss
+                https://garrit.xyz/posts/2023-02-20-what-problem-does-kubernetes-solve?utm_source=rss
             </link>
-    
-            <pubDate>Mon, 20 Feb 2023 00:00:00 +0000</pubDate>
+            <pubDate>
+                Mon, 20 Feb 2023 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>This is a common question that many people (including me) ask themselves.</p>
+                <![CDATA[<p>This is a common question that many people (including me) ask themselves.</p>
 
 <p>I recently came across a great <a href="https://blog.adamchalmers.com/kubernetes-problems/">post</a> which explains the problem really well:</p>
 
@@ -363,15 +399,18 @@ WORKDIR /var/www/html</p>
 <p>This is post 048 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>TIL about CSS Insets</title>
+        <item>
+            <title>
+                TIL about CSS Insets
+            </title>
             <link>
-              https://garrit.xyz/posts/2023-02-19-til-about-css-insets?utm_source=rss
+                https://garrit.xyz/posts/2023-02-19-til-about-css-insets?utm_source=rss
             </link>
-    
-            <pubDate>Sun, 19 Feb 2023 00:00:00 +0000</pubDate>
+            <pubDate>
+                Sun, 19 Feb 2023 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Just a quick tip that I thought is worth sharing. Instead of declaring:</p>
+                <![CDATA[<p>Just a quick tip that I thought is worth sharing. Instead of declaring:</p>
 
 <p><code>css
 .foo { 
@@ -399,15 +438,18 @@ WORKDIR /var/www/html</p>
 <p>This is post 047 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>OpenSSF Best Practices</title>
+        <item>
+            <title>
+                OpenSSF Best Practices
+            </title>
             <link>
-              https://garrit.xyz/posts/2023-02-14-openssf-best-practices?utm_source=rss
+                https://garrit.xyz/posts/2023-02-14-openssf-best-practices?utm_source=rss
             </link>
-    
-            <pubDate>Tue, 14 Feb 2023 00:00:00 +0000</pubDate>
+            <pubDate>
+                Tue, 14 Feb 2023 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>The Open Source Security Foundation (OpenSSF) provides <a href="https://bestpractices.coreinfrastructure.org/en/criteria/0">a list of best
+                <![CDATA[<p>The Open Source Security Foundation (OpenSSF) provides <a href="https://bestpractices.coreinfrastructure.org/en/criteria/0">a list of best
 practices</a> for open
 source projects. Although this list is tailored towards free and open source
 projects, I believe that this list is valuable for <em>all</em> software projects.
@@ -711,15 +753,18 @@ dynamic code analysis MUST be fixed in a timely way after they are confirmed.</p
 <p>This is post 046 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Welcome, 2023</title>
+        <item>
+            <title>
+                Welcome, 2023
+            </title>
             <link>
-              https://garrit.xyz/posts/2023-01-02-welcome-2023?utm_source=rss
+                https://garrit.xyz/posts/2023-01-02-welcome-2023?utm_source=rss
             </link>
-    
-            <pubDate>Mon, 02 Jan 2023 00:00:00 +0000</pubDate>
+            <pubDate>
+                Mon, 02 Jan 2023 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>2022 has been an eventful year for me. We moved to a new apartment, went to a
+                <![CDATA[<p>2022 has been an eventful year for me. We moved to a new apartment, went to a
 couple of weddings (a good indication that we&#39;re getting older!) and finally
 started traveling more often.</p>
 
@@ -756,15 +801,18 @@ is still true at the end of this year, but let&#39;s not loose hope too early.</
 <p>This is post 045 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>6 ways you can contribute to open knowledge right now</title>
+        <item>
+            <title>
+                6 ways you can contribute to open knowledge right now
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-12-05-contributing-to-open-source-knowledge?utm_source=rss
+                https://garrit.xyz/posts/2022-12-05-contributing-to-open-source-knowledge?utm_source=rss
             </link>
-    
-            <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Mon, 05 Dec 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I wrote the initial draft for this post a few months ago, traveling through
+                <![CDATA[<p>I wrote the initial draft for this post a few months ago, traveling through
 Norway in a rented campervan. While roaming the beautiful landscapes, I spent a
 lot of time thinking. Reading books while traveling really is the best way to
 find new inspiration.</p>
@@ -889,15 +937,18 @@ way! Thanks for reading, and happy contributing!</p>
 <p>This is post 044 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Smart Move, Google</title>
+        <item>
+            <title>
+                Smart Move, Google
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-11-24-smart-move-google?utm_source=rss
+                https://garrit.xyz/posts/2022-11-24-smart-move-google?utm_source=rss
             </link>
-    
-            <pubDate>Thu, 24 Nov 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Thu, 24 Nov 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>For as long as I can remember, <code>maps.google.com</code> was the defacto domain for
+                <![CDATA[<p>For as long as I can remember, <code>maps.google.com</code> was the defacto domain for
 Google Maps. Also for as long as I can remember, I allowed this domain to use
 the location services of my browser.</p>
 
@@ -928,15 +979,18 @@ services.</p>
 <ul><li><a href="https://analyticsindiamag.com/google-bypasses-privacy-puts-users-data-on-the-map/">Google Bypasses Privacy, Puts Users’ Data on the Map</a></li><li><a href="https://open.spotify.com/episode/2EfB2yqlh7B62701mzc82v">Last Week in Local - December 5, 2022</a></li><li><a href="https://softantenna.com/blog/google-smart-move/">Softantenna</a> (<a href="https://softantenna-com.translate.goog/blog/google-smart-move/?_x_tr_sl=auto&amp;_x_tr_tl=en&amp;_x_tr_hl=de&amp;_x_tr_pto=wapp">English</a>)</li><li><a href="https://stadt-bremerhaven.de/google-kann-euren-standort-unter-umstaenden-mit-allen-services-verfolgen/">Google kann euren Standort unter Umständen mit allen Services verfolgen</a> (<a href="https://stadt--bremerhaven-de.translate.goog/google-kann-euren-standort-unter-umstaenden-mit-allen-services-verfolgen/?_x_tr_sl=auto&amp;_x_tr_tl=en&amp;_x_tr_hl=de&amp;_x_tr_pto=wapp">English</a>)</li><li><a href="https://www.zive.cz/clanky/google-vymyslel-figl-jak-nas-plosne-sledovat-stacilo-mapam-zmenit-adresu/sc-3-a-219564/default.aspx">zive.cz</a> (<a href="https://www-zive-cz.translate.goog/clanky/google-vymyslel-figl-jak-nas-plosne-sledovat-stacilo-mapam-zmenit-adresu/sc-3-a-219564/default.aspx?_x_tr_sl=auto&amp;_x_tr_tl=en&amp;_x_tr_hl=de&amp;_x_tr_pto=wapp">English</a>)</li></ul>]]>
             </description>
         </item>
-          <item>
-            <title>Cursed User-Agents</title>
+        <item>
+            <title>
+                Cursed User-Agents
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-11-11-cursed-user-agents?utm_source=rss
+                https://garrit.xyz/posts/2022-11-11-cursed-user-agents?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 11 Nov 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 11 Nov 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<blockquote><p><strong>Warning</strong>: This is a rather ranty post. I just needed a place to dump my emotions about this topic. Please take it with a grain of salt. :)</p></blockquote>
+                <![CDATA[<blockquote><p><strong>Warning</strong>: This is a rather ranty post. I just needed a place to dump my emotions about this topic. Please take it with a grain of salt. :)</p></blockquote>
 
 <p>I&#39;m currently <a href="https://github.com/garritfra/ua-parser-js/pull/8">fiddling
 around</a> with User-Agents of
@@ -991,15 +1045,18 @@ HbbTV section in the User-Agent. I did not encounter a single device without it.
 <p>This is post 042 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Reselling Kubernetes</title>
+        <item>
+            <title>
+                Reselling Kubernetes
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-11-03-reselling-managed-kubernetes?utm_source=rss
+                https://garrit.xyz/posts/2022-11-03-reselling-managed-kubernetes?utm_source=rss
             </link>
-    
-            <pubDate>Thu, 03 Nov 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Thu, 03 Nov 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I&#39;m currently working on a side project involving reselling Kubernetes clusters.
+                <![CDATA[<p>I&#39;m currently working on a side project involving reselling Kubernetes clusters.
 What I discovered is that it&#39;s impossible to resell <em>managed</em> Kubernetes, as in
 <a href="https://aws.amazon.com/de/eks/">EKS</a> and
 <a href="https://cloud.google.com/kubernetes-engine/">GKE</a>.</p>
@@ -1053,15 +1110,18 @@ Room</a>!</p>
 <p>This is post 041 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>A simple guestbook</title>
+        <item>
+            <title>
+                A simple guestbook
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-10-05-simple-guestbook?utm_source=rss
+                https://garrit.xyz/posts/2022-10-05-simple-guestbook?utm_source=rss
             </link>
-    
-            <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Wed, 05 Oct 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<blockquote><p><strong>TL;DR</strong>: Click <a href="/guestbook">here</a> to view the guestbook.</p></blockquote>
+                <![CDATA[<blockquote><p><strong>TL;DR</strong>: Click <a href="/guestbook">here</a> to view the guestbook.</p></blockquote>
 
 <p>For a while now, I wanted to have a quick way to update the pages on my website.</p>
 
@@ -1101,15 +1161,18 @@ I&#39;d love to hear from you!</p>
 <p>This is post 040 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Debugging Docker images</title>
+        <item>
+            <title>
+                Debugging Docker images
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-09-30-debugging-docker-images?utm_source=rss
+                https://garrit.xyz/posts/2022-09-30-debugging-docker-images?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 30 Sep 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Docker builds images incrementally. Every line in a Dockerfile will generate a
+                <![CDATA[<p>Docker builds images incrementally. Every line in a Dockerfile will generate a
 new image that builds on top of the last one. This can be really handy if
 something is not right in your build.</p>
 
@@ -1173,15 +1236,18 @@ working</strong> step, inspect the filesystem, and execute the failing command m
 <p>This is post 039 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Self-hosted software I'm thankful for</title>
+        <item>
+            <title>
+                Self-hosted software I'm thankful for
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-09-26-self-hosted-software-im-thankful-for?utm_source=rss
+                https://garrit.xyz/posts/2022-09-26-self-hosted-software-im-thankful-for?utm_source=rss
             </link>
-    
-            <pubDate>Mon, 26 Sep 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Mon, 26 Sep 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Self-hosting software is not just rainbows and sunshine. I used to self-host a lot of my tools, but after some time the burden of maintaining those tools made me switch to hosted alternatives.</p>
+                <![CDATA[<p>Self-hosting software is not just rainbows and sunshine. I used to self-host a lot of my tools, but after some time the burden of maintaining those tools made me switch to hosted alternatives.</p>
 
 <p>However, there are a few projects that I stuck with over the years, and which I think deserve a deep appreciation.</p>
 
@@ -1228,15 +1294,18 @@ working</strong> step, inspect the filesystem, and execute the failing command m
 <p>This is post 038 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Kubernetes is a domain specific database</title>
+        <item>
+            <title>
+                Kubernetes is a domain specific database
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-09-22-kubernetes-is-a-domain-specific-database?utm_source=rss
+                https://garrit.xyz/posts/2022-09-22-kubernetes-is-a-domain-specific-database?utm_source=rss
             </link>
-    
-            <pubDate>Thu, 22 Sep 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Thu, 22 Sep 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I just finished listening to <a href="https://kubernetespodcast.com/episode/129-linkerd/">an
+                <![CDATA[<p>I just finished listening to <a href="https://kubernetespodcast.com/episode/129-linkerd/">an
 episode</a> of the Kubernetes
 podcast. In it, <a href="https://saunter.org/">Thomas Rampelberg</a> makes an analogy that
 I think is worth sharing:</p>
@@ -1272,15 +1341,18 @@ objects</a></p>
 <p>This is post 037 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>What's on my feed? (2022)</title>
+        <item>
+            <title>
+                What's on my feed? (2022)
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-08-31-whats-on-my-feed?utm_source=rss
+                https://garrit.xyz/posts/2022-08-31-whats-on-my-feed?utm_source=rss
             </link>
-    
-            <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Wed, 31 Aug 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>RSS is - in my humble opinion - one of the best ways to consume content today.
+                <![CDATA[<p>RSS is - in my humble opinion - one of the best ways to consume content today.
 Its only downside is that it&#39;s quite difficult to find new interesting feeds.
 If you&#39;re looking for inspiration, here&#39;s a list of the RSS-feeds I&#39;m subscribed
 to as of August, 2022. Some of the entries may intersect with my
@@ -1296,15 +1368,18 @@ publish a list of <strong>your</strong> favorite feeds?</p>
 <p>This is post 036 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>The only true answer to 'tabs vs spaces'</title>
+        <item>
+            <title>
+                The only true answer to 'tabs vs spaces'
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-06-29-the-only-true-answer-to-tabs-vs-spaces?utm_source=rss
+                https://garrit.xyz/posts/2022-06-29-the-only-true-answer-to-tabs-vs-spaces?utm_source=rss
             </link>
-    
-            <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Wed, 29 Jun 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I recently dove into a new project at work. We&#39;re starting from a blank page,
+                <![CDATA[<p>I recently dove into a new project at work. We&#39;re starting from a blank page,
 so of course this classic question came up:</p>
 
 <blockquote><p>&quot;So should we use tabs or spaces for our formatting?&quot;</p></blockquote>
@@ -1354,15 +1429,18 @@ you&#39;re working in a team. Let me know your thoughts!</p>
 <p>This is post 035 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>A list of bugs in MacOS</title>
+        <item>
+            <title>
+                A list of bugs in MacOS
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-06-10-a-list-of-bugs-in-macos?utm_source=rss
+                https://garrit.xyz/posts/2022-06-10-a-list-of-bugs-in-macos?utm_source=rss
             </link>
-    
-            <pubDate>Tue, 14 Jun 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Tue, 14 Jun 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I&#39;ve been using MacOS for years, and I was always happy with it. However, it
+                <![CDATA[<p>I&#39;ve been using MacOS for years, and I was always happy with it. However, it
 has some really annoying problems that don&#39;t seem to get attention by Apple.
 This is a list of things that personally bother me. I will try to update it
 whenever I encounter new issues.</p>
@@ -1376,15 +1454,18 @@ alignment is not how I left it.</li></ul>
 <p>This is post 034 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Here's the tar command you keep looking for</title>
+        <item>
+            <title>
+                Here's the tar command you keep looking for
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-06-02-tar-commands?utm_source=rss
+                https://garrit.xyz/posts/2022-06-02-tar-commands?utm_source=rss
             </link>
-    
-            <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Thu, 02 Jun 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<blockquote><p><strong>Update</strong>: <a href="https://mastodon.technology/@kaushalmodi">@kaushalmodi@mastodon.technology</a>
+                <![CDATA[<blockquote><p><strong>Update</strong>: <a href="https://mastodon.technology/@kaushalmodi">@kaushalmodi@mastodon.technology</a>
 replied to this post with a way more complete cheat sheet. If you don&#39;t want
 to hear me rant about tar and actually want to get good at it, go read their
 post instead:</p><p>https://scripter.co/disarming-the-tar-bomb-in-10-seconds/</p></blockquote>
@@ -1421,15 +1502,18 @@ https://simplecheatsheet.com/linux-tar-files/</p>
 <p>This is post 033 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Postgres Docker Container Migration Cheat Sheet</title>
+        <item>
+            <title>
+                Postgres Docker Container Migration Cheat Sheet
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-05-31-database-server-migration-cheat-sheet?utm_source=rss
+                https://garrit.xyz/posts/2022-05-31-database-server-migration-cheat-sheet?utm_source=rss
             </link>
-    
-            <pubDate>Tue, 31 May 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Tue, 31 May 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I just finished migrating a postgres database to a new host. To remember how to
+                <![CDATA[<p>I just finished migrating a postgres database to a new host. To remember how to
 do it next time, I&#39;m writing down the commands I used here.</p>
 
 <p>I usually just shut down the database and then copy the local directory where
@@ -1533,15 +1617,18 @@ machine.</p>
 <p>This is post 032 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Cloning Windows to a new drive</title>
+        <item>
+            <title>
+                Cloning Windows to a new drive
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-05-24-cloning-windows-to-a-new-drive?utm_source=rss
+                https://garrit.xyz/posts/2022-05-24-cloning-windows-to-a-new-drive?utm_source=rss
             </link>
-    
-            <pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Tue, 24 May 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>My grandpa has been using his current computer for about 10 years now. After
+                <![CDATA[<p>My grandpa has been using his current computer for about 10 years now. After
 such a long time, the system has become quite slow and bulky. Back then it was
 relatively normal to use a HDD as a primary hard drive, which adds to the slow
 experience. It was time for an upgrade!</p>
@@ -1584,15 +1671,18 @@ backups every now and then, using the same process.</p>
 <p>This is post 031 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Weeknote 18/2022</title>
+        <item>
+            <title>
+                Weeknote 18/2022
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-05-06-weeknote-18-2022?utm_source=rss
+                https://garrit.xyz/posts/2022-05-06-weeknote-18-2022?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 06 May 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>It&#39;s friday, my dudes! Here are some notes on what happened during my week.</p>
+                <![CDATA[<p>It&#39;s friday, my dudes! Here are some notes on what happened during my week.</p>
 
 <h2>At Work</h2>
 
@@ -1648,15 +1738,18 @@ walk and talking about life.</p>
 <p>This is post 030 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Weeknote 17/2022</title>
+        <item>
+            <title>
+                Weeknote 17/2022
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-04-29-weeknote-17-2022?utm_source=rss
+                https://garrit.xyz/posts/2022-04-29-weeknote-17-2022?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 29 Apr 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 29 Apr 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>This week was quite ordinary. We enjoyed the weather during walks in the park
+                <![CDATA[<p>This week was quite ordinary. We enjoyed the weather during walks in the park
 and got some chores done.</p>
 
 <h2>At work</h2>
@@ -1688,15 +1781,18 @@ you</a>.</p>
 <p>This is post 029 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Hello to all the new Mastodon users</title>
+        <item>
+            <title>
+                Hello to all the new Mastodon users
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-04-28-hello-to-all-the-new-mastodon-users?utm_source=rss
+                https://garrit.xyz/posts/2022-04-28-hello-to-all-the-new-mastodon-users?utm_source=rss
             </link>
-    
-            <pubDate>Thu, 28 Apr 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Thu, 28 Apr 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>To everyone who just joined Mastodon following Twitter&#39;s aquisition: I wish you a
+                <![CDATA[<p>To everyone who just joined Mastodon following Twitter&#39;s aquisition: I wish you a
 warm welcome!</p>
 
 <p>Whether you&#39;re staying or just testing the waters, you might want to get to know
@@ -1727,15 +1823,18 @@ https://the-federation.info/birdsitelive.</p>
 <p>This is post 028 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Weeknote 16/2022</title>
+        <item>
+            <title>
+                Weeknote 16/2022
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-04-25-weeknote-16-2022?utm_source=rss
+                https://garrit.xyz/posts/2022-04-25-weeknote-16-2022?utm_source=rss
             </link>
-    
-            <pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Mon, 25 Apr 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>This is my first (already belated) weeknote. Even though it&#39;s the monday of the
+                <![CDATA[<p>This is my first (already belated) weeknote. Even though it&#39;s the monday of the
 next week, I thought I&#39;d reflect on what happened last week. I already tried <a href="/posts/2020-12-18-update-december">a
 similar format</a> on this blog in a monthly
 fashion, but didn&#39;t stick to it. With these &quot;weeknotes&quot;, I will try to sit down
@@ -1794,15 +1893,18 @@ what could I lose?</p>
 <p>This is post 027 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Swapping two Numbers without Temporary Variables</title>
+        <item>
+            <title>
+                Swapping two Numbers without Temporary Variables
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-03-24-swapping-numbers-without-temp?utm_source=rss
+                https://garrit.xyz/posts/2022-03-24-swapping-numbers-without-temp?utm_source=rss
             </link>
-    
-            <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Thu, 24 Mar 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Ever wondered how to swap two numbers without using a temporary variable?</p>
+                <![CDATA[<p>Ever wondered how to swap two numbers without using a temporary variable?</p>
 
 <p>I just found this very old note that I thought is worth sharing. The trick is
 quite old and you might already know about this, but when I started out with
@@ -1841,15 +1943,18 @@ nevertheless!</p>
 <p>This is post 026 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Fixing Traefik Proxy Issues</title>
+        <item>
+            <title>
+                Fixing Traefik Proxy Issues
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-03-18-fix-traefik-proxy-issues?utm_source=rss
+                https://garrit.xyz/posts/2022-03-18-fix-traefik-proxy-issues?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 18 Mar 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 18 Mar 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>After changing my proxy from NGINX to Traefik, I noticed that some of my
+                <![CDATA[<p>After changing my proxy from NGINX to Traefik, I noticed that some of my
 services started misbehaving.</p>
 
 <p>In particular, my instance of
@@ -1923,15 +2028,18 @@ article on Medium. It explains the issue in more detail.</p>
 <p>This is post 025 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>TIL how to get the active language of a browser</title>
+        <item>
+            <title>
+                TIL how to get the active language of a browser
+            </title>
             <link>
-              https://garrit.xyz/posts/2022-01-28-til-how-to-get-the-selected-language-of-a-browser?utm_source=rss
+                https://garrit.xyz/posts/2022-01-28-til-how-to-get-the-selected-language-of-a-browser?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 28 Jan 2022 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Today I learned how to get the selected language of a browser.</p>
+                <![CDATA[<p>Today I learned how to get the selected language of a browser.</p>
 
 <p>It&#39;s super simple!</p>
 
@@ -1960,15 +2068,18 @@ detail about how this developed (jump to minute 3 to listen to this topic):</p>
 <ul><li><a href="https://stackoverflow.com/questions/8199760/how-to-get-the-browser-language-using-javascript">Stack Overflow Thread on getting the user language</a></li><li><a href="https://corecursive.com/internet-is-duct-tape/#">Full link to the Podcast episode</a></li></ul>]]>
             </description>
         </item>
-          <item>
-            <title>BTRFS on Alpine Linux</title>
+        <item>
+            <title>
+                BTRFS on Alpine Linux
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-12-31-btrfs-on-alpine?utm_source=rss
+                https://garrit.xyz/posts/2021-12-31-btrfs-on-alpine?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 31 Dec 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I&#39;m currently in the midst of migrating some of my infrastructure from the cloud
+                <![CDATA[<p>I&#39;m currently in the midst of migrating some of my infrastructure from the cloud
 to &quot;on prem&quot;, aka a local server, aka my old PC. I wanted to try alpine linux as
 the host OS to see how it behaves as a lightweight server distro.</p>
 
@@ -2038,15 +2149,18 @@ UUID=abcdef-0055-4958-990f-1413ed1186ec  /var/data  btrfs   defaults,nofail,subv
 <p>This is post 023 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Notes on pruning chinese elms</title>
+        <item>
+            <title>
+                Notes on pruning chinese elms
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-12-24-notes-on-pruning-chinese-elms?utm_source=rss
+                https://garrit.xyz/posts/2021-12-24-notes-on-pruning-chinese-elms?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 24 Dec 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 24 Dec 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I recently bought a chinese elm bonsai. To keep it alive and healthy, I devoted
+                <![CDATA[<p>I recently bought a chinese elm bonsai. To keep it alive and healthy, I devoted
 some time to learning how to properly prune it.</p>
 
 <p>Chinese elms are very robust trees with strong growth. Even in the winter
@@ -2079,15 +2193,18 @@ a lot of fun learning about this tree!</p>
 <p>This is post 022 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Quick tip! React useToggle Hook</title>
+        <item>
+            <title>
+                Quick tip! React useToggle Hook
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-12-21-usetoggle-react-hook?utm_source=rss
+                https://garrit.xyz/posts/2021-12-21-usetoggle-react-hook?utm_source=rss
             </link>
-    
-            <pubDate>Tue, 21 Dec 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Tue, 21 Dec 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Here&#39;s a useful react hook for situations where you have to keep track of the
+                <![CDATA[<p>Here&#39;s a useful react hook for situations where you have to keep track of the
 state of a dialog, popup, etc.:</p>
 
 <p><code></code>`js
@@ -2129,15 +2246,18 @@ const SomeComponent = () =&gt; {
 <p>This is post 021 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Server-Side Caching with Apollo GraphQL</title>
+        <item>
+            <title>
+                Server-Side Caching with Apollo GraphQL
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-10-04-server-side-caching-with-apollo-graphql?utm_source=rss
+                https://garrit.xyz/posts/2021-10-04-server-side-caching-with-apollo-graphql?utm_source=rss
             </link>
-    
-            <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Mon, 04 Oct 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I recently implemented server-side caching for one of our applications at work.
+                <![CDATA[<p>I recently implemented server-side caching for one of our applications at work.
 This guide tries to document that I&#39;ve learned. It assumes that you are using
 an apollo server of version 3 or higher.</p>
 
@@ -2344,15 +2464,18 @@ individual users, you might also want to take a look at client-side caching via
 <p>This is post 020 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Finally fixing that annoying Cron gotcha</title>
+        <item>
+            <title>
+                Finally fixing that annoying Cron gotcha
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-09-13-fixing-an-annoying-cron-gotcha?utm_source=rss
+                https://garrit.xyz/posts/2021-09-13-fixing-an-annoying-cron-gotcha?utm_source=rss
             </link>
-    
-            <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Mon, 13 Sep 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>A while ago I went through my server and reworked my <a href="/posts/2021-02-07-storage-setup">storage
+                <![CDATA[<p>A while ago I went through my server and reworked my <a href="/posts/2021-02-07-storage-setup">storage
 setup</a>. As discribed in that blog post, I set
 up daily backups to <a href="https://www.backblaze.com/b2/cloud-storage.html">Backblaze
 B2</a> using their amazing CLI
@@ -2388,15 +2511,18 @@ about this. Have a great day!</p>
 <p>This is post 019 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Fun with Pen and Paper: Race Cars</title>
+        <item>
+            <title>
+                Fun with Pen and Paper: Race Cars
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-08-08-fun-with-pen-and-paper-race-cars?utm_source=rss
+                https://garrit.xyz/posts/2021-08-08-fun-with-pen-and-paper-race-cars?utm_source=rss
             </link>
-    
-            <pubDate>Sun, 08 Aug 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Sun, 08 Aug 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I recently came across some fun games that can be played using nothing but a
+                <![CDATA[<p>I recently came across some fun games that can be played using nothing but a
 pen and some paper. One of those games was called &quot;Race Cars&quot; and I wondered
 how on earth you would play a racing game on paper, and the answer is: simple
 math!</p>
@@ -2456,15 +2582,18 @@ dimension? The sky is the limit. Get out there and be creative.</p>
 <p>This is post 018 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Docker healthchecks using healthchecks.io</title>
+        <item>
+            <title>
+                Docker healthchecks using healthchecks.io
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-05-15-healthchecks-io-with-docker?utm_source=rss
+                https://garrit.xyz/posts/2021-05-15-healthchecks-io-with-docker?utm_source=rss
             </link>
-    
-            <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Sat, 15 May 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I&#39;m currently in the midst of improving the monitoring of my infrastructure. I
+                <![CDATA[<p>I&#39;m currently in the midst of improving the monitoring of my infrastructure. I
 make heavy use of docker and docker-compose for my hosting, so it&#39;s vital to add
 monitoring for most of the containers.</p>
 
@@ -2525,15 +2654,18 @@ via Matrix or email!</p>
 <p>This is post 017 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>A pretty good guide to pretty good privacy</title>
+        <item>
+            <title>
+                A pretty good guide to pretty good privacy
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-04-07-pgp-guide?utm_source=rss
+                https://garrit.xyz/posts/2021-04-07-pgp-guide?utm_source=rss
             </link>
-    
-            <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Wed, 07 Apr 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>In the past week, I&#39;ve been experimenting with PGP, or GPG in particular. In a nutshell, PGP is an encryption standard with a wide range of use cases. For quite some time, I didn&#39;t see the point of keeping a PGP keypair. It seemed like a burden to securely keep track of the key(s). Once you loose it, you will loose the trust of others. But after doing some research on the topic, I found that it&#39;s not actually that much of a hassle, while giving you many benefits.</p>
+                <![CDATA[<p>In the past week, I&#39;ve been experimenting with PGP, or GPG in particular. In a nutshell, PGP is an encryption standard with a wide range of use cases. For quite some time, I didn&#39;t see the point of keeping a PGP keypair. It seemed like a burden to securely keep track of the key(s). Once you loose it, you will loose the trust of others. But after doing some research on the topic, I found that it&#39;s not actually that much of a hassle, while giving you many benefits.</p>
 
 <h1>The Why</h1>
 
@@ -2765,15 +2897,18 @@ gpg --export-ssh-key foo@bar.com
 <p>This is post 016 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Git's built-in lifesaver</title>
+        <item>
+            <title>
+                Git's built-in lifesaver
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-03-13-git-builtin-lifesaver?utm_source=rss
+                https://garrit.xyz/posts/2021-03-13-git-builtin-lifesaver?utm_source=rss
             </link>
-    
-            <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Sat, 13 Mar 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Everyone was in this situation at some point. You wasted a days worth of work by accidentally deleting a branch. But, all hope is not lost! Git never forgets.</p>
+                <![CDATA[<p>Everyone was in this situation at some point. You wasted a days worth of work by accidentally deleting a branch. But, all hope is not lost! Git never forgets.</p>
 
 <p>Every action, be it committing changes, deleting or switching branches, is noted down by Git. To see your latest actions, you can simply run <code>git reflog</code> (It&#39;s pronounced <code>ref-log</code> but <code>re-flog</code> sounds just as reasonable):</p>
 
@@ -2798,15 +2933,18 @@ git checkout -b &lt;branch&gt; &lt;sha&gt;
 <p>This is post 015 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Strategies to use a terminal alongside (Neo)Vim</title>
+        <item>
+            <title>
+                Strategies to use a terminal alongside (Neo)Vim
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-02-24-vim-terminal-strategies?utm_source=rss
+                https://garrit.xyz/posts/2021-02-24-vim-terminal-strategies?utm_source=rss
             </link>
-    
-            <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Tue, 23 Feb 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>One thing that bothered me about vim for a long time, was the lack of a terminal
+                <![CDATA[<p>One thing that bothered me about vim for a long time, was the lack of a terminal
 directly in your editor. If I&#39;m not using Vim, I&#39;m most definetely using VSCode
 and its built-in Terminal. After searching the webs for possible solutions, I
 came across a couple of strategies to achive this.</p>
@@ -2857,15 +2995,18 @@ might be interested in
 <p>This is post 014 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Writing good changelogs</title>
+        <item>
+            <title>
+                Writing good changelogs
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-02-20-changelogs?utm_source=rss
+                https://garrit.xyz/posts/2021-02-20-changelogs?utm_source=rss
             </link>
-    
-            <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Sat, 20 Feb 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Today, I finally added a proper changelog to <a href="https://github.com/garritfra/sabre/blob/master/CHANGELOG.md">my current project</a>. My obvious first step was to search the web for <code>changelog.md</code>, since that&#39;s the naming convention many projects are using for their changelog. I was surprised that I was immediately redirected to &quot;<a href="https://changelog.md">changelog.md</a>&quot;, since it is a valid domain name. This website is a great guide on the essense of a good changelog. This is also where I got most of my findings from. Let me walk you through some of the most important ones:</p>
+                <![CDATA[<p>Today, I finally added a proper changelog to <a href="https://github.com/garritfra/sabre/blob/master/CHANGELOG.md">my current project</a>. My obvious first step was to search the web for <code>changelog.md</code>, since that&#39;s the naming convention many projects are using for their changelog. I was surprised that I was immediately redirected to &quot;<a href="https://changelog.md">changelog.md</a>&quot;, since it is a valid domain name. This website is a great guide on the essense of a good changelog. This is also where I got most of my findings from. Let me walk you through some of the most important ones:</p>
 
 <h2>Changelogs are a vital part of every serious project</h2>
 
@@ -2947,15 +3088,18 @@ git tag -a v0.2.0 -m &quot;$(git shortlog v0.1.5..HEAD)&quot;
 <p>This is post 013 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Flutter Web - the Good, the Bad and the Ugly</title>
+        <item>
+            <title>
+                Flutter Web - the Good, the Bad and the Ugly
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-02-17-notes-on-flutter-web?utm_source=rss
+                https://garrit.xyz/posts/2021-02-17-notes-on-flutter-web?utm_source=rss
             </link>
-    
-            <pubDate>Wed, 17 Feb 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Wed, 17 Feb 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>These are some notes I took for the evaluation of Flutter web for a potential project at work. I decided to build a frontend for <a href="https://miniflux.app/">Miniflux</a>, since I figured it may enclose many pitfalls an application could potentially have. You can find the current prototype <a href="https://github.com/garritfra/FlutterFlux">here</a>.</p>
+                <![CDATA[<p>These are some notes I took for the evaluation of Flutter web for a potential project at work. I decided to build a frontend for <a href="https://miniflux.app/">Miniflux</a>, since I figured it may enclose many pitfalls an application could potentially have. You can find the current prototype <a href="https://github.com/garritfra/FlutterFlux">here</a>.</p>
 
 <h2>The Good</h2>
 
@@ -2984,15 +3128,18 @@ git tag -a v0.2.0 -m &quot;$(git shortlog v0.1.5..HEAD)&quot;
 <p>This is post 012 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Thoughts after 10 Days of 100DaysToOffload</title>
+        <item>
+            <title>
+                Thoughts after 10 Days of 100DaysToOffload
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-02-11-10-percent-100daystooffload?utm_source=rss
+                https://garrit.xyz/posts/2021-02-11-10-percent-100daystooffload?utm_source=rss
             </link>
-    
-            <pubDate>Thu, 11 Feb 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Thu, 11 Feb 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Coming into this, I didn&#39;t know what to expect. I&#39;m not a huge writer, but so far I am pleasantly surprised about how relaxing this challenge is.</p>
+                <![CDATA[<p>Coming into this, I didn&#39;t know what to expect. I&#39;m not a huge writer, but so far I am pleasantly surprised about how relaxing this challenge is.</p>
 
 <p>At first glance, writing a blog post every 3-5 days seems daunting. But the more I write, the more it becomes an enjoyable habit. I&#39;m oftentimes looking forward to writing these posts. Whenever I have something on my mind, I jot it down without a plan or structure. And that&#39;s exactly the point of <a href="https://100daystooffload.com/">#100DaysToOffload</a>: <strong>Just. Write.</strong></p>
 
@@ -3003,15 +3150,18 @@ git tag -a v0.2.0 -m &quot;$(git shortlog v0.1.5..HEAD)&quot;
 <p>This is post 011 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>My storage setup (Feburary 2021)</title>
+        <item>
+            <title>
+                My storage setup (Feburary 2021)
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-02-07-storage-setup?utm_source=rss
+                https://garrit.xyz/posts/2021-02-07-storage-setup?utm_source=rss
             </link>
-    
-            <pubDate>Sun, 07 Feb 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Sun, 07 Feb 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I used to rely on Google Drive and Photos to store my entire data. Now, that <a href="https://blog.google/products/photos/storage-changes/">Google has decided to ditch unlimited photo storage in the near future</a> and Google basically being the devil himself, I decided to step up my game and get my hands dirty on a DIY storage solution.</p>
+                <![CDATA[<p>I used to rely on Google Drive and Photos to store my entire data. Now, that <a href="https://blog.google/products/photos/storage-changes/">Google has decided to ditch unlimited photo storage in the near future</a> and Google basically being the devil himself, I decided to step up my game and get my hands dirty on a DIY storage solution.</p>
 
 <h2>The goal</h2>
 
@@ -3050,15 +3200,18 @@ git tag -a v0.2.0 -m &quot;$(git shortlog v0.1.5..HEAD)&quot;
 <p>This is post 010 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Notes about BEM (Block Element Modifier)</title>
+        <item>
+            <title>
+                Notes about BEM (Block Element Modifier)
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-02-02-bem-methodology?utm_source=rss
+                https://garrit.xyz/posts/2021-02-02-bem-methodology?utm_source=rss
             </link>
-    
-            <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Tue, 02 Feb 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>In the coming weeks, months and years, I will be working on frontend-development as part of my dayjob. These are some personal notes I took during my research about the BEM methodology. If you want to read the official introduction, you should visit <a href="http://getbem.com/">their website</a>.</p>
+                <![CDATA[<p>In the coming weeks, months and years, I will be working on frontend-development as part of my dayjob. These are some personal notes I took during my research about the BEM methodology. If you want to read the official introduction, you should visit <a href="http://getbem.com/">their website</a>.</p>
 
 <h1>Overview - What is BEM?</h1>
 
@@ -3124,15 +3277,18 @@ git tag -a v0.2.0 -m &quot;$(git shortlog v0.1.5..HEAD)&quot;
 <p>This is post 009 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>From sudo to doas</title>
+        <item>
+            <title>
+                From sudo to doas
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-01-29-sudo-to-doas?utm_source=rss
+                https://garrit.xyz/posts/2021-01-29-sudo-to-doas?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 29 Jan 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 29 Jan 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>You might have heard that there is currently <a href="https://www.qualys.com/2021/01/26/cve-2021-3156/baron-samedit-heap-based-overflow-sudo.txt">a pretty significant vulnerability</a> affecting <code>sudo</code>, the program we all know and love. It is the de facto standard for when you want to run a command as a priviledged user, but that&#39;s really it. Under the hood, sudo is a very powerful tool with a lot of features. It can be used to build out complex permission-systems that span across entire clusters of servers. But all of these features come at a price: <strong>complexity</strong>. Last time I checked, the <a href="https://www.sudo.ws/repos/sudo">source code</a> of sudo had about 330k lines of code (using cloc as a benchmark). This massive complexity plays a large role in its security.</p>
+                <![CDATA[<p>You might have heard that there is currently <a href="https://www.qualys.com/2021/01/26/cve-2021-3156/baron-samedit-heap-based-overflow-sudo.txt">a pretty significant vulnerability</a> affecting <code>sudo</code>, the program we all know and love. It is the de facto standard for when you want to run a command as a priviledged user, but that&#39;s really it. Under the hood, sudo is a very powerful tool with a lot of features. It can be used to build out complex permission-systems that span across entire clusters of servers. But all of these features come at a price: <strong>complexity</strong>. Last time I checked, the <a href="https://www.sudo.ws/repos/sudo">source code</a> of sudo had about 330k lines of code (using cloc as a benchmark). This massive complexity plays a large role in its security.</p>
 
 <p>Luckily, there is a <strong>far</strong> more lightweight alternative to sudo called <a href="https://github.com/Duncaen/OpenDoas.git">doas</a>. It essentially does all the things you&#39;d expect from sudo for your average end user. Doas is written in just over 3k lines of code, which, if you think of it, should be more than enough to provide a tool that executes a command as a priviledged user.</p>
 
@@ -3181,15 +3337,18 @@ permit nopass alice as root
 <p>This is post 008 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Using Macros in Vim</title>
+        <item>
+            <title>
+                Using Macros in Vim
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-01-26-vim-macros?utm_source=rss
+                https://garrit.xyz/posts/2021-01-26-vim-macros?utm_source=rss
             </link>
-    
-            <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Tue, 26 Jan 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>For a long time, macros in Vim were a huge mystery for me. I knew they existed, but I didn&#39;t know how or why you&#39;d use them. A recent task of mine involved replacing the unsafe operator (<code>!!</code>) in a large kotlin codebase with a null-safe operator (<code>?</code>). This game me a good opportunity to learn about macros. This is a snippet I encountered numerous times:</p>
+                <![CDATA[<p>For a long time, macros in Vim were a huge mystery for me. I knew they existed, but I didn&#39;t know how or why you&#39;d use them. A recent task of mine involved replacing the unsafe operator (<code>!!</code>) in a large kotlin codebase with a null-safe operator (<code>?</code>). This game me a good opportunity to learn about macros. This is a snippet I encountered numerous times:</p>
 
 <p><code>kt
 mLeftButton!!.text = &quot;Left&quot;
@@ -3250,15 +3409,18 @@ mRightButton?.visibility = View.VISIBLE
 <p>This is post 007 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Signal-to-Noise, or why nobody cares about your GitHub project</title>
+        <item>
+            <title>
+                Signal-to-Noise, or why nobody cares about your GitHub project
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-01-23-signal-to-noise?utm_source=rss
+                https://garrit.xyz/posts/2021-01-23-signal-to-noise?utm_source=rss
             </link>
-    
-            <pubDate>Sat, 23 Jan 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Sat, 23 Jan 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>For a very long time, the thought of leaving GitHub and moving to another platform daunted me. Having more users on one platforms means that more people will contribute to my project, right? Wrong.</p>
+                <![CDATA[<p>For a very long time, the thought of leaving GitHub and moving to another platform daunted me. Having more users on one platforms means that more people will contribute to my project, right? Wrong.</p>
 
 <p>The problem with GitHub is that there&#39;s a lot of things going on around you. How many times have you discovered a cool project on GitHub, starred it and never heard from it again? In essence, this is the same phenomenon as with modern social media. A bombardment of positive stimulants makes the user crave for more, letting them forget about previously consumed content. Sure, if you just want to get your code out there, GitHub might be a great place, but if you are just starting out as a developer and you&#39;re looking for contributers and feedback, you will probably be very bummed to find out that nobody cares about your work. Many developers are using the platform because other developers are using it. Your project on GitHub is a drop in an ocean of other projects.</p>
 
@@ -3269,15 +3431,18 @@ mRightButton?.visibility = View.VISIBLE
 <p>This is post 006 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>6 reasons the Fediverse is better than regular social media</title>
+        <item>
+            <title>
+                6 reasons the Fediverse is better than regular social media
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-01-18-reasons-the-fediverse-is-better?utm_source=rss
+                https://garrit.xyz/posts/2021-01-18-reasons-the-fediverse-is-better?utm_source=rss
             </link>
-    
-            <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Mon, 18 Jan 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Social media sucks. Platforms like Twitter, Facebook and Instagram are designed to turn your precious free time into money. What we see as a nice way to stay in touch with our friends, in reality are just many hits of dopamine stimulating precise spots in your brain, leading to you spending more time on the platform consuming ads.</p>
+                <![CDATA[<p>Social media sucks. Platforms like Twitter, Facebook and Instagram are designed to turn your precious free time into money. What we see as a nice way to stay in touch with our friends, in reality are just many hits of dopamine stimulating precise spots in your brain, leading to you spending more time on the platform consuming ads.</p>
 
 <p>But what if I told you that there is a huge ad-free social network out there, not governed by a central authority, full of great people and completely free to use? This place is called the fediverse. Well, it&#39;s not really <strong>a</strong> place, it&#39;s many places.</p>
 
@@ -3336,15 +3501,18 @@ mRightButton?.visibility = View.VISIBLE
 <p>This is post 005 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Compiling your own kernel</title>
+        <item>
+            <title>
+                Compiling your own kernel
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-01-15-compiling-your-own-kernel?utm_source=rss
+                https://garrit.xyz/posts/2021-01-15-compiling-your-own-kernel?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 15 Jan 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 15 Jan 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>I&#39;m currently in the midst of fiddling around with the kernel a bit, and I figured I just documented my process a bit. Unfortunately, since I&#39;m using a Mac for day to day work, I have to rely on a virtual machine to run anything Linux-related. VirtualBox doesn&#39;t support the most recent kernels (5.9 is the most recent supported one), so there won&#39;t be any cutting-edge development happening here. I decided to use ubuntu as my guest system, since it&#39;s very easy to set up.</p>
+                <![CDATA[<p>I&#39;m currently in the midst of fiddling around with the kernel a bit, and I figured I just documented my process a bit. Unfortunately, since I&#39;m using a Mac for day to day work, I have to rely on a virtual machine to run anything Linux-related. VirtualBox doesn&#39;t support the most recent kernels (5.9 is the most recent supported one), so there won&#39;t be any cutting-edge development happening here. I decided to use ubuntu as my guest system, since it&#39;s very easy to set up.</p>
 
 <p>So, the first step is to get the sources. You could simply go ahead and download a specific release from <a href="https://kernel.org/">kernel.org</a>, but since I want to hack on it, I decided to go the git-route. Simply download the sources from <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/">their repo</a> and check out the tag you want to build.</p>
 
@@ -3397,15 +3565,18 @@ sudo update-grub2
 <p>This is post 004 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>I joined the 512KB club</title>
+        <item>
+            <title>
+                I joined the 512KB club
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-01-13-512kb-club?utm_source=rss
+                https://garrit.xyz/posts/2021-01-13-512kb-club?utm_source=rss
             </link>
-    
-            <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Wed, 13 Jan 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>JavaScript rules the web, literally. In fact, this website is built with JavaScript (Next.js). I recently started to think about if I really needed this much overhead for a simple site like this. After all, I don&#39;t have any fancy user interaction features or complex animation that would justify the JavaScript on this page.</p>
+                <![CDATA[<p>JavaScript rules the web, literally. In fact, this website is built with JavaScript (Next.js). I recently started to think about if I really needed this much overhead for a simple site like this. After all, I don&#39;t have any fancy user interaction features or complex animation that would justify the JavaScript on this page.</p>
 
 <p>There is a new (no, not that new) philosophy called <a href="https://leanweb.dev/">the lean web</a>. It essentially tries to keep websites tiny and semantically correct. This has many benefits, ranging from less pollution generated by your site to improved SEO, since many search engines favor a semantically correct website over a site that abuses JavaScript to mimic the features, that are baked into html anyway.</p>
 
@@ -3418,15 +3589,34 @@ sudo update-grub2
 <p>This is post 003 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Are humans still evolving?</title>
+        <item>
+            <title>
+                100DaysToOffload
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-01-11-are-humans-still-evolving?utm_source=rss
+                https://garrit.xyz/posts/2021-01-11-100daystooffload?utm_source=rss
             </link>
-    
-            <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Mon, 11 Jan 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>This is by no means a scientifically accurate article. These are my thoughts, and I&#39;d be happy to discuss this topic. Take it with a grain of salt.</p>
+                <![CDATA[<p>For some time now, I&#39;ve seen this #100DaysToOffload hashtag on my social medias. I knew that it was some kind of writing challenge, but I never thought about taking part in it. Since I recently started to blog more frequently though, I think this challenge could be very beneficial to my writing skills, and just jotting my thoughts down in general. So, starting with this entry, I will try to publish 100 (hopefully) useful posts on this blog within one year. My &quot;deadline&quot; for this will be January 11, 2022. I will post every entry to <a href="https://fosstodon.org/@garritfra">my mastodon account</a>.</p>
+
+<p>This is post 001 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Are humans still evolving?
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-01-11-are-humans-still-evolving?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 11 Jan 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>This is by no means a scientifically accurate article. These are my thoughts, and I&#39;d be happy to discuss this topic. Take it with a grain of salt.</p>
 
 <p>Evolution builds upon natural selection. With every generation of a species, there is a slight chance of mutation, possibly giving an individual advantages or disadvantages in the ability to survive and give offspring. Somewhere way up in our evolutionary tree, a microbe might have mutated a gene that allowed it expand and retract a part of its body. As it turns out, this proves useful in fleeing from predators, while other individuals of this species might fall prey on their first day. The microbe has a slightly larger chance to survive and give offspring. On the other hand, mutations might also result in a fatal illness (cancer, in other words). Oftentimes, this individual does not survive long enough to give offspring.</p>
 
@@ -3437,56 +3627,52 @@ sudo update-grub2
 <p>This is post 002 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
-          <item>
-            <title>100DaysToOffload</title>
+        <item>
+            <title>
+                I closed my Facebook account, and you should too
+            </title>
             <link>
-              https://garrit.xyz/posts/2021-01-11-100daystooffload?utm_source=rss
+                https://garrit.xyz/posts/2021-01-07-delete-facebook?utm_source=rss
             </link>
-    
-            <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
+            <pubDate>
+                Thu, 07 Jan 2021 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>For some time now, I&#39;ve seen this #100DaysToOffload hashtag on my social medias. I knew that it was some kind of writing challenge, but I never thought about taking part in it. Since I recently started to blog more frequently though, I think this challenge could be very beneficial to my writing skills, and just jotting my thoughts down in general. So, starting with this entry, I will try to publish 100 (hopefully) useful posts on this blog within one year. My &quot;deadline&quot; for this will be January 11, 2022. I will post every entry to <a href="https://fosstodon.org/@garritfra">my mastodon account</a>.</p>
-
-<p>This is post 001 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-          <item>
-            <title>I closed my Facebook account, and you should too</title>
-            <link>
-              https://garrit.xyz/posts/2021-01-07-delete-facebook?utm_source=rss
-            </link>
-    
-            <pubDate>Thu, 07 Jan 2021 00:00:00 +0000</pubDate>
-            <description>
-            <![CDATA[<p>I know I should have done this a while ago, but with ever-increasing scandals about data privacy surrounding Facebook, I finally decided to get rid of it.</p>
+                <![CDATA[<p>I know I should have done this a while ago, but with ever-increasing scandals about data privacy surrounding Facebook, I finally decided to get rid of it.</p>
 
 <p>I haven&#39;t used the service in a long time anyway, but I always told myself &quot;what if I needed the data later?&quot;, or &quot;what if a friend contacted me, and I didn&#39;t respond?&quot;, &quot;what if I missed the birthday of someone I&#39;m close with?!&quot;. Well, according to my facebook inbox, the only messages I received lately were some random links from people I&#39;m not really in touch with anymore. Birthdays? Do you think someone you haven&#39;t talked to in over three years will get mad at you, for forgetting their birthday? And regarding your data: you won&#39;t loose it! <a href="https://www.facebook.com/help/212802592074644">This guide</a> describes how you can download a copy of your data as html and/or json.</p>
 
 <p>Go ahead and ask yourself: Is there anything holding you back from deleting your Facebook account? What would you loose? How often do you even use the service? Do the social benefits of Facebook <strong>really</strong> outweigh the negative aspects (privacy concerns, data collection, etc.)?</p>]]>
             </description>
         </item>
-          <item>
-            <title>Updates, December 2020</title>
+        <item>
+            <title>
+                Updates, December 2020
+            </title>
             <link>
-              https://garrit.xyz/posts/2020-12-18-update-december?utm_source=rss
+                https://garrit.xyz/posts/2020-12-18-update-december?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 18 Dec 2020 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>It&#39;s christmas season! I hope you and your family are safe and sound. My main focus this month is to expand my knowledge about compilers, by <a href="https://sr.ht/~garritfra/sabre/">building one from scratch</a>. It&#39;s a compiler for a very simple language, but it gets the job done. So far, you can write <a href="https://git.sr.ht/~garritfra/sabre/tree/master/examples">simple algorithms</a>, and compile them to JavaScript. A more sophisticated C backend is in development, but I still need a plan for expanding the target-specific builtin functions to provide more features in the standard library. An important topic at the moment is the <a href="https://garritfra.github.io/sabre/">documentation of the project</a>. Since the compiler itself has gotten relatively stable, all the language-features now need to be captured and written down. There is also a <a href="https://garritfra.github.io/sabre/developers/contributing.html">contributing guide</a>, if you want to help out, or want to get into compiler design.</p>
+                <![CDATA[<p>It&#39;s christmas season! I hope you and your family are safe and sound. My main focus this month is to expand my knowledge about compilers, by <a href="https://sr.ht/~garritfra/sabre/">building one from scratch</a>. It&#39;s a compiler for a very simple language, but it gets the job done. So far, you can write <a href="https://git.sr.ht/~garritfra/sabre/tree/master/examples">simple algorithms</a>, and compile them to JavaScript. A more sophisticated C backend is in development, but I still need a plan for expanding the target-specific builtin functions to provide more features in the standard library. An important topic at the moment is the <a href="https://garritfra.github.io/sabre/">documentation of the project</a>. Since the compiler itself has gotten relatively stable, all the language-features now need to be captured and written down. There is also a <a href="https://garritfra.github.io/sabre/developers/contributing.html">contributing guide</a>, if you want to help out, or want to get into compiler design.</p>
 
 <p>Stay home and stay safe!</p>]]>
             </description>
         </item>
-          <item>
-            <title>Booleans are wasted memory</title>
+        <item>
+            <title>
+                Booleans are wasted memory
+            </title>
             <link>
-              https://garrit.xyz/posts/2020-11-17-booleans-are-wasted-memory?utm_source=rss
+                https://garrit.xyz/posts/2020-11-17-booleans-are-wasted-memory?utm_source=rss
             </link>
-    
-            <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
+            <pubDate>
+                Tue, 17 Nov 2020 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>A boolean is either <code>true</code> or <code>false</code>. That translates to <code>1</code> or <code>0</code>. If you think that one bit is enough to store this information, you&#39;d be wrong.</p>
+                <![CDATA[<p>A boolean is either <code>true</code> or <code>false</code>. That translates to <code>1</code> or <code>0</code>. If you think that one bit is enough to store this information, you&#39;d be wrong.</p>
 
 <p>In order to keep the binary layout of a program simple and convenient, most languages store information in 8 bit (1 byte) blocks.
 If you allocate a <code>bool</code> in Rust or (most) other languages that are based on LLVM, <a href="https://llvm.org/docs/LangRef.html#simple-constants">it will take up 1 <code>i1</code>, or 1 byte of memory</a>. If you allocate a boolean value in C, you will get <a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/stdbool.h.html">an integer constant with a value of either 1 or 0</a>.</p>
@@ -3569,15 +3755,18 @@ if (permissions &amp; PERM_EXECUTE)
 <ul><li>Be mindful about the software you create.</li><li>Appreciate the resources at your disposal.</li></ul>]]>
             </description>
         </item>
-          <item>
-            <title>Updates, November 2020</title>
+        <item>
+            <title>
+                Updates, November 2020
+            </title>
             <link>
-              https://garrit.xyz/posts/2020-11-06-current-doings?utm_source=rss
+                https://garrit.xyz/posts/2020-11-06-current-doings?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 06 Nov 2020 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 06 Nov 2020 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Hi, I wanted to share some things I&#39;m currently working on. Maybe I&#39;ll turn this into a monthly thing, who knows. :)</p>
+                <![CDATA[<p>Hi, I wanted to share some things I&#39;m currently working on. Maybe I&#39;ll turn this into a monthly thing, who knows. :)</p>
 
 <p>One major goal I set for myself in the upcoming months is to build a SaaS for freelancers. Some features of this will include handling clients, projects and expenses. A thing I&#39;m struggeling with right now it to find a lightweight way to host it. It is currently deployable through docker containers, but I am not 100% satisfied with my current setup. I will give some updates on this in the future. I aim to release a very early alpha version for free soon, so that some people can stress test it extensively. For now, you can of course self-host it. I really don&#39;t want to impose subscription fees for it&#39;s users, but I will see how it goes. You can find the source code for it <a href="https://github.com/garritfra/omega-crm">here</a>.</p>
 
@@ -3585,15 +3774,18 @@ if (permissions &amp; PERM_EXECUTE)
 If you are interested in this project, I highly recommend to check out the <a href="https://gemini.circumlunar.space/docs/specification.html">gemini specification</a>, and play around with some geminispaces. Maybe you could set up a server for yourself?</p>]]>
             </description>
         </item>
-          <item>
-            <title>Introducing my new blog - slashdev.space</title>
+        <item>
+            <title>
+                Introducing my new blog - slashdev.space
+            </title>
             <link>
-              https://garrit.xyz/posts/introducing-slashdev-space?utm_source=rss
+                https://garrit.xyz/posts/introducing-slashdev-space?utm_source=rss
             </link>
-    
-            <pubDate>Thu, 08 Oct 2020 00:00:00 +0000</pubDate>
+            <pubDate>
+                Thu, 08 Oct 2020 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Hi! Welcome to the new home of my blog. Let me give you a small tour of why I built it, its underlying architecture and my ambitions with this project.</p>
+                <![CDATA[<p>Hi! Welcome to the new home of my blog. Let me give you a small tour of why I built it, its underlying architecture and my ambitions with this project.</p>
 
 <p>My old blog was based on <a href="https://www.gatsbyjs.com/">Gatsby.js</a>, a static site generator built on React. Back then, I used a quick and dirty blogging template I stole from the Gatsby themes page. Gatsby themes are essentially npm packages, that you throw in your project as a dependency. While it was super easy to set up, I had a hard time configuring it to my likings, since I relied on a framework someone else has provided.</p>
 
@@ -3650,15 +3842,18 @@ return data;</code></pre>
 <p>Let me know if there is anything that you miss on this blog. Searchable posts? Dark-mode? This is only the beginning of /dev.space!</p>]]>
             </description>
         </item>
-          <item>
-            <title>The Patch-Based Git Workflow</title>
+        <item>
+            <title>
+                The Patch-Based Git Workflow
+            </title>
             <link>
-              https://garrit.xyz/posts/patch-based-git-workflow?utm_source=rss
+                https://garrit.xyz/posts/patch-based-git-workflow?utm_source=rss
             </link>
-    
-            <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
+            <pubDate>
+                Mon, 28 Sep 2020 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>If you have ever contributed to an open source project, chances are you have opened a pull request on GitHub or a similar platform to present your code to the maintainers. While this is a very approachable way of getting your code reviewed, some projects have decided against using pull requests and instead accept patches via email.</p>
+                <![CDATA[<p>If you have ever contributed to an open source project, chances are you have opened a pull request on GitHub or a similar platform to present your code to the maintainers. While this is a very approachable way of getting your code reviewed, some projects have decided against using pull requests and instead accept patches via email.</p>
 
 <h2>An introduction to patches</h2>
 
@@ -3717,15 +3912,18 @@ git am &lt; 0001-first-change.patch
 <p>The patch-based workflow is an alternative way to collaborate with developers. If it helps you in your day to day business depends on the projects you are contributing to, but in the end it is always good to have many tools under your belt.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Quick Tip! Setting up a lightweight Server-Client VPN with wireguard</title>
+        <item>
+            <title>
+                Quick Tip! Setting up a lightweight Server-Client VPN with wireguard
+            </title>
             <link>
-              https://garrit.xyz/posts/lightweight-vpn-with-wireguard?utm_source=rss
+                https://garrit.xyz/posts/lightweight-vpn-with-wireguard?utm_source=rss
             </link>
-    
-            <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
+            <pubDate>
+                Wed, 19 Aug 2020 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>This blog post has been taken over from my <a href="https://garrit.xyz/til">collection of &quot;Today I Learned&quot; articles</a>.</p>
+                <![CDATA[<p>This blog post has been taken over from my <a href="https://garrit.xyz/til">collection of &quot;Today I Learned&quot; articles</a>.</p>
 
 <p>You can easily set up a private network of your devices. This way you can &quot;talk&quot; to your phone, raspberry pi etc. over an <strong>encrypted</strong> network, with simple IP-addresses.</p>
 
@@ -3808,15 +4006,18 @@ PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
 <ul><li><a href="https://www.wireguard.com/">Official Documentation</a></li><li><a href="https://www.stavros.io/posts/how-to-configure-wireguard/">https://www.stavros.io/posts/how-to-configure-wireguard/</a></li></ul>]]>
             </description>
         </item>
-          <item>
-            <title>Whom do you trust?</title>
+        <item>
+            <title>
+                Whom do you trust?
+            </title>
             <link>
-              https://garrit.xyz/posts/whom-do-you-trust?utm_source=rss
+                https://garrit.xyz/posts/whom-do-you-trust?utm_source=rss
             </link>
-    
-            <pubDate>Tue, 17 Mar 2020 00:00:00 +0000</pubDate>
+            <pubDate>
+                Tue, 17 Mar 2020 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Nowadays, password managers are a necessity if you care even the slightest about your personal belongings on the interwebs. But think about it, do you really want to trust another company to store your most sensitive information?</p>
+                <![CDATA[<p>Nowadays, password managers are a necessity if you care even the slightest about your personal belongings on the interwebs. But think about it, do you really want to trust another company to store your most sensitive information?</p>
 
 <p><img alt="" src="https://images.unsplash.com/photo-1522251670181-320150ad6dab?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2566&amp;q=80"/></p>
 
@@ -3853,15 +4054,18 @@ PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
 <p>Being a little privacy nerd myself, I often think twice about what services I want to use, often even looking into self-hosted alternatives to major products. There are multiple products that offer self hosted solutions to store your passwords, however I also don&#39;t even trust <em>myself</em> with such sensitive data either. LessPass eliminates the need to have a third party watch over your data, let alone to store it on their servers.</p>]]>
             </description>
         </item>
-          <item>
-            <title>Quick Tip! Sharing terminal output with Termbin</title>
+        <item>
+            <title>
+                Quick Tip! Sharing terminal output with Termbin
+            </title>
             <link>
-              https://garrit.xyz/posts/quick-tip-terminal-pastebin?utm_source=rss
+                https://garrit.xyz/posts/quick-tip-terminal-pastebin?utm_source=rss
             </link>
-    
-            <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+            <pubDate>
+                Tue, 31 Dec 2019 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Ever find yourself in a situation where you simply want to save or share the output of a terminal command? Selecting, copying and pasting text from stdout always feels quite tedious, if you just want to share the contents of a file.</p>
+                <![CDATA[<p>Ever find yourself in a situation where you simply want to save or share the output of a terminal command? Selecting, copying and pasting text from stdout always feels quite tedious, if you just want to share the contents of a file.</p>
 
 <p>A project called <a href="https://termbin.com/">Termbin</a> tries to simplify this process. Just pipe the command you want to save to the following url on port <code>9999</code>, using Netcat:</p>
 
@@ -3886,15 +4090,18 @@ https://termbin.com/faos
 <p>Happy Pasting!✨</p>]]>
             </description>
         </item>
-          <item>
-            <title>Testing isn't hard</title>
+        <item>
+            <title>
+                Testing isn't hard
+            </title>
             <link>
-              https://garrit.xyz/posts/testing-isnt-hard?utm_source=rss
+                https://garrit.xyz/posts/testing-isnt-hard?utm_source=rss
             </link>
-    
-            <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
+            <pubDate>
+                Fri, 08 Nov 2019 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>&quot;I write two tests before implementing a method&quot;, &quot;My project has 90% coverage&quot;.</p>
+                <![CDATA[<p>&quot;I write two tests before implementing a method&quot;, &quot;My project has 90% coverage&quot;.</p>
 
 <p>I don&#39;t know about you, but that&#39;s something I don&#39;t hear very often. But why is that?</p>
 
@@ -4013,15 +4220,18 @@ Ran all test suites.
 <p>I have prepared a <a href="https://github.com/garritfra/react-parcel-boilerplate">template repository</a> for building react apps. It also uses Jest to run tests, you don&#39;t have to worry about a thing! If you found this interesting, consider checking out my other blog posts, and/or check out my <a href="https://github.com/garritfra">GitHub</a>!</p>]]>
             </description>
         </item>
-          <item>
-            <title>Fighting Array Functions with ES6</title>
+        <item>
+            <title>
+                Fighting Array Functions with ES6
+            </title>
             <link>
-              https://garrit.xyz/posts/fighting-array-functions-with-es6?utm_source=rss
+                https://garrit.xyz/posts/fighting-array-functions-with-es6?utm_source=rss
             </link>
-    
-            <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
+            <pubDate>
+                Sun, 07 Apr 2019 00:00:00 +0000
+            </pubDate>
             <description>
-            <![CDATA[<p>Yesterday, I came across an interesting bug regarding JavaScript Arrays, and I wanted to share my approach to fixing it.
+                <![CDATA[<p>Yesterday, I came across an interesting bug regarding JavaScript Arrays, and I wanted to share my approach to fixing it.
 At a basic level, I wanted to pass part of an array to a function, but wanted to use the original array later on.</p>
 
 <p><code>js
@@ -4093,5 +4303,5 @@ console.log(extendedObj.field); // &quot;example&quot;
 <p>ES6 brought us awesome features like let and const assignments, as well as arrow functions. A more unknown feature however is the spread operator. I hope you now know how to use the spread operator, and that you can adopt it for cleaner and simpler code.</p>]]>
             </description>
         </item>
-        </channel>
-      </rss>
+    </channel>
+</rss>
