@@ -4,6 +4,7 @@
 
 - Finally upgraded to Next.js 13
 - Reverted using Preact, since it seems to lead to some errors with Next.js 13
+- Added custom feeds for each tag
 
 ### 2022-12-06
 
