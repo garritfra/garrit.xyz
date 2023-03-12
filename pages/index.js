@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import Snowfall from "react-snowfall";
 import matter from "gray-matter";
@@ -5,9 +6,13 @@ import gfm from "remark-gfm";
 import Page from "../components/Page";
 import BlogList from "../components/BlogList";
 
-const SSR = typeof window === "undefined";
-
 const Index = (props) => {
+	// TODO: Can this be simplified?
+	const [SSR, setSSR] = useState(true);
+	useEffect(() => {
+		setSSR(false);
+	});
+
 	const mediaQuery =
 		!SSR && window.matchMedia("(prefers-reduced-motion: reduce)");
 	const prefersReducedMotion = !mediaQuery || mediaQuery.matches;
@@ -38,7 +43,7 @@ const Index = (props) => {
 };
 
 export async function getStaticProps() {
-	const content = await import('../content/index.md');
+	const content = await import("../content/index.md");
 	const data = matter(content.default);
 
 	const posts = ((context) => {
