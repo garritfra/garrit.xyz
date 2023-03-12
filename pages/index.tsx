@@ -43,6 +43,7 @@ const Index = (props) => {
 };
 
 export async function getStaticProps() {
+	// @ts-ignore
 	const content = await import("../content/index.md");
 	const data = matter(content.default);
 
@@ -69,6 +70,7 @@ export async function getStaticProps() {
 			.sort((a, b) => (a.frontmatter.date < b.frontmatter.date ? 1 : -1))
 			.slice(0, 6);
 		return data;
+		// @ts-ignore
 	})(require.context("../content/posts", true, /\.md$/));
 
 	return {
