@@ -1,3 +1,6 @@
+import fs from "fs/promises";
+import path from "path";
+
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import Snowfall from "react-snowfall";
@@ -5,6 +8,7 @@ import matter from "gray-matter";
 import gfm from "remark-gfm";
 import Page from "../components/Page";
 import BlogList from "../components/BlogList";
+import { getPosts } from "../lib/posts";
 
 const Index = (props) => {
 	// TODO: Can this be simplified?
@@ -45,38 +49,14 @@ const Index = (props) => {
 export async function getStaticProps() {
 	// @ts-ignore
 	const content = await import("../content/index.md");
-	const data = matter(content.default);
+	const markdownBody = matter(content.default).content;
 
-	const posts = ((context) => {
-		const keys = context.keys();
-		const values = keys.map(context);
-
-		const data = keys
-			.map((key, index) => {
-				// Create slug from filename
-				const slug = key
-					.replace(/^.*[\\\/]/, "")
-					.split(".")
-					.slice(0, -1)
-					.join(".");
-				const value = values[index];
-				// Parse yaml metadata & markdownbody in document
-				const document = matter(value.default);
-				return {
-					frontmatter: document.data,
-					slug,
-				};
-			})
-			.sort((a, b) => (a.frontmatter.date < b.frontmatter.date ? 1 : -1))
-			.slice(0, 6);
-		return data;
-		// @ts-ignore
-	})(require.context("../content/posts", true, /\.md$/));
+	const posts = await getPosts();
 
 	return {
 		props: {
-			markdownBody: data.content,
-			recentPosts: posts,
+			markdownBody,
+			recentPosts: posts.splice(0, 5),
 		},
 	};
 }
