@@ -14,6 +14,10 @@ const Index = (props) => {
 					</div>
 				))}
 			</div>
+			<p>
+				Each tag also has their own RSS feed, under{" "}
+				<code>/feeds/*tag*.xml</code>
+			</p>
 		</Page>
 	);
 };
