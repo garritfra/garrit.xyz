@@ -12,6 +12,7 @@ export interface Post {
 	slug: string;
 	markdownBody: string;
 	frontmatter: PostMetadata;
+	tags: string[];
 }
 
 export const isPublicPost = (post: Post) => !post.slug.startsWith("_");
@@ -29,10 +30,14 @@ export const getPosts = async () => {
 
 		const post = matter(rawContents);
 
+		const tags: string[] =
+			post.data.tags?.split(",").map((tag: string) => tag.trim()) || [];
+
 		return {
 			slug,
 			markdownBody: post.content,
 			frontmatter: post.data as PostMetadata,
+			tags,
 		};
 	});
 

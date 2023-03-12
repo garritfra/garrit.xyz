@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import BlogList from "../../components/BlogList";
 import Page from "../../components/Page";
-import { getPosts } from "../../lib/posts";
+import { getPosts, Post } from "../../lib/posts";
 
 // TODO: Move type to .d.ts
 declare global {
@@ -18,10 +18,9 @@ const Index = (props) => {
 
 	const filteredPosts = query.tags
 		? props.posts.filter((post) =>
-				post.frontmatter.tags
-					?.split(",")
-					.map((tag) => tag.trim().toLowerCase())
-					.includes(tags.trim().toLowerCase())
+				post.tags
+					.map((tag: string) => tag.toLowerCase())
+					.includes(tags.toLowerCase())
 		  )
 		: props.posts;
 
@@ -58,6 +57,7 @@ export async function getStaticProps() {
 			posts: posts.map((post) => ({
 				frontmatter: post.frontmatter,
 				slug: post.slug,
+				tags: post.tags,
 			})),
 			description: "",
 		},
