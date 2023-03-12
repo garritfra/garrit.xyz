@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Sun, 08 Aug 2021 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                Fun with Pen and Paper: Race Cars
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-08-08-fun-with-pen-and-paper-race-cars?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 08 Aug 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I recently came across some fun games that can be played using nothing but a
+pen and some paper. One of those games was called &quot;Race Cars&quot; and I wondered
+how on earth you would play a racing game on paper, and the answer is: simple
+math!</p>
+
+<h2>The core idea</h2>
+
+<p>The goal of the game is to cross the finish line of a hand-drawn race track
+first without hitting the edge. Race cars have a velocity that can be adjusted
+each move. If you&#39;re too greedy, you will crash. If you hit the breaks too
+early, another player will win.</p>
+
+<h2>How it&#39;s played</h2>
+
+<p>We start out with a hand-drawn race track. The shape really can be anything you
+like. Just be creative!</p>
+
+<p><img alt="A race track on paper" src="/assets/paperracer/0.jpg"/></p>
+
+<p>Next, each player makes a cross on the starting line. This resembles the
+players racecar. Right now, none of the cars is moving. They have a velocity of
+0 on the x axis and 0 on the y axis.</p>
+
+<p><img alt="Two crosses on the starting line" src="/assets/paperracer/1.jpg"/></p>
+
+<p>Each move, a player can accelerate or decelerate his vehicle by 1 on any axis.
+The first move of each player is somewhat obvious. They want to accelerate
+straight forward. On our race track, that means accelerate by 1 on the y axis.</p>
+
+<p><img alt="A race car made a move" src="/assets/paperracer/2.jpg"/></p>
+
+<p>Next, we can either keep on accelerating like the red player does, or &quot;turn&quot;
+our vehicle left by changing our y velocity from 0 to -1, which gives us a
+velocity of -1, 1.</p>
+
+<p><img alt="Paper race cars after two moves" src="/assets/paperracer/3.jpg"/></p>
+
+<p>On a long stretch, the red player wants to overtake blue by keeping his foot on
+the paddle. Blue on the other hand plays it safe and hits the breaks.</p>
+
+<p><img alt="Paper race cars on a long stretch" src="/assets/paperracer/4.jpg"/></p>
+
+<p>Soon after, red realizes his mistake. Being so busy trying to turn, he&#39;s unable
+to hit the breaks. A crash is inevitable. Blue however continues to take the
+turn nice and slow. His humble mind brought him victory!</p>
+
+<p><img alt="The red player right before crashing into a wall" src="/assets/paperracer/5.jpg"/></p>
+
+<h2>It&#39;s all about fun</h2>
+
+<p>The concept of this game is very flexible. You can play it with a friend and
+see who&#39;s the fastest paper racer, or by yourself and try to beat your record.
+Getting tired of just cruising around? Introduce the concept of &quot;items&quot; that
+give you a boost or slow down the opponent (think Mario Kart!). If ordinary
+tracks are boring, try adding intersections or obstacles. Can you add a third
+dimension? The sky is the limit. Get out there and be creative.</p>
+
+<p>This is post 018 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Fri, 06 May 2022 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                Weeknote 18/2022
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-05-06-weeknote-18-2022?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 06 May 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>It&#39;s friday, my dudes! Here are some notes on what happened during my week.</p>
+
+<h2>At Work</h2>
+
+<p>I wanted to start off my week by looking into migrating our deployment workflow
+to a GitLab Agent, as described <a href="/posts/2022-04-29-weeknote-17-2022">last week</a>.
+That didn&#39;t really go well, since a database from another project bursted into
+flames (not literally) for a reason I still couldn&#39;t figure out. As a
+workaround, I just beefed up the AWS RDS instance size until we find a proper
+solution.</p>
+
+<p>While looking through the docs, I also read more about <a href="https://aws.amazon.com/de/rds/aurora/serverless/">Aurora
+Serverless</a>, which would be a
+match made in heaven, at least for this specific project. Instead of keeping
+multiple instances running even without any load, serverless automatically
+scales to as many resources as you need. This <strong>drastically</strong> improves
+performance (according to the docs it&#39;s instantaneous, but I&#39;ll have to see that
+with my own eyes), while keeping the price at a minimum. Once we&#39;re done with
+that migration, I&#39;ll probably follow up with a blog post on this.</p>
+
+<h2>Home Automation</h2>
+
+<p>We recently wanted to configure a light in our bedroom to turn on early and the
+morning, stay on for a few hours and then turn off. Same for the evening.</p>
+
+<p>Soo, I ordered two power plugs pre-flashed with
+<a href="https://tasmota.github.io/docs/">Tasmota</a> and yanked HomeAssistant onto an old
+Pi. The plugs came as a pair, so I automated another light in our home. I think
+this will be the beginning of a deep deep rabbit hole.</p>
+
+<p>We&#39;ll be moving to a new flat soon, where humidity is higher than usual. I&#39;m
+thinking to monitor this and react with some counter-measures, like air filters.
+Sky is the limit, really. More to follow...</p>
+
+<h2>Motorbike Maintenance</h2>
+
+<p>I was long due to dust off my motorbike, but I finally did. Also, I did my first
+oil change on a vehicle <strong>ever</strong>!</p>
+
+<p><img alt="Motorbike oil change" src="/assets/posts/2022-05-06-weeknote-18-2022/motorbike_oil_change.jpeg"/></p>
+
+<p>Feels great to finally be back on the road.</p>
+
+<h2>Fun Fun Fun</h2>
+
+<p>Besides riding my motorbike, we went to a fair in our town. It was the first
+time in years that I&#39;ve been to a fair, and to ride bumper cars.</p>
+
+<p>Also, I met up with a friend I haven&#39;t seen in a while. It was great taking a
+walk and talking about life.</p>
+
+<p>That&#39;s it for this week. Thanks for reading!</p>
+
+<p>This is post 030 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Weeknote 17/2022
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-04-29-weeknote-17-2022?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 29 Apr 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>This week was quite ordinary. We enjoyed the weather during walks in the park
+and got some chores done.</p>
+
+<h2>At work</h2>
+
+<p>A major news this week was that GitLab decided to remove <a href="https://docs.gitlab.com/ee/user/project/clusters/deploy_to_cluster.html#deploy-to-a-kubernetes-cluster-with-cluster-certificates-deprecated">certificate-based
+cluster
+access</a>
+to Kubernetes clusters sooner as we hoped. We&#39;re now fleshing out how to migrate
+to the newer
+<a href="https://docs.gitlab.com/ee/user/clusters/agent/install/index.html">gitlab-agent</a>.</p>
+
+<p>I also got some refactoring work done. In one of our projects, we&#39;re currently
+migrating our GraphQL queries away from a HOC-pattern towards React hooks, using
+the amazing
+<a href="https://github.com/appmotion/apollo-augmented-hooks">apollo-augmented-hooks</a>
+library for additional caching features.</p>
+
+<h2>Sideprojects</h2>
+
+<p>I continued to work on a secret side-project of mine, but I don&#39;t want to spoil
+anything just yet.</p>
+
+<p>BUT! If you&#39;re good at writing and would like to help out writing a couple of
+paragraphs that can catch the users attention, <a href="/contact">I&#39;d love to hear from
+you</a>.</p>
+
+<p>That&#39;s it for this week. Thanks for reading!</p>
+
+<p>This is post 029 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Weeknote 16/2022
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-04-25-weeknote-16-2022?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 25 Apr 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>This is my first (already belated) weeknote. Even though it&#39;s the monday of the
+next week, I thought I&#39;d reflect on what happened last week. I already tried <a href="/posts/2020-12-18-update-december">a
+similar format</a> on this blog in a monthly
+fashion, but didn&#39;t stick to it. With these &quot;weeknotes&quot;, I will try to sit down
+for half an hour each friday. This is heavily inspired by <a href="https://dougbelshaw.com/blog/">Doug Belshaw&#39;s posts
+with the same name</a>.</p>
+
+<h2>At work</h2>
+
+<p>There&#39;s currently an effort to integrate a whole new backend into our
+application. Fundamental features like user- and role-management will have to be
+migrated to this new backend, which is mostly incompatible with our current
+one. As I&#39;m currently the only developer on the project, building a concept
+and realizing it will mostly be my part. I&#39;m somewhat frightened about this
+undertaking, but I think I will learn a whole lot.</p>
+
+<p>I also introduced versioned deployments for our application. To keep it simple,
+releases are versioned by date (E.g. <code>v2022.04.21</code>). Alongside this, I also
+added a changelog describing each release. I&#39;m still unsure whether this gives
+us a benefit or if it&#39;s just unnecessary work, but time will tell. I&#39;m curious
+of what you - the reader - thinks of this. Feel free to reply to this post via
+the link at the bottom of the page.</p>
+
+<h2>On this blog</h2>
+
+<p>I&#39;m playing around with ideas about comments on this static website. I yanked
+out some thoughts in this thread, but I&#39;ll have to think about it a bit more:</p>
+
+<p>&lt;iframe src=&quot;https://fosstodon.org/@garritfra/108180821665987615/embed&quot;
+class=&quot;mastodon-embed&quot; style=&quot;max-width: 100%; border: 0; height: 21rem&quot; width=&quot;400&quot;
+allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;script
+src=&quot;https://fosstodon.org/embed.js&quot; async=&quot;async&quot;&gt;&lt;/script&gt;</p>
+
+<h2>Plants</h2>
+
+<p>My girlfriend and I are in love with plants. This week, we went to a nursery and
+got ourselves a new member to our family: a Monstera Adansonii.</p>
+
+<p><img alt="Monstera Adansonii" src="/assets/monstera_adansonii.jpeg"/></p>
+
+<p>I also did a little experiment with one of my eucalyptus citriodoras. I cut it
+from 50cm back to the first &quot;node&quot; in the trunk, at about 2cm. I&#39;m quite happy
+with how it evolved in just about 10 months. It&#39;s now time to develop some
+branches. Here&#39;s it before the pruning:</p>
+
+<p><img alt="Eucalyptus before pruning" src="/assets/eucalyptus_before_pruning.jpeg"/></p>
+
+<p>And this is what it looks like now:</p>
+
+<p><img alt="Eucalyptus after pruning" src="/assets/eucalyptus_after_pruning.jpeg"/></p>
+
+<p>I also made cuttings from the rest of the stem. Not sure if they&#39;ll survive, but
+what could I lose?</p>
+
+<p>That&#39;s it for this week. Thanks for reading!</p>
+
+<p>This is post 027 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Wed, 17 Feb 2021 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                Flutter Web - the Good, the Bad and the Ugly
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-02-17-notes-on-flutter-web?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 17 Feb 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>These are some notes I took for the evaluation of Flutter web for a potential project at work. I decided to build a frontend for <a href="https://miniflux.app/">Miniflux</a>, since I figured it may enclose many pitfalls an application could potentially have. You can find the current prototype <a href="https://github.com/garritfra/FlutterFlux">here</a>.</p>
+
+<h2>The Good</h2>
+
+<ul><li><p><strong>Trivial to set up</strong>: Running a Flutter application in a browser, no matter if it is an existing app or a fresh project, can be done by simply specifying the -d chrome flag.</p></li><li><p><strong>Same behavior compared to mobile app</strong>: Since the app is quite literally a mobile application running in the browser, the page looks and feels like a mobile application. It gives the app a consistent look and feel across all devices. I can imagine this coming in handy for web applications that are primarily used on phones and tablets.</p></li><li><p><strong>Browser API integration</strong>: It seems like many of the libraries make use of Web APIs. For example: I was able to get location updates using the location package, and store data using <a href="https://pub.dev/packages/localstorage">localstorage</a>. Whether the Web target is supported, is noted as a flag in the package documentation.</p></li><li><p><strong>Alternative Backends</strong>: There are two <a href="https://flutter.dev/docs/development/tools/web-renderers">rendering backends</a>, both with its own benefits and drawbacks. The HTML renderer optimizes the page for the browser, which improves performance at the cost of consistency. The CanvasKit renderer renders WebGL using WebAssembly. This gives a consistent look and feel across all devices, at the cost of Performance and download size. If auto is specified, the renderer will be determined based on the device type. Here’s a comparison of the same app rendered with both backends:</p></li></ul>
+
+<p>|                    HTML                    |                    CanvasKit                    |
+| :----------------------------------------: | :---------------------------------------------: |
+| <img alt="" src="/assets/flutter_web_renderer_html.png"/> | <img alt="" src="/assets/flutter_web_renderer_canvaskit.png"/> |</p>
+
+<h2>The Bad</h2>
+
+<ul><li><p><strong>Still in Beta</strong>: Flutter web requires the developer to use the beta channel of Flutter. I didn’t encounter any issues, but it could be that some features are unstable.</p></li><li><p><strong>No native HTML (With an exception)</strong>: Flutter Web renders the application into its own container, which is not using semantic HTML. The resulting application is also not debuggable using standard web-dev tools, but flutters debugging features can be used. There is a workaround though. Using the <a href="https://pub.dev/packages/easy_web_view">easy<em>web</em>view</a> package, I was able to embed html components as flutter widgets. The embedded code is actual HTML code that the browser itself is rendering, not Flutter. This solution is cross-platform, meaning that it also works flawlessly for mobile builds of the application. This might come in handy if the project demands to embed a javascript component like a video player. This approach could technically also improve SEO, but I’m unsure how a full-blown application only using this approach would behave.</p></li></ul>
+
+<h2>The Ugly</h2>
+
+<ul><li><p><strong>Scrolling feels sluggish</strong>: The scrolling behavior is implemented by flutter itself and does not feel as smooth as the native scrolling behavior of modern browsers.</p></li><li><p><strong>SEO nearly impossible</strong>: Since the application is a SPA and it is not using semantic HTML, it’s very difficult to do any kind of SEO. Lighthouse rated the demo application with a perfect 100 for SEO, but this is probably because it is only aware of the html that surrounds the flutter container. I didn’t find a way to Inject Metatags on a per-site basis.</p></li><li><p><strong>Heavy and slow on old devices</strong>: Even a basic application like the Todo app is very heavy and slow when compared to a “regular” website.</p></li></ul>
+
+<h2>Conclusion</h2>
+
+<p>Flutter Web seems to be a viable candidate to build truly cross-platform applications. Adding Web as a target for existing Flutter mobile apps should be relatively easy. The layout will probably need to be optimized to get the full experience. Native Web APIs seem to be well supported and documented.</p>
+
+<p>The resulting web application is a PWA running inside a container. It is relatively heavy and requires much more resources to run, when compared to a “regular” web application.</p>
+
+<p>I hope you found this useful!</p>
+
+<p>This is post 012 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>

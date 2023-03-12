@@ -1,0 +1,826 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Fri, 10 Mar 2023 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                Debugging ECS Tasks
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-03-10-debugging-ecs-tasks?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 10 Mar 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just had to debug an application on AWS ECS. The whole procedure is documented in more detail in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html">documentation</a>, but I think it&#39;s beneficial (both for my future self and hopefully to someone out there) to write down the proccess in my own words.</p>
+
+<p>First of all, you need access to the cluster via the <a href="https://aws.amazon.com/de/cli/">CLI</a>. In addition to the CLI, you need the <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">AWS Session Manager plugin for the CLI</a>. If you&#39;re on MacOS, you can install that via <a href="https://formulae.brew.sh/cask/session-manager-plugin">Homebrew</a>:</p>
+
+<p><code>
+brew install --cask session-manager-plugin
+</code></p>
+
+<p>Next, you need to allow the task you want to debug to be able to execute commands. Since I&#39;m using Terraform, this was just a matter of adding the <a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service#enable_execute_command"><code>enable_execute_command</code></a> attribute to the service:</p>
+
+<p><code>tf
+resource &quot;aws_ecs_service&quot; &quot;my_service&quot; {
+  name            = &quot;my-service&quot;
+  cluster         = aws_ecs_cluster.my_cluster.id
+  task_definition = aws_ecs_task_definition.my_task_definition.id
+  desired_count   = var.app_count
+  launch_type     = &quot;FARGATE&quot;
+  enable_execute_command = true # TODO: Disable after debugging
+}
+</code></p>
+
+<p>You may also need specify an execution role in the task definition:</p>
+
+<p><code>tf
+resource &quot;aws_ecs_task_definition&quot; &quot;my_task_definition&quot; {
+  family              = &quot;my-task&quot;
+  task_role_arn       = aws_iam_role.ecs_task_execution_role.arn
+  execution_role_arn  = aws_iam_role.ecs_task_execution_role.arn  # &lt;-- Add this
+}
+</code></p>
+
+<p>Make sure that this role has the correct access rights. There&#39;s a nice <a href="https://aws.amazon.com/de/premiumsupport/knowledge-center/ecs-error-execute-command/">troubleshooting guide</a> going over the required permissions.</p>
+
+<p>If you had to do some modifications, make sure to roll out a new deployment with the fresh settings:</p>
+
+<p><code>
+aws ecs update-service --cluster my-cluster --service my-service --force-new-deployment
+</code></p>
+
+<p>Now, you should be able to issue commands against any running container!</p>
+
+<p><code>
+aws ecs execute-command --cluster westfalen --task &lt;task-id-or-arn&gt; --container my-container --interactive --command=&quot;/bin/sh&quot;
+</code></p>
+
+<p>I hope this helps!</p>
+
+<hr/>
+
+<p>This is post 055 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                The fundamental difference between Terraform and Kubernetes
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-03-08-terraform-and-kubernetes-are-fundamentally-different?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 08 Mar 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>On the surface, Infrastructure as Code tools like <a href="https://www.terraform.io/">Terraform</a> or <a href="https://aws.amazon.com/de/cloudformation/">CloudFormation</a> may seem to behave similar to <a href="https://kubernetes.io/">Kubernetes</a> YAMLs, but they are in fact fundamentally different approaches to cloud infrastructure.</p>
+
+<p>Terraform tries to provide a declarative way to express imperative actions. If you tell Terraform that you need an EC2 instance, it will notice that no such resource exists and instruct the AWS API to create one. If you don&#39;t need the instance anymore and remove the resource definition from your code, Terraform will also pick that up and instruct the AWS API to delete the instance. This works well in most cases, but every once in a while the declarative state may get out of sync with the real world, resulting in errors that are hard to debug and resolve.</p>
+
+<p>Kubernetes on the other hand is a fully declarative system. In a <a href="/posts/2022-09-22-kubernetes-is-a-domain-specific-database">previous post</a> I touched on how Kubernetes constantly compares the <em>desired</em> state with the <em>actual</em> state of the resources and tries to match the two. Although it is theoretically possible to issue imperative actions, Kubernetes is built from the ground up to be declarative.</p>
+
+<hr/>
+
+<p>This is post 054 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Pods vs. Containers
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-03-04-pods-vs.-containers?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 04 Mar 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>In Kubernetes, pods and containers are often confused. I found a <a href="https://iximiuz.com/en/posts/containers-vs-pods/">great article</a> going over the differences of the two terms.</p>
+
+<blockquote><p>Containers and Pods are alike. Under the hood, they heavily rely on Linux namespaces and cgroups. However, Pods aren&#39;t just groups of containers. A Pod is a self-sufficient higher-level construct. All pod&#39;s containers run on the same machine (cluster node), their lifecycle is synchronized, and mutual isolation is weakened to simplify the inter-container communication. This makes Pods much closer to traditional VMs, <a href="https://www.mirantis.com/blog/multi-container-pods-and-container-communication-in-kubernetes/">bringing back the familiar deployment patterns like sidecar or reverse proxy</a>.</p></blockquote>
+
+<p>In my own words: Containers are made up of Linux namespaces and cgroups. Pods can be thought of as a cgroup of cgroups (though not really), mimicing the behavior of a virtual machine that runs multiple containers with a synchronized lifecycle. The containers in a pod are losely isolated, making it easy to communicate between each other. Containers in a pod can however set individual resource requests, enabled by Linux namespaces.</p>
+
+<p>I&#39;d highly encourage you to check out <a href="https://iximiuz.com/en/posts/containers-vs-pods/">the original article</a> if you want to learn more about this topic.</p>
+
+<hr/>
+
+<p>This is post 053 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Notes on containerizing PHP applications
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-03-03-notes-on-containerizing-php-applications?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 03 Mar 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I was recently tasked with building a rudimentary infrastructure for a PHP application. Coming from a Node.js-driven world where every human and their grandmother has a blog post about containerizing your application, it was very interesting to see where PHP differs to other applications.</p>
+
+<p>One major gotcha for me was that PHP code is executed on <strong>request-time</strong>, meaning a new process is spawned for each incoming request. Most other languages have dedicated runtimes that handle incoming requests. This unique approach is very flexible and scalable, but it comes with the implication that there is a <strong>separate webserver</strong> that calls into the PHP interpreter when it needs to.</p>
+
+<p>In Node.js (and most other languages), you can &quot;just run the app&quot;, as demonstrated by this Dockerfile:</p>
+
+<p><code></code>`dockerfile
+FROM node:18.14.2-alpine3.17 AS build</p>
+
+<p>WORKDIR /usr/src/app</p>
+
+<p>COPY package*.json ./</p>
+
+<p>RUN npm ci</p>
+
+<p>COPY . .</p>
+
+<p>EXPOSE 3000</p>
+
+<p>CMD [ &quot;node&quot;, &quot;server.js&quot; ]
+<code></code>`</p>
+
+<p>PHP on the other side is rarely used on its own. Most of the time, it needs a webserver alongside it:</p>
+
+<p><code></code>`dockerfile
+FROM php:8.1-apache-bullseye</p>
+
+<h1>&lt;snip&gt;</h1>
+
+<p>COPY . /var/www/html
+WORKDIR /var/www/html</p>
+
+<h1>&lt;snip&gt;</h1>
+
+<p><code></code>`</p>
+
+<p>As you can see, I&#39;m using the official PHP docker image. The PHP maintainers know that adding a webserver alongside PHP is a very common pattern, so most of the variants of the image ship with a webserver. In this example I&#39;m using Apache, but we might as well use NGINX or some other webserver. There&#39;s also the option to use <a href="https://www.php.net/manual/de/install.fpm.php">FPM</a> as a FastCGI implementation and a webserver in a <strong>separate</strong> container.</p>
+
+<p>Grasping this took me some time, but after it clicked it made many things a lot clearer.</p>
+
+<h2>More complete Dockerfile example</h2>
+
+<p>The Dockerfile above is meant to demonstrate how PHP applications differ from other languages. The following is a more complete example you can use to containerize your PHP application. In this case it’s a Laravel app, so your mileage may vary.</p>
+
+<p><code></code>`dockerfile
+FROM php:8.1-apache-bullseye</p>
+
+<p>RUN apt-get clean &amp;&amp; \
+    apt-get update &amp;&amp; \
+    apt-get install --fix-missing -y \
+        zip &amp;&amp; \
+    docker-php-ext-install \
+        pdo \
+        pdo_mysql \
+        bcmath</p>
+
+<p>COPY --from=composer:2 /usr/bin/composer /usr/bin/composer</p>
+
+<p>COPY . /var/www/html
+WORKDIR /var/www/html</p>
+
+<p>ENV APACHE<em>DOCUMENT</em>ROOT /var/www/html/public</p>
+
+<p>RUN composer install --no-dev --optimize-autoloader --no-interaction &amp;&amp; \
+    sed -ri -e &#39;s!/var/www/html!${APACHE<em>DOCUMENT</em>ROOT}!g&#39; /etc/apache2/sites-available/*.conf &amp;&amp; \
+    sed -ri -e &#39;s!/var/www/!${APACHE<em>DOCUMENT</em>ROOT}!g&#39; /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf &amp;&amp; \
+    php artisan config:cache &amp;&amp; \
+    php artisan view:cache &amp;&amp; \
+    php artisan route:cache &amp;&amp; \
+    php artisan storage:link &amp;&amp; \
+    chmod 777 -R /var/www/html/storage/ &amp;&amp; \
+    chown -R www-data:www-data /var/www/ &amp;&amp; \
+    a2enmod rewrite
+<code></code>`</p>
+
+<hr/>
+
+<p>This is post 052 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                What's next for modern infrastructure?
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-02-21-what's-next-for-modern-infrastructure?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 21 Feb 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Modern infrastructure is incredibly complex. I identified 4 main &quot;levels&quot; of infrastructure abstraction:</p>
+
+<h2>Level 1: A website on a server</h2>
+
+<p>This is the most straight forward way to host a website. A webserver hosted on bare metal or a VM.</p>
+
+<h2>Level 2: Multiple servers behind a load balancer</h2>
+
+<p>At this stage, you start treating servers as cattle rather than pets. Servers may be spun up and down at will without influencing the availability of the application.</p>
+
+<h2>Level 3: An orchestrated cluster of servers</h2>
+
+<p>Instead of a server serving a specific purpose (e.g. webserver, DB server, etc.), a server becomes a worker for arbitrary workloads (see Kubernetes, ECS).</p>
+
+<h2>Level 4: Multicluster service mesh</h2>
+
+<p>If an organization manages multiple clusters (e.g. multiple application teams), they can be tied together into a <a href="https://istio.io/latest/docs/reference/glossary/#service-mesh">service mesh</a> to better optimize communication and observability.</p>
+
+<h2>Level 5: ???</h2>
+
+<p>History shows that we never stop abstracting. Multicluster service meshes are about the most abstract concept many people (including myself) can comprehend, but I doubt that this is the end of this journey. So, what&#39;s next for modern infrastructure?</p>
+
+<p>This is post 049 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                What problem does Kubernetes solve?
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-02-20-what-problem-does-kubernetes-solve?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 20 Feb 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>This is a common question that many people (including me) ask themselves.</p>
+
+<p>I recently came across a great <a href="https://blog.adamchalmers.com/kubernetes-problems/">post</a> which explains the problem really well:</p>
+
+<blockquote><p>Kubernetes exists to solve one problem: how do I run m containers across n servers?</p></blockquote>
+
+<p>The post also nails the answer to <strong>how</strong> Kubernetes solves this problem:</p>
+
+<blockquote><p>It&#39;s a big abstract virtual computer, with its own virtual IP stack, networks, disk, RAM and CPU. It lets you deploy containers as if you were deploying them on one machine that didn&#39;t run anything else. Clusters abstract over the various physical machines that run the cluster.</p></blockquote>
+
+<p>I&#39;d highly encourage you to read through the article if you want to learn more about why Kubernetes exists.</p>
+
+<p>This is post 048 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Reselling Kubernetes
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-11-03-reselling-managed-kubernetes?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 03 Nov 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;m currently working on a side project involving reselling Kubernetes clusters.
+What I discovered is that it&#39;s impossible to resell <em>managed</em> Kubernetes, as in
+<a href="https://aws.amazon.com/de/eks/">EKS</a> and
+<a href="https://cloud.google.com/kubernetes-engine/">GKE</a>.</p>
+
+<p>The only possible scenario where reselling Kubernetes to your and the
+end-customers advantage is to manage the nodes yourself. The reason is the
+scaling of cost per CPU.</p>
+
+<p>When renting VMs, the price per CPU often varies for the size of the machine. 
+This leaves the reseller flexibility in the choice of resources. To give you an
+example, here is the pricing for virtual machines at
+<a href="https://www.hetzner.com/">Hetzner</a>, and the price per CPU:</p>
+
+<p>| Product         | Number of vCPUs    | Price (in €/month) | Price per vCPU (in €/month) |
+|-----------------|--------------------|--------------------|-----------------------------|
+| CX11            | 1                  | 4.51               | 4.51                        |
+| CPX11           | 2                  | 5.18               | 2.59                        |
+| CPX21           | 3                  | 8.98               | 2.99                        |
+| CPX31           | 4                  | 16.18              | 4.05                        |
+| CPX41           | 8                  | 29.99              | 3.75                        |
+| CPX51           | 16                 | 65.33              | 4.08                        |</p>
+
+<p>When comparing this to a managed Kubernetes product like
+<a href="https://www.civo.com">CIVO</a>, we see that the price per CPU stays constant:</p>
+
+<p>| Product         | Number of vCPUs    | Price (in €/month) | Price per vCPU (in €/month) |
+|-----------------|--------------------|--------------------|-----------------------------|
+| Extra Small     | 1                  | 5                  | 5                           |
+| Small           | 2                  | 10                 | 5                           |
+| Medium          | 4                  | 20                 | 5                           |
+| Large           | 8                  | 40                 | 5                           |</p>
+
+<p>This pricing model is nice and predictable for the customer, but it makes it
+impossible to justify a resell product. If CIVO charges 5€/month per vCPU, we
+would need to charge extra to be profitable, which in turn overcuts the
+competition.</p>
+
+<p>When choosing Hetzner (or any other platform offering VMs), we are still able to
+undercut the competition and even optimize how the resources are laid out on
+the nodes. The obvious downside of course being that we have to manage the
+clusters ourselves.</p>
+
+<h2>Share your thoughts</h2>
+
+<p>Reselling Kubernetes is tricky. I&#39;m currently sketching out ideas for an
+alternative way to sell Kubernetes hosting at an ultra cheap price. The project
+is still in its infancy but if you&#39;re interested, you&#39;re more than welcome to
+share your thoughts in our <a href="https://matrix.to/#/!cTXkqtlnbHScIxnlqO:matrix.org?via=matrix.org&amp;via=envs.net">Matrix
+Room</a>!</p>
+
+<p>This is post 041 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Self-hosted software I'm thankful for
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-09-26-self-hosted-software-im-thankful-for?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 26 Sep 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Self-hosting software is not just rainbows and sunshine. I used to self-host a lot of my tools, but after some time the burden of maintaining those tools made me switch to hosted alternatives.</p>
+
+<p>However, there are a few projects that I stuck with over the years, and which I think deserve a deep appreciation.</p>
+
+<h2>Miniflux</h2>
+
+<p><a href="https://miniflux.app/">Miniflux</a> is a very minimal, self-hostable RSS reader. It&#39;s been rock-solid since they day I started using it. The data for the application entirely lives In a Postgres database, which makes migrating the application to new infrastructure setups an absolute breeze. I&#39;ve been meaning to support the author for quite some time now, but the cost of maintaining an instance yourself is basically zero, so I&#39;ve yet to find the time to switch to their paid hosted instance.</p>
+
+<h2>Plausible Analytics</h2>
+
+<p><a href="https://plausible.io/">Plausible</a> is another tool that just keeps on running. I haven&#39;t had any issues with it whatsoever, and I can&#39;t remember the last time I had to do a manual intervention. Just like Miniflux, there&#39;s a paid instance, which supports the author, and just like Miniflux, the software is so good that I haven&#39;t had a reason to switch to it yet. Oh, the irony.</p>
+
+<h2>BirdsiteLIVE</h2>
+
+<p>While my instance of <a href="https://birdsite.slashdev.space/">BirdsiteLIVE</a> is currently in a bad shape, this is not at all the fault of the software. There are limitations to the amount of Twitter API requests you can make, and I did a poor job managing the users on that instance. It&#39;s currently very overloaded and just very few tweets make it through. I will have to set aside some time to fix this, but the software itself has been rock solid since the day I started using it.</p>
+
+<h2>Synapse (Matrix)</h2>
+
+<p>I was hesitant to mention <a href="https://matrix.org/">Matrix</a> on this list. I had my ups and downs with Synapse (their Python implementation of a Matrix server), but the fact that my instance is still running after multiple infrastructure transitions and even a migration from SQLite to Postgres says something about the quality of the software. I have a feeling that Synapse is fairly resource-hungry, but if you feed it with enough RAM and disk, it will keep running indefinitely.</p>
+
+<h2>Homeassistant</h2>
+
+<p>You can throw <a href="https://www.home-assistant.io/">Homeassistant</a> on a Raspberry Pi and everything works out of the gate. I even migrated my instance from a RPi 3 to a RPi 4 via their backup and restore functionality. It&#39;s absolutely flawless.</p>
+
+<h2>Dead projects</h2>
+
+<p>I think it&#39;s fair to also mention the software that I no longer self-host.</p>
+
+<h3>E-Mail</h3>
+
+<p>Just don&#39;t roll your own email.</p>
+
+<h3>Mastodon</h3>
+
+<p>Too power hungry for my taste. No easy way to host inside docker, which made it a pain to keep running. I&#39;m very happy with <a href="https://fosstodon.org/">Fosstodon</a>, and don&#39;t see a reason to switch to a self-hosted instance any time soon.</p>
+
+<h3>FreshRSS</h3>
+
+<p>I tried replacing Miniflux once, but failed. Nothing beats Miniflux.</p>
+
+<h3>Prometheus + Grafana</h3>
+
+<p>Monitoring <strong><em>inside</em></strong> your infra works until the infra goes down, at which point you&#39;re essentially driving blindfolded. I switched to Grafana Cloud, which includes a very generous free tier.</p>
+
+<p>This is post 038 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Kubernetes is a domain specific database
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-09-22-kubernetes-is-a-domain-specific-database?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 22 Sep 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just finished listening to <a href="https://kubernetespodcast.com/episode/129-linkerd/">an
+episode</a> of the Kubernetes
+podcast. In it, <a href="https://saunter.org/">Thomas Rampelberg</a> makes an analogy that
+I think is worth sharing:</p>
+
+<blockquote><p>&quot;[...] Kubernetes is really a domain-specific database. And you need to look at it
+that way. The YAML is literally writing a select statement or an insert
+statement for a database. That&#39;s what the YAML is. And it&#39;s awesome that it is
+already configured for how it is. And it&#39;s awesome that it&#39;s got a schema. But
+the YAML is you writing an insert statement into Kubernetes. [...]&quot;</p></blockquote>
+
+<p>The Kubernetes API abstracts two types of states: desired state and actual
+state. Whenever you apply a manifest, you update the <em>desired state</em> of the
+cluster, just like you do in a regular, non domain-specific database like
+PostgreSQL or Redis. Kubernetes then frequently compares the desired state with
+the <em>actual</em> state of the cluster. If they don&#39;t match, Kubernetes will do
+whatever it does to match these two states. Usually, this data is persisted
+using a key-value database like <a href="https://etcd.io/">etcd</a> running in a cluster,
+though one could theoretically also hook up an external MySQL or Postgres
+database for this purpose.</p>
+
+<p>I found this great diagram by <a href="https://downey.io/blog/desired-state-vs-actual-state-in-kubernetes/">Tim
+Downey</a>,
+showing an oversimplified analogy of this pattern:</p>
+
+<p>![Thermostat
+Example](/assets/posts/2022-09-22-kubernetes-is-a-domain-specific-database/desired-state-hvac-diagram.png)</p>
+
+<p>You <em>insert</em> your desired state into the system, and the system adjusts the
+actual state to match the desired state. In the case of thermostats the state is
+a temperature. In Kubernetes, it&#39;s <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/">resource
+objects</a></p>
+
+<p>This is post 037 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Fixing Traefik Proxy Issues
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-03-18-fix-traefik-proxy-issues?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 18 Mar 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>After changing my proxy from NGINX to Traefik, I noticed that some of my
+services started misbehaving.</p>
+
+<p>In particular, my instance of
+<a href="https://github.com/NicolasConstant/BirdsiteLive">BirdsiteLive</a>
+(<a href="https://birdsite.slashdev.space">birdsite.slashdev.space</a>) had issues
+forwarding tweets to the
+<a href="https://garrit.xyz/posts/2021-01-18-reasons-the-fediverse-is-better">Fediverse</a>.</p>
+
+<p>The only difference between my old NGINX and my Traefik config were the headers.
+I didn&#39;t think that that&#39;s what&#39;s causing the issue, but after digging around a
+bit I figured out what&#39;s wrong. I still can&#39;t wrap my head around it entirely,
+but it has something to do with forwarding external <code>https</code> requests to internal
+<code>http</code> services, since the <code>x-forwarded-</code> headers where missing in the forwarded
+requests.</p>
+
+<p>In the world of NGINX, we can instruct the proxy to forward <em>all</em> headers using
+this directive:</p>
+
+<p><code>conf
+proxy_pass_request_headers      on;
+</code></p>
+
+<p>which takes care of the issue. In Traefik, it&#39;s a bit more convoluted. Traefik
+can use a combination of &quot;Entrypoints&quot; and middleware to route traffic around.
+In my setup, I use a <code>webSecure</code> entrypoint listening for SSL/TLS traffic, and a
+<code>web</code> entrypoint that just redirects to <code>webSecure</code>:</p>
+
+<p><code></code>`yaml
+entryPoints:
+  web:
+    address: :80
+    http:
+      redirections:
+        entryPoint:
+          to: &quot;websecure&quot;
+          scheme: &quot;https&quot;</p>
+
+<p>  websecure:
+    address: :443
+<code></code>`</p>
+
+<p>Apparently, some services send requests to the <code>web</code> entrypoint, and the
+<code>x-forwarded-for</code> headers are dropped. To prevent this, you can set the
+<code>proxyProtocol</code> and <code>forwardedHeaders</code> in the <code>web</code> entrypoint to <code>insecure</code>,
+like so:</p>
+
+<p><code></code>`yaml
+entryPoints:
+  web:
+    address: :80
+    proxyProtocol:
+      insecure: true
+    forwardedHeaders:
+      insecure: true
+    # ...</p>
+
+<h1>...</h1>
+
+<p><code></code>`</p>
+
+<p>I&#39;m sure there&#39;s a reason why this is marked as <code>insecure</code>, but it behaves just
+like the NGINX counterpart, so I didn&#39;t bother digging deeper into the matter.
+Maybe one day I&#39;ll come back to properly fix this.</p>
+
+<p>If you want to read more, check out
+<a href="https://medium.com/@_jonas/traefik-kubernetes-ingress-and-x-forwarded-headers-82194d319b0e">this</a>
+article on Medium. It explains the issue in more detail.</p>
+
+<hr/>
+
+<p>This is post 025 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                BTRFS on Alpine Linux
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-12-31-btrfs-on-alpine?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 31 Dec 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;m currently in the midst of migrating some of my infrastructure from the cloud
+to &quot;on prem&quot;, aka a local server, aka my old PC. I wanted to try alpine linux as
+the host OS to see how it behaves as a lightweight server distro.</p>
+
+<p>So far it stands up quite nicely, it has everything you&#39;d expect from a
+linux-based operating system. The only problem I encountered was getting BTRFS
+to work out of the box. Here are some things you should know when using BTRFS on
+Alpine linux.</p>
+
+<h3>Installing BTRFS</h3>
+
+<p>Installing BTRFS is relatively straight forward. Simply install the package and
+tell Alpine to load the module on startup:</p>
+
+<p><code>
+apk add btrfs-progs
+echo btrfs &gt;&gt; /etc/modules
+</code></p>
+
+<p>To load the module right away, you can use the following command:</p>
+
+<p><code>
+modprobe btrfs
+</code></p>
+
+<h3>Mounting a volume</h3>
+
+<p>If you try mounting a btrfs volume via your fstab, you will get an error. This
+is because BTRFS does not know about the drives yet when the filesystems are
+mounted. To work around this, you can create an OpenRC service that runs a
+<code>btrfs scan</code> to detect the drives. To do so, create a service under
+<code>/etc/init.d/btrfs-scan</code> with the following content:</p>
+
+<p><code></code>`sh</p>
+
+<h1>!/sbin/openrc-run</h1>
+
+<p>name=&quot;btrfs-scan&quot;</p>
+
+<p>depend() {
+  before localmount
+}</p>
+
+<p>start() {
+  /sbin/btrfs device scan
+}
+<code></code>`</p>
+
+<p>Make the service executable and register it:</p>
+
+<p><code>
+chmod +x /etc/init.d/btrfs-scan
+rc-update add btrfs-scan boot
+</code></p>
+
+<p>Now, you should be able to add the volume to your <code>/etc/fstab</code>:</p>
+
+<p><code>
+UUID=abcdef-0055-4958-990f-1413ed1186ec  /var/data  btrfs   defaults,nofail,subvol=@  0  0
+</code></p>
+
+<p>After a reboot, you should be able to see the drive mounted at <code>/var/data</code>.</p>
+
+<h3>Resources</h3>
+
+<ul><li><a href="https://nparsons.uk/blog/using-btrfs-on-alpine-linux">Nathan Parsons - &quot;Using BTRFS on Alpine Linux&quot;</a></li><li><a href="https://gitlab-test.alpinelinux.org/alpine/aports/-/issues/9539">A bug report about this problem</a></li></ul>
+
+<p>This is post 023 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                My storage setup (Feburary 2021)
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-02-07-storage-setup?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 07 Feb 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I used to rely on Google Drive and Photos to store my entire data. Now, that <a href="https://blog.google/products/photos/storage-changes/">Google has decided to ditch unlimited photo storage in the near future</a> and Google basically being the devil himself, I decided to step up my game and get my hands dirty on a DIY storage solution.</p>
+
+<h2>The goal</h2>
+
+<p>Before I got started, I thought about the expectations I have towards a system like this. It boils down to these four points (in this order): I want my solution to be <strong>resiliant</strong>, <strong>scalable</strong>, <strong>easy to maintain</strong> and <strong>easy to access</strong>. Looking back, I think I met all of these requirements fairly well. Let me walk you through how I managed to do that.</p>
+
+<h2>Data resiliance</h2>
+
+<p>Keeping data on a single device is obviously a really bad idea. Drives eventually fail, which means that your data will be lost. Heck, even my house could burn down, which means that any number of local copies could burn to ashes. To prevent data loss, I strictly adhere to the <a href="https://www.backblaze.com/blog/the-3-2-1-backup-strategy/">3-2-1 backup strategy</a>. A 3-2-1 strategy means having <strong>at least three total copies of your data, two of which are local but on different mediums (read: devices), and at least one copy off-site</strong>. If a drive fails, I can replace it. If my house burns down, I get two new drives and clone my offsite backup to them.</p>
+
+<p>To get an offsite backup, I set up a spare Raspberry Pi with a single large HDD and instructed it to do daily backups of my entire data. I asked a family member if they would be willing to have a tiny computer plugged in to their router 24/7, and they kindly agreed. A Pi and a HDD are very efficient in terms of power, so there is not a lot to worry about.</p>
+
+<h2>Scalability</h2>
+
+<p>I currently don&#39;t have a huge amount of data. If that were to change (i.e. if I continue to shoot a lot of high-res photos and shove them into my setup), I need a way to simply attach more drives, or ones with more capacity. I looked at different file-systems that allowed to easy extendability while also being resiliant.</p>
+
+<p>An obvious candidate was <strong>ZFS</strong>, but there are a couple of reasons I ditched this idea. First of all, it is really hard to get up and running on Raspberry Pi running Linux, since it&#39;s not natively supported by all distributions. This increases the complexity of the setup. Another reason is that I don&#39;t like the way it scales. Please correct me if I&#39;m wrong here, since I only did limited research on this. From what I know though, ZFS can only be extended by shoving a large amount of drives in the setup to achieve perfect redundancy.</p>
+
+<p>In the end, I settled on <strong>BTRFS</strong>. For me, it scratches all the itches that ZFS has. It is baked into the linux kernel, which makes it really easy to install on most distributions, and I can scale it to any number of drives I want. If I find a spare drive somewhere with any storage capacity, I can plug it into the system and it will just work, without having to think about balancing or redundancy shenanigans.</p>
+
+<h2>Maintainability</h2>
+
+<p>I need my setup to be easy to maintain. If a drive fails, I want to be able to replace it within a matter of minutes, not hours. If my host (a Raspberry Pi) bursts into flames, I want to be able to swap in a new one and still access my data. If I&#39;m out and about and something goes south, I want to be able to fix it remotely. BTRFS helps a lot here. It&#39;s really the foundation for all the key points mentioned here. It gives me a simple interface to maintain the data on the drives, and tries to fix issues itself whenever possible.</p>
+
+<p>Exposing random ports to the general public is a huge security risk. To still be able to access the Pi remotely, I set up <strong>an encrypted WireGuard tunnel</strong>. This way, I only have to expose a single port for WireGuard to talk to the device as if I&#39;m sitting next to it.</p>
+
+<h2>Accessibility</h2>
+
+<p>Since the data needs to be accessed frequently, I need a simple interface for it that can be used on any device. I decided to host a <strong>Nextcloud</strong> instance and mount the drive as external storage. Why external storage? Because Nextcloud does some weird thing with the data it stores. If I decide to ditch Nextcloud at some point, I have the data on the disks &quot;as is&quot;, without some sort of abstraction on top of it. This also has the benefit of allowing access from multiple sources. I don&#39;t have to use Nextcloud, but instead can mount the volume as a FTP, SMB or NFS share and do whatever I want with it. From the nextcloud perspective, this has some drawbacks like inefficient caching or file detection, but I&#39;m willing to make that tradeoff.</p>
+
+<h2>In a nutshell</h2>
+
+<p>This entire setup cost me about 150€ in total. Some components were scraped from old PC parts. So, what does the solution look like? Here is the gist:</p>
+
+<ul><li>A Raspberry Pi 4 as a main host and an older Raspberry Pi 3 for offsite backup, both running Raspberry Pi OS</li><li>Two external harddrives in a RAID 1 (mirrored) configuration, running on an external USB3 hub</li><li>A single internal HDD that served no purpose in my old PC, now serving as backup storage</li><li>All drives are using BTRFS</li><li>WireGuard tunnels between main and remote host, as well as most access devices</li><li>Nextcloud on main host, accessible over TLS (if I need to access data from outside the secure tunnel-network)</li><li>SMB share accessible from within the tunnel-network</li><li>Circa 4.5 terabyte total disk size; 1.5 terabyte of usable storage</li><li>Snapper for local incremental backups on main host; BTRBK for remote incremental backups</li><li>Cron jobs for regular backups and repairs (scrub/rebalance)</li></ul>
+
+<p>This is post 010 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Compiling your own kernel
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-01-15-compiling-your-own-kernel?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 15 Jan 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;m currently in the midst of fiddling around with the kernel a bit, and I figured I just documented my process a bit. Unfortunately, since I&#39;m using a Mac for day to day work, I have to rely on a virtual machine to run anything Linux-related. VirtualBox doesn&#39;t support the most recent kernels (5.9 is the most recent supported one), so there won&#39;t be any cutting-edge development happening here. I decided to use ubuntu as my guest system, since it&#39;s very easy to set up.</p>
+
+<p>So, the first step is to get the sources. You could simply go ahead and download a specific release from <a href="https://kernel.org/">kernel.org</a>, but since I want to hack on it, I decided to go the git-route. Simply download the sources from <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/">their repo</a> and check out the tag you want to build.</p>
+
+<blockquote><p><strong>Note</strong>: this might take a while. Their repository is huge! If you want to only need the <code>HEAD</code> and want to build on bare-metal (no VirtualBox), you could only clone the latest commit using <code>git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git --depth=1</code>.</p></blockquote>
+
+<p>Next up, you need to generate a <code>.config</code>. This file describes which features you want to compile into your kernel. To make a generic config that only compiles drivers for the hardware of your system, you can run the following commands:</p>
+
+<p><code></code>`bash</p>
+
+<h1>Copy the config of your current kernel into the repo</h1>
+
+<p>make oldconfig</p>
+
+<h1>Only enable modules that are currently used by the system</h1>
+
+<p>make localmodconfig
+<code></code>`</p>
+
+<p>Now, let&#39;s get to actually compiling the kernel. In my case, I assigned 4 cores to my VM. The <code>-j</code> option tells make to run 4 jobs in parallel.</p>
+
+<blockquote><p><strong>Caution</strong>: Just providing -j will freeze your system, since make will try to launch an infinite amount of processes!</p></blockquote>
+
+<p><code>
+make -j4
+</code></p>
+
+<p>Again, this might take some time. Go for a walk, get a coffee or watch your favorite TV-show. After compilation has finished, we need to install the kernel. To do so, run the following commands:</p>
+
+<p><code>
+sudo make modules_install
+sudo make install
+</code></p>
+
+<p>In order to boot, we need to tell our bootloader about our new kernel. Run this command to update your grub config:</p>
+
+<p><code>
+sudo update-grub2
+</code></p>
+
+<p>And voila! Your new kernel should be ready.</p>
+
+<p>Reboot the system, and grub should pick up the new kernel and boot to it. If that&#39;s not the case, you should be able to pick the kernel from the grub menu under <code>advanced options</code>.</p>
+
+<h2>Retrospective</h2>
+
+<p>I found that building my own kernel is a highly educational and fun experience. Using VirtualBox is a pain in the <code>/dev/null</code> to work with, since it has to add a lot of overhead to the system in order to work. You sometimes have to wait over 6 month until the support for a new kernel arrives. This problem should not apply if you compile on bare metal systems.</p>
+
+<p>Thanks for your time!</p>
+
+<p>This is post 004 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Quick Tip! Setting up a lightweight Server-Client VPN with wireguard
+            </title>
+            <link>
+                https://garrit.xyz/posts/lightweight-vpn-with-wireguard?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 19 Aug 2020 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>This blog post has been taken over from my <a href="https://garrit.xyz/til">collection of &quot;Today I Learned&quot; articles</a>.</p>
+
+<p>You can easily set up a private network of your devices. This way you can &quot;talk&quot; to your phone, raspberry pi etc. over an <strong>encrypted</strong> network, with simple IP-addresses.</p>
+
+<p><img alt="" src="https://images.unsplash.com/photo-1505659903052-f379347d056f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80"/></p>
+
+<p>Firstly, install wireguard on all of your systems. Simply install the <code>wireguard</code> package from your package manager respectively. Check out <a href="https://www.wireguard.com/install/">the official installation guide</a> if you can&#39;t find the package. If you&#39;re on debian, try <a href="https://wiki.debian.org/WireGuard?action=show&amp;redirect=Wireguard">this</a> guide. There&#39;s also an app for Android, iOS and MacOS.</p>
+
+<p>Every participent (Client and server) needs a key-pair. To generate this, run this command first on the server, and on all clients:</p>
+
+<p><code>bash
+wg genkey | tee wg-private.key | wg pubkey &gt; wg-public.key
+</code></p>
+
+<p>It might make sense to do this as root. This way you don&#39;t have to type <code>sudo</code> with every command.</p>
+
+<h2>Server Configuration</h2>
+
+<p>You will need to create a configuration for the server. Save this template at <code>/etc/wireguard/wg0.conf</code>, and replace the fields where needed:</p>
+
+<p><code></code>`conf
+[Interface]
+PrivateKey = &lt;Server private key from wg-private.key&gt;
+Address = 10.0.0.1/24 # IP Address of the server. Using this IP Address, you can assign IPs ranging from 10.0.0.2 - 10.0.0.254 to your clients
+ListenPort = 51820 # This is the standard port for wireguard</p>
+
+<h1>The following fields will take care of routing</h1>
+
+<p>PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE</p>
+
+<h1>Laptop</h1>
+
+<p>[Peer]
+PublicKey = &lt;Public Key of Laptop Client&gt;
+AllowedIPs = 10.0.0.2/32 # The client will be reachable at this address</p>
+
+<h1>Android Phone</h1>
+
+<p>[Peer]
+PublicKey = &lt;Public Key of Phone Client&gt;
+AllowedIPs = 10.0.0.3/32</p>
+
+<h1>...</h1>
+
+<p><code></code>`</p>
+
+<p>Then run <code>wg-quick up wg0</code> to start the wireguard interface with the configuration from <code>/etc/wireguard/wg0</code>.</p>
+
+<h2>Setting up clients</h2>
+
+<p>Setting up clients is very similar to the server setup process. Generate a keypair on each client, save the following config to <code>/etc/wireguard/wg0.conf</code> and replace the nessessary fields:</p>
+
+<p><code></code>`conf
+[Interface]
+PrivateKey = &lt;Client Private Key from wg-private.key&gt;
+Address = 10.0.0.2/32 # The fixed address of the client. Needs to be specified in the server config as well</p>
+
+<p>[Peer]
+PublicKey = &lt;Server Public key&gt;
+AllowedIPs = 10.0.0.0/24 # Routes all traffic in this subnet to the server. If you want to tunnel all traffic through the wireguard connection, use 0.0.0.0/0 here instead
+Endpoint = &lt;Public Server IP&gt;:51820
+PersistentKeepalive = 25 # Optional. Will ping the server every 25 seconds to remain connected.
+<code></code>`</p>
+
+<p>On every client, run <code>wg-quick up wg0</code> to start the interface using the config at <code>/etc/wireguard/wg0.conf</code>.</p>
+
+<p>This whole proccess might be easier on GUIs like Android or MacOS.</p>
+
+<p>Now, try to ping your phone from your laptop:</p>
+
+<p><code>
+ping 10.0.0.3
+PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
+64 bytes from 10.0.0.3: icmp_seq=1 ttl=64 time=5382 ms
+64 bytes from 10.0.0.3: icmp_seq=2 ttl=64 time=4364 ms
+</code></p>
+
+<h3>References</h3>
+
+<ul><li><a href="https://www.wireguard.com/">Official Documentation</a></li><li><a href="https://www.stavros.io/posts/how-to-configure-wireguard/">https://www.stavros.io/posts/how-to-configure-wireguard/</a></li></ul>]]>
+            </description>
+        </item>
+    </channel>
+</rss>

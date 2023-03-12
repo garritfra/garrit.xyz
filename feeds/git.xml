@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Sat, 13 Mar 2021 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                Git's built-in lifesaver
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-03-13-git-builtin-lifesaver?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 13 Mar 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Everyone was in this situation at some point. You wasted a days worth of work by accidentally deleting a branch. But, all hope is not lost! Git never forgets.</p>
+
+<p>Every action, be it committing changes, deleting or switching branches, is noted down by Git. To see your latest actions, you can simply run <code>git reflog</code> (It&#39;s pronounced <code>ref-log</code> but <code>re-flog</code> sounds just as reasonable):</p>
+
+<p><code>
+5704fba HEAD@{45}: commit: docs: update changelog
+b471457 HEAD@{46}: commit: chore: refactor binop checks in parse_expression
+5f5c5d4 HEAD@{47}: commit: fix: struct imports
+76db271 HEAD@{48}: commit: chore: fix clippy warning
+ac3e11c HEAD@{49}: commit: fix: circular imports
+0cbdc88 HEAD@{50}: am: lexer: handle &#39; or &quot; within the string properly
+27699f9 HEAD@{51}: commit: docs: spec: add notation
+</code></p>
+
+<p>Commits in Git are just data that is not associated by anything. If you accidentally delete a branch, the commits will stay where they are, and you can reference them directly. To recreate your deleted branch, simply run this command:</p>
+
+<p><code>
+git checkout -b &lt;branch&gt; &lt;sha&gt;
+</code></p>
+
+<p>And that&#39;s it! Your branch is restored. Remember to commit early and often, or prepare to loose your work!</p>
+
+<p>This is post 015 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                The Patch-Based Git Workflow
+            </title>
+            <link>
+                https://garrit.xyz/posts/patch-based-git-workflow?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 28 Sep 2020 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>If you have ever contributed to an open source project, chances are you have opened a pull request on GitHub or a similar platform to present your code to the maintainers. While this is a very approachable way of getting your code reviewed, some projects have decided against using pull requests and instead accept patches via email.</p>
+
+<h2>An introduction to patches</h2>
+
+<p>A patch is essentially a git commit expressed in plain text. It describes what commit the change is based on, and what has changed. A basic patch looks like this:</p>
+
+<p><code></code>`
+From 92132241233033a123c4fa833449d6a0d550219c Mon Sep 17 00:00:00 2001
+From: Bob <a href="mailto:bob@example.com">bob@example.com</a>
+Date: Tue, 25 May 2009 15:42:16 +0200
+Subject: [PATCH 1/2] first change</p>
+
+<hr/>
+
+<p> test.txt |    1 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)</p>
+
+<p>diff --git a/test.txt b/test.txt
+index 7634da4..270eb95 100644
+--- a/test.txt
++++ b/test.txt
+@@ -1 +1 @@
+-Hallo Bob
++Hallo Alice!
+<code></code>`</p>
+
+<p>As you can see, it is very readable for both the reviewer and the machine.</p>
+
+<h2>Sending and receiving patches</h2>
+
+<p>The easiest way you can generate a patch from a commit is to use <code>git-format-patch</code>:</p>
+
+<p><code>
+git format-patch HEAD^
+</code></p>
+
+<p>This will generate a <code>.patch</code> file, that can be embedded into an email and sent to the maintainers. Oftentimes they will then reply to your mail with some inline comments about your code.</p>
+
+<p>To simplify this process further, git has the <code>send-email</code> command, which let&#39;s you send the patch directly to someone without needing to embed it manually. I won&#39;t go into details about this, but there is a <a href="https://git-send-email.io/">well written guide</a> on how to set it up.</p>
+
+<p>If you have received a patch from someone, you can apply it to your tree with the <code>am</code> (apply mail) command:</p>
+
+<p><code>
+git am &lt; 0001-first-change.patch
+</code></p>
+
+<p>check your <code>git log</code> to see the patch in form of the latest commit.</p>
+
+<h2>Why even bother</h2>
+
+<p>You might think that this is just a silly and outdated approach to collaborative development. &quot;Why not simply open a pull request?&quot; you might ask. Some projects, especially low-level oriented ones like the Linux kernel, do not want to rely on third-party platforms like GitHub to host their code, with good reasons:</p>
+
+<ol><li>Everyone can participate! You don&#39;t need to register an account on some proprietary website to collaborate in a project that uses a patch-based workflow. You don&#39;t even have to expose your identity, if you don&#39;t want to. All you need is an email-address, and frankly most of us have one.</li><li>It&#39;s plain simple! Once you get used to generating and applying patches on the command line, it is in fact easier and faster than opening a pull request in some clunky GUI. It doesn&#39;t get simpler than plain text.</li><li>It is rewarding! Once you have submitted a patch to a project, there is no better feeling than getting a simple &quot;Applied, thanks!&quot; response from a maintainer. And if it&#39;s a response that contains feedback rather than an approval, it feels even better to submit that reworked code again and get it eventually applied.</li></ol>
+
+<h2>Conclusion</h2>
+
+<p>The patch-based workflow is an alternative way to collaborate with developers. If it helps you in your day to day business depends on the projects you are contributing to, but in the end it is always good to have many tools under your belt.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>

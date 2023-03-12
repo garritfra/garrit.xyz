@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Mon, 04 Oct 2021 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                Server-Side Caching with Apollo GraphQL
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-10-04-server-side-caching-with-apollo-graphql?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 04 Oct 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I recently implemented server-side caching for one of our applications at work.
+This guide tries to document that I&#39;ve learned. It assumes that you are using
+an apollo server of version 3 or higher.</p>
+
+<h3>What is Server-Side Caching?</h3>
+
+<p>The point of server-side caching is to reduce the load of your database by
+“remembering” the results of a query for a certain period. If the exact same
+query comes in again, that remembered result will be returned.</p>
+
+<p>Caching should be handled with care. You should never enable caching for your
+entire application. Instead, you should identify the bottlenecks and develop a
+strategy to overcome them.</p>
+
+<h3>Enabling caching on the server</h3>
+
+<p>The Apollo Team has done a great job
+<a href="https://www.apollographql.com/docs/apollo-server/performance/caching/">documenting</a>
+the caching behavior of their server. To add caching to your existing
+Apollo-Server, you first have to add the <code>responseCachePlugin</code> to your
+configuration as shown
+<a href="https://www.apollographql.com/docs/apollo-server/performance/caching/#caching-with-responsecacheplugin-advanced">here</a>:</p>
+
+<p><code></code>`js
+import responseCachePlugin from &quot;apollo-server-plugin-response-cache&quot;;</p>
+
+<p>const server = new ApolloServer({
+	// ...other options...
+	plugins: [responseCachePlugin()],
+});
+<code></code>`</p>
+
+<p>Then, you have to configure a cache backend. By default, Apollo Server will
+store the caches in RAM, but I’d recommend <a href="https://www.apollographql.com/docs/apollo-server/data/data-sources/#using-memcachedredis-as-a-cache-storage-backend">using
+Redis</a>
+(or Memcached, if you like), especially if your application is spread across
+multiple instances of the same backend.</p>
+
+<p><code></code>`js
+const { BaseRedisCache } = require(&quot;apollo-server-cache-redis&quot;);
+const Redis = require(&quot;ioredis&quot;);</p>
+
+<p>const server = new ApolloServer({
+	// ...
+	cache: new BaseRedisCache({
+		plugins: [responseCachePlugin()],
+		client: new Redis({
+			host: &quot;redis-server&quot;,
+		}),
+	}),
+});
+<code></code>`</p>
+
+<blockquote><p>Note that you have to use the ioredis library here. node_redis is deprecated
+as of v2.6.0 of apollo-server-cache-redis.</p></blockquote>
+
+<p>If everything went well, your server should now know how to cache responses!
+This alone won’t get you very far, since it doesn’t know what to cache.</p>
+
+<h3>Telling Apollo what to cache</h3>
+
+<p>To make a type cachable, you have to declare <strong>cache hints</strong>. These properties
+can either be set in the
+<a href="https://www.apollographql.com/docs/apollo-server/performance/caching/#in-your-resolvers-dynamic">resolver</a>,
+or
+<a href="https://www.apollographql.com/docs/apollo-server/performance/caching/#in-your-schema-static">statically</a>
+in the schema. To keep it simple, this guide will stick to the static method.
+Feel free to experiment with the dynamic approach though!</p>
+
+<p>To enable cache hints, simply add the following directive to your schema (you
+only have to do this once):</p>
+
+<p><code></code>`gql
+enum CacheControlScope {
+	PUBLIC
+	PRIVATE
+}</p>
+
+<p>directive @cacheControl(
+	maxAge: Int
+	scope: CacheControlScope
+	inheritMaxAge: Boolean
+) on FIELD_DEFINITION | OBJECT | INTERFACE | UNION
+<code></code>`</p>
+
+<p>Now you can add the <code>@cacheControl</code> directive to every type that should be cached.</p>
+
+<p><code></code>`gql</p>
+
+<h1>This type will be cached for 30 seconds</h1>
+
+<p>type Post @cacheControl(maxAge: 30) {
+	id: ID!
+	title: String
+	author: Author
+	comments: [Comment]
+}
+<code></code>`</p>
+
+<p>For security reasons, these conditions are <a href="https://www.apollographql.com/docs/apollo-server/performance/caching/#why-are-these-the-maxage-defaults">very
+strict</a>:</p>
+
+<blockquote><p>Our philosophy behind Apollo Server caching is that a response should only be
+considered cacheable if every part of that response opts in to being
+cacheable.</p></blockquote>
+
+<p>This means that every type needs to explicitly decide how long it should be
+cached. According to this note, the example above actually won’t be cached at
+all!</p>
+
+<p>Having to specify the <code>maxAge</code> of every type would be tedious, so the authors
+have come up with the <code>inheritMaxAge</code> property, which allows the type to
+inherit the settings from its parent. So, in order to make our example
+cachable, we have to enable cache control for all its subfields, either by
+setting the <code>maxAge</code> explicitly or by inheriting it from the parent:</p>
+
+<p><code></code>`gql
+type Post @cacheControl(maxAge: 30) {
+	id: ID!
+	title: String
+	author: Author
+	comments: [Comment]
+}</p>
+
+<p>type Author @cacheControl(inheritMaxAge: true) {
+	id: ID!
+	name: String
+}</p>
+
+<p>type Comment @cacheControl(inheritMaxAge: true) {
+	id: ID!
+	body: String
+}
+<code></code>`</p>
+
+<p>Now, whenever you query a <code>Post</code>, it will be thrown in the cache. If you query
+the type again within 30 seconds, the query resolver won’t execute. Instead, it
+will be read from the cache. Keep in mind that cache hints can also be set on
+<code>query</code> and <code>mutation</code> fields. This can be handy if you want to cache the
+entire response of a request.</p>
+
+<h3>Gotcha 1: Multiple Response Variations</h3>
+
+<p>The use-case where this topic first came up required us to have different
+responses based on the type of the logged in user. An <code>Admin</code> should see a
+different result than a <code>Visitor</code>. If you ignore this fact, it could be that a
+visitor could see the cache result of a query previously executed by an admin!</p>
+
+<p>This problem can be counteracted by setting extra information in the cache key
+via <code>extraCacheKeyData</code> (see
+<a href="https://www.apollographql.com/docs/apollo-server/performance/caching/#configuring-reads-and-writes">this</a>
+paragraph):</p>
+
+<p><code>js
+plugins: [
+    responseCachePlugin({
+        extraCacheKeyData: (ctx) =&gt; (
+            ctx.context.auth.isAdmin
+        ),
+    }),
+],
+</code></p>
+
+<p>This example can create two distinct caches: One for users that are marked as
+admins, and one for regular users.</p>
+
+<h3>Gotcha 2: User-specific caches</h3>
+
+<p>Besides caching for a group of users, you can also cache responses <a href="https://www.apollographql.com/docs/apollo-server/performance/caching/#identifying-users-for-private-responses">for every
+user
+individually</a>.
+You may have noticed that you can also set a <code>scope</code> field in the cache control
+directive. This will only cache the response if a user is logged in:</p>
+
+<p><code>gql
+type Post {
+	id: ID!
+	title: String
+	author: Author @cacheControl(maxAge: 10, scope: PRIVATE)
+}
+</code></p>
+
+<p>Apollo determines if a user is logged in or not, based on if the <code>sessionId</code>
+function has returned a value other than <code>null</code>.</p>
+
+<p><code>js
+import responseCachePlugin from &quot;apollo-server-plugin-response-cache&quot;;
+const server = new ApolloServer({
+	// ...other settings...
+	plugins: [
+		responseCachePlugin({
+			sessionId: (requestContext) =&gt;
+				requestContext.request.http.headers.get(&quot;sessionid&quot;) || null,
+		}),
+	],
+});
+</code></p>
+
+<p>I’m unsure how effective this pattern is, since every user will receive its key
+in the cache. This kind of defeats the purpose of server-side caching, which is
+meant to reduce load on the database. If you’re trying to cache fields for
+individual users, you might also want to take a look at client-side caching via
+<a href="https://github.com/appmotion/apollo-augmented-hooks">apollo-augmented-hooks</a>.</p>
+
+<p>This is post 020 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>

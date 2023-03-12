@@ -1,0 +1,417 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Sat, 04 Mar 2023 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                Pods vs. Containers
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-03-04-pods-vs.-containers?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 04 Mar 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>In Kubernetes, pods and containers are often confused. I found a <a href="https://iximiuz.com/en/posts/containers-vs-pods/">great article</a> going over the differences of the two terms.</p>
+
+<blockquote><p>Containers and Pods are alike. Under the hood, they heavily rely on Linux namespaces and cgroups. However, Pods aren&#39;t just groups of containers. A Pod is a self-sufficient higher-level construct. All pod&#39;s containers run on the same machine (cluster node), their lifecycle is synchronized, and mutual isolation is weakened to simplify the inter-container communication. This makes Pods much closer to traditional VMs, <a href="https://www.mirantis.com/blog/multi-container-pods-and-container-communication-in-kubernetes/">bringing back the familiar deployment patterns like sidecar or reverse proxy</a>.</p></blockquote>
+
+<p>In my own words: Containers are made up of Linux namespaces and cgroups. Pods can be thought of as a cgroup of cgroups (though not really), mimicing the behavior of a virtual machine that runs multiple containers with a synchronized lifecycle. The containers in a pod are losely isolated, making it easy to communicate between each other. Containers in a pod can however set individual resource requests, enabled by Linux namespaces.</p>
+
+<p>I&#39;d highly encourage you to check out <a href="https://iximiuz.com/en/posts/containers-vs-pods/">the original article</a> if you want to learn more about this topic.</p>
+
+<hr/>
+
+<p>This is post 053 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Notes on containerizing PHP applications
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-03-03-notes-on-containerizing-php-applications?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 03 Mar 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I was recently tasked with building a rudimentary infrastructure for a PHP application. Coming from a Node.js-driven world where every human and their grandmother has a blog post about containerizing your application, it was very interesting to see where PHP differs to other applications.</p>
+
+<p>One major gotcha for me was that PHP code is executed on <strong>request-time</strong>, meaning a new process is spawned for each incoming request. Most other languages have dedicated runtimes that handle incoming requests. This unique approach is very flexible and scalable, but it comes with the implication that there is a <strong>separate webserver</strong> that calls into the PHP interpreter when it needs to.</p>
+
+<p>In Node.js (and most other languages), you can &quot;just run the app&quot;, as demonstrated by this Dockerfile:</p>
+
+<p><code></code>`dockerfile
+FROM node:18.14.2-alpine3.17 AS build</p>
+
+<p>WORKDIR /usr/src/app</p>
+
+<p>COPY package*.json ./</p>
+
+<p>RUN npm ci</p>
+
+<p>COPY . .</p>
+
+<p>EXPOSE 3000</p>
+
+<p>CMD [ &quot;node&quot;, &quot;server.js&quot; ]
+<code></code>`</p>
+
+<p>PHP on the other side is rarely used on its own. Most of the time, it needs a webserver alongside it:</p>
+
+<p><code></code>`dockerfile
+FROM php:8.1-apache-bullseye</p>
+
+<h1>&lt;snip&gt;</h1>
+
+<p>COPY . /var/www/html
+WORKDIR /var/www/html</p>
+
+<h1>&lt;snip&gt;</h1>
+
+<p><code></code>`</p>
+
+<p>As you can see, I&#39;m using the official PHP docker image. The PHP maintainers know that adding a webserver alongside PHP is a very common pattern, so most of the variants of the image ship with a webserver. In this example I&#39;m using Apache, but we might as well use NGINX or some other webserver. There&#39;s also the option to use <a href="https://www.php.net/manual/de/install.fpm.php">FPM</a> as a FastCGI implementation and a webserver in a <strong>separate</strong> container.</p>
+
+<p>Grasping this took me some time, but after it clicked it made many things a lot clearer.</p>
+
+<h2>More complete Dockerfile example</h2>
+
+<p>The Dockerfile above is meant to demonstrate how PHP applications differ from other languages. The following is a more complete example you can use to containerize your PHP application. In this case it’s a Laravel app, so your mileage may vary.</p>
+
+<p><code></code>`dockerfile
+FROM php:8.1-apache-bullseye</p>
+
+<p>RUN apt-get clean &amp;&amp; \
+    apt-get update &amp;&amp; \
+    apt-get install --fix-missing -y \
+        zip &amp;&amp; \
+    docker-php-ext-install \
+        pdo \
+        pdo_mysql \
+        bcmath</p>
+
+<p>COPY --from=composer:2 /usr/bin/composer /usr/bin/composer</p>
+
+<p>COPY . /var/www/html
+WORKDIR /var/www/html</p>
+
+<p>ENV APACHE<em>DOCUMENT</em>ROOT /var/www/html/public</p>
+
+<p>RUN composer install --no-dev --optimize-autoloader --no-interaction &amp;&amp; \
+    sed -ri -e &#39;s!/var/www/html!${APACHE<em>DOCUMENT</em>ROOT}!g&#39; /etc/apache2/sites-available/*.conf &amp;&amp; \
+    sed -ri -e &#39;s!/var/www/!${APACHE<em>DOCUMENT</em>ROOT}!g&#39; /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf &amp;&amp; \
+    php artisan config:cache &amp;&amp; \
+    php artisan view:cache &amp;&amp; \
+    php artisan route:cache &amp;&amp; \
+    php artisan storage:link &amp;&amp; \
+    chmod 777 -R /var/www/html/storage/ &amp;&amp; \
+    chown -R www-data:www-data /var/www/ &amp;&amp; \
+    a2enmod rewrite
+<code></code>`</p>
+
+<hr/>
+
+<p>This is post 052 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Dockerignore troubles
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-02-22-dockerignore-troubles?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 22 Feb 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I commonly used to create a <code>.Dockerignore</code> file next to my <code>Dockerfile</code>. After countless hours of ignoring the problems in my setup, I found out that the uppercase <code>.Dockerignore</code> doesn&#39;t get picked up by Docker on MacOS. Only the lowercase <code>.dockerignore</code> is valid.</p>
+
+<p>I didn&#39;t find official documentation on this, but I think it&#39;s because both MacOS and Linux are case-sensitive, while Windows isn&#39;t. I don&#39;t remember why I got used to the <code>.Dockerignore</code> convention, but I swear I saw someone using it in the wild. Or it&#39;s my (un)logical reasoning that, because <code>Dockerfile</code> is uppercased, <code>.Dockerignore</code> should be uppercased as well.</p>
+
+<p>Either way, stay away from <code>.Dockerfile</code>s and stick to <code>.dockerfile</code>s.</p>
+
+<p>This is post 050 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Debugging Docker images
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-09-30-debugging-docker-images?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 30 Sep 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Docker builds images incrementally. Every line in a Dockerfile will generate a
+new image that builds on top of the last one. This can be really handy if
+something is not right in your build.</p>
+
+<p>Since version 18.09 Docker has added a new backend for building images,
+<a href="https://github.com/moby/buildkit#buildkit">buildkit</a>. Unfortunately, buildkit
+does not let you view the IDs of the intermediate containers it uses under the
+hood. To work around that, you can opt out of buildkit by running a build with
+buildkit disabled:</p>
+
+<p><code>sh
+DOCKER_BUILDKIT=0 docker build --pull --rm -t myproject:latest .
+</code></p>
+
+<p>You should now see the IDs of the intermediate containers:</p>
+
+<p><code>sh
+Sending build context to Docker daemon  87.84MB
+Step 1/16 : FROM node:16.15.1-alpine3.16 AS development
+16.15.1-alpine3.16: Pulling from library/node
+Digest: sha256:c785e617c8d7015190c0d41af52cc69be8a16e3d9eb7cb21f0bb58bcfca14d6b
+Status: Image is up to date for node:16.15.1-alpine3.16
+ ---&gt; e548f8c9983f
+Step 2/16 : WORKDIR /usr/src/app
+ ---&gt; Using cache
+ ---&gt; 34e5c9bdb910
+Step 3/16 : COPY package*.json ./
+ ---&gt; Using cache
+ ---&gt; 626e4ae998fc
+Step 4/16 : RUN npm install glob rimraf
+ ---&gt; Using cache
+ ---&gt; 2d036b8354e0
+Step 5/16 : RUN npm install
+ ---&gt; Using cache
+ ---&gt; 948709b4957f      &lt;-- HERE
+Step 6/16 : COPY . .
+...
+</code></p>
+
+<p>As mentioned, these IDs are valid docker images, so you can just launch them
+and attach a shell like every other image:</p>
+
+<p><code>sh
+docker run -ti --rm 948709b4957f
+</code></p>
+
+<p>If you&#39;re not seeing a regular shell, but a Node.js REPL for example, this
+might be because the <code>ENTRYPOINT</code> of that image was set to the binary of that
+REPL. To work around that, you can override the entrypoint:</p>
+
+<p><code>sh
+docker run -ti --rm --entrypoint=/bin/sh 948709b4957f
+</code></p>
+
+<h2>When is this helpful?</h2>
+
+<p>If your build fails at a particular step, you can attach a shell to the <strong>last
+working</strong> step, inspect the filesystem, and execute the failing command manually.</p>
+
+<p>That&#39;s all!</p>
+
+<p>This is post 039 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Postgres Docker Container Migration Cheat Sheet
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-05-31-database-server-migration-cheat-sheet?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 31 May 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just finished migrating a postgres database to a new host. To remember how to
+do it next time, I&#39;m writing down the commands I used here.</p>
+
+<p>I usually just shut down the database and then copy the local directory where
+the volume was mounted onto the new host. This time though, I seemed to be
+getting some I/O errors, so I had to do it the &quot;right&quot; way.</p>
+
+<p>To be fair, this note is based on
+<a href="https://www.netguru.com/blog/how-to-dump-and-restore-postgresql-database">this</a>
+guide. I modified it to fit my workflow with docker.</p>
+
+<h2>Creating a dump</h2>
+
+<p>Log into the old host:</p>
+
+<p><code>
+ssh &lt;user&gt;@host
+</code></p>
+
+<p>Connect to the postgres-container:</p>
+
+<p><code>
+docker exec -ti myservice_db_1 /bin/bash
+</code></p>
+
+<p>Create a dump. You can name your dump as you wish - I&#39;m using dates to
+distinguish multiple dumps:</p>
+
+<p><code>
+pg_dump -U db_user db_name &gt; db_name_20220531.sql
+</code></p>
+
+<p>Copy the dump to the host machine:</p>
+
+<p><code>
+docker cp myservice_db_1:/db_name_20220531.sql ~/
+</code></p>
+
+<h2>Moving the dump to the new host</h2>
+
+<p>The easiest way to get the dump off of the old server and onto the new one is to
+use your local machine as a middleman.</p>
+
+<p>First, download the dump to your machine:</p>
+
+<p><code>
+scp &lt;user&gt;@&lt;host&gt;:~/db_name_20220531.sql .
+</code></p>
+
+<p>Then, do the same thing but reversed, with the new host:</p>
+
+<p><code>
+scp ./db_name_20220531.sql &lt;user&gt;@&lt;host&gt;:~/
+</code></p>
+
+<h2>Restoring the dump</h2>
+
+<p>First, connect to the new host:</p>
+
+<p><code>
+ssh &lt;user&gt;@&lt;host&gt;
+</code></p>
+
+<p>Assuming the docker service is already running on the new host, attach to the
+db-container, just like above:</p>
+
+<p><code>
+docker exec -ti myservice_db_1 /bin/bash
+</code></p>
+
+<p>This time, we have to do some fiddling on the database, so attach a session to
+postgres using their cli:</p>
+
+<p><code>
+psql -U my_user
+</code></p>
+
+<p>Before &quot;resetting&quot; the existing DB to apply the dump, we have to connect to
+another database. The <code>postgres</code> DB is always there, so you can use that.</p>
+
+<p><code>
+\c postgres
+</code></p>
+
+<p>Now, we drop the existing DB and re-add it:</p>
+
+<p><code>sql
+drop database database_name;
+create database database_name with owner your_user_name;
+</code></p>
+
+<p>And now, the moment you&#39;ve been waiting for! Leave the psql-session and apply
+the dump:</p>
+
+<p><code>
+psql -U db_user db_name &lt; db_name_20220531.sql
+</code></p>
+
+<p>That&#39;s all! You now have the exact copy of production database available on your
+machine.</p>
+
+<p>This is post 032 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Docker healthchecks using healthchecks.io
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-05-15-healthchecks-io-with-docker?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 15 May 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;m currently in the midst of improving the monitoring of my infrastructure. I
+make heavy use of docker and docker-compose for my hosting, so it&#39;s vital to add
+monitoring for most of the containers.</p>
+
+<p>I&#39;m hosting my own instance of <a href="https://healthchecks.io/">healthchecks.io</a>.
+Their solution to monitoring involves <strong>you</strong> having to ping <strong>them</strong>, instead
+of the other way around. This let&#39;s you add healthchecks to virtually anything
+that can ping a http-endpoint.</p>
+
+<p>docker-compose let&#39;s you define healthchecks to your config that, when
+completing sucessfully, mark the container as &quot;healthy&quot;. The process of adding
+such a healthcheck is simple. First, create a new check in your healthchecks.io
+account and set the ping interval to 1 minute, or a value you prefer. Then, add
+this snippet to your docker-compose file:</p>
+
+<p><code>yaml
+app:
+  image: nextcloud
+  ports:
+    - 127.0.0.1:8080:80
+  healthcheck:
+    test:
+      [
+        &quot;CMD&quot;,
+        &quot;curl&quot;,
+        &quot;-f&quot;,
+        &quot;https://app-endpoint.tld&quot;,
+        &quot;&amp;&amp;&quot;,
+        &quot;curl&quot;,
+        &quot;-fsS&quot;,
+        &quot;-m&quot;,
+        &quot;10&quot;,
+        &quot;--retry&quot;,
+        &quot;5&quot;,
+        &quot;-o&quot;,
+        &quot;/dev/null&quot;,
+        &quot;https://healthchecks.io/ping/&lt;UUID&gt;&quot;,
+      ]
+    interval: 60s
+    timeout: 10s
+    retries: 6
+</code></p>
+
+<p>Change the first url to the url of your app. The second URL is the endpoint of
+your healthchecks.io instance. You can obtain it from the check you configured
+earlier.</p>
+
+<p>This configuration will try to ping your application and, if successful, notify
+the healthcheck that the application is healthy. If the app is not reachable or
+the container is down, the latter request will not be executed and your service
+is marked as &quot;down&quot;.</p>
+
+<p>In addition to the healthchecks of my docker containers, I also added basic
+healthchecks to my servers cronfiles and its backup-commands.</p>
+
+<p>Do you have any suggestions regarding this topic? Feel free to reach out to me
+via Matrix or email!</p>
+
+<p>This is post 017 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Tue, 24 May 2022 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                Cloning Windows to a new drive
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-05-24-cloning-windows-to-a-new-drive?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 24 May 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>My grandpa has been using his current computer for about 10 years now. After
+such a long time, the system has become quite slow and bulky. Back then it was
+relatively normal to use a HDD as a primary hard drive, which adds to the slow
+experience. It was time for an upgrade!</p>
+
+<blockquote><p><strong>TL;DR</strong>: Use <a href="https://clonezilla.org/">Clonezilla</a> on a live usb stick to
+create an exact copy of your old drive onto your new one.</p></blockquote>
+
+<p>I got him a 512 GB SSD, which, conveniently, is the same size of his current
+HDD. While installing the new drive alongside his existing one, I thought about
+how to copy the existing Windows-installation.</p>
+
+<p>Naïvely, I thought that I could just <code>dd</code> the contents of the HDD onto the new
+drive would work, since, <em>every byte is copied as is</em>, or at least that&#39;s what I
+thought. Turns out it wasn&#39;t that easy. I&#39;m sure it would&#39;ve worked if I was
+more careful, but by default, <code>dd</code> just wipes over each byte, not caring if it
+made a mistake. After very long 5 hours, I came back to the PC to see that it
+finished copying the 512 GB (yes, it&#39;s not just copying the data, it&#39;s copying
+the entire partition!). In a super excited mood, I restarted the PC and selected
+the SSD as a boot medium. Aaaaand... nothing. Windows tried to repair some stuff
+but it wasn&#39;t successful. I fiddled around with the boot partition a bit, but I
+had to give up after an hour or so.</p>
+
+<h2>The second attempt</h2>
+
+<p>After researching a bit (I should&#39;ve done that sooner...) I stumbled across
+<a href="https://clonezilla.org/">Clonezilla</a>, a Linux distribution custom-built for
+this purpose. I flashed it onto a usb-stick and started the cloning process.
+After just 20 minutes (!), it was done cloning the existing data. The process is
+extremely simple!</p>
+
+<p>Before rebooting, I disconnected the old drive to make sure that there&#39;s no
+funny business going on. Apparently, Windows had to self-adjust UIDs of the
+drives, but after a short &quot;Preparing Windows&quot; animation, the system started up
+as expected. <strong>Success</strong>!!</p>
+
+<p>The performance of the new hard drive is amazing, at least compared to the HDD
+my grandpa had before. Plus, we can use the existing HDD to take full system
+backups every now and then, using the same process.</p>
+
+<p>This is post 031 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>

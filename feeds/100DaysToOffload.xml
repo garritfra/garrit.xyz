@@ -1,0 +1,3567 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Sat, 11 Mar 2023 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                A software requirements checklist
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-03-11-a-software-requirements-checklist?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 11 Mar 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just found a <a href="https://www.etsy.com/codeascraft/a-checklist-manifetsy">great post</a> on the Etsy Engineering blog suggesting a possible checklist for new product requirements. In reality, this checklist is very hard to fulfill, but it&#39;s a nice reminder of what a well thought out requirement could look like.</p>
+
+<h3>Scope</h3>
+
+<ul><li>Is the feature meant to be very polished and finished or are we just trying to get user feedback as an MVP?</li><li>If we are running a MVP, is the current feature a true MVP? How can we simplify or cut scope?</li></ul>
+
+<h3>Eligibility</h3>
+
+<ul><li>What populations should be included or excluded from the experiment? When should users see this feature? (Which pages, signed in/signed out, mobile, desktop, etc.)
+Where/when should bucketing occur?</li><li>Will the experiment conflict with any other experiments? Do the experiments need to run exclusively?</li><li>What countries should the experiment run in (can impact translations)?</li></ul>
+
+<h3>A11Y</h3>
+
+<ul><li>Is there any special accessibility work this feature will require? If extra work is anticipated, check in early with our a11y team.</li><li>When testing and developing we should keep two users in mind - a keyboard user and a voice over user, do we need to add other code for these users?</li></ul>
+
+<h3>Translations</h3>
+
+<ul><li>Are there any strings to be translated that should be submitted ASAP?</li><li>Do we need to translate any labels for a11y?</li></ul>
+
+<h3>Observability</h3>
+
+<ul><li>How will we know that the feature is working? Are there existing graphs we can use or do we need new ones?</li><li>Should any of these metrics have a threshold or alerting?</li><li>Are we missing any key events to obtain user feedback?</li><li>How will we compare our control and variant?</li></ul>
+
+<h3>Performance</h3>
+
+<ul><li>Is there anything in my experiment that could degrade performance of the site?</li><li>Do I need an operational experiment to verify that I’m not impacting performance?</li></ul>
+
+<h3>Error States</h3>
+
+<ul><li>Do we have designs for loading states?</li><li>Do we have designs for unsuccessful requests and error handling?</li><li>Do we have informative logging when there are errors?</li></ul>
+
+<h3>QA</h3>
+
+<ul><li>What set of browsers and devices should we test our new feature against?</li><li>Which user perspectives do we need to test?</li></ul>
+
+<h3>Ramping</h3>
+
+<ul><li>What will our ramping strategy be?</li></ul>
+
+<hr/>
+
+<p>Check out the <a href="https://www.etsy.com/codeascraft/a-checklist-manifetsy">original post</a> for a full writeup and the intentions behind this checklist.</p>
+
+<hr/>
+
+<p>This is post 056 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Debugging ECS Tasks
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-03-10-debugging-ecs-tasks?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 10 Mar 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just had to debug an application on AWS ECS. The whole procedure is documented in more detail in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html">documentation</a>, but I think it&#39;s beneficial (both for my future self and hopefully to someone out there) to write down the proccess in my own words.</p>
+
+<p>First of all, you need access to the cluster via the <a href="https://aws.amazon.com/de/cli/">CLI</a>. In addition to the CLI, you need the <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">AWS Session Manager plugin for the CLI</a>. If you&#39;re on MacOS, you can install that via <a href="https://formulae.brew.sh/cask/session-manager-plugin">Homebrew</a>:</p>
+
+<p><code>
+brew install --cask session-manager-plugin
+</code></p>
+
+<p>Next, you need to allow the task you want to debug to be able to execute commands. Since I&#39;m using Terraform, this was just a matter of adding the <a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service#enable_execute_command"><code>enable_execute_command</code></a> attribute to the service:</p>
+
+<p><code>tf
+resource &quot;aws_ecs_service&quot; &quot;my_service&quot; {
+  name            = &quot;my-service&quot;
+  cluster         = aws_ecs_cluster.my_cluster.id
+  task_definition = aws_ecs_task_definition.my_task_definition.id
+  desired_count   = var.app_count
+  launch_type     = &quot;FARGATE&quot;
+  enable_execute_command = true # TODO: Disable after debugging
+}
+</code></p>
+
+<p>You may also need specify an execution role in the task definition:</p>
+
+<p><code>tf
+resource &quot;aws_ecs_task_definition&quot; &quot;my_task_definition&quot; {
+  family              = &quot;my-task&quot;
+  task_role_arn       = aws_iam_role.ecs_task_execution_role.arn
+  execution_role_arn  = aws_iam_role.ecs_task_execution_role.arn  # &lt;-- Add this
+}
+</code></p>
+
+<p>Make sure that this role has the correct access rights. There&#39;s a nice <a href="https://aws.amazon.com/de/premiumsupport/knowledge-center/ecs-error-execute-command/">troubleshooting guide</a> going over the required permissions.</p>
+
+<p>If you had to do some modifications, make sure to roll out a new deployment with the fresh settings:</p>
+
+<p><code>
+aws ecs update-service --cluster my-cluster --service my-service --force-new-deployment
+</code></p>
+
+<p>Now, you should be able to issue commands against any running container!</p>
+
+<p><code>
+aws ecs execute-command --cluster westfalen --task &lt;task-id-or-arn&gt; --container my-container --interactive --command=&quot;/bin/sh&quot;
+</code></p>
+
+<p>I hope this helps!</p>
+
+<hr/>
+
+<p>This is post 055 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                The fundamental difference between Terraform and Kubernetes
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-03-08-terraform-and-kubernetes-are-fundamentally-different?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 08 Mar 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>On the surface, Infrastructure as Code tools like <a href="https://www.terraform.io/">Terraform</a> or <a href="https://aws.amazon.com/de/cloudformation/">CloudFormation</a> may seem to behave similar to <a href="https://kubernetes.io/">Kubernetes</a> YAMLs, but they are in fact fundamentally different approaches to cloud infrastructure.</p>
+
+<p>Terraform tries to provide a declarative way to express imperative actions. If you tell Terraform that you need an EC2 instance, it will notice that no such resource exists and instruct the AWS API to create one. If you don&#39;t need the instance anymore and remove the resource definition from your code, Terraform will also pick that up and instruct the AWS API to delete the instance. This works well in most cases, but every once in a while the declarative state may get out of sync with the real world, resulting in errors that are hard to debug and resolve.</p>
+
+<p>Kubernetes on the other hand is a fully declarative system. In a <a href="/posts/2022-09-22-kubernetes-is-a-domain-specific-database">previous post</a> I touched on how Kubernetes constantly compares the <em>desired</em> state with the <em>actual</em> state of the resources and tries to match the two. Although it is theoretically possible to issue imperative actions, Kubernetes is built from the ground up to be declarative.</p>
+
+<hr/>
+
+<p>This is post 054 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Pods vs. Containers
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-03-04-pods-vs.-containers?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 04 Mar 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>In Kubernetes, pods and containers are often confused. I found a <a href="https://iximiuz.com/en/posts/containers-vs-pods/">great article</a> going over the differences of the two terms.</p>
+
+<blockquote><p>Containers and Pods are alike. Under the hood, they heavily rely on Linux namespaces and cgroups. However, Pods aren&#39;t just groups of containers. A Pod is a self-sufficient higher-level construct. All pod&#39;s containers run on the same machine (cluster node), their lifecycle is synchronized, and mutual isolation is weakened to simplify the inter-container communication. This makes Pods much closer to traditional VMs, <a href="https://www.mirantis.com/blog/multi-container-pods-and-container-communication-in-kubernetes/">bringing back the familiar deployment patterns like sidecar or reverse proxy</a>.</p></blockquote>
+
+<p>In my own words: Containers are made up of Linux namespaces and cgroups. Pods can be thought of as a cgroup of cgroups (though not really), mimicing the behavior of a virtual machine that runs multiple containers with a synchronized lifecycle. The containers in a pod are losely isolated, making it easy to communicate between each other. Containers in a pod can however set individual resource requests, enabled by Linux namespaces.</p>
+
+<p>I&#39;d highly encourage you to check out <a href="https://iximiuz.com/en/posts/containers-vs-pods/">the original article</a> if you want to learn more about this topic.</p>
+
+<hr/>
+
+<p>This is post 053 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Notes on containerizing PHP applications
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-03-03-notes-on-containerizing-php-applications?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 03 Mar 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I was recently tasked with building a rudimentary infrastructure for a PHP application. Coming from a Node.js-driven world where every human and their grandmother has a blog post about containerizing your application, it was very interesting to see where PHP differs to other applications.</p>
+
+<p>One major gotcha for me was that PHP code is executed on <strong>request-time</strong>, meaning a new process is spawned for each incoming request. Most other languages have dedicated runtimes that handle incoming requests. This unique approach is very flexible and scalable, but it comes with the implication that there is a <strong>separate webserver</strong> that calls into the PHP interpreter when it needs to.</p>
+
+<p>In Node.js (and most other languages), you can &quot;just run the app&quot;, as demonstrated by this Dockerfile:</p>
+
+<p><code></code>`dockerfile
+FROM node:18.14.2-alpine3.17 AS build</p>
+
+<p>WORKDIR /usr/src/app</p>
+
+<p>COPY package*.json ./</p>
+
+<p>RUN npm ci</p>
+
+<p>COPY . .</p>
+
+<p>EXPOSE 3000</p>
+
+<p>CMD [ &quot;node&quot;, &quot;server.js&quot; ]
+<code></code>`</p>
+
+<p>PHP on the other side is rarely used on its own. Most of the time, it needs a webserver alongside it:</p>
+
+<p><code></code>`dockerfile
+FROM php:8.1-apache-bullseye</p>
+
+<h1>&lt;snip&gt;</h1>
+
+<p>COPY . /var/www/html
+WORKDIR /var/www/html</p>
+
+<h1>&lt;snip&gt;</h1>
+
+<p><code></code>`</p>
+
+<p>As you can see, I&#39;m using the official PHP docker image. The PHP maintainers know that adding a webserver alongside PHP is a very common pattern, so most of the variants of the image ship with a webserver. In this example I&#39;m using Apache, but we might as well use NGINX or some other webserver. There&#39;s also the option to use <a href="https://www.php.net/manual/de/install.fpm.php">FPM</a> as a FastCGI implementation and a webserver in a <strong>separate</strong> container.</p>
+
+<p>Grasping this took me some time, but after it clicked it made many things a lot clearer.</p>
+
+<h2>More complete Dockerfile example</h2>
+
+<p>The Dockerfile above is meant to demonstrate how PHP applications differ from other languages. The following is a more complete example you can use to containerize your PHP application. In this case it’s a Laravel app, so your mileage may vary.</p>
+
+<p><code></code>`dockerfile
+FROM php:8.1-apache-bullseye</p>
+
+<p>RUN apt-get clean &amp;&amp; \
+    apt-get update &amp;&amp; \
+    apt-get install --fix-missing -y \
+        zip &amp;&amp; \
+    docker-php-ext-install \
+        pdo \
+        pdo_mysql \
+        bcmath</p>
+
+<p>COPY --from=composer:2 /usr/bin/composer /usr/bin/composer</p>
+
+<p>COPY . /var/www/html
+WORKDIR /var/www/html</p>
+
+<p>ENV APACHE<em>DOCUMENT</em>ROOT /var/www/html/public</p>
+
+<p>RUN composer install --no-dev --optimize-autoloader --no-interaction &amp;&amp; \
+    sed -ri -e &#39;s!/var/www/html!${APACHE<em>DOCUMENT</em>ROOT}!g&#39; /etc/apache2/sites-available/*.conf &amp;&amp; \
+    sed -ri -e &#39;s!/var/www/!${APACHE<em>DOCUMENT</em>ROOT}!g&#39; /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf &amp;&amp; \
+    php artisan config:cache &amp;&amp; \
+    php artisan view:cache &amp;&amp; \
+    php artisan route:cache &amp;&amp; \
+    php artisan storage:link &amp;&amp; \
+    chmod 777 -R /var/www/html/storage/ &amp;&amp; \
+    chown -R www-data:www-data /var/www/ &amp;&amp; \
+    a2enmod rewrite
+<code></code>`</p>
+
+<hr/>
+
+<p>This is post 052 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Visual Distractions
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-02-24-visual-distractions?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 24 Feb 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Everywhere we look, we&#39;re bombarded with flashy symbols trying to grab our attention. This is even the case where we <strong>think</strong> that we&#39;re in control of what we&#39;re looking at. I made two simple changes that reduce visual distractions in my life.</p>
+
+<h2>Android App Icons</h2>
+
+<p>App icons play a serious role in how we interact with our phone. Over the years, there has been a constant battle for the most flashy icon on our home screen. But there&#39;s a cure: newer versions of Android <a href="https://www.lifewire.com/change-color-of-apps-on-android-phones-5213663">let you choose a color theme for apps that implement it</a>. It&#39;s by far not supported by every app out there, but in my case 90% of the app icons now have the same color. I feel way more comfortable looking at my phone, knowing that less things are trying to grab my attention right when I unlock my phone.</p>
+
+<p>With this change, I found that I am more mindful about what app icon I tap on, since I was used to each icon having a different color. This makes it harder for my muscle memory to develop bad habits.</p>
+
+<h2>RSS-Reader Favicons</h2>
+
+<p>If you&#39;re using an RSS reader, chances are you&#39;re used to seeing a favicon next to the articles. I had the feeling that I was drawn more towards the favicon than the headline of the article, so I started looking for ways to disable favicons all together.</p>
+
+<p>Miniflux provides a way to override the stylesheet of the feed in the settings. Simply append the following code-snippet and the favicons will be history:</p>
+
+<p><code>css
+.item-title img, .entry-website img {
+  display: none;
+}
+</code></p>
+
+<p>Of course every reader is different, so you might want to look into the documentation of your reader of choice.</p>
+
+<h2>Conclusion</h2>
+
+<p>These changes might seem insignificant, but I found that they made a huge difference in how I interact with my phone. The suggestions above might not apply to your life, but I&#39;d like to encourage you to keep an eye out for unnecessary visual distraction in your life. Try to avoid it as much as possible.</p>
+
+<hr/>
+
+<p>This is post 051 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                TIL about CSS Insets
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-02-19-til-about-css-insets?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 19 Feb 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Just a quick tip that I thought is worth sharing. Instead of declaring:</p>
+
+<p><code>css
+.foo { 
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+</code></p>
+
+<p>you can just use:</p>
+
+<p><code>css
+.foo {
+  inset: 0;
+}
+</code></p>
+
+<p>It&#39;s supported everywhere computers are sold!</p>
+
+<p>MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/inset</p>
+
+<p>Source: https://front-end.social/@estelle/109878532782943511</p>
+
+<p>This is post 047 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                OpenSSF Best Practices
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-02-14-openssf-best-practices?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 14 Feb 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>The Open Source Security Foundation (OpenSSF) provides <a href="https://bestpractices.coreinfrastructure.org/en/criteria/0">a list of best
+practices</a> for open
+source projects. Although this list is tailored towards free and open source
+projects, I believe that this list is valuable for <em>all</em> software projects.
+Here&#39;s a breakdown of all practices that I consider generic to all projects, no
+matter its license, alongside some personal notes.</p>
+
+<h2>Basics</h2>
+
+<h3>Basic project website content</h3>
+
+<p>The project website MUST succinctly describe what the software does (what problem does it solve?).</p>
+
+<blockquote><p>A website might not always apply, but a README is a good place to put this information.</p></blockquote>
+
+<p>The information on how to contribute MUST explain the contribution process (e.g., are pull requests used?)</p>
+
+<blockquote><p>This information is also best placed in the README.</p></blockquote>
+
+<p>The information on how to contribute SHOULD include the requirements for acceptable contributions (e.g., a reference to any required coding standard)</p>
+
+<blockquote><p>-&gt; README.</p></blockquote>
+
+<h3>Documentation</h3>
+
+<p>The project MUST provide basic documentation for the software produced by the
+project.</p>
+
+<p>The project MUST provide reference documentation that describes the external
+interface (both input and output) of the software produced by the project.</p>
+
+<blockquote><p>I wouldn&#39;t consider reference documentation a requirement, but it&#39;s nice to
+have.</p></blockquote>
+
+<h3>Other</h3>
+
+<p>The project sites (website, repository, and download URLs) MUST support HTTPS using TLS.</p>
+
+<h2>Change Control</h2>
+
+<h3>Public version-controlled source repository</h3>
+
+<p>The project MUST have a version-controlled source repository ~~that is publicly readable and has a URL~~.</p>
+
+<p>The project&#39;s source repository MUST track what changes were made, who made
+the changes, and when the changes were made.</p>
+
+<p>To enable collaborative review, the project&#39;s source repository MUST include interim versions for review between releases; it MUST NOT include only final releases.</p>
+
+<blockquote><p>In some cases, code can&#39;t or shouldn&#39;t be versioned. For most website projects,
+review environments in merge requests (Vercel, Netlify, GitLab) could be
+considered.</p></blockquote>
+
+<p>It is SUGGESTED that common distributed version control software be used (e.g., git) for the project&#39;s source repository.</p>
+
+<h3>Unique version numbering</h3>
+
+<p>The project results MUST have a unique version identifier for each release
+intended to be used by users.</p>
+
+<blockquote><p>Commit hashes can be used as unique version numbers in some cases.</p></blockquote>
+
+<p>It is SUGGESTED that the Semantic Versioning (SemVer) or Calendar Versioning
+(CalVer) version numbering format be used for releases. It is SUGGESTED that
+those who use CalVer include a micro level value.</p>
+
+<blockquote><p>As mentioned above, projects that are constantly in motion (e.g.
+<a href="https://darktheme.club/">darktheme.club</a>) might want to consider using commit
+hashes for version numbers instead.</p></blockquote>
+
+<p>It is SUGGESTED that projects identify each release within their version
+control system. For example, it is SUGGESTED that those using git identify each
+release using git tags.</p>
+
+<blockquote><p>Git tags are often neglected during development, but can be very useful.</p></blockquote>
+
+<h3>Release notes</h3>
+
+<p>The project MUST provide, in each release, release notes that are a
+human-readable summary of major changes in that release to help users determine
+if they should upgrade and what the upgrade impact will be. The release notes
+MUST NOT be the raw output of a version control log (e.g., the &quot;git log&quot; command
+results are not release notes). Projects whose results are not intended for
+reuse in multiple locations (such as the software for a single website or
+service) AND employ continuous delivery MAY select &quot;N/A&quot;.</p>
+
+<blockquote><p>I wrote <a href="/posts/2021-02-20-changelogs">a post</a> about changelogs a while back.</p></blockquote>
+
+<p>The release notes MUST identify every publicly known run-time vulnerability
+fixed in this release that already had a CVE assignment or similar when the
+release was created. This criterion may be marked as not applicable (N/A) if
+users typically cannot practically update the software themselves (e.g., as
+is often true for kernel updates). This criterion applies only to the
+project results, not to its dependencies. If there are no release notes or
+there have been no publicly known vulnerabilities, choose N/A.</p>
+
+<h2>Reporting</h2>
+
+<h3>Vulnerability report process</h3>
+
+<p>If private vulnerability reports are supported, the project MUST include how
+to send the information in a way that is kept private.</p>
+
+<blockquote><p>For proprietary projects, it&#39;s often a good idea to have a public &quot;Report an issue&quot;
+feature.</p></blockquote>
+
+<h2>Quality</h2>
+
+<h3>Working build system</h3>
+
+<p>If the software produced by the project requires building for use, the
+project MUST provide a working build system that can automatically rebuild
+the software from source code.</p>
+
+<p>It is SUGGESTED that common tools be used for building the software.</p>
+
+<h3>Automated test suite</h3>
+
+<p>The project MUST use at least one automated test suite ~~that is publicly
+released as FLOSS (this test suite may be maintained as a separate FLOSS
+project)~~. The project MUST clearly show or document how to run the test
+suite(s) (e.g., via a continuous integration (CI) script or via documentation in
+files such as BUILD.md, README.md, or CONTRIBUTING.md).</p>
+
+<p>A test suite SHOULD be invocable in a standard way for that language.</p>
+
+<p>E.g. <code>npm run test</code>, <code>cargo test</code>, etc.</p>
+
+<p>It is SUGGESTED that the test suite cover most (or ideally all) the code
+branches, input fields, and functionality.</p>
+
+<blockquote><p>Write tests if they are useful, not for the sake of having 100% test coverage.</p></blockquote>
+
+<p>It is SUGGESTED that the project implement continuous integration (where new
+or changed code is frequently integrated into a central code repository and
+automated tests are run on the result).</p>
+
+<h3>New functionality testing</h3>
+
+<p>The project MUST have a general policy (formal or not) that as major new
+functionality is added to the software produced by the project, tests of that
+functionality should be added to an automated test suite.</p>
+
+<p>The project MUST have evidence that the test policy for adding tests has been
+adhered to in the most recent major changes to the software produced by the
+project.</p>
+
+<blockquote><p>This is often covered if you have a CI pipeline.</p></blockquote>
+
+<p>It is SUGGESTED that this policy on adding tests (see test_policy) be
+documented in the instructions for change proposals.</p>
+
+<blockquote><p>Consider adding a checkbox to your merge request template. For reference, here&#39;s
+a checklist that I often use in templates:</p><p><code></code>`</p><h1>Checklist:</h1><ul><li>[ ] documented in the changelog</li><li>[ ] sufficiently tested</li><li>[ ] sufficiently documented
+<code></code>`</li></ul></blockquote>
+
+<h3>Warning flags</h3>
+
+<p>The project MUST enable one or more compiler warning flags, a &quot;safe&quot;
+language mode, or use a separate &quot;linter&quot; tool to look for code quality
+errors or common simple mistakes, if there is at least one FLOSS tool that
+can implement this criterion in the selected language.</p>
+
+<p>The project MUST address warnings.</p>
+
+<blockquote><p>Ensure this by disallowing warnings in your CI pipeline.</p></blockquote>
+
+<p>It is SUGGESTED that projects be maximally strict with warnings in the
+software produced by the project, where practical.</p>
+
+<h2>Security</h2>
+
+<h3>Secure development knowledge</h3>
+
+<p>The project MUST have at least one primary developer who knows how to design
+secure software.</p>
+
+<p>At least one of the project&#39;s primary developers MUST know of common kinds of
+errors that lead to vulnerabilities in this kind of software, as well as at
+least one method to counter or mitigate each of them.</p>
+
+<blockquote><p>Easier said than done, but be vocal if you&#39;re hesitant towards a feature or
+implementation path.</p></blockquote>
+
+<h3>Use basic good cryptographic practices</h3>
+
+<p>The software produced by the project MUST use, by default, only cryptographic
+protocols and algorithms that are publicly published and reviewed by experts (if
+cryptographic protocols and algorithms are used).</p>
+
+<p>If the software produced by the project is an application or library, and its
+primary purpose is not to implement cryptography, then it SHOULD only call on
+software specifically designed to implement cryptographic functions; it SHOULD
+NOT re-implement its own.</p>
+
+<blockquote><p>Don&#39;t reinvent the wheel. Not just for cryptography.</p></blockquote>
+
+<p>The security mechanisms within the software produced by the project MUST use
+default keylengths that at least meet the NIST minimum requirements through the
+year 2030 (as stated in 2012). It MUST be possible to configure the software so
+that smaller keylengths are completely disabled.</p>
+
+<p>The default security mechanisms within the software produced by the project
+MUST NOT depend on broken cryptographic algorithms (e.g., MD4, MD5, single DES,
+RC4, Dual<em>EC</em>DRBG), or use cipher modes that are inappropriate to the context,
+unless they are necessary to implement an interoperable protocol (where the
+protocol implemented is the most recent version of that standard broadly
+supported by the network ecosystem, that ecosystem requires the use of such an
+algorithm or mode, and that ecosystem does not offer any more secure
+alternative). The documentation MUST describe any relevant security risks and
+any known mitigations if these broken algorithms or modes are necessary for an
+interoperable protocol.</p>
+
+<p>The default security mechanisms within the software produced by the project
+SHOULD NOT depend on cryptographic algorithms or modes with known serious
+weaknesses (e.g., the SHA-1 cryptographic hash algorithm or the CBC mode in
+SSH).</p>
+
+<p>The security mechanisms within the software produced by the project SHOULD
+implement perfect forward secrecy for key agreement protocols so a session key
+derived from a set of long-term keys cannot be compromised if one of the
+long-term keys is compromised in the future.</p>
+
+<p>If the software produced by the project causes the storing of passwords for
+authentication of external users, the passwords MUST be stored as iterated
+hashes with a per-user salt by using a key stretching (iterated) algorithm
+(e.g., Argon2id, Bcrypt, Scrypt, or PBKDF2). See also OWASP Password Storage
+Cheat Sheet).</p>
+
+<p>The security mechanisms within the software produced by the project MUST
+generate all cryptographic keys and nonces using a cryptographically secure
+random number generator, and MUST NOT do so using generators that are
+cryptographically insecure.</p>
+
+<h3>Secured delivery against man-in-the-middle (MITM) attacks</h3>
+
+<p>The project MUST use a delivery mechanism that counters MITM attacks. Using
+https or ssh+scp is acceptable.</p>
+
+<p>A cryptographic hash (e.g., a sha1sum) MUST NOT be retrieved over http and
+used without checking for a cryptographic signature.</p>
+
+<h3>Publicly known vulnerabilities fixed</h3>
+
+<p>There MUST be no unpatched vulnerabilities of medium or higher severity that
+have been publicly known for more than 60 days.</p>
+
+<blockquote><p>This can be ensured using
+<a href="https://docs.github.com/en/code-security/dependabot/working-with-dependabot">Dependabot</a>
+or <a href="https://docs.renovatebot.com/">Renovate</a></p></blockquote>
+
+<p>Projects SHOULD fix all critical vulnerabilities rapidly after they are reported.</p>
+
+<blockquote><p>Again, use automatic dependency updating mechanisms for this.</p></blockquote>
+
+<h3>Other security issues</h3>
+
+<p>The public repositories MUST NOT leak a valid private credential (e.g., a
+working password or private key) that is intended to limit public access.</p>
+
+<h2>Analysis</h2>
+
+<h3>Static code analysis</h3>
+
+<p>At least one static code analysis tool (beyond compiler warnings and &quot;safe&quot;
+language modes) MUST be applied to any proposed major production release of the
+software before its release, if there is at least one ~~FLOSS~~ tool that implements
+this criterion in the selected language.</p>
+
+<p>It is SUGGESTED that at least one of the static analysis tools used for the
+static_analysis criterion include rules or approaches to look for common
+vulnerabilities in the analyzed language or environment.</p>
+
+<p>All medium and higher severity exploitable vulnerabilities discovered with
+static code analysis MUST be fixed in a timely way after they are confirmed.</p>
+
+<p>It is SUGGESTED that static source code analysis occur on every commit or at
+least daily.</p>
+
+<h3>Dynamic code analysis</h3>
+
+<p>It is SUGGESTED that at least one dynamic analysis tool be applied to any
+proposed major production release of the software before its release.</p>
+
+<p>It is SUGGESTED that if the software produced by the project includes
+software written using a memory-unsafe language (e.g., C or C++), then at
+least one dynamic tool (e.g., a fuzzer or web application scanner) be
+routinely used in combination with a mechanism to detect memory safety
+problems such as buffer overwrites.</p>
+
+<blockquote><p>This is often overlooked.</p></blockquote>
+
+<p>It is SUGGESTED that the project use a configuration for at least some dynamic
+analysis (such as testing or fuzzing) which enables many assertions. In many
+cases these assertions should not be enabled in production builds.</p>
+
+<p>All medium and higher severity exploitable vulnerabilities discovered with
+dynamic code analysis MUST be fixed in a timely way after they are confirmed.</p>
+
+<hr/>
+
+<p>This is post 046 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Welcome, 2023
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-01-02-welcome-2023?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 02 Jan 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>2022 has been an eventful year for me. We moved to a new apartment, went to a
+couple of weddings (a good indication that we&#39;re getting older!) and finally
+started traveling more often.</p>
+
+<p>This year, I launched two projects: <a href="https://darktheme.club">darktheme.club</a> and
+<a href="https://seeking-maintainers.net">seeking-maintainers.net</a>. My goal for 2023 is
+to make two other projects ready for production:</p>
+
+<p><a href="https://github.com/garritfra/fling">Fling</a> is a household management app that
+I&#39;ve been <a href="https://en.wikipedia.org/wiki/Eating_your_own_dog_food">dogfooding</a>
+with my girlfriend for over a year. I just recently implemented an account
+system. You can in fact already download the app on the <a href="https://play.google.com/store/apps/details?id=de.garritfra.fling">play
+store</a> and
+test it out, though in it&#39;s current state it&#39;s just a boring app for to-do and
+shopping lists.</p>
+
+<p>Another project I&#39;m planning to launch is
+<a href="https://docs.kubinity.com/">Kubinity</a>. The idea behind this project is to give
+users access to Kubernetes by allocating a namespace in a shared cluster. This
+allows for ultra cheap kubernetes hosting without the burden of maintaining and
+scaling a cluster. It also comes with free HA!</p>
+
+<h2>Predictions for 2023</h2>
+
+<ul><li>Meta will change course (again), and kill the &quot;Metaverse&quot;</li><li>Cheap matter devices will enter the market. As a reference point: I predict
+that there will be a matter-ready smart plug for under 20€ on Amazon.</li><li>AI generated content will be regulated in some way</li><li>Twitter is still around, but it&#39;s still not profitable</li><li>I still won&#39;t have finished my
+<a href="[/posts/2021-01-11-100daystooffload](https://100daystooffload.com/)">#100DaysToOffload</a>
+<a href="/posts/2021-01-11-100daystooffload">challenge from 2021</a></li></ul>
+
+<p>Overall, I&#39;m feeling very optimistic about the upcoming year. Let&#39;s see if this
+is still true at the end of this year, but let&#39;s not loose hope too early.</p>
+
+<p>Happy new year!</p>
+
+<p>This is post 045 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                6 ways you can contribute to open knowledge right now
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-12-05-contributing-to-open-source-knowledge?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 05 Dec 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I wrote the initial draft for this post a few months ago, traveling through
+Norway in a rented campervan. While roaming the beautiful landscapes, I spent a
+lot of time thinking. Reading books while traveling really is the best way to
+find new inspiration.</p>
+
+<p>On our trip, we wanted to try out an alternative to Google Maps. Most of the
+OpenStreetMap-based apps lack important features, but we recently stumbled upon
+<a href="https://www.magicearth.com/">MagicEarth</a>, which perfectly fills the void.
+OpenStreetMap has been 95% accurate for us. Those last 5% are mostly less famous
+hiking trails and attractions that could easily be filled in by people like you
+and me. This inspired me to write this blog post, where I share six ways that
+you can contribute to open source knowledge right now.</p>
+
+<h2>OpenStreetMap</h2>
+
+<p>As mentioned above, I spotted some minor inconsistencies in
+<a href="https://openstreetmap.org">OpenStreetMap</a> while driving through Norway. We
+tracked our hikes with an app that is able to export a GPX file, which can be
+imported to OpenStreetMap to check if the trail matches (or if it is missing),
+and took note of incorrect or sloppy roads/buildings. Back home, I plan to sit
+down and fix up those issues.</p>
+
+<p>But you don&#39;t have to be on a roadtrip to contribute to OpenStreetMap! Chances
+are you know your local surroundings pretty well. Just navigate to your
+neighborhood and see what could be improved. Maybe you know a public toilet, a
+park or a secret road that is not shown on the map? As a matter of fact, my
+private address was missing, so I added it via the editor. I can now use any of
+the many OpenStreetMap-based apps to navigate home!</p>
+
+<h2>Wikipedia (and other wikis)</h2>
+
+<p>I often feel like I can&#39;t contribute much to the vast knowledge of Wikipedia.
+<em>Other people are way smarter than me</em> and whatnot. But while you might not be
+able to publish worthy edits to a well-known topic, you might know some things
+that others haven&#39;t thought of. Is there an entry about your local town? Is
+there an interesting member of your (past) family that others might want to read
+about?</p>
+
+<p>Of course, there are other wikis beside Wikipedia. Are you using a little-known
+tool that has open source documentation in the form of a wiki? How can it be
+improved?</p>
+
+<h2>Observation</h2>
+
+<p>You might have never heard of <a href="https://observation.org">observation.org</a>. It&#39;s
+an open biodiversity- and nature-database. I just recently learned about them in
+our local museum. They had a special exhibition about insects, and called out
+for contributions to map out our local flora and fauna.</p>
+
+<p>The idea is simple: snap a picture of an interesting looking insect or plant,
+upload it using the website (or one of their apps) and create an &quot;observation&quot;.
+Using this information, researchers will be able to understand the biodiversity
+of your area. The information is free to use, and anyone can contribute!</p>
+
+<h2>Wardriving</h2>
+
+<p>Wardriving is a fun and useful way to contribute to open source knowledge. By
+driving around with a device that can detect and record wireless networks, you
+can help to map out the wireless coverage in your area. This information can be
+used by researchers, network operators, and other interested parties to
+understand the availability and quality of wireless networks.</p>
+
+<p>One popular tool for wardriving is <a href="https://wigle.net/">WiGLE</a>. WiGLE allows you
+to easily collect and share information about wireless networks, and contribute
+to the global wireless map. To get started with WiGLE, you will need a device
+that can detect and record wireless networks. This can be a smartphone, laptop,
+or dedicated wardriving device. You will also need to download and install the
+WiGLE app, and some basic knowledge of how to use it.</p>
+
+<p>Once you have set up WiGLE, you can start driving around and mapping out the
+wireless networks in your area. As you collect data, it will be automatically
+uploaded to the WiGLE database, where it can be used by researchers and other
+interested parties. Wardriving with WiGLE is a fun and easy way to help advance
+scientific research and understanding.</p>
+
+<h2>folding@home</h2>
+
+<p>Another way to contribute to open source knowledge is to participate in the
+<a href="https://foldingathome.org/">folding@home</a> project. folding@home is a
+distributed computing project that uses the idle processing power of volunteers&#39;
+computers to perform scientific calculations and simulations. These calculations
+are used to study a wide range of topics, including protein folding, drug
+design, and the origins of the universe.</p>
+
+<p>By joining the folding@home network, you can help to advance scientific research
+and discovery. The project is open to anyone, and you can participate using your
+personal computer, laptop, or even your smartphone. All you need to do is
+download and install the folding@home software, and then select the types of
+calculations that you want to contribute to.</p>
+
+<p>The folding@home project is a great way to put your idle computing power to good
+use, and to contribute to the global effort to advance scientific knowledge. To
+learn more, visit the <a href="https://foldingathome.org/">folding@home website</a>.</p>
+
+<h2>Blog posts</h2>
+
+<p>Writing a blog post is a fun and engaging way to contribute to open source
+knowledge. You don&#39;t need to be a professional writer or have a formal writing
+style. Just jot down some notes about a topic that you are passionate about, and
+share your experiences and expertise with others.</p>
+
+<p>Not only will you be helping others to learn from your experiences, but writing
+a blog post can also be beneficial for yourself. Capturing your thoughts and
+ideas in writing can help you to better understand and organize your own
+knowledge. It can also be a great way to reflect on your experiences and to
+learn from your successes and failures.</p>
+
+<p>If you&#39;re interested in blogging, you might want to check out the
+<a href="https://100daystooffload.com/">100DaysToOffload</a> project!</p>
+
+<h1>Wrapping up</h1>
+
+<p>As you can see, there are many ways that you can contribute to open source
+knowledge, even if you don&#39;t have a lot of time or expertise. By participating
+in projects like OpenStreetMap, Wikipedia, observation.org, and folding@home, or
+by sharing your experiences and expertise through blog posts, you can make a
+real difference in the community.</p>
+
+<p>Why not give it a try? You might be surprised by how much you can learn and how
+much you can help others. And who knows, you might even have some fun along the
+way! Thanks for reading, and happy contributing!</p>
+
+<p>This is post 044 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Smart Move, Google
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-11-24-smart-move-google?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 24 Nov 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>For as long as I can remember, <code>maps.google.com</code> was the defacto domain for
+Google Maps. Also for as long as I can remember, I allowed this domain to use
+the location services of my browser.</p>
+
+<p>Yesterday I was asked to allow the usage of location services for Google Maps
+seemingly out of nowhere. Of course I accepted. After all, I just wanted to
+check a route to a local business and I was in a hurry. Back home I opened
+Google Maps again, and noticed that <code>maps.google.com</code> now redirects to
+<code>google.com/maps</code>. This implies that the permissions I give to Google Maps now
+apply to <strong>all</strong> of Googles services hosted under this domain. So far I only
+identified Google Flights to have made the same switch (<code>google.com/flights</code>),
+though I&#39;m sure they&#39;re just beginning to transfer their services to the main
+<code>google.com</code> domain.</p>
+
+<p>Congratulations, you now have permission to geo-track me across <strong>all</strong> of your
+services.</p>
+
+<p>Smart move, Google.</p>
+
+<p>This is post 043 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>
+
+<hr/>
+
+<p>This post generated some interesting discussions on
+<a href="https://news.ycombinator.com/item?id=33729345">HackerNews</a>.</p>
+
+<h3>Backlinks</h3>
+
+<ul><li><a href="https://analyticsindiamag.com/google-bypasses-privacy-puts-users-data-on-the-map/">Google Bypasses Privacy, Puts Users’ Data on the Map</a></li><li><a href="https://open.spotify.com/episode/2EfB2yqlh7B62701mzc82v">Last Week in Local - December 5, 2022</a></li><li><a href="https://softantenna.com/blog/google-smart-move/">Softantenna</a> (<a href="https://softantenna-com.translate.goog/blog/google-smart-move/?_x_tr_sl=auto&amp;_x_tr_tl=en&amp;_x_tr_hl=de&amp;_x_tr_pto=wapp">English</a>)</li><li><a href="https://stadt-bremerhaven.de/google-kann-euren-standort-unter-umstaenden-mit-allen-services-verfolgen/">Google kann euren Standort unter Umständen mit allen Services verfolgen</a> (<a href="https://stadt--bremerhaven-de.translate.goog/google-kann-euren-standort-unter-umstaenden-mit-allen-services-verfolgen/?_x_tr_sl=auto&amp;_x_tr_tl=en&amp;_x_tr_hl=de&amp;_x_tr_pto=wapp">English</a>)</li><li><a href="https://www.zive.cz/clanky/google-vymyslel-figl-jak-nas-plosne-sledovat-stacilo-mapam-zmenit-adresu/sc-3-a-219564/default.aspx">zive.cz</a> (<a href="https://www-zive-cz.translate.goog/clanky/google-vymyslel-figl-jak-nas-plosne-sledovat-stacilo-mapam-zmenit-adresu/sc-3-a-219564/default.aspx?_x_tr_sl=auto&amp;_x_tr_tl=en&amp;_x_tr_hl=de&amp;_x_tr_pto=wapp">English</a>)</li></ul>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Cursed User-Agents
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-11-11-cursed-user-agents?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 11 Nov 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<blockquote><p><strong>Warning</strong>: This is a rather ranty post. I just needed a place to dump my emotions about this topic. Please take it with a grain of salt. :)</p></blockquote>
+
+<p>I&#39;m currently <a href="https://github.com/garritfra/ua-parser-js/pull/8">fiddling
+around</a> with User-Agents of
+Smart TVs, or more specifically <a href="https://www.hbbtv.org/">HbbTV</a>. Interpreting
+them is an absolute nightmare, so let me rant about interesting edge-cases I
+discovered along the way.</p>
+
+<p>To set the mood: User-Agents in this field have a standardized format, yet many
+vendors seem to do their own thing, making it impossible to build one parser to
+rule them all. For reference, here&#39;s what the HbbTV section in a user agent
+SHOULD look like:</p>
+
+<p><code>
+HbbTV/&lt;version&gt; (&lt;capabilities&gt;; &lt;vendorName&gt;; &lt;modelName&gt;; &lt;softwareVersion&gt;; [&lt;hardwareVersion&gt;]; &lt;familyName&gt;; &lt;reserved&gt;)
+</code></p>
+
+<h2>The &quot;we&#39;ll update that later&quot;</h2>
+
+<p><code>
+HbbTV/1.1.1 (; Loewe; MB180; 1.0; 1.0;) NetFront/4.1
+</code></p>
+
+<p>1.0 for both software and hardware versions suspiciously looks like a working
+title. At least we get some information about the vendor and the model.</p>
+
+<h2>The Overcommitted</h2>
+
+<p><code>
+Mozilla/5.0 (Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 OPR/40.0.2207.0 OMI/4.9.0.237.DOM3-OPT.245 Model/Vestel-MB211 VSTVB MB200 HbbTV/1.2.1 (; JVC; MB211; 3.19.4.2; _TV_NT72563_2017 SmartTvA/3.0.0
+</code></p>
+
+<p>It&#39;s nice that we get a lot of information about the device, yet no one seemed
+to check if the string actually fits into storage.</p>
+
+<h2>The Lazy Boy</h2>
+
+<p><code>
+HbbTV/1.1.1 (;;;;;) Maple;2011
+</code></p>
+
+<p>To be fair, this is one of the earliest HbbTV devices ever. No one knew that
+this technology would stand the test of time. Apparently not even Samsung.</p>
+
+<h2>Conclusion</h2>
+
+<p>I learned that building a generic parser for user agents isn&#39;t easy, especially
+if the devices you work with could be over a decade old.</p>
+
+<p>One thing that all devices do seem to get right though is the presence of the
+HbbTV section in the User-Agent. I did not encounter a single device without it.</p>
+
+<p>This is post 042 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Reselling Kubernetes
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-11-03-reselling-managed-kubernetes?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 03 Nov 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;m currently working on a side project involving reselling Kubernetes clusters.
+What I discovered is that it&#39;s impossible to resell <em>managed</em> Kubernetes, as in
+<a href="https://aws.amazon.com/de/eks/">EKS</a> and
+<a href="https://cloud.google.com/kubernetes-engine/">GKE</a>.</p>
+
+<p>The only possible scenario where reselling Kubernetes to your and the
+end-customers advantage is to manage the nodes yourself. The reason is the
+scaling of cost per CPU.</p>
+
+<p>When renting VMs, the price per CPU often varies for the size of the machine. 
+This leaves the reseller flexibility in the choice of resources. To give you an
+example, here is the pricing for virtual machines at
+<a href="https://www.hetzner.com/">Hetzner</a>, and the price per CPU:</p>
+
+<p>| Product         | Number of vCPUs    | Price (in €/month) | Price per vCPU (in €/month) |
+|-----------------|--------------------|--------------------|-----------------------------|
+| CX11            | 1                  | 4.51               | 4.51                        |
+| CPX11           | 2                  | 5.18               | 2.59                        |
+| CPX21           | 3                  | 8.98               | 2.99                        |
+| CPX31           | 4                  | 16.18              | 4.05                        |
+| CPX41           | 8                  | 29.99              | 3.75                        |
+| CPX51           | 16                 | 65.33              | 4.08                        |</p>
+
+<p>When comparing this to a managed Kubernetes product like
+<a href="https://www.civo.com">CIVO</a>, we see that the price per CPU stays constant:</p>
+
+<p>| Product         | Number of vCPUs    | Price (in €/month) | Price per vCPU (in €/month) |
+|-----------------|--------------------|--------------------|-----------------------------|
+| Extra Small     | 1                  | 5                  | 5                           |
+| Small           | 2                  | 10                 | 5                           |
+| Medium          | 4                  | 20                 | 5                           |
+| Large           | 8                  | 40                 | 5                           |</p>
+
+<p>This pricing model is nice and predictable for the customer, but it makes it
+impossible to justify a resell product. If CIVO charges 5€/month per vCPU, we
+would need to charge extra to be profitable, which in turn overcuts the
+competition.</p>
+
+<p>When choosing Hetzner (or any other platform offering VMs), we are still able to
+undercut the competition and even optimize how the resources are laid out on
+the nodes. The obvious downside of course being that we have to manage the
+clusters ourselves.</p>
+
+<h2>Share your thoughts</h2>
+
+<p>Reselling Kubernetes is tricky. I&#39;m currently sketching out ideas for an
+alternative way to sell Kubernetes hosting at an ultra cheap price. The project
+is still in its infancy but if you&#39;re interested, you&#39;re more than welcome to
+share your thoughts in our <a href="https://matrix.to/#/!cTXkqtlnbHScIxnlqO:matrix.org?via=matrix.org&amp;via=envs.net">Matrix
+Room</a>!</p>
+
+<p>This is post 041 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                A simple guestbook
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-10-05-simple-guestbook?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 05 Oct 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<blockquote><p><strong>TL;DR</strong>: Click <a href="/guestbook">here</a> to view the guestbook.</p></blockquote>
+
+<p>For a while now, I wanted to have a quick way to update the pages on my website.</p>
+
+<p>GitHub has the
+<a href="https://docs.github.com/en/get-started/using-github/keyboard-shortcuts#source-code-editing">&quot;.&quot;</a>
+hotkey, which opens a web based editor for the file you&#39;re currently viewing.
+This site now has this feature as well! To try it out, just hit <code>.</code>, and you&#39;ll
+be redirected to the file editor for this page.</p>
+
+<p>To see how I implemented this feature, you take a look at
+<a href="https://github.com/garritfra/garrit.xyz/commit/658efa3a3ebfebebbf74d0eb6aae6c1cc9566516">this</a>
+commit. It boils down to this snippet of code:</p>
+
+<p><code></code><code>js
+window.addEventListener(&quot;keypress&quot;, (e) =&gt; {
+	if (e.key === &quot;.&quot;) {
+		const baseUrl = &quot;https://github.com/garritfra/garrit.xyz/edit/main/content&quot;;
+		const filePath = window.location.pathname;
+		const url = </code>${baseUrl}${filePath}.md`;</p>
+
+<pre><code>	window.location.href = url;
+}</code></pre>
+
+<p>});
+<code></code>`</p>
+
+<p>Pretty simple, huh?</p>
+
+<p>Since this doesn&#39;t work on mobile devices, I also added <a href="https://github.com/garritfra/garrit.xyz/commit/8c374a8bc0b66192c454300489fee52e7299c9dd#diff-2cbafea0c9dff483ebab9ad670b1cdb3eb7aac552f9c161e42fee84c2efe3a69">a custom 404
+page</a>
+which also redirects to the editor, if the filepath ends with in <code>/edit</code>.</p>
+
+<p>Let&#39;s have some fun and put this feature to use. I added a simple
+<a href="/guestbook">guestbook</a> to this site, which is open to receive pull requests.
+I&#39;d love to hear from you!</p>
+
+<p>This is post 040 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Debugging Docker images
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-09-30-debugging-docker-images?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 30 Sep 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Docker builds images incrementally. Every line in a Dockerfile will generate a
+new image that builds on top of the last one. This can be really handy if
+something is not right in your build.</p>
+
+<p>Since version 18.09 Docker has added a new backend for building images,
+<a href="https://github.com/moby/buildkit#buildkit">buildkit</a>. Unfortunately, buildkit
+does not let you view the IDs of the intermediate containers it uses under the
+hood. To work around that, you can opt out of buildkit by running a build with
+buildkit disabled:</p>
+
+<p><code>sh
+DOCKER_BUILDKIT=0 docker build --pull --rm -t myproject:latest .
+</code></p>
+
+<p>You should now see the IDs of the intermediate containers:</p>
+
+<p><code>sh
+Sending build context to Docker daemon  87.84MB
+Step 1/16 : FROM node:16.15.1-alpine3.16 AS development
+16.15.1-alpine3.16: Pulling from library/node
+Digest: sha256:c785e617c8d7015190c0d41af52cc69be8a16e3d9eb7cb21f0bb58bcfca14d6b
+Status: Image is up to date for node:16.15.1-alpine3.16
+ ---&gt; e548f8c9983f
+Step 2/16 : WORKDIR /usr/src/app
+ ---&gt; Using cache
+ ---&gt; 34e5c9bdb910
+Step 3/16 : COPY package*.json ./
+ ---&gt; Using cache
+ ---&gt; 626e4ae998fc
+Step 4/16 : RUN npm install glob rimraf
+ ---&gt; Using cache
+ ---&gt; 2d036b8354e0
+Step 5/16 : RUN npm install
+ ---&gt; Using cache
+ ---&gt; 948709b4957f      &lt;-- HERE
+Step 6/16 : COPY . .
+...
+</code></p>
+
+<p>As mentioned, these IDs are valid docker images, so you can just launch them
+and attach a shell like every other image:</p>
+
+<p><code>sh
+docker run -ti --rm 948709b4957f
+</code></p>
+
+<p>If you&#39;re not seeing a regular shell, but a Node.js REPL for example, this
+might be because the <code>ENTRYPOINT</code> of that image was set to the binary of that
+REPL. To work around that, you can override the entrypoint:</p>
+
+<p><code>sh
+docker run -ti --rm --entrypoint=/bin/sh 948709b4957f
+</code></p>
+
+<h2>When is this helpful?</h2>
+
+<p>If your build fails at a particular step, you can attach a shell to the <strong>last
+working</strong> step, inspect the filesystem, and execute the failing command manually.</p>
+
+<p>That&#39;s all!</p>
+
+<p>This is post 039 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Self-hosted software I'm thankful for
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-09-26-self-hosted-software-im-thankful-for?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 26 Sep 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Self-hosting software is not just rainbows and sunshine. I used to self-host a lot of my tools, but after some time the burden of maintaining those tools made me switch to hosted alternatives.</p>
+
+<p>However, there are a few projects that I stuck with over the years, and which I think deserve a deep appreciation.</p>
+
+<h2>Miniflux</h2>
+
+<p><a href="https://miniflux.app/">Miniflux</a> is a very minimal, self-hostable RSS reader. It&#39;s been rock-solid since they day I started using it. The data for the application entirely lives In a Postgres database, which makes migrating the application to new infrastructure setups an absolute breeze. I&#39;ve been meaning to support the author for quite some time now, but the cost of maintaining an instance yourself is basically zero, so I&#39;ve yet to find the time to switch to their paid hosted instance.</p>
+
+<h2>Plausible Analytics</h2>
+
+<p><a href="https://plausible.io/">Plausible</a> is another tool that just keeps on running. I haven&#39;t had any issues with it whatsoever, and I can&#39;t remember the last time I had to do a manual intervention. Just like Miniflux, there&#39;s a paid instance, which supports the author, and just like Miniflux, the software is so good that I haven&#39;t had a reason to switch to it yet. Oh, the irony.</p>
+
+<h2>BirdsiteLIVE</h2>
+
+<p>While my instance of <a href="https://birdsite.slashdev.space/">BirdsiteLIVE</a> is currently in a bad shape, this is not at all the fault of the software. There are limitations to the amount of Twitter API requests you can make, and I did a poor job managing the users on that instance. It&#39;s currently very overloaded and just very few tweets make it through. I will have to set aside some time to fix this, but the software itself has been rock solid since the day I started using it.</p>
+
+<h2>Synapse (Matrix)</h2>
+
+<p>I was hesitant to mention <a href="https://matrix.org/">Matrix</a> on this list. I had my ups and downs with Synapse (their Python implementation of a Matrix server), but the fact that my instance is still running after multiple infrastructure transitions and even a migration from SQLite to Postgres says something about the quality of the software. I have a feeling that Synapse is fairly resource-hungry, but if you feed it with enough RAM and disk, it will keep running indefinitely.</p>
+
+<h2>Homeassistant</h2>
+
+<p>You can throw <a href="https://www.home-assistant.io/">Homeassistant</a> on a Raspberry Pi and everything works out of the gate. I even migrated my instance from a RPi 3 to a RPi 4 via their backup and restore functionality. It&#39;s absolutely flawless.</p>
+
+<h2>Dead projects</h2>
+
+<p>I think it&#39;s fair to also mention the software that I no longer self-host.</p>
+
+<h3>E-Mail</h3>
+
+<p>Just don&#39;t roll your own email.</p>
+
+<h3>Mastodon</h3>
+
+<p>Too power hungry for my taste. No easy way to host inside docker, which made it a pain to keep running. I&#39;m very happy with <a href="https://fosstodon.org/">Fosstodon</a>, and don&#39;t see a reason to switch to a self-hosted instance any time soon.</p>
+
+<h3>FreshRSS</h3>
+
+<p>I tried replacing Miniflux once, but failed. Nothing beats Miniflux.</p>
+
+<h3>Prometheus + Grafana</h3>
+
+<p>Monitoring <strong><em>inside</em></strong> your infra works until the infra goes down, at which point you&#39;re essentially driving blindfolded. I switched to Grafana Cloud, which includes a very generous free tier.</p>
+
+<p>This is post 038 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Kubernetes is a domain specific database
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-09-22-kubernetes-is-a-domain-specific-database?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 22 Sep 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just finished listening to <a href="https://kubernetespodcast.com/episode/129-linkerd/">an
+episode</a> of the Kubernetes
+podcast. In it, <a href="https://saunter.org/">Thomas Rampelberg</a> makes an analogy that
+I think is worth sharing:</p>
+
+<blockquote><p>&quot;[...] Kubernetes is really a domain-specific database. And you need to look at it
+that way. The YAML is literally writing a select statement or an insert
+statement for a database. That&#39;s what the YAML is. And it&#39;s awesome that it is
+already configured for how it is. And it&#39;s awesome that it&#39;s got a schema. But
+the YAML is you writing an insert statement into Kubernetes. [...]&quot;</p></blockquote>
+
+<p>The Kubernetes API abstracts two types of states: desired state and actual
+state. Whenever you apply a manifest, you update the <em>desired state</em> of the
+cluster, just like you do in a regular, non domain-specific database like
+PostgreSQL or Redis. Kubernetes then frequently compares the desired state with
+the <em>actual</em> state of the cluster. If they don&#39;t match, Kubernetes will do
+whatever it does to match these two states. Usually, this data is persisted
+using a key-value database like <a href="https://etcd.io/">etcd</a> running in a cluster,
+though one could theoretically also hook up an external MySQL or Postgres
+database for this purpose.</p>
+
+<p>I found this great diagram by <a href="https://downey.io/blog/desired-state-vs-actual-state-in-kubernetes/">Tim
+Downey</a>,
+showing an oversimplified analogy of this pattern:</p>
+
+<p>![Thermostat
+Example](/assets/posts/2022-09-22-kubernetes-is-a-domain-specific-database/desired-state-hvac-diagram.png)</p>
+
+<p>You <em>insert</em> your desired state into the system, and the system adjusts the
+actual state to match the desired state. In the case of thermostats the state is
+a temperature. In Kubernetes, it&#39;s <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/">resource
+objects</a></p>
+
+<p>This is post 037 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                What's on my feed? (2022)
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-08-31-whats-on-my-feed?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 31 Aug 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>RSS is - in my humble opinion - one of the best ways to consume content today.
+Its only downside is that it&#39;s quite difficult to find new interesting feeds.
+If you&#39;re looking for inspiration, here&#39;s a list of the RSS-feeds I&#39;m subscribed
+to as of August, 2022. Some of the entries may intersect with my
+<a href="/blogroll">blogroll</a>.</p>
+
+<p>Let&#39;s not keep this one-sided! If you&#39;re also using RSS and have a blog, why not
+publish a list of <strong>your</strong> favorite feeds?</p>
+
+<ul><li><strong>HackerNews</strong> (<a href="https://news.ycombinator.com/">Pretty</a>, <a href="https://hnrss.org/frontpage">RSS</a>) - This one&#39;s obvious!</li><li><strong>Matt Rickard</strong> (<a href="https://matt-rickard.com/">Pretty</a>, <a href="https://matt-rickard.com/rss">RSS</a>) - Highly interesting posts about software and startups</li><li><strong>Drew DeVault</strong> (<a href="https://drewdevault.com">Pretty</a>, <a href="https://drewdevault.com/blog/index.xml">RSS</a>) - While Drew&#39;s opinions are highly controversial, I do think it&#39;s valuable to read his posts</li><li><strong>Wandering Thoughts</strong> (<a href="https://utcc.utoronto.ca/~cks/space/blog/">Pretty</a>, <a href="https://utcc.utoronto.ca/~cks/space/blog/?atom">RSS</a>) - Interesting articles about Linux, SystemD and DevOps</li><li><strong>Kev Quirk</strong> (<a href="https://kevq.uk">Pretty</a>, <a href="https://kevq.uk/feed/">RSS</a>) - Kev&#39;s posts are always a fun read!</li><li><strong>Seth Godin</strong> (<a href="https://seths.blog">Pretty</a>, <a href="https://feeds.feedblitz.com/sethsblog">RSS</a>) - I don&#39;t actively follow this blog, but it occasionally gives me food for inspiration</li><li><strong>The New Oil</strong> (<a href="https://blog.thenewoil.org/">Pretty</a>, <a href="https://blog.thenewoil.org/feed/">RSS</a>) - Some occasional technology reviews</li><li><strong>Tiny Projects/Ben Stokes</strong> (<a href="https://tinyprojects.dev/">Pretty</a>, <a href="https://tinyprojects.dev/feed.xml">RSS</a>) - Ben doesn&#39;t post as much as he used to, but his posts are full of great ideas!</li><li><strong>Tagesschau</strong> (<a href="https://www.tagesschau.de">Pretty</a>, <a href="https://www.tagesschau.de/xml/rss2/">RSS</a>) - My source of german news</li><li><strong>t3n</strong> (<a href="https://t3n.de">Pretty</a>, <a href="https://t3n.de/rss.xml">RSS</a>) - Another german news source, focused around technology and NewWork topics. I thought about removing the description though, as the articles are somewhat poorly written. Still looking for alternatives!</li><li><strong>xkcd</strong> (<a href="https://xkcd.com/">Pretty</a>, <a href="https://xkcd.com/atom.xml">RSS</a>) - come on, did you really think I wasn&#39;t subscribed to Randall?</li></ul>
+
+<p>Wrote a &quot;What&#39;s on my feed?&quot; entry yourself? Let me know, and I&#39;ll link it here!</p>
+
+<p>This is post 036 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                The only true answer to 'tabs vs spaces'
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-06-29-the-only-true-answer-to-tabs-vs-spaces?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 29 Jun 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I recently dove into a new project at work. We&#39;re starting from a blank page,
+so of course this classic question came up:</p>
+
+<blockquote><p>&quot;So should we use tabs or spaces for our formatting?&quot;</p></blockquote>
+
+<p>One of my teammates explained to us why the only logical answer to this is
+&quot;Tabs&quot;, and you&#39;ll soon know why.</p>
+
+<h2>The problem</h2>
+
+<p>Most formatters, by default, use either two or four spaces for indentation by
+default. The <a href="https://prettier.io/">Prettier</a> formatter does this, and it
+somewhat became the norm for JavaScript projects. This has one huge downside
+though: everyone on the team has to agree, or live with this standard.</p>
+
+<p>Nowadays, almost all editors come with the ability to change the preferred
+indentation settings, which will be overridden by the settings of the
+formatter. I prefer an indentation of 4 spaces, which is reflected in all of my
+code. If I&#39;m working on a project that uses an indentation of 2 spaces via
+prettier, my preference will be overridden when formatting the code.</p>
+
+<h2>Just use tabs</h2>
+
+<p>The solution to this problem is simple: Create a <code>.editorconfig</code> file and set
+the indentation style to tab, without a width:</p>
+
+<p><code></code>`editorconfig
+root = true</p>
+
+<p>[*]
+end<em>of</em>line = lf
+charset = utf-8
+indent_style = tab
+<code></code>`</p>
+
+<p>Almost all editors will be able to pick this file up and configure some
+project-wide settings. If your editor is configured to use a indent width of 4,
+this setting will be respected. If you&#39;re a maniac that indents their code with
+8 spaces, you&#39;ll be pleased to see that you can finally use this style in your
+code, without forcing anyone else to do as you do.</p>
+
+<p>Even GitHub, GitLab and friends are able to respect this setting, giving
+everyone the opportunity to view code in their preferred style.</p>
+
+<p>I hope you now know why using a single tab of indentation makes the most sense if
+you&#39;re working in a team. Let me know your thoughts!</p>
+
+<p>This is post 035 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                A list of bugs in MacOS
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-06-10-a-list-of-bugs-in-macos?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 14 Jun 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;ve been using MacOS for years, and I was always happy with it. However, it
+has some really annoying problems that don&#39;t seem to get attention by Apple.
+This is a list of things that personally bother me. I will try to update it
+whenever I encounter new issues.</p>
+
+<ul><li>~~When plugging in a external monitor, some native Windows can&#39;t be used with a
+mouse anymore. Restart required to fix.~~ (This seems to be fixed)</li><li>Dash-to-dock sometimes doesn&#39;t work for fullscreen-applications.</li><li>When opening a fullscreen window from the workspace-overview, the dock
+sometimes stays visible. Has to be manually hovered to hide.</li><li>When using a chromium-based browser on an external monitor in
+fullscreen-mode, the menu-bar sometimes doesn&#39;t appear when hovered.</li><li>When switching from the internal to an external monitor, the workspace
+alignment is not how I left it.</li></ul>
+
+<p>This is post 034 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Here's the tar command you keep looking for
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-06-02-tar-commands?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 02 Jun 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<blockquote><p><strong>Update</strong>: <a href="https://mastodon.technology/@kaushalmodi">@kaushalmodi@mastodon.technology</a>
+replied to this post with a way more complete cheat sheet. If you don&#39;t want
+to hear me rant about tar and actually want to get good at it, go read their
+post instead:</p><p>https://scripter.co/disarming-the-tar-bomb-in-10-seconds/</p></blockquote>
+
+<p>God dammit. I can&#39;t tell you how often I had to look up how to create or
+extract a tar archive on linux. There are SOO many options!!</p>
+
+<p><img alt="xkcd 1168" src="https://imgs.xkcd.com/comics/tar_2x.png"/></p>
+
+<h2>Let&#39;s settle this once and for all</h2>
+
+<p>Here&#39;s how you create an archive:</p>
+
+<p><code>
+tar cf archive.tar directory
+</code></p>
+
+<p>Try to remember &quot;Create File&quot;.</p>
+
+<p>And here&#39;s how you extract an archive:</p>
+
+<p><code>
+tar xf archive.tar
+</code></p>
+
+<p>For this one, try to remember &quot;(e)Xtract File&quot;.</p>
+
+<p>And if there&#39;s some other compressions in the mix: keep looking it up! A more
+comprehensive cheat sheet can be found here:
+https://simplecheatsheet.com/linux-tar-files/</p>
+
+<p>Sorry for this dumb post. I&#39;m sure you can relate to my feelings. ;)</p>
+
+<p>This is post 033 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Postgres Docker Container Migration Cheat Sheet
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-05-31-database-server-migration-cheat-sheet?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 31 May 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just finished migrating a postgres database to a new host. To remember how to
+do it next time, I&#39;m writing down the commands I used here.</p>
+
+<p>I usually just shut down the database and then copy the local directory where
+the volume was mounted onto the new host. This time though, I seemed to be
+getting some I/O errors, so I had to do it the &quot;right&quot; way.</p>
+
+<p>To be fair, this note is based on
+<a href="https://www.netguru.com/blog/how-to-dump-and-restore-postgresql-database">this</a>
+guide. I modified it to fit my workflow with docker.</p>
+
+<h2>Creating a dump</h2>
+
+<p>Log into the old host:</p>
+
+<p><code>
+ssh &lt;user&gt;@host
+</code></p>
+
+<p>Connect to the postgres-container:</p>
+
+<p><code>
+docker exec -ti myservice_db_1 /bin/bash
+</code></p>
+
+<p>Create a dump. You can name your dump as you wish - I&#39;m using dates to
+distinguish multiple dumps:</p>
+
+<p><code>
+pg_dump -U db_user db_name &gt; db_name_20220531.sql
+</code></p>
+
+<p>Copy the dump to the host machine:</p>
+
+<p><code>
+docker cp myservice_db_1:/db_name_20220531.sql ~/
+</code></p>
+
+<h2>Moving the dump to the new host</h2>
+
+<p>The easiest way to get the dump off of the old server and onto the new one is to
+use your local machine as a middleman.</p>
+
+<p>First, download the dump to your machine:</p>
+
+<p><code>
+scp &lt;user&gt;@&lt;host&gt;:~/db_name_20220531.sql .
+</code></p>
+
+<p>Then, do the same thing but reversed, with the new host:</p>
+
+<p><code>
+scp ./db_name_20220531.sql &lt;user&gt;@&lt;host&gt;:~/
+</code></p>
+
+<h2>Restoring the dump</h2>
+
+<p>First, connect to the new host:</p>
+
+<p><code>
+ssh &lt;user&gt;@&lt;host&gt;
+</code></p>
+
+<p>Assuming the docker service is already running on the new host, attach to the
+db-container, just like above:</p>
+
+<p><code>
+docker exec -ti myservice_db_1 /bin/bash
+</code></p>
+
+<p>This time, we have to do some fiddling on the database, so attach a session to
+postgres using their cli:</p>
+
+<p><code>
+psql -U my_user
+</code></p>
+
+<p>Before &quot;resetting&quot; the existing DB to apply the dump, we have to connect to
+another database. The <code>postgres</code> DB is always there, so you can use that.</p>
+
+<p><code>
+\c postgres
+</code></p>
+
+<p>Now, we drop the existing DB and re-add it:</p>
+
+<p><code>sql
+drop database database_name;
+create database database_name with owner your_user_name;
+</code></p>
+
+<p>And now, the moment you&#39;ve been waiting for! Leave the psql-session and apply
+the dump:</p>
+
+<p><code>
+psql -U db_user db_name &lt; db_name_20220531.sql
+</code></p>
+
+<p>That&#39;s all! You now have the exact copy of production database available on your
+machine.</p>
+
+<p>This is post 032 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Cloning Windows to a new drive
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-05-24-cloning-windows-to-a-new-drive?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 24 May 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>My grandpa has been using his current computer for about 10 years now. After
+such a long time, the system has become quite slow and bulky. Back then it was
+relatively normal to use a HDD as a primary hard drive, which adds to the slow
+experience. It was time for an upgrade!</p>
+
+<blockquote><p><strong>TL;DR</strong>: Use <a href="https://clonezilla.org/">Clonezilla</a> on a live usb stick to
+create an exact copy of your old drive onto your new one.</p></blockquote>
+
+<p>I got him a 512 GB SSD, which, conveniently, is the same size of his current
+HDD. While installing the new drive alongside his existing one, I thought about
+how to copy the existing Windows-installation.</p>
+
+<p>Naïvely, I thought that I could just <code>dd</code> the contents of the HDD onto the new
+drive would work, since, <em>every byte is copied as is</em>, or at least that&#39;s what I
+thought. Turns out it wasn&#39;t that easy. I&#39;m sure it would&#39;ve worked if I was
+more careful, but by default, <code>dd</code> just wipes over each byte, not caring if it
+made a mistake. After very long 5 hours, I came back to the PC to see that it
+finished copying the 512 GB (yes, it&#39;s not just copying the data, it&#39;s copying
+the entire partition!). In a super excited mood, I restarted the PC and selected
+the SSD as a boot medium. Aaaaand... nothing. Windows tried to repair some stuff
+but it wasn&#39;t successful. I fiddled around with the boot partition a bit, but I
+had to give up after an hour or so.</p>
+
+<h2>The second attempt</h2>
+
+<p>After researching a bit (I should&#39;ve done that sooner...) I stumbled across
+<a href="https://clonezilla.org/">Clonezilla</a>, a Linux distribution custom-built for
+this purpose. I flashed it onto a usb-stick and started the cloning process.
+After just 20 minutes (!), it was done cloning the existing data. The process is
+extremely simple!</p>
+
+<p>Before rebooting, I disconnected the old drive to make sure that there&#39;s no
+funny business going on. Apparently, Windows had to self-adjust UIDs of the
+drives, but after a short &quot;Preparing Windows&quot; animation, the system started up
+as expected. <strong>Success</strong>!!</p>
+
+<p>The performance of the new hard drive is amazing, at least compared to the HDD
+my grandpa had before. Plus, we can use the existing HDD to take full system
+backups every now and then, using the same process.</p>
+
+<p>This is post 031 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Weeknote 18/2022
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-05-06-weeknote-18-2022?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 06 May 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>It&#39;s friday, my dudes! Here are some notes on what happened during my week.</p>
+
+<h2>At Work</h2>
+
+<p>I wanted to start off my week by looking into migrating our deployment workflow
+to a GitLab Agent, as described <a href="/posts/2022-04-29-weeknote-17-2022">last week</a>.
+That didn&#39;t really go well, since a database from another project bursted into
+flames (not literally) for a reason I still couldn&#39;t figure out. As a
+workaround, I just beefed up the AWS RDS instance size until we find a proper
+solution.</p>
+
+<p>While looking through the docs, I also read more about <a href="https://aws.amazon.com/de/rds/aurora/serverless/">Aurora
+Serverless</a>, which would be a
+match made in heaven, at least for this specific project. Instead of keeping
+multiple instances running even without any load, serverless automatically
+scales to as many resources as you need. This <strong>drastically</strong> improves
+performance (according to the docs it&#39;s instantaneous, but I&#39;ll have to see that
+with my own eyes), while keeping the price at a minimum. Once we&#39;re done with
+that migration, I&#39;ll probably follow up with a blog post on this.</p>
+
+<h2>Home Automation</h2>
+
+<p>We recently wanted to configure a light in our bedroom to turn on early and the
+morning, stay on for a few hours and then turn off. Same for the evening.</p>
+
+<p>Soo, I ordered two power plugs pre-flashed with
+<a href="https://tasmota.github.io/docs/">Tasmota</a> and yanked HomeAssistant onto an old
+Pi. The plugs came as a pair, so I automated another light in our home. I think
+this will be the beginning of a deep deep rabbit hole.</p>
+
+<p>We&#39;ll be moving to a new flat soon, where humidity is higher than usual. I&#39;m
+thinking to monitor this and react with some counter-measures, like air filters.
+Sky is the limit, really. More to follow...</p>
+
+<h2>Motorbike Maintenance</h2>
+
+<p>I was long due to dust off my motorbike, but I finally did. Also, I did my first
+oil change on a vehicle <strong>ever</strong>!</p>
+
+<p><img alt="Motorbike oil change" src="/assets/posts/2022-05-06-weeknote-18-2022/motorbike_oil_change.jpeg"/></p>
+
+<p>Feels great to finally be back on the road.</p>
+
+<h2>Fun Fun Fun</h2>
+
+<p>Besides riding my motorbike, we went to a fair in our town. It was the first
+time in years that I&#39;ve been to a fair, and to ride bumper cars.</p>
+
+<p>Also, I met up with a friend I haven&#39;t seen in a while. It was great taking a
+walk and talking about life.</p>
+
+<p>That&#39;s it for this week. Thanks for reading!</p>
+
+<p>This is post 030 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Weeknote 17/2022
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-04-29-weeknote-17-2022?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 29 Apr 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>This week was quite ordinary. We enjoyed the weather during walks in the park
+and got some chores done.</p>
+
+<h2>At work</h2>
+
+<p>A major news this week was that GitLab decided to remove <a href="https://docs.gitlab.com/ee/user/project/clusters/deploy_to_cluster.html#deploy-to-a-kubernetes-cluster-with-cluster-certificates-deprecated">certificate-based
+cluster
+access</a>
+to Kubernetes clusters sooner as we hoped. We&#39;re now fleshing out how to migrate
+to the newer
+<a href="https://docs.gitlab.com/ee/user/clusters/agent/install/index.html">gitlab-agent</a>.</p>
+
+<p>I also got some refactoring work done. In one of our projects, we&#39;re currently
+migrating our GraphQL queries away from a HOC-pattern towards React hooks, using
+the amazing
+<a href="https://github.com/appmotion/apollo-augmented-hooks">apollo-augmented-hooks</a>
+library for additional caching features.</p>
+
+<h2>Sideprojects</h2>
+
+<p>I continued to work on a secret side-project of mine, but I don&#39;t want to spoil
+anything just yet.</p>
+
+<p>BUT! If you&#39;re good at writing and would like to help out writing a couple of
+paragraphs that can catch the users attention, <a href="/contact">I&#39;d love to hear from
+you</a>.</p>
+
+<p>That&#39;s it for this week. Thanks for reading!</p>
+
+<p>This is post 029 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Hello to all the new Mastodon users
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-04-28-hello-to-all-the-new-mastodon-users?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 28 Apr 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>To everyone who just joined Mastodon following Twitter&#39;s aquisition: I wish you a
+warm welcome!</p>
+
+<p>Whether you&#39;re staying or just testing the waters, you might want to get to know
+some awesome people around here. The fediverse might seem intimidating at first.
+That&#39;s because around here, there&#39;s no algorithm telling you whom to follow.</p>
+
+<p>Inspired by <a href="https://obsolete29.com/posts/2022/04/26/hello-to-all-the-new-mastodon-users/">Mike Harley&#39;s blog
+post</a>,
+I want to share some of the people I have been following, talking to, or
+generally found interesting over the past ~2 years on this platform. I hope this
+will be useful to you!</p>
+
+<ul><li>Alexey Yerin - https://fosstodon.org/@yyp</li><li>Andreas Gerlach - https://fosstodon.org/@appelgriebsch</li><li>Bascht - https://social.yakshed.org/@bascht</li><li>Benedikt Flöser - https://fosstodon.org/@theDoctor</li><li>Benjamin Hollon - https://fosstodon.org/@benjaminhollon</li><li>Binjamin Green - https://mas.to/@binyamin</li><li>Blueberry - https://fosstodon.org/@blueberry</li><li>Borked - https://masto.borked.sh/@borked</li><li>Chis - https://fosstodon.org/@RyuKurisu</li><li>Conny Duck - https://chaos.social/@ConnyDuck</li><li>Daniel Siepmann - https://fosstodon.org/@daniels</li><li>Daniel Stenberg - https://mastodon.social/@bagder</li><li>Darius Kazemi - https://friend.camp/@darius</li><li>Devine Lu Linvega - https://merveilles.town/@neauoire</li><li>Doug Belshaw - https://fosstodon.org/@dajbelshaw</li><li>Elias Mårtenson - https://functional.cafe/@loke</li><li>Fedops - https://fosstodon.org/@fedops</li><li>FunnyLookinHat - https://fosstodon.org/@funnylookinhat</li><li>Gina - https://fosstodon.org/@Gina</li><li>Gray - https://fosstodon.org/@gray</li><li>Hugo - https://soykaf.org/users/uoya</li><li>Hund - https://fosstodon.org/@hund</li><li>Jan-Lukas Else - https://fosstodon.org/@jle</li><li>Jens Finkhäuser - https://social.finkhaeuser.de/@jens</li><li>Kev Quirk - https://fosstodon.org/@kev</li><li>Klaus Zimmermann - https://fosstodon.org/@kzimmermann</li><li>Luke Harris - https://fosstodon.org/@lkhrs</li><li>Mike Harley - https://indieweb.social/@obsolete29</li><li>Murteza Yesil - https://fosstodon.org/@murtezayesil</li><li>Nicholas Constant - https://social.nicolas-constant.com/users/NicolasConstant</li><li>Nicholas Danes - https://smallcamp.art/@ndanes</li><li>Nikita Karamov - https://fosstodon.org/@kytta</li><li>Nüjtag - https://fosstodon.org/@Nujtag</li><li>Oppen - https://merveilles.town/@oppen</li><li>Paul Lammers - https://eldritch.cafe/@paullammers</li><li>Paul Wilde - https://fosstodon.org/@pswilde</li><li>Rekka Bellum - https://merveilles.town/@rek</li><li>Robby - https://zoinks.one/users/robby</li><li>Ru - https://fosstodon.org/@ru</li><li>Sotolf - https://social.linux.pizza/@sotolf</li><li>Tallship - https://pleroma.cloud/users/tallship</li><li>Tayo - https://fosstodon.org/@Tay0</li><li>TobTobXX - https://fosstodon.org/@tobtobxx</li><li>Tyler Childs - https://smallcamp.art/@tychi</li><li>Yarmo - https://fosstodon.org/@yarmo</li><li>eddiex - https://fosstodon.org/@0xedd1e</li><li>iooioio - https://fosstodon.org/@iooioio</li><li>muesli - https://mastodon.social/@fribbledom</li><li>tdarb - https://fosstodon.org/@tdarb</li><li>xpil - https://fosstodon.org/@xpil</li></ul>
+
+<p>And of course - yours truly: <a href="https://fosstodon.org/@garritfra">@garritfra@fosstodon.org</a></p>
+
+<h2>Bonus tip</h2>
+
+<p>If you&#39;d like to keep following people from twitter as if they were part of the
+fediverse, you might want to check out the
+<a href="https://fosstodon.org/web/@BirdsiteLIVE">BirdsiteLIVE</a> project. I&#39;ve been using
+it for about a year now. No need to be on twitter at all! If you&#39;re not into
+self-hosting, check out this list of hosted instances:
+https://the-federation.info/birdsitelive.</p>
+
+<p>Stay safe, and see you around!</p>
+
+<p>This is post 028 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Weeknote 16/2022
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-04-25-weeknote-16-2022?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 25 Apr 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>This is my first (already belated) weeknote. Even though it&#39;s the monday of the
+next week, I thought I&#39;d reflect on what happened last week. I already tried <a href="/posts/2020-12-18-update-december">a
+similar format</a> on this blog in a monthly
+fashion, but didn&#39;t stick to it. With these &quot;weeknotes&quot;, I will try to sit down
+for half an hour each friday. This is heavily inspired by <a href="https://dougbelshaw.com/blog/">Doug Belshaw&#39;s posts
+with the same name</a>.</p>
+
+<h2>At work</h2>
+
+<p>There&#39;s currently an effort to integrate a whole new backend into our
+application. Fundamental features like user- and role-management will have to be
+migrated to this new backend, which is mostly incompatible with our current
+one. As I&#39;m currently the only developer on the project, building a concept
+and realizing it will mostly be my part. I&#39;m somewhat frightened about this
+undertaking, but I think I will learn a whole lot.</p>
+
+<p>I also introduced versioned deployments for our application. To keep it simple,
+releases are versioned by date (E.g. <code>v2022.04.21</code>). Alongside this, I also
+added a changelog describing each release. I&#39;m still unsure whether this gives
+us a benefit or if it&#39;s just unnecessary work, but time will tell. I&#39;m curious
+of what you - the reader - thinks of this. Feel free to reply to this post via
+the link at the bottom of the page.</p>
+
+<h2>On this blog</h2>
+
+<p>I&#39;m playing around with ideas about comments on this static website. I yanked
+out some thoughts in this thread, but I&#39;ll have to think about it a bit more:</p>
+
+<p>&lt;iframe src=&quot;https://fosstodon.org/@garritfra/108180821665987615/embed&quot;
+class=&quot;mastodon-embed&quot; style=&quot;max-width: 100%; border: 0; height: 21rem&quot; width=&quot;400&quot;
+allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;script
+src=&quot;https://fosstodon.org/embed.js&quot; async=&quot;async&quot;&gt;&lt;/script&gt;</p>
+
+<h2>Plants</h2>
+
+<p>My girlfriend and I are in love with plants. This week, we went to a nursery and
+got ourselves a new member to our family: a Monstera Adansonii.</p>
+
+<p><img alt="Monstera Adansonii" src="/assets/monstera_adansonii.jpeg"/></p>
+
+<p>I also did a little experiment with one of my eucalyptus citriodoras. I cut it
+from 50cm back to the first &quot;node&quot; in the trunk, at about 2cm. I&#39;m quite happy
+with how it evolved in just about 10 months. It&#39;s now time to develop some
+branches. Here&#39;s it before the pruning:</p>
+
+<p><img alt="Eucalyptus before pruning" src="/assets/eucalyptus_before_pruning.jpeg"/></p>
+
+<p>And this is what it looks like now:</p>
+
+<p><img alt="Eucalyptus after pruning" src="/assets/eucalyptus_after_pruning.jpeg"/></p>
+
+<p>I also made cuttings from the rest of the stem. Not sure if they&#39;ll survive, but
+what could I lose?</p>
+
+<p>That&#39;s it for this week. Thanks for reading!</p>
+
+<p>This is post 027 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Swapping two Numbers without Temporary Variables
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-03-24-swapping-numbers-without-temp?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 24 Mar 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Ever wondered how to swap two numbers without using a temporary variable?</p>
+
+<p>I just found this very old note that I thought is worth sharing. The trick is
+quite old and you might already know about this, but when I started out with
+programming, it blew my mind.</p>
+
+<p>In school, we get taught to use a temporary
+variable to swap two numbers:</p>
+
+<p><code></code>`js
+let a = 5;
+let b = 10;</p>
+
+<p>let temp = a;</p>
+
+<p>a = b; // a = 10
+b = temp; // b = 5
+<code></code>`</p>
+
+<p>But by using some arithmetic, we can save us a few bytes of memory:</p>
+
+<p><code></code>`js
+let a = 5;
+let b = 10;</p>
+
+<p>a = a + b; // a = 15 ; b = 10
+b = a - b; // a = 15 ; b = 5
+a = a - b; // a = 10 ; b = 5
+<code></code>`</p>
+
+<p>Please <strong>never</strong> use this in any production code. The less we have to think
+about a piece of code, the better it is. It&#39;s a fun thought experiment
+nevertheless!</p>
+
+<hr/>
+
+<p>This is post 026 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Fixing Traefik Proxy Issues
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-03-18-fix-traefik-proxy-issues?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 18 Mar 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>After changing my proxy from NGINX to Traefik, I noticed that some of my
+services started misbehaving.</p>
+
+<p>In particular, my instance of
+<a href="https://github.com/NicolasConstant/BirdsiteLive">BirdsiteLive</a>
+(<a href="https://birdsite.slashdev.space">birdsite.slashdev.space</a>) had issues
+forwarding tweets to the
+<a href="https://garrit.xyz/posts/2021-01-18-reasons-the-fediverse-is-better">Fediverse</a>.</p>
+
+<p>The only difference between my old NGINX and my Traefik config were the headers.
+I didn&#39;t think that that&#39;s what&#39;s causing the issue, but after digging around a
+bit I figured out what&#39;s wrong. I still can&#39;t wrap my head around it entirely,
+but it has something to do with forwarding external <code>https</code> requests to internal
+<code>http</code> services, since the <code>x-forwarded-</code> headers where missing in the forwarded
+requests.</p>
+
+<p>In the world of NGINX, we can instruct the proxy to forward <em>all</em> headers using
+this directive:</p>
+
+<p><code>conf
+proxy_pass_request_headers      on;
+</code></p>
+
+<p>which takes care of the issue. In Traefik, it&#39;s a bit more convoluted. Traefik
+can use a combination of &quot;Entrypoints&quot; and middleware to route traffic around.
+In my setup, I use a <code>webSecure</code> entrypoint listening for SSL/TLS traffic, and a
+<code>web</code> entrypoint that just redirects to <code>webSecure</code>:</p>
+
+<p><code></code>`yaml
+entryPoints:
+  web:
+    address: :80
+    http:
+      redirections:
+        entryPoint:
+          to: &quot;websecure&quot;
+          scheme: &quot;https&quot;</p>
+
+<p>  websecure:
+    address: :443
+<code></code>`</p>
+
+<p>Apparently, some services send requests to the <code>web</code> entrypoint, and the
+<code>x-forwarded-for</code> headers are dropped. To prevent this, you can set the
+<code>proxyProtocol</code> and <code>forwardedHeaders</code> in the <code>web</code> entrypoint to <code>insecure</code>,
+like so:</p>
+
+<p><code></code>`yaml
+entryPoints:
+  web:
+    address: :80
+    proxyProtocol:
+      insecure: true
+    forwardedHeaders:
+      insecure: true
+    # ...</p>
+
+<h1>...</h1>
+
+<p><code></code>`</p>
+
+<p>I&#39;m sure there&#39;s a reason why this is marked as <code>insecure</code>, but it behaves just
+like the NGINX counterpart, so I didn&#39;t bother digging deeper into the matter.
+Maybe one day I&#39;ll come back to properly fix this.</p>
+
+<p>If you want to read more, check out
+<a href="https://medium.com/@_jonas/traefik-kubernetes-ingress-and-x-forwarded-headers-82194d319b0e">this</a>
+article on Medium. It explains the issue in more detail.</p>
+
+<hr/>
+
+<p>This is post 025 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                TIL how to get the active language of a browser
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-01-28-til-how-to-get-the-selected-language-of-a-browser?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 28 Jan 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Today I learned how to get the selected language of a browser.</p>
+
+<p>It&#39;s super simple!</p>
+
+<p><code>js
+const userLang = navigator.language || navigator.userLanguage;
+</code></p>
+
+<h2>An interesting discovery</h2>
+
+<p>Eventhough I&#39;m using a chromium-based browser, the user-agent and some other
+fields of the <code>navigator</code> object imply that I&#39;m running Mozilla Netscape 5.0.
+This is a relic of the past, where the user agent heavily influenced the look
+and feel of a served website. Nowadays, all rendering engines work more or less
+equally, but back then, browsers tried to be as good as the market leader, so
+they disquised themselves as Netscape. This podcast episode goes into more
+detail about how this developed (jump to minute 3 to listen to this topic):</p>
+
+<p>&lt;iframe style=&quot;border-radius:12px&quot; src=&quot;https://open.spotify.com/embed/episode/71URVFdhF6pcUBRhxerDIV?utm_source=generator&amp;t=190&quot; width=&quot;100%&quot; height=&quot;232&quot; frameBorder=&quot;0&quot; allowfullscreen=&quot;&quot; allow=&quot;autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture&quot;&gt;&lt;/iframe&gt;</p>
+
+<hr/>
+
+<p>This is post 024 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>
+
+<h2>Resources</h2>
+
+<ul><li><a href="https://stackoverflow.com/questions/8199760/how-to-get-the-browser-language-using-javascript">Stack Overflow Thread on getting the user language</a></li><li><a href="https://corecursive.com/internet-is-duct-tape/#">Full link to the Podcast episode</a></li></ul>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                BTRFS on Alpine Linux
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-12-31-btrfs-on-alpine?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 31 Dec 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;m currently in the midst of migrating some of my infrastructure from the cloud
+to &quot;on prem&quot;, aka a local server, aka my old PC. I wanted to try alpine linux as
+the host OS to see how it behaves as a lightweight server distro.</p>
+
+<p>So far it stands up quite nicely, it has everything you&#39;d expect from a
+linux-based operating system. The only problem I encountered was getting BTRFS
+to work out of the box. Here are some things you should know when using BTRFS on
+Alpine linux.</p>
+
+<h3>Installing BTRFS</h3>
+
+<p>Installing BTRFS is relatively straight forward. Simply install the package and
+tell Alpine to load the module on startup:</p>
+
+<p><code>
+apk add btrfs-progs
+echo btrfs &gt;&gt; /etc/modules
+</code></p>
+
+<p>To load the module right away, you can use the following command:</p>
+
+<p><code>
+modprobe btrfs
+</code></p>
+
+<h3>Mounting a volume</h3>
+
+<p>If you try mounting a btrfs volume via your fstab, you will get an error. This
+is because BTRFS does not know about the drives yet when the filesystems are
+mounted. To work around this, you can create an OpenRC service that runs a
+<code>btrfs scan</code> to detect the drives. To do so, create a service under
+<code>/etc/init.d/btrfs-scan</code> with the following content:</p>
+
+<p><code></code>`sh</p>
+
+<h1>!/sbin/openrc-run</h1>
+
+<p>name=&quot;btrfs-scan&quot;</p>
+
+<p>depend() {
+  before localmount
+}</p>
+
+<p>start() {
+  /sbin/btrfs device scan
+}
+<code></code>`</p>
+
+<p>Make the service executable and register it:</p>
+
+<p><code>
+chmod +x /etc/init.d/btrfs-scan
+rc-update add btrfs-scan boot
+</code></p>
+
+<p>Now, you should be able to add the volume to your <code>/etc/fstab</code>:</p>
+
+<p><code>
+UUID=abcdef-0055-4958-990f-1413ed1186ec  /var/data  btrfs   defaults,nofail,subvol=@  0  0
+</code></p>
+
+<p>After a reboot, you should be able to see the drive mounted at <code>/var/data</code>.</p>
+
+<h3>Resources</h3>
+
+<ul><li><a href="https://nparsons.uk/blog/using-btrfs-on-alpine-linux">Nathan Parsons - &quot;Using BTRFS on Alpine Linux&quot;</a></li><li><a href="https://gitlab-test.alpinelinux.org/alpine/aports/-/issues/9539">A bug report about this problem</a></li></ul>
+
+<p>This is post 023 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Notes on pruning chinese elms
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-12-24-notes-on-pruning-chinese-elms?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 24 Dec 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I recently bought a chinese elm bonsai. To keep it alive and healthy, I devoted
+some time to learning how to properly prune it.</p>
+
+<p>Chinese elms are very robust trees with strong growth. Even in the winter
+season, I can prune it on a weekly basis. I just watched <a href="https://www.youtube.com/watch?v=Nsvc2Ll1X2A">this
+video</a> which gives some helpful
+tips on pruning.</p>
+
+<p>I noticed that the author let the tree grow heavily to develop stronger
+branches. Until now, I pruned the branches back to one leaf whenever it had
+about 5 leaves. However, a branch should only be cut on its woody parts in order
+to develop more shoots, and a branch needs some growth in order to turn to wood.
+<strong>Don&#39;t prune the branches too early</strong>!</p>
+
+<p>Secondly, I thought that cutting the branches just behind a leaf would lead to
+more growth, but I found that this is not true. The branches should be cut just
+a bit above the leaf to prevent branch to die back and kill the leaf. It could
+also lead to the shoot coming out straight instead of angled, which is not
+desired.</p>
+
+<p>Lastly I learned that branches pointing upwards should most likely be pruned,
+since they take a lot of energy that the tree could use elsewhere, which is also
+pointed out in <a href="https://www.youtube.com/watch?v=93c985zOwhs">this video</a>.</p>
+
+<p>Here&#39;s a picture of my chinese elm just how I bought it. You can clearly tell
+that it was cheaply imported from china. It needs a lot of work, but I&#39;m having
+a lot of fun learning about this tree!</p>
+
+<p><img alt="Chinese Elm" src="/assets/chinese_elm.jpeg"/></p>
+
+<p>This is post 022 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Quick tip! React useToggle Hook
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-12-21-usetoggle-react-hook?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 21 Dec 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Here&#39;s a useful react hook for situations where you have to keep track of the
+state of a dialog, popup, etc.:</p>
+
+<p><code></code>`js
+import { useState } from &quot;react&quot;;</p>
+
+<p>export default (value) =&gt; {
+	const [state, setState] = useState(value);</p>
+
+<pre><code>const setStateActive = () =&gt; {
+	setState(true);
+};
+
+const setStateInactive = () =&gt; {
+	setState(false);
+};
+
+return [state, setStateActive, setStateInactive];</code></pre>
+
+<p>};
+<code></code>`</p>
+
+<p>Usage:</p>
+
+<p><code></code>`js
+const SomeComponent = () =&gt; {
+	const [isDeleteDialogOpen, openDeleteDialog, closeDeleteDialog] =
+		useToggle(false);</p>
+
+<pre><code>return (
+	&lt;&gt;
+		&lt;Button onClick={openDeleteDialog}&gt;Open Delete Dialog&lt;/Button&gt;
+		&lt;Dialog isOpen={isDeleteDialogOpen} onClose={closeDeleteDialog}&gt;&lt;/Dialog&gt;
+	&lt;/&gt;
+);</code></pre>
+
+<p>};
+<code></code>`</p>
+
+<p>This is post 021 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Server-Side Caching with Apollo GraphQL
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-10-04-server-side-caching-with-apollo-graphql?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 04 Oct 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I recently implemented server-side caching for one of our applications at work.
+This guide tries to document that I&#39;ve learned. It assumes that you are using
+an apollo server of version 3 or higher.</p>
+
+<h3>What is Server-Side Caching?</h3>
+
+<p>The point of server-side caching is to reduce the load of your database by
+“remembering” the results of a query for a certain period. If the exact same
+query comes in again, that remembered result will be returned.</p>
+
+<p>Caching should be handled with care. You should never enable caching for your
+entire application. Instead, you should identify the bottlenecks and develop a
+strategy to overcome them.</p>
+
+<h3>Enabling caching on the server</h3>
+
+<p>The Apollo Team has done a great job
+<a href="https://www.apollographql.com/docs/apollo-server/performance/caching/">documenting</a>
+the caching behavior of their server. To add caching to your existing
+Apollo-Server, you first have to add the <code>responseCachePlugin</code> to your
+configuration as shown
+<a href="https://www.apollographql.com/docs/apollo-server/performance/caching/#caching-with-responsecacheplugin-advanced">here</a>:</p>
+
+<p><code></code>`js
+import responseCachePlugin from &quot;apollo-server-plugin-response-cache&quot;;</p>
+
+<p>const server = new ApolloServer({
+	// ...other options...
+	plugins: [responseCachePlugin()],
+});
+<code></code>`</p>
+
+<p>Then, you have to configure a cache backend. By default, Apollo Server will
+store the caches in RAM, but I’d recommend <a href="https://www.apollographql.com/docs/apollo-server/data/data-sources/#using-memcachedredis-as-a-cache-storage-backend">using
+Redis</a>
+(or Memcached, if you like), especially if your application is spread across
+multiple instances of the same backend.</p>
+
+<p><code></code>`js
+const { BaseRedisCache } = require(&quot;apollo-server-cache-redis&quot;);
+const Redis = require(&quot;ioredis&quot;);</p>
+
+<p>const server = new ApolloServer({
+	// ...
+	cache: new BaseRedisCache({
+		plugins: [responseCachePlugin()],
+		client: new Redis({
+			host: &quot;redis-server&quot;,
+		}),
+	}),
+});
+<code></code>`</p>
+
+<blockquote><p>Note that you have to use the ioredis library here. node_redis is deprecated
+as of v2.6.0 of apollo-server-cache-redis.</p></blockquote>
+
+<p>If everything went well, your server should now know how to cache responses!
+This alone won’t get you very far, since it doesn’t know what to cache.</p>
+
+<h3>Telling Apollo what to cache</h3>
+
+<p>To make a type cachable, you have to declare <strong>cache hints</strong>. These properties
+can either be set in the
+<a href="https://www.apollographql.com/docs/apollo-server/performance/caching/#in-your-resolvers-dynamic">resolver</a>,
+or
+<a href="https://www.apollographql.com/docs/apollo-server/performance/caching/#in-your-schema-static">statically</a>
+in the schema. To keep it simple, this guide will stick to the static method.
+Feel free to experiment with the dynamic approach though!</p>
+
+<p>To enable cache hints, simply add the following directive to your schema (you
+only have to do this once):</p>
+
+<p><code></code>`gql
+enum CacheControlScope {
+	PUBLIC
+	PRIVATE
+}</p>
+
+<p>directive @cacheControl(
+	maxAge: Int
+	scope: CacheControlScope
+	inheritMaxAge: Boolean
+) on FIELD_DEFINITION | OBJECT | INTERFACE | UNION
+<code></code>`</p>
+
+<p>Now you can add the <code>@cacheControl</code> directive to every type that should be cached.</p>
+
+<p><code></code>`gql</p>
+
+<h1>This type will be cached for 30 seconds</h1>
+
+<p>type Post @cacheControl(maxAge: 30) {
+	id: ID!
+	title: String
+	author: Author
+	comments: [Comment]
+}
+<code></code>`</p>
+
+<p>For security reasons, these conditions are <a href="https://www.apollographql.com/docs/apollo-server/performance/caching/#why-are-these-the-maxage-defaults">very
+strict</a>:</p>
+
+<blockquote><p>Our philosophy behind Apollo Server caching is that a response should only be
+considered cacheable if every part of that response opts in to being
+cacheable.</p></blockquote>
+
+<p>This means that every type needs to explicitly decide how long it should be
+cached. According to this note, the example above actually won’t be cached at
+all!</p>
+
+<p>Having to specify the <code>maxAge</code> of every type would be tedious, so the authors
+have come up with the <code>inheritMaxAge</code> property, which allows the type to
+inherit the settings from its parent. So, in order to make our example
+cachable, we have to enable cache control for all its subfields, either by
+setting the <code>maxAge</code> explicitly or by inheriting it from the parent:</p>
+
+<p><code></code>`gql
+type Post @cacheControl(maxAge: 30) {
+	id: ID!
+	title: String
+	author: Author
+	comments: [Comment]
+}</p>
+
+<p>type Author @cacheControl(inheritMaxAge: true) {
+	id: ID!
+	name: String
+}</p>
+
+<p>type Comment @cacheControl(inheritMaxAge: true) {
+	id: ID!
+	body: String
+}
+<code></code>`</p>
+
+<p>Now, whenever you query a <code>Post</code>, it will be thrown in the cache. If you query
+the type again within 30 seconds, the query resolver won’t execute. Instead, it
+will be read from the cache. Keep in mind that cache hints can also be set on
+<code>query</code> and <code>mutation</code> fields. This can be handy if you want to cache the
+entire response of a request.</p>
+
+<h3>Gotcha 1: Multiple Response Variations</h3>
+
+<p>The use-case where this topic first came up required us to have different
+responses based on the type of the logged in user. An <code>Admin</code> should see a
+different result than a <code>Visitor</code>. If you ignore this fact, it could be that a
+visitor could see the cache result of a query previously executed by an admin!</p>
+
+<p>This problem can be counteracted by setting extra information in the cache key
+via <code>extraCacheKeyData</code> (see
+<a href="https://www.apollographql.com/docs/apollo-server/performance/caching/#configuring-reads-and-writes">this</a>
+paragraph):</p>
+
+<p><code>js
+plugins: [
+    responseCachePlugin({
+        extraCacheKeyData: (ctx) =&gt; (
+            ctx.context.auth.isAdmin
+        ),
+    }),
+],
+</code></p>
+
+<p>This example can create two distinct caches: One for users that are marked as
+admins, and one for regular users.</p>
+
+<h3>Gotcha 2: User-specific caches</h3>
+
+<p>Besides caching for a group of users, you can also cache responses <a href="https://www.apollographql.com/docs/apollo-server/performance/caching/#identifying-users-for-private-responses">for every
+user
+individually</a>.
+You may have noticed that you can also set a <code>scope</code> field in the cache control
+directive. This will only cache the response if a user is logged in:</p>
+
+<p><code>gql
+type Post {
+	id: ID!
+	title: String
+	author: Author @cacheControl(maxAge: 10, scope: PRIVATE)
+}
+</code></p>
+
+<p>Apollo determines if a user is logged in or not, based on if the <code>sessionId</code>
+function has returned a value other than <code>null</code>.</p>
+
+<p><code>js
+import responseCachePlugin from &quot;apollo-server-plugin-response-cache&quot;;
+const server = new ApolloServer({
+	// ...other settings...
+	plugins: [
+		responseCachePlugin({
+			sessionId: (requestContext) =&gt;
+				requestContext.request.http.headers.get(&quot;sessionid&quot;) || null,
+		}),
+	],
+});
+</code></p>
+
+<p>I’m unsure how effective this pattern is, since every user will receive its key
+in the cache. This kind of defeats the purpose of server-side caching, which is
+meant to reduce load on the database. If you’re trying to cache fields for
+individual users, you might also want to take a look at client-side caching via
+<a href="https://github.com/appmotion/apollo-augmented-hooks">apollo-augmented-hooks</a>.</p>
+
+<p>This is post 020 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Finally fixing that annoying Cron gotcha
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-09-13-fixing-an-annoying-cron-gotcha?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 13 Sep 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>A while ago I went through my server and reworked my <a href="/posts/2021-02-07-storage-setup">storage
+setup</a>. As discribed in that blog post, I set
+up daily backups to <a href="https://www.backblaze.com/b2/cloud-storage.html">Backblaze
+B2</a> using their amazing CLI
+through a cron script. A day went by and I noticed that the
+<a href="/posts/2021-05-15-healthchecks-io-with-docker">healthcheck</a> didn&#39;t pass.
+Unfortunately I didn&#39;t have time to fix this problem immediately, so instead I
+executed the command by hand every couple of days. One could argue that this in
+total took way more time than the actual fix, but hey, I was lazy. In the end,
+I finally dedicated some time to fix this annoying issue.</p>
+
+<p>It turns out that a command executed by cron doesn&#39;t run through sh or bash,
+but in a minimal environment without your usual environment-variables. As a
+result, my <code>b2</code> command (and many other commands for that matter) won&#39;t run as
+expected, if at all. A quick fix is to run your command through bash or sh
+explicitly:</p>
+
+<p><code>sh
+sh -c &quot;mycommand&quot;
+</code></p>
+
+<p>Alternatively, if you want all your entries to use sh or bash, you can set the
+<code>SHELL</code> variable at the very beginning of your crontab:</p>
+
+<p><code></code>`sh
+SHELL=/bin/bash</p>
+
+<p>15 1 <em> </em> * some_command
+<code></code>`</p>
+
+<p><a href="https://askubuntu.com/a/23438">Here</a> is an answer that goes into more detail
+about this. Have a great day!</p>
+
+<p>This is post 019 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Fun with Pen and Paper: Race Cars
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-08-08-fun-with-pen-and-paper-race-cars?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 08 Aug 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I recently came across some fun games that can be played using nothing but a
+pen and some paper. One of those games was called &quot;Race Cars&quot; and I wondered
+how on earth you would play a racing game on paper, and the answer is: simple
+math!</p>
+
+<h2>The core idea</h2>
+
+<p>The goal of the game is to cross the finish line of a hand-drawn race track
+first without hitting the edge. Race cars have a velocity that can be adjusted
+each move. If you&#39;re too greedy, you will crash. If you hit the breaks too
+early, another player will win.</p>
+
+<h2>How it&#39;s played</h2>
+
+<p>We start out with a hand-drawn race track. The shape really can be anything you
+like. Just be creative!</p>
+
+<p><img alt="A race track on paper" src="/assets/paperracer/0.jpg"/></p>
+
+<p>Next, each player makes a cross on the starting line. This resembles the
+players racecar. Right now, none of the cars is moving. They have a velocity of
+0 on the x axis and 0 on the y axis.</p>
+
+<p><img alt="Two crosses on the starting line" src="/assets/paperracer/1.jpg"/></p>
+
+<p>Each move, a player can accelerate or decelerate his vehicle by 1 on any axis.
+The first move of each player is somewhat obvious. They want to accelerate
+straight forward. On our race track, that means accelerate by 1 on the y axis.</p>
+
+<p><img alt="A race car made a move" src="/assets/paperracer/2.jpg"/></p>
+
+<p>Next, we can either keep on accelerating like the red player does, or &quot;turn&quot;
+our vehicle left by changing our y velocity from 0 to -1, which gives us a
+velocity of -1, 1.</p>
+
+<p><img alt="Paper race cars after two moves" src="/assets/paperracer/3.jpg"/></p>
+
+<p>On a long stretch, the red player wants to overtake blue by keeping his foot on
+the paddle. Blue on the other hand plays it safe and hits the breaks.</p>
+
+<p><img alt="Paper race cars on a long stretch" src="/assets/paperracer/4.jpg"/></p>
+
+<p>Soon after, red realizes his mistake. Being so busy trying to turn, he&#39;s unable
+to hit the breaks. A crash is inevitable. Blue however continues to take the
+turn nice and slow. His humble mind brought him victory!</p>
+
+<p><img alt="The red player right before crashing into a wall" src="/assets/paperracer/5.jpg"/></p>
+
+<h2>It&#39;s all about fun</h2>
+
+<p>The concept of this game is very flexible. You can play it with a friend and
+see who&#39;s the fastest paper racer, or by yourself and try to beat your record.
+Getting tired of just cruising around? Introduce the concept of &quot;items&quot; that
+give you a boost or slow down the opponent (think Mario Kart!). If ordinary
+tracks are boring, try adding intersections or obstacles. Can you add a third
+dimension? The sky is the limit. Get out there and be creative.</p>
+
+<p>This is post 018 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Docker healthchecks using healthchecks.io
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-05-15-healthchecks-io-with-docker?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 15 May 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;m currently in the midst of improving the monitoring of my infrastructure. I
+make heavy use of docker and docker-compose for my hosting, so it&#39;s vital to add
+monitoring for most of the containers.</p>
+
+<p>I&#39;m hosting my own instance of <a href="https://healthchecks.io/">healthchecks.io</a>.
+Their solution to monitoring involves <strong>you</strong> having to ping <strong>them</strong>, instead
+of the other way around. This let&#39;s you add healthchecks to virtually anything
+that can ping a http-endpoint.</p>
+
+<p>docker-compose let&#39;s you define healthchecks to your config that, when
+completing sucessfully, mark the container as &quot;healthy&quot;. The process of adding
+such a healthcheck is simple. First, create a new check in your healthchecks.io
+account and set the ping interval to 1 minute, or a value you prefer. Then, add
+this snippet to your docker-compose file:</p>
+
+<p><code>yaml
+app:
+  image: nextcloud
+  ports:
+    - 127.0.0.1:8080:80
+  healthcheck:
+    test:
+      [
+        &quot;CMD&quot;,
+        &quot;curl&quot;,
+        &quot;-f&quot;,
+        &quot;https://app-endpoint.tld&quot;,
+        &quot;&amp;&amp;&quot;,
+        &quot;curl&quot;,
+        &quot;-fsS&quot;,
+        &quot;-m&quot;,
+        &quot;10&quot;,
+        &quot;--retry&quot;,
+        &quot;5&quot;,
+        &quot;-o&quot;,
+        &quot;/dev/null&quot;,
+        &quot;https://healthchecks.io/ping/&lt;UUID&gt;&quot;,
+      ]
+    interval: 60s
+    timeout: 10s
+    retries: 6
+</code></p>
+
+<p>Change the first url to the url of your app. The second URL is the endpoint of
+your healthchecks.io instance. You can obtain it from the check you configured
+earlier.</p>
+
+<p>This configuration will try to ping your application and, if successful, notify
+the healthcheck that the application is healthy. If the app is not reachable or
+the container is down, the latter request will not be executed and your service
+is marked as &quot;down&quot;.</p>
+
+<p>In addition to the healthchecks of my docker containers, I also added basic
+healthchecks to my servers cronfiles and its backup-commands.</p>
+
+<p>Do you have any suggestions regarding this topic? Feel free to reach out to me
+via Matrix or email!</p>
+
+<p>This is post 017 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                A pretty good guide to pretty good privacy
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-04-07-pgp-guide?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 07 Apr 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>In the past week, I&#39;ve been experimenting with PGP, or GPG in particular. In a nutshell, PGP is an encryption standard with a wide range of use cases. For quite some time, I didn&#39;t see the point of keeping a PGP keypair. It seemed like a burden to securely keep track of the key(s). Once you loose it, you will loose the trust of others. But after doing some research on the topic, I found that it&#39;s not actually that much of a hassle, while giving you many benefits.</p>
+
+<h1>The Why</h1>
+
+<p>The most obvious benefit is encrypting and decrypting messages and files. If you upload your public key, I can encrypt our private conversations. Nobody will be able to read what we&#39;re chatting about. If you fear that cloud providers will read through your documents, you can also go ahead and encrypt all of your data with your keypair.</p>
+
+<p>But PGP is not just about encryption. A keypair also gives you a proof of identity. If I see that a piece of work is signed by you, I can be certain that you and only you have worked on this. By signing the keys of people we trust, we build a &quot;chain of trust&quot;. A key with many signatures generally has a higher reputation than one without any signatures.</p>
+
+<p>Take Git commits for example. All it takes is a <code>git config user.email &quot;elon@spacex.com&quot;</code> and I can publish code under a different identity. But if everyone on the team signed their work, they will quickly see that a commit is missing its signature, because I&#39;m simply not able to sign my work with Elon Musk&#39;s keypair. Only if they see a badge like this, they will know that they can trust it.</p>
+
+<p>Your keypair can also come in handy as a SSH key. Before I knew about PGP, I always had to install one key per machine I was working on. With PGP, you only have a single identity, and therefore you only have to install one key on your servers.</p>
+
+<h1>The How</h1>
+
+<p>Let&#39;s first go over the process of setting up a keypair. For this, we will need the <code>gpg</code> command installed on our system. Usually, this is just a <code>&lt;package manager&gt; install gpg</code> away. Then, we will have to generate a keypair. The quickest way to get one is to use <code>gpg --gen-key</code>, but that will make some quirky assumptions about how you want to use your key.</p>
+
+<p>In PGP, there is this concept of a <strong>keyring</strong>. A keyring has one master key and many subkeys. It is generally a good idea to have one fat master key that never expires and many small subkeys that last about a year or two. The benefit of structuring your keys like this is that you will always have your trusted keychain, and in case something goes south, E.g. your key gets compromised, you can replace that subkey and keep your identity.</p>
+
+<p>With that in mind, let&#39;s create our master key. Run <code>gpg --full-gen-key</code> and follow the instructions. You probably want to use the <code>RSA and RSA (default)</code> option, and a key that is 4096 bits long (remember, this is the fat master key that never expires, so it must be secure). The comment can be left blank, unless you know what you are doing with that field. Enter a strong passphrase! If your private key were to get compromised, this passphrase is your last line of defense. Make it long, hard to crack but still rememberable. If everything went well, your key should be generated. Here&#39;s the full example output:</p>
+
+<p><code></code>`
+root@c6acc9eb4fd1:/# gpg --full-gen-key
+gpg (GnuPG) 2.2.19; Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.</p>
+
+<p>Please select what kind of key you want:
+   (1) RSA and RSA (default)
+   (2) DSA and Elgamal
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+  (14) Existing key from card
+Your selection? 1
+RSA keys may be between 1024 and 4096 bits long.
+What keysize do you want? (3072) 4096
+Requested keysize is 4096 bits
+Please specify how long the key should be valid.
+         0 = key does not expire
+      &lt;n&gt;  = key expires in n days
+      &lt;n&gt;w = key expires in n weeks
+      &lt;n&gt;m = key expires in n months
+      &lt;n&gt;y = key expires in n years
+Key is valid for? (0)
+Key does not expire at all
+Is this correct? (y/N) y</p>
+
+<p>GnuPG needs to construct a user ID to identify your key.</p>
+
+<p>Real name: Foo
+Name must be at least 5 characters long
+Real name: Foo Bar
+Email address: foo@bar.com
+Comment:
+You selected this USER-ID:
+    &quot;Foo Bar <a href="mailto:foo@bar.com">foo@bar.com</a>&quot;</p>
+
+<p>Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+gpg: key C8E4854970B7A1A3 marked as ultimately trusted
+gpg: revocation certificate stored as &#39;/root/.gnupg/openpgp-revocs.d/4E83F95221E92EDB933F155AC8E4854970B7A1A3.rev&#39;
+public and secret key created and signed.</p>
+
+<p>pub   rsa4096 2021-04-07 [SC]
+      4E83F95221E92EDB933F155AC8E4854970B7A1A3
+uid                      Foo Bar <a href="mailto:foo@bar.com">foo@bar.com</a>
+sub   rsa4096 2021-04-07 [E]
+<code></code>`</p>
+
+<p>You could stop here and use this key, but let&#39;s instead create some subkeys under that key, to make our lives a bit easier. Take the fingerprint of the key (that large number in the output) and run <code>gpg --edit-key --expert &lt;your fingerprint&gt;</code>. Run <code>addkey</code> three times to add these three keys:</p>
+
+<h2>Signing key</h2>
+
+<p>This key will be used to sign your work (git commits, tags, etc.).</p>
+
+<p><code>
+gpg&gt; addkey
+</code></p>
+
+<ol><li>Choose option &quot;RSA (set your own capabilities)&quot;, which is currently number 8.</li><li>Toggle E (Encryption) so the &quot;Current allowed actions&quot; only lists Sign and confirm with Q.</li><li>Choose the keysize 2048 (or whatever you prefer).</li><li>Choose the key expire date 1y (or whatever you prefer).</li><li>Confirm twice, then enter your passphrase.</li></ol>
+
+<h2>Encryption key</h2>
+
+<p>This key will be used to encrypt and decrypt messages.</p>
+
+<p><code>
+gpg&gt; addkey
+</code></p>
+
+<ol><li>Choose option &quot;RSA (set your own capabilities)&quot;, which is currently number 8.</li><li>Toggle S (Sign) so the &quot;Current allowed actions&quot; only lists Encryption and confirm with Q.</li><li>Choose the keysize 2048 (or whatever you prefer).</li><li>Choose the key expire date 1y (or whatever you prefer).</li><li>Confirm twice, then enter your passphrase.</li></ol>
+
+<h2>Authentication key</h2>
+
+<p>This key will be used for SSH authentication.</p>
+
+<p><code>
+gpg&gt; addkey
+</code></p>
+
+<ol><li>Choose option &quot;RSA (set your own capabilities)&quot;, which is currently number 8.</li><li>Toggle S (Signing), E (Encryption) and A (Authentication) so the &quot;Current allowed actions&quot; only lists Authenticate and confirm with Q.</li><li>Choose the keysize 2048 (or whatever you prefer).</li><li>Choose the key expire date 1y (or whatever you prefer).</li><li>Confirm twice, then enter your passphrase.</li></ol>
+
+<p>Now you should have one key per use case: signing, encrypting and authentication, each with an expiration date:</p>
+
+<p><code>
+sec  rsa4096/C8E4854970B7A1A3
+     created: 2021-04-07  expires: never       usage: SC
+     trust: ultimate      validity: ultimate
+ssb  rsa4096/C5F71423813B40A0
+     created: 2021-04-07  expires: never       usage: E
+ssb  rsa2048/52D4D1D19533D8A5
+     created: 2021-04-07  expires: 2022-04-07  usage: S
+ssb  rsa2048/072D841844E3F949
+     created: 2021-04-07  expires: 2022-04-07  usage: E
+ssb  rsa2048/42E4F6E376DD92F6
+     created: 2021-04-07  expires: 2022-04-07  usage: A
+[ultimate] (1). Foo Bar &lt;foo@bar.com&gt;
+</code></p>
+
+<p>Save your key, and optionally upload it to one of the many keyservers:</p>
+
+<p><code></code>`
+gpg&gt; save</p>
+
+<p>$ gpg --keyserver keys.openpgp.org  --send-keys foo@bar.com
+<code></code>`</p>
+
+<p><strong>Pro tip</strong>: To set a default keyserver (I use <code>keys.opengpg.org</code>, but there are many others out there!), simply add it in your <code>~/.gnupg/gpg.conf</code> file:</p>
+
+<p><code>
+keyserver keys.openpgp.org
+</code></p>
+
+<p>People can now import your public key via <code>gpg --keyserver keys.opengpg.org --search-keys foo@bar.com</code>.</p>
+
+<p>We&#39;re done with the setup, let&#39;s put our keys to use!</p>
+
+<h2>Code Signing</h2>
+
+<p>To sign your code, you will have to tell git which key to use. Edit your global git options (<code>~/.gitconfig</code>) and add these fields:</p>
+
+<p><code>
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[user]
+    name = Foo Bar
+	signingkey = 52D4D1D19533D8A5      # Use the ID of your signing key
+	email = foo@bar.com
+</code></p>
+
+<p>Now, whenever you add a commit, git will sign it with your key. You will have to let your git hosting provider know that this key is yours. Go to your account settings and look for a tab that says &quot;Manage (GPG) keys&quot;. Where this tab is depends on your choice of service. Next, run <code>gpg --export --armor &lt;your master key id&gt;</code> and copy the resulting key into the input field of your git hosting service.</p>
+
+<p>Whenever you push a commit, its signature will be checked against that of your account. And that&#39;s all the magic!</p>
+
+<p><img alt="A signed commit" src="/assets/signed_commit.png"/></p>
+
+<h2>Encrypting messages</h2>
+
+<p>In order to send an encrypted message to someone, you will need his public key. There are numerous ways to obtain a public key of someone. The simplest way is to ask the person for the raw key. If it&#39;s in a text file, you can import it like so:</p>
+
+<p><code>
+cat some_key.txt | gpg --import
+</code></p>
+
+<p>Oftentimes, people will store their keys on a keyserver, just like you have probably done it. To import someones key, simply search for it on a keyserver. I&#39;ll use my key here as an example.</p>
+
+<p><code>
+gpg --keyserver keys.openpgp.org  --search-keys garrit@slashdev.space
+</code></p>
+
+<p>Now, your computer should know about my key. To verify that it&#39;s actually me you have imported, you can check if the output of <code>gpg --fingerprint garrit@slashdev.space</code> matches my actual fingerprint: <code>2218 337E 54AA 1DBE 207B 404D BB54 AF7E B093 9F3D</code>.</p>
+
+<p>Optionally, if you trust that the key is actually associated to me, you can sign it. This let&#39;s other people know that you trust me, which helps build a so called &quot;chain of trust&quot;. A key which has been signed by many people is generally more trustworthy than one that has no signatures.</p>
+
+<p><code>
+gpg --sign-key garrit@slashdev.space
+</code></p>
+
+<p>Now, let&#39;s encrypt a message that only I will be able to read:</p>
+
+<p><code>
+printf &quot;If you can read this, you&#39;ve successfully decrypted this message&quot; | gpg --encrypt --sign --armor -r garrit@slashdev.space
+</code></p>
+
+<p>Feel free to send this message to my email-address, I&#39;m happy to chat with you!</p>
+
+<p>Decrypting something is as easy as encrypting something. Say the encrypted message lives in <code>message.txt.asc</code>. If you are the recipient, all you have to do is to run <code>gpg --decrypt message.txt.asc</code>.</p>
+
+<h2>SSH</h2>
+
+<p>Your PGP key can also be used as an SSH key to authenticate on your servers.</p>
+
+<p>First we need to add the following to <code>~/.gnupg/gpg-agent.conf</code> to enable SSH support in gpg-agent.</p>
+
+<p><code>
+enable-ssh-support
+</code></p>
+
+<p>Next, we&#39;ll need to tell gpg which key to use. We need to get the so called <code>keygrip</code> of your authentication key and add it to the <code>~/.gnupg/sshcontrol</code>. The keygrip can be obtained by running <code>gpg -K --with-keygrip</code>. Just copy the keygrip of the authentication key and paste it into the <code>~/.gnupg/sshcontrol</code> file.</p>
+
+<p>Then, we want the ssh agent to know where to look for the key. Put this in your <code>.bashrc</code> file (or corresponding config):</p>
+
+<p><code>
+export GPG_TTY=$(tty)
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+</code></p>
+
+<p>Then, run <code>ssh-add -l</code> to load the key directly.</p>
+
+<p>To get the public ssh key of your keypair, run this command:</p>
+
+<p><code>
+gpg --export-ssh-key foo@bar.com
+</code></p>
+
+<p>and add the output to the <code>~/.ssh/authorized_keys</code> file on your server. When signing in, you should be prompted to enter the passphrase of your key and then authenticated.</p>
+
+<h2>Closing thoughts</h2>
+
+<p>I hope by now you see the benefits you gain from having a PGP keypair. Whether you find it useful enough to set one up is of course up to you. It is however a good practice to at least sign your git commits as a proof of identity. There are services like <a href="https://keyoxide.org">Keyoxide</a> that let you keep a &quot;public record&quot; of your key, so that other people can verify your identity more easily. If you set up your key, let me know by sending an encrypted message!</p>
+
+<p>This is post 016 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Git's built-in lifesaver
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-03-13-git-builtin-lifesaver?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 13 Mar 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Everyone was in this situation at some point. You wasted a days worth of work by accidentally deleting a branch. But, all hope is not lost! Git never forgets.</p>
+
+<p>Every action, be it committing changes, deleting or switching branches, is noted down by Git. To see your latest actions, you can simply run <code>git reflog</code> (It&#39;s pronounced <code>ref-log</code> but <code>re-flog</code> sounds just as reasonable):</p>
+
+<p><code>
+5704fba HEAD@{45}: commit: docs: update changelog
+b471457 HEAD@{46}: commit: chore: refactor binop checks in parse_expression
+5f5c5d4 HEAD@{47}: commit: fix: struct imports
+76db271 HEAD@{48}: commit: chore: fix clippy warning
+ac3e11c HEAD@{49}: commit: fix: circular imports
+0cbdc88 HEAD@{50}: am: lexer: handle &#39; or &quot; within the string properly
+27699f9 HEAD@{51}: commit: docs: spec: add notation
+</code></p>
+
+<p>Commits in Git are just data that is not associated by anything. If you accidentally delete a branch, the commits will stay where they are, and you can reference them directly. To recreate your deleted branch, simply run this command:</p>
+
+<p><code>
+git checkout -b &lt;branch&gt; &lt;sha&gt;
+</code></p>
+
+<p>And that&#39;s it! Your branch is restored. Remember to commit early and often, or prepare to loose your work!</p>
+
+<p>This is post 015 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Strategies to use a terminal alongside (Neo)Vim
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-02-24-vim-terminal-strategies?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 23 Feb 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>One thing that bothered me about vim for a long time, was the lack of a terminal
+directly in your editor. If I&#39;m not using Vim, I&#39;m most definetely using VSCode
+and its built-in Terminal. After searching the webs for possible solutions, I
+came across a couple of strategies to achive this.</p>
+
+<h2>Executing single commands</h2>
+
+<p>If you just want to issue a single command without spawning an entire shell,
+you can just use the <code>:!</code> command:</p>
+
+<p><code>
+:! printf &quot;Hello Sailor&quot;
+</code></p>
+
+<h2>Vims builtin terminal</h2>
+
+<p>I couldn&#39;t believe my eyes when I read this, but Vim ships with a builtin
+terminal! Executing <code>:term</code> will spawn it in your current buffer. How you
+integrate it in your workflow is up to you. You could use tabs or open a
+horizontal buffer and spawn it there. I must say that it is rather clunky to
+use, since its literally a Vim buffer that forwards stdin and stdout to the
+buffer, but it&#39;s there for you to use.</p>
+
+<h2>Vim x Tmux</h2>
+
+<p>Another great alternative is to set up Tmux with two windows, one for Vim and
+one for your terminal, and switch between them. This works great on a minimal
+system, but on MacOS for example, it is easier to simply use cmd+1 and cmd+2 to
+switch between two tabs of the Terminal application.</p>
+
+<h2>Pausing and resuming Vim</h2>
+
+<p>This one is my personal favorite. The idea comes from
+<a href="https://stackoverflow.com/a/1258318/9046809">this</a> stackoverflow answer.</p>
+
+<p>The plan is to pause the Vim process and resume it later. To pause Vim, you
+press <code>&lt;ctrl&gt;-z</code>. This sends the process in the background. Then, to resume the
+process, simply issue the <code>fg</code> command and Vims process resumes in the
+foreground.</p>
+
+<h2>Conclusion</h2>
+
+<p>I&#39;m sure there are many more strategies that could be added to this list. I&#39;d be
+interested to hear how your setup works! If you liked these techniques, you
+might be interested in
+<a href="https://fosstodon.org/web/accounts/211905">@lopeztel</a>s
+<a href="https://lopeztel.xyz/2021/02/21/my-neovim-cheatsheet/">cheat sheet</a> for Vim.</p>
+
+<p>This is post 014 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Writing good changelogs
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-02-20-changelogs?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 20 Feb 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Today, I finally added a proper changelog to <a href="https://github.com/garritfra/sabre/blob/master/CHANGELOG.md">my current project</a>. My obvious first step was to search the web for <code>changelog.md</code>, since that&#39;s the naming convention many projects are using for their changelog. I was surprised that I was immediately redirected to &quot;<a href="https://changelog.md">changelog.md</a>&quot;, since it is a valid domain name. This website is a great guide on the essense of a good changelog. This is also where I got most of my findings from. Let me walk you through some of the most important ones:</p>
+
+<h2>Changelogs are a vital part of every serious project</h2>
+
+<p>The whole point of a changelog is to keep track of how the project evolves over time. When working with multiple people, it helps getting everyone on the same page. Keeping a changelog reduces a possible monopoly of information, since all contributers know what is going on. Of course, users also benefit from your changelog. They will know what changes they can expect when they do an update.</p>
+
+<h2>Entries should have a standardized format</h2>
+
+<p>Changelogs are mainly meant to be readable by humans. Here are some important points to watch out for when writing a changelog:</p>
+
+<ul><li>Every version of your software (major, minor and patch) should have one section and one section only</li><li>Recent releases should be added at the top of the changelog (reverse chronological order)</li><li>Each version <em>should</em> display its release date in ISO format (YYYY-MM-DD) next to the version name</li></ul>
+
+<h2>What types of changes need to be included?</h2>
+
+<p>You could just go ahead and throw some changes in a big list and call it a day. To make the changelog more readable though, you should categorize every change by its type. Here&#39;s an example of a set of categories that could be included:</p>
+
+<ul><li><strong>Features</strong>: New features or additions</li><li><strong>Fixes</strong>: Bugfixes</li><li><strong>Security</strong> Important changes regarding holes in your security</li><li><strong>Documentation</strong>: Changes or additions in your documentation should go here</li></ul>
+
+<p>This is just an example that illustrates how <strong>I</strong> decided to note down my changes. <a href="https://changelog.md">changelog.md</a> suggests a slightly different convention, but how you&#39;re handling it doesn&#39;t really matter.</p>
+
+<h2>An example</h2>
+
+<p>Here&#39;s an example of how a changelog could look like. It&#39;s taken from <a href="https://github.com/garritfra/sabre">Sabre</a>, a project I&#39;m currently working on. The full changelog can be found <a href="https://github.com/garritfra/sabre/blob/master/CHANGELOG.md">here</a>.</p>
+
+<p><code></code>`md</p>
+
+<h1>Changelog</h1>
+
+<h2>v0.4.0 (2021-02-20)</h2>
+
+<p>This release introduces the concept of structs, alongside many improvements to the documentation.</p>
+
+<p><strong>Features</strong></p>
+
+<ul><li>Assignment operators (#10)</li><li>Structs (#12)</li></ul>
+
+<p><strong>Fixes</strong></p>
+
+<p>None</p>
+
+<p><strong>Documentation</strong></p>
+
+<ul><li>Fixed some typose and broken links</li><li>Document boolean values</li><li>Added this changelog!</li></ul>
+
+<h2>v0.3.0 (2021-02-12)</h2>
+
+<p>This release adds type inference to Sabre. There are also a lot of improvements in terms of documentation. The docs are now at a state that can be considered &quot;usable&quot;.</p>
+
+<p><strong>Features</strong></p>
+
+<ul><li>Type inference</li><li>The <code>any</code> type</li><li>First attempt of LLVM backend</li></ul>
+
+<p><strong>Fixes</strong></p>
+
+<ul><li>Fixed an error when printing numbers</li></ul>
+
+<p><strong>Documentation</strong></p>
+
+<ul><li>Added documentation for for loops</li><li>Added documentation for while loops</li><li>Documented LLVM backend</li><li>Documented comments</li><li>Updated contributing guidelines
+<code></code>`</li></ul>
+
+<h2>Personal recommendations</h2>
+
+<p>When releasing a new version, don&#39;t just add an entry to your changelog. You should use <strong>git tags</strong> whenever working with versions, to mark the exact commit of the released version.</p>
+
+<p>Read up on <strong>semantic versioning</strong>! This is the most common convention when it comes to versioning your software. (<a href="https://www.geeksforgeeks.org/introduction-semantic-versioning/">here</a> is a simple guide, <a href="https://semver.org/">here</a> is the official specification).</p>
+
+<p>I&#39;d also advise you to keep a log of your commits in the description of the tag. Here&#39;s a command that does all of this for you:</p>
+
+<p><code>
+git tag -a &lt;new release&gt; -m &quot;$(git shortlog &lt;last release&gt;..HEAD)&quot;
+</code></p>
+
+<p>So, if you&#39;re releasing version <code>v0.2.0</code> after <code>v0.1.5</code>, you would run this command to tag your current commit with a good commit history:</p>
+
+<p><code>
+git tag -a v0.2.0 -m &quot;$(git shortlog v0.1.5..HEAD)&quot;
+</code></p>
+
+<p>This is post 013 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Flutter Web - the Good, the Bad and the Ugly
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-02-17-notes-on-flutter-web?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 17 Feb 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>These are some notes I took for the evaluation of Flutter web for a potential project at work. I decided to build a frontend for <a href="https://miniflux.app/">Miniflux</a>, since I figured it may enclose many pitfalls an application could potentially have. You can find the current prototype <a href="https://github.com/garritfra/FlutterFlux">here</a>.</p>
+
+<h2>The Good</h2>
+
+<ul><li><p><strong>Trivial to set up</strong>: Running a Flutter application in a browser, no matter if it is an existing app or a fresh project, can be done by simply specifying the -d chrome flag.</p></li><li><p><strong>Same behavior compared to mobile app</strong>: Since the app is quite literally a mobile application running in the browser, the page looks and feels like a mobile application. It gives the app a consistent look and feel across all devices. I can imagine this coming in handy for web applications that are primarily used on phones and tablets.</p></li><li><p><strong>Browser API integration</strong>: It seems like many of the libraries make use of Web APIs. For example: I was able to get location updates using the location package, and store data using <a href="https://pub.dev/packages/localstorage">localstorage</a>. Whether the Web target is supported, is noted as a flag in the package documentation.</p></li><li><p><strong>Alternative Backends</strong>: There are two <a href="https://flutter.dev/docs/development/tools/web-renderers">rendering backends</a>, both with its own benefits and drawbacks. The HTML renderer optimizes the page for the browser, which improves performance at the cost of consistency. The CanvasKit renderer renders WebGL using WebAssembly. This gives a consistent look and feel across all devices, at the cost of Performance and download size. If auto is specified, the renderer will be determined based on the device type. Here’s a comparison of the same app rendered with both backends:</p></li></ul>
+
+<p>|                    HTML                    |                    CanvasKit                    |
+| :----------------------------------------: | :---------------------------------------------: |
+| <img alt="" src="/assets/flutter_web_renderer_html.png"/> | <img alt="" src="/assets/flutter_web_renderer_canvaskit.png"/> |</p>
+
+<h2>The Bad</h2>
+
+<ul><li><p><strong>Still in Beta</strong>: Flutter web requires the developer to use the beta channel of Flutter. I didn’t encounter any issues, but it could be that some features are unstable.</p></li><li><p><strong>No native HTML (With an exception)</strong>: Flutter Web renders the application into its own container, which is not using semantic HTML. The resulting application is also not debuggable using standard web-dev tools, but flutters debugging features can be used. There is a workaround though. Using the <a href="https://pub.dev/packages/easy_web_view">easy<em>web</em>view</a> package, I was able to embed html components as flutter widgets. The embedded code is actual HTML code that the browser itself is rendering, not Flutter. This solution is cross-platform, meaning that it also works flawlessly for mobile builds of the application. This might come in handy if the project demands to embed a javascript component like a video player. This approach could technically also improve SEO, but I’m unsure how a full-blown application only using this approach would behave.</p></li></ul>
+
+<h2>The Ugly</h2>
+
+<ul><li><p><strong>Scrolling feels sluggish</strong>: The scrolling behavior is implemented by flutter itself and does not feel as smooth as the native scrolling behavior of modern browsers.</p></li><li><p><strong>SEO nearly impossible</strong>: Since the application is a SPA and it is not using semantic HTML, it’s very difficult to do any kind of SEO. Lighthouse rated the demo application with a perfect 100 for SEO, but this is probably because it is only aware of the html that surrounds the flutter container. I didn’t find a way to Inject Metatags on a per-site basis.</p></li><li><p><strong>Heavy and slow on old devices</strong>: Even a basic application like the Todo app is very heavy and slow when compared to a “regular” website.</p></li></ul>
+
+<h2>Conclusion</h2>
+
+<p>Flutter Web seems to be a viable candidate to build truly cross-platform applications. Adding Web as a target for existing Flutter mobile apps should be relatively easy. The layout will probably need to be optimized to get the full experience. Native Web APIs seem to be well supported and documented.</p>
+
+<p>The resulting web application is a PWA running inside a container. It is relatively heavy and requires much more resources to run, when compared to a “regular” web application.</p>
+
+<p>I hope you found this useful!</p>
+
+<p>This is post 012 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Thoughts after 10 Days of 100DaysToOffload
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-02-11-10-percent-100daystooffload?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 11 Feb 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Coming into this, I didn&#39;t know what to expect. I&#39;m not a huge writer, but so far I am pleasantly surprised about how relaxing this challenge is.</p>
+
+<p>At first glance, writing a blog post every 3-5 days seems daunting. But the more I write, the more it becomes an enjoyable habit. I&#39;m oftentimes looking forward to writing these posts. Whenever I have something on my mind, I jot it down without a plan or structure. And that&#39;s exactly the point of <a href="https://100daystooffload.com/">#100DaysToOffload</a>: <strong>Just. Write.</strong></p>
+
+<p>So far, these blog posts have helped me get a lot of my thoughts out of my head and onto paper (or on a screen). While writing, I reflect on what I think. I sometimes realize that what I thought is utter nonsense, but this in itself is an important reflection. With each post, I feel like I am getting more confident about the process.</p>
+
+<p>If you&#39;re reading this and you don&#39;t have a blog yet, I would encourage you to give this technique a try. It doesn&#39;t matter that you produce quality content, nor does anyone have to see this. It&#39;s not the content that matters, but the process of producing it. Set up your own blog on <a href="https://write.as/">write.as</a> or simply open your text editor of your choice and <strong>Just. Write.</strong></p>
+
+<p>This is post 011 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                My storage setup (Feburary 2021)
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-02-07-storage-setup?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 07 Feb 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I used to rely on Google Drive and Photos to store my entire data. Now, that <a href="https://blog.google/products/photos/storage-changes/">Google has decided to ditch unlimited photo storage in the near future</a> and Google basically being the devil himself, I decided to step up my game and get my hands dirty on a DIY storage solution.</p>
+
+<h2>The goal</h2>
+
+<p>Before I got started, I thought about the expectations I have towards a system like this. It boils down to these four points (in this order): I want my solution to be <strong>resiliant</strong>, <strong>scalable</strong>, <strong>easy to maintain</strong> and <strong>easy to access</strong>. Looking back, I think I met all of these requirements fairly well. Let me walk you through how I managed to do that.</p>
+
+<h2>Data resiliance</h2>
+
+<p>Keeping data on a single device is obviously a really bad idea. Drives eventually fail, which means that your data will be lost. Heck, even my house could burn down, which means that any number of local copies could burn to ashes. To prevent data loss, I strictly adhere to the <a href="https://www.backblaze.com/blog/the-3-2-1-backup-strategy/">3-2-1 backup strategy</a>. A 3-2-1 strategy means having <strong>at least three total copies of your data, two of which are local but on different mediums (read: devices), and at least one copy off-site</strong>. If a drive fails, I can replace it. If my house burns down, I get two new drives and clone my offsite backup to them.</p>
+
+<p>To get an offsite backup, I set up a spare Raspberry Pi with a single large HDD and instructed it to do daily backups of my entire data. I asked a family member if they would be willing to have a tiny computer plugged in to their router 24/7, and they kindly agreed. A Pi and a HDD are very efficient in terms of power, so there is not a lot to worry about.</p>
+
+<h2>Scalability</h2>
+
+<p>I currently don&#39;t have a huge amount of data. If that were to change (i.e. if I continue to shoot a lot of high-res photos and shove them into my setup), I need a way to simply attach more drives, or ones with more capacity. I looked at different file-systems that allowed to easy extendability while also being resiliant.</p>
+
+<p>An obvious candidate was <strong>ZFS</strong>, but there are a couple of reasons I ditched this idea. First of all, it is really hard to get up and running on Raspberry Pi running Linux, since it&#39;s not natively supported by all distributions. This increases the complexity of the setup. Another reason is that I don&#39;t like the way it scales. Please correct me if I&#39;m wrong here, since I only did limited research on this. From what I know though, ZFS can only be extended by shoving a large amount of drives in the setup to achieve perfect redundancy.</p>
+
+<p>In the end, I settled on <strong>BTRFS</strong>. For me, it scratches all the itches that ZFS has. It is baked into the linux kernel, which makes it really easy to install on most distributions, and I can scale it to any number of drives I want. If I find a spare drive somewhere with any storage capacity, I can plug it into the system and it will just work, without having to think about balancing or redundancy shenanigans.</p>
+
+<h2>Maintainability</h2>
+
+<p>I need my setup to be easy to maintain. If a drive fails, I want to be able to replace it within a matter of minutes, not hours. If my host (a Raspberry Pi) bursts into flames, I want to be able to swap in a new one and still access my data. If I&#39;m out and about and something goes south, I want to be able to fix it remotely. BTRFS helps a lot here. It&#39;s really the foundation for all the key points mentioned here. It gives me a simple interface to maintain the data on the drives, and tries to fix issues itself whenever possible.</p>
+
+<p>Exposing random ports to the general public is a huge security risk. To still be able to access the Pi remotely, I set up <strong>an encrypted WireGuard tunnel</strong>. This way, I only have to expose a single port for WireGuard to talk to the device as if I&#39;m sitting next to it.</p>
+
+<h2>Accessibility</h2>
+
+<p>Since the data needs to be accessed frequently, I need a simple interface for it that can be used on any device. I decided to host a <strong>Nextcloud</strong> instance and mount the drive as external storage. Why external storage? Because Nextcloud does some weird thing with the data it stores. If I decide to ditch Nextcloud at some point, I have the data on the disks &quot;as is&quot;, without some sort of abstraction on top of it. This also has the benefit of allowing access from multiple sources. I don&#39;t have to use Nextcloud, but instead can mount the volume as a FTP, SMB or NFS share and do whatever I want with it. From the nextcloud perspective, this has some drawbacks like inefficient caching or file detection, but I&#39;m willing to make that tradeoff.</p>
+
+<h2>In a nutshell</h2>
+
+<p>This entire setup cost me about 150€ in total. Some components were scraped from old PC parts. So, what does the solution look like? Here is the gist:</p>
+
+<ul><li>A Raspberry Pi 4 as a main host and an older Raspberry Pi 3 for offsite backup, both running Raspberry Pi OS</li><li>Two external harddrives in a RAID 1 (mirrored) configuration, running on an external USB3 hub</li><li>A single internal HDD that served no purpose in my old PC, now serving as backup storage</li><li>All drives are using BTRFS</li><li>WireGuard tunnels between main and remote host, as well as most access devices</li><li>Nextcloud on main host, accessible over TLS (if I need to access data from outside the secure tunnel-network)</li><li>SMB share accessible from within the tunnel-network</li><li>Circa 4.5 terabyte total disk size; 1.5 terabyte of usable storage</li><li>Snapper for local incremental backups on main host; BTRBK for remote incremental backups</li><li>Cron jobs for regular backups and repairs (scrub/rebalance)</li></ul>
+
+<p>This is post 010 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Notes about BEM (Block Element Modifier)
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-02-02-bem-methodology?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 02 Feb 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>In the coming weeks, months and years, I will be working on frontend-development as part of my dayjob. These are some personal notes I took during my research about the BEM methodology. If you want to read the official introduction, you should visit <a href="http://getbem.com/">their website</a>.</p>
+
+<h1>Overview - What is BEM?</h1>
+
+<p>BEM — Block Element Modifier is a methodology that helps you to create reusable components and code sharing in front-end development. It aims to group css-classes in a meaningful way, making it easier to understand</p>
+
+<ol><li>where this class is used</li><li>what it describes and</li><li>what state the element is in.</li></ol>
+
+<p>The BEM-notation is divided into three main parts: Blocks, Elements and Modifiers.</p>
+
+<h2>Blocks</h2>
+
+<p>A standalone entity that is meaningful on its own. Some examples might be <strong>headers, containers, menus, inputs, checkboxes</strong>, etc.</p>
+
+<h2>Elements</h2>
+
+<p>A part of a block that has no standalone meaning and is semantically tied to its block. This could be a <strong>menu item or an input placeholder</strong>.</p>
+
+<h2>Modifiers</h2>
+
+<p>A flag on a block or an element. Used to change appearance or behavior. This might be <strong>disabled, checked, fixed, big</strong>, etc.</p>
+
+<h1>Putting it together</h1>
+
+<p>A block itself is referenced though its name.</p>
+
+<p><code>css
+.button {
+}
+</code></p>
+
+<p>To reference elements inside of the block, you add it to the block element with two underscores (<code>__</code>):</p>
+
+<p><code>css
+.button {
+}
+.button__text {
+}
+</code></p>
+
+<p>If you want to add a modifier to a block or an element, you separate it with two dashes (<code>--</code>):</p>
+
+<p><code>css
+.button {
+}
+.button--disabled {
+}
+.button__text--inverted {
+}
+</code></p>
+
+<h1>Benefits of BEM</h1>
+
+<p><strong>Modularity</strong>: Block styles never depend on one another. They can easily be moved to other parts of the app.</p>
+
+<p><strong>Reusability</strong>: Composing styles in a meaningful way reduces the amount of code duplication.</p>
+
+<p><strong>Structure</strong>: BEM gives your code a solid structure that is both easy to understand and to expand.</p>
+
+<h1>References</h1>
+
+<ul><li>http://getbem.com/</li><li>https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/</li></ul>
+
+<p>This is post 009 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                From sudo to doas
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-01-29-sudo-to-doas?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 29 Jan 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>You might have heard that there is currently <a href="https://www.qualys.com/2021/01/26/cve-2021-3156/baron-samedit-heap-based-overflow-sudo.txt">a pretty significant vulnerability</a> affecting <code>sudo</code>, the program we all know and love. It is the de facto standard for when you want to run a command as a priviledged user, but that&#39;s really it. Under the hood, sudo is a very powerful tool with a lot of features. It can be used to build out complex permission-systems that span across entire clusters of servers. But all of these features come at a price: <strong>complexity</strong>. Last time I checked, the <a href="https://www.sudo.ws/repos/sudo">source code</a> of sudo had about 330k lines of code (using cloc as a benchmark). This massive complexity plays a large role in its security.</p>
+
+<p>Luckily, there is a <strong>far</strong> more lightweight alternative to sudo called <a href="https://github.com/Duncaen/OpenDoas.git">doas</a>. It essentially does all the things you&#39;d expect from sudo for your average end user. Doas is written in just over 3k lines of code, which, if you think of it, should be more than enough to provide a tool that executes a command as a priviledged user.</p>
+
+<h2>Setup</h2>
+
+<p>While there are packages for <a href="https://github.com/slicer69/doas#installation-via-packagesrepositories">some distibutions</a>, I personally had trouble setting it up on arch using yay (for permission reasons, ironically). I recommend going the extra mile and building it from source, which consists of a few commands and some seconds of your time:</p>
+
+<p><code>sh
+git clone https://github.com/slicer69/doas
+cd doas
+make
+sudo make install
+</code></p>
+
+<p>Next, you will need to create a config file at <code>/usr/local/etc/doas.conf</code>. Paste the following line into it to give your user root access:</p>
+
+<p><code>sh
+permit alice as root
+</code></p>
+
+<p>You obviously want to substitute alice with your username. If you have multiple users on your system, simply duplicate that line and substitute the username accordingly. Just restart your terminal window, and you should be able to run programs as root using doas instead of sudo:</p>
+
+<p><code>sh
+➜  ~ doas id
+uid=0(root) gid=0(root) groups=0(root)
+</code></p>
+
+<h2>Bonus: Save your muscle memory</h2>
+
+<p>If you still want to &quot;use&quot; sudo on your machine, you can set up a simple alias in your <code>.{bash|zsh|fish}rc</code>. This will also help with compatibility issues of some scripts, if you decide to ditch the actual sudo from your Box entirely. Just paste this line into your corresponding rc file:</p>
+
+<p><code>
+alias sudo=&quot;doas&quot;
+</code></p>
+
+<h2>Bonus Bonus: Passwordless authentification</h2>
+
+<p>You can setup doas to skip the password prompt every time you run a command with it. Simply add the <code>nopass</code> option in your doas configuration file:</p>
+
+<p><code>sh
+permit nopass alice as root
+</code></p>
+
+<p>I hope you found this useful!</p>
+
+<p>This is post 008 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Using Macros in Vim
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-01-26-vim-macros?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 26 Jan 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>For a long time, macros in Vim were a huge mystery for me. I knew they existed, but I didn&#39;t know how or why you&#39;d use them. A recent task of mine involved replacing the unsafe operator (<code>!!</code>) in a large kotlin codebase with a null-safe operator (<code>?</code>). This game me a good opportunity to learn about macros. This is a snippet I encountered numerous times:</p>
+
+<p><code>kt
+mLeftButton!!.text = &quot;Left&quot;
+mLeftButton!!.setOnClickListener(leftListener)
+mLeftButton!!.visibility = View.VISIBLE
+mRightButton!!.text = &quot;Right&quot;
+mRightButton!!.setOnClickListener(rightListener)
+mRightButton!!.visibility = View.VISIBLE
+</code></p>
+
+<p>You could go ahead and change each line individually, or use the IDEs built in &quot;multi-cursor&quot; tool to save you some work. But, let me show you how I automated this using a Vim-Plugin for Android Studio. Not that the plugin matter, it will work in every Vim-like editor.</p>
+
+<p>A macro in Vim works like this:</p>
+
+<ol><li>Record any sequence of keystrokes and assign them to a key</li><li>Execute that sequence as often as you wish</li></ol>
+
+<p>So let&#39;s see how we&#39;d do that.</p>
+
+<h2>Recording a macro</h2>
+
+<p>To record a macro in Vim, you press <code>q</code> (In normal mode) followed by a key you want to assign the macro to. So, if you wanted to record a macro and save it to the <code>q</code> key, you&#39;d press <code>qq</code>. Vim will notify you that a macro is being recorded. Now, you can press the keystrokes that define your actions. When you&#39;re done, press <code>q</code> in normal mode again to quit your macro.</p>
+
+<p>Coming back to my task, I would want to do the following:</p>
+
+<ol><li><code>qq</code> Record a macro and save it to the <code>q</code> key</li><li><code>_</code> - Jump to the beginning of the line</li><li><code>f!</code> - Find next occurrence of <code>!</code></li><li><code>cw</code> - Change word (Delete word and enter insert mode)</li><li><code>?.</code> - Insert the new characters</li><li><code>&lt;esc&gt;</code> - Enter normal mode</li><li><code>j</code> - go down a line</li><li><code>q</code> - Finish macro</li></ol>
+
+<p>If everything went right, this line:</p>
+
+<p><code>
+mLeftButton!!.text = &quot;Left&quot;
+</code></p>
+
+<p>Should now look like this:</p>
+
+<p><code>
+mLeftButton?.text = &quot;Left&quot;
+</code></p>
+
+<p>and your macro should be saved under the <code>q</code> key.</p>
+
+<h2>Using the macro</h2>
+
+<p>In order to use a macro in vim, you press the <code>@</code> key, followed by the key the macro is saved under. Since our macro is defined as <code>q</code>, we&#39;d press <code>@q</code>, and the macro is executed immediately.</p>
+
+<p>Let&#39;s take this further. You might have noticed that I went down a line before closing the macro. This becomes handy when you want to execute it many times. In our case we have 6 lines we want to refactor. 1 line has already been altered, so we have to execute it 5 more times. As per usual with vim, you can execute an action n times by specifying a number before doing the action. Let&#39;s press <code>5@q</code> to execute the macro 5 times. And voila! Our unsafe code is now null-safe.</p>
+
+<p><code>kt
+mLeftButton?.text = &quot;Left&quot;
+mLeftButton?.setOnClickListener(leftListener)
+mLeftButton?.visibility = View.VISIBLE
+mRightButton?.text = &quot;Right&quot;
+mRightButton?.setOnClickListener(rightListener)
+mRightButton?.visibility = View.VISIBLE
+</code></p>
+
+<p>Macros are really satisfying to watch, if you ask me!</p>
+
+<p>This is post 007 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Signal-to-Noise, or why nobody cares about your GitHub project
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-01-23-signal-to-noise?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 23 Jan 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>For a very long time, the thought of leaving GitHub and moving to another platform daunted me. Having more users on one platforms means that more people will contribute to my project, right? Wrong.</p>
+
+<p>The problem with GitHub is that there&#39;s a lot of things going on around you. How many times have you discovered a cool project on GitHub, starred it and never heard from it again? In essence, this is the same phenomenon as with modern social media. A bombardment of positive stimulants makes the user crave for more, letting them forget about previously consumed content. Sure, if you just want to get your code out there, GitHub might be a great place, but if you are just starting out as a developer and you&#39;re looking for contributers and feedback, you will probably be very bummed to find out that nobody cares about your work. Many developers are using the platform because other developers are using it. Your project on GitHub is a drop in an ocean of other projects.</p>
+
+<p>A few months ago, I decided to make the leap and switch most of my development over to <a href="https://sourcehut.org/">Sourcehut</a>, a free and open source code-hosting platform. Besides its great tooling (mailing lists, automated builds, etc.), it has the benefit of a high <strong>signal-to-noise ratio</strong>. Less developers are using the platform, but most of them are very passionate about their work. They care about collaborating with others and they believe in what they are doing, which probably lead them to sign up for this platform in the first place.</p>
+
+<p>Of course, switching away from a platform like GitHub alone does not ensure more contributions. You might be trying to advertise your projects by spamming links on popular newsboards and forums, but this only generates <strong>noise</strong>. Instead, you should intentionally talk about your personal journey with the project in a smaller circle. If other developers in your niche see that you continuously give updates about the project and its improvements, they will eventually start to relate to it. Some of them will look at your project and give feedback, or even contribute patches.</p>
+
+<p>This is post 006 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                6 reasons the Fediverse is better than regular social media
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-01-18-reasons-the-fediverse-is-better?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 18 Jan 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Social media sucks. Platforms like Twitter, Facebook and Instagram are designed to turn your precious free time into money. What we see as a nice way to stay in touch with our friends, in reality are just many hits of dopamine stimulating precise spots in your brain, leading to you spending more time on the platform consuming ads.</p>
+
+<p>But what if I told you that there is a huge ad-free social network out there, not governed by a central authority, full of great people and completely free to use? This place is called the fediverse. Well, it&#39;s not really <strong>a</strong> place, it&#39;s many places.</p>
+
+<h2>What is the fediverse?</h2>
+
+<p>At its core, the fediverse is a mesh of interconnected nodes on the internet, all communicating in the same language. Every instance on the fediverse implements the <a href="https://activitypub.rocks/">ActivityPub</a> protocol, which allows it to talk to other instances on the network. The phrase &quot;Fedi&quot; comes from &quot;federated&quot;, meaning that content on the network is shared and accessible by anyone.</p>
+
+<p>There are many different software projects for the fediverse out there. If you like the concept of Twitter, you could take a look at <a href="https://joinmastodon.org/">Mastodon</a>, a microblogging-platform for the fediverse. There&#39;s also <a href="https://joinpeertube.org/">PeerTube</a>, a federated clone of YouTube (PeerTube recently <a href="https://framablog.org/2021/01/07/peertube-v3-its-a-live-a-liiiiive/">released support for peer2peer live streaming support</a>, like what?! 🤯). You like instagram? <a href="https://pixelfed.org/">Pixelfed</a> got you covered. Of course, there are many other services worth mentioning, so feel free to dig around a bit! As mentioned, the great thing about the fediverse is that all of these services are connected with each other. If I signed up for an account on a mastodon instance, I can subscribe to your posts on Pixelfed, and vice versa. If I want to get notified about your videos on PeerTube, I can just go ahead and follow your account and comment on your videos.</p>
+
+<blockquote><p>&quot;This all sounds great, but why should I bother?&quot;</p></blockquote>
+
+<p>Let me give you 6 reasons why the fediverse is far superior to all other social media platforms out there, and why you should consider signing up for an account on one of the many instances of the fediverse.</p>
+
+<h2>Reason 1: It&#39;s decentralized</h2>
+
+<p>Regular social media platforms like Facebook have a <strong>single point of failure</strong>. If their servers go down, your content goes down with it. Content on the fediverse on the other hand is scattered around many instances, which means it is very resilient. If your instance dies, you can move to a new instance. This goes hand in hand with the next reason.</p>
+
+<h2>Reason 2: It can&#39;t be censored</h2>
+
+<p>You probably heard that the Twitter-account of Donald Trump recently got compromised by the owners of the platform. I don&#39;t want to engage in any political discussions, but the main flaw with this is the violation of <strong>freedom of speech</strong>. Even if everything someone says is controversial nonsense, it is still in his good right to express his thoughts.</p>
+
+<p>On the fediverse, a scenario like this would certainly not happen, given its decentralized nature. Some instances still moderate their content, meaning that if someone posts inappropriate content, it might get blocked. The twist here is, if that person disagrees with the rules of the instance, he is free to join another instance.</p>
+
+<h2>Reason 3: Free as in freedom</h2>
+
+<p>There&#39;s this saying, criticizing modern software projects:</p>
+
+<blockquote><p>&quot;If it&#39;s free, you&#39;re the product&quot;</p></blockquote>
+
+<p>This is not true in all cases. &quot;Free&quot; can be understood in two ways.</p>
+
+<p><strong>&quot;Free as in beer&quot;</strong> means that something might seem free at first glance (E.g. Free beer at Oktoberfest), but in the end you often leave with less than you came with. In the case of beer, you often buy another beer after the first free one. Therefore, even though you think you&#39;ve saved the money for one beer, in reality bought an extra beer. In the case of proprietary software, it&#39;s a similar story. While you think that a service is free, you give up your privacy and get monetized with ads.</p>
+
+<p><strong>&quot;Free as in freedom&quot;</strong> on the other hand means that you won&#39;t get &quot;screwed over&quot; like this. Most, if not all of the software for the fediverse is <strong>free and open source software</strong> (FOSS). If you don&#39;t like how a certain feature works, <strong>you are completely free to change it</strong>. You can look at the source code and propose changes to the main project, or launch your own spin of that product.</p>
+
+<p>Since everyone can openly look at the source code, it is <strong>audited</strong> by many people, including security experts. This vastly improves the security and stability of the product. If the developers would do shady things, they will most certainly get called out by people, as soon as that code enters the main repositories. Proprietary (closed sourced) platforms like Facebook and Twitter can not be audited. The owners can do whatever they want, including spying on their users, or collect and sell the data of their users.</p>
+
+<h2>Reason 4: It respects your privacy</h2>
+
+<p>Since the software on the fediverse is audited by a lot of people, you can be almost 100% certain that joining an instance will not collect any of your personal data. If you are still concerned about your privacy though, you can still be part of the network by launching your own instance, with your own rules. There are tutorials out there, explaining how you can set up a small instance for a very cheap price on your local network.</p>
+
+<h2>Reason 5: It&#39;s all about the community</h2>
+
+<p>I used to spend a lot of time on &quot;regular&quot; social media platforms. From personal experiences, these platforms are all about promoting yourself and building up your follower count. Connecting with your friends is of little importance. In the eye of some people, you are not worthy to talk to if the amount of followers or likes-per-post didn&#39;t exceed a certain threshold.</p>
+
+<p>It has now been about 5 months since I created <a href="https://fosstodon.org/@garritfra">my mastodon account</a>. Talking to people on the fediverse is a completely different experience compared to Facebook or Twitter. Almost everyone I talked to is a polite, grounded person, willing to engage in constructive and fun discussions. I met many people who disagree with my views, but instead of leaving a comment saying that this post sucks, all of them took the time to express their alternative opinions. Every member of the fediverse wants to drive the network forward, which is reflected in their posts.</p>
+
+<h2>Reason 6: There&#39;s an instance for everyone</h2>
+
+<p>Whether you&#39;re into Gaming, Painting, or Spanish dancing music, there is an instance for you. If it isn&#39;t, you are free to create one and promote it to people of that niche. You won&#39;t loose the social aspect by launching your own instance, since you are still available to other people on the network. If you just want to get started with the fediverse, I recommend that you check out one of the many <a href="https://instances.social/">lists of mastodon instances</a>. If you like instagram and want to stay in a familiar environment, take a look at <a href="https://pixelfed.org/">Pixelfed</a>, and join an instance from the list they provide.</p>
+
+<p>I myself am a person who cares a lot about free and open source software, therefore my choice of instance was <a href="https://fosstodon.org/">fosstodon.org</a>, a mastodon instance geared towards awesome like-minded people.</p>
+
+<p><strong>Note</strong>: This post has generated some interesting discussions on <a href="https://news.ycombinator.com/item?id=25820646">Hacker News</a>.</p>
+
+<p>This is post 005 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Compiling your own kernel
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-01-15-compiling-your-own-kernel?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 15 Jan 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;m currently in the midst of fiddling around with the kernel a bit, and I figured I just documented my process a bit. Unfortunately, since I&#39;m using a Mac for day to day work, I have to rely on a virtual machine to run anything Linux-related. VirtualBox doesn&#39;t support the most recent kernels (5.9 is the most recent supported one), so there won&#39;t be any cutting-edge development happening here. I decided to use ubuntu as my guest system, since it&#39;s very easy to set up.</p>
+
+<p>So, the first step is to get the sources. You could simply go ahead and download a specific release from <a href="https://kernel.org/">kernel.org</a>, but since I want to hack on it, I decided to go the git-route. Simply download the sources from <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/">their repo</a> and check out the tag you want to build.</p>
+
+<blockquote><p><strong>Note</strong>: this might take a while. Their repository is huge! If you want to only need the <code>HEAD</code> and want to build on bare-metal (no VirtualBox), you could only clone the latest commit using <code>git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git --depth=1</code>.</p></blockquote>
+
+<p>Next up, you need to generate a <code>.config</code>. This file describes which features you want to compile into your kernel. To make a generic config that only compiles drivers for the hardware of your system, you can run the following commands:</p>
+
+<p><code></code>`bash</p>
+
+<h1>Copy the config of your current kernel into the repo</h1>
+
+<p>make oldconfig</p>
+
+<h1>Only enable modules that are currently used by the system</h1>
+
+<p>make localmodconfig
+<code></code>`</p>
+
+<p>Now, let&#39;s get to actually compiling the kernel. In my case, I assigned 4 cores to my VM. The <code>-j</code> option tells make to run 4 jobs in parallel.</p>
+
+<blockquote><p><strong>Caution</strong>: Just providing -j will freeze your system, since make will try to launch an infinite amount of processes!</p></blockquote>
+
+<p><code>
+make -j4
+</code></p>
+
+<p>Again, this might take some time. Go for a walk, get a coffee or watch your favorite TV-show. After compilation has finished, we need to install the kernel. To do so, run the following commands:</p>
+
+<p><code>
+sudo make modules_install
+sudo make install
+</code></p>
+
+<p>In order to boot, we need to tell our bootloader about our new kernel. Run this command to update your grub config:</p>
+
+<p><code>
+sudo update-grub2
+</code></p>
+
+<p>And voila! Your new kernel should be ready.</p>
+
+<p>Reboot the system, and grub should pick up the new kernel and boot to it. If that&#39;s not the case, you should be able to pick the kernel from the grub menu under <code>advanced options</code>.</p>
+
+<h2>Retrospective</h2>
+
+<p>I found that building my own kernel is a highly educational and fun experience. Using VirtualBox is a pain in the <code>/dev/null</code> to work with, since it has to add a lot of overhead to the system in order to work. You sometimes have to wait over 6 month until the support for a new kernel arrives. This problem should not apply if you compile on bare metal systems.</p>
+
+<p>Thanks for your time!</p>
+
+<p>This is post 004 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                I joined the 512KB club
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-01-13-512kb-club?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 13 Jan 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>JavaScript rules the web, literally. In fact, this website is built with JavaScript (Next.js). I recently started to think about if I really needed this much overhead for a simple site like this. After all, I don&#39;t have any fancy user interaction features or complex animation that would justify the JavaScript on this page.</p>
+
+<p>There is a new (no, not that new) philosophy called <a href="https://leanweb.dev/">the lean web</a>. It essentially tries to keep websites tiny and semantically correct. This has many benefits, ranging from less pollution generated by your site to improved SEO, since many search engines favor a semantically correct website over a site that abuses JavaScript to mimic the features, that are baked into html anyway.</p>
+
+<p>In order to get lean, I decided to join <a href="https://512kb.club/">the 512KB club</a>. This website lists sites that are below 512KB in total (uncompressed, with all dependencies). To get below that mark, I had to remove my face from the frontpage (I&#39;m sure you&#39;ll miss it😅), since the image itself was roughly 750KB. I&#39;m now just below 500KB, which qualifies me to join the blue team.</p>
+
+<p><a href="https://512kb.club"><img alt="Blue Team" src="https://512kb.club/images/blue-team.svg"/></a></p>
+
+<p>I&#39;m not planning to stop here though. I think keeping a website small and simple is an excellent practice. My next step will be to get rid of all the JS junk on this site and only rely on HTML and CSS. I still want to be able to write my posts in Markdown, so I will have to come up with a way to generate pages from them. A safe bet for this would be to use a SSG like <a href="https://gohugo.io/">Hugo</a>. Frankly, <a href="https://erikwinter.nl/articles/2020/why-i-built-my-own-shitty-static-site-generator/">writing my own simple SSG probably wouldn&#39;t hurt either</a>. Let&#39;s see how high I can climb the ranks of the 512KB club. Care to join me?</p>
+
+<p>This is post 003 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                100DaysToOffload
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-01-11-100daystooffload?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 11 Jan 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>For some time now, I&#39;ve seen this #100DaysToOffload hashtag on my social medias. I knew that it was some kind of writing challenge, but I never thought about taking part in it. Since I recently started to blog more frequently though, I think this challenge could be very beneficial to my writing skills, and just jotting my thoughts down in general. So, starting with this entry, I will try to publish 100 (hopefully) useful posts on this blog within one year. My &quot;deadline&quot; for this will be January 11, 2022. I will post every entry to <a href="https://fosstodon.org/@garritfra">my mastodon account</a>.</p>
+
+<p>This is post 001 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Are humans still evolving?
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-01-11-are-humans-still-evolving?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 11 Jan 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>This is by no means a scientifically accurate article. These are my thoughts, and I&#39;d be happy to discuss this topic. Take it with a grain of salt.</p>
+
+<p>Evolution builds upon natural selection. With every generation of a species, there is a slight chance of mutation, possibly giving an individual advantages or disadvantages in the ability to survive and give offspring. Somewhere way up in our evolutionary tree, a microbe might have mutated a gene that allowed it expand and retract a part of its body. As it turns out, this proves useful in fleeing from predators, while other individuals of this species might fall prey on their first day. The microbe has a slightly larger chance to survive and give offspring. On the other hand, mutations might also result in a fatal illness (cancer, in other words). Oftentimes, this individual does not survive long enough to give offspring.</p>
+
+<p>150 years ago, giving birth was literally an act of life and death. Many children died at a young age. They were not tough enough from an evolutionary standpoint, and were therefore &quot;filtered&quot; out by natural selection. Only the strongest survived and gave offspring.</p>
+
+<p>Todays medicine is (fortunately!) very powerful. Very few children die at birth and a lot less people are dying from an illness like the flu. This is an evolutionary anomaly. Natural selection has been defeated to a certain degree. We don&#39;t need to run from predators anymore and are less prone to desease. Every one of us is more or less equally able to give offspring. We can&#39;t really gain an advantage over others anymore. We are not evolving.</p>
+
+<p>This is post 002 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                I closed my Facebook account, and you should too
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-01-07-delete-facebook?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 07 Jan 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I know I should have done this a while ago, but with ever-increasing scandals about data privacy surrounding Facebook, I finally decided to get rid of it.</p>
+
+<p>I haven&#39;t used the service in a long time anyway, but I always told myself &quot;what if I needed the data later?&quot;, or &quot;what if a friend contacted me, and I didn&#39;t respond?&quot;, &quot;what if I missed the birthday of someone I&#39;m close with?!&quot;. Well, according to my facebook inbox, the only messages I received lately were some random links from people I&#39;m not really in touch with anymore. Birthdays? Do you think someone you haven&#39;t talked to in over three years will get mad at you, for forgetting their birthday? And regarding your data: you won&#39;t loose it! <a href="https://www.facebook.com/help/212802592074644">This guide</a> describes how you can download a copy of your data as html and/or json.</p>
+
+<p>Go ahead and ask yourself: Is there anything holding you back from deleting your Facebook account? What would you loose? How often do you even use the service? Do the social benefits of Facebook <strong>really</strong> outweigh the negative aspects (privacy concerns, data collection, etc.)?</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>

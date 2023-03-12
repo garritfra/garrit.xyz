@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Tue, 23 Feb 2021 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                Strategies to use a terminal alongside (Neo)Vim
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-02-24-vim-terminal-strategies?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 23 Feb 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>One thing that bothered me about vim for a long time, was the lack of a terminal
+directly in your editor. If I&#39;m not using Vim, I&#39;m most definetely using VSCode
+and its built-in Terminal. After searching the webs for possible solutions, I
+came across a couple of strategies to achive this.</p>
+
+<h2>Executing single commands</h2>
+
+<p>If you just want to issue a single command without spawning an entire shell,
+you can just use the <code>:!</code> command:</p>
+
+<p><code>
+:! printf &quot;Hello Sailor&quot;
+</code></p>
+
+<h2>Vims builtin terminal</h2>
+
+<p>I couldn&#39;t believe my eyes when I read this, but Vim ships with a builtin
+terminal! Executing <code>:term</code> will spawn it in your current buffer. How you
+integrate it in your workflow is up to you. You could use tabs or open a
+horizontal buffer and spawn it there. I must say that it is rather clunky to
+use, since its literally a Vim buffer that forwards stdin and stdout to the
+buffer, but it&#39;s there for you to use.</p>
+
+<h2>Vim x Tmux</h2>
+
+<p>Another great alternative is to set up Tmux with two windows, one for Vim and
+one for your terminal, and switch between them. This works great on a minimal
+system, but on MacOS for example, it is easier to simply use cmd+1 and cmd+2 to
+switch between two tabs of the Terminal application.</p>
+
+<h2>Pausing and resuming Vim</h2>
+
+<p>This one is my personal favorite. The idea comes from
+<a href="https://stackoverflow.com/a/1258318/9046809">this</a> stackoverflow answer.</p>
+
+<p>The plan is to pause the Vim process and resume it later. To pause Vim, you
+press <code>&lt;ctrl&gt;-z</code>. This sends the process in the background. Then, to resume the
+process, simply issue the <code>fg</code> command and Vims process resumes in the
+foreground.</p>
+
+<h2>Conclusion</h2>
+
+<p>I&#39;m sure there are many more strategies that could be added to this list. I&#39;d be
+interested to hear how your setup works! If you liked these techniques, you
+might be interested in
+<a href="https://fosstodon.org/web/accounts/211905">@lopeztel</a>s
+<a href="https://lopeztel.xyz/2021/02/21/my-neovim-cheatsheet/">cheat sheet</a> for Vim.</p>
+
+<p>This is post 014 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Using Macros in Vim
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-01-26-vim-macros?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 26 Jan 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>For a long time, macros in Vim were a huge mystery for me. I knew they existed, but I didn&#39;t know how or why you&#39;d use them. A recent task of mine involved replacing the unsafe operator (<code>!!</code>) in a large kotlin codebase with a null-safe operator (<code>?</code>). This game me a good opportunity to learn about macros. This is a snippet I encountered numerous times:</p>
+
+<p><code>kt
+mLeftButton!!.text = &quot;Left&quot;
+mLeftButton!!.setOnClickListener(leftListener)
+mLeftButton!!.visibility = View.VISIBLE
+mRightButton!!.text = &quot;Right&quot;
+mRightButton!!.setOnClickListener(rightListener)
+mRightButton!!.visibility = View.VISIBLE
+</code></p>
+
+<p>You could go ahead and change each line individually, or use the IDEs built in &quot;multi-cursor&quot; tool to save you some work. But, let me show you how I automated this using a Vim-Plugin for Android Studio. Not that the plugin matter, it will work in every Vim-like editor.</p>
+
+<p>A macro in Vim works like this:</p>
+
+<ol><li>Record any sequence of keystrokes and assign them to a key</li><li>Execute that sequence as often as you wish</li></ol>
+
+<p>So let&#39;s see how we&#39;d do that.</p>
+
+<h2>Recording a macro</h2>
+
+<p>To record a macro in Vim, you press <code>q</code> (In normal mode) followed by a key you want to assign the macro to. So, if you wanted to record a macro and save it to the <code>q</code> key, you&#39;d press <code>qq</code>. Vim will notify you that a macro is being recorded. Now, you can press the keystrokes that define your actions. When you&#39;re done, press <code>q</code> in normal mode again to quit your macro.</p>
+
+<p>Coming back to my task, I would want to do the following:</p>
+
+<ol><li><code>qq</code> Record a macro and save it to the <code>q</code> key</li><li><code>_</code> - Jump to the beginning of the line</li><li><code>f!</code> - Find next occurrence of <code>!</code></li><li><code>cw</code> - Change word (Delete word and enter insert mode)</li><li><code>?.</code> - Insert the new characters</li><li><code>&lt;esc&gt;</code> - Enter normal mode</li><li><code>j</code> - go down a line</li><li><code>q</code> - Finish macro</li></ol>
+
+<p>If everything went right, this line:</p>
+
+<p><code>
+mLeftButton!!.text = &quot;Left&quot;
+</code></p>
+
+<p>Should now look like this:</p>
+
+<p><code>
+mLeftButton?.text = &quot;Left&quot;
+</code></p>
+
+<p>and your macro should be saved under the <code>q</code> key.</p>
+
+<h2>Using the macro</h2>
+
+<p>In order to use a macro in vim, you press the <code>@</code> key, followed by the key the macro is saved under. Since our macro is defined as <code>q</code>, we&#39;d press <code>@q</code>, and the macro is executed immediately.</p>
+
+<p>Let&#39;s take this further. You might have noticed that I went down a line before closing the macro. This becomes handy when you want to execute it many times. In our case we have 6 lines we want to refactor. 1 line has already been altered, so we have to execute it 5 more times. As per usual with vim, you can execute an action n times by specifying a number before doing the action. Let&#39;s press <code>5@q</code> to execute the macro 5 times. And voila! Our unsafe code is now null-safe.</p>
+
+<p><code>kt
+mLeftButton?.text = &quot;Left&quot;
+mLeftButton?.setOnClickListener(leftListener)
+mLeftButton?.visibility = View.VISIBLE
+mRightButton?.text = &quot;Right&quot;
+mRightButton?.setOnClickListener(rightListener)
+mRightButton?.visibility = View.VISIBLE
+</code></p>
+
+<p>Macros are really satisfying to watch, if you ask me!</p>
+
+<p>This is post 007 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>

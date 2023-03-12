@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Sun, 19 Feb 2023 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                TIL about CSS Insets
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-02-19-til-about-css-insets?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 19 Feb 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Just a quick tip that I thought is worth sharing. Instead of declaring:</p>
+
+<p><code>css
+.foo { 
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+</code></p>
+
+<p>you can just use:</p>
+
+<p><code>css
+.foo {
+  inset: 0;
+}
+</code></p>
+
+<p>It&#39;s supported everywhere computers are sold!</p>
+
+<p>MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/inset</p>
+
+<p>Source: https://front-end.social/@estelle/109878532782943511</p>
+
+<p>This is post 047 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Quick tip! React useToggle Hook
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-12-21-usetoggle-react-hook?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 21 Dec 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Here&#39;s a useful react hook for situations where you have to keep track of the
+state of a dialog, popup, etc.:</p>
+
+<p><code></code>`js
+import { useState } from &quot;react&quot;;</p>
+
+<p>export default (value) =&gt; {
+	const [state, setState] = useState(value);</p>
+
+<pre><code>const setStateActive = () =&gt; {
+	setState(true);
+};
+
+const setStateInactive = () =&gt; {
+	setState(false);
+};
+
+return [state, setStateActive, setStateInactive];</code></pre>
+
+<p>};
+<code></code>`</p>
+
+<p>Usage:</p>
+
+<p><code></code>`js
+const SomeComponent = () =&gt; {
+	const [isDeleteDialogOpen, openDeleteDialog, closeDeleteDialog] =
+		useToggle(false);</p>
+
+<pre><code>return (
+	&lt;&gt;
+		&lt;Button onClick={openDeleteDialog}&gt;Open Delete Dialog&lt;/Button&gt;
+		&lt;Dialog isOpen={isDeleteDialogOpen} onClose={closeDeleteDialog}&gt;&lt;/Dialog&gt;
+	&lt;/&gt;
+);</code></pre>
+
+<p>};
+<code></code>`</p>
+
+<p>This is post 021 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Quick Tip! Sharing terminal output with Termbin
+            </title>
+            <link>
+                https://garrit.xyz/posts/quick-tip-terminal-pastebin?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 31 Dec 2019 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Ever find yourself in a situation where you simply want to save or share the output of a terminal command? Selecting, copying and pasting text from stdout always feels quite tedious, if you just want to share the contents of a file.</p>
+
+<p>A project called <a href="https://termbin.com/">Termbin</a> tries to simplify this process. Just pipe the command you want to save to the following url on port <code>9999</code>, using Netcat:</p>
+
+<p><code>sh
+echo &quot;Hello, Blog!&quot; | nc termbin.com 9999
+</code></p>
+
+<p>Instead of showing the output, it will be forwarded to Termbin and show the URL, under which your output will be available:</p>
+
+<p><code>sh
+➜  blog git:(master) ✗ cat ./some_file.txt | nc termbin.com 9999
+https://termbin.com/faos
+➜  blog git:(master) ✗
+</code></p>
+
+<p>Sure enough, after navigating to <a href="https://termbin.com/faos"><code>https://termbin.com/faos</code></a>, we will see the contents of <code>some_file.txt</code>. Neat!</p>
+
+<h3>⚠️Word of Caution⚠️</h3>
+
+<p>Do not pipe any personal information, credentials or any other private data into termbin. It will be instantly available to the general public, and theres no quick way to remove it.</p>
+
+<p>Happy Pasting!✨</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>

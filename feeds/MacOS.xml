@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Tue, 14 Jun 2022 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                A list of bugs in MacOS
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-06-10-a-list-of-bugs-in-macos?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 14 Jun 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;ve been using MacOS for years, and I was always happy with it. However, it
+has some really annoying problems that don&#39;t seem to get attention by Apple.
+This is a list of things that personally bother me. I will try to update it
+whenever I encounter new issues.</p>
+
+<ul><li>~~When plugging in a external monitor, some native Windows can&#39;t be used with a
+mouse anymore. Restart required to fix.~~ (This seems to be fixed)</li><li>Dash-to-dock sometimes doesn&#39;t work for fullscreen-applications.</li><li>When opening a fullscreen window from the workspace-overview, the dock
+sometimes stays visible. Has to be manually hovered to hide.</li><li>When using a chromium-based browser on an external monitor in
+fullscreen-mode, the menu-bar sometimes doesn&#39;t appear when hovered.</li><li>When switching from the internal to an external monitor, the workspace
+alignment is not how I left it.</li></ul>
+
+<p>This is post 034 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>

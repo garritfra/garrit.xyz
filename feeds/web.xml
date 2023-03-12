@@ -1,0 +1,560 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Wed, 22 Feb 2023 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                Dockerignore troubles
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-02-22-dockerignore-troubles?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 22 Feb 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I commonly used to create a <code>.Dockerignore</code> file next to my <code>Dockerfile</code>. After countless hours of ignoring the problems in my setup, I found out that the uppercase <code>.Dockerignore</code> doesn&#39;t get picked up by Docker on MacOS. Only the lowercase <code>.dockerignore</code> is valid.</p>
+
+<p>I didn&#39;t find official documentation on this, but I think it&#39;s because both MacOS and Linux are case-sensitive, while Windows isn&#39;t. I don&#39;t remember why I got used to the <code>.Dockerignore</code> convention, but I swear I saw someone using it in the wild. Or it&#39;s my (un)logical reasoning that, because <code>Dockerfile</code> is uppercased, <code>.Dockerignore</code> should be uppercased as well.</p>
+
+<p>Either way, stay away from <code>.Dockerfile</code>s and stick to <code>.dockerfile</code>s.</p>
+
+<p>This is post 050 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                TIL about CSS Insets
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-02-19-til-about-css-insets?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 19 Feb 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Just a quick tip that I thought is worth sharing. Instead of declaring:</p>
+
+<p><code>css
+.foo { 
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+</code></p>
+
+<p>you can just use:</p>
+
+<p><code>css
+.foo {
+  inset: 0;
+}
+</code></p>
+
+<p>It&#39;s supported everywhere computers are sold!</p>
+
+<p>MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/inset</p>
+
+<p>Source: https://front-end.social/@estelle/109878532782943511</p>
+
+<p>This is post 047 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Cursed User-Agents
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-11-11-cursed-user-agents?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 11 Nov 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<blockquote><p><strong>Warning</strong>: This is a rather ranty post. I just needed a place to dump my emotions about this topic. Please take it with a grain of salt. :)</p></blockquote>
+
+<p>I&#39;m currently <a href="https://github.com/garritfra/ua-parser-js/pull/8">fiddling
+around</a> with User-Agents of
+Smart TVs, or more specifically <a href="https://www.hbbtv.org/">HbbTV</a>. Interpreting
+them is an absolute nightmare, so let me rant about interesting edge-cases I
+discovered along the way.</p>
+
+<p>To set the mood: User-Agents in this field have a standardized format, yet many
+vendors seem to do their own thing, making it impossible to build one parser to
+rule them all. For reference, here&#39;s what the HbbTV section in a user agent
+SHOULD look like:</p>
+
+<p><code>
+HbbTV/&lt;version&gt; (&lt;capabilities&gt;; &lt;vendorName&gt;; &lt;modelName&gt;; &lt;softwareVersion&gt;; [&lt;hardwareVersion&gt;]; &lt;familyName&gt;; &lt;reserved&gt;)
+</code></p>
+
+<h2>The &quot;we&#39;ll update that later&quot;</h2>
+
+<p><code>
+HbbTV/1.1.1 (; Loewe; MB180; 1.0; 1.0;) NetFront/4.1
+</code></p>
+
+<p>1.0 for both software and hardware versions suspiciously looks like a working
+title. At least we get some information about the vendor and the model.</p>
+
+<h2>The Overcommitted</h2>
+
+<p><code>
+Mozilla/5.0 (Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 OPR/40.0.2207.0 OMI/4.9.0.237.DOM3-OPT.245 Model/Vestel-MB211 VSTVB MB200 HbbTV/1.2.1 (; JVC; MB211; 3.19.4.2; _TV_NT72563_2017 SmartTvA/3.0.0
+</code></p>
+
+<p>It&#39;s nice that we get a lot of information about the device, yet no one seemed
+to check if the string actually fits into storage.</p>
+
+<h2>The Lazy Boy</h2>
+
+<p><code>
+HbbTV/1.1.1 (;;;;;) Maple;2011
+</code></p>
+
+<p>To be fair, this is one of the earliest HbbTV devices ever. No one knew that
+this technology would stand the test of time. Apparently not even Samsung.</p>
+
+<h2>Conclusion</h2>
+
+<p>I learned that building a generic parser for user agents isn&#39;t easy, especially
+if the devices you work with could be over a decade old.</p>
+
+<p>One thing that all devices do seem to get right though is the presence of the
+HbbTV section in the User-Agent. I did not encounter a single device without it.</p>
+
+<p>This is post 042 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Fixing Traefik Proxy Issues
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-03-18-fix-traefik-proxy-issues?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 18 Mar 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>After changing my proxy from NGINX to Traefik, I noticed that some of my
+services started misbehaving.</p>
+
+<p>In particular, my instance of
+<a href="https://github.com/NicolasConstant/BirdsiteLive">BirdsiteLive</a>
+(<a href="https://birdsite.slashdev.space">birdsite.slashdev.space</a>) had issues
+forwarding tweets to the
+<a href="https://garrit.xyz/posts/2021-01-18-reasons-the-fediverse-is-better">Fediverse</a>.</p>
+
+<p>The only difference between my old NGINX and my Traefik config were the headers.
+I didn&#39;t think that that&#39;s what&#39;s causing the issue, but after digging around a
+bit I figured out what&#39;s wrong. I still can&#39;t wrap my head around it entirely,
+but it has something to do with forwarding external <code>https</code> requests to internal
+<code>http</code> services, since the <code>x-forwarded-</code> headers where missing in the forwarded
+requests.</p>
+
+<p>In the world of NGINX, we can instruct the proxy to forward <em>all</em> headers using
+this directive:</p>
+
+<p><code>conf
+proxy_pass_request_headers      on;
+</code></p>
+
+<p>which takes care of the issue. In Traefik, it&#39;s a bit more convoluted. Traefik
+can use a combination of &quot;Entrypoints&quot; and middleware to route traffic around.
+In my setup, I use a <code>webSecure</code> entrypoint listening for SSL/TLS traffic, and a
+<code>web</code> entrypoint that just redirects to <code>webSecure</code>:</p>
+
+<p><code></code>`yaml
+entryPoints:
+  web:
+    address: :80
+    http:
+      redirections:
+        entryPoint:
+          to: &quot;websecure&quot;
+          scheme: &quot;https&quot;</p>
+
+<p>  websecure:
+    address: :443
+<code></code>`</p>
+
+<p>Apparently, some services send requests to the <code>web</code> entrypoint, and the
+<code>x-forwarded-for</code> headers are dropped. To prevent this, you can set the
+<code>proxyProtocol</code> and <code>forwardedHeaders</code> in the <code>web</code> entrypoint to <code>insecure</code>,
+like so:</p>
+
+<p><code></code>`yaml
+entryPoints:
+  web:
+    address: :80
+    proxyProtocol:
+      insecure: true
+    forwardedHeaders:
+      insecure: true
+    # ...</p>
+
+<h1>...</h1>
+
+<p><code></code>`</p>
+
+<p>I&#39;m sure there&#39;s a reason why this is marked as <code>insecure</code>, but it behaves just
+like the NGINX counterpart, so I didn&#39;t bother digging deeper into the matter.
+Maybe one day I&#39;ll come back to properly fix this.</p>
+
+<p>If you want to read more, check out
+<a href="https://medium.com/@_jonas/traefik-kubernetes-ingress-and-x-forwarded-headers-82194d319b0e">this</a>
+article on Medium. It explains the issue in more detail.</p>
+
+<hr/>
+
+<p>This is post 025 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                TIL how to get the active language of a browser
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-01-28-til-how-to-get-the-selected-language-of-a-browser?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 28 Jan 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Today I learned how to get the selected language of a browser.</p>
+
+<p>It&#39;s super simple!</p>
+
+<p><code>js
+const userLang = navigator.language || navigator.userLanguage;
+</code></p>
+
+<h2>An interesting discovery</h2>
+
+<p>Eventhough I&#39;m using a chromium-based browser, the user-agent and some other
+fields of the <code>navigator</code> object imply that I&#39;m running Mozilla Netscape 5.0.
+This is a relic of the past, where the user agent heavily influenced the look
+and feel of a served website. Nowadays, all rendering engines work more or less
+equally, but back then, browsers tried to be as good as the market leader, so
+they disquised themselves as Netscape. This podcast episode goes into more
+detail about how this developed (jump to minute 3 to listen to this topic):</p>
+
+<p>&lt;iframe style=&quot;border-radius:12px&quot; src=&quot;https://open.spotify.com/embed/episode/71URVFdhF6pcUBRhxerDIV?utm_source=generator&amp;t=190&quot; width=&quot;100%&quot; height=&quot;232&quot; frameBorder=&quot;0&quot; allowfullscreen=&quot;&quot; allow=&quot;autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture&quot;&gt;&lt;/iframe&gt;</p>
+
+<hr/>
+
+<p>This is post 024 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>
+
+<h2>Resources</h2>
+
+<ul><li><a href="https://stackoverflow.com/questions/8199760/how-to-get-the-browser-language-using-javascript">Stack Overflow Thread on getting the user language</a></li><li><a href="https://corecursive.com/internet-is-duct-tape/#">Full link to the Podcast episode</a></li></ul>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Quick tip! React useToggle Hook
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-12-21-usetoggle-react-hook?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 21 Dec 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Here&#39;s a useful react hook for situations where you have to keep track of the
+state of a dialog, popup, etc.:</p>
+
+<p><code></code>`js
+import { useState } from &quot;react&quot;;</p>
+
+<p>export default (value) =&gt; {
+	const [state, setState] = useState(value);</p>
+
+<pre><code>const setStateActive = () =&gt; {
+	setState(true);
+};
+
+const setStateInactive = () =&gt; {
+	setState(false);
+};
+
+return [state, setStateActive, setStateInactive];</code></pre>
+
+<p>};
+<code></code>`</p>
+
+<p>Usage:</p>
+
+<p><code></code>`js
+const SomeComponent = () =&gt; {
+	const [isDeleteDialogOpen, openDeleteDialog, closeDeleteDialog] =
+		useToggle(false);</p>
+
+<pre><code>return (
+	&lt;&gt;
+		&lt;Button onClick={openDeleteDialog}&gt;Open Delete Dialog&lt;/Button&gt;
+		&lt;Dialog isOpen={isDeleteDialogOpen} onClose={closeDeleteDialog}&gt;&lt;/Dialog&gt;
+	&lt;/&gt;
+);</code></pre>
+
+<p>};
+<code></code>`</p>
+
+<p>This is post 021 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                I joined the 512KB club
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-01-13-512kb-club?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 13 Jan 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>JavaScript rules the web, literally. In fact, this website is built with JavaScript (Next.js). I recently started to think about if I really needed this much overhead for a simple site like this. After all, I don&#39;t have any fancy user interaction features or complex animation that would justify the JavaScript on this page.</p>
+
+<p>There is a new (no, not that new) philosophy called <a href="https://leanweb.dev/">the lean web</a>. It essentially tries to keep websites tiny and semantically correct. This has many benefits, ranging from less pollution generated by your site to improved SEO, since many search engines favor a semantically correct website over a site that abuses JavaScript to mimic the features, that are baked into html anyway.</p>
+
+<p>In order to get lean, I decided to join <a href="https://512kb.club/">the 512KB club</a>. This website lists sites that are below 512KB in total (uncompressed, with all dependencies). To get below that mark, I had to remove my face from the frontpage (I&#39;m sure you&#39;ll miss it😅), since the image itself was roughly 750KB. I&#39;m now just below 500KB, which qualifies me to join the blue team.</p>
+
+<p><a href="https://512kb.club"><img alt="Blue Team" src="https://512kb.club/images/blue-team.svg"/></a></p>
+
+<p>I&#39;m not planning to stop here though. I think keeping a website small and simple is an excellent practice. My next step will be to get rid of all the JS junk on this site and only rely on HTML and CSS. I still want to be able to write my posts in Markdown, so I will have to come up with a way to generate pages from them. A safe bet for this would be to use a SSG like <a href="https://gohugo.io/">Hugo</a>. Frankly, <a href="https://erikwinter.nl/articles/2020/why-i-built-my-own-shitty-static-site-generator/">writing my own simple SSG probably wouldn&#39;t hurt either</a>. Let&#39;s see how high I can climb the ranks of the 512KB club. Care to join me?</p>
+
+<p>This is post 003 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Testing isn't hard
+            </title>
+            <link>
+                https://garrit.xyz/posts/testing-isnt-hard?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 08 Nov 2019 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>&quot;I write two tests before implementing a method&quot;, &quot;My project has 90% coverage&quot;.</p>
+
+<p>I don&#39;t know about you, but that&#39;s something I don&#39;t hear very often. But why is that?</p>
+
+<p>Testing is not even that difficult to do, but yet it is always coming short in my projects. About a year ago, I&#39;ve tried to implement tests in my React applications with little success, mostly because integrating <code>enzyme</code> and configuring it correctly is not that intuitive as a relatively new developer. I want to share my (partly opinionated) approach to JavaScript testing with <code>jest</code>, to get you started. In a later post I will demonstrate a way to implement <code>enzyme</code> into your React projects.</p>
+
+<h1>The basics of testing JavaScript functions</h1>
+
+<p>To get started, you need a npm-project. I don&#39;t think I have to explain that, but just in case:</p>
+
+<p><code>bash
+mkdir awesome-testing-project
+cd awesome-testing-project
+npm init -y
+</code></p>
+
+<p>Of course, we need a unit we want to test. What about a method that returns the first element of an array?</p>
+
+<p><code>js
+module.exports = function firstElement(arr) {
+	return arr[1];
+};
+</code></p>
+
+<p>You already spotted a bug, huh? Let&#39;s keep it simple for now.</p>
+
+<p>Install and initialize Jest, an open-source testing framework maintained by Facebook. When initializing, you should check every question with <code>y</code>.</p>
+
+<p><code>bash
+npm i --save-dev jest
+npx jest --init
+</code></p>
+
+<p>Next up, we need to define our first test. Conventionally, we create a folder named <code>__tests__</code> in the directory of the module we want to test. inside it, there should be a file named <code>&lt;module&gt;.test.js</code>. Something like this:</p>
+
+<p><code>bash
+▶ tree
+.
+├── package.json
+└── src
+    ├── __tests__
+    │   └── firstElement.test.js
+    └── firstElement.js
+</code></p>
+
+<p>Jest provides global functions that do not need to be imported in a file. A simple test can look like this:</p>
+
+<p><code></code>`js
+const firstElement = require(&quot;../firstElement.js&quot;);</p>
+
+<p>test(&quot;firstElement gets first element of array&quot;, () =&gt; {
+	expect(firstElement([1, 2])).toBe(1);
+});
+<code></code>`</p>
+
+<p><code>expect</code> is another word for <code>assert</code>. If you ask me, &quot;Expect firstElement of [1, 2] to be 1&quot; sounds reasonably english, doesn&#39;t it? After defining the test, all there is to do left is to run the <code>npm test</code> command, which has been created for us by running <code>npx jest --init</code> earlier.</p>
+
+<p><code></code>`bash
+▶ npm test</p>
+
+<blockquote><p>jest</p></blockquote>
+
+<p> FAIL  src/<strong>tests</strong>/firstElement.test.js
+  ✕ firstElement (6ms)</p>
+
+<p>  ● firstElement</p>
+
+<pre><code>expect(received).toBe(expected) // Object.is equality
+
+Expected: 1
+Received: 2
+
+  2 |
+  3 | test(&#39;firstElement&#39;, () =&gt; {
+&gt; 4 |   expect(firstElement([1, 2])).toBe(1);
+    |                                ^
+  5 | });
+  6 |
+
+  at Object.&lt;anonymous&gt;.test (src/__tests__/firstElement.test.js:4:32)</code></pre>
+
+<p>Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        1.1s
+Ran all test suites.
+npm ERR! Test failed.  See above for more details.
+<code></code>`</p>
+
+<p>Whoops! Looks like we have found a bug! Let&#39;s fix it by adjusting the index of the return value in the firstElement function:</p>
+
+<p><code>js
+module.exports = function firstElement(arr) {
+	return arr[0];
+};
+</code></p>
+
+<p>And after rerunning <code>npm test</code>:</p>
+
+<p><code></code>`bash
+▶ npm test</p>
+
+<blockquote><p>jest</p></blockquote>
+
+<p> PASS  src/<strong>tests</strong>/firstElement.test.js
+  ✓ firstElement (4ms)</p>
+
+<p>Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.666s, estimated 2s
+Ran all test suites.
+<code></code>`</p>
+
+<p>Yay, your first unit test! Of course, there is much more to find out about the Jest framework. To see a full guide, read the <a href="https://jestjs.io/">official docs</a>.</p>
+
+<p>I have prepared a <a href="https://github.com/garritfra/react-parcel-boilerplate">template repository</a> for building react apps. It also uses Jest to run tests, you don&#39;t have to worry about a thing! If you found this interesting, consider checking out my other blog posts, and/or check out my <a href="https://github.com/garritfra">GitHub</a>!</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Fighting Array Functions with ES6
+            </title>
+            <link>
+                https://garrit.xyz/posts/fighting-array-functions-with-es6?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 07 Apr 2019 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Yesterday, I came across an interesting bug regarding JavaScript Arrays, and I wanted to share my approach to fixing it.
+At a basic level, I wanted to pass part of an array to a function, but wanted to use the original array later on.</p>
+
+<p><code>js
+let arr = [1, 2, 3, 4, 5]
+let something = arr.splice(0, 3)
+do(something) // []
+DoSomethingWithOriginal(arr)
+</code></p>
+
+<p>Thinking that Array.prototype functions don’t mutate the array directly, I moved on with my day. This lead to a bunch of problems down the line.
+Some array methods in the EcmaScript specification are designed to mutate arrays, while others do not.</p>
+
+<h3>Non-mutating functions</h3>
+
+<ul><li>Array.prototype.map()</li><li>Array.prototype.slice()</li><li>Array.prototype.join()</li><li>…</li></ul>
+
+<p>These functions do not mutate the array they are called on. For example:</p>
+
+<p><code>js
+let arr = [1, 2, 3, 4, 5];
+let partOfArr = arr.slice(1, 2);
+console.log(partOfArr); // [2, 3]
+console.log(arr); // [1, 2, 3, 4, 5]
+</code></p>
+
+<h3>Mutating functions</h3>
+
+<ul><li>Array.prototype.sort()</li><li>Array.prototype.splice()</li><li>Array.prototype.reverse()</li><li>…</li></ul>
+
+<p>These methods mutate the array directly. This can lead to unreadable code, as the value can be manipulated from anywhere. For example:</p>
+
+<p><code>js
+let arr = [5, 2, 4];
+arr.sort();
+console.log(arr); // [2, 4, 5]
+</code></p>
+
+<p>To me, it is very unclear, which functions do, and which don’t mutate arrays directly. But, there’s a simple trick you can use to stop letting the functions mutate arrays directly, ultimately leading to more readable and reliable code.</p>
+
+<h2>Enter: The ES6 Spread Operator!</h2>
+
+<p><img alt="Spread Operator" src="https://images.unsplash.com/photo-1518297056586-889f796873e0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1225&amp;q=80"/></p>
+
+<p>Take a look at this snippet:</p>
+
+<p><code>js
+let arr = [3, 5, 1, 2, 4];
+let sorted = [...arr].sort();
+console.log(arr); // [3, 5, 1, 2, 4]
+console.log(sorted); // [1, 2, 3, 4, 5]
+</code></p>
+
+<p>Voilà! We have a sorted array, and the original one is also around. The spread operator(<code>[...arr]</code>) is used to create a new array with every value of arr .
+You can use this for arrays, as well as objects:</p>
+
+<p><code>js
+let obj = {
+	field: &quot;example&quot;,
+};
+let extendedObj = {
+	...obj,
+	anotherField: 42,
+};
+console.log(extendedObj.field); // &quot;example&quot;
+</code></p>
+
+<h2>Conclusion</h2>
+
+<p>ES6 brought us awesome features like let and const assignments, as well as arrow functions. A more unknown feature however is the spread operator. I hope you now know how to use the spread operator, and that you can adopt it for cleaner and simpler code.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>
