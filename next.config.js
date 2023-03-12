@@ -4,7 +4,6 @@ const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
 	output: "export",
-	assetPrefix: isProd ? "https://garrit.xyz" : "",
 	sassOptions: {
 		includePaths: [path.join(__dirname, "styles")],
 	},
