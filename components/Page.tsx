@@ -1,6 +1,6 @@
-import Layout from "./Layout";
+import { useEffect } from "react";
 
-const SSR = typeof window === "undefined";
+import Layout from "./Layout";
 
 export default function Page(props) {
 	const { title, date, siteTitle } = props;
@@ -17,10 +17,12 @@ export default function Page(props) {
 		});
 	};
 
-	!SSR && setupEditHook();
+	useEffect(() => {
+		setupEditHook();
+	}, []);
 
 	return (
-		<Layout siteTitle={siteTitle} pageTitle={title}>
+		<Layout siteTitle={siteTitle} pageTitle={title} siteDescription={undefined}>
 			<article className="page h-entry">
 				{title && (
 					<div className="page__info">

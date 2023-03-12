@@ -1,7 +1,6 @@
+import { useEffect } from "react";
 import Link from "next/link";
 import Page from "../components/Page";
-
-const SSR = typeof window === "undefined";
 
 export default function FourOhFour() {
 	const setupEditRoute = () => {
@@ -14,7 +13,10 @@ export default function FourOhFour() {
 		}
 	};
 
-	!SSR && setupEditRoute();
+	useEffect(() => {
+		setupEditRoute();
+	}, []);
+
 	return (
 		<Page>
 			<h1>404 - Page Not Found</h1>

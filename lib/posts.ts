@@ -14,6 +14,8 @@ export interface Post {
 	frontmatter: PostMetadata;
 }
 
+export const isPublicPost = (post: Post) => !post.slug.startsWith("_");
+
 export const getPosts = async () => {
 	const files = await glob("content/posts/*.md");
 	const postPromises = files.map(async (filepath): Promise<Post> => {
@@ -34,5 +36,8 @@ export const getPosts = async () => {
 		};
 	});
 
-	return Promise.all(postPromises);
+	const posts = await Promise.all(postPromises);
+	return posts
+		.filter(isPublicPost)
+		.sort((a, b) => (a.frontmatter.date < b.frontmatter.date ? 1 : -1));
 };
