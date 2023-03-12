@@ -1,5 +1,10 @@
 # Journal
 
+### 2023-03-13
+
+- Finally upgraded to Next.js 13
+- Reverted using Preact, since it seems to lead to some errors with Next.js 13
+
 ### 2022-12-06
 
 - Got really into [ChatGPT](https://openai.com/blog/chatgpt/)
