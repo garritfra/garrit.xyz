@@ -23,7 +23,7 @@
 	"devDependencies": {
 		"glob": "9.2.1",
 		"gray-matter": "4.0.3",
-		"next-sitemap": "4.0.2",
+		"next-sitemap": "4.0.5",
 		"raw-loader": "4.0.2",
 		"rfc822-date": "0.0.3",
 		"sass": "1.59.2",
