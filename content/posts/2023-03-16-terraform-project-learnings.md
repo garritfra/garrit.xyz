@@ -39,7 +39,7 @@ Having worked with semi-professional Terraform code before, I applied what I kne
 
 This works very well, but I already started running into issues extending this setup. For my next project, I would probably find individual components and turn them into smaller reusable submodules. If I were to rewrite the project above, I would probably structure it like this (not a complete project, but I think you get the idea):
 
-```tf
+```
 .
 ├── modules
 │   └── infrastructure
