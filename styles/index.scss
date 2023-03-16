@@ -521,6 +521,12 @@ kbd {
 }
 
 pre {
+	// Fix for syntax highlighting
+	& div {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
 	padding: 1rem 1.4rem;
 	max-width: 100%;
 	overflow: auto;
