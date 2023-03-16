@@ -1,9 +1,7 @@
 import matter from "gray-matter";
-import ReactMarkdown from "react-markdown";
-import gfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
 import glob from "glob";
 import Page from "../components/Page";
+import Markdown from "../components/Markdown";
 
 interface PageTemplateProps {
 	frontmatter: { siteTitle: string; title: string };
@@ -23,9 +21,7 @@ export default function PageTemplate(props: PageTemplateProps) {
 
 	return (
 		<Page title={props.frontmatter.title} siteTitle={siteTitle}>
-			<ReactMarkdown remarkPlugins={[gfm]} rehypePlugins={[rehypeRaw]}>
-				{props.markdownBody}
-			</ReactMarkdown>
+			<Markdown>{props.markdownBody}</Markdown>
 		</Page>
 	);
 }
@@ -44,7 +40,10 @@ export async function getStaticProps({ ...ctx }) {
 	};
 }
 
-export async function getStaticPaths(): Promise<{ paths: string[]; fallback: boolean; }> {
+export async function getStaticPaths(): Promise<{
+	paths: string[];
+	fallback: boolean;
+}> {
 	//get all .md files in the posts dir
 	const pages = await glob("content/*.md");
 

@@ -1,14 +1,12 @@
-import matter from "gray-matter";
-import ReactMarkdown from "react-markdown";
-import gfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
-import Page from "../../components/Page";
-import glob from "glob";
 import React from "react";
+import matter from "gray-matter";
+import glob from "glob";
+import Page from "../../components/Page";
 import TagIcon from "../../components/TagIcon";
+import Markdown from "../../components/Markdown";
 
 export default function BlogTemplate(props) {
-	function reformatDate(fullDate) {
+	function reformatDate(fullDate: string) {
 		const date = new Date(fullDate);
 		return date.toDateString().slice(4);
 	}
@@ -20,17 +18,6 @@ export default function BlogTemplate(props) {
 	 */
 
 	if (!props.frontmatter) return <></>;
-
-	const addAnchorTag = ({ node, children, ...props }) => {
-		const headerSlug = node.children[0].value
-			.replaceAll(" ", "-")
-			.toLowerCase();
-		return React.createElement(node.tagName, {
-			id: headerSlug,
-			children: [children],
-			...props,
-		});
-	};
 
 	const renderTagList = () => {
 		const tags = props.frontmatter.tags?.split(",").map((tag) => tag.trim());
@@ -53,20 +40,7 @@ export default function BlogTemplate(props) {
 			title={props.frontmatter.title}
 			date={reformatDate(props.frontmatter.date)}
 		>
-			<ReactMarkdown
-				remarkPlugins={[gfm]}
-				rehypePlugins={[rehypeRaw]}
-				components={{
-					h1: addAnchorTag,
-					h2: addAnchorTag,
-					h3: addAnchorTag,
-					h4: addAnchorTag,
-					h5: addAnchorTag,
-					h6: addAnchorTag,
-				}}
-			>
-				{props.markdownBody}
-			</ReactMarkdown>
+			<Markdown>{props.markdownBody}</Markdown>
 			<hr />
 			<p>
 				<a

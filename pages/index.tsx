@@ -1,14 +1,10 @@
-import fs from "fs/promises";
-import path from "path";
-
 import { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
 import Snowfall from "react-snowfall";
 import matter from "gray-matter";
-import gfm from "remark-gfm";
 import Page from "../components/Page";
 import BlogList from "../components/BlogList";
 import { getPosts } from "../lib/posts";
+import Markdown from "../components/Markdown";
 
 const Index = (props) => {
 	// TODO: Can this be simplified?
@@ -39,7 +35,7 @@ const Index = (props) => {
 	return (
 		<Page className="h-card" siteTitle="Garrit Franke">
 			{isWinter && !prefersReducedMotion && buildSnow()}
-			<ReactMarkdown remarkPlugins={[gfm]}>{props.markdownBody}</ReactMarkdown>
+			<Markdown>{props.markdownBody}</Markdown>
 			<h2>Recent posts</h2>
 			<BlogList posts={props.recentPosts}></BlogList>
 		</Page>
