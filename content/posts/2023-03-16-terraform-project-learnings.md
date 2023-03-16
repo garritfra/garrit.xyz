@@ -80,6 +80,7 @@ This works very well, but I already started running into issues extending this s
 │       │       ├── outputs.tf
 │       │       ├── s3.tf
 │       │       └── variables.tf
+│       ├── main.tf
 │       ├── outputs.tf
 │       └── variables.tf
 ├── production
