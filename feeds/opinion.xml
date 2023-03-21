@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Tue, 21 Mar 2023 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                I won't buy a YubiKey
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-03-21-i-wont-buy-a-yubikey?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 21 Mar 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I have a YubiKey that I use for work, and I love using it. But I won&#39;t get one for my personal life.</p>
+
+<p>I&#39;ve been thinking about this for some time now, but I ultimately don&#39;t think the benefits outweigh the hassle of always carrying around another device that I risk losing or breaking.</p>
+
+<p>A Yubikey provides a very good second factor, but so does my phone. My phone, just like a Yubikey, is locked behind a third factor (a pin or biometric sensor), so my phone essentially <em>is</em> a Yubikey. You can argue that the authenticator app on my phone (bitwarden) can be hacked, but I&#39;m willing to take that risk if it means I have to reset all security measures on all accounts if I lose the key.</p>
+
+<p>So, I&#39;m not getting a Yubikey.</p>
+
+<hr/>
+
+<p>This is post 058 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>
