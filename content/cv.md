@@ -13,7 +13,14 @@ Mobile Software Developer (Traineeship); 2017 - 2020
 
 ### appmotion GmbH
 
-_**Software Developer, March 2021 - present**_
+_**DevOps Engineer, February 2023 - present**_
+
+Cloud infrastructure setup for a mobile application backend
+
+- [Containerization of a Laravel application](/posts/2023-03-03-notes-on-containerizing-php-applications)
+- Setup of resiliant AWS infrastructure components using Terraform
+
+_**Software Developer, March 2021 - March 2023**_
 
 Development of a HBBTV media library for public television
 
