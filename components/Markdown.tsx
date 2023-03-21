@@ -8,7 +8,7 @@ interface IMarkdownProps {
 }
 
 const addAnchorTag = ({ node, children, ...props }) => {
-	const headerSlug = node.children[0].value.replaceAll(" ", "-").toLowerCase();
+	const headerSlug = node.children[0].value?.replaceAll(" ", "-").toLowerCase();
 	return React.createElement(node.tagName, {
 		id: headerSlug,
 		children: [children],
