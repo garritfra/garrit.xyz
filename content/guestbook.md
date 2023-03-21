@@ -10,6 +10,12 @@ get redirected to the page editor.
 
 ---
 
+### [nice42q](https://nice42q.de/), on 2023-03-12:
+
+Nice GG-Book! CTF on DNS, TXT and check your HTTP response header, (X-Frame-Options, X-Content-Type-Options, Strict-Transport-Security, Referrer-Policy Permissions-Policy) Best regards
+
+--
+
 ### copyrip, on 2022-11-24:
 
 This has to be the cutest guestbook i've stumbled accross in a while 🙊 ! Well, it's actually the only i've signed in years...
