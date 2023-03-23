@@ -14,8 +14,39 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 21 Mar 2023 00:00:00 +0000
+            Thu, 23 Mar 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Fullscreen Terminals in VSCode
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-03-23-fullscreen-terminals-in-vscode?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 23 Mar 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I often find myself using a &quot;real&quot; terminal alongside my VSCode setup, because for some tasks the built-in terminal, due to its small size, is quite flimsy to use. <em>But</em>! I just found out there&#39;s a a way to switch the terminal into fullscreen mode, using the &quot;View: Toggle Maximized Panel&quot; command.</p>
+
+<p>You can bind it to a shortcut, which makes switching between editor and terminal a breeze! Simply add this to your <code>keybindings.json</code> (also accessible via the <a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">command palette</a>):</p>
+
+<p><code>
+    {
+        &quot;key&quot;: &quot;cmd+alt+m&quot;,
+        &quot;command&quot;: &quot;workbench.action.toggleMaximizedPanel&quot;
+    }
+</code></p>
+
+<h3>References</h3>
+
+<ul><li><a href="https://stackoverflow.com/a/48512128/9046809">Original StackOverflow answer</a></li></ul>
+
+<hr/>
+
+<p>This is post 059 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 I won't buy a YubiKey
