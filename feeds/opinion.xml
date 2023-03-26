@@ -14,8 +14,30 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 21 Mar 2023 00:00:00 +0000
+            Sun, 26 Mar 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Software is not defined by the language it's written in
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-03-26-software-is-not-defined-by-the-language-it's-written-in?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 26 Mar 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Rust is not just a programming language, it&#39;s also a status symbol. By now, it kind of became a meme that people writing programs in Rust have to make explicit that &quot;X is written in Rust&quot;.</p>
+
+<p>How fast or safe the language is doesn&#39;t define how good the software is. Software in TypeScript can be just as good as software written in C, if written by the right people.</p>
+
+<p>When starting a new project, try to focus on the domain of the problem and pick a language based on that. Don&#39;t decide on the language before you know what problem you&#39;re trying to solve. If the answer to this is always one option (like Rust), <a href="https://seths.blog/2023/03/the-answer-to-every-question/">you might be in a bubble</a>.</p>
+
+<hr/>
+
+<p>This is post 060 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 I won't buy a YubiKey
