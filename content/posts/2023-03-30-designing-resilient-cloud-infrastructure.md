@@ -4,7 +4,7 @@ date: "2023-03-30"
 tags: "100DaysToOffload, infrastructure, aws, guide, note, learnings"
 ---
 
-As mentioned in a [previous post](/posts/2023-03-16-terraform-project-learnings), I'm currently finishing up building my first cloud infrastructure for a client at work. During the development, I learned a lot about designing components to be resilient and scalable. Here are some key takeaways.
+As mentioned in a [previous post](/posts/2023-03-16-terraform-project-learnings), I'm currently finishing up building my first cloud infrastructure on AWS for a client at work. During the development, I learned a lot about designing components to be resilient and scalable. Here are some key takeaways.
 
 One of the most critical components of a resilient infrastructure is redundancy. On AWS, you place your components inside a "region". This could be `eu-central-1` (Frankfurt) or `us-east-1` (North Virgina), etc. To further reduce the risk of an outage, each region is divided into multiple [Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html) (AZs). The AZs of a region are usually located some distance apart from each other. In case of a flood, a fire or a bomb detonating near one AZ, the other AZs should in most cases still be intact. You should have at least two, preferably three replicas of each component across multiple availability zones in a region. By having replicas of your components in different availability zones, you reduce the risk of downtime caused by an outage in a single availability zone.
 
