@@ -12,6 +12,11 @@ A Yubikey provides a very good second factor, but so does my phone. My phone, ju
 
 So, I'm not getting a Yubikey.
 
+### Replies & Mentions
+
+- [Kev Quirk: re: I won't buy a YubiKey](https://kevquirk.com/i-wont-by-a-yubikey/)
+- [Alson Kaw: Why I won't use a YubiKey](https://alsonkaw.com/muses/why-i-wont-use-a-yubikey/)
+
 ---
 
 This is post 058 of [#100DaysToOffload](https://100daystooffload.com/).
