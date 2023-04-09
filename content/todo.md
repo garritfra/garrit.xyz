@@ -51,3 +51,4 @@
 - ~~Press "." on any page to get redirected to the edit page. Inspired by GitHub's shortcut.~~ ([blog post](/posts/2022-10-05-simple-guestbook))
 - Links to previous and next posts
 - Add a static API for data access
+- A button that links to a random URL I find interesting. Great for discovering content.on other sites
