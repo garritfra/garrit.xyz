@@ -14,8 +14,36 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 22 Feb 2023 00:00:00 +0000
+            Wed, 12 Apr 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Instant dark theme
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-04-12-instant-dark-theme?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 12 Apr 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Thanks to <a href="https://jacksonchen666.com/">Jacksons</a> <a href="https://github.com/garritfra/darktheme.club/pull/79">update to darktheme.club</a>, I just came across a neat little <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme">CSS property</a> that turns a mostly CSS-free document into a pleasantly dark site:</p>
+
+<p><code>css
+:root {
+  color-scheme: light dark;
+}
+</code></p>
+
+<p>This will adjust all elements on the page to the color scheme preferred by the user - without any other custom styles! 🤯 It is also <a href="https://caniuse.com/mdn-css_properties_color-scheme">widely supported</a> by browsers.</p>
+
+<p>I&#39;ve always been quite dependent on CSS-frameworks for any project I&#39;m starting. Going forward, I&#39;d be interested to see how framework-less sites would feel using this property. If all else fails, there&#39;s always the awesome <a href="https://simplecss.org/">simple.css</a> library, which you can slap on top of a raw document to make it pretty (and dark, if preferred) without using custom classes.</p>
+
+<hr/>
+
+<p>This is post 064 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Dockerignore troubles
