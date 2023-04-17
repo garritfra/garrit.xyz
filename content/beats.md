@@ -8,11 +8,11 @@ I got a MIDI keyboard! This is my first attempt at building a loop using drums
 and some piano.
 
 <audio controls>
-    <source src="/beats/003-happy/happy.wav" type="audio/wav">
+    <source src="/beats/003-happy/happy.mp3" type="audio/mp3">
     Your browser does not support the audio element.
 </audio>
 
-[Download](/beats/003-happy/happy.wav)
+[Download](/beats/003-happy/happy.mp3)
 
 ### FX
 
