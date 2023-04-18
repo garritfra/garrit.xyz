@@ -1,6 +1,6 @@
 import React from "react";
 import matter from "gray-matter";
-import glob from "glob";
+import { glob } from "glob";
 import Page from "../../components/Page";
 import TagIcon from "../../components/TagIcon";
 import Markdown from "../../components/Markdown";

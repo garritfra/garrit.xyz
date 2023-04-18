@@ -1,5 +1,5 @@
 import matter from "gray-matter";
-import glob from "glob";
+import { glob } from "glob";
 import Page from "../components/Page";
 import Markdown from "../components/Markdown";
 
