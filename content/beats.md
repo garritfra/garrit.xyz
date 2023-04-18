@@ -2,6 +2,17 @@ A collection of the random beats I make whenever I feel like it.
 
 All tracks are licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/), unless otherwise stated.
 
+### Doodle
+
+I figured out how to live-loop in Ableton, and it's super fun! Here's the result of my first session.
+
+<audio controls>
+    <source src="/beats/004-doodle/doodle.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+[Download](/beats/004-doodle/doodle.mp3)
+
 ### Happy
 
 I got a MIDI keyboard! This is my first attempt at building a loop using drums
