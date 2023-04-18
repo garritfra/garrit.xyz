@@ -1,11 +1,10 @@
 import Head from "next/head";
-import Script from "next/script";
 import { useEffect } from "react";
 
 export default function Meta(props) {
 	const isClient = () => !!window;
 
-	const setupPlausible = () => {
+	const setupPlausible = function () {
 		window.plausible =
 			window.plausible ||
 			function () {
@@ -41,7 +40,11 @@ export default function Meta(props) {
 			<Head>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<meta charSet="utf-8" />
-				<title>{props.pageTitle || props.siteTitle}</title>
+				<title>
+					{props.pageTitle
+						? `${props.pageTitle} | ${props.siteTitle}`
+						: props.siteTitle}
+				</title>
 				<meta
 					name="Description"
 					content="Generalist developer writing about fullstack development, system administration and free software."
@@ -59,11 +62,6 @@ export default function Meta(props) {
 					rel="stylesheet"
 				/>
 			</Head>
-			<Script
-				src="https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.iife.js"
-				defer
-				init
-			></Script>
 		</>
 	);
 }

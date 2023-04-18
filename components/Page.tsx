@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 import Layout from "./Layout";
+import Script from "next/script";
 
 export default function Page(props) {
 	const { title, date, siteTitle } = props;
@@ -32,6 +33,13 @@ export default function Page(props) {
 				)}
 				<div className="page__body e-content">{props.children}</div>
 			</article>
+			<Script
+				src="https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.iife.js"
+				defer
+				/*
+      			// @ts-ignore */
+				init
+			></Script>
 		</Layout>
 	);
 }
