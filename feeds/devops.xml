@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Sat, 22 Apr 2023 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                The role of a DevOps Engineer
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-04-22-the-role-of-a-devops-engineer?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 22 Apr 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>The term &quot;DevOps&quot; can be interpreted in many different ways. It&#39;s often thrown around as a buzzword whenever somebody is talking about &quot;what comes after development&quot;. Obviously, it&#39;s not just that. Or is it? It depends on whom you&#39;re talking to.</p>
+
+<p>Although I just recently started my new role as a &quot;DevOps Engineer&quot;, I&#39;m still discovering what that term means to me. I just had a fruitful conversation with the DevOps lead of a client, and they phrased this role in a very fitting way.</p>
+
+<blockquote><p>A DevOps Engineer doesn&#39;t push the button, they enable the developers to push the button themselves.</p></blockquote>
+
+<p>To me this role is fascinating, since it touches so many different aspects of software delivery.</p>
+
+<hr/>
+
+<p>This is post 065 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>
