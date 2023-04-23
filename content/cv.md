@@ -18,9 +18,9 @@ _**DevOps Engineer, February 2023 - present**_
 Cloud infrastructure setup for a mobile application backend
 
 - [Containerization of a Laravel application](/posts/2023-03-03-notes-on-containerizing-php-applications)
-- Setup of resiliant AWS infrastructure components using [Terraform](https://www.terraform.io/)
+- [Setup of resiliant AWS infrastructure components using Terraform](/posts/2023-03-30-designing-resilient-cloud-infrastructure)
 
-Maintenance of [Kubernetes](https://kubernetes.io/) cluster environments for a kindergarden management application
+Maintenance and monitoring of [Kubernetes](https://kubernetes.io/) cluster environments for a kindergarden management application
 
 - Integration of GitOps deployment workflows using [FluxCD](https://fluxcd.io/)
 - Provisioning and management of Kubernetes clusters using [OpenStack](https://www.openstack.org/)
