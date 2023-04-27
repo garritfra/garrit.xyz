@@ -474,5 +474,149 @@ via Matrix or email!</p>
 <p>This is post 017 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
+        <item>
+            <title>
+                My storage setup (Feburary 2021)
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-02-07-storage-setup?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 07 Feb 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I used to rely on Google Drive and Photos to store my entire data. Now, that <a href="https://blog.google/products/photos/storage-changes/">Google has decided to ditch unlimited photo storage in the near future</a> and Google basically being the devil himself, I decided to step up my game and get my hands dirty on a DIY storage solution.</p>
+
+<h2>The goal</h2>
+
+<p>Before I got started, I thought about the expectations I have towards a system like this. It boils down to these four points (in this order): I want my solution to be <strong>resiliant</strong>, <strong>scalable</strong>, <strong>easy to maintain</strong> and <strong>easy to access</strong>. Looking back, I think I met all of these requirements fairly well. Let me walk you through how I managed to do that.</p>
+
+<h2>Data resiliance</h2>
+
+<p>Keeping data on a single device is obviously a really bad idea. Drives eventually fail, which means that your data will be lost. Heck, even my house could burn down, which means that any number of local copies could burn to ashes. To prevent data loss, I strictly adhere to the <a href="https://www.backblaze.com/blog/the-3-2-1-backup-strategy/">3-2-1 backup strategy</a>. A 3-2-1 strategy means having <strong>at least three total copies of your data, two of which are local but on different mediums (read: devices), and at least one copy off-site</strong>. If a drive fails, I can replace it. If my house burns down, I get two new drives and clone my offsite backup to them.</p>
+
+<p>To get an offsite backup, I set up a spare Raspberry Pi with a single large HDD and instructed it to do daily backups of my entire data. I asked a family member if they would be willing to have a tiny computer plugged in to their router 24/7, and they kindly agreed. A Pi and a HDD are very efficient in terms of power, so there is not a lot to worry about.</p>
+
+<h2>Scalability</h2>
+
+<p>I currently don&#39;t have a huge amount of data. If that were to change (i.e. if I continue to shoot a lot of high-res photos and shove them into my setup), I need a way to simply attach more drives, or ones with more capacity. I looked at different file-systems that allowed to easy extendability while also being resiliant.</p>
+
+<p>An obvious candidate was <strong>ZFS</strong>, but there are a couple of reasons I ditched this idea. First of all, it is really hard to get up and running on Raspberry Pi running Linux, since it&#39;s not natively supported by all distributions. This increases the complexity of the setup. Another reason is that I don&#39;t like the way it scales. Please correct me if I&#39;m wrong here, since I only did limited research on this. From what I know though, ZFS can only be extended by shoving a large amount of drives in the setup to achieve perfect redundancy.</p>
+
+<p>In the end, I settled on <strong>BTRFS</strong>. For me, it scratches all the itches that ZFS has. It is baked into the linux kernel, which makes it really easy to install on most distributions, and I can scale it to any number of drives I want. If I find a spare drive somewhere with any storage capacity, I can plug it into the system and it will just work, without having to think about balancing or redundancy shenanigans.</p>
+
+<h2>Maintainability</h2>
+
+<p>I need my setup to be easy to maintain. If a drive fails, I want to be able to replace it within a matter of minutes, not hours. If my host (a Raspberry Pi) bursts into flames, I want to be able to swap in a new one and still access my data. If I&#39;m out and about and something goes south, I want to be able to fix it remotely. BTRFS helps a lot here. It&#39;s really the foundation for all the key points mentioned here. It gives me a simple interface to maintain the data on the drives, and tries to fix issues itself whenever possible.</p>
+
+<p>Exposing random ports to the general public is a huge security risk. To still be able to access the Pi remotely, I set up <strong>an encrypted WireGuard tunnel</strong>. This way, I only have to expose a single port for WireGuard to talk to the device as if I&#39;m sitting next to it.</p>
+
+<h2>Accessibility</h2>
+
+<p>Since the data needs to be accessed frequently, I need a simple interface for it that can be used on any device. I decided to host a <strong>Nextcloud</strong> instance and mount the drive as external storage. Why external storage? Because Nextcloud does some weird thing with the data it stores. If I decide to ditch Nextcloud at some point, I have the data on the disks &quot;as is&quot;, without some sort of abstraction on top of it. This also has the benefit of allowing access from multiple sources. I don&#39;t have to use Nextcloud, but instead can mount the volume as a FTP, SMB or NFS share and do whatever I want with it. From the nextcloud perspective, this has some drawbacks like inefficient caching or file detection, but I&#39;m willing to make that tradeoff.</p>
+
+<h2>In a nutshell</h2>
+
+<p>This entire setup cost me about 150€ in total. Some components were scraped from old PC parts. So, what does the solution look like? Here is the gist:</p>
+
+<ul><li>A Raspberry Pi 4 as a main host and an older Raspberry Pi 3 for offsite backup, both running Raspberry Pi OS</li><li>Two external harddrives in a RAID 1 (mirrored) configuration, running on an external USB3 hub</li><li>A single internal HDD that served no purpose in my old PC, now serving as backup storage</li><li>All drives are using BTRFS</li><li>WireGuard tunnels between main and remote host, as well as most access devices</li><li>Nextcloud on main host, accessible over TLS (if I need to access data from outside the secure tunnel-network)</li><li>SMB share accessible from within the tunnel-network</li><li>Circa 4.5 terabyte total disk size; 1.5 terabyte of usable storage</li><li>Snapper for local incremental backups on main host; BTRBK for remote incremental backups</li><li>Cron jobs for regular backups and repairs (scrub/rebalance)</li></ul>
+
+<p>This is post 010 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Quick Tip! Setting up a lightweight Server-Client VPN with wireguard
+            </title>
+            <link>
+                https://garrit.xyz/posts/lightweight-vpn-with-wireguard?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 19 Aug 2020 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>This blog post has been taken over from my <a href="https://garrit.xyz/til">collection of &quot;Today I Learned&quot; articles</a>.</p>
+
+<p>You can easily set up a private network of your devices. This way you can &quot;talk&quot; to your phone, raspberry pi etc. over an <strong>encrypted</strong> network, with simple IP-addresses.</p>
+
+<p><img alt="" src="https://images.unsplash.com/photo-1505659903052-f379347d056f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80"/></p>
+
+<p>Firstly, install wireguard on all of your systems. Simply install the <code>wireguard</code> package from your package manager respectively. Check out <a href="https://www.wireguard.com/install/">the official installation guide</a> if you can&#39;t find the package. If you&#39;re on debian, try <a href="https://wiki.debian.org/WireGuard?action=show&amp;redirect=Wireguard">this</a> guide. There&#39;s also an app for Android, iOS and MacOS.</p>
+
+<p>Every participent (Client and server) needs a key-pair. To generate this, run this command first on the server, and on all clients:</p>
+
+<p><code>bash
+wg genkey | tee wg-private.key | wg pubkey &gt; wg-public.key
+</code></p>
+
+<p>It might make sense to do this as root. This way you don&#39;t have to type <code>sudo</code> with every command.</p>
+
+<h2>Server Configuration</h2>
+
+<p>You will need to create a configuration for the server. Save this template at <code>/etc/wireguard/wg0.conf</code>, and replace the fields where needed:</p>
+
+<p><code></code>`conf
+[Interface]
+PrivateKey = &lt;Server private key from wg-private.key&gt;
+Address = 10.0.0.1/24 # IP Address of the server. Using this IP Address, you can assign IPs ranging from 10.0.0.2 - 10.0.0.254 to your clients
+ListenPort = 51820 # This is the standard port for wireguard</p>
+
+<h1>The following fields will take care of routing</h1>
+
+<p>PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE</p>
+
+<h1>Laptop</h1>
+
+<p>[Peer]
+PublicKey = &lt;Public Key of Laptop Client&gt;
+AllowedIPs = 10.0.0.2/32 # The client will be reachable at this address</p>
+
+<h1>Android Phone</h1>
+
+<p>[Peer]
+PublicKey = &lt;Public Key of Phone Client&gt;
+AllowedIPs = 10.0.0.3/32</p>
+
+<h1>...</h1>
+
+<p><code></code>`</p>
+
+<p>Then run <code>wg-quick up wg0</code> to start the wireguard interface with the configuration from <code>/etc/wireguard/wg0</code>.</p>
+
+<h2>Setting up clients</h2>
+
+<p>Setting up clients is very similar to the server setup process. Generate a keypair on each client, save the following config to <code>/etc/wireguard/wg0.conf</code> and replace the nessessary fields:</p>
+
+<p><code></code>`conf
+[Interface]
+PrivateKey = &lt;Client Private Key from wg-private.key&gt;
+Address = 10.0.0.2/32 # The fixed address of the client. Needs to be specified in the server config as well</p>
+
+<p>[Peer]
+PublicKey = &lt;Server Public key&gt;
+AllowedIPs = 10.0.0.0/24 # Routes all traffic in this subnet to the server. If you want to tunnel all traffic through the wireguard connection, use 0.0.0.0/0 here instead
+Endpoint = &lt;Public Server IP&gt;:51820
+PersistentKeepalive = 25 # Optional. Will ping the server every 25 seconds to remain connected.
+<code></code>`</p>
+
+<p>On every client, run <code>wg-quick up wg0</code> to start the interface using the config at <code>/etc/wireguard/wg0.conf</code>.</p>
+
+<p>This whole proccess might be easier on GUIs like Android or MacOS.</p>
+
+<p>Now, try to ping your phone from your laptop:</p>
+
+<p><code>
+ping 10.0.0.3
+PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
+64 bytes from 10.0.0.3: icmp_seq=1 ttl=64 time=5382 ms
+64 bytes from 10.0.0.3: icmp_seq=2 ttl=64 time=4364 ms
+</code></p>
+
+<h3>References</h3>
+
+<ul><li><a href="https://www.wireguard.com/">Official Documentation</a></li><li><a href="https://www.stavros.io/posts/how-to-configure-wireguard/">https://www.stavros.io/posts/how-to-configure-wireguard/</a></li></ul>]]>
+            </description>
+        </item>
     </channel>
 </rss>
