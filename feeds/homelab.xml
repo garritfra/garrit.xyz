@@ -355,5 +355,52 @@ UUID=abcdef-0055-4958-990f-1413ed1186ec  /var/data  btrfs   defaults,nofail,subv
 <p>This is post 023 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
+        <item>
+            <title>
+                Finally fixing that annoying Cron gotcha
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-09-13-fixing-an-annoying-cron-gotcha?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 13 Sep 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>A while ago I went through my server and reworked my <a href="/posts/2021-02-07-storage-setup">storage
+setup</a>. As discribed in that blog post, I set
+up daily backups to <a href="https://www.backblaze.com/b2/cloud-storage.html">Backblaze
+B2</a> using their amazing CLI
+through a cron script. A day went by and I noticed that the
+<a href="/posts/2021-05-15-healthchecks-io-with-docker">healthcheck</a> didn&#39;t pass.
+Unfortunately I didn&#39;t have time to fix this problem immediately, so instead I
+executed the command by hand every couple of days. One could argue that this in
+total took way more time than the actual fix, but hey, I was lazy. In the end,
+I finally dedicated some time to fix this annoying issue.</p>
+
+<p>It turns out that a command executed by cron doesn&#39;t run through sh or bash,
+but in a minimal environment without your usual environment-variables. As a
+result, my <code>b2</code> command (and many other commands for that matter) won&#39;t run as
+expected, if at all. A quick fix is to run your command through bash or sh
+explicitly:</p>
+
+<p><code>sh
+sh -c &quot;mycommand&quot;
+</code></p>
+
+<p>Alternatively, if you want all your entries to use sh or bash, you can set the
+<code>SHELL</code> variable at the very beginning of your crontab:</p>
+
+<p><code></code>`sh
+SHELL=/bin/bash</p>
+
+<p>15 1 <em> </em> * some_command
+<code></code>`</p>
+
+<p><a href="https://askubuntu.com/a/23438">Here</a> is an answer that goes into more detail
+about this. Have a great day!</p>
+
+<p>This is post 019 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
     </channel>
 </rss>
