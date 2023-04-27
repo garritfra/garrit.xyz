@@ -74,5 +74,120 @@
 <p>This is post 038 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
+        <item>
+            <title>
+                Postgres Docker Container Migration Cheat Sheet
+            </title>
+            <link>
+                https://garrit.xyz/posts/2022-05-31-database-server-migration-cheat-sheet?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 31 May 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just finished migrating a postgres database to a new host. To remember how to
+do it next time, I&#39;m writing down the commands I used here.</p>
+
+<p>I usually just shut down the database and then copy the local directory where
+the volume was mounted onto the new host. This time though, I seemed to be
+getting some I/O errors, so I had to do it the &quot;right&quot; way.</p>
+
+<p>To be fair, this note is based on
+<a href="https://www.netguru.com/blog/how-to-dump-and-restore-postgresql-database">this</a>
+guide. I modified it to fit my workflow with docker.</p>
+
+<h2>Creating a dump</h2>
+
+<p>Log into the old host:</p>
+
+<p><code>
+ssh &lt;user&gt;@host
+</code></p>
+
+<p>Connect to the postgres-container:</p>
+
+<p><code>
+docker exec -ti myservice_db_1 /bin/bash
+</code></p>
+
+<p>Create a dump. You can name your dump as you wish - I&#39;m using dates to
+distinguish multiple dumps:</p>
+
+<p><code>
+pg_dump -U db_user db_name &gt; db_name_20220531.sql
+</code></p>
+
+<p>Copy the dump to the host machine:</p>
+
+<p><code>
+docker cp myservice_db_1:/db_name_20220531.sql ~/
+</code></p>
+
+<h2>Moving the dump to the new host</h2>
+
+<p>The easiest way to get the dump off of the old server and onto the new one is to
+use your local machine as a middleman.</p>
+
+<p>First, download the dump to your machine:</p>
+
+<p><code>
+scp &lt;user&gt;@&lt;host&gt;:~/db_name_20220531.sql .
+</code></p>
+
+<p>Then, do the same thing but reversed, with the new host:</p>
+
+<p><code>
+scp ./db_name_20220531.sql &lt;user&gt;@&lt;host&gt;:~/
+</code></p>
+
+<h2>Restoring the dump</h2>
+
+<p>First, connect to the new host:</p>
+
+<p><code>
+ssh &lt;user&gt;@&lt;host&gt;
+</code></p>
+
+<p>Assuming the docker service is already running on the new host, attach to the
+db-container, just like above:</p>
+
+<p><code>
+docker exec -ti myservice_db_1 /bin/bash
+</code></p>
+
+<p>This time, we have to do some fiddling on the database, so attach a session to
+postgres using their cli:</p>
+
+<p><code>
+psql -U my_user
+</code></p>
+
+<p>Before &quot;resetting&quot; the existing DB to apply the dump, we have to connect to
+another database. The <code>postgres</code> DB is always there, so you can use that.</p>
+
+<p><code>
+\c postgres
+</code></p>
+
+<p>Now, we drop the existing DB and re-add it:</p>
+
+<p><code>sql
+drop database database_name;
+create database database_name with owner your_user_name;
+</code></p>
+
+<p>And now, the moment you&#39;ve been waiting for! Leave the psql-session and apply
+the dump:</p>
+
+<p><code>
+psql -U db_user db_name &lt; db_name_20220531.sql
+</code></p>
+
+<p>That&#39;s all! You now have the exact copy of production database available on your
+machine.</p>
+
+<p>This is post 032 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
     </channel>
 </rss>
