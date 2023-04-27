@@ -274,5 +274,86 @@ article on Medium. It explains the issue in more detail.</p>
 <p>This is post 025 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
+        <item>
+            <title>
+                BTRFS on Alpine Linux
+            </title>
+            <link>
+                https://garrit.xyz/posts/2021-12-31-btrfs-on-alpine?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 31 Dec 2021 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;m currently in the midst of migrating some of my infrastructure from the cloud
+to &quot;on prem&quot;, aka a local server, aka my old PC. I wanted to try alpine linux as
+the host OS to see how it behaves as a lightweight server distro.</p>
+
+<p>So far it stands up quite nicely, it has everything you&#39;d expect from a
+linux-based operating system. The only problem I encountered was getting BTRFS
+to work out of the box. Here are some things you should know when using BTRFS on
+Alpine linux.</p>
+
+<h3>Installing BTRFS</h3>
+
+<p>Installing BTRFS is relatively straight forward. Simply install the package and
+tell Alpine to load the module on startup:</p>
+
+<p><code>
+apk add btrfs-progs
+echo btrfs &gt;&gt; /etc/modules
+</code></p>
+
+<p>To load the module right away, you can use the following command:</p>
+
+<p><code>
+modprobe btrfs
+</code></p>
+
+<h3>Mounting a volume</h3>
+
+<p>If you try mounting a btrfs volume via your fstab, you will get an error. This
+is because BTRFS does not know about the drives yet when the filesystems are
+mounted. To work around this, you can create an OpenRC service that runs a
+<code>btrfs scan</code> to detect the drives. To do so, create a service under
+<code>/etc/init.d/btrfs-scan</code> with the following content:</p>
+
+<p><code></code>`sh</p>
+
+<h1>!/sbin/openrc-run</h1>
+
+<p>name=&quot;btrfs-scan&quot;</p>
+
+<p>depend() {
+  before localmount
+}</p>
+
+<p>start() {
+  /sbin/btrfs device scan
+}
+<code></code>`</p>
+
+<p>Make the service executable and register it:</p>
+
+<p><code>
+chmod +x /etc/init.d/btrfs-scan
+rc-update add btrfs-scan boot
+</code></p>
+
+<p>Now, you should be able to add the volume to your <code>/etc/fstab</code>:</p>
+
+<p><code>
+UUID=abcdef-0055-4958-990f-1413ed1186ec  /var/data  btrfs   defaults,nofail,subvol=@  0  0
+</code></p>
+
+<p>After a reboot, you should be able to see the drive mounted at <code>/var/data</code>.</p>
+
+<h3>Resources</h3>
+
+<ul><li><a href="https://nparsons.uk/blog/using-btrfs-on-alpine-linux">Nathan Parsons - &quot;Using BTRFS on Alpine Linux&quot;</a></li><li><a href="https://gitlab-test.alpinelinux.org/alpine/aports/-/issues/9539">A bug report about this problem</a></li></ul>
+
+<p>This is post 023 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
     </channel>
 </rss>
