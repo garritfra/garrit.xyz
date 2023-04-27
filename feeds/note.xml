@@ -14,8 +14,38 @@
             en
         </language>
         <lastBuildDate>
-            Sat, 22 Apr 2023 00:00:00 +0000
+            Thu, 27 Apr 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Migrating Homeassistant from SD to SSD
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-04-27-migrating-homeassistant-from-sd-to-ssd?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 27 Apr 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I finally got frustrated with the performance of my Raspberry Pi 4 running Homeassistant on a SD card, so I went ahead and got an SSD.</p>
+
+<p>The migration was <strong>very</strong> easy:</p>
+
+<ol><li>Create and download a full backup through the UI</li><li>Flash Homeassistant onto the SSD</li><li>Remove the SD card and plug the SSD into a USB 3.0 port of the Pi</li><li>Boot</li><li>Go through the onboarding procedure</li><li>Restore Backup</li><li>Profit</li></ol>
+
+<p>It worked like a charm! The speed has improved A LOT, and everything was set up as it should be. </p>
+
+<p>...Until we turned on the lights in the livingroom. My ZigBee-dongle, plugged into another USB port, wasn&#39;t able to communicate with the devices on the network.</p>
+
+<p>After some digging around, I came across several threads stating that an SSD over USB 3.0 apparently creates a lot of interference to surrounding hardware, including my ZigBee dongle. The fix was simple: either get an extension port for the dongle, or plug the SSD into a USB 2.0 port of the Pi. Since I didn&#39;t have an extension cord to get the dongle far away enough from the SSD, I went with the latter option for now. And that fixed it! The performance was much worse, but still better than the SD I used before. My next step will be to grab an extension cord from my parents. I&#39;m sure they won&#39;t mind.</p>
+
+<p>I hope this helps!</p>
+
+<hr/>
+
+<p>This is post 066 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 The role of a DevOps Engineer
