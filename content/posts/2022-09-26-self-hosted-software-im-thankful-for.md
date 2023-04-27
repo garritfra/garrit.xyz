@@ -1,7 +1,7 @@
 ---
 title: Self-hosted software I'm thankful for
 date: "2022-09-26"
-tags: "note, 100DaysToOffload, infrastructure"
+tags: "note, 100DaysToOffload, infrastructure, homelab"
 ---
 
 Self-hosting software is not just rainbows and sunshine. I used to self-host a lot of my tools, but after some time the burden of maintaining those tools made me switch to hosted alternatives.
