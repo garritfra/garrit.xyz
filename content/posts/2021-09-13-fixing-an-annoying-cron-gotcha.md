@@ -1,7 +1,7 @@
 ---
 title: Finally fixing that annoying Cron gotcha
 date: "2021-09-13"
-tags: "linux, guide, 100DaysToOffload"
+tags: "linux, guide, 100DaysToOffload, homelab"
 ---
 
 A while ago I went through my server and reworked my [storage
