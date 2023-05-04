@@ -15,7 +15,11 @@ Mobile Software Developer (Traineeship); 2017 - 2020
 
 _**DevOps Engineer, February 2023 - present**_
 
-Cloud infrastructure setup for a mobile application backend
+Cloud infrastructure setup for a mobile raffle application backend
+
+- [Setup of hyperscalable infrastructure using the Serverless Framework](https://garrit.xyz/posts/2023-04-28-serverless-framework-retrospective)
+
+Cloud infrastructure setup for a mobility application backend
 
 - [Containerization of a Laravel application](/posts/2023-03-03-notes-on-containerizing-php-applications)
 - [Setup of resiliant AWS infrastructure components using Terraform](/posts/2023-03-30-designing-resilient-cloud-infrastructure)
