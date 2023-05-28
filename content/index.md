@@ -20,6 +20,10 @@ Pssst! Can you find all [hidden flags](/ctf) on this page?
 
 ## Projects
 
+**[sendpasswords.net](https://sendpasswords.net/)**
+
+Simplifies secure password transmission using local encryption and temporary PGP keys.
+
 **[seeking-maintainers.net](https://seeking-maintainers.net/)**
 
 An index of open source projects seeking new maintainers.
