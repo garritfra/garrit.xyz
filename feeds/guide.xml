@@ -14,8 +14,36 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 27 Apr 2023 00:00:00 +0000
+            Thu, 01 Jun 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Single Page Applications on GitHub Pages
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-06-01-single-page-applications-on-github-pages?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 01 Jun 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>My latest project, <a href="https://sendpasswords.net/">sendpasswords.net</a> is a <a href="https://developer.mozilla.org/en-US/docs/Glossary/SPA">Single Page Application</a> deployed on GitHub Pages.</p>
+
+<p>GitHub Pages is configured in a way to host static HTML files without any bells and whistles. This means that if you try to fetch a document that&#39;s <em>not</em> the index, for example <code>/foo</code>, the server will try to load the file with that name. </p>
+
+<p>By nature, SPAs only consist of a single HTML entry point (<code>index.html</code> in most cases). It&#39;s responsible for routing the user to the correct page if there are multiple paths. And here&#39;s the crux: if the user tries to load <code>/foo</code>, he will not land at the SPA entry point. Instead, he will see a <code>404</code> error.</p>
+
+<h2>The solution</h2>
+
+<p>A <code>404</code> response will automatically return a file called <code>404.html</code>, which we can use to our advantage. After building the application, simply copy the <code>index.html</code> to <code>404.html</code>, as demonstrated by <a href="https://github.com/garritfra/sendpasswords.net/commit/66bdb68c229a3ac3386f7816a746155e658eb586">this commit</a>. This will use <code>index.html</code> to serve the application on the root level, and <code>404.html</code> to load <em>the same app</em> if the page doesn&#39;t exist as a file. Whether the <code>index.html</code> is needed if there&#39;s already a <code>404.html</code> is up to you. I left it in to make clear that this is just a workaround.</p>
+
+<p>This is a <a href="https://stackoverflow.com/a/69308662/9046809">well known</a> workaround, but I wanted to bring some extra awareness to it, since it&#39;s a problem I ran into a couple of times so far. Happy SPAing!</p>
+
+<hr/>
+
+<p>This is post 069 (nice) of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Migrating Homeassistant from SD to SSD
