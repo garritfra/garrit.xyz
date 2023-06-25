@@ -14,8 +14,32 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 01 Jun 2023 00:00:00 +0000
+            Sun, 25 Jun 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Make a List
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-06-25-make-a-list?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 25 Jun 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>My dad taught me this important lesson. </p>
+
+<p>Whenever you&#39;re feeling stuck or you don&#39;t know what to do, make a list. The next step will often become clear.</p>
+
+<p>Whether you&#39;re going shopping or you&#39;re feeling mentally overloaded. It helps to write down your thoughts in an actionable form. I don&#39;t care if it&#39;s in some fancy mobile app or on a napkin. Just make a list.</p>
+
+<p>Lists are the answer to almost anything. And where they&#39;re not, a spreadsheet is.</p>
+
+<hr/>
+
+<p>This is post 070 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Single Page Applications on GitHub Pages
