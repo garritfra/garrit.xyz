@@ -1,10 +1,5 @@
 name: Dependabot Auto-Merge
-on:
-  workflow_run:
-    types:
-      - completed
-    workflows:
-      - 'Continuous integration'
+on: pull_request_target
 
 permissions:
   pull-requests: write
