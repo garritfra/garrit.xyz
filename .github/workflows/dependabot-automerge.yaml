@@ -7,6 +7,11 @@ on:
     workflows:
       - 'Continuous integration'
 
+permissions:
+  pull-requests: write
+  issues: write
+  repository-projects: write
+
 jobs:
   automerge:
     name: Auto-Merge
