@@ -85,12 +85,14 @@ export async function getStaticProps({ ...ctx }) {
 	const content = await import(`../../content/posts/${slug}.md`);
 	const data = matter(content.default);
 
-	const allPosts = await getPosts();
+	const allPosts = await getPosts(true);
+	const publishedPosts = await getPublishedPosts(false);
+
 	const currentPost = allPosts.find((post) => post.slug === slug);
 
 	const relevantTags = (await getTopicTags()).map(({ tag }) => tag);
 
-	const postsMatchingInterests = allPosts.filter((post) => {
+	const postsMatchingInterests = publishedPosts.filter((post) => {
 		return post.tags.some(
 			(tag) => relevantTags.includes(tag) && currentPost.tags.includes(tag)
 		);

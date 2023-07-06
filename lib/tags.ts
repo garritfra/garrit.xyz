@@ -6,7 +6,7 @@ export interface Tag {
 }
 
 export const getAllTags = async (): Promise<Tag[]> => {
-	const posts = await getPublishedPosts();
+	const posts = await getPublishedPosts(false);
 	const postTags = posts.flatMap((post) => post.tags);
 
 	const tagMap = {};

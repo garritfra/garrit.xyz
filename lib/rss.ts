@@ -12,7 +12,7 @@ import { getAllTags } from "./tags";
 const NUMBER_OF_POSTS_PER_FEED = 10;
 
 const buildRss = async () => {
-	const posts = await getPublishedPosts();
+	const posts = await getPublishedPosts(true);
 
 	const getRssXml = (blogPosts) => {
 		const reducedPosts = blogPosts.slice(0, NUMBER_OF_POSTS_PER_FEED);

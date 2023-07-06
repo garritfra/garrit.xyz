@@ -47,7 +47,7 @@ export async function getStaticProps() {
 	const content = await import("../content/index.md");
 	const markdownBody = matter(content.default).content;
 
-	const posts = await getPublishedPosts();
+	const posts = await getPublishedPosts(false);
 
 	return {
 		props: {

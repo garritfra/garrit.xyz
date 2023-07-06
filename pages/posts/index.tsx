@@ -50,7 +50,7 @@ const Index = (props) => {
 };
 
 export async function getStaticProps() {
-	const posts = await getPublishedPosts();
+	const posts = await getPublishedPosts(false);
 
 	return {
 		props: {

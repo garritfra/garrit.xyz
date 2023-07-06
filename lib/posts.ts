@@ -11,14 +11,16 @@ export interface PostMetadata {
 
 export interface Post {
 	slug: string;
-	markdownBody: string;
+	markdownBody?: string;
 	frontmatter: PostMetadata;
 	tags: string[];
 }
 
 export const isPublicPost = (post: Post) => !post.slug.startsWith("_");
 
-export const getPosts = async () => {
+export const getPosts = async (
+	includeBody: Boolean = false
+): Promise<Post[]> => {
 	const files = await glob("content/posts/*.md");
 	const postPromises = files.map(async (filepath): Promise<Post> => {
 		const slug = filepath
@@ -43,16 +45,25 @@ export const getPosts = async () => {
 	});
 
 	const posts = await Promise.all(postPromises);
-	return posts.sort((a, b) =>
+	const sortedPosts = posts.sort((a, b) =>
 		a.frontmatter.date < b.frontmatter.date ? 1 : -1
 	);
+
+	return includeBody
+		? sortedPosts
+		: sortedPosts.map(
+				({ markdownBody, ...postWithoutbody }) => postWithoutbody
+		  );
 };
 
-export const getPublishedPosts = async () =>
-	(await getPosts()).filter(isPublicPost);
+export const getPublishedPosts = async (
+	includeBody: Boolean = false
+): Promise<Post[]> => {
+	return (await getPosts(includeBody)).filter(isPublicPost);
+};
 
 export const getPostsMatchingInterests = async (tags: string[]) => {
-	const allPosts = await getPosts();
+	const allPosts = await getPosts(false);
 
 	const allRelevantTags = (await getTopicTags()).map(({ tag }) => tag);
 
