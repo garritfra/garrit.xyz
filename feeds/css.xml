@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 Instant dark theme
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-04-12-instant-dark-theme
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-04-12-instant-dark-theme?utm_source=rss
             </link>
@@ -48,6 +51,9 @@
             <title>
                 TIL about CSS Insets
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-02-19-til-about-css-insets
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-02-19-til-about-css-insets?utm_source=rss
             </link>
@@ -87,6 +93,9 @@
             <title>
                 Notes about BEM (Block Element Modifier)
             </title>
+            <guid>
+                https://garrit.xyz/posts/2021-02-02-bem-methodology
+            </guid>
             <link>
                 https://garrit.xyz/posts/2021-02-02-bem-methodology?utm_source=rss
             </link>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 Optimizing work batch size
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-05-19-work-batch-sizing
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-05-19-work-batch-sizing?utm_source=rss
             </link>
@@ -49,6 +52,9 @@
             <title>
                 Serverless Framework Retrospective
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-04-28-serverless-framework-retrospective
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-04-28-serverless-framework-retrospective?utm_source=rss
             </link>
@@ -91,6 +97,9 @@
             <title>
                 The role of a DevOps Engineer
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-04-22-the-role-of-a-devops-engineer
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-04-22-the-role-of-a-devops-engineer?utm_source=rss
             </link>

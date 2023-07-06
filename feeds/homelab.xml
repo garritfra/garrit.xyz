@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 Migrating Homeassistant from SD to SSD
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-04-27-migrating-homeassistant-from-sd-to-ssd
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-04-27-migrating-homeassistant-from-sd-to-ssd?utm_source=rss
             </link>
@@ -50,6 +53,9 @@
             <title>
                 Self-hosted software I'm thankful for
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-09-26-self-hosted-software-im-thankful-for
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-09-26-self-hosted-software-im-thankful-for?utm_source=rss
             </link>
@@ -108,6 +114,9 @@
             <title>
                 Postgres Docker Container Migration Cheat Sheet
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-05-31-database-server-migration-cheat-sheet
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-05-31-database-server-migration-cheat-sheet?utm_source=rss
             </link>
@@ -223,6 +232,9 @@ machine.</p>
             <title>
                 Fixing Traefik Proxy Issues
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-03-18-fix-traefik-proxy-issues
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-03-18-fix-traefik-proxy-issues?utm_source=rss
             </link>
@@ -308,6 +320,9 @@ article on Medium. It explains the issue in more detail.</p>
             <title>
                 BTRFS on Alpine Linux
             </title>
+            <guid>
+                https://garrit.xyz/posts/2021-12-31-btrfs-on-alpine
+            </guid>
             <link>
                 https://garrit.xyz/posts/2021-12-31-btrfs-on-alpine?utm_source=rss
             </link>
@@ -389,6 +404,9 @@ UUID=abcdef-0055-4958-990f-1413ed1186ec  /var/data  btrfs   defaults,nofail,subv
             <title>
                 Finally fixing that annoying Cron gotcha
             </title>
+            <guid>
+                https://garrit.xyz/posts/2021-09-13-fixing-an-annoying-cron-gotcha
+            </guid>
             <link>
                 https://garrit.xyz/posts/2021-09-13-fixing-an-annoying-cron-gotcha?utm_source=rss
             </link>
@@ -436,6 +454,9 @@ about this. Have a great day!</p>
             <title>
                 Docker healthchecks using healthchecks.io
             </title>
+            <guid>
+                https://garrit.xyz/posts/2021-05-15-healthchecks-io-with-docker
+            </guid>
             <link>
                 https://garrit.xyz/posts/2021-05-15-healthchecks-io-with-docker?utm_source=rss
             </link>
@@ -508,6 +529,9 @@ via Matrix or email!</p>
             <title>
                 My storage setup (Feburary 2021)
             </title>
+            <guid>
+                https://garrit.xyz/posts/2021-02-07-storage-setup
+            </guid>
             <link>
                 https://garrit.xyz/posts/2021-02-07-storage-setup?utm_source=rss
             </link>
@@ -558,6 +582,9 @@ via Matrix or email!</p>
             <title>
                 Quick Tip! Setting up a lightweight Server-Client VPN with wireguard
             </title>
+            <guid>
+                https://garrit.xyz/posts/lightweight-vpn-with-wireguard
+            </guid>
             <link>
                 https://garrit.xyz/posts/lightweight-vpn-with-wireguard?utm_source=rss
             </link>

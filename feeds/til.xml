@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 Instant dark theme
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-04-12-instant-dark-theme
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-04-12-instant-dark-theme?utm_source=rss
             </link>
@@ -48,6 +51,9 @@
             <title>
                 TIL about CSS Insets
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-02-19-til-about-css-insets
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-02-19-til-about-css-insets?utm_source=rss
             </link>
@@ -87,6 +93,9 @@
             <title>
                 Cloning Windows to a new drive
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-05-24-cloning-windows-to-a-new-drive
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-05-24-cloning-windows-to-a-new-drive?utm_source=rss
             </link>
@@ -141,6 +150,9 @@ backups every now and then, using the same process.</p>
             <title>
                 TIL how to get the active language of a browser
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-01-28-til-how-to-get-the-selected-language-of-a-browser
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-01-28-til-how-to-get-the-selected-language-of-a-browser?utm_source=rss
             </link>

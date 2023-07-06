@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 Here's the tar command you keep looking for
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-06-02-tar-commands
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-06-02-tar-commands?utm_source=rss
             </link>
@@ -68,6 +71,9 @@ https://simplecheatsheet.com/linux-tar-files/</p>
             <title>
                 BTRFS on Alpine Linux
             </title>
+            <guid>
+                https://garrit.xyz/posts/2021-12-31-btrfs-on-alpine
+            </guid>
             <link>
                 https://garrit.xyz/posts/2021-12-31-btrfs-on-alpine?utm_source=rss
             </link>
@@ -149,6 +155,9 @@ UUID=abcdef-0055-4958-990f-1413ed1186ec  /var/data  btrfs   defaults,nofail,subv
             <title>
                 Finally fixing that annoying Cron gotcha
             </title>
+            <guid>
+                https://garrit.xyz/posts/2021-09-13-fixing-an-annoying-cron-gotcha
+            </guid>
             <link>
                 https://garrit.xyz/posts/2021-09-13-fixing-an-annoying-cron-gotcha?utm_source=rss
             </link>
@@ -196,6 +205,9 @@ about this. Have a great day!</p>
             <title>
                 From sudo to doas
             </title>
+            <guid>
+                https://garrit.xyz/posts/2021-01-29-sudo-to-doas
+            </guid>
             <link>
                 https://garrit.xyz/posts/2021-01-29-sudo-to-doas?utm_source=rss
             </link>
@@ -256,6 +268,9 @@ permit nopass alice as root
             <title>
                 Compiling your own kernel
             </title>
+            <guid>
+                https://garrit.xyz/posts/2021-01-15-compiling-your-own-kernel
+            </guid>
             <link>
                 https://garrit.xyz/posts/2021-01-15-compiling-your-own-kernel?utm_source=rss
             </link>

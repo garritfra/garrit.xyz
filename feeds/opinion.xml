@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 Older is often better
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-04-07-older-is-often-better
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-04-07-older-is-often-better?utm_source=rss
             </link>
@@ -44,6 +47,9 @@
             <title>
                 Quality vs. Quantity
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-04-01-quality-vs.-quantity
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-04-01-quality-vs.-quantity?utm_source=rss
             </link>
@@ -68,6 +74,9 @@
             <title>
                 Software is not defined by the language it's written in
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-03-26-software-is-not-defined-by-the-language-it's-written-in
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-03-26-software-is-not-defined-by-the-language-it's-written-in?utm_source=rss
             </link>
@@ -90,6 +99,9 @@
             <title>
                 I won't buy a YubiKey
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-03-21-i-wont-buy-a-yubikey
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-03-21-i-wont-buy-a-yubikey?utm_source=rss
             </link>

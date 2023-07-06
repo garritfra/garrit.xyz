@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 Make a List
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-06-25-make-a-list
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-06-25-make-a-list?utm_source=rss
             </link>
@@ -44,6 +47,9 @@
             <title>
                 Optimizing work batch size
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-05-19-work-batch-sizing
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-05-19-work-batch-sizing?utm_source=rss
             </link>
@@ -73,6 +79,9 @@
             <title>
                 Older is often better
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-04-07-older-is-often-better
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-04-07-older-is-often-better?utm_source=rss
             </link>
@@ -97,6 +106,9 @@
             <title>
                 Quality vs. Quantity
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-04-01-quality-vs.-quantity
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-04-01-quality-vs.-quantity?utm_source=rss
             </link>
@@ -121,6 +133,9 @@
             <title>
                 Visual Distractions
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-02-24-visual-distractions
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-02-24-visual-distractions?utm_source=rss
             </link>

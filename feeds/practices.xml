@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 Optimizing work batch size
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-05-19-work-batch-sizing
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-05-19-work-batch-sizing?utm_source=rss
             </link>
@@ -49,6 +52,9 @@
             <title>
                 The role of a DevOps Engineer
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-04-22-the-role-of-a-devops-engineer
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-04-22-the-role-of-a-devops-engineer?utm_source=rss
             </link>
@@ -73,6 +79,9 @@
             <title>
                 Software is not defined by the language it's written in
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-03-26-software-is-not-defined-by-the-language-it's-written-in
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-03-26-software-is-not-defined-by-the-language-it's-written-in?utm_source=rss
             </link>
@@ -95,6 +104,9 @@
             <title>
                 A software requirements checklist
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-03-11-a-software-requirements-checklist
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-03-11-a-software-requirements-checklist?utm_source=rss
             </link>
@@ -154,6 +166,9 @@ Where/when should bucketing occur?</li><li>Will the experiment conflict with any
             <title>
                 OpenSSF Best Practices
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-02-14-openssf-best-practices
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-02-14-openssf-best-practices?utm_source=rss
             </link>
@@ -469,6 +484,9 @@ dynamic code analysis MUST be fixed in a timely way after they are confirmed.</p
             <title>
                 6 ways you can contribute to open knowledge right now
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-12-05-contributing-to-open-source-knowledge
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-12-05-contributing-to-open-source-knowledge?utm_source=rss
             </link>
@@ -605,6 +623,9 @@ way! Thanks for reading, and happy contributing!</p>
             <title>
                 Smart Move, Google
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-11-24-smart-move-google
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-11-24-smart-move-google?utm_source=rss
             </link>
@@ -647,6 +668,9 @@ services.</p>
             <title>
                 The only true answer to 'tabs vs spaces'
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-06-29-the-only-true-answer-to-tabs-vs-spaces
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-06-29-the-only-true-answer-to-tabs-vs-spaces?utm_source=rss
             </link>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 Debugging Docker images
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-09-30-debugging-docker-images
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-09-30-debugging-docker-images?utm_source=rss
             </link>
@@ -95,6 +98,9 @@ working</strong> step, inspect the filesystem, and execute the failing command m
             <title>
                 The only true answer to 'tabs vs spaces'
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-06-29-the-only-true-answer-to-tabs-vs-spaces
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-06-29-the-only-true-answer-to-tabs-vs-spaces?utm_source=rss
             </link>
@@ -156,6 +162,9 @@ you&#39;re working in a team. Let me know your thoughts!</p>
             <title>
                 Swapping two Numbers without Temporary Variables
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-03-24-swapping-numbers-without-temp
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-03-24-swapping-numbers-without-temp?utm_source=rss
             </link>
@@ -206,6 +215,9 @@ nevertheless!</p>
             <title>
                 Quick tip! React useToggle Hook
             </title>
+            <guid>
+                https://garrit.xyz/posts/2021-12-21-usetoggle-react-hook
+            </guid>
             <link>
                 https://garrit.xyz/posts/2021-12-21-usetoggle-react-hook?utm_source=rss
             </link>
@@ -259,6 +271,9 @@ const SomeComponent = () =&gt; {
             <title>
                 Server-Side Caching with Apollo GraphQL
             </title>
+            <guid>
+                https://garrit.xyz/posts/2021-10-04-server-side-caching-with-apollo-graphql
+            </guid>
             <link>
                 https://garrit.xyz/posts/2021-10-04-server-side-caching-with-apollo-graphql?utm_source=rss
             </link>
@@ -477,6 +492,9 @@ individual users, you might also want to take a look at client-side caching via
             <title>
                 Flutter Web - the Good, the Bad and the Ugly
             </title>
+            <guid>
+                https://garrit.xyz/posts/2021-02-17-notes-on-flutter-web
+            </guid>
             <link>
                 https://garrit.xyz/posts/2021-02-17-notes-on-flutter-web?utm_source=rss
             </link>
@@ -517,6 +535,9 @@ individual users, you might also want to take a look at client-side caching via
             <title>
                 Notes about BEM (Block Element Modifier)
             </title>
+            <guid>
+                https://garrit.xyz/posts/2021-02-02-bem-methodology
+            </guid>
             <link>
                 https://garrit.xyz/posts/2021-02-02-bem-methodology?utm_source=rss
             </link>
@@ -594,6 +615,9 @@ individual users, you might also want to take a look at client-side caching via
             <title>
                 Booleans are wasted memory
             </title>
+            <guid>
+                https://garrit.xyz/posts/2020-11-17-booleans-are-wasted-memory
+            </guid>
             <link>
                 https://garrit.xyz/posts/2020-11-17-booleans-are-wasted-memory?utm_source=rss
             </link>
@@ -688,6 +712,9 @@ if (permissions &amp; PERM_EXECUTE)
             <title>
                 The Patch-Based Git Workflow
             </title>
+            <guid>
+                https://garrit.xyz/posts/patch-based-git-workflow
+            </guid>
             <link>
                 https://garrit.xyz/posts/patch-based-git-workflow?utm_source=rss
             </link>
@@ -758,6 +785,9 @@ git am &lt; 0001-first-change.patch
             <title>
                 Testing isn't hard
             </title>
+            <guid>
+                https://garrit.xyz/posts/testing-isnt-hard
+            </guid>
             <link>
                 https://garrit.xyz/posts/testing-isnt-hard?utm_source=rss
             </link>
@@ -882,89 +912,6 @@ Ran all test suites.
 <p>Yay, your first unit test! Of course, there is much more to find out about the Jest framework. To see a full guide, read the <a href="https://jestjs.io/">official docs</a>.</p>
 
 <p>I have prepared a <a href="https://github.com/garritfra/react-parcel-boilerplate">template repository</a> for building react apps. It also uses Jest to run tests, you don&#39;t have to worry about a thing! If you found this interesting, consider checking out my other blog posts, and/or check out my <a href="https://github.com/garritfra">GitHub</a>!</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Fighting Array Functions with ES6
-            </title>
-            <link>
-                https://garrit.xyz/posts/fighting-array-functions-with-es6?utm_source=rss
-            </link>
-            <pubDate>
-                Sun, 07 Apr 2019 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Yesterday, I came across an interesting bug regarding JavaScript Arrays, and I wanted to share my approach to fixing it.
-At a basic level, I wanted to pass part of an array to a function, but wanted to use the original array later on.</p>
-
-<p><code>js
-let arr = [1, 2, 3, 4, 5]
-let something = arr.splice(0, 3)
-do(something) // []
-DoSomethingWithOriginal(arr)
-</code></p>
-
-<p>Thinking that Array.prototype functions don’t mutate the array directly, I moved on with my day. This lead to a bunch of problems down the line.
-Some array methods in the EcmaScript specification are designed to mutate arrays, while others do not.</p>
-
-<h3>Non-mutating functions</h3>
-
-<ul><li>Array.prototype.map()</li><li>Array.prototype.slice()</li><li>Array.prototype.join()</li><li>…</li></ul>
-
-<p>These functions do not mutate the array they are called on. For example:</p>
-
-<p><code>js
-let arr = [1, 2, 3, 4, 5];
-let partOfArr = arr.slice(1, 2);
-console.log(partOfArr); // [2, 3]
-console.log(arr); // [1, 2, 3, 4, 5]
-</code></p>
-
-<h3>Mutating functions</h3>
-
-<ul><li>Array.prototype.sort()</li><li>Array.prototype.splice()</li><li>Array.prototype.reverse()</li><li>…</li></ul>
-
-<p>These methods mutate the array directly. This can lead to unreadable code, as the value can be manipulated from anywhere. For example:</p>
-
-<p><code>js
-let arr = [5, 2, 4];
-arr.sort();
-console.log(arr); // [2, 4, 5]
-</code></p>
-
-<p>To me, it is very unclear, which functions do, and which don’t mutate arrays directly. But, there’s a simple trick you can use to stop letting the functions mutate arrays directly, ultimately leading to more readable and reliable code.</p>
-
-<h2>Enter: The ES6 Spread Operator!</h2>
-
-<p><img alt="Spread Operator" src="https://images.unsplash.com/photo-1518297056586-889f796873e0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1225&amp;q=80"/></p>
-
-<p>Take a look at this snippet:</p>
-
-<p><code>js
-let arr = [3, 5, 1, 2, 4];
-let sorted = [...arr].sort();
-console.log(arr); // [3, 5, 1, 2, 4]
-console.log(sorted); // [1, 2, 3, 4, 5]
-</code></p>
-
-<p>Voilà! We have a sorted array, and the original one is also around. The spread operator(<code>[...arr]</code>) is used to create a new array with every value of arr .
-You can use this for arrays, as well as objects:</p>
-
-<p><code>js
-let obj = {
-	field: &quot;example&quot;,
-};
-let extendedObj = {
-	...obj,
-	anotherField: 42,
-};
-console.log(extendedObj.field); // &quot;example&quot;
-</code></p>
-
-<h2>Conclusion</h2>
-
-<p>ES6 brought us awesome features like let and const assignments, as well as arrow functions. A more unknown feature however is the spread operator. I hope you now know how to use the spread operator, and that you can adopt it for cleaner and simpler code.</p>]]>
             </description>
         </item>
     </channel>

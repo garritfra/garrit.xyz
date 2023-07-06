@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 Weeknote 18/2022
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-05-06-weeknote-18-2022
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-05-06-weeknote-18-2022?utm_source=rss
             </link>
@@ -87,6 +90,9 @@ walk and talking about life.</p>
             <title>
                 Weeknote 17/2022
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-04-29-weeknote-17-2022
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-04-29-weeknote-17-2022?utm_source=rss
             </link>
@@ -130,6 +136,9 @@ you</a>.</p>
             <title>
                 Weeknote 16/2022
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-04-25-weeknote-16-2022
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-04-25-weeknote-16-2022?utm_source=rss
             </link>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 A software requirements checklist
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-03-11-a-software-requirements-checklist
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-03-11-a-software-requirements-checklist?utm_source=rss
             </link>

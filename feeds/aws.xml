@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 Serverless Framework Retrospective
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-04-28-serverless-framework-retrospective
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-04-28-serverless-framework-retrospective?utm_source=rss
             </link>
@@ -62,6 +65,9 @@
             <title>
                 Designing resilient cloud infrastructure
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-03-30-designing-resilient-cloud-infrastructure
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-03-30-designing-resilient-cloud-infrastructure?utm_source=rss
             </link>
@@ -90,6 +96,9 @@
             <title>
                 Terraform project learnings
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-03-16-terraform-project-learnings
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-03-16-terraform-project-learnings?utm_source=rss
             </link>
@@ -201,6 +210,9 @@
             <title>
                 Debugging ECS Tasks
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-03-10-debugging-ecs-tasks
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-03-10-debugging-ecs-tasks?utm_source=rss
             </link>

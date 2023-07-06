@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 The fundamental difference between Terraform and Kubernetes
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-03-08-terraform-and-kubernetes-are-fundamentally-different
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-03-08-terraform-and-kubernetes-are-fundamentally-different?utm_source=rss
             </link>
@@ -42,6 +45,9 @@
             <title>
                 Pods vs. Containers
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-03-04-pods-vs.-containers
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-03-04-pods-vs.-containers?utm_source=rss
             </link>
@@ -66,6 +72,9 @@
             <title>
                 What's next for modern infrastructure?
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-02-21-what's-next-for-modern-infrastructure
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-02-21-what's-next-for-modern-infrastructure?utm_source=rss
             </link>
@@ -102,6 +111,9 @@
             <title>
                 What problem does Kubernetes solve?
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-02-20-what-problem-does-kubernetes-solve
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-02-20-what-problem-does-kubernetes-solve?utm_source=rss
             </link>
@@ -128,6 +140,9 @@
             <title>
                 Reselling Kubernetes
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-11-03-reselling-managed-kubernetes
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-11-03-reselling-managed-kubernetes?utm_source=rss
             </link>
@@ -193,6 +208,9 @@ Room</a>!</p>
             <title>
                 Kubernetes is a domain specific database
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-09-22-kubernetes-is-a-domain-specific-database
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-09-22-kubernetes-is-a-domain-specific-database?utm_source=rss
             </link>

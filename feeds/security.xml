@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 I won't buy a YubiKey
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-03-21-i-wont-buy-a-yubikey
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-03-21-i-wont-buy-a-yubikey?utm_source=rss
             </link>
@@ -48,6 +51,9 @@
             <title>
                 Whom do you trust?
             </title>
+            <guid>
+                https://garrit.xyz/posts/whom-do-you-trust
+            </guid>
             <link>
                 https://garrit.xyz/posts/whom-do-you-trust?utm_source=rss
             </link>

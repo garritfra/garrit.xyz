@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 PSA: RSS feed changes
             </title>
+            <guid>
+                https://garrit.xyz/posts/2023-07-06-rss-changes
+            </guid>
             <link>
                 https://garrit.xyz/posts/2023-07-06-rss-changes?utm_source=rss
             </link>
@@ -44,6 +47,10 @@ that could be better put to use somewhere else. Not that it costs me anything -
 this site is hosted on <a href="https://pages.github.com/">GitHub Pages</a> - but if this
 helps reduce the carbon footprint of the site even by one gram, it&#39;s worth the
 effort.</p>
+
+<p>As of the time of writing this post, by restricting the number of posts to 10,
+we reduce the amount of traffic per client per hour from 272 kB down to to 24
+kB. That&#39;s over <strong>2 GB</strong> of traffic saved each year <strong>per subscriber</strong>!!</p>
 
 <p>That&#39;s all - just a heads up. Thanks for your patience, you&#39;re awesome! ✌️</p>
 

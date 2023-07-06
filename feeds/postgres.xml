@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>
             garrit.xyz
@@ -20,6 +20,9 @@
             <title>
                 Postgres Docker Container Migration Cheat Sheet
             </title>
+            <guid>
+                https://garrit.xyz/posts/2022-05-31-database-server-migration-cheat-sheet
+            </guid>
             <link>
                 https://garrit.xyz/posts/2022-05-31-database-server-migration-cheat-sheet?utm_source=rss
             </link>
