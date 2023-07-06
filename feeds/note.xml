@@ -14,8 +14,44 @@
             en
         </language>
         <lastBuildDate>
-            Sun, 25 Jun 2023 00:00:00 +0000
+            Thu, 06 Jul 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                PSA: RSS feed changes
+            </title>
+            <link>
+                https://garrit.xyz/posts/2023-07-06-rss-changes?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 06 Jul 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>If you&#39;re subscribed to this blog via <a href="/rss.xml">RSS</a>, you will soon likely see
+a bunch of my posts re-appearing in your feed. For that, I apologize in advance!</p>
+
+<p>I&#39;m planning to make two modifications. Firstly, I want to add a <code>id</code> property
+to all entries. So far, your reader has been likely been relying on the URL slug
+to identify an entry. Adding the <code>id</code> property makes this more flexible, but it
+also means that your reader will think that there are new entries in the feed.
+This will only happen once.</p>
+
+<p>Secondly, I want to reduce the amount of the entries. If you look at the
+<a href="/rss.xml">feed</a>, you&#39;ll see a lot of junk from way back, containing every word
+I wrote on this blog. Remember that this page is fetched periodically (usually
+every hour for most readers) by <strong>every</strong> subscriber. That&#39;s a lot of traffic
+that could be better put to use somewhere else. Not that it costs me anything -
+this site is hosted on <a href="https://pages.github.com/">GitHub Pages</a> - but if this
+helps reduce the carbon footprint of the site even by one gram, it&#39;s worth the
+effort.</p>
+
+<p>That&#39;s all - just a heads up. Thanks for your patience, you&#39;re awesome! ✌️</p>
+
+<hr/>
+
+<p>This is post 071 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Make a List
