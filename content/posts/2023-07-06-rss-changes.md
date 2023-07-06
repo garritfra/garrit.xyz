@@ -22,6 +22,10 @@ this site is hosted on [GitHub Pages](https://pages.github.com/) - but if this
 helps reduce the carbon footprint of the site even by one gram, it's worth the
 effort.
 
+As of the time of writing this post, by restricting the number of posts to 10,
+we reduce the amount of traffic per client per hour from 272 kB down to to 24
+kB. That's over **2 GB** of traffic saved each year **per subscriber**!!
+
 That's all - just a heads up. Thanks for your patience, you're awesome! ✌️
 
 ---

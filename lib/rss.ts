@@ -9,13 +9,17 @@ import rfc822Date from "rfc822-date";
 import { markdown } from "markdown";
 import { getAllTags } from "./tags";
 
+const NUMBER_OF_POSTS_PER_FEED = 10;
+
 const buildRss = async () => {
 	const posts = await getPosts();
 
 	const getRssXml = (blogPosts) => {
-		const { rssItemsXml, latestPostDate } = blogPostsRssXml(blogPosts);
+		const reducedPosts = blogPosts.slice(0, NUMBER_OF_POSTS_PER_FEED);
+
+		const { rssItemsXml, latestPostDate } = blogPostsRssXml(reducedPosts);
 		return `<?xml version="1.0" ?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>garrit.xyz</title>
 		<link>https://garrit.xyz</link>
@@ -38,10 +42,8 @@ const buildRss = async () => {
 			rssItemsXml += `
 <item>
 	<title>${post.frontmatter.title}</title>
-	<link>
-		https://garrit.xyz/posts/${post.slug}?utm_source=rss
-	</link>
-
+	<guid>https://garrit.xyz/posts/${post.slug}</guid>
+	<link>https://garrit.xyz/posts/${post.slug}?utm_source=rss</link>
 	<pubDate>${rfc822Date(new Date(postDate))}</pubDate>
 	<description>
 	<![CDATA[${markdown.toHTML(post.markdownBody)}]]>
