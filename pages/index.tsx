@@ -3,7 +3,7 @@ import Snowfall from "react-snowfall";
 import matter from "gray-matter";
 import Page from "../components/Page";
 import BlogList from "../components/BlogList";
-import { getPosts } from "../lib/posts";
+import { getPublishedPosts } from "../lib/posts";
 import Markdown from "../components/Markdown";
 
 const Index = (props) => {
@@ -47,7 +47,7 @@ export async function getStaticProps() {
 	const content = await import("../content/index.md");
 	const markdownBody = matter(content.default).content;
 
-	const posts = await getPosts();
+	const posts = await getPublishedPosts();
 
 	return {
 		props: {

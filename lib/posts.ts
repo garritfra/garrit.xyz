@@ -1,6 +1,7 @@
 import { glob } from "glob";
 import matter from "gray-matter";
 import fs from "fs/promises";
+import { getTopicTags } from "./tags";
 
 export interface PostMetadata {
 	date: string;
@@ -42,7 +43,22 @@ export const getPosts = async () => {
 	});
 
 	const posts = await Promise.all(postPromises);
-	return posts
-		.filter(isPublicPost)
-		.sort((a, b) => (a.frontmatter.date < b.frontmatter.date ? 1 : -1));
+	return posts.sort((a, b) =>
+		a.frontmatter.date < b.frontmatter.date ? 1 : -1
+	);
+};
+
+export const getPublishedPosts = async () =>
+	(await getPosts()).filter(isPublicPost);
+
+export const getPostsMatchingInterests = async (tags: string[]) => {
+	const allPosts = await getPosts();
+
+	const allRelevantTags = (await getTopicTags()).map(({ tag }) => tag);
+
+	const matchingPosts = allPosts.filter((post) => {
+		return post.tags.some((tag) => allRelevantTags.includes(tag.toLowerCase()));
+	});
+
+	return matchingPosts;
 };

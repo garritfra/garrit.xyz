@@ -1,4 +1,4 @@
-import { getPosts, Post } from "./posts";
+import { getPublishedPosts, Post } from "./posts";
 
 import fs from "fs/promises";
 import { existsSync } from "fs";
@@ -12,7 +12,7 @@ import { getAllTags } from "./tags";
 const NUMBER_OF_POSTS_PER_FEED = 10;
 
 const buildRss = async () => {
-	const posts = await getPosts();
+	const posts = await getPublishedPosts();
 
 	const getRssXml = (blogPosts) => {
 		const reducedPosts = blogPosts.slice(0, NUMBER_OF_POSTS_PER_FEED);

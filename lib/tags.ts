@@ -1,4 +1,4 @@
-import { getPosts } from "./posts";
+import { getPublishedPosts } from "./posts";
 
 export interface Tag {
 	tag: string;
@@ -6,7 +6,7 @@ export interface Tag {
 }
 
 export const getAllTags = async (): Promise<Tag[]> => {
-	const posts = await getPosts();
+	const posts = await getPublishedPosts();
 	const postTags = posts.flatMap((post) => post.tags);
 
 	const tagMap = {};
@@ -22,4 +22,14 @@ export const getAllTags = async (): Promise<Tag[]> => {
 		.sort()
 		.map((tag) => ({ tag, count: tagMap[tag] }))
 		.sort((a, b) => b.count - a.count);
+};
+
+export const getTopicTags = async () => {
+	const allTags = await getAllTags();
+
+	const nonTopicTags = ["100DaysToOffload", "note"].map((tag) =>
+		tag.toLowerCase()
+	);
+
+	return allTags.filter((tag) => !nonTopicTags.includes(tag.tag.toLowerCase()));
 };

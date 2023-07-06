@@ -1,9 +1,11 @@
-import React from "react";
-import matter from "gray-matter";
 import { glob } from "glob";
+import matter from "gray-matter";
+import BlogList from "../../components/BlogList";
+import Markdown from "../../components/Markdown";
 import Page from "../../components/Page";
 import TagIcon from "../../components/TagIcon";
-import Markdown from "../../components/Markdown";
+import { getPosts, getPublishedPosts, isPublicPost } from "../../lib/posts";
+import { getTopicTags } from "../../lib/tags";
 
 export default function BlogTemplate(props) {
 	function reformatDate(fullDate: string) {
@@ -17,10 +19,12 @@ export default function BlogTemplate(props) {
 	 ** are undefined — could be a Next bug?
 	 */
 
-	if (!props.frontmatter) return <></>;
+	if (!props.post.frontmatter) return <></>;
 
 	const renderTagList = () => {
-		const tags = props.frontmatter.tags?.split(",").map((tag) => tag.trim());
+		const tags = props.post.frontmatter.tags
+			?.split(",")
+			.map((tag) => tag.trim());
 
 		return (
 			<p className="page__tag-list">
@@ -37,15 +41,15 @@ export default function BlogTemplate(props) {
 	return (
 		<Page
 			siteTitle="Garrit's Notes"
-			title={props.frontmatter.title}
-			date={reformatDate(props.frontmatter.date)}
+			title={props.post.frontmatter.title}
+			date={reformatDate(props.post.frontmatter.date)}
 		>
-			<Markdown>{props.markdownBody}</Markdown>
+			<Markdown>{props.post.markdownBody}</Markdown>
 			<hr />
 			<p>
 				<a
 					href={`mailto:garrit@slashdev.space?subject=Re: ${encodeURIComponent(
-						props.frontmatter.title
+						props.post.frontmatter.title
 					)}`}
 				>
 					Reply via E-Mail
@@ -55,7 +59,7 @@ export default function BlogTemplate(props) {
 				<img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=garrit&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" />
 			</a>
 
-			{props.frontmatter.tags && renderTagList()}
+			{props.post.frontmatter.tags && renderTagList()}
 
 			<div className="shareon">
 				<a className="facebook"></a>
@@ -67,19 +71,40 @@ export default function BlogTemplate(props) {
 				<a className="twitter"></a>
 				<a className="whatsapp"></a>
 			</div>
+
+			<hr />
+
+			<h2>Continue Reading</h2>
+			<BlogList posts={props.recommendedPosts} />
 		</Page>
 	);
 }
 
 export async function getStaticProps({ ...ctx }) {
-	const { post } = ctx.params;
-	const content = await import(`../../content/posts/${post}.md`);
+	const { post: slug } = ctx.params;
+	const content = await import(`../../content/posts/${slug}.md`);
 	const data = matter(content.default);
+
+	const allPosts = await getPosts();
+	const currentPost = allPosts.find((post) => post.slug === slug);
+
+	const relevantTags = (await getTopicTags()).map(({ tag }) => tag);
+
+	const postsMatchingInterests = allPosts.filter((post) => {
+		return post.tags.some(
+			(tag) => relevantTags.includes(tag) && currentPost.tags.includes(tag)
+		);
+	});
+
+	const recommendedPosts = postsMatchingInterests
+		.filter(isPublicPost)
+		.filter((post) => post.slug !== currentPost.slug)
+		.slice(0, 5);
 
 	return {
 		props: {
-			frontmatter: data.data,
-			markdownBody: data.content,
+			post: currentPost,
+			recommendedPosts,
 		},
 	};
 }

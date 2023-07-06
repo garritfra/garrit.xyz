@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import BlogList from "../../components/BlogList";
 import Page from "../../components/Page";
-import { getPosts, Post } from "../../lib/posts";
+import { getPublishedPosts } from "../../lib/posts";
 
 // TODO: Move type to .d.ts
 declare global {
@@ -50,7 +50,7 @@ const Index = (props) => {
 };
 
 export async function getStaticProps() {
-	const posts = await getPosts();
+	const posts = await getPublishedPosts();
 
 	return {
 		props: {
