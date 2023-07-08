@@ -193,7 +193,7 @@ gpg&gt; save</p>
 <p>$ gpg --keyserver keys.openpgp.org  --send-keys foo@bar.com
 <code></code>`</p>
 
-<p><strong>Pro tip</strong>: To set a default keyserver (I use <code>keys.openpgp.org</code>, but there are many others out there!), simply add it in your <code>~/.gnupg/gpg.conf</code> file:</p>
+<p><strong>Pro tip</strong>: To set a default keyserver (I use <a href="https://keys.openpgp.org">keys.openpgp.org</a>, but there are many others out there!), simply add it in your <code>~/.gnupg/gpg.conf</code> file:</p>
 
 <p><code>
 keyserver keys.openpgp.org
