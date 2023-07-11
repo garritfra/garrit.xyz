@@ -40,7 +40,7 @@
 
 <p>Let&#39;s kick off the series with a very basic question: What on earth is DevOps?</p>
 
-<p>DevOps is often as an inflationary term to describe &quot;whatever comes after dev&quot;. This can&#39;t be further from the truth.</p>
+<p>DevOps is often used as an inflationary term to describe &quot;whatever comes after dev&quot;. This can&#39;t be further from the truth.</p>
 
 <p>In the past, developers, operations, designers, QA and other stakeholders of an applications were often implicitly trained to work in &quot;silos&quot;. Once designers have finished their job, they pass their mockups to developers. When developers are done writing the application, they pass their code to operations, whose job it is to deploy it.</p>
 
