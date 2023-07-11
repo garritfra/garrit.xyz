@@ -24,7 +24,7 @@ DevOps is a set of practices that aims to combine the work of project stakeholde
 
 I recently wrote a blog post about this: [The role of a DevOps Engineer](/posts/2023-04-22-the-role-of-a-devops-engineer).
 
-In short, the job of a DevOps Engineer is to reduce the friction between stakeholders of a project. A collegue of explained this in a really good way:
+In short, the job of a DevOps Engineer is to reduce the friction between stakeholders of a project. A collegue of mine explained this in a really good way:
 
 > A DevOps Engineer doesn't push the button, they enable the developers to push the button themselves.
 
