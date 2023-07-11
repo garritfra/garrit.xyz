@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Tue, 11 Jul 2023 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                Principles of DevOps: Introduction
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-07-11-principles-of-devops-introduction
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-07-11-principles-of-devops-introduction?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 11 Jul 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I recently changed roles in my company, and I can officially call myself a &quot;DevOps Engineer&quot; now. But what does that really mean?</p>
+
+<p>In an attempt to write down my thoughts about this topic, I&#39;m starting a series of blog posts called &quot;Principles of DevOps&quot;. I&#39;m usually very bad at sticking to things, so I&#39;m curious to see if this series will lead anywhere.</p>
+
+<p>To collect the posts of this series, I created a tag called <a href="/posts?tags=PrinciplesOfDevOps">#PrinciplesOfDevOps</a>. If you&#39;re reading this in the future, be sure to check out this tag to see all installments.</p>
+
+<h2>What is DevOps?</h2>
+
+<p>Let&#39;s kick off the series with a very basic question: What on earth is DevOps?</p>
+
+<p>DevOps is often used as an inflationary term to describe &quot;whatever comes after dev&quot;. This can&#39;t be further from the truth.</p>
+
+<p>In the past, developers, operations, designers, QA and other stakeholders of an applications were often implicitly trained to work in &quot;silos&quot;. Once designers have finished their job, they pass their mockups to developers. When developers are done writing the application, they pass their code to operations, whose job it is to deploy it.</p>
+
+<p>DevOps is a set of practices that aims to combine the work of project stakeholders to unite people, process, and technology in application planning, development, delivery, and operations. Although the term DevOps only consists of &quot;Dev&quot; and &quot;Ops&quot;, it has since evolved to include design, quality assurance and security. You may have heard of &quot;DevSecOps&quot;, which aims to incorporate more roles into the term, but &quot;DevOps&quot; seems to stick the best with most people.</p>
+
+<h2>What does a &quot;DevOps Engineer&quot; do?</h2>
+
+<p>I recently wrote a blog post about this: <a href="/posts/2023-04-22-the-role-of-a-devops-engineer">The role of a DevOps Engineer</a>.</p>
+
+<p>In short, the job of a DevOps Engineer is to reduce the friction between stakeholders of a project. A collegue of mine explained this in a really good way:</p>
+
+<blockquote><p>A DevOps Engineer doesn&#39;t push the button, they enable the developers to push the button themselves.</p></blockquote>
+
+<h2>Let&#39;s jump in!</h2>
+
+<p>I hope by now you have a vague sense of what DevOps is. Next up, I want to uncover the principles and practices of DevOps. Thanks for reading to the end!</p>
+
+<hr/>
+
+<p>This is post 072 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>
