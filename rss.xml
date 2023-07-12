@@ -14,8 +14,75 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 11 Jul 2023 00:00:00 +0000
+            Wed, 12 Jul 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Principles of DevOps: Flow
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-07-12-principles-of-devops--flow
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-07-12-principles-of-devops--flow?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 12 Jul 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<blockquote><p>This post is part of a series called <a href="/posts?tags=PrinciplesOfDevOps">Principles of DevOps</a>.</p></blockquote>
+
+<p>&quot;Flow&quot; refers to the performance of a system, as opposed to the performance of a specific silo or department.</p>
+
+<p>In our daily work, we often only see what&#39;s inside our own silo. As a developer, we see requirements come in and code going out. In operations, we see code being pushed to a repository and pipelines deploying it to production. However, it&#39;s crucial to understand the flow of work in a broader context.</p>
+
+<p>Most services or products have a &quot;value stream&quot; which describes how work is performed. You can think of the value stream as a carrier belt with multiple work centers. The first work center might be the business department, followed by a design team, a dev team, QA, operations and finally the customer. This structure might look different, depending on what product or service you are building.</p>
+
+<h2>The flow of work should always go in one direction</h2>
+
+<p>Work is typically generated at some point of the value stream. A requirement by the business department, an issue created by the QA team, an incident in operations, feedback from a customer, and so on.</p>
+
+<p>Regardless of where the work originates, the flow of work should always go in one direction: forward. Work moving backwards, or even standing still, introduces bottlenecks that prevent downstream work centers from properly working. Always seek to resolve these bottlenecks as soon as possible.</p>
+
+<h2>Always seek to increase flow</h2>
+
+<p>The goal of almost any product or service is to bring value to the customer. More work flowing through the system means more value generated. But how do we increase the flow of work?</p>
+
+<p><strong>Eliminate work in progress</strong>. This almost always indicates a bottleneck in one of the workcenters. Work should always flow smoothly through the system. If a ticket is stuck in one department for too long, ask why and how this can be avoided in the future.</p>
+
+<p><strong>Match the pace of the customer</strong>. If the value stream is pumping out more features than the customer demands, you are not generating value to the business.</p>
+
+<p><strong>Reduce work batch size</strong>. By <a href="https://garrit.xyz/posts/2023-05-19-work-batch-sizing">iterating in small steps</a>, you can adapt to changes more quickly. Split up requirements into smaller tickets and increase the amount of deployments.</p>
+
+<p>If you want to learn more about how to increase flow in a system, see <a href="https://en.wikipedia.org/wiki/Theory_of_constraints">theory of constraints</a> and the <a href="https://hbswk.hbs.edu/item/decoding-the-dna-of-the-toyota-production-system">Toyota production system</a>.</p>
+
+<h2>Never unconsciously pass known defects downstream</h2>
+
+<p>Aim to fix problems immedietely as they occur, especially if it&#39;s higher up in the value stream. Everyone should be responsible for the work of the entire value stream instead of just their work center.</p>
+
+<p>If you notice work or problems being introduced multiple times, it&#39;s likely the upstream work center is unaware of this. Immediately seek awareness and work together on resolving it.</p>
+
+<h2>Never allow local optimization to create global degradation</h2>
+
+<p>Optimizing local work is important, but it should never introduce friction in other workcenters and, by extension, decrease performance of the value stream.</p>
+
+<p>Local optimization is often linked to the &quot;tribal warfare&quot; between organizations (e.g. development vs. operations, business vs. development, etc.).</p>
+
+<h2>Conclusion</h2>
+
+<p>Understanding and optimizing the flow of work within a value stream is crucial for achieving efficient and effective software delivery. By ensuring that work moves in one direction and continuously seeking to increase the flow, we can generate more value for customers and the business.</p>
+
+<p>Eliminating bottlenecks, matching the pace of the customer, and reducing work batch size are all key strategies to enhance flow. Moreover, actively addressing known defects, promoting collaboration across the value stream, and avoiding local optimizations that hinder overall performance are essential for achieving successful outcomes. By embracing these principles, we can unlock the full potential of DevOps and drive continuous improvement in software delivery processes.</p>
+
+<h2>Resources</h2>
+
+<ul><li><a href="https://itrevolution.com/articles/the-three-ways-principles-underpinning-devops/">The Three Ways: The Principles Underpinning DevOps</a></li><li><a href="https://itrevolution.com/articles/elements-of-the-first-way-and-the-devops-implications/">Elements Of The First Way: And The DevOps Implications</a></li><li><a href="https://en.wikipedia.org/wiki/Theory_of_constraints">Theory Of Constraints</a></li><li><a href="https://en.wikipedia.org/wiki/Lean_IT">Lean IT</a></li></ul>
+
+<hr/>
+
+<p>This is post 073 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Principles of DevOps: Introduction
@@ -330,33 +397,6 @@ kB. That&#39;s over <strong>2 GB</strong> of traffic saved each year <strong>per
 <hr/>
 
 <p>This is post 064 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Older is often better
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-04-07-older-is-often-better
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-04-07-older-is-often-better?utm_source=rss
-            </link>
-            <pubDate>
-                Fri, 07 Apr 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I&#39;m guilty of buying shiny new things. After being unhappy with the Bluetooth connectivity in the OnePlus Nord I bought in december of 2020, I bought a brand new Pixel 7 last december. I told myself that t would be using the OnePlus Nord for at least three years, preferably four, yet I gave in after two years due to some issue that could have been fixed with a pair of cable-headphones. I&#39;m now asking myself again: am I able to use my new Pixel 7 for more than 3 years?</p>
-
-<p>I just stumbled upon a blog post called &quot;<a href="https://woodfromeden.substack.com/p/my-long-goodbye-to-windows-xp">My long goodbye to Windows XP</a>&quot;, in which the author explains that he is currently replacing his 2008 laptop running Windows XP with a &quot;new&quot; PC running Windows 7. He states that he knew the ins and outs of this operating system, so why switch to a new one? Eventually he did switch, but to an OS that is already end of life.</p>
-
-<p>I totally love this. If you&#39;re happy with what you got, you shouldn&#39;t let a new feature dictate how to change your workflow. Does one really need the features introduced in some software/hardware/tool in the past year? Wouldn&#39;t it make sense to use the things that have been battle-tested for at least a few years?</p>
-
-<p>As I said, I&#39;m very guilty of living at the cutting edge of technology. Maybe it&#39;s time to slow down. I&#39;m certain it would simplify a lot of things.</p>
-
-<hr/>
-
-<p>This is post 063 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
