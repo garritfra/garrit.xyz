@@ -416,7 +416,7 @@ UUID=abcdef-0055-4958-990f-1413ed1186ec  /var/data  btrfs   defaults,nofail,subv
             <description>
                 <![CDATA[<p>A while ago I went through my server and reworked my <a href="/posts/2021-02-07-storage-setup">storage
 setup</a>. As discribed in that blog post, I set
-up daily backups to <a href="https://www.backblaze.com/b2/cloud-storage.html">Backblaze
+up daily backups to <a href="https://www.backblaze.com/cloud-storage">Backblaze
 B2</a> using their amazing CLI
 through a cron script. A day went by and I noticed that the
 <a href="/posts/2021-05-15-healthchecks-io-with-docker">healthcheck</a> didn&#39;t pass.
