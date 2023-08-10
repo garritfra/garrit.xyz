@@ -7,7 +7,7 @@ tags: "linux, guide, 100DaysToOffload, homelab"
 A while ago I went through my server and reworked my [storage
 setup](/posts/2021-02-07-storage-setup). As discribed in that blog post, I set
 up daily backups to [Backblaze
-B2](https://www.backblaze.com/b2/cloud-storage.html) using their amazing CLI
+B2](https://www.backblaze.com/cloud-storage) using their amazing CLI
 through a cron script. A day went by and I noticed that the
 [healthcheck](/posts/2021-05-15-healthchecks-io-with-docker) didn't pass.
 Unfortunately I didn't have time to fix this problem immediately, so instead I
