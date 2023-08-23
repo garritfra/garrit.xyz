@@ -14,8 +14,43 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 12 Jul 2023 00:00:00 +0000
+            Wed, 23 Aug 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                So, you want to win the lottery
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-08-23-so,-you-want-to-win-the-lottery
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-08-23-so,-you-want-to-win-the-lottery?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 23 Aug 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>The lottery is often used as a comparison for something that&#39;s far out of reach. But how far out of reach exactly is the lottery?</p>
+
+<h2>1 in 302 Million</h2>
+
+<p>Apparently, you have a 1 in 302 million chance to win the lottery. Well, that sounds like a lot... but how much is that exactly?</p>
+
+<p>Imagine 66 bathtubs.</p>
+
+<p>Now, imagine each of these bathtubs is filled to the brim with <strong>rice</strong>.</p>
+
+<p>One of the grains of rice inside one of the bathtubs is painted gold. This is our jackpot.</p>
+
+<p>Whenever you purchase a lottery ticket, imagine grabbing one grain of rice from this sea of bath tubs. Do you think you&#39;d have a chance to find the golden grain?</p>
+
+<p>Source: <a href="https://www.youtube.com/watch?v=3Yn_3HqfV1w">The Scam No One Sees</a></p>
+
+<hr/>
+
+<p>This is post 074 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Principles of DevOps: Flow
@@ -366,37 +401,6 @@ kB. That&#39;s over <strong>2 GB</strong> of traffic saved each year <strong>per
 <hr/>
 
 <p>This is post 065 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Instant dark theme
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-04-12-instant-dark-theme
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-04-12-instant-dark-theme?utm_source=rss
-            </link>
-            <pubDate>
-                Wed, 12 Apr 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Thanks to <a href="https://jacksonchen666.com/">Jacksons</a> <a href="https://github.com/garritfra/darktheme.club/pull/79">update to darktheme.club</a>, I just came across a neat little <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme">CSS property</a> that turns a mostly CSS-free document into a pleasantly dark site:</p>
-
-<p><code>css
-:root {
-  color-scheme: light dark;
-}
-</code></p>
-
-<p>This will adjust all elements on the page to the color scheme preferred by the user - without any other custom styles! 🤯 It is also <a href="https://caniuse.com/mdn-css_properties_color-scheme">widely supported</a> by browsers.</p>
-
-<p>I&#39;ve always been quite dependent on CSS-frameworks for any project I&#39;m starting. Going forward, I&#39;d be interested to see how framework-less sites would feel using this property. If all else fails, there&#39;s always the awesome <a href="https://simplecss.org/">simple.css</a> library, which you can slap on top of a raw document to make it pretty (and dark, if preferred) without using custom classes.</p>
-
-<hr/>
-
-<p>This is post 064 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
