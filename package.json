@@ -21,7 +21,7 @@
 		"remark-gfm": "3.0.1"
 	},
 	"devDependencies": {
-		"glob": "10.3.3",
+		"glob": "10.3.4",
 		"gray-matter": "4.0.3",
 		"next-sitemap": "4.2.2",
 		"raw-loader": "4.0.2",
