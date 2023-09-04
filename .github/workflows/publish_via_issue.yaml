@@ -10,7 +10,7 @@ jobs:
     env:
       POST_BODY: '${{ github.event.issue.body }}'
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Create commits
         run: |
           export POST_DATE=$(date +"%Y-%m-%d")
