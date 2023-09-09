@@ -40,6 +40,7 @@ love to hear it!
 
 - [Team Krosse Flagge](https://ctftime.org/team/82581) - 5 flags found, last updated 2022-07-22
 - Ezequiel Gonzalez Rial - 5 flags found, last updated 2022-07-13
+- Harry Cover - 5 flags found, last updated 2023-09-09
 - Reiner Herrmann - 5 flags found, last updated 2022-11-26
 - [Jeremi R](https://jrb.nz) - 5 flags found, last updated 2023-01-04
 
@@ -51,7 +52,6 @@ love to hear it!
 - [Sergii](https://www.linkedin.com/in/serhiy-m-618020107/) - 4 flags found, last updated 2022-07-18
 - Barbas Bonitas - 4 flags found, last updated 2022-07-13
 - Dege - 4 flags found, last updated 2022-07-15
-- Harry Cover - 4 flags found, last updated 2022-07-18
 - swordfischer - 4 flag found, last updated 2022-07-19
 
 ---
