@@ -1,7 +1,7 @@
 ---
 title: "Short Story: Haunted Memories"
 date: "2023-09-10"
-tags: "100DaysToOffload, shortstory, horror"
+tags: "100DaysToOffload, shortstory, horror, writing"
 ---
 
 I had ventured deep into the heart of the forest that day, my heart alive with the joy of nature's embrace. The woods had called to me, and I, unwary of what lay ahead, had answered.
