@@ -23,7 +23,7 @@
 	"devDependencies": {
 		"glob": "10.3.4",
 		"gray-matter": "4.0.3",
-		"next-sitemap": "4.2.2",
+		"next-sitemap": "4.2.3",
 		"raw-loader": "4.0.2",
 		"react-syntax-highlighter": "^15.5.0",
 		"rfc822-date": "0.0.3",
