@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Mon, 11 Sep 2023 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                🔗 Linkdump: Software Development
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-09-11-linkdump-software-development
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-09-11-linkdump-software-development?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 11 Sep 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Today, my feed is full of super interesting links. Here&#39;s a bunch of them, in no particular order. Some of them might be a bit older, but just as interesting:</p>
+
+<ul><li><a href="https://henrikwarne.com/2023/09/10/what-i-have-changed-my-mind-about-in-software-development/">What I Have Changed My Mind About in Software Development</a></li><li><a href="https://littleblah.com/post/2019-09-01-senior-engineer-checklist/">A Senior Engineer&#39;s CheckList</a></li><li><a href="https://thoughtshrapnel.com/2023/09/11/the-burnout-curve/">The burnout curve</a></li><li><a href="https://staysaasy.com/engineering/2023/06/18/how-to-be-an-engineer-pms-down-hate.html">How To Be An Engineer That PMs Don&#39;t Hate</a></li><li><a href="https://www.allthingsdistributed.com/2023/07/building-and-operating-a-pretty-big-storage-system.html">Building and operating a pretty big storage system called S3</a></li><li><a href="https://pdx.su/blog/2023-07-26-tailwind-and-the-death-of-craftsmanship/">Tailwind, and the death of web craftsmanship</a></li><li><a href="https://taylor.town/entire-career">Man Spends Entire Career Mastering Crappy Codebase</a></li><li><a href="https://lukeplant.me.uk/blog/posts/no-one-actually-wants-simplicity/">No one actually wants simplicity</a></li></ul>
+
+<hr/>
+
+<p>This is post 077 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>

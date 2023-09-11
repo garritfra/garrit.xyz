@@ -14,8 +14,31 @@
             en
         </language>
         <lastBuildDate>
-            Sat, 09 Sep 2023 00:00:00 +0000
+            Mon, 11 Sep 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                🔗 Linkdump: Software Development
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-09-11-linkdump-software-development
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-09-11-linkdump-software-development?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 11 Sep 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Today, my feed is full of super interesting links. Here&#39;s a bunch of them, in no particular order. Some of them might be a bit older, but just as interesting:</p>
+
+<ul><li><a href="https://henrikwarne.com/2023/09/10/what-i-have-changed-my-mind-about-in-software-development/">What I Have Changed My Mind About in Software Development</a></li><li><a href="https://littleblah.com/post/2019-09-01-senior-engineer-checklist/">A Senior Engineer&#39;s CheckList</a></li><li><a href="https://thoughtshrapnel.com/2023/09/11/the-burnout-curve/">The burnout curve</a></li><li><a href="https://staysaasy.com/engineering/2023/06/18/how-to-be-an-engineer-pms-down-hate.html">How To Be An Engineer That PMs Don&#39;t Hate</a></li><li><a href="https://www.allthingsdistributed.com/2023/07/building-and-operating-a-pretty-big-storage-system.html">Building and operating a pretty big storage system called S3</a></li><li><a href="https://pdx.su/blog/2023-07-26-tailwind-and-the-death-of-craftsmanship/">Tailwind, and the death of web craftsmanship</a></li><li><a href="https://taylor.town/entire-career">Man Spends Entire Career Mastering Crappy Codebase</a></li><li><a href="https://lukeplant.me.uk/blog/posts/no-one-actually-wants-simplicity/">No one actually wants simplicity</a></li></ul>
+
+<hr/>
+
+<p>This is post 077 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 About My Pocket Notebook
@@ -393,39 +416,6 @@ kB. That&#39;s over <strong>2 GB</strong> of traffic saved each year <strong>per
 <hr/>
 
 <p>This is post 067 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Migrating Homeassistant from SD to SSD
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-04-27-migrating-homeassistant-from-sd-to-ssd
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-04-27-migrating-homeassistant-from-sd-to-ssd?utm_source=rss
-            </link>
-            <pubDate>
-                Thu, 27 Apr 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I finally got frustrated with the performance of my Raspberry Pi 4 running Homeassistant on a SD card, so I went ahead and got an SSD.</p>
-
-<p>The migration was <strong>very</strong> easy:</p>
-
-<ol><li>Create and download a full backup through the UI</li><li>Flash Homeassistant onto the SSD</li><li>Remove the SD card and plug the SSD into a USB 3.0 port of the Pi</li><li>Boot</li><li>Go through the onboarding procedure</li><li>Restore Backup</li><li>Profit</li></ol>
-
-<p>It worked like a charm! The speed has improved A LOT, and everything was set up as it should be. </p>
-
-<p>...Until we turned on the lights in the livingroom. My ZigBee-dongle, plugged into another USB port, wasn&#39;t able to communicate with the devices on the network.</p>
-
-<p>After some digging around, I came across several threads stating that an SSD over USB 3.0 apparently creates a lot of interference to surrounding hardware, including my ZigBee dongle. The fix was simple: either get an extension port for the dongle, or plug the SSD into a USB 2.0 port of the Pi. Since I didn&#39;t have an extension cord to get the dongle far away enough from the SSD, I went with the latter option for now. And that fixed it! The performance was much worse, but still better than the SD I used before. My next step will be to grab an extension cord from my parents. I&#39;m sure they won&#39;t mind.</p>
-
-<p>I hope this helps!</p>
-
-<hr/>
-
-<p>This is post 066 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
