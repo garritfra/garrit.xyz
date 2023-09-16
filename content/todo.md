@@ -31,6 +31,7 @@
 - A browser extension that restricts the amount of tabs
 - A solo roleplaying app
 - [~~an easy to understand webapp for sending and receiving sensitive data using twmporary PGP keys~~](https://sendpasswords.net)
+- a virtal pet
 
 ## Website Roadmap
 
