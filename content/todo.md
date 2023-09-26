@@ -32,6 +32,7 @@
 - A solo roleplaying app
 - [~~an easy to understand webapp for sending and receiving sensitive data using twmporary PGP keys~~](https://sendpasswords.net)
 - a virtal pet
+- a game where you learn to build a common language with an alien
 
 ## Website Roadmap
 
