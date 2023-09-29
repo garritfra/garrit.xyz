@@ -14,8 +14,35 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 11 Sep 2023 00:00:00 +0000
+            Fri, 29 Sep 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Undo on mobile phones
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-09-29-undo-on-mobile-phones
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-09-29-undo-on-mobile-phones?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 29 Sep 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Maybe this is just wishful thinking from someone who grew up in front of a physical keyboard, but I sometimes wish that my phone had a global &quot;undo&quot; button.</p>
+
+<p>I&#39;m sure there&#39;s a reason why phones have evolved away from having such a feature, but sometimes, especially when editing text, it would be very useful to &quot;just hit ctrl-z&quot;, or whatever it would be on a phone. Some apps do have such a button, but they explicitly had to place it there and craft a feature around it.</p>
+
+<p>I can imagine that Android and other OSes are capable of exposing an &quot;undo&quot; API that apps can implement to make this easier. A gesture well known to the user, similar to the &quot;back&quot; button or gesture on Android, would trigger an undo. For text, apps probably won&#39;t even have to implement anything. The Textbox element of the UI framework should be capable of undoing changes. For anything more complex, the app decides what to do with this action.</p>
+
+<p>Again, probably just wishful thinking, but I really want my undos back!</p>
+
+<hr/>
+
+<p>This is post 078 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 🔗 Linkdump: Software Development
@@ -379,51 +406,6 @@ kB. That&#39;s over <strong>2 GB</strong> of traffic saved each year <strong>per
 <hr/>
 
 <p>This is post 068 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Serverless Framework Retrospective
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-04-28-serverless-framework-retrospective
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-04-28-serverless-framework-retrospective?utm_source=rss
-            </link>
-            <pubDate>
-                Fri, 28 Apr 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>A current project requires the infrastructure to be highly scalable. It&#39;s expected that &gt; 50k Users hit the platform within a five minute period. Regular ECS containers take about one minute to scale up. That just won&#39;t cut it. I decided to go all in on the <a href="https://www.serverless.com/">serverless</a> framework on AWS. Here&#39;s how it went.</p>
-
-<h3>Setup</h3>
-
-<p>Setting up a serverless application was a breeze. You create a config file and use their CLI to deploy the app.</p>
-
-<h3>The rest of the infrastructure</h3>
-
-<p>I decided to define the rest of the infrastructure (VPC, DB, cache, ...) in Terraform. But, since I wasn&#39;t familiar with how the Serverless Framework worked, I struggled to draw the line between what serverless should handle vs. what the rest of the infrastructure (Terraform) should provide. In a more traditional deployment workflow, you might let the CI deploy a container image to ECR and point the ECS service to that new image.</p>
-
-<p>I chose to let Serverless deploy the entire app through CI and build the rest of the infrastructure around it. The problem with this approach is that we lose fine-grained control over what&#39;s deployed where, which leads to a lot of permission errors.</p>
-
-<p>In retrospect, I should&#39;ve probably chosen the location of the S3 archive as the deployment target for the CI, and then point the lambda function to the location of the new artifact. This defeats the purpose of the framework, but it gives you a lot more control over your infrastructure. Once the next project comes along, I&#39;ll probably go that route instead.</p>
-
-<h3>Permissions</h3>
-
-<p>Serverless suggests to use admin permissions for deployments, and I see where they&#39;re coming from. Managing permissions in this framework is an absolute mess. Here&#39;s what the average deployment workflow looks like, if you want to use fine grained permissions:</p>
-
-<ol><li>Wait for CloudFormation to roll back changes (~2 minutes)</li><li>Update IAM role</li><li>Deploy Serverless App</li><li>If there&#39;s an error, go to 1</li></ol>
-
-<p>Thankfully, some people have already gone through the process of figuring this out. <a href="https://serverlessfirst.com/create-iam-deployer-roles-serverless-app/#determining-deploy-time-permissions">Here&#39;s</a> a great guide with a starting point of the needed permissions.</p>
-
-<h3>Conclusion</h3>
-
-<p>Using the serverless framework is a solid choice if you just want to throw an app out there. Unfortunately the app I was deploying isn&#39;t &quot;just&quot; a dynamic website. The next time I&#39;m building a serverless application it&#39;s probably not going to be with the Serverless Framework, though I learned a lot about serverless applications in general.</p>
-
-<hr/>
-
-<p>This is post 067 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
