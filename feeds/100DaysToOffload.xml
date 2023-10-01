@@ -14,8 +14,35 @@
             en
         </language>
         <lastBuildDate>
-            Fri, 29 Sep 2023 00:00:00 +0000
+            Sun, 01 Oct 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                The Mind Rope Experiment
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-10-01-the-mind-rope-experiment
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-10-01-the-mind-rope-experiment?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 01 Oct 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Close your eyes. Picture yourself standing at a ledge with a rope tied to another ledge that&#39;s 10 steps away. Now, step by step, slowly walk across this rope until you&#39;re at the other side.</p>
+
+<p>I often use this experiment as an indication for how focused I am at a given moment. As easy as this sounds, I rarely make it to the other side. On some days, I can&#39;t even step on the rope before my mind gets distracted and I have to start over. On some other days, I may get a few steps before falling off. With enough practice however, I may get to the other side.</p>
+
+<p>This technique also works very well for short meditation sessions. I close my eyes and try to get to the other side. Whenever I fall off, I try again until my mind is focused enough to walk the entire rope.</p>
+
+<p>I&#39;m curious: are you able to walk the entire rope, or are you also struggling to take control over this mindscape?</p>
+
+<hr/>
+
+<p>This is post 079 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Undo on mobile phones
@@ -374,38 +401,6 @@ kB. That&#39;s over <strong>2 GB</strong> of traffic saved each year <strong>per
 <hr/>
 
 <p>This is post 069 (nice) of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Optimizing work batch size
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-05-19-work-batch-sizing
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-05-19-work-batch-sizing?utm_source=rss
-            </link>
-            <pubDate>
-                Fri, 19 May 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I&#39;ve been playing 
-<a href="https://en.m.wikipedia.org/wiki/Carcassonne_(board_game)">Carcassonne</a> a lot with my girlfriend recently. It&#39;s a boardgame about building cities, roads and farms, and each completed &quot;project&quot; earns you some amount of points. The twist is that there&#39;s only a limited number of tiles, and once all tiles are used, the game is over unfinished projects are discarded.</p>
-
-<p>The first couple of playthroughs I tried to maximize my score by increasing the number of projects I actively had going. I&#39;d start a new city or road whenever I could, thinking that the multipliers you sometimes get would pay off in the end. Boy was I wrong.</p>
-
-<p>Where I&#39;m from, we have multiple sayings for this approach. &quot;Having too many irons in the fire&quot; or &quot;dancing on too many parties&quot;. I was too busy starting new projects instead of making actual progress.</p>
-
-<p>A far better approach is to finish projects early, earning less points, but with a greater certainty that they will pay off. With every project you start, the likelyhood of the other projects paying off decreases.</p>
-
-<p>Keeping batch sizes small was a key concept of the <a href="https://en.m.wikipedia.org/wiki/Lean_manufacturing">lean manufacturing movement</a> in the 1980s, and has since been adopted by the <a href="https://de.m.wikipedia.org/wiki/DevOps">DevOps movement</a> for the IT industry. If you want to learn more about this topic, you should check out <a href="https://itrevolution.com/product/the-devops-handbook-second-edition/">The DevOps Handbook</a>. It goes well beyond the basics of making IT processes more productive and efficient.</p>
-
-<p>After realizing that small batch sizes are the key to success, I haven&#39;t lost a game of Carcassonne since. I hope you&#39;re not reading this, honey.🤭</p>
-
-<hr/>
-
-<p>This is post 068 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
