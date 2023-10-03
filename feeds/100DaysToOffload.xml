@@ -14,8 +14,33 @@
             en
         </language>
         <lastBuildDate>
-            Sun, 01 Oct 2023 00:00:00 +0000
+            Tue, 03 Oct 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Project Hail Mary
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-10-03-project-hail-mary
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-10-03-project-hail-mary?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 03 Oct 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just finished the book <a href="https://wikipedia.org/wiki/Project_Hail_Mary">Project Hail Mary</a> by Andy Weir. Rating: ⭐⭐⭐⭐⭐</p>
+
+<p>I&#39;m completely nerdsniped. I was looking forward to each chapter, eagerly waiting for what will happen next. This book is full of completely unexpected turns, though I never felt lost. The plot is well thought out. Every chapter is like a puzzle piece that perfectly adds to the greater picture.</p>
+
+<p>When I first heard about this book I was a bit skeptical. &quot;Human stranded in space&quot; surely can&#39;t fill some 500 pages (I&#39;m looking at you, <a href="https://wikipedia.org/wiki/Gravity_(2013_film)">Gravity</a>). But having read <a href="https://wikipedia.org/wiki/The_Martian_(Weir_novel)#">The Marsian</a> some time ago, I knew that Andy Weir&#39;s style of writing would catch me. And catch me he did. The way he describes complex topics completely resonates with me. No matter how unsolvable the problems of the protagonist seem, it&#39;s always an invitation to get your mind blown by the solution.</p>
+
+<hr/>
+
+<p>This is post 080 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 The Mind Rope Experiment
@@ -370,37 +395,6 @@ kB. That&#39;s over <strong>2 GB</strong> of traffic saved each year <strong>per
 <hr/>
 
 <p>This is post 070 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Single Page Applications on GitHub Pages
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-06-01-single-page-applications-on-github-pages
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-06-01-single-page-applications-on-github-pages?utm_source=rss
-            </link>
-            <pubDate>
-                Thu, 01 Jun 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>My latest project, <a href="https://sendpasswords.net/">sendpasswords.net</a> is a <a href="https://developer.mozilla.org/en-US/docs/Glossary/SPA">Single Page Application</a> deployed on GitHub Pages.</p>
-
-<p>GitHub Pages is configured in a way to host static HTML files without any bells and whistles. This means that if you try to fetch a document that&#39;s <em>not</em> the index, for example <code>/foo</code>, the server will try to load the file with that name. </p>
-
-<p>By nature, SPAs only consist of a single HTML entry point (<code>index.html</code> in most cases). It&#39;s responsible for routing the user to the correct page if there are multiple paths. And here&#39;s the crux: if the user tries to load <code>/foo</code>, he will not land at the SPA entry point. Instead, he will see a <code>404</code> error.</p>
-
-<h2>The solution</h2>
-
-<p>A <code>404</code> response will automatically return a file called <code>404.html</code>, which we can use to our advantage. After building the application, simply copy the <code>index.html</code> to <code>404.html</code>, as demonstrated by <a href="https://github.com/garritfra/sendpasswords.net/commit/66bdb68c229a3ac3386f7816a746155e658eb586">this commit</a>. This will use <code>index.html</code> to serve the application on the root level, and <code>404.html</code> to load <em>the same app</em> if the page doesn&#39;t exist as a file. Whether the <code>index.html</code> is needed if there&#39;s already a <code>404.html</code> is up to you. I left it in to make clear that this is just a workaround.</p>
-
-<p>This is a <a href="https://stackoverflow.com/a/69308662/9046809">well known</a> workaround, but I wanted to bring some extra awareness to it, since it&#39;s a problem I ran into a couple of times so far. Happy SPAing!</p>
-
-<hr/>
-
-<p>This is post 069 (nice) of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
