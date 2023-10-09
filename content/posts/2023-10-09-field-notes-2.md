@@ -6,7 +6,7 @@ tags: "100DaysToOffload, note, life, notebooks"
 
 Today marks the completion of my second pocket notebook. You may view my [About My Pocket Notebook](/posts/2023-09-09-everyday-carry-notebooks) post as part one of this series, since I wrote it near the end of my first notebook. I think it would be interesting to share my experience with this each notebook. One day I'll maybe have a nice history of posts that I can look back at. 🙂
 
-Here's a picture of my worn-in notebook #2, after living in my back pocket for the last month:
+This notebook lasted from 2023-09-10 to 2023-10-09, roughly one month. Here's a picture of it, after living in my back pocket every single day:
 
 ![Field Notes #2](/assets/posts/2023-10-09-field-notes-2/field_notes_2.jpeg)
 
