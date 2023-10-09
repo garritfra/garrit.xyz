@@ -15,7 +15,7 @@
 		"next": "13.5.4",
 		"next-plausible": "3.11.1",
 		"react": "^18.2.0",
-		"react-markdown": "8.0.7",
+		"react-markdown": "9.0.0",
 		"react-snowfall": "^1.2.1",
 		"rehype-raw": "6.1.1",
 		"remark-gfm": "3.0.1"
