@@ -15,19 +15,17 @@ Mobile Software Developer (Traineeship); 2017 - 2020
 
 _**DevOps Engineer, February 2023 - present**_
 
-Cloud infrastructure setup for a mobile raffle application backend
+Development and standardization of cloud infrastructure for various application backends
 
-- [Setup of hyperscalable infrastructure using the Serverless Framework](https://garrit.xyz/posts/2023-04-28-serverless-framework-retrospective)
-
-Cloud infrastructure setup for a mobility application backend
-
-- [Containerization of a Laravel application](/posts/2023-03-03-notes-on-containerizing-php-applications)
 - [Setup of resiliant AWS infrastructure components using Terraform](/posts/2023-03-30-designing-resilient-cloud-infrastructure)
+- [Setup of hyperscalable infrastructure using the Serverless Framework](https://garrit.xyz/posts/2023-04-28-serverless-framework-retrospective)
+- [Containerization of a Laravel application](/posts/2023-03-03-notes-on-containerizing-php-applications)
 
-Maintenance and monitoring of [Kubernetes](https://kubernetes.io/) cluster environments for a kindergarden management application
+Maintenance and monitoring of [Kubernetes](https://kubernetes.io/) cluster environments
 
 - Integration of GitOps deployment workflows using [FluxCD](https://fluxcd.io/)
 - Provisioning and management of Kubernetes clusters using [OpenStack](https://www.openstack.org/)
+- Setup of end-to-end monitoring and alerting solutions using [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/)
 
 _**Software Developer, March 2021 - March 2023**_
 
