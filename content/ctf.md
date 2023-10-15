@@ -83,7 +83,3 @@ love to hear it!
 - macbury - 1 flag found, last updated 2022-07-13
 - lemmyz4n3771 - 1 flag found, last updated 2022-07-13
 - voxycon - 1 flag found, last updated 2022-11-24
-
-## Backlinks
-
-- [CTFs are fun](https://sergiiwrites.online/2022/09/12/ctfs-are-fun.html)
