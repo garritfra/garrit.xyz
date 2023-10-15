@@ -10,6 +10,12 @@ get redirected to the page editor.
 
 ---
 
+### Henrique, on 2023-10-14:
+
+Nice website. I'm glad to see that others are also doing guestbooks 🤓.
+
+-- [Henrique](https://hacdias.com)
+
 ### [nice42q](https://nice42q.de/), on 2023-03-12:
 
 Nice GG-Book! CTF on DNS, TXT and check your HTTP response header, (X-Frame-Options, X-Content-Type-Options, Strict-Transport-Security, Referrer-Policy Permissions-Policy) Best regards
