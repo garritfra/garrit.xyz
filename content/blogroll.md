@@ -22,12 +22,12 @@ mail](mailto:garrit@slashdev.space)!
 ### Newsboards
 
 - [Hacker News](https://news.ycombinator.com/)
+- [Lobste.rs](https://lobste.rs)
 
 ### Podcasts
 
 - [CoRecursive: Coding Stories](https://corecursive.com/)
-- [Darknet Diaries](https://darknetdiaries.com/)
+- [Google's SRE Podcast](https://sre.google/prodcast/)
 - [Linux Action News](https://linuxactionnews.com/)
 - [Linux Unplugged](https://linuxunplugged.com/)
 - [Self-Hosted](https://selfhosted.show/)
-- [Smashing Security](https://www.smashingsecurity.com/)
