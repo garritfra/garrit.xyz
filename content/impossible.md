@@ -11,3 +11,6 @@
 
 - ~~Run a half marathon~~ (March 18, 2018)
 - Run a marathon
+- Get Married
+- Buy a house
+- Visit every continent (4 / 5)
