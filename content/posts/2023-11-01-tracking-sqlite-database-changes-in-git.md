@@ -4,6 +4,8 @@ date: "2023-11-01"
 tags: "100DaysToOffload, guide, note, til, git, tech, sqlite"
 ---
 
+> **Note**: This post stirred up some interesting discussions on [HackerNews](https://news.ycombinator.com/item?id=38110286) and [Lobste.rs](https://lobste.rs/s/gnv9ho/tracking_sqlite_database_changes_git).
+
 SQLite stores data in binary. If you run `cat mydb.sqlite`, you'll see a bunch of gibberish that doesn't resemble structured data at all. If you want to track changes and updates to a database using Git, you won't be able to see full diffs by default. You'll see that the file has changed, but not what changed exactly:
 
 ```diff
