@@ -3,6 +3,7 @@ title: Links
 ---
 
 * [Contact](/contact)
+* [Resume](/cv)
 * [Blogroll](/blogroll)
 * [Capture The Flag](/ctf)
 * [Guestbook](/guestbook)
