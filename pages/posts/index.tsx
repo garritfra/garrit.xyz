@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import BlogList from "../../components/BlogList";
 import Page from "../../components/Page";
@@ -24,16 +25,25 @@ const Index = (props) => {
 		  )
 		: props.posts;
 
-	const renderRandomButton = () => {
+	const getRandomPostUrl = (): string => {
 		const randomIndex = Math.floor(Math.random() * filteredPosts.length);
 		const randomPost = filteredPosts[randomIndex];
-		const randomUrl = `/posts/${randomPost?.slug}`;
+		return `/posts/${randomPost?.slug}`;
+	};
+
+	// We're wrapping this in a state and useEffect to ensure that we always
+	// have a fallback URL, in case the user has disabled javascript. The
+	// fallback URL is generated upon building the page.
+	const [randomUrl, setRandomUrl] = useState(getRandomPostUrl());
+
+	useEffect(() => {
+		setRandomUrl(getRandomPostUrl());
+	}, []);
+
+	const renderRandomButton = () => {
 		return (
 			<p>
-				<a
-					href={randomUrl}
-					onClick={() => window.plausible("random_post_clicked")}
-				>
+				<a href={randomUrl} onClick={() => setRandomUrl(getRandomPostUrl())}>
 					✨ Random Post ✨
 				</a>
 			</p>
