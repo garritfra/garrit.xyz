@@ -21,28 +21,15 @@ export default function BlogTemplate(props) {
 
 	if (!props.post.frontmatter) return <></>;
 
-	const renderTagList = () => {
-		const tags = props.post.frontmatter.tags
-			?.split(",")
-			.map((tag) => tag.trim());
-
-		return (
-			<p className="page__tag-list">
-				<TagIcon />
-				{tags.map((tag) => (
-					<a key={tag} href={`/posts?tags=${tag}`}>
-						#{tag}
-					</a>
-				))}
-			</p>
-		);
-	};
-
 	return (
 		<Page
 			siteTitle="Garrit's Notes"
 			title={props.post.frontmatter.title}
 			date={reformatDate(props.post.frontmatter.date)}
+			tags={
+				props.post.frontmatter.tags &&
+				props.post.frontmatter.tags?.split(",").map((tag) => tag.trim())
+			}
 		>
 			<Markdown>{props.post.markdownBody}</Markdown>
 			<hr />
@@ -58,8 +45,6 @@ export default function BlogTemplate(props) {
 			<a href="https://www.buymeacoffee.com/garrit" target="_blank">
 				<img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=garrit&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" />
 			</a>
-
-			{props.post.frontmatter.tags && renderTagList()}
 
 			<div className="shareon">
 				<a className="facebook"></a>

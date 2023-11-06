@@ -4,3 +4,9 @@
 	gap: 12px;
 	justify-content: center;
 }
+
+@media (max-width: 768px) {
+	.tag-list {
+		justify-content: unset;
+	}
+}
