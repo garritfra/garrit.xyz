@@ -14,8 +14,55 @@
             en
         </language>
         <lastBuildDate>
-            Sun, 08 Aug 2021 00:00:00 +0000
+            Tue, 07 Nov 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                My App Defaults (Late 2023)
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-11-07-app-defaults
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-11-07-app-defaults?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 07 Nov 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Apparently there&#39;s currently a thing where people share their preferred apps. If you like this format, check out Robb Knight&#39;s <a href="https://defaults.rknight.me/">list of App Defaults blog posts</a>.</p>
+
+<p>Without further ado, here&#39;s my list:</p>
+
+<p>📨 Mail Client: Thunderbird
+📮 Mail Server: Purelymail
+📝 Notes: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a>
+✅ To-Do: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a>
+🟦 Photo Management: Google Photos
+📆 Calendar: Google Calendar
+📁 Cloud File Storage: Google Drive
+📖 RSS: Miniflux
+🙍🏻‍♂️ Contacts: Google Contacts
+🌐 Browser: Firefox
+💬 Chat: WhatsApp
+🔖 Bookmarks: Firefox
+📑 Read It Later: Pocket
+📜 Word Processing: Markdown, Google Docs
+📈 Spreadsheets: Google Sheets
+📊 Presentations: Google Slides
+🛒 Shopping Lists: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a>
+🍴 Meal Planning: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a>
+💰 Budgeting and Personal Finance: GnuCash
+📰 News: Mostly HackerNews via Miniflux
+🎵 Music: Spotify
+🎤 Podcasts: AntennaPod
+🔐 Password Management: Bitwarden</p>
+
+<hr/>
+
+<p>This is post 085 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Fun with Pen and Paper: Race Cars

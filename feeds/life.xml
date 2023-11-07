@@ -14,8 +14,55 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 10 Oct 2023 00:00:00 +0000
+            Tue, 07 Nov 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                My App Defaults (Late 2023)
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-11-07-app-defaults
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-11-07-app-defaults?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 07 Nov 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Apparently there&#39;s currently a thing where people share their preferred apps. If you like this format, check out Robb Knight&#39;s <a href="https://defaults.rknight.me/">list of App Defaults blog posts</a>.</p>
+
+<p>Without further ado, here&#39;s my list:</p>
+
+<p>📨 Mail Client: Thunderbird
+📮 Mail Server: Purelymail
+📝 Notes: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a>
+✅ To-Do: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a>
+🟦 Photo Management: Google Photos
+📆 Calendar: Google Calendar
+📁 Cloud File Storage: Google Drive
+📖 RSS: Miniflux
+🙍🏻‍♂️ Contacts: Google Contacts
+🌐 Browser: Firefox
+💬 Chat: WhatsApp
+🔖 Bookmarks: Firefox
+📑 Read It Later: Pocket
+📜 Word Processing: Markdown, Google Docs
+📈 Spreadsheets: Google Sheets
+📊 Presentations: Google Slides
+🛒 Shopping Lists: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a>
+🍴 Meal Planning: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a>
+💰 Budgeting and Personal Finance: GnuCash
+📰 News: Mostly HackerNews via Miniflux
+🎵 Music: Spotify
+🎤 Podcasts: AntennaPod
+🔐 Password Management: Bitwarden</p>
+
+<hr/>
+
+<p>This is post 085 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Did you try turning it off?
@@ -311,51 +358,6 @@ need it.</p>
 <hr/>
 
 <p>This is post 062 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Visual Distractions
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-02-24-visual-distractions
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-02-24-visual-distractions?utm_source=rss
-            </link>
-            <pubDate>
-                Fri, 24 Feb 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Everywhere we look, we&#39;re bombarded with flashy symbols trying to grab our attention. This is even the case where we <strong>think</strong> that we&#39;re in control of what we&#39;re looking at. I made two simple changes that reduce visual distractions in my life.</p>
-
-<h2>Android App Icons</h2>
-
-<p>App icons play a serious role in how we interact with our phone. Over the years, there has been a constant battle for the most flashy icon on our home screen. But there&#39;s a cure: newer versions of Android <a href="https://www.lifewire.com/change-color-of-apps-on-android-phones-5213663">let you choose a color theme for apps that implement it</a>. It&#39;s by far not supported by every app out there, but in my case 90% of the app icons now have the same color. I feel way more comfortable looking at my phone, knowing that less things are trying to grab my attention right when I unlock my phone.</p>
-
-<p>With this change, I found that I am more mindful about what app icon I tap on, since I was used to each icon having a different color. This makes it harder for my muscle memory to develop bad habits.</p>
-
-<h2>RSS-Reader Favicons</h2>
-
-<p>If you&#39;re using an RSS reader, chances are you&#39;re used to seeing a favicon next to the articles. I had the feeling that I was drawn more towards the favicon than the headline of the article, so I started looking for ways to disable favicons all together.</p>
-
-<p>Miniflux provides a way to override the stylesheet of the feed in the settings. Simply append the following code-snippet and the favicons will be history:</p>
-
-<p><code>css
-.item-title img, .entry-website img {
-  display: none;
-}
-</code></p>
-
-<p>Of course every reader is different, so you might want to look into the documentation of your reader of choice.</p>
-
-<h2>Conclusion</h2>
-
-<p>These changes might seem insignificant, but I found that they made a huge difference in how I interact with my phone. The suggestions above might not apply to your life, but I&#39;d like to encourage you to keep an eye out for unnecessary visual distraction in your life. Try to avoid it as much as possible.</p>
-
-<hr/>
-
-<p>This is post 051 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
