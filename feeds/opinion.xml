@@ -32,7 +32,7 @@
             <description>
                 <![CDATA[<blockquote><p>This is a reply to Tony Mottaz&#39; <a href="https://www.tonymottaz.com/code-for-computers-and-humans/">blog post</a> about code that&#39;s easy to understand for humans.</p></blockquote>
 
-<p>The understandability of a piece of code can be measured by how much time one needs to grasp its behavior.</p>
+<p>The understandability of a piece of code can be measured by how much time one needs to grasp its behavior. Less cognitive load usually means easier, and therefore faster, to understand.</p>
 
 <p>Tony argues that the verbose version of the code (<code>isNaN(defaultValue) ? NaN : defaultValue;</code>) is better than the optimized version (<code>defaultValue;</code>) because it proves that the author has thought of the possible sideeffect.</p>
 
