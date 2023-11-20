@@ -6,7 +6,7 @@ tags: "100DaysToOffload, note, practices, opinion, web, javascript, tech, reply"
 
 > This is a reply to Tony Mottaz' [blog post](https://www.tonymottaz.com/code-for-computers-and-humans/) about code that's easy to understand for humans.
 
-The understandability of a piece of code can be measured by how much time one needs to grasp its behavior.
+The understandability of a piece of code can be measured by how much time one needs to grasp its behavior. Less cognitive load usually means easier, and therefore faster, to understand.
 
 Tony argues that the verbose version of the code (`isNaN(defaultValue) ? NaN : defaultValue;`) is better than the optimized version (`defaultValue;`) because it proves that the author has thought of the possible sideeffect.
 
