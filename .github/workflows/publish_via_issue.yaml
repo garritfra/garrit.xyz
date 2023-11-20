@@ -5,7 +5,7 @@ on:
 name: Publish issue as post
 jobs:
   publish-issue:
-    if: github.event.label.name == 'publish-me'
+    if: github.event.label.name == 'action:publish'
     runs-on: ubuntu-latest
     env:
       POST_BODY: '${{ github.event.issue.body }}'
@@ -43,4 +43,4 @@ jobs:
           body: "Closes #${{ github.event.issue.number }}.\n\n This PR has been generated automatically."
       - uses: actions-ecosystem/action-remove-labels@v1
         with:
-          labels: publish-me
+          labels: action:publish
