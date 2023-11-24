@@ -33,7 +33,7 @@
 - [~~an easy to understand webapp for sending and receiving sensitive data using twmporary PGP keys~~](https://sendpasswords.net)
 - a virtal pet
 - a game where you learn to build a common language with an alien
-- A filtered version of HackerNews that only shows positive news
+- [~~A filtered version of HackerNews that only shows positive news~~](https://github.com/garritfra/positive_hackernews)
 - A JSON parser
 
 ## Website Roadmap
