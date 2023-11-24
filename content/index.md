@@ -20,6 +20,10 @@ Pssst! Can you find all [hidden flags](/ctf) on this page?
 
 ## Projects
 
+**[Positive Hacker News](https://github.com/garritfra/positive_hackernews)
+
+Enjoy a more positive news-reading experience with the Positive Hacker News RSS Feed! 🌟
+
 **[sendpasswords.net](https://sendpasswords.net/)**
 
 Simplifies secure password transmission using local encryption and temporary PGP keys.
