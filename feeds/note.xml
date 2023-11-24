@@ -14,8 +14,51 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 20 Nov 2023 00:00:00 +0000
+            Fri, 24 Nov 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                A Positive Hacker News RSS Feed
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-11-24-positive-hackernews
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-11-24-positive-hackernews?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 24 Nov 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Tech news can often be overwhelmingly negative. Scrolling through <a href="https://news.ycombinator.com">HackerNews</a>, I often feel myself getting angrier at the state of the industry with each headline I read.</p>
+
+<p>I don&#39;t want to give up on the amazing content I&#39;m discovering every day on this platform, so I built an alternative RSS feed for HackerNews. It selectively presents stories that have a positive sentiment, making my news-reading experience more enjoyable and less stressful. Here&#39;s a link to the feed:</p>
+
+<p>https://garritfra.github.io/positive_hackernews/feed.xml</p>
+
+<p>It&#39;s not a pretty link, but who looks at the link of an RSS feed anyway? ;)</p>
+
+<h2>Comparison</h2>
+
+<p>Here&#39;s an example of the HackerNews feed provided by <a href="https://hnrss.github.io/">hnrss.github.io</a>:</p>
+
+<p><img alt="Before" src="/assets/posts/2023-11-24-positive-hackernews/before.png"/></p>
+
+<p>And here&#39;s the filtered, positive-only feed:</p>
+
+<p><img alt="After" src="/assets/posts/2023-11-24-positive-hackernews/after.png"/></p>
+
+<p>I don&#39;t want to urge anyone to stop reading HackerNews, but if you also struggle with seeing the bright side of tech, this could be a nice alternative.</p>
+
+<h2>Contributing</h2>
+
+<p>The source code behind this project can be found on <a href="https://github.com/garritfra/positive_hackernews">GitHub</a>. It&#39;s licensed as <a href="https://github.com/garritfra/positive_hackernews/blob/main/LICENSE">MIT</a>, so feel free to fork and build your own feed. Happy hacking!</p>
+
+<hr/>
+
+<p>This is post 087 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 re: Writing code for both computers and humans
@@ -392,29 +435,6 @@ git config diff.sqlite3.textconv &quot;echo .dump | sqlite3&quot;
 <hr/>
 
 <p>This is post 078 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                🔗 Linkdump: Software Development
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-09-11-linkdump-software-development
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-09-11-linkdump-software-development?utm_source=rss
-            </link>
-            <pubDate>
-                Mon, 11 Sep 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Today, my feed is full of super interesting links. Here&#39;s a bunch of them, in no particular order. Some of them might be a bit older, but just as interesting:</p>
-
-<ul><li><a href="https://henrikwarne.com/2023/09/10/what-i-have-changed-my-mind-about-in-software-development/">What I Have Changed My Mind About in Software Development</a></li><li><a href="https://littleblah.com/post/2019-09-01-senior-engineer-checklist/">A Senior Engineer&#39;s CheckList</a></li><li><a href="https://thoughtshrapnel.com/2023/09/11/the-burnout-curve/">The burnout curve</a></li><li><a href="https://staysaasy.com/engineering/2023/06/18/how-to-be-an-engineer-pms-down-hate.html">How To Be An Engineer That PMs Don&#39;t Hate</a></li><li><a href="https://www.allthingsdistributed.com/2023/07/building-and-operating-a-pretty-big-storage-system.html">Building and operating a pretty big storage system called S3</a></li><li><a href="https://pdx.su/blog/2023-07-26-tailwind-and-the-death-of-craftsmanship/">Tailwind, and the death of web craftsmanship</a></li><li><a href="https://taylor.town/entire-career">Man Spends Entire Career Mastering Crappy Codebase</a></li><li><a href="https://lukeplant.me.uk/blog/posts/no-one-actually-wants-simplicity/">No one actually wants simplicity</a></li></ul>
-
-<hr/>
-
-<p>This is post 077 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

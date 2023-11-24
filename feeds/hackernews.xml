@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Fri, 24 Nov 2023 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                A Positive Hacker News RSS Feed
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-11-24-positive-hackernews
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-11-24-positive-hackernews?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 24 Nov 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Tech news can often be overwhelmingly negative. Scrolling through <a href="https://news.ycombinator.com">HackerNews</a>, I often feel myself getting angrier at the state of the industry with each headline I read.</p>
+
+<p>I don&#39;t want to give up on the amazing content I&#39;m discovering every day on this platform, so I built an alternative RSS feed for HackerNews. It selectively presents stories that have a positive sentiment, making my news-reading experience more enjoyable and less stressful. Here&#39;s a link to the feed:</p>
+
+<p>https://garritfra.github.io/positive_hackernews/feed.xml</p>
+
+<p>It&#39;s not a pretty link, but who looks at the link of an RSS feed anyway? ;)</p>
+
+<h2>Comparison</h2>
+
+<p>Here&#39;s an example of the HackerNews feed provided by <a href="https://hnrss.github.io/">hnrss.github.io</a>:</p>
+
+<p><img alt="Before" src="/assets/posts/2023-11-24-positive-hackernews/before.png"/></p>
+
+<p>And here&#39;s the filtered, positive-only feed:</p>
+
+<p><img alt="After" src="/assets/posts/2023-11-24-positive-hackernews/after.png"/></p>
+
+<p>I don&#39;t want to urge anyone to stop reading HackerNews, but if you also struggle with seeing the bright side of tech, this could be a nice alternative.</p>
+
+<h2>Contributing</h2>
+
+<p>The source code behind this project can be found on <a href="https://github.com/garritfra/positive_hackernews">GitHub</a>. It&#39;s licensed as <a href="https://github.com/garritfra/positive_hackernews/blob/main/LICENSE">MIT</a>, so feel free to fork and build your own feed. Happy hacking!</p>
+
+<hr/>
+
+<p>This is post 087 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>
