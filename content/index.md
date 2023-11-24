@@ -20,7 +20,7 @@ Pssst! Can you find all [hidden flags](/ctf) on this page?
 
 ## Projects
 
-**[Positive Hacker News](https://github.com/garritfra/positive_hackernews)
+**[Positive Hacker News](https://github.com/garritfra/positive_hackernews)**
 
 Enjoy a more positive news-reading experience with the Positive Hacker News RSS Feed! 🌟
 
