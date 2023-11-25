@@ -28,6 +28,10 @@ I don't want to urge anyone to stop reading HackerNews, but if you also struggle
 
 The source code behind this project can be found on [GitHub](https://github.com/garritfra/positive_hackernews). It's licensed as [MIT](https://github.com/garritfra/positive_hackernews/blob/main/LICENSE), so feel free to fork and build your own feed. Happy hacking!
 
+## Responses
+
+- [cosmicqbit.dev](https://cosmicqbit.dev/positive-hacker-news-feed/)
+
 ---
 
 This is post 087 of [#100DaysToOffload](https://100daystooffload.com/).
