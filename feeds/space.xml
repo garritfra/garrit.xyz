@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Sun, 26 Nov 2023 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                The speed of light
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-11-26-the-speed-of-light
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-11-26-the-speed-of-light?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 26 Nov 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>If you could bend light, it could orbit the earth 7.5 times in one second.</p>
+
+<p>The light we see from our sun is around 8 <strong>minutes</strong> old. That&#39;s how much time it takes light to travel from the sun to our earth.</p>
+
+<p>It takes light 4.26 <strong>years</strong> to reach the nearest star (Alpha Centauri). Many stars we see at night are about 1.000 light years away. The next galaxy (Andromeda), 27.000 light years.</p>
+
+<p>Many of these lights have already faded — their death just hasn&#39;t reached us yet.</p>
+
+<hr/>
+
+<p>This is post 088 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>
