@@ -14,8 +14,37 @@
             en
         </language>
         <lastBuildDate>
-            Sun, 26 Nov 2023 00:00:00 +0000
+            Wed, 29 Nov 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Real vs. Fake Trends
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-11-29-real-vs.-fake-trends
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-11-29-real-vs.-fake-trends?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 29 Nov 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>The most important indicator to figure out if an emerging trend will be successful is to ask yourself if people tell their friends about it.</p>
+
+<p>To figure out if a product/market will live through the hype-cycle and succeed in the long run, see if the people are actually <strong>using it</strong> obsessively.</p>
+
+<p>When the iPhone first came out, it barely sold any units compared to the big players at the time. But it succeeded because people who owned an iPhone used it for hours every day.</p>
+
+<p>VR on the other hand gained a lot of traction in the press, but despite telling their friends about it, hardly anyone owning a VR headset actually uses it (I use mine about once a month).</p>
+
+<p><strong>Source</strong>: <a href="https://youtu.be/0lJKucu6HJc?si=HwIpCJ3g0uqwmtQf">Sam Altman - How to Succeed with a Startup</a></p>
+
+<hr/>
+
+<p>This is post 089 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 The speed of light
@@ -412,33 +441,6 @@ git config diff.sqlite3.textconv &quot;echo .dump | sqlite3&quot;
 <hr/>
 
 <p>This is post 080 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                The Mind Rope Experiment
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-10-01-the-mind-rope-experiment
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-10-01-the-mind-rope-experiment?utm_source=rss
-            </link>
-            <pubDate>
-                Sun, 01 Oct 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Close your eyes. Picture yourself standing at a ledge with a rope tied to another ledge that&#39;s 10 steps away. Now, step by step, slowly walk across this rope until you&#39;re at the other side.</p>
-
-<p>I often use this experiment as an indication for how focused I am at a given moment. As easy as this sounds, I rarely make it to the other side. On some days, I can&#39;t even step on the rope before my mind gets distracted and I have to start over. On some other days, I may get a few steps before falling off. With enough practice however, I may get to the other side.</p>
-
-<p>This technique also works very well for short meditation sessions. I close my eyes and try to get to the other side. Whenever I fall off, I try again until my mind is focused enough to walk the entire rope.</p>
-
-<p>I&#39;m curious: are you able to walk the entire rope, or are you also struggling to take control over this mindscape?</p>
-
-<hr/>
-
-<p>This is post 079 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
