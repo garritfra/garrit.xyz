@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Thu, 30 Nov 2023 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                Why you can't divide by zero
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-11-30-why-you-can't-divide-by-zero
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-11-30-why-you-can't-divide-by-zero?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 30 Nov 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;ve always been wondering why dividing by zero is considered undefined. My intuitive answer would have always been &quot;infinity&quot; or &quot;zero&quot;. I just had a discussion about this with a collegue who happens to have a degree in mathematics, and the way they explained it made it absolutely clear why it doesn&#39;t make sense to divide by zero.</p>
+
+<h2>Inverse Operations</h2>
+
+<p>Before understanding why dividing by zero is undefined, you first need to know about inverse operations. It&#39;s quite simple!</p>
+
+<p>An example: <code>3 + 2 = 5</code>. The inverse of addition is <em>subtraction</em>, so the inverse of this equasion is <code>5 - 2 = 3</code> or <code>5 - 3 = 2</code>.</p>
+
+<p>The same applies to multiplication. The inverse of multiplation is <em>division</em>. So the inverse of <code>6 * 2 = 12</code> is <code>12 / 2 = 6</code> or <code>12 / 6 = 2</code>.</p>
+
+<h2>Dividing by zero</h2>
+
+<p>Let&#39;s try to apply the inverse rule to the number zero, starting with addition. If <code>2 + 0 = 2</code>, then <code>2 - 0 = 2</code>.</p>
+
+<p>But if we have <code>2 * 0 = 0</code>, the inverse of that would be <code>0 / 0 = 2</code>, which is just not true.</p>
+
+<p>Dividing by zero breaks some fundamental laws of mathematics, which is why there&#39;s a general consensus that any equasion dividing by zero has no valid answer.</p>
+
+<hr/>
+
+<p>This is post 090 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>

@@ -14,8 +14,45 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 29 Nov 2023 00:00:00 +0000
+            Thu, 30 Nov 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Why you can't divide by zero
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-11-30-why-you-can't-divide-by-zero
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-11-30-why-you-can't-divide-by-zero?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 30 Nov 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;ve always been wondering why dividing by zero is considered undefined. My intuitive answer would have always been &quot;infinity&quot; or &quot;zero&quot;. I just had a discussion about this with a collegue who happens to have a degree in mathematics, and the way they explained it made it absolutely clear why it doesn&#39;t make sense to divide by zero.</p>
+
+<h2>Inverse Operations</h2>
+
+<p>Before understanding why dividing by zero is undefined, you first need to know about inverse operations. It&#39;s quite simple!</p>
+
+<p>An example: <code>3 + 2 = 5</code>. The inverse of addition is <em>subtraction</em>, so the inverse of this equasion is <code>5 - 2 = 3</code> or <code>5 - 3 = 2</code>.</p>
+
+<p>The same applies to multiplication. The inverse of multiplation is <em>division</em>. So the inverse of <code>6 * 2 = 12</code> is <code>12 / 2 = 6</code> or <code>12 / 6 = 2</code>.</p>
+
+<h2>Dividing by zero</h2>
+
+<p>Let&#39;s try to apply the inverse rule to the number zero, starting with addition. If <code>2 + 0 = 2</code>, then <code>2 - 0 = 2</code>.</p>
+
+<p>But if we have <code>2 * 0 = 0</code>, the inverse of that would be <code>0 / 0 = 2</code>, which is just not true.</p>
+
+<p>Dividing by zero breaks some fundamental laws of mathematics, which is why there&#39;s a general consensus that any equasion dividing by zero has no valid answer.</p>
+
+<hr/>
+
+<p>This is post 090 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Real vs. Fake Trends
@@ -416,31 +453,6 @@ git config diff.sqlite3.textconv &quot;echo .dump | sqlite3&quot;
 <hr/>
 
 <p>This is post 081 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Project Hail Mary
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-10-03-project-hail-mary
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-10-03-project-hail-mary?utm_source=rss
-            </link>
-            <pubDate>
-                Tue, 03 Oct 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I just finished the book <a href="https://wikipedia.org/wiki/Project_Hail_Mary">Project Hail Mary</a> by Andy Weir. Rating: ⭐⭐⭐⭐⭐</p>
-
-<p>I&#39;m completely nerdsniped. I was looking forward to each chapter, eagerly waiting for what will happen next. This book is full of completely unexpected turns, though I never felt lost. The plot is well thought out. Every chapter is like a puzzle piece that perfectly adds to the greater picture.</p>
-
-<p>When I first heard about this book I was a bit skeptical. &quot;Human stranded in space&quot; surely can&#39;t fill some 500 pages (I&#39;m looking at you, <a href="https://wikipedia.org/wiki/Gravity_(2013_film)">Gravity</a>). But having read <a href="https://wikipedia.org/wiki/The_Martian_(Weir_novel)#">The Martian</a> some time ago, I knew that Andy Weir&#39;s style of writing would catch me. And catch me he did. The way he describes complex topics completely resonates with me. No matter how unsolvable the problems of the protagonist seem, it&#39;s always an invitation to get your mind blown by the solution.</p>
-
-<hr/>
-
-<p>This is post 080 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
