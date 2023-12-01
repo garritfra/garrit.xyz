@@ -10,7 +10,7 @@ I've always been wondering why dividing by zero is considered undefined. My intu
 
 Before understanding why dividing by zero is undefined, you first need to know about inverse operations. It's quite simple!
 
-An example: `3 + 2 = 5`. The inverse of addition is *subtraction*, so the inverse of this equasion is `5 - 2 = 3` or `5 - 3 = 2`.
+An example: `3 + 2 = 5`. The inverse of addition is *subtraction*, so the inverse of this equation is `5 - 2 = 3` or `5 - 3 = 2`.
 
 The same applies to multiplication. The inverse of multiplation is *division*. So the inverse of `6 * 2 = 12` is `12 / 2 = 6` or `12 / 6 = 2`.
 
