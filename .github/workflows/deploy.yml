@@ -21,7 +21,7 @@ jobs:
         run: npm install
       - name: Build
         run: |
-          npm run build:static
+          npm run build
           touch out/.nojekyll
           echo "garrit.xyz" > CNAME
       - name: Deploy
