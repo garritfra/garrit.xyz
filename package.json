@@ -6,7 +6,6 @@
 		"start": "npm run build && next dev",
 		"start:prod": "npm run build && next start",
 		"build": "next build && npm run build:rss && npm run build:sitemap && next build",
-		"build:static": "npm run build && next export",
 		"build:rss": "ts-node lib/rss.ts",
 		"build:sitemap": "next-sitemap"
 	},
