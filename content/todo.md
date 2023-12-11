@@ -36,6 +36,7 @@
 - [~~A filtered version of HackerNews that only shows positive news~~](https://github.com/garritfra/positive_hackernews)
 - An RSS proxy that filters out negative content
 - A JSON parser
+- A game that teaches the principles of DevOps through a Kanban-style UI
 
 ## Website Roadmap
 
