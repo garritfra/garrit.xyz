@@ -14,8 +14,35 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 11 Dec 2023 00:00:00 +0000
+            Tue, 12 Dec 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Roast my Site!
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-12-12-roast-my-site
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-12-12-roast-my-site?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 12 Dec 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Let&#39;s try something: <code>#RoastMySite</code>!</p>
+
+<p>I want to hear your honest feedback about my website. (Not so) constructive criticism, funny bug reports and savage burns. 🔥</p>
+
+<p><a href="/contact">Shoot me a mail</a> with your roast and I&#39;ll include it on this site!</p>
+
+<p>Got your own site? I&#39;ll roast it! Just ping me via mail or <a href="https://fosstodon.org/@garritfra">on Mastodon</a>.</p>
+
+<hr/>
+
+<p>This is post 093 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Formula E is essentially Mario Kart
@@ -381,86 +408,6 @@ git config diff.sqlite3.textconv &quot;echo .dump | sqlite3&quot;
 <hr/>
 
 <p>This is post 084 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Organizing multiple Git identities
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-10-13-organizing-multiple-git-identities
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-10-13-organizing-multiple-git-identities?utm_source=rss
-            </link>
-            <pubDate>
-                Fri, 13 Oct 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Here&#39;s a quick tip on how to manage multiple Git identities (e.g. personal, work, client1, client2).</p>
-
-<p>I organize my Git repos in three levels. My personal projects live in a <code>~/sources</code> directory. All my work projects live in <code>~/work</code>. This is the first level.</p>
-
-<p>Level 2 is the client, e.g. <code>~/work/client1</code>. Naturally, level 3 is the project repository: <code>~/work/client1/foo-api</code>.</p>
-
-<p>This is how my work directory is organized:</p>
-
-<p><code>
-/Users/garrit/work
-├── client1
-│   ├── foo-api
-│   ├── foo-ios
-│   └── foo-android
-└── client2
-    ├── bar-ios
-    └── bar-middleware
-</code></p>
-
-<p>Now, say that <code>client2</code> demands that we commit with a different identity than our default work email. Besides that, you probably also have a personal email address for your own projects. How do you manage that?</p>
-
-<h2>.gitconfig includes</h2>
-
-<p>The global configuration file for Git is <code>~/.gitconfig</code>. If you&#39;ve ever set a parameter like <code>git config user.name &quot;Foo Bar&quot;</code>: this is where it ended up.</p>
-
-<p>One awesome feature of the .gitconfig file is that you can <strong>conditionally include other config files</strong>, and this is what does the trick. Here&#39;s my <code>~/.gitconfig</code> file:</p>
-
-<p><code></code>`ini
-[user]
-    name = Garrit Franke
-    email = garrit@slashdev.space</p>
-
-<p>[includeIf &quot;gitdir:~/work/&quot;]
-    path = ~/.gitconfig-work</p>
-
-<p>[includeIf &quot;gitdir:~/work/client2/&quot;]
-    path = ~/.gitconfig-client2</p>
-
-<p>[includeIf &quot;gitdir:~/sources/&quot;]
-    path = ~/.gitconfig-personal</p>
-
-<h1>...</h1>
-
-<p><code></code>`</p>
-
-<p>By default, my name and email are always set to my personal identity. I also store some other global settings here, but those are not relevant for this post. If the repository is located inside the <code>~/work</code> directory, a file named <code>~/.gitconfig-work</code> is included. This is just another gitconfig file. This is what that looks like in my case:</p>
-
-<p><code></code>`ini
-[user]
-    name = Garrit Franke
-    signingkey = 12345678
-    email = garrit@work.de</p>
-
-<p>[commit]
-    gpgsign = true
-<code></code>`</p>
-
-<p>I hope you&#39;ll see where this is going. For every identity, you keep a separate gitconfig file and include it in the main <code>~/.gitconfig</code>. Crucially, this requires you to organize your repositories grouped by client.</p>
-
-<p>This trick has simplified my project onboarding quite a bit. No more &quot;You forgot to update your Email Address&quot; requests from clients!</p>
-
-<hr/>
-
-<p>This is post 083 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
