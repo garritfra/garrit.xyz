@@ -37,6 +37,7 @@
 - An RSS proxy that filters out negative content
 - A JSON parser
 - A game that teaches the principles of DevOps through a Kanban-style UI
+- A frontend for GnuCash geared towards Freelancers
 
 ## Website Roadmap
 
