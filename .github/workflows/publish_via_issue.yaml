@@ -16,7 +16,7 @@ jobs:
           export POST_DATE=$(date +"%Y-%m-%d")
           export POST_TITLE="${{ github.event.issue.title }}"
           export POST_TAGS=$(echo "${{ join(github.event.issue.labels.*.name, ', ') }}" | grep -o 'tag:[^,]*' | cut -d: -f2- | paste -sd " " - | sed 's/ /, /g')
-          export FILE_TITLE=$(printf "$POST_TITLE" | tr -cd '[:alnum:]._-')
+          export FILE_TITLE=$(printf "$POST_TITLE" | tr -cs '[:alnum:]' '-' | tr 'A-Z' 'a-z' | sed 's/--/-/g' | sed 's/^-\|-$//g')
           export FILE_NAME="$POST_DATE-$FILE_TITLE.md"
           export FULL_PATH="content/posts/$FILE_NAME"
           git config user.name 'Publish Bot'
