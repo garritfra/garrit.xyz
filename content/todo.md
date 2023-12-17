@@ -38,6 +38,7 @@
 - A JSON parser
 - A game that teaches the principles of DevOps through a Kanban-style UI
 - A frontend for GnuCash geared towards Freelancers
+- "Git For Babies" book
 
 ## Website Roadmap
 
