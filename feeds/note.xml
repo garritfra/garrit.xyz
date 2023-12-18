@@ -14,8 +14,41 @@
             en
         </language>
         <lastBuildDate>
-            Fri, 15 Dec 2023 00:00:00 +0000
+            Mon, 18 Dec 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Overcoming "air hunger"
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-12-18-overcoming-air-hunger
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-12-18-overcoming-air-hunger?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 18 Dec 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>For as long as I can remember, I often had the feeling of not being able to get a full breath. I&#39;m taking deep breaths and sometimes forcing a yawn to overcome this feeling, sometimes successful, sometimes failing and trying again. This feeling gets worse the more I focus on my breath.</p>
+
+<p>I always felt like this is somewhat uncommon, since none of my friends and family can relate to this feeling, but it wasn&#39;t worse enough to justify consulting a doctor about it either.</p>
+
+<p>Doing some research, it seems like this phenomenon is called <a href="https://en.m.wikipedia.org/wiki/Shortness_of_breath">dyspnea</a>, or &quot;air hunger&quot;. Some guy even made <a href="https://airhunger.org/">a website</a> about it. In a nutshell, it is caused by your body not being able to regulate carbon levels in your blood, which leads to an urge to breath unnaturally.</p>
+
+<p>In a <a href="https://m.youtube.com/watch?v=XliOGg8Tl98">video</a>, the author points out that this might be caused by irregular breathing patterns. Indeed, I often find myself breathing through the mouth or sitting in awkward positions with a humpback when the symptoms are at its worst. In fact, what led me to look this up was because I was annoyed by the feeling while I&#39;m laying in bed staring down at my screen, which is a very unnatural position.</p>
+
+<p>A simple trick to get into a more regular breathing pattern is apparently to force yourself to breathe through the nose. Mouth breathing lets your body take in way more air than you need, which throws off the balance of the carbon levels in your lungs.</p>
+
+<p>It seems like nose breathing does work very well. Where I&#39;ve just been struggling with air hunger, once I forced myself to nose breathe, the urge to breathe doesn&#39;t come nearly as often anymore.</p>
+
+<p>These are just my results after some quick research. The topic of short breathing seems to be quite broad. Perhaps you&#39;re struggling with this as well. In that case, I hope this post was helpful to you!</p>
+
+<hr/>
+
+<p>This is post 095 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 I'm finally off coffee
@@ -319,31 +352,6 @@
 <hr/>
 
 <p>This is post 086 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                My App Defaults (Late 2023)
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-11-07-app-defaults
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-11-07-app-defaults?utm_source=rss
-            </link>
-            <pubDate>
-                Tue, 07 Nov 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Apparently there&#39;s currently a thing where people share their preferred apps. If you like this format, check out Robb Knight&#39;s <a href="https://defaults.rknight.me/">list of App Defaults blog posts</a>.</p>
-
-<p>Without further ado, here&#39;s my list:</p>
-
-<ul><li>📨 Mail Client: Thunderbird</li><li>📮 Mail Server: Purelymail</li><li>📝 Notes: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a></li><li>✅ To-Do: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a></li><li>🟦 Photo Management: Google Photos</li><li>📆 Calendar: Google Calendar</li><li>📁 Cloud File Storage: Google Drive</li><li>📖 RSS: Miniflux</li><li>🙍🏻‍♂️ Contacts: Google Contacts</li><li>🌐 Browser: Firefox</li><li>💬 Chat: WhatsApp</li><li>🔖 Bookmarks: Firefox</li><li>📑 Read It Later: Pocket</li><li>📜 Word Processing: Markdown, Google Docs</li><li>📈 Spreadsheets: Google Sheets</li><li>📊 Presentations: Google Slides</li><li>🛒 Shopping Lists: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a></li><li>🍴 Meal Planning: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a></li><li>💰 Budgeting and Personal Finance: GnuCash</li><li>📰 News: Mostly HackerNews via Miniflux</li><li>🎵 Music: Spotify</li><li>🎤 Podcasts: AntennaPod</li><li>🔐 Password Management: Bitwarden</li></ul>
-
-<hr/>
-
-<p>This is post 085 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

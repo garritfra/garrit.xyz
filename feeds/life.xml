@@ -14,8 +14,41 @@
             en
         </language>
         <lastBuildDate>
-            Fri, 15 Dec 2023 00:00:00 +0000
+            Mon, 18 Dec 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Overcoming "air hunger"
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-12-18-overcoming-air-hunger
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-12-18-overcoming-air-hunger?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 18 Dec 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>For as long as I can remember, I often had the feeling of not being able to get a full breath. I&#39;m taking deep breaths and sometimes forcing a yawn to overcome this feeling, sometimes successful, sometimes failing and trying again. This feeling gets worse the more I focus on my breath.</p>
+
+<p>I always felt like this is somewhat uncommon, since none of my friends and family can relate to this feeling, but it wasn&#39;t worse enough to justify consulting a doctor about it either.</p>
+
+<p>Doing some research, it seems like this phenomenon is called <a href="https://en.m.wikipedia.org/wiki/Shortness_of_breath">dyspnea</a>, or &quot;air hunger&quot;. Some guy even made <a href="https://airhunger.org/">a website</a> about it. In a nutshell, it is caused by your body not being able to regulate carbon levels in your blood, which leads to an urge to breath unnaturally.</p>
+
+<p>In a <a href="https://m.youtube.com/watch?v=XliOGg8Tl98">video</a>, the author points out that this might be caused by irregular breathing patterns. Indeed, I often find myself breathing through the mouth or sitting in awkward positions with a humpback when the symptoms are at its worst. In fact, what led me to look this up was because I was annoyed by the feeling while I&#39;m laying in bed staring down at my screen, which is a very unnatural position.</p>
+
+<p>A simple trick to get into a more regular breathing pattern is apparently to force yourself to breathe through the nose. Mouth breathing lets your body take in way more air than you need, which throws off the balance of the carbon levels in your lungs.</p>
+
+<p>It seems like nose breathing does work very well. Where I&#39;ve just been struggling with air hunger, once I forced myself to nose breathe, the urge to breathe doesn&#39;t come nearly as often anymore.</p>
+
+<p>These are just my results after some quick research. The topic of short breathing seems to be quite broad. Perhaps you&#39;re struggling with this as well. In that case, I hope this post was helpful to you!</p>
+
+<hr/>
+
+<p>This is post 095 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 I'm finally off coffee
@@ -322,38 +355,6 @@ need it.</p>
 <hr/>
 
 <p>This is post 070 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Optimizing work batch size
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-05-19-work-batch-sizing
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-05-19-work-batch-sizing?utm_source=rss
-            </link>
-            <pubDate>
-                Fri, 19 May 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I&#39;ve been playing 
-<a href="https://en.m.wikipedia.org/wiki/Carcassonne_(board_game)">Carcassonne</a> a lot with my girlfriend recently. It&#39;s a boardgame about building cities, roads and farms, and each completed &quot;project&quot; earns you some amount of points. The twist is that there&#39;s only a limited number of tiles, and once all tiles are used, the game is over unfinished projects are discarded.</p>
-
-<p>The first couple of playthroughs I tried to maximize my score by increasing the number of projects I actively had going. I&#39;d start a new city or road whenever I could, thinking that the multipliers you sometimes get would pay off in the end. Boy was I wrong.</p>
-
-<p>Where I&#39;m from, we have multiple sayings for this approach. &quot;Having too many irons in the fire&quot; or &quot;dancing on too many parties&quot;. I was too busy starting new projects instead of making actual progress.</p>
-
-<p>A far better approach is to finish projects early, earning less points, but with a greater certainty that they will pay off. With every project you start, the likelyhood of the other projects paying off decreases.</p>
-
-<p>Keeping batch sizes small was a key concept of the <a href="https://en.m.wikipedia.org/wiki/Lean_manufacturing">lean manufacturing movement</a> in the 1980s, and has since been adopted by the <a href="https://de.m.wikipedia.org/wiki/DevOps">DevOps movement</a> for the IT industry. If you want to learn more about this topic, you should check out <a href="https://itrevolution.com/product/the-devops-handbook-second-edition/">The DevOps Handbook</a>. It goes well beyond the basics of making IT processes more productive and efficient.</p>
-
-<p>After realizing that small batch sizes are the key to success, I haven&#39;t lost a game of Carcassonne since. I hope you&#39;re not reading this, honey.🤭</p>
-
-<hr/>
-
-<p>This is post 068 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

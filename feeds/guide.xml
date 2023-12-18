@@ -14,8 +14,41 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 01 Nov 2023 00:00:00 +0000
+            Mon, 18 Dec 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Overcoming "air hunger"
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-12-18-overcoming-air-hunger
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-12-18-overcoming-air-hunger?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 18 Dec 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>For as long as I can remember, I often had the feeling of not being able to get a full breath. I&#39;m taking deep breaths and sometimes forcing a yawn to overcome this feeling, sometimes successful, sometimes failing and trying again. This feeling gets worse the more I focus on my breath.</p>
+
+<p>I always felt like this is somewhat uncommon, since none of my friends and family can relate to this feeling, but it wasn&#39;t worse enough to justify consulting a doctor about it either.</p>
+
+<p>Doing some research, it seems like this phenomenon is called <a href="https://en.m.wikipedia.org/wiki/Shortness_of_breath">dyspnea</a>, or &quot;air hunger&quot;. Some guy even made <a href="https://airhunger.org/">a website</a> about it. In a nutshell, it is caused by your body not being able to regulate carbon levels in your blood, which leads to an urge to breath unnaturally.</p>
+
+<p>In a <a href="https://m.youtube.com/watch?v=XliOGg8Tl98">video</a>, the author points out that this might be caused by irregular breathing patterns. Indeed, I often find myself breathing through the mouth or sitting in awkward positions with a humpback when the symptoms are at its worst. In fact, what led me to look this up was because I was annoyed by the feeling while I&#39;m laying in bed staring down at my screen, which is a very unnatural position.</p>
+
+<p>A simple trick to get into a more regular breathing pattern is apparently to force yourself to breathe through the nose. Mouth breathing lets your body take in way more air than you need, which throws off the balance of the carbon levels in your lungs.</p>
+
+<p>It seems like nose breathing does work very well. Where I&#39;ve just been struggling with air hunger, once I forced myself to nose breathe, the urge to breathe doesn&#39;t come nearly as often anymore.</p>
+
+<p>These are just my results after some quick research. The topic of short breathing seems to be quite broad. Perhaps you&#39;re struggling with this as well. In that case, I hope this post was helpful to you!</p>
+
+<hr/>
+
+<p>This is post 095 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Tracking SQLite Database Changes in Git
@@ -460,145 +493,6 @@ aws ecs execute-command --cluster westfalen --task &lt;task-id-or-arn&gt; --cont
 <hr/>
 
 <p>This is post 051 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                6 ways you can contribute to open knowledge right now
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2022-12-05-contributing-to-open-source-knowledge
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2022-12-05-contributing-to-open-source-knowledge?utm_source=rss
-            </link>
-            <pubDate>
-                Mon, 05 Dec 2022 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I wrote the initial draft for this post a few months ago, traveling through
-Norway in a rented campervan. While roaming the beautiful landscapes, I spent a
-lot of time thinking. Reading books while traveling really is the best way to
-find new inspiration.</p>
-
-<p>On our trip, we wanted to try out an alternative to Google Maps. Most of the
-OpenStreetMap-based apps lack important features, but we recently stumbled upon
-<a href="https://www.magicearth.com/">MagicEarth</a>, which perfectly fills the void.
-OpenStreetMap has been 95% accurate for us. Those last 5% are mostly less famous
-hiking trails and attractions that could easily be filled in by people like you
-and me. This inspired me to write this blog post, where I share six ways that
-you can contribute to open source knowledge right now.</p>
-
-<h2>OpenStreetMap</h2>
-
-<p>As mentioned above, I spotted some minor inconsistencies in
-<a href="https://openstreetmap.org">OpenStreetMap</a> while driving through Norway. We
-tracked our hikes with an app that is able to export a GPX file, which can be
-imported to OpenStreetMap to check if the trail matches (or if it is missing),
-and took note of incorrect or sloppy roads/buildings. Back home, I plan to sit
-down and fix up those issues.</p>
-
-<p>But you don&#39;t have to be on a roadtrip to contribute to OpenStreetMap! Chances
-are you know your local surroundings pretty well. Just navigate to your
-neighborhood and see what could be improved. Maybe you know a public toilet, a
-park or a secret road that is not shown on the map? As a matter of fact, my
-private address was missing, so I added it via the editor. I can now use any of
-the many OpenStreetMap-based apps to navigate home!</p>
-
-<h2>Wikipedia (and other wikis)</h2>
-
-<p>I often feel like I can&#39;t contribute much to the vast knowledge of Wikipedia.
-<em>Other people are way smarter than me</em> and whatnot. But while you might not be
-able to publish worthy edits to a well-known topic, you might know some things
-that others haven&#39;t thought of. Is there an entry about your local town? Is
-there an interesting member of your (past) family that others might want to read
-about?</p>
-
-<p>Of course, there are other wikis beside Wikipedia. Are you using a little-known
-tool that has open source documentation in the form of a wiki? How can it be
-improved?</p>
-
-<h2>Observation</h2>
-
-<p>You might have never heard of <a href="https://observation.org">observation.org</a>. It&#39;s
-an open biodiversity- and nature-database. I just recently learned about them in
-our local museum. They had a special exhibition about insects, and called out
-for contributions to map out our local flora and fauna.</p>
-
-<p>The idea is simple: snap a picture of an interesting looking insect or plant,
-upload it using the website (or one of their apps) and create an &quot;observation&quot;.
-Using this information, researchers will be able to understand the biodiversity
-of your area. The information is free to use, and anyone can contribute!</p>
-
-<h2>Wardriving</h2>
-
-<p>Wardriving is a fun and useful way to contribute to open source knowledge. By
-driving around with a device that can detect and record wireless networks, you
-can help to map out the wireless coverage in your area. This information can be
-used by researchers, network operators, and other interested parties to
-understand the availability and quality of wireless networks.</p>
-
-<p>One popular tool for wardriving is <a href="https://wigle.net/">WiGLE</a>. WiGLE allows you
-to easily collect and share information about wireless networks, and contribute
-to the global wireless map. To get started with WiGLE, you will need a device
-that can detect and record wireless networks. This can be a smartphone, laptop,
-or dedicated wardriving device. You will also need to download and install the
-WiGLE app, and some basic knowledge of how to use it.</p>
-
-<p>Once you have set up WiGLE, you can start driving around and mapping out the
-wireless networks in your area. As you collect data, it will be automatically
-uploaded to the WiGLE database, where it can be used by researchers and other
-interested parties. Wardriving with WiGLE is a fun and easy way to help advance
-scientific research and understanding.</p>
-
-<h2>folding@home</h2>
-
-<p>Another way to contribute to open source knowledge is to participate in the
-<a href="https://foldingathome.org/">folding@home</a> project. folding@home is a
-distributed computing project that uses the idle processing power of volunteers&#39;
-computers to perform scientific calculations and simulations. These calculations
-are used to study a wide range of topics, including protein folding, drug
-design, and the origins of the universe.</p>
-
-<p>By joining the folding@home network, you can help to advance scientific research
-and discovery. The project is open to anyone, and you can participate using your
-personal computer, laptop, or even your smartphone. All you need to do is
-download and install the folding@home software, and then select the types of
-calculations that you want to contribute to.</p>
-
-<p>The folding@home project is a great way to put your idle computing power to good
-use, and to contribute to the global effort to advance scientific knowledge. To
-learn more, visit the <a href="https://foldingathome.org/">folding@home website</a>.</p>
-
-<h2>Blog posts</h2>
-
-<p>Writing a blog post is a fun and engaging way to contribute to open source
-knowledge. You don&#39;t need to be a professional writer or have a formal writing
-style. Just jot down some notes about a topic that you are passionate about, and
-share your experiences and expertise with others.</p>
-
-<p>Not only will you be helping others to learn from your experiences, but writing
-a blog post can also be beneficial for yourself. Capturing your thoughts and
-ideas in writing can help you to better understand and organize your own
-knowledge. It can also be a great way to reflect on your experiences and to
-learn from your successes and failures.</p>
-
-<p>If you&#39;re interested in blogging, you might want to check out the
-<a href="https://100daystooffload.com/">100DaysToOffload</a> project!</p>
-
-<h1>Wrapping up</h1>
-
-<p>As you can see, there are many ways that you can contribute to open source
-knowledge, even if you don&#39;t have a lot of time or expertise. By participating
-in projects like OpenStreetMap, Wikipedia, observation.org, and folding@home, or
-by sharing your experiences and expertise through blog posts, you can make a
-real difference in the community.</p>
-
-<p>Why not give it a try? You might be surprised by how much you can learn and how
-much you can help others. And who knows, you might even have some fun along the
-way! Thanks for reading, and happy contributing!</p>
-
-<p>This is post 044 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
