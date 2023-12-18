@@ -14,8 +14,35 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 30 Nov 2023 00:00:00 +0000
+            Tue, 19 Dec 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Another reason you can't divide by zero
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-12-19-another-reason-you-can-t-divide-by-zero
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-12-19-another-reason-you-can-t-divide-by-zero?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 19 Dec 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>So, I recently wrote about [why you can&#39;t divide by zero](/posts/2023-11-30-why-you-can&#39;t-divide-by-zero). In that post, I argued that dividing a number by zero breaks the rules of <a href="https://en.m.wikipedia.org/wiki/Inverse_function">inverse functions</a>. Of course that&#39;s not the only way to prove that the result of dividing a number by zero is not defined, so here&#39;s another.</p>
+
+<p>If you approach the number zero from some arbitrary number as the divisor, you will find that the result is getting larger and larger: <code>1 / 1 = 1</code>, <code>1 / 0.5 = 2</code>, <code>1 / 0.1 = 10</code> and so on. If we keep dividing by smaller numbers, the result will get bigger and bigger. It&#39;s obvious that if we go all the way down to zero as the divisor, we will see infinity as the result, right? Well, no.</p>
+
+<p>Let&#39;s flip this around and start from a negative number, going up towards the number zero: <code>1 / -1 = -1</code>, <code>1 / -0.5 = -2</code>, <code>1 / -0.1 = -10</code>. As you can see, the numbers are getting <strong>smaller</strong>, the more we approach the number zero! This shows that the results differ if we change the perspective on the problem. The result cannot be defined.</p>
+
+<p>After writing the first post on this topic, I honestly didn&#39;t realize how complex this seemingly simple problem is. I&#39;m not a mathematician, but I&#39;m starting to like maths. Fascinating stuff!</p>
+
+<hr/>
+
+<p>This is post 096 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Why you can't divide by zero
