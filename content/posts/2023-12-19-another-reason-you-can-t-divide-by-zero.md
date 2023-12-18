@@ -1,6 +1,6 @@
 ---
 title: "Another reason you can't divide by zero"
-date: "2023-12-18"
+date: "2023-12-19"
 tags: "100DaysToOffload, note, life, til, math"
 ---
 
