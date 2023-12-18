@@ -1,7 +1,7 @@
 ---
 title: "Another reason why you can't divide by zero"
 date: "2023-12-19"
-tags: "100DaysToOffload, note, life, til, math"
+tags: "100DaysToOffload, note, til, math"
 ---
 
 So, I recently wrote about [why you can't divide by zero](/posts/2023-11-30-why-you-can't-divide-by-zero). In that post, I argued that dividing a number by zero breaks the rules of [inverse functions](https://en.m.wikipedia.org/wiki/Inverse_function). Of course that's not the only way to prove that the result of dividing a number by zero is not defined, so here's another.
