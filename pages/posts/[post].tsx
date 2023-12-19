@@ -50,7 +50,7 @@ export default function BlogTemplate(props) {
 				</a>
 				<RWebShare
 					data={{
-						text: `${props.post.frontmatter.title}\n\n`,
+						text: `${props.post.frontmatter.title}\n`,
 						url: !SSR && window.location.href,
 						title: props.post.frontmatter.title,
 					}}
