@@ -47,13 +47,6 @@ export default function Page(props) {
 				)}
 				<div className="page__body e-content">{props.children}</div>
 			</article>
-			<Script
-				src="https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.iife.js"
-				defer
-				/*
-      			// @ts-ignore */
-				init
-			></Script>
 		</Layout>
 	);
 }

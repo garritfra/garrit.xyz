@@ -3,11 +3,14 @@ import matter from "gray-matter";
 import BlogList from "../../components/BlogList";
 import Markdown from "../../components/Markdown";
 import Page from "../../components/Page";
-import TagIcon from "../../components/TagIcon";
+import { RWebShare } from "react-web-share";
 import { getPosts, getPublishedPosts, isPublicPost } from "../../lib/posts";
 import { getTopicTags } from "../../lib/tags";
+import useSSR from "../../hooks/useSSR";
 
 export default function BlogTemplate(props) {
+	const SSR = useSSR();
+
 	function reformatDate(fullDate: string) {
 		const date = new Date(fullDate);
 		return date.toDateString().slice(4);
@@ -33,29 +36,29 @@ export default function BlogTemplate(props) {
 		>
 			<Markdown>{props.post.markdownBody}</Markdown>
 			<hr />
-			<p>
+			<p className="horizontal-list">
 				<a
 					href={`mailto:garrit@slashdev.space?subject=Re: ${encodeURIComponent(
 						props.post.frontmatter.title
 					)}`}
 				>
-					Reply via E-Mail
+					<button>💌️ Reply via E-Mail</button>
 				</a>
+				<RWebShare
+					data={{
+						text: `${props.post.frontmatter.title}\n`,
+						url: !SSR && window.location.href,
+						title: props.post.frontmatter.title,
+					}}
+					onClick={() => console.log("shared successfully!")}
+				>
+					<button>🔗 Share</button>
+				</RWebShare>
 			</p>
-			<a href="https://www.buymeacoffee.com/garrit" target="_blank">
-				<img src="https://img.buymeacoffee.com/button-api/?text=Buy me a tea&emoji=&slug=garrit&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" />
-			</a>
 
-			<div className="shareon">
-				<a className="facebook"></a>
-				<a className="linkedin"></a>
-				<a className="mastodon"></a>
-				<a className="pocket"></a>
-				<a className="reddit"></a>
-				<a className="telegram"></a>
-				<a className="twitter"></a>
-				<a className="whatsapp"></a>
-			</div>
+			<a href="https://www.buymeacoffee.com/garrit" target="_blank">
+				<img src="https://img.buymeacoffee.com/button-api/?text=Buy me a tea&emoji=&slug=garrit&button_colour=FFB300&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" />
+			</a>
 
 			<hr />
 
