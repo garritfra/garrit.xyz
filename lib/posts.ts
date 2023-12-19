@@ -19,7 +19,7 @@ export interface Post {
 export const isPublicPost = (post: Post) => !post.slug.startsWith("_");
 
 export const getPosts = async (
-	includeBody: Boolean = false
+	includeBody: boolean = false
 ): Promise<Post[]> => {
 	const files = await glob("content/posts/*.md");
 	const postPromises = files.map(async (filepath): Promise<Post> => {
@@ -57,7 +57,7 @@ export const getPosts = async (
 };
 
 export const getPublishedPosts = async (
-	includeBody: Boolean = false
+	includeBody: boolean = false
 ): Promise<Post[]> => {
 	return (await getPosts(includeBody)).filter(isPublicPost);
 };
