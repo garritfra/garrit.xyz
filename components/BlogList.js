@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { usePlausible } from "next-plausible";
 
 const BlogList = ({ posts }) => {
@@ -18,7 +17,7 @@ const BlogList = ({ posts }) => {
 				{reformatDate(post.frontmatter.date)}
 			</time>
 			<br />
-			<Link href={`/posts/${post.slug}`}>{post.frontmatter.title}</Link>
+			<a href={`/posts/${post.slug}`}>{post.frontmatter.title}</a>
 		</div>
 	);
 

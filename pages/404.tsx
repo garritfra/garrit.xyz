@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Link from "next/link";
 import Page from "../components/Page";
 
 export default function FourOhFour() {
@@ -20,9 +19,7 @@ export default function FourOhFour() {
 	return (
 		<Page>
 			<h1>404 - Page Not Found</h1>
-			<Link href="/">
-				<a>Go back home</a>
-			</Link>
+			<a href="/">Go back home</a>
 		</Page>
 	);
 }
