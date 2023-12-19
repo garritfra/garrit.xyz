@@ -5,13 +5,10 @@ import Page from "../components/Page";
 import BlogList from "../components/BlogList";
 import { getPublishedPosts } from "../lib/posts";
 import Markdown from "../components/Markdown";
+import useSSR from "../hooks/useSSR";
 
 const Index = (props) => {
-	// TODO: Can this be simplified?
-	const [SSR, setSSR] = useState(true);
-	useEffect(() => {
-		setSSR(false);
-	});
+	const SSR = useSSR();
 
 	const mediaQuery =
 		!SSR && window.matchMedia("(prefers-reduced-motion: reduce)");

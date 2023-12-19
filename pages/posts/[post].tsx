@@ -6,14 +6,10 @@ import Page from "../../components/Page";
 import { RWebShare } from "react-web-share";
 import { getPosts, getPublishedPosts, isPublicPost } from "../../lib/posts";
 import { getTopicTags } from "../../lib/tags";
-import { useEffect, useState } from "react";
+import useSSR from "../../hooks/useSSR";
 
 export default function BlogTemplate(props) {
-	// TODO: Can this be simplified?
-	const [SSR, setSSR] = useState(true);
-	useEffect(() => {
-		setSSR(false);
-	});
+	const SSR = useSSR();
 
 	function reformatDate(fullDate: string) {
 		const date = new Date(fullDate);
