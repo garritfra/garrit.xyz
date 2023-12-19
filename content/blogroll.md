@@ -9,25 +9,37 @@ mail](mailto:garrit@slashdev.space)!
 
 ### Blogs
 
-- [Ben Stokes (Tiny Projects)](https://tinyprojects.dev/)
-- [Devine Lu Linvega](https://wiki.xxiivv.com/)
-- [Drew DeVault](https://drewdevault.com/)
-- [Kev Quirk](https://kevq.uk/)
-- [Matt Rickard](https://matt-rickard.com/)
-- [Randall Munroe (xkcd)](https://xkcd.com/)
-- [Ru Singh](https://rusingh.com/)
-- [Sotolf](https://wordsmith.social/sotolf/)
-- [Tomaso Marmo](https://tommi.space/)
+**[Ben Stokes (Tiny Projects)](https://tinyprojects.dev/)** – Ben builds turns ideas into minimum viable projects that actually make money!
+
+**[Drew DeVault](https://drewdevault.com/)** – Drew admittedly has controversial opinions, but his blog is worth reading.
+
+**[Kev Quirk](https://kevq.uk/)** – On blogging, tiny websites and life.
+
+**[Matt Rickard](https://matt-rickard.com/)** – Very insightful short daily posts about Cloud Infrastructure, Entrepreneurship and AI.
+
+**[Randall Munroe (xkcd)](https://xkcd.com/)** – A blogroll without Randall is no blogroll.
+
+**[Ru Singh](https://rusingh.com/)** – Freelance developer writing about software development, tech and life.
+
+**[Simon Willison](https://simonwillison.net/) – Author of [Datasette](https://datasette.io/). He writes about Data, SQLite and emerging technologies.
+
+**[Chris Siebenmann](https://utcc.utoronto.ca/~cks/space/blog/) – The life of a sysadmin. All about monitoring, infrastructure and software in general.
+
+**[Simone Silvestroni](https://minutestomidnight.co.uk/) – Opinions about a better world wide web, sustainability and audio.
 
 ### Newsboards
 
-- [Hacker News](https://news.ycombinator.com/)
-- [Lobste.rs](https://lobste.rs)
+**[Hacker News](https://news.ycombinator.com/)** – My favorite news outlet. Tech, programming, Entrepreneurship and other important news. Sometimes a bit toxic, so I wrote a [RSS proxy](https://github.com/garritfra/positive_hackernews) that only shows entries with a positive sentiment.
+
+**[Lobste.rs](https://lobste.rs)** – Very similar to Hacker News, but strictly focused on software development.
 
 ### Podcasts
 
-- [CoRecursive: Coding Stories](https://corecursive.com/)
-- [Google's SRE Podcast](https://sre.google/prodcast/)
-- [Linux Action News](https://linuxactionnews.com/)
-- [Linux Unplugged](https://linuxunplugged.com/)
-- [Self-Hosted](https://selfhosted.show/)
+**[CoRecursive](https://corecursive.com/)** – Every episode is about a piece of software being built.
+
+**[Google's SRE Podcast](https://sre.google/prodcast/)** – Google invented SRE practices. If you're an SRE, this should be on your radar.
+
+**[DevOps Paradox](https://www.devopsparadox.com/)** – Interesting discussions about DevOps and tech.
+
+**[Arrested DevOps](https://www.arresteddevops.com/)** – Very similar to DevOps Paradox. The two go along very nicely.
+
