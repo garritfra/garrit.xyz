@@ -13,7 +13,7 @@ mail](mailto:garrit@slashdev.space)!
 
 **[Drew DeVault](https://drewdevault.com/)** – Drew admittedly has controversial opinions, but his blog is worth reading.
 
-**[Kev Quirk](https://kevq.uk/)** – On blogging, tiny websites and life.
+**[Kev Quirk](https://kevq.uk/)** – On blogging, simple websites and life on a farm.
 
 **[Matt Rickard](https://matt-rickard.com/)** – Very insightful short daily posts about Cloud Infrastructure, Entrepreneurship and AI.
 
