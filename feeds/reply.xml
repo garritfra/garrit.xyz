@@ -14,8 +14,33 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 20 Nov 2023 00:00:00 +0000
+            Wed, 20 Dec 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                re: Giving context to a blogroll
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-12-20-giving-my-blogroll-more-context
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-12-20-giving-my-blogroll-more-context?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 20 Dec 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<blockquote><p>This is a reply to Simone Silvestroni&#39;s <a href="https://minutestomidnight.co.uk/blog/giving-context-to-a-blogroll/">blog post</a> about blogrolls, which itself is a reply to a <a href="https://garrit.xyz/posts/2023-12-12-roast-my-site">call for feedback</a> for my site.</p></blockquote>
+
+<p>Simone argues that Blogroll entries without an explaination are just random links with a name. The reader doesn&#39;t know what&#39;s behind those links and therefore doesn&#39;t benefit from the blogroll. It would be better to give some context to the entries by explaining why they are on this list.</p>
+
+<p>I absolutely support this idea. In response, I added context to all of my <a href="/blogroll">Blogroll</a> entries. I hope this helps you discover more awesome content on the web. Also, if you know a website that might fit on this list (maybe your own?), feel free to <a href="/contact">let me know</a>. I&#39;d be happy to read it!</p>
+
+<hr/>
+
+<p>This is post 097 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 re: Writing code for both computers and humans
