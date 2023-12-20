@@ -21,11 +21,11 @@ mail](mailto:garrit@slashdev.space)!
 
 **[Ru Singh](https://rusingh.com/)** – Freelance developer writing about software development, tech and life.
 
-**[Simon Willison](https://simonwillison.net/) – Author of [Datasette](https://datasette.io/). He writes about Data, SQLite and emerging technologies.
+**[Simon Willison](https://simonwillison.net/)** – Author of [Datasette](https://datasette.io/). He writes about Data, SQLite and emerging technologies.
 
-**[Chris Siebenmann](https://utcc.utoronto.ca/~cks/space/blog/) – The life of a sysadmin. All about monitoring, infrastructure and software in general.
+**[Chris Siebenmann](https://utcc.utoronto.ca/~cks/space/blog/)** – The life of a sysadmin. All about monitoring, infrastructure and software in general.
 
-**[Simone Silvestroni](https://minutestomidnight.co.uk/) – Opinions about a better world wide web, sustainability and audio.
+**[Simone Silvestroni](https://minutestomidnight.co.uk/)** – Opinions about a better world wide web, sustainability and audio.
 
 ### Newsboards
 
