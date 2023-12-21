@@ -1,5 +1,5 @@
 ---
-title: "Notes on Immutability"
+title: 'Notes on "Immutability Changes Everything"'
 date: "2023-12-21"
 tags: "100DaysToOffload, infrastructure, note, learnings, review, tech, papers"
 ---
