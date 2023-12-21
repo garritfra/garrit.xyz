@@ -14,8 +14,37 @@
             en
         </language>
         <lastBuildDate>
-            Fri, 28 Apr 2023 00:00:00 +0000
+            Thu, 21 Dec 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Notes on "Immutability Changes Everything"
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-12-21-notes-on-immutability
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-12-21-notes-on-immutability?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 21 Dec 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<blockquote><p>Published books are immutable. Accountants don&#39;t use erasers or they go to jail.</p></blockquote>
+
+<p>The paper <a href="https://www.cidrdb.org/cidr2015/Papers/CIDR15_Paper16.pdf">Immutability Changes Everything</a> by Pat Helland talks about the trend towards immutability in data storage thoughout all layers of the stack. From append-only apps (Record changes, then derive the current state), down to how bits are stored on a hard drive (e.g. Copy on Write).</p>
+
+<p>I stumbled upon this paper through the <a href="https://paperswelove.org/">Papers We Love</a> collection. I was specifically looking for a paper that&#39;s short and easy to comprehend, since I don&#39;t have much experience in reading scientific papers. This is absolutely both short and easy to comprehend. If you&#39;re a beginner like me, I can highly recommend this one to you.</p>
+
+<p>Key takeaways:</p>
+
+<ul><li>Immutability enables clean replication</li><li>Change logs (e.g. <a href="https://en.wikipedia.org/wiki/Write-ahead_logging">write-ahead logs</a>) are the source of truth. The database is a cache of a subset of those change logs</li><li>It&#39;s okay to consider violating <a href="https://en.wikipedia.org/wiki/Database_normalization">normalization</a> rules to trade storage cost for read speed</li><li>Modern SSDs minimize wear by storing new versions of data to other blocks instead of mutating the data in place</li><li>The cost of immutability is increased storage</li></ul>
+
+<hr/>
+
+<p>This is post 098 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Serverless Framework Retrospective
@@ -484,74 +513,6 @@ WORKDIR /var/www/html</p>
 <p>I&#39;d highly encourage you to read through the article if you want to learn more about why Kubernetes exists.</p>
 
 <p>This is post 048 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Reselling Kubernetes
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2022-11-03-reselling-managed-kubernetes
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2022-11-03-reselling-managed-kubernetes?utm_source=rss
-            </link>
-            <pubDate>
-                Thu, 03 Nov 2022 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I&#39;m currently working on a side project involving reselling Kubernetes clusters.
-What I discovered is that it&#39;s impossible to resell <em>managed</em> Kubernetes, as in
-<a href="https://aws.amazon.com/de/eks/">EKS</a> and
-<a href="https://cloud.google.com/kubernetes-engine/">GKE</a>.</p>
-
-<p>The only possible scenario where reselling Kubernetes to your and the
-end-customers advantage is to manage the nodes yourself. The reason is the
-scaling of cost per CPU.</p>
-
-<p>When renting VMs, the price per CPU often varies for the size of the machine. 
-This leaves the reseller flexibility in the choice of resources. To give you an
-example, here is the pricing for virtual machines at
-<a href="https://www.hetzner.com/">Hetzner</a>, and the price per CPU:</p>
-
-<p>| Product         | Number of vCPUs    | Price (in €/month) | Price per vCPU (in €/month) |
-|-----------------|--------------------|--------------------|-----------------------------|
-| CX11            | 1                  | 4.51               | 4.51                        |
-| CPX11           | 2                  | 5.18               | 2.59                        |
-| CPX21           | 3                  | 8.98               | 2.99                        |
-| CPX31           | 4                  | 16.18              | 4.05                        |
-| CPX41           | 8                  | 29.99              | 3.75                        |
-| CPX51           | 16                 | 65.33              | 4.08                        |</p>
-
-<p>When comparing this to a managed Kubernetes product like
-<a href="https://www.civo.com">CIVO</a>, we see that the price per CPU stays constant:</p>
-
-<p>| Product         | Number of vCPUs    | Price (in €/month) | Price per vCPU (in €/month) |
-|-----------------|--------------------|--------------------|-----------------------------|
-| Extra Small     | 1                  | 5                  | 5                           |
-| Small           | 2                  | 10                 | 5                           |
-| Medium          | 4                  | 20                 | 5                           |
-| Large           | 8                  | 40                 | 5                           |</p>
-
-<p>This pricing model is nice and predictable for the customer, but it makes it
-impossible to justify a resell product. If CIVO charges 5€/month per vCPU, we
-would need to charge extra to be profitable, which in turn overcuts the
-competition.</p>
-
-<p>When choosing Hetzner (or any other platform offering VMs), we are still able to
-undercut the competition and even optimize how the resources are laid out on
-the nodes. The obvious downside of course being that we have to manage the
-clusters ourselves.</p>
-
-<h2>Share your thoughts</h2>
-
-<p>Reselling Kubernetes is tricky. I&#39;m currently sketching out ideas for an
-alternative way to sell Kubernetes hosting at an ultra cheap price. The project
-is still in its infancy but if you&#39;re interested, you&#39;re more than welcome to
-share your thoughts in our <a href="https://matrix.to/#/!cTXkqtlnbHScIxnlqO:matrix.org?via=matrix.org&amp;via=envs.net">Matrix
-Room</a>!</p>
-
-<p>This is post 041 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
