@@ -14,8 +14,39 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 03 Oct 2023 00:00:00 +0000
+            Fri, 22 Dec 2023 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                10.000 Hours
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2023-12-22-10-000-hours
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2023-12-22-10-000-hours?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 22 Dec 2023 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>In his book <a href="https://en.m.wikipedia.org/wiki/Outliers_(book)">Outliers</a>, Malcolm Gladwell popularized the idea that it takes 10.000 hours of concentrated practice to master a skill.</p>
+
+<p>According to my <a href="https://wakatime.com">WakaTime</a> stats, I spent 2.384 hours writing code in an editor (December 2023). If you&#39;re reading this post in the future, this is my current record:</p>
+
+<p><a href="https://wakatime.com/@811525e7-5cc5-4eef-9e29-3cece3a03847"><img alt="wakatime" src="https://wakatime.com/badge/user/811525e7-5cc5-4eef-9e29-3cece3a03847.svg"/></a></p>
+
+<p>This time is the time actually spent writing code. It doesn&#39;t track the time reading or thinking about it, nor the time spent in editors without the WakaTime plugin. It&#39;s hard to say how much time I spent engulfed in code, but this number is a good indicator as to how far I&#39;ve come in my programming journey.</p>
+
+<p>I believe we should never say that we&#39;ve &quot;mastered&quot; a craft, even after spending 10.000 hours practicing it. There are always so many things to learn, so many novel ideas to catch up with.</p>
+
+<p>So far, each of my 7 years of working as a software developer has advanced me tremendously. I&#39;m curious to see where I am once I reach 10.000 hours of practice.</p>
+
+<hr/>
+
+<p>This is post 099 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Project Hail Mary
