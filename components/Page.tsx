@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 
 import Layout from "./Layout";
-import Script from "next/script";
-import TagIcon from "./TagIcon";
 
 export default function Page(props) {
 	const { title, date, siteTitle, tags } = props;

@@ -35,31 +35,6 @@ nav {
 	}
 }
 
-.underlined {
-	position: relative;
-	display: block;
-	opacity: 1 !important;
-	&::after {
-		content: "";
-		height: 2px;
-		transform: scaleX(0);
-		transition: transform 0.25s ease;
-		transform-origin: left;
-		left: 0;
-		bottom: -4px;
-		width: 100%;
-		position: absolute;
-		background: white;
-		border-radius: 1px;
-	}
-
-	&:hover {
-		&::after {
-			transform: scaleX(1);
-		}
-	}
-}
-
 @media (min-width: 768px) {
 	.header {
 		left: 0;
