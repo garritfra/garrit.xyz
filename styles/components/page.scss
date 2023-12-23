@@ -36,7 +36,7 @@
 	text-decoration: underline;
 	text-decoration-color: $color-text-dark;
 	color: $color-text-dark;
-	@media (prefers-color-scheme: light) {
+	[data-theme="dark"] {
 		color: $color-text-light;
 	}
 }
@@ -90,7 +90,7 @@
 	margin-right: 4px;
 }
 
-@media (prefers-color-scheme: light) {
+[data-theme="dark"] {
 	.page__tag-icon {
 		filter: invert(1);
 	}

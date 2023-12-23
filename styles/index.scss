@@ -23,7 +23,7 @@
 }
 
 /* Dark theme */
-@media (prefers-color-scheme: dark) {
+:root[data-theme="dark"] {
 	:root {
 		color-scheme: dark;
 		--bg: #212121;
