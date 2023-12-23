@@ -1,12 +1,3 @@
-:root {
-	background: $color-secondary-dark;
-	color: $color-text-dark;
-	@media (prefers-color-scheme: light) {
-		background: $color-secondary-light;
-		color: $color-text-light;
-	}
-}
-
 body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
@@ -51,26 +42,6 @@ ol {
 
 img {
 	max-width: 100%;
-}
-
-pre,
-code {
-	background: $color-accent-dark;
-	margin-left: 0;
-	margin-right: 0;
-	margin-top: 0;
-	margin-bottom: 1.45rem;
-	line-height: 1.42;
-	border-radius: 3px;
-	overflow: auto;
-	word-wrap: normal;
-	@media (prefers-color-scheme: light) {
-		background: $color-accent-light;
-	}
-}
-
-pre {
-	padding: 1.45rem;
 }
 
 p code {
