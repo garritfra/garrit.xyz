@@ -25,10 +25,10 @@ body {
 }
 
 a {
-	text-decoration: none;
 	color: inherit;
 	transition: opacity 0.2s ease;
 }
+
 a:hover {
 	transition: opacity 0.2s ease;
 	opacity: 0.5;
@@ -157,4 +157,5 @@ article p a[href^="https://"]::after
 	background-repeat: no-repeat;
 	background-size: contain;
 	display: inline-block;
+	text-decoration: underline;
 }
