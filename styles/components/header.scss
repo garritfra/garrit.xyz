@@ -27,10 +27,12 @@ nav {
 		padding-bottom: 0px;
 
 		&__logo {
+			font-family: "Leckerli One";
+			text-decoration: none;
+			font-weight: 400;
+			font-size: 3rem;
 			margin: 0;
 			color: var(--text);
-			font-weight: 400;
-			font-size: 24px;
 		}
 	}
 }
