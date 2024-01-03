@@ -1,6 +1,4 @@
----
-title: Links
----
+# Links
 
 * [Contact](/contact)
 * [Resume](/cv)
