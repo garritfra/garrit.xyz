@@ -1,7 +1,7 @@
 ---
 title: "The fundamental difference between Terraform and Kubernetes"
 date: "2023-03-08"
-tags: "note, infrastructure, terraform, kubernetes, 100DaysToOffload"
+tags: "note, infrastructure, terraform, kubernetes, 100DaysToOffload, tech"
 ---
 
 On the surface, Infrastructure as Code tools like [Terraform](https://www.terraform.io/) or [CloudFormation](https://aws.amazon.com/de/cloudformation/) may seem to behave similar to [Kubernetes](https://kubernetes.io/) YAMLs, but they are in fact fundamentally different approaches to cloud infrastructure.

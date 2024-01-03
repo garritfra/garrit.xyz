@@ -1,7 +1,7 @@
 ---
 title: "What problem does Kubernetes solve?"
 date: "2023-02-20"
-tags: "note, kubernetes, infrastructure, 100DaysToOffload"
+tags: "note, kubernetes, infrastructure, 100DaysToOffload, tech"
 ---
 
 This is a common question that many people (including me) ask themselves.

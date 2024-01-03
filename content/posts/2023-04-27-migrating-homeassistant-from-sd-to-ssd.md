@@ -1,7 +1,7 @@
 ---
 title: "Migrating Homeassistant from SD to SSD"
 date: "2023-04-27"
-tags: "100DaysToOffload, guide, note, homeassistant, homelab"
+tags: "100DaysToOffload, guide, note, homeassistant, homelab, tech"
 ---
 
 I finally got frustrated with the performance of my Raspberry Pi 4 running Homeassistant on a SD card, so I went ahead and got an SSD.

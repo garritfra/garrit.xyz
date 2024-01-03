@@ -1,7 +1,7 @@
 ---
 title: "Smart Move, Google"
 date: "2022-11-24"
-tags: "note, 100DaysToOffload, practices"
+tags: "note, 100DaysToOffload, practices, tech"
 ---
 
 For as long as I can remember, `maps.google.com` was the defacto domain for

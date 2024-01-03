@@ -1,7 +1,7 @@
 ---
 title: Kubernetes is a domain specific database
 date: "2022-09-22"
-tags: "note, 100DaysToOffload, infrastructure, kubernetes"
+tags: "note, 100DaysToOffload, infrastructure, kubernetes, tech"
 ---
 
 I just finished listening to [an

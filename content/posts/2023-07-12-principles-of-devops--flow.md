@@ -1,7 +1,7 @@
 ---
 title: "Principles of DevOps: Flow"
 date: "2023-07-12"
-tags: "100DaysToOffload, note, practices, devops, PrinciplesOfDevOps"
+tags: "100DaysToOffload, note, practices, devops, PrinciplesOfDevOps, tech"
 ---
 
 > This post is part of a series called [Principles of DevOps](/posts?tags=PrinciplesOfDevOps).

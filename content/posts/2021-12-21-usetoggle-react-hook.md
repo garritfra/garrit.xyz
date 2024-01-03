@@ -1,7 +1,7 @@
 ---
 title: Quick tip! React useToggle Hook
 date: "2021-12-21"
-tags: "javascript, react, quick-tip, 100DaysToOffload, web, programming"
+tags: "javascript, react, quick-tip, 100DaysToOffload, web, programming, tech"
 ---
 
 Here's a useful react hook for situations where you have to keep track of the

@@ -1,7 +1,7 @@
 ---
 title: "Designing resilient cloud infrastructure"
 date: "2023-03-30"
-tags: "100DaysToOffload, infrastructure, aws, guide, note, learnings"
+tags: "100DaysToOffload, infrastructure, aws, guide, note, learnings, tech"
 ---
 
 As mentioned in a [previous post](/posts/2023-03-16-terraform-project-learnings), I'm currently finishing up building my first cloud infrastructure on AWS for a client at work. During the development, I learned a lot about designing components to be resilient and scalable. Here are some key takeaways.

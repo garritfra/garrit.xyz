@@ -1,7 +1,7 @@
 ---
 title: BTRFS on Alpine Linux
 date: "2021-12-31"
-tags: "linux, infrastructure, note, guide, 100DaysToOffload, homelab"
+tags: "linux, infrastructure, note, guide, 100DaysToOffload, homelab, tech"
 ---
 
 I'm currently in the midst of migrating some of my infrastructure from the cloud

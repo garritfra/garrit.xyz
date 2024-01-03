@@ -1,7 +1,7 @@
 ---
 title: "Terraform project learnings"
 date: "2023-03-16"
-tags: "100DaysToOffload, infrastructure, aws, note, terraform, learnings"
+tags: "100DaysToOffload, infrastructure, aws, note, terraform, learnings, tech"
 ---
 
 I just finished my first ever infrastructure project for a client. My Terraform skills are good enough to be dangerous, but during the development of this project I learned a lot that I would do differently next time.

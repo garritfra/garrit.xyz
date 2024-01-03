@@ -1,7 +1,7 @@
 ---
 title: Swapping two Numbers without Temporary Variables
 date: "2022-03-24"
-tags: "note, programming, 100DaysToOffload"
+tags: "note, programming, 100DaysToOffload, tech"
 ---
 
 Ever wondered how to swap two numbers without using a temporary variable?

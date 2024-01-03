@@ -1,7 +1,7 @@
 ---
 title: Booleans are wasted memory
 date: "2020-11-17"
-tags: "note, guide, programming"
+tags: "note, guide, programming, tech"
 ---
 
 A boolean is either `true` or `false`. That translates to `1` or `0`. If you think that one bit is enough to store this information, you'd be wrong.

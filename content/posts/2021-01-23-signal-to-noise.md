@@ -1,7 +1,7 @@
 ---
 title: Signal-to-Noise, or why nobody cares about your GitHub project
 date: "2021-01-23"
-tags: "note, 100DaysToOffload"
+tags: "note, 100DaysToOffload, tech"
 ---
 
 For a very long time, the thought of leaving GitHub and moving to another platform daunted me. Having more users on one platforms means that more people will contribute to my project, right? Wrong.

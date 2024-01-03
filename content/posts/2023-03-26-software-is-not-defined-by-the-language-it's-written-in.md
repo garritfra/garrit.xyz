@@ -1,7 +1,7 @@
 ---
 title: "Software is not defined by the language it's written in"
 date: "2023-03-26"
-tags: "100DaysToOffload, note, practices, opinion"
+tags: "100DaysToOffload, note, practices, opinion, tech"
 ---
 
 Rust is not just a programming language, it's also a status symbol. By now, it kind of became a meme that people writing programs in Rust have to make explicit that "X is written in Rust".

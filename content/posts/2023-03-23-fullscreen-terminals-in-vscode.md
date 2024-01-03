@@ -1,7 +1,7 @@
 ---
 title: "Fullscreen Terminals in VSCode"
 date: "2023-03-23"
-tags: "100DaysToOffload, guide, note, editors"
+tags: "100DaysToOffload, guide, note, editors, tech"
 ---
 
 I often find myself using a "real" terminal alongside my VSCode setup, because for some tasks the built-in terminal, due to its small size, is quite flimsy to use. *But*! I just found out there's a a way to switch the terminal into fullscreen mode, using the "View: Toggle Maximized Panel" command.

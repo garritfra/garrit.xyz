@@ -1,7 +1,7 @@
 ---
 title: "Debugging ECS Tasks"
 date: "2023-03-10"
-tags: "100DaysToOffload, infrastructure, aws, guide, note, terraform"
+tags: "100DaysToOffload, infrastructure, aws, guide, note, terraform, tech"
 ---
 
 I just had to debug an application on AWS ECS. The whole procedure is documented in more detail in the [documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html), but I think it's beneficial (both for my future self and hopefully to someone out there) to write down the proccess in my own words.

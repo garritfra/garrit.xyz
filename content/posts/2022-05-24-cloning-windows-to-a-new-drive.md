@@ -1,7 +1,7 @@
 ---
 title: Cloning Windows to a new drive
 date: "2022-05-24"
-tags: "note, guide, windows, til, 100DaysToOffload"
+tags: "note, guide, windows, til, 100DaysToOffload, tech"
 ---
 
 My grandpa has been using his current computer for about 10 years now. After

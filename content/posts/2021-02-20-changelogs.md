@@ -1,7 +1,7 @@
 ---
 title: Writing good changelogs
 date: "2021-02-20"
-tags: "guide, 100DaysToOffload"
+tags: "guide, 100DaysToOffload, tech"
 ---
 
 Today, I finally added a proper changelog to [my current project](https://github.com/garritfra/sabre/blob/master/CHANGELOG.md). My obvious first step was to search the web for `changelog.md`, since that's the naming convention many projects are using for their changelog. I was surprised that I was immediately redirected to "[changelog.md](https://changelog.md)", since it is a valid domain name. This website is a great guide on the essense of a good changelog. This is also where I got most of my findings from. Let me walk you through some of the most important ones:

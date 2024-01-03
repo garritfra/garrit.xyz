@@ -1,7 +1,7 @@
 ---
 title: The only true answer to 'tabs vs spaces'
 date: "2022-06-29"
-tags: "note, guide, 100DaysToOffload, programming, practices"
+tags: "note, guide, 100DaysToOffload, programming, practices, tech"
 ---
 
 I recently dove into a new project at work. We're starting from a blank page,

@@ -1,7 +1,7 @@
 ---
 title: Hello to all the new Mastodon users
 date: "2022-04-28"
-tags: "fediverse, mastodon, 100DaysToOffload"
+tags: "fediverse, mastodon, 100DaysToOffload, tech"
 ---
 
 To everyone who just joined Mastodon following Twitter's aquisition: I wish you a

@@ -1,7 +1,7 @@
 ---
 title: "I won't buy a YubiKey"
 date: "2023-03-21"
-tags: "100DaysToOffload, note, opinion, privacy, security"
+tags: "100DaysToOffload, note, opinion, privacy, security, tech"
 ---
 
 I have a YubiKey that I use for work, and I love using it. But I won't get one for my personal life.

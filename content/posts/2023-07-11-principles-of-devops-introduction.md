@@ -1,7 +1,7 @@
 ---
 title: "Principles of DevOps: Introduction"
 date: "2023-07-11"
-tags: "note, practices, devops, PrinciplesOfDevOps, 100DaysToOffload"
+tags: "note, practices, devops, PrinciplesOfDevOps, 100DaysToOffload, tech"
 ---
 
 I recently changed roles in my company, and I can officially call myself a "DevOps Engineer" now. But what does that really mean?

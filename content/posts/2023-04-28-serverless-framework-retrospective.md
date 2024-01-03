@@ -1,7 +1,7 @@
 ---
 title: "Serverless Framework Retrospective"
 date: "2023-04-28"
-tags: "100DaysToOffload, infrastructure, aws, note, terraform, learnings, devops, serverless"
+tags: "100DaysToOffload, infrastructure, aws, note, terraform, learnings, devops, serverless, tech"
 ---
 
 A current project requires the infrastructure to be highly scalable. It's expected that > 50k Users hit the platform within a five minute period. Regular ECS containers take about one minute to scale up. That just won't cut it. I decided to go all in on the [serverless](https://www.serverless.com/) framework on AWS. Here's how it went.

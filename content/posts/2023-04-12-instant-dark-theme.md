@@ -1,7 +1,7 @@
 ---
 title: "Instant dark theme"
 date: "2023-04-12"
-tags: "100DaysToOffload, guide, note, learnings, web, css, til"
+tags: "100DaysToOffload, guide, note, learnings, web, css, til, tech"
 ---
 
 Thanks to [Jacksons](https://jacksonchen666.com/) [update to darktheme.club](https://github.com/garritfra/darktheme.club/pull/79), I just came across a neat little [CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme) that turns a mostly CSS-free document into a pleasantly dark site:

@@ -1,7 +1,7 @@
 ---
 title: "What's on my feed? (2022)"
 date: "2022-08-31"
-tags: "note, 100DaysToOffload, update"
+tags: "note, 100DaysToOffload, update, tech"
 ---
 
 RSS is - in my humble opinion - one of the best ways to consume content today.

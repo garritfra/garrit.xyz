@@ -1,7 +1,7 @@
 ---
 title: 6 reasons the Fediverse is better than regular social media
 date: "2021-01-18"
-tags: "note, 100DaysToOffload, fediverse, socialmedia"
+tags: "note, 100DaysToOffload, fediverse, socialmedia, tech"
 ---
 
 Social media sucks. Platforms like Twitter, Facebook and Instagram are designed to turn your precious free time into money. What we see as a nice way to stay in touch with our friends, in reality are just many hits of dopamine stimulating precise spots in your brain, leading to you spending more time on the platform consuming ads.

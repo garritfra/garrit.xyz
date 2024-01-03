@@ -1,7 +1,7 @@
 ---
 title: Reselling Kubernetes
 date: "2022-11-03"
-tags: "note, 100DaysToOffload, kubernetes, infrastructure"
+tags: "note, 100DaysToOffload, kubernetes, infrastructure, tech"
 ---
 
 I'm currently working on a side project involving reselling Kubernetes clusters.

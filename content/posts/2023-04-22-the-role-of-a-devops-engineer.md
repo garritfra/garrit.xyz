@@ -1,7 +1,7 @@
 ---
 title: "The role of a DevOps Engineer"
 date: "2023-04-22"
-tags: "100DaysToOffload, note, practices, devops"
+tags: "100DaysToOffload, note, practices, devops, tech"
 ---
 
 The term "DevOps" can be interpreted in many different ways. It's often thrown around as a buzzword whenever somebody is talking about "what comes after development". Obviously, it's not just that. Or is it? It depends on whom you're talking to.

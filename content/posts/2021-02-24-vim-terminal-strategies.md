@@ -1,7 +1,7 @@
 ---
 title: Strategies to use a terminal alongside (Neo)Vim
 date: "2021-02-23"
-tags: "vim, guide, 100DaysToOffload"
+tags: "vim, guide, 100DaysToOffload, tech"
 ---
 
 One thing that bothered me about vim for a long time, was the lack of a terminal

@@ -1,7 +1,7 @@
 ---
 title: Fixing Traefik Proxy Issues
 date: "2022-03-18"
-tags: "note, guide, infrastructure, web, 100DaysToOffload, homelab"
+tags: "note, guide, infrastructure, web, 100DaysToOffload, homelab, tech"
 ---
 
 After changing my proxy from NGINX to Traefik, I noticed that some of my

@@ -1,7 +1,7 @@
 ---
 title: Debugging Docker images
 date: "2022-09-30"
-tags: "note, 100DaysToOffload, guide, programming, docker"
+tags: "note, 100DaysToOffload, guide, programming, docker, tech"
 ---
 
 Docker builds images incrementally. Every line in a Dockerfile will generate a

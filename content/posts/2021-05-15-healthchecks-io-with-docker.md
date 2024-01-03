@@ -1,7 +1,7 @@
 ---
 title: Docker healthchecks using healthchecks.io
 date: "2021-05-15"
-tags: "docker, 100DaysToOffload, guide, homelab"
+tags: "docker, 100DaysToOffload, guide, homelab, tech"
 ---
 
 I'm currently in the midst of improving the monitoring of my infrastructure. I

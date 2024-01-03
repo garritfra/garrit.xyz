@@ -1,7 +1,7 @@
 ---
 title: "Older is often better"
 date: "2023-04-07"
-tags: "100DaysToOffload, note, opinion, life"
+tags: "100DaysToOffload, note, opinion, life, tech"
 ---
 
 I'm guilty of buying shiny new things. After being unhappy with the Bluetooth connectivity in the OnePlus Nord I bought in december of 2020, I bought a brand new Pixel 7 last december. I told myself that t would be using the OnePlus Nord for at least three years, preferably four, yet I gave in after two years due to some issue that could have been fixed with a pair of cable-headphones. I'm now asking myself again: am I able to use my new Pixel 7 for more than 3 years?

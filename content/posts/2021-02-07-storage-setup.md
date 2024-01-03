@@ -1,7 +1,7 @@
 ---
 title: My storage setup (Feburary 2021)
 date: "2021-02-07"
-tags: "infrastructure, guide, 100DaysToOffload, homelab"
+tags: "infrastructure, guide, 100DaysToOffload, homelab, tech"
 ---
 
 I used to rely on Google Drive and Photos to store my entire data. Now, that [Google has decided to ditch unlimited photo storage in the near future](https://blog.google/products/photos/storage-changes/) and Google basically being the devil himself, I decided to step up my game and get my hands dirty on a DIY storage solution.

@@ -1,7 +1,7 @@
 ---
 title: "Optimizing work batch size"
 date: "2023-05-19"
-tags: "100DaysToOffload, note, practices, learnings, life, devops"
+tags: "100DaysToOffload, note, practices, learnings, life, devops, tech"
 ---
 
 I've been playing 

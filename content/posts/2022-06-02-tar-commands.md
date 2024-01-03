@@ -1,7 +1,7 @@
 ---
 title: Here's the tar command you keep looking for
 date: "2022-06-02"
-tags: "note, 100DaysToOffload, linux"
+tags: "note, 100DaysToOffload, linux, tech"
 ---
 
 > **Update**: [@kaushalmodi@mastodon.technology](https://mastodon.technology/@kaushalmodi)

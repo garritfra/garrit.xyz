@@ -1,7 +1,7 @@
 ---
 title: "TIL about CSS Insets"
 date: "2023-02-19"
-tags: "web, note, til, quick-tip, css, 100DaysToOffload"
+tags: "web, note, til, quick-tip, css, 100DaysToOffload, tech"
 ---
 
 Just a quick tip that I thought is worth sharing. Instead of declaring:

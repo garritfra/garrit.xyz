@@ -1,7 +1,7 @@
 ---
 title: "Single Page Applications on GitHub Pages"
 date: "2023-06-01"
-tags: "100DaysToOffload, guide, note, web, javascript, github"
+tags: "100DaysToOffload, guide, note, web, javascript, github, tech"
 ---
 
 My latest project, [sendpasswords.net](https://sendpasswords.net/) is a [Single Page Application](https://developer.mozilla.org/en-US/docs/Glossary/SPA) deployed on GitHub Pages.

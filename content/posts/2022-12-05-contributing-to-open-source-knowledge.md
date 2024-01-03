@@ -1,7 +1,7 @@
 ---
 title: "6 ways you can contribute to open knowledge right now"
 date: "2022-12-05"
-tags: "note, guide, practices, 100DaysToOffload"
+tags: "note, guide, practices, 100DaysToOffload, tech"
 ---
 
 I wrote the initial draft for this post a few months ago, traveling through

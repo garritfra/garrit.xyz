@@ -1,7 +1,7 @@
 ---
 title: "A software requirements checklist"
 date: "2023-03-11"
-tags: "100DaysToOffload, note, quote, practices"
+tags: "100DaysToOffload, note, quote, practices, tech"
 ---
 
 I just found a [great post](https://www.etsy.com/codeascraft/a-checklist-manifetsy) on the Etsy Engineering blog suggesting a possible checklist for new product requirements. In reality, this checklist is very hard to fulfill, but it's a nice reminder of what a well thought out requirement could look like.
