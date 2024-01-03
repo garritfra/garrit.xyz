@@ -62,4 +62,4 @@
 - Add a static API for data access
 - A button that links to a random URL I find interesting. Great for discovering content.on other sites
 - Recent entries of my reading list (pocket)
-- Add short explainers to blogroll
+- ~~Add short explainers to blogroll~~
