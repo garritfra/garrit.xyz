@@ -24,6 +24,12 @@ export default function BlogTemplate(props) {
 
 	if (!props.post.frontmatter) return <></>;
 
+	const openLink = (link) => {
+		if (!SSR) {
+			window.location.href = link;
+		}
+	};
+
 	return (
 		<Page
 			siteTitle="Garrit's Notes"
@@ -37,13 +43,17 @@ export default function BlogTemplate(props) {
 			<Markdown>{props.post.markdownBody}</Markdown>
 			<hr />
 			<p className="horizontal-list">
-				<a
-					href={`mailto:garrit@slashdev.space?subject=Re: ${encodeURIComponent(
-						props.post.frontmatter.title
-					)}`}
+				<button
+					onClick={() =>
+						openLink(
+							`mailto:garrit@slashdev.space?subject=Re: ${encodeURIComponent(
+								props.post.frontmatter.title
+							)}`
+						)
+					}
 				>
-					<button>💌️ Reply via E-Mail</button>
-				</a>
+					💌️ Reply via E-Mail
+				</button>
 				<RWebShare
 					data={{
 						text: `${props.post.frontmatter.title}\n`,
@@ -54,6 +64,15 @@ export default function BlogTemplate(props) {
 				>
 					<button>🔗 Share</button>
 				</RWebShare>
+				<button
+					onClick={() =>
+						openLink(
+							`https://github.com/garritfra/garrit.xyz/edit/main/content/${window.location.pathname}.md`
+						)
+					}
+				>
+					✏️ Fix Typo
+				</button>
 			</p>
 
 			<a href="https://www.buymeacoffee.com/garrit" target="_blank">
