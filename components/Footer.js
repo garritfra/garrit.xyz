@@ -9,7 +9,7 @@ export default function Footer() {
 				<br />
 				<a href="/todo">Todo List</a>
 				<br />
-				<a href="https://keyoxide.org/hkp/garrit@slashdev.space">PGP Key</a>
+				<a href="https://keys.openpgp.org/vks/v1/by-fingerprint/2218337E54AA1DBE207B404DBB54AF7EB0939F3D">PGP Key</a>
 				<br />
 				<a href="/guestbook">Guestbook</a>
 				<br />
