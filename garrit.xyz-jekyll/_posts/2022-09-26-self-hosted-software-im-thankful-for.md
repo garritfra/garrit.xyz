@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Self-hosted software I'm thankful for
 date: "2022-09-26"
 tags: "note, 100DaysToOffload, infrastructure, homelab, tech"

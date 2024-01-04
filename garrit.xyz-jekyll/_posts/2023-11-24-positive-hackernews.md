@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "A Positive Hacker News RSS Feed"
 date: "2023-11-24"
 tags: "100DaysToOffload, note, tech, positivity, hackernews"

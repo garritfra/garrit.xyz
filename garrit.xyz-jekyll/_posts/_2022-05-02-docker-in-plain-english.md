@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Docker in plain english
 date: "2022-05-02"
 tags: "guide, docker, infrastructure, 100DaysToOffload"

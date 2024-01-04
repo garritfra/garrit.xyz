@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Compiling your own kernel
 date: "2021-01-15"
 tags: "linux, guide, 100DaysToOffload, infrastructure, tech"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "🔗 Linkdump: Software Development"
 date: "2023-09-11"
 tags: "note, 100DaysToOffload, linkdump, programming, tech"

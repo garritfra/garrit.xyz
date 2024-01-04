@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Roast my Site!"
 date: "2023-12-12"
 tags: "100DaysToOffload, note, meta, writing, web, random"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Hello to all the new Mastodon users
 date: "2022-04-28"
 tags: "fediverse, mastodon, 100DaysToOffload, tech"

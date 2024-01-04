@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Writing good changelogs
 date: "2021-02-20"
 tags: "guide, 100DaysToOffload, tech"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "So, you want to win the lottery"
 date: "2023-08-23"
 tags: "100DaysToOffload, note, life, til, random"

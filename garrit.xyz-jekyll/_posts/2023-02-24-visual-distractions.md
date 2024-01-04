@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Visual Distractions"
 date: "2023-02-24"
 tags: "note, guide, life, 100DaysToOffload"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Quick Tip! Sharing terminal output with Termbin
 date: "2019-12-31"
 tags: "quick-tip, note"

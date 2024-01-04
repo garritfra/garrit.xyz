@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "About My Pocket Notebook"
 date: "2023-09-09"
 tags: "100DaysToOffload, note, life, notebooks"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Software is not defined by the language it's written in"
 date: "2023-03-26"
 tags: "100DaysToOffload, note, practices, opinion, tech"

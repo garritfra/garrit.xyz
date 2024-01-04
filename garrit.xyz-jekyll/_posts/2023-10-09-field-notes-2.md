@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Field Notes #2"
 date: "2023-10-09"
 tags: "100DaysToOffload, note, life, notebooks"

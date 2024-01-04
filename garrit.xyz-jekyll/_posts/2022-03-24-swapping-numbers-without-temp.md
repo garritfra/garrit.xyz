@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Swapping two Numbers without Temporary Variables
 date: "2022-03-24"
 tags: "note, programming, 100DaysToOffload, tech"

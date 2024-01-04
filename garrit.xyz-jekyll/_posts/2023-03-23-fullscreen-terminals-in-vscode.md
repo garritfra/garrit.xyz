@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Fullscreen Terminals in VSCode"
 date: "2023-03-23"
 tags: "100DaysToOffload, guide, note, editors, tech"

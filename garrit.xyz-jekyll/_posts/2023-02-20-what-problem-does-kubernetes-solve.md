@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "What problem does Kubernetes solve?"
 date: "2023-02-20"
 tags: "note, kubernetes, infrastructure, 100DaysToOffload, tech"

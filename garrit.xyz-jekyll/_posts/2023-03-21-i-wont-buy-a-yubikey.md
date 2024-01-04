@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "I won't buy a YubiKey"
 date: "2023-03-21"
 tags: "100DaysToOffload, note, opinion, privacy, security, tech"

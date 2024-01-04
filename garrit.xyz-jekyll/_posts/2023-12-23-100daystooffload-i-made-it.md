@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "#100DaysToOffload: I made it!"
 date: "2023-12-23"
 tags: "100DaysToOffload, note, learnings, meta, writing"

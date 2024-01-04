@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: My storage setup (Feburary 2021)
 date: "2021-02-07"
 tags: "infrastructure, guide, 100DaysToOffload, homelab, tech"

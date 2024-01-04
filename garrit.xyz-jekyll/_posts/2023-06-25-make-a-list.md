@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Make a List"
 date: "2023-06-25"
 tags: "100DaysToOffload, note, life"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Debugging Docker images
 date: "2022-09-30"
 tags: "note, 100DaysToOffload, guide, programming, docker, tech"

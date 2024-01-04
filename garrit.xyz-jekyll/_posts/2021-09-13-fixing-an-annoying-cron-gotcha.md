@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Finally fixing that annoying Cron gotcha
 date: "2021-09-13"
 tags: "linux, guide, 100DaysToOffload, homelab, tech"

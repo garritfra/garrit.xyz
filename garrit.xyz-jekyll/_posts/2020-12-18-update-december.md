@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Updates, December 2020
 date: "2020-12-18"
 tags: "update, note, life"

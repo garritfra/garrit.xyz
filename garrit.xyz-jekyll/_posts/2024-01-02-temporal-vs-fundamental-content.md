@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Temporal vs. fundamental content"
 date: "2024-01-02"
 tags: "note, quote, life"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Serverless Framework Retrospective"
 date: "2023-04-28"
 tags: "100DaysToOffload, infrastructure, aws, note, terraform, learnings, devops, serverless, tech"

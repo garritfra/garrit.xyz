@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Testing isn't hard
 date: "2019-11-08"
 tags: "javascript, guide, web, programming"

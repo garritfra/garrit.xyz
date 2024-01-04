@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "What's next for modern infrastructure?"
 date: "2023-02-21"
 tags: "note, infrastructure, kubernetes, 100DaysToOffload, tech"

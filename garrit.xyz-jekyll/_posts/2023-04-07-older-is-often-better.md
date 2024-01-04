@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Older is often better"
 date: "2023-04-07"
 tags: "100DaysToOffload, note, opinion, life, tech"

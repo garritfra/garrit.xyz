@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Designing resilient cloud infrastructure"
 date: "2023-03-30"
 tags: "100DaysToOffload, infrastructure, aws, guide, note, learnings, tech"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Migrating Homeassistant from SD to SSD"
 date: "2023-04-27"
 tags: "100DaysToOffload, guide, note, homeassistant, homelab, tech"

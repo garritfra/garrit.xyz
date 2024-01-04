@@ -9,3 +9,5 @@
 - [ ] Jurassic Park Easter Egg
 - [ ] Webmentions
 - [ ] Random post button
+- [ ] Post Recommendations
+- [ ] RSS Feed

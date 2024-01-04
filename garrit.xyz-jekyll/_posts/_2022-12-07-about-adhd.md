@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "About my ADHD"
 date: "2022-12-07"
 tags: "note, 100DaysToOffload, life"

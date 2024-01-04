@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Quality vs. Quantity"
 date: "2023-04-01"
 tags: "100DaysToOffload, note, opinion, meta, writing, life"

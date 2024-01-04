@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "What's on my feed? (2022)"
 date: "2022-08-31"
 tags: "note, 100DaysToOffload, update, tech"

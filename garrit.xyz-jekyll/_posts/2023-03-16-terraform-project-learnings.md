@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Terraform project learnings"
 date: "2023-03-16"
 tags: "100DaysToOffload, infrastructure, aws, note, terraform, learnings, tech"

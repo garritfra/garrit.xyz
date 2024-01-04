@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "The Mind Rope Experiment"
 date: "2023-10-01"
 tags: "100DaysToOffload, note, life"

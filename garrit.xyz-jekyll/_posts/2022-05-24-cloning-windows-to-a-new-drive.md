@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Cloning Windows to a new drive
 date: "2022-05-24"
 tags: "note, guide, windows, til, 100DaysToOffload, tech"

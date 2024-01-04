@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Signal-to-Noise, or why nobody cares about your GitHub project
 date: "2021-01-23"
 tags: "note, 100DaysToOffload, tech"

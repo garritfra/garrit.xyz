@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Strategies to use a terminal alongside (Neo)Vim
 date: "2021-02-23"
 tags: "vim, guide, 100DaysToOffload, tech"

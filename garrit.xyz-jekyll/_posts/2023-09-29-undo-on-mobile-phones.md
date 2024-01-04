@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Undo on mobile phones"
 date: "2023-09-29"
 tags: "100DaysToOffload, note, opinion, tech"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Git's built-in lifesaver
 date: "2021-03-13"
 tags: "git, 100DaysToOffload, guide, tech"

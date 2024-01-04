@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "My App Defaults (Late 2023)"
 date: "2023-11-07"
 tags: "100DaysToOffload, note, fun, life, random"

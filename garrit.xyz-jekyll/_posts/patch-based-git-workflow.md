@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: The Patch-Based Git Workflow
 date: "2020-09-28"
 tags: "git, guide, programming"

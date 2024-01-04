@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Single Page Applications on GitHub Pages"
 date: "2023-06-01"
 tags: "100DaysToOffload, guide, note, web, javascript, github, tech"

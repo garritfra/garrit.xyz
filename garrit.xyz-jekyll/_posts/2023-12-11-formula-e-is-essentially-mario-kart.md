@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Formula E is essentially Mario Kart"
 date: "2023-12-11"
 tags: "100DaysToOffload, note, til, random"

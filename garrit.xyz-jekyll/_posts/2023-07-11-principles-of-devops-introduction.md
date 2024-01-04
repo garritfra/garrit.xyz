@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Principles of DevOps: Introduction"
 date: "2023-07-11"
 tags: "note, practices, devops, PrinciplesOfDevOps, 100DaysToOffload, tech"

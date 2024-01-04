@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Reselling Kubernetes
 date: "2022-11-03"
 tags: "note, 100DaysToOffload, kubernetes, infrastructure, tech"

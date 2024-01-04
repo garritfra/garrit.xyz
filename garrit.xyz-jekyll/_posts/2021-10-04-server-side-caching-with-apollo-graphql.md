@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Server-Side Caching with Apollo GraphQL
 date: "2021-10-04"
 tags: "javascript, graphql, guide, 100DaysToOffload, programming, tech"

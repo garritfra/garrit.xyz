@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Notes about BEM (Block Element Modifier)
 date: "2021-02-02"
 tags: "note, css, 100DaysToOffload, programming, tech"

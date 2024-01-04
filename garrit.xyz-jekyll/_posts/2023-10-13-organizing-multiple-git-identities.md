@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Organizing multiple Git identities"
 date: "2023-10-13"
 tags: "100DaysToOffload, guide, note, til, git, tech"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: A list of bugs in MacOS
 date: "2022-06-14"
 tags: "note, 100DaysToOffload, MacOS, tech"

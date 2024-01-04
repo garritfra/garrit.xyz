@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Introducing my new blog - slashdev.space
 date: "2020-10-08"
 tags: "meta"

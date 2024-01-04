@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: The only true answer to 'tabs vs spaces'
 date: "2022-06-29"
 tags: "note, guide, 100DaysToOffload, programming, practices, tech"

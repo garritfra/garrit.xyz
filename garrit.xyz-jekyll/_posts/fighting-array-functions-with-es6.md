@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Fighting Array Functions with ES6
 date: "2019-04-07"
 tags: "javascript, guide, programming, web"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Did you try turning it off?"
 date: "2023-10-10"
 tags: "100DaysToOffload, note, opinion, life"

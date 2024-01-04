@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Project Hail Mary"
 date: "2023-10-03"
 tags: "100DaysToOffload, note, books, review"

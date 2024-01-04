@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Using Macros in Vim
 date: "2021-01-26"
 tags: "vim, 100DaysToOffload, guide, tech"

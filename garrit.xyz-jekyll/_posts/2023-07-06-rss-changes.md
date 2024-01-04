@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "PSA: RSS feed changes"
 date: "2023-07-06"
 tags: "100DaysToOffload, note, meta, rss"

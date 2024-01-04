@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "A software requirements checklist"
 date: "2023-03-11"
 tags: "100DaysToOffload, note, quote, practices, tech"

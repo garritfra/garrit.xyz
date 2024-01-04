@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Smart Move, Google"
 date: "2022-11-24"
 tags: "note, 100DaysToOffload, practices, tech"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Thoughts after 10 Days of 100DaysToOffload
 date: "2021-02-11"
 tags: "note, meta, 100DaysToOffload"

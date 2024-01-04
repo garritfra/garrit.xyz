@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: OpenSSF Best Practices
 date: "2023-02-14"
 tags: "note, 100DaysToOffload, practices, tech"

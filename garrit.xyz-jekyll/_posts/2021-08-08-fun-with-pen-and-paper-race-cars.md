@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Fun with Pen and Paper: Race Cars"
 date: "2021-08-08"
 tags: "fun, guide, 100DaysToOffload"

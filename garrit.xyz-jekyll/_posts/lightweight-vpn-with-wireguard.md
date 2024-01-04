@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Quick Tip! Setting up a lightweight Server-Client VPN with wireguard
 date: "2020-08-19"
 tags: "infrastructure, guide, homelab"

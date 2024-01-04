@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "TIL about CSS Insets"
 date: "2023-02-19"
 tags: "web, note, til, quick-tip, css, 100DaysToOffload, tech"

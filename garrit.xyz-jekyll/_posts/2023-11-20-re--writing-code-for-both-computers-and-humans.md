@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "re: Writing code for both computers and humans"
 date: "2023-11-20"
 tags: "100DaysToOffload, note, practices, opinion, web, javascript, tech, reply"

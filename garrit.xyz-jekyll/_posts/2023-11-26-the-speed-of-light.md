@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "The speed of light"
 date: "2023-11-26"
 tags: "100DaysToOffload, note, random, space"

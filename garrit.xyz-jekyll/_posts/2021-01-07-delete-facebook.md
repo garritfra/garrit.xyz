@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: I closed my Facebook account, and you should too
 date: "2021-01-07"
 tags: "privacy, note, life"

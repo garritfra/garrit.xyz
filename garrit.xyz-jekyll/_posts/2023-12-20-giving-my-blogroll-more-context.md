@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "re: Giving context to a blogroll"
 date: "2023-12-20"
 tags: "100DaysToOffload, note, web, meta, reply"

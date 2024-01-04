@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Flutter Web - the Good, the Bad and the Ugly
 date: "2021-02-17"
 tags: "flutter, 100DaysToOffload, note, programming, tech"

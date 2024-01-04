@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Are humans still evolving?
 date: "2021-01-11"
 tags: "note, 100DaysToOffload"

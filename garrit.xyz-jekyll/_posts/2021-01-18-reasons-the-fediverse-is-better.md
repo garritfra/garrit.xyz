@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: 6 reasons the Fediverse is better than regular social media
 date: "2021-01-18"
 tags: "note, 100DaysToOffload, fediverse, socialmedia, tech"

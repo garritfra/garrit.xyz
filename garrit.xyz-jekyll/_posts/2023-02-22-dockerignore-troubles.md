@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Dockerignore troubles"
 date: "2023-02-22"
 tags: "note, docker, web, 100DaysToOffload, tech"

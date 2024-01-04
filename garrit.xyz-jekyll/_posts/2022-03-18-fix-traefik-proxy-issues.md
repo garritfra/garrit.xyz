@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Fixing Traefik Proxy Issues
 date: "2022-03-18"
 tags: "note, guide, infrastructure, web, 100DaysToOffload, homelab, tech"

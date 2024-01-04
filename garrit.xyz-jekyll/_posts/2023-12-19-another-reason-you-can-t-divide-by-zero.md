@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Another reason why you can't divide by zero"
 date: "2023-12-19"
 tags: "100DaysToOffload, note, til, math"

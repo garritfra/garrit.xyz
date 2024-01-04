@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Debugging ECS Tasks"
 date: "2023-03-10"
 tags: "100DaysToOffload, infrastructure, aws, guide, note, terraform, tech"

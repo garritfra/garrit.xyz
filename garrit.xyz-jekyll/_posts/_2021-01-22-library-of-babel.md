@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: The library of babel
 date: "2021-01-22"
 ---

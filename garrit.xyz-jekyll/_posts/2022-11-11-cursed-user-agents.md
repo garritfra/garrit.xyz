@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Cursed User-Agents
 date: "2022-11-11"
 tags: "note, 100DaysToOffload, web, tech"

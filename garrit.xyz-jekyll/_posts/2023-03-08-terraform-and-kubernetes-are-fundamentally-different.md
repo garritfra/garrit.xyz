@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "The fundamental difference between Terraform and Kubernetes"
 date: "2023-03-08"
 tags: "note, infrastructure, terraform, kubernetes, 100DaysToOffload, tech"

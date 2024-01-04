@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: BTRFS on Alpine Linux
 date: "2021-12-31"
 tags: "linux, infrastructure, note, guide, 100DaysToOffload, homelab, tech"

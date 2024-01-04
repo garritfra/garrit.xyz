@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: From sudo to doas
 date: "2021-01-29"
 tags: "linux, 100DaysToOffload, guide, tech"

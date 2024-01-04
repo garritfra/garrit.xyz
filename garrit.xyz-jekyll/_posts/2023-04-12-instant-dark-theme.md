@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Instant dark theme"
 date: "2023-04-12"
 tags: "100DaysToOffload, guide, note, learnings, web, css, til, tech"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "The role of a DevOps Engineer"
 date: "2023-04-22"
 tags: "100DaysToOffload, note, practices, devops, tech"

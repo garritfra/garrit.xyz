@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Whom do you trust?
 date: "2020-03-17"
 tags: "security, privacy, note"

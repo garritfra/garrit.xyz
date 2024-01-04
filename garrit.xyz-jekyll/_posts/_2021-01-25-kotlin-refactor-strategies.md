@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Fixing nullability issues when migrating to Kotlin
 date: "2021-01-23"
 ---

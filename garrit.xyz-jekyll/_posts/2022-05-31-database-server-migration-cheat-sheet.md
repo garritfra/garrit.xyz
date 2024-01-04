@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Postgres Docker Container Migration Cheat Sheet
 date: "2022-05-31"
 tags: "note, guide, 100DaysToOffload, database, docker, postgres, homelab, tech"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: A simple guestbook
 date: "2022-10-05"
 tags: "note, meta, 100DaysToOffload, guide"

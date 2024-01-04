@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Notes on pruning chinese elms
 date: "2021-12-24"
 tags: "bonsai, note, guide, 100DaysToOffload"

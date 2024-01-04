@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Notes on containerizing PHP applications"
 date: "2023-03-03"
 tags: "note, infrastructure, docker, php, 100DaysToOffload, tech"

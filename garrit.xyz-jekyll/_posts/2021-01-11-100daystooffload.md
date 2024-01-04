@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: 100DaysToOffload
 date: "2021-01-11"
 tags: "note, 100DaysToOffload"

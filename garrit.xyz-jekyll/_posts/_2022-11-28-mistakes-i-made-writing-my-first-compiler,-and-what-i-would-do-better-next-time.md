@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Mistakes I made writing my first compiler, and what I would do better next time
 date: "2022-11-28"
 tags: "note, 100DaysToOffload"

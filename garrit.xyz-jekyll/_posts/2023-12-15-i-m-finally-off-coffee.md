@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "I'm finally off coffee"
 date: "2023-12-15"
 tags: "100DaysToOffload, note, life"

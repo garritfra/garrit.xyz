@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Short Story: Haunted Memories"
 date: "2023-09-10"
 tags: "100DaysToOffload, shortstory, horror, writing"

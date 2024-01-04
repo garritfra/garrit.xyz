@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Tracking SQLite Database Changes in Git"
 date: "2023-11-01"
 tags: "100DaysToOffload, guide, note, til, git, tech, sqlite"

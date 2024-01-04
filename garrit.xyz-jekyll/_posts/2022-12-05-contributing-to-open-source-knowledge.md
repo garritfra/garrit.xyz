@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "6 ways you can contribute to open knowledge right now"
 date: "2022-12-05"
 tags: "note, guide, practices, 100DaysToOffload, tech"
