@@ -1,0 +1,29 @@
+.page__info {
+	width: 100%;
+	max-width: 768px;
+	margin: 0 auto;
+	padding: 2rem 0;
+}
+.page__info h1 {
+	max-width: 500px;
+	margin: 0;
+	margin-bottom: 0.66rem;
+}
+
+.page__info h3 {
+	margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+	.page__info {
+		text-align: center;
+	}
+	.page__info h1 {
+		margin: 0 auto 0.66rem;
+	}
+}
+@media (min-width: 1440px) {
+	.page__info {
+		padding: 3rem 0;
+	}
+}
