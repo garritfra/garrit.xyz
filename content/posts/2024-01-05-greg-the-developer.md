@@ -1,7 +1,7 @@
 ---
 title: "Greg, the Developer"
 date: "2024-01-05"
-tags: "note, tech, fun, shortstory, writing, programming, practices"
+tags: "note, tech, fun, shortstory, writing, programming, practices, devops"
 ---
 
 This is Greg. Greg loves to play with his computer and create amazing things.
