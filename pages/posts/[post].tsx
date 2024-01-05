@@ -41,7 +41,6 @@ export default function BlogTemplate(props) {
 			}
 		>
 			<Markdown>{props.post.markdownBody}</Markdown>
-			<hr />
 			<p className="horizontal-list">
 				<button
 					onClick={() =>
@@ -74,13 +73,7 @@ export default function BlogTemplate(props) {
 					✏️ Fix Typo
 				</button>
 			</p>
-
-			<a href="https://www.buymeacoffee.com/garrit" target="_blank">
-				<img src="https://img.buymeacoffee.com/button-api/?text=Buy me a tea&emoji=&slug=garrit&button_colour=FFB300&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" />
-			</a>
-
 			<hr />
-
 			<h2>Continue Reading</h2>
 			<BlogList posts={props.recommendedPosts} />
 		</Page>

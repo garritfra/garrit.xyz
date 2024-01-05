@@ -14,7 +14,7 @@ const Index = (props) => {
 		!SSR && window.matchMedia("(prefers-reduced-motion: reduce)");
 	const prefersReducedMotion = !mediaQuery || mediaQuery.matches;
 
-	const isWinter = new Date().getMonth() > 10 || new Date().getMonth() < 1;
+	const isWinter = new Date().getMonth() >= 11;
 
 	const buildSnow = () => {
 		return (

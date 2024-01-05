@@ -27,6 +27,11 @@ export default function Footer() {
 				<br />
 				<a href="/contact">Contact</a>
 			</div>
+
+			<a href="https://www.buymeacoffee.com/garrit" target="_blank">
+				<img src="https://img.buymeacoffee.com/button-api/?text=Buy me a tea&emoji=&slug=garrit&button_colour=FFB300&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" />
+			</a>
+
 			<p>
 				👻 Proud member of <a target="_blank" href="https://darktheme.club/">darktheme.club</a>{" "}
 				👻
