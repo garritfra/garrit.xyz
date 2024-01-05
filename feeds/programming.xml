@@ -14,8 +14,51 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 28 Dec 2023 00:00:00 +0000
+            Fri, 05 Jan 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Greg The Developer
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-01-05-greg-the-developer
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-01-05-greg-the-developer?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 05 Jan 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>This is Greg. Greg loves to play with his computer and create amazing things.</p>
+
+<p><img alt="Greg" src="/assets/posts/2024-01-05-greg-the-developer/greg.svg"/></p>
+
+<p>Greg has many friends. He listens to his friends and helps them. Greg knows that teamwork is very important.</p>
+
+<p><img alt="Greg and his friends" src="/assets/posts/2024-01-05-greg-the-developer/greg-friends.svg"/></p>
+
+<p>Greg is curious about what his friends do. Greg learned how they help everyone create amazing things. Greg was happy that he learned something new.</p>
+
+<p><img alt="Greg learns from his friends" src="/assets/posts/2024-01-05-greg-the-developer/greg-learning.svg"/></p>
+
+<p>One day, Greg has an idea. Greg shares his idea with his friends. They try it, and it works! Everyone is happy that Greg shared his idea.</p>
+
+<p><img alt="Greg has an idea" src="/assets/posts/2024-01-05-greg-the-developer/greg-idea.svg"/></p>
+
+<p>When Greg learns something new about computers, he writes it down and shows it to his friends. This helps everyone learn how computers work.</p>
+
+<p><img alt="Greg writes down what he learned" src="/assets/posts/2024-01-05-greg-the-developer/greg-documentation.svg"/></p>
+
+<p>Sometimes Greg and his friends make a mistake, but Greg knows that&#39;s okay. Everyone makes mistakes, even Greg. He says that everyone can learn from mistakes. This makes them better and happier.</p>
+
+<p><img alt="It&#39;s okay to make mistakes" src="/assets/posts/2024-01-05-greg-the-developer/greg-mistake.svg"/></p>
+
+<p>Greg is a good software developer. Be like Greg.</p>
+
+<p><img alt="Greg is a good software developer" src="/assets/posts/2024-01-05-greg-the-developer/greg-okay.svg"/></p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Linkdump #2
@@ -602,86 +645,6 @@ individual users, you might also want to take a look at client-side caching via
 <p>I hope you found this useful!</p>
 
 <p>This is post 012 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Notes about BEM (Block Element Modifier)
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2021-02-02-bem-methodology
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2021-02-02-bem-methodology?utm_source=rss
-            </link>
-            <pubDate>
-                Tue, 02 Feb 2021 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>In the coming weeks, months and years, I will be working on frontend-development as part of my dayjob. These are some personal notes I took during my research about the BEM methodology. If you want to read the official introduction, you should visit <a href="http://getbem.com/">their website</a>.</p>
-
-<h1>Overview - What is BEM?</h1>
-
-<p>BEM — Block Element Modifier is a methodology that helps you to create reusable components and code sharing in front-end development. It aims to group css-classes in a meaningful way, making it easier to understand</p>
-
-<ol><li>where this class is used</li><li>what it describes and</li><li>what state the element is in.</li></ol>
-
-<p>The BEM-notation is divided into three main parts: Blocks, Elements and Modifiers.</p>
-
-<h2>Blocks</h2>
-
-<p>A standalone entity that is meaningful on its own. Some examples might be <strong>headers, containers, menus, inputs, checkboxes</strong>, etc.</p>
-
-<h2>Elements</h2>
-
-<p>A part of a block that has no standalone meaning and is semantically tied to its block. This could be a <strong>menu item or an input placeholder</strong>.</p>
-
-<h2>Modifiers</h2>
-
-<p>A flag on a block or an element. Used to change appearance or behavior. This might be <strong>disabled, checked, fixed, big</strong>, etc.</p>
-
-<h1>Putting it together</h1>
-
-<p>A block itself is referenced though its name.</p>
-
-<p><code>css
-.button {
-}
-</code></p>
-
-<p>To reference elements inside of the block, you add it to the block element with two underscores (<code>__</code>):</p>
-
-<p><code>css
-.button {
-}
-.button__text {
-}
-</code></p>
-
-<p>If you want to add a modifier to a block or an element, you separate it with two dashes (<code>--</code>):</p>
-
-<p><code>css
-.button {
-}
-.button--disabled {
-}
-.button__text--inverted {
-}
-</code></p>
-
-<h1>Benefits of BEM</h1>
-
-<p><strong>Modularity</strong>: Block styles never depend on one another. They can easily be moved to other parts of the app.</p>
-
-<p><strong>Reusability</strong>: Composing styles in a meaningful way reduces the amount of code duplication.</p>
-
-<p><strong>Structure</strong>: BEM gives your code a solid structure that is both easy to understand and to expand.</p>
-
-<h1>References</h1>
-
-<ul><li>http://getbem.com/</li><li>https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/</li></ul>
-
-<p>This is post 009 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
