@@ -1,5 +1,5 @@
 ---
-title: "Greg The Developer"
+title: "Greg, the Developer"
 date: "2024-01-05"
 tags: "note, tech, fun, shortstory, writing, programming, practices"
 ---
