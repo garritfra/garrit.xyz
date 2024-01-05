@@ -33,7 +33,7 @@ export default function Footer() {
 			</a>
 
 			<p>
-				👻 Proud member of <a target="_blank" href="https://darktheme.club/">darktheme.club</a>{" "}
+				👻 Proud member of <a target="_blank" href="https://darktheme.club/">darktheme.club</a>{" "}
 				👻
 			</p>
 

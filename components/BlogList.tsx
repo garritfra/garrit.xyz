@@ -1,17 +1,18 @@
 import { usePlausible } from "next-plausible";
+import { Post } from "../lib/posts";
 
 const BlogList = ({ posts }) => {
 	const plausible = usePlausible();
 
-	const isPublicPost = (post) => !post.slug.startsWith("_");
+	const isPublicPost = (post: Post) => !post.slug.startsWith("_");
 	const publicPosts = posts.filter(isPublicPost);
 
-	const reformatDate = (fullDate) => {
+	const reformatDate = (fullDate: string) => {
 		const date = new Date(fullDate);
 		return date.toDateString().slice(4);
 	};
 
-	const renderPost = (post) => (
+	const renderPost = (post: Post) => (
 		<div key={post.slug} className="blog__list__post">
 			<time className="blog__list__post__date">
 				{reformatDate(post.frontmatter.date)}
