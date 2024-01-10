@@ -38,6 +38,7 @@ love to hear it!
 
 ---
 
+- [Benji](https://www.benji.dog) - 5 flags found, last updated 2024-01-10
 - [Team Krosse Flagge](https://ctftime.org/team/82581) - 5 flags found, last updated 2022-07-22
 - Ezequiel Gonzalez Rial - 5 flags found, last updated 2022-07-13
 - Harry Cover - 5 flags found, last updated 2023-09-09
