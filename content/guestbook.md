@@ -10,6 +10,14 @@ get redirected to the page editor.
 
 ---
 
+### Adam, on 2024-01-11:
+
+Cool site! I'll have to give the CTF a go when I get a chance.
+
+Submitted using [git-send-email](https://git-send-email.io).
+
+-- [Adam](https://adast.dk)
+
 ### Henrique, on 2023-10-14:
 
 Nice website. I'm glad to see that others are also doing guestbooks 🤓.
