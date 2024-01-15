@@ -76,6 +76,7 @@ love to hear it!
 
 ---
 
+- [Adam Stück](https://adast.dk) - 1 flag found, last updated 2024-01-15
 - [Askar Mirzajanov](https://t.me/gmmdt) - 1 flag found, last updated 2022-07-13
 - [Frederik Braun](https://frederik-braun.com/) - 1 flag found, last updated 2022-07-13
 - [Gioele Barabucci](https://gioele.io/) - 1 flag found, last updated 2022-07-13
