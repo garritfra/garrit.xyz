@@ -61,6 +61,7 @@ If you don't have a website (or don't want to add a badge to it) but still want 
 
 ## Hall of Fame
 
+- [Benji](https://www.benji.dog) - 6 flags found, last updated 2024-01-11
 - [F1ndus](https://f1ndus.de/) - 6 flags found, last updated 2022-07-16
 - [Nikita Karamov](https://www.kytta.dev/) - 6 flags found, last updated 2022-07-28
 - [Jesse Gibson](https://psychollama.io/) - 6 flags found, last updated 2022-05-09
@@ -74,7 +75,6 @@ If you don't have a website (or don't want to add a badge to it) but still want 
 
 ---
 
-- [Benji](https://www.benji.dog) - 5 flags found, last updated 2024-01-10
 - [Team Krosse Flagge](https://ctftime.org/team/82581) - 5 flags found, last updated 2022-07-22
 - Ezequiel Gonzalez Rial - 5 flags found, last updated 2022-07-13
 - Harry Cover - 5 flags found, last updated 2023-09-09
