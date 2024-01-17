@@ -93,6 +93,7 @@ If you don't have a website (or don't want to add a badge to it) but still want 
 
 ---
 
+- [Adam Stück](https://adast.dk) - 3 flags found, last updated 2024-01-17
 - [Jonathan Street](https://jstreet.uk/) - 3 flags found, last updated 2024-01-17
 - [Ben Fiedler](https://3fx.ch) - 3 flags found, last updated 2022-07-13
 - [Fabio Alessandro Locati](https://fale.io) - 3 flags found, last updated 2022-07-13
@@ -113,7 +114,6 @@ If you don't have a website (or don't want to add a badge to it) but still want 
 
 ---
 
-- [Adam Stück](https://adast.dk) - 1 flag found, last updated 2024-01-15
 - [Askar Mirzajanov](https://t.me/gmmdt) - 1 flag found, last updated 2022-07-13
 - [Frederik Braun](https://frederik-braun.com/) - 1 flag found, last updated 2022-07-13
 - [Gioele Barabucci](https://gioele.io/) - 1 flag found, last updated 2022-07-13
