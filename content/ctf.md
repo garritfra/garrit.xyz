@@ -57,6 +57,7 @@ love to hear it!
 
 ---
 
+- [Jonathan Street](https://jstreet.uk/) - 3 flags found, last updated 2024-01-17
 - [Ben Fiedler](https://3fx.ch) - 3 flags found, last updated 2022-07-13
 - [Fabio Alessandro Locati](https://fale.io) - 3 flags found, last updated 2022-07-13
 - [George](https://fosstodon.org/@george_) - 3 flags found, last updated 2022-07-13
