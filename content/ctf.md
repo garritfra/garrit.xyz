@@ -18,6 +18,9 @@ This challenge is about learning new things and having fun. If you're stuck and
 need a hint, just let me know. Also, if you have an idea for a new flag, I'd
 love to hear it!
 
+> **Disclaimer**: Cheating is easy, and this website is open source. Please
+> don't ruin the fun for yourself, and keep your eyes off the GitHub repository! :)
+
 ## Show your progress
 
 If you liked this challenge and want to support it, you may add a badge like this to your own site:
