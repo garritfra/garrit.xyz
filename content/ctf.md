@@ -3,15 +3,13 @@ title: "Capture the Flag"
 siteTitle: "Garrit's Challenge"
 ---
 
-![White Flag](/assets/white_flag.png)
+<img alt="White Flag" style="max-width: 50%; display: block; margin: auto" src="/assets/white_flag.png">
 
-You stumbled upon a secret page!
-
-There are 6 secret flags hidden across this website. Can you find them?
+There are 6 [secret flags](https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) scattered across this website. Can you find them?
 
 A flag looks something like this: `GXYZ{***********}`. If you manage to find
 one, feel free to [send me an email](/contact) with a short writeup, and I will
-proudly add your name to the "Hall of Fame". Or, do it yourself by 
+proudly add your name to the "Hall of Fame". Or do it yourself by 
 [editing this page](https://github.com/garritfra/garrit.xyz/edit/main/content/ctf.md)
 and opening a pull request! I will add more flags over time, so check back later
 for updates.
@@ -20,8 +18,43 @@ This challenge is about learning new things and having fun. If you're stuck and
 need a hint, just let me know. Also, if you have an idea for a new flag, I'd
 love to hear it!
 
-> **Disclaimer**: Cheating is easy, and this website is open source. Please
-> don't ruin the fun for yourself, and keep your eyes off the source code! :)
+## Show your progress
+
+If you liked this challenge and want to support it, you may add a badge like this to your own site:
+
+<a href="https://garrit.xyz/ctf"><img alt="Garrit's CTF: 3 Flags found" src="https://garrit.xyz/assets/badges/ctf/orange_3.svg"></a> <a href="https://garrit.xyz/ctf"><img alt="Garrit's CTF: 4 Flags found" src="https://garrit.xyz/assets/badges/ctf/blue_4.svg"></a>
+
+<details>
+<summary>How do I add a badge to my website?</summary>
+
+A badge is comprised of two variables: The **color** and the **number of flags**.
+
+For **color**, you may choose `blue` or `orange`.
+
+The **number of flags** should correspond with the flags you've found on this site.
+
+Paste the following code snippets to your site. Make sure that you've replaced all the variables!
+
+### HTML
+
+```html
+<a href="https://garrit.xyz/ctf"><img alt="Garrit's CTF: 3 Flags found" src="https://garrit.xyz/assets/badges/ctf/orange_3.svg"></a>
+```
+
+### Markdown
+
+```md
+[](![Garrit's CTF: 4 Flags found](https://garrit.xyz/assets/badges/ctf/blue_4.svg))
+```
+
+### Custom badges
+
+You can also use [shields.io](https://shields.io/badges/static-badge) for more flexibility with the design of the badges. If you don't want to rely on a third party to host these badges, you can also download and host them alongside your website.
+
+</details>
+
+If you don't have a website (or don't want to add a badge to it) but still want to support this challenge, you may also post your progress and a link to the site on social media. This helps other people discover this challenge!
+
 
 ## Hall of Fame
 
