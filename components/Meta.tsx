@@ -47,7 +47,7 @@ export default function Meta(props) {
 				</title>
 				<meta
 					name="Description"
-					content="Generalist developer writing about fullstack development, system administration and free software."
+					content="Generalist software developer writing about scalable infrastructure, fullstack development and DevOps practices."
 				></meta>
 				<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 				<link rel="manifest" href="/site.webmanifest" />
