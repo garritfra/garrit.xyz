@@ -14,8 +14,31 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 21 Dec 2023 00:00:00 +0000
+            Thu, 18 Jan 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Cost per Request
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-01-18-cost-per-request
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-01-18-cost-per-request?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 18 Jan 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>When monitoring infrastructure, we often use metrics like &quot;Requests per second&quot; or &quot;Time per request&quot;.</p>
+
+<p>Contrary to that, when monitoring the cost of our infrastructure, we often only review the cloud bill at the end of the month and tell ourselves that those costs are justified for our product.</p>
+
+<p>What if we made &quot;Cost per request&quot; a key metric in our observability strategy, alongside &quot;Requests per second&quot;?</p>
+
+<p>If we follow that path even further, we could derive a standard for how much a request should cost for x% of uptime, across the entire industry. This way, we should be able to identify how much we&#39;re overspending for our infrastructure compared to other companies or products.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Notes on "Immutability Changes Everything"
@@ -484,35 +507,6 @@ WORKDIR /var/www/html</p>
 <p>History shows that we never stop abstracting. Multicluster service meshes are about the most abstract concept many people (including myself) can comprehend, but I doubt that this is the end of this journey. So, what&#39;s next for modern infrastructure?</p>
 
 <p>This is post 049 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                What problem does Kubernetes solve?
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-02-20-what-problem-does-kubernetes-solve
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-02-20-what-problem-does-kubernetes-solve?utm_source=rss
-            </link>
-            <pubDate>
-                Mon, 20 Feb 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>This is a common question that many people (including me) ask themselves.</p>
-
-<p>I recently came across a great <a href="https://blog.adamchalmers.com/kubernetes-problems/">post</a> which explains the problem really well:</p>
-
-<blockquote><p>Kubernetes exists to solve one problem: how do I run m containers across n servers?</p></blockquote>
-
-<p>The post also nails the answer to <strong>how</strong> Kubernetes solves this problem:</p>
-
-<blockquote><p>It&#39;s a big abstract virtual computer, with its own virtual IP stack, networks, disk, RAM and CPU. It lets you deploy containers as if you were deploying them on one machine that didn&#39;t run anything else. Clusters abstract over the various physical machines that run the cluster.</p></blockquote>
-
-<p>I&#39;d highly encourage you to read through the article if you want to learn more about why Kubernetes exists.</p>
-
-<p>This is post 048 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

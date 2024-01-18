@@ -14,8 +14,31 @@
             en
         </language>
         <lastBuildDate>
-            Fri, 05 Jan 2024 00:00:00 +0000
+            Thu, 18 Jan 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Cost per Request
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-01-18-cost-per-request
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-01-18-cost-per-request?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 18 Jan 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>When monitoring infrastructure, we often use metrics like &quot;Requests per second&quot; or &quot;Time per request&quot;.</p>
+
+<p>Contrary to that, when monitoring the cost of our infrastructure, we often only review the cloud bill at the end of the month and tell ourselves that those costs are justified for our product.</p>
+
+<p>What if we made &quot;Cost per request&quot; a key metric in our observability strategy, alongside &quot;Requests per second&quot;?</p>
+
+<p>If we follow that path even further, we could derive a standard for how much a request should cost for x% of uptime, across the entire industry. This way, we should be able to identify how much we&#39;re overspending for our infrastructure compared to other companies or products.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Greg, the Developer
