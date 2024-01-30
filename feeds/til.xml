@@ -38,7 +38,7 @@
 
 <h2>Source</h2>
 
-<p>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/vKA4w2O61Xo?si=2dtApWo8JmHOwqff&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen&gt;&lt;/iframe&gt;</p>]]>
+<p>&lt;iframe src=&quot;https://www.youtube.com/embed/vKA4w2O61Xo?si=2dtApWo8JmHOwqff&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen&gt;&lt;/iframe&gt;</p>]]>
             </description>
         </item>
         <item>
