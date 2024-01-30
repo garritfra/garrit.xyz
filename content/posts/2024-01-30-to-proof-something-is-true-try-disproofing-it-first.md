@@ -12,4 +12,4 @@ Disproofing a theory is core to the [scientific method](https://en.wikipedia.org
 
 ## Source
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vKA4w2O61Xo?si=2dtApWo8JmHOwqff" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/vKA4w2O61Xo?si=2dtApWo8JmHOwqff" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
