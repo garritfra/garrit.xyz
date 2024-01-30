@@ -14,8 +14,33 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 18 Jan 2024 00:00:00 +0000
+            Tue, 30 Jan 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                To proof something is true, try disproofing it first
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-01-30-to-proof-something-is-true-try-disproofing-it-first
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-01-30-to-proof-something-is-true-try-disproofing-it-first?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 30 Jan 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>We&#39;ve been taught that, to proof that a thing is true, we should point out what&#39;s true about it.</p>
+
+<p>However, we can learn much more about why something is true by trying to <strong>disproof</strong> it first. If you think something is true, try as hard as you can to proof that it&#39;s false.</p>
+
+<p>Disproofing a theory is core to the <a href="https://en.wikipedia.org/wiki/Scientific_method">scientific method</a>. Only when we validate that something cannot be false, we come closer to proofing that it&#39;s true.</p>
+
+<h2>Source</h2>
+
+<p>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/vKA4w2O61Xo?si=2dtApWo8JmHOwqff&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen&gt;&lt;/iframe&gt;</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Cost per Request
@@ -393,31 +418,6 @@ This does result in missing ~important things occasionally (e.g. I still don&#39
 <hr/>
 
 <p>This is post 098 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                re: Giving context to a blogroll
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-12-20-giving-my-blogroll-more-context
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-12-20-giving-my-blogroll-more-context?utm_source=rss
-            </link>
-            <pubDate>
-                Wed, 20 Dec 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<blockquote><p>This is a reply to Simone Silvestroni&#39;s <a href="https://minutestomidnight.co.uk/blog/giving-context-to-a-blogroll/">blog post</a> about blogrolls, which itself is a reply to a <a href="https://garrit.xyz/posts/2023-12-12-roast-my-site">call for feedback</a> for my site.</p></blockquote>
-
-<p>Simone argues that Blogroll entries without an explaination are just random links with a name. The reader doesn&#39;t know what&#39;s behind those links and therefore doesn&#39;t benefit from the blogroll. It would be better to give some context to the entries by explaining why they are on this list.</p>
-
-<p>I absolutely support this idea. In response, I added context to all of my <a href="/blogroll">Blogroll</a> entries. I hope this helps you discover more awesome content on the web. Also, if you know a website that might fit on this list (maybe your own?), feel free to <a href="/contact">let me know</a>. I&#39;d be happy to read it!</p>
-
-<hr/>
-
-<p>This is post 097 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
