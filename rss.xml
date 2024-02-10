@@ -14,8 +14,27 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 30 Jan 2024 00:00:00 +0000
+            Sat, 10 Feb 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Cosmic Horror: The Festival
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-02-10-cosmic-horror-the-festival
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-02-10-cosmic-horror-the-festival?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 10 Feb 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<blockquote><p>&quot;The nethermost caverns are not for the fathoming of eyes that see; for their marvels are strange and terrific. Cursed the ground where dead thoughts live new and oddly bodied, and evil the mind that is held by no head.&quot;</p><p>— H.P. Lovecraft</p></blockquote>
+
+<p>I loved reading <a href="https://www.hplovecraft.com/writings/texts/fiction/f.aspx">The Festival</a> by H.P. Lovecraft, especially this quote by &quot;the mad Arab&quot; at the end of the story. The Festival is one of Lovecrafts first short stories in the <a href="https://en.m.wikipedia.org/wiki/Cthulhu_Mythos">Cthulhu Mythos</a>. The quote excellently shows the unique style of Lovecrafts short stories. Each story is a grotesque depiction of horrors that are beyond our imagination. I recently tried to replicate this style of writing in  &quot;<a href="/posts/2023-09-10-short-story-haunted-memories">Haunted Memories</a>&quot;, a short story about digital media. I&#39;m just getting started with reading Lovecrafts stories, but the ones I read so far absolutely blew me away.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 To prove something is true, try disproving it first
@@ -389,35 +408,6 @@ This does result in missing ~important things occasionally (e.g. I still don&#39
 <hr/>
 
 <p>This is post 099 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Notes on "Immutability Changes Everything"
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-12-21-notes-on-immutability
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-12-21-notes-on-immutability?utm_source=rss
-            </link>
-            <pubDate>
-                Thu, 21 Dec 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<blockquote><p>Published books are immutable. Accountants don&#39;t use erasers or they go to jail.</p></blockquote>
-
-<p>The paper <a href="https://www.cidrdb.org/cidr2015/Papers/CIDR15_Paper16.pdf">Immutability Changes Everything</a> by Pat Helland talks about the trend towards immutability in data storage thoughout all layers of the stack. From append-only apps (Record changes, then derive the current state), down to how bits are stored on a hard drive (e.g. Copy on Write).</p>
-
-<p>I stumbled upon this paper through the <a href="https://paperswelove.org/">Papers We Love</a> collection. I was specifically looking for a paper that&#39;s short and easy to comprehend, since I don&#39;t have much experience in reading scientific papers. This is absolutely both short and easy to comprehend. If you&#39;re a beginner like me, I can highly recommend this one to you.</p>
-
-<p>Key takeaways:</p>
-
-<ul><li>Immutability enables clean replication</li><li>Change logs (e.g. <a href="https://en.wikipedia.org/wiki/Write-ahead_logging">write-ahead logs</a>) are the source of truth. The database is a cache of a subset of those change logs</li><li>It&#39;s okay to consider violating <a href="https://en.wikipedia.org/wiki/Database_normalization">normalization</a> rules to trade storage cost for read speed</li><li>Modern SSDs minimize wear by storing new versions of data to other blocks instead of mutating the data in place</li><li>The cost of immutability is increased storage</li></ul>
-
-<hr/>
-
-<p>This is post 098 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
