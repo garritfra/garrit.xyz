@@ -1,7 +1,7 @@
 ---
 title: A list of bugs in MacOS
 date: "2022-06-14"
-tags: "note, 100DaysToOffload, MacOS, tech"
+tags: "note, 100DaysToOffload, MacOS, tech, rant"
 ---
 
 I've been using MacOS for years, and I was always happy with it. However, it

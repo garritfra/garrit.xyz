@@ -1,7 +1,7 @@
 ---
 title: Cursed User-Agents
 date: "2022-11-11"
-tags: "note, 100DaysToOffload, web, tech"
+tags: "note, 100DaysToOffload, web, tech, rant"
 ---
 
 > **Warning**: This is a rather ranty post. I just needed a place to dump my emotions about this topic. Please take it with a grain of salt. :)
