@@ -1,6 +1,6 @@
 name: Automatic Rebase
 on:
-  issues:
+  pull_request:
     types: [labeled]
 jobs:
   rebase:
