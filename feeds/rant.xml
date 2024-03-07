@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Thu, 24 Nov 2022 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                Smart Move, Google
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2022-11-24-smart-move-google
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2022-11-24-smart-move-google?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 24 Nov 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>For as long as I can remember, <code>maps.google.com</code> was the defacto domain for
+Google Maps. Also for as long as I can remember, I allowed this domain to use
+the location services of my browser.</p>
+
+<p>Yesterday I was asked to allow the usage of location services for Google Maps
+seemingly out of nowhere. Of course I accepted. After all, I just wanted to
+check a route to a local business and I was in a hurry. Back home I opened
+Google Maps again, and noticed that <code>maps.google.com</code> now redirects to
+<code>google.com/maps</code>. This implies that the permissions I give to Google Maps now
+apply to <strong>all</strong> of Googles services hosted under this domain. So far I only
+identified Google Flights to have made the same switch (<code>google.com/flights</code>),
+though I&#39;m sure they&#39;re just beginning to transfer their services to the main
+<code>google.com</code> domain.</p>
+
+<p>Congratulations, you now have permission to geo-track me across <strong>all</strong> of your
+services.</p>
+
+<p>Smart move, Google.</p>
+
+<p>This is post 043 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>
+
+<hr/>
+
+<p>This post generated some interesting discussions on
+<a href="https://news.ycombinator.com/item?id=33729345">HackerNews</a>.</p>
+
+<h3>Backlinks</h3>
+
+<ul><li><a href="https://analyticsindiamag.com/google-bypasses-privacy-puts-users-data-on-the-map/">Google Bypasses Privacy, Puts Users’ Data on the Map</a></li><li><a href="https://open.spotify.com/episode/2EfB2yqlh7B62701mzc82v">Last Week in Local - December 5, 2022</a></li><li><a href="https://softantenna.com/blog/google-smart-move/">Softantenna</a> (<a href="https://softantenna-com.translate.goog/blog/google-smart-move/?_x_tr_sl=auto&amp;_x_tr_tl=en&amp;_x_tr_hl=de&amp;_x_tr_pto=wapp">English</a>)</li><li><a href="https://stadt-bremerhaven.de/google-kann-euren-standort-unter-umstaenden-mit-allen-services-verfolgen/">Google kann euren Standort unter Umständen mit allen Services verfolgen</a> (<a href="https://stadt--bremerhaven-de.translate.goog/google-kann-euren-standort-unter-umstaenden-mit-allen-services-verfolgen/?_x_tr_sl=auto&amp;_x_tr_tl=en&amp;_x_tr_hl=de&amp;_x_tr_pto=wapp">English</a>)</li><li><a href="https://www.zive.cz/clanky/google-vymyslel-figl-jak-nas-plosne-sledovat-stacilo-mapam-zmenit-adresu/sc-3-a-219564/default.aspx">zive.cz</a> (<a href="https://www-zive-cz.translate.goog/clanky/google-vymyslel-figl-jak-nas-plosne-sledovat-stacilo-mapam-zmenit-adresu/sc-3-a-219564/default.aspx?_x_tr_sl=auto&amp;_x_tr_tl=en&amp;_x_tr_hl=de&amp;_x_tr_pto=wapp">English</a>)</li></ul>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                Cursed User-Agents
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2022-11-11-cursed-user-agents
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2022-11-11-cursed-user-agents?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 11 Nov 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<blockquote><p><strong>Warning</strong>: This is a rather ranty post. I just needed a place to dump my emotions about this topic. Please take it with a grain of salt. :)</p></blockquote>
+
+<p>I&#39;m currently <a href="https://github.com/garritfra/ua-parser-js/pull/8">fiddling
+around</a> with User-Agents of
+Smart TVs, or more specifically <a href="https://www.hbbtv.org/">HbbTV</a>. Interpreting
+them is an absolute nightmare, so let me rant about interesting edge-cases I
+discovered along the way.</p>
+
+<p>To set the mood: User-Agents in this field have a standardized format, yet many
+vendors seem to do their own thing, making it impossible to build one parser to
+rule them all. For reference, here&#39;s what the HbbTV section in a user agent
+SHOULD look like:</p>
+
+<p><code>
+HbbTV/&lt;version&gt; (&lt;capabilities&gt;; &lt;vendorName&gt;; &lt;modelName&gt;; &lt;softwareVersion&gt;; [&lt;hardwareVersion&gt;]; &lt;familyName&gt;; &lt;reserved&gt;)
+</code></p>
+
+<h2>The &quot;we&#39;ll update that later&quot;</h2>
+
+<p><code>
+HbbTV/1.1.1 (; Loewe; MB180; 1.0; 1.0;) NetFront/4.1
+</code></p>
+
+<p>1.0 for both software and hardware versions suspiciously looks like a working
+title. At least we get some information about the vendor and the model.</p>
+
+<h2>The Overcommitted</h2>
+
+<p><code>
+Mozilla/5.0 (Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 OPR/40.0.2207.0 OMI/4.9.0.237.DOM3-OPT.245 Model/Vestel-MB211 VSTVB MB200 HbbTV/1.2.1 (; JVC; MB211; 3.19.4.2; _TV_NT72563_2017 SmartTvA/3.0.0
+</code></p>
+
+<p>It&#39;s nice that we get a lot of information about the device, yet no one seemed
+to check if the string actually fits into storage.</p>
+
+<h2>The Lazy Boy</h2>
+
+<p><code>
+HbbTV/1.1.1 (;;;;;) Maple;2011
+</code></p>
+
+<p>To be fair, this is one of the earliest HbbTV devices ever. No one knew that
+this technology would stand the test of time. Apparently not even Samsung.</p>
+
+<h2>Conclusion</h2>
+
+<p>I learned that building a generic parser for user agents isn&#39;t easy, especially
+if the devices you work with could be over a decade old.</p>
+
+<p>One thing that all devices do seem to get right though is the presence of the
+HbbTV section in the User-Agent. I did not encounter a single device without it.</p>
+
+<p>This is post 042 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+        <item>
+            <title>
+                A list of bugs in MacOS
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2022-06-10-a-list-of-bugs-in-macos
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2022-06-10-a-list-of-bugs-in-macos?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 14 Jun 2022 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;ve been using MacOS for years, and I was always happy with it. However, it
+has some really annoying problems that don&#39;t seem to get attention by Apple.
+This is a list of things that personally bother me. I will try to update it
+whenever I encounter new issues.</p>
+
+<ul><li>~~When plugging in a external monitor, some native Windows can&#39;t be used with a
+mouse anymore. Restart required to fix.~~ (This seems to be fixed)</li><li>Dash-to-dock sometimes doesn&#39;t work for fullscreen-applications.</li><li>When opening a fullscreen window from the workspace-overview, the dock
+sometimes stays visible. Has to be manually hovered to hide.</li><li>When using a chromium-based browser on an external monitor in
+fullscreen-mode, the menu-bar sometimes doesn&#39;t appear when hovered.</li><li>When switching from the internal to an external monitor, the workspace
+alignment is not how I left it.</li></ul>
+
+<p>This is post 034 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>
