@@ -27,6 +27,8 @@ mail](mailto:garrit@slashdev.space)!
 
 **[Simone Silvestroni](https://minutestomidnight.co.uk/)** – Opinions about a better world wide web, sustainability and audio.
 
+**[Joel Chrono](https://joelchrono.xyz)** – Joels blog is very similar to mine. He writes about anything on his mind, and he loves to tinker around with many different hobbies.
+
 ### Newsboards
 
 **[Hacker News](https://news.ycombinator.com/)** – My favorite news outlet. Tech, programming, Entrepreneurship and other important news. Sometimes a bit toxic, so I wrote a [RSS proxy](https://github.com/garritfra/positive_hackernews) that only shows entries with a positive sentiment.
