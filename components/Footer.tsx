@@ -5,8 +5,16 @@ export default function Footer() {
 		<footer className="footer">
 			<div className="notice">
 				<p>
-					I invite you to read my new book "Five
-					Years of Blogging: Ideas, Opinions and Guides written 2019 to 2024". Becoming a member on <a href="https://www.buymeacoffee.com/garrit">Buy Me a Coffee</a> will grant you free access to the book!
+					I invite you to read my new book{" "}
+					<a target="_blank" href="https://www.buymeacoffee.com/garrit/extras">
+						Five Years of Blogging: Ideas, Opinions and Guides written 2019 to
+						2024
+					</a>
+					. Becoming a member on{" "}
+					<a target="_blank" href="https://www.buymeacoffee.com/garrit">
+						Buy Me a Coffee
+					</a>{" "}
+					will grant you free access to the book!
 				</p>
 				<a href="https://www.buymeacoffee.com/garrit/extras">
 					<img
