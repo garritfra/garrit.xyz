@@ -14,8 +14,51 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 18 Jan 2024 00:00:00 +0000
+            Tue, 02 Apr 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Fuck trees, use tags
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-04-02-fuck-trees-use-tags
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-04-02-fuck-trees-use-tags?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 02 Apr 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>We&#39;ve been trained to organize our files into a tree-like structure. A file can only exist once in the entire tree. It may have multiple contexts, but it can only exist once. Here&#39;s an example: you get a really important invoice for your car that you have to keep for your taxes. Where do you store this invoice alongside your other files?</p>
+
+<ul><li>Maybe organized by type:<code>/invoices/important_invoice.pdf</code>?</li><li>Or <code>/tax/2024/important_invoice.pdf</code> since that&#39;s where you will probably need it next?</li><li>But it&#39;s an invoice for my car! So <code>/vehicles/&lt;licenseplate&gt;/important_invoice.pdf</code>?</li></ul>
+
+<p>Whatever strategy you choose, there are probably times where you wish to have used a different directory structure. Sure, you can put the file in one directory and then create a shortcut or link in the other directories, but the original file will only ever exist in one place.</p>
+
+<p>I believe that these tree-like directory structures are inherently flawed, and that tagging systems are superior in almost every way.</p>
+
+<p>What I mean by tags is to organize files/entities/whatever into a flat structure and add meaningful tags/labels to add context. To revise the example above: our <code>important_invoice.pdf</code> could have the following tags:</p>
+
+<ul><li><code>invoice</code></li><li><code>vehicles/&lt;licenseplate&gt;</code></li><li><code>tax/2024</code></li></ul>
+
+<p>One could argue that <code>vehicles</code> and <code>tax</code> could be their own tags, but I specifically choose these tags to prove an important point:</p>
+
+<h2>Tags can mimic trees</h2>
+
+<p>If you think about it, a file path in a sense is just a reference to some location. Files on a physical hard drive aren&#39;t organized in trees. They&#39;re a bunch of ones and zeros slapped together in a pool of other files. A file path is just an abstraction for the user to reference a specific location in this pool of files. A file path is a tag!</p>
+
+<p>Unfortunately, most systems are designed to only allow one path per file. This creates the hierarchical structure we so often use. But as I mentioned above, we could simply assign multiple tags or paths to a single file to organize it in multiple ways. The <code>important_invoice.pdf</code> has little to do with <code>tax</code> or <code>2024</code> as standalone terms, but assigning the tag <code>tax/2024</code>  gives it a similar meaning as a path to a file in a directory. The term <code>invoice</code> is enough to infer that everything using this tag is an invoice. It&#39;s equivalent to having a directory named <code>invoices</code> with multiple files inside.</p>
+
+<p>So, we have established that tags are easily superior to trees. Why are we not using them?</p>
+
+<h2>Tags have bad UX</h2>
+
+<p>There have been many attempts at giving users the possibility to organize their stuff using tags. Your Gmail mails can be labeled, you can use tags for files in MacOS and there are apparently even efforts to create <a href="https://relfs.sourceforge.net/">tag-based filesystems</a>. But none of them were good enough to change the game.</p>
+
+<p>Our brains seem to be so used to the idea of a piece of information only existing at one location at a time that it&#39;s really hard to adapt at this point. I&#39;m sure there are some power users out there who make the most of the limited tagging features of their systems, but what I would really like to see is a real shift in how we store and retrieve information.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Cost per Request
@@ -285,37 +328,6 @@
 <hr/>
 
 <p>This is post 060 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                I won't buy a YubiKey
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-03-21-i-wont-buy-a-yubikey
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-03-21-i-wont-buy-a-yubikey?utm_source=rss
-            </link>
-            <pubDate>
-                Tue, 21 Mar 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I have a YubiKey that I use for work, and I love using it. But I won&#39;t get one for my personal life.</p>
-
-<p>I&#39;ve been thinking about this for some time now, but I ultimately don&#39;t think the benefits outweigh the hassle of always carrying around another device that I risk losing or breaking.</p>
-
-<p>A Yubikey provides a very good second factor, but so does my phone. My phone, just like a Yubikey, is locked behind a third factor (a pin or biometric sensor), so my phone essentially <em>is</em> a Yubikey. You can argue that the authenticator app on my phone (bitwarden) can be hacked, but I&#39;m willing to take that risk if it means I have to reset all security measures on all accounts if I lose the key.</p>
-
-<p>So, I&#39;m not getting a Yubikey.</p>
-
-<h3>Replies &amp; Mentions</h3>
-
-<ul><li><a href="https://kevquirk.com/i-wont-by-a-yubikey/">Kev Quirk: re: I won&#39;t buy a YubiKey</a></li><li><a href="https://alsonkaw.com/muses/why-i-wont-use-a-yubikey/">Alson Kaw: Why I won&#39;t use a YubiKey</a></li></ul>
-
-<hr/>
-
-<p>This is post 058 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
