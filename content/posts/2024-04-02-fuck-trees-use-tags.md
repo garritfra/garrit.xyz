@@ -35,3 +35,7 @@ So, we have established that tags are easily superior to trees. Why are we not u
 There have been many attempts at giving users the possibility to organize their stuff using tags. Your Gmail mails can be labeled, you can use tags for files in MacOS and there are apparently even efforts to create [tag-based filesystems](https://relfs.sourceforge.net/). But none of them were good enough to change the game.
 
 Our brains seem to be so used to the idea of a piece of information only existing at one location at a time that it's really hard to adapt at this point. I'm sure there are some power users out there who make the most of the limited tagging features of their systems, but what I would really like to see is a real shift in how we store and retrieve information.
+
+## Discussion
+
+This post has spark some interesting discussion on [Lobsters](https://lobste.rs/s/pssbmx/fuck_trees_use_tags).
