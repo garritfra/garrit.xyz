@@ -14,8 +14,56 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 02 Apr 2024 00:00:00 +0000
+            Thu, 04 Apr 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Pandoc: Convert links to footnotes (the easy way)
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-04-04-pandoc-convert-links-to-footnotes-the-easy-way
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-04-04-pandoc-convert-links-to-footnotes-the-easy-way?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 04 Apr 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Pandoc has <a href="https://pandoc.org/MANUAL.html#links">a feature</a> to covert links to footnotes. Unfortunately, this only applies to LaTeX documents. Since I want to stay away from LaTeX for reasons of bloat, I was looking for a more universal approach.</p>
+
+<p>First, I encountered <a href="https://stackoverflow.com/questions/33900067/pandoc-filter-to-add-footnotes-to-links">this</a> thread suggesting to use a regular <a href="https://pandoc.org/filters.html">Pandoc filter</a>. This has one downside though: you need a Haskell toolchain on your system. So I moved on ... </p>
+
+<p>I eventually stumbled across <a href="https://github.com/jgm/pandoc/discussions/9415">this</a> thread, explaining how to do the same thing but with a Lua filter instead of Haskell. Since Lua is embedded into Pandoc, you don&#39;t need to install anything. Hooray for embeddable languages!</p>
+
+<p>Simply place the following snippet into file (<code>/filters/link-to-footnote.lua</code> for example):</p>
+
+<p><code>lua
+function Link(link)
+    link.content:insert(pandoc.Note(link.target))
+    return link.content
+end
+</code></p>
+
+<blockquote><p><em>Note</em>: If you want to keep the original hyperlink in tact, replace the <code>return link.content</code> with <code>return link</code>.</p></blockquote>
+
+<p>And add the following flag to your Pandoc build command:</p>
+
+<p><code></code>`sh</p>
+
+<h1>!/bin/sh</h1>
+
+<p>pandoc text.md
+    -o book.epub \
+    --lua-filter=filters/link-to-footnote.lua \ # &lt;-- This one
+    --metadata-file metadata.yaml \
+    --standalone \
+    # ...
+<code></code>`</p>
+
+<p>After compiling the document, you should now see that each link has a footnote with the link text.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Fuck trees, use tags
@@ -394,35 +442,6 @@ jobs:
 <hr/>
 
 <p>This is post 087 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                re: Writing code for both computers and humans
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-11-20-re--writing-code-for-both-computers-and-humans
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-11-20-re--writing-code-for-both-computers-and-humans?utm_source=rss
-            </link>
-            <pubDate>
-                Mon, 20 Nov 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<blockquote><p>This is a reply to Tony Mottaz&#39; <a href="https://www.tonymottaz.com/code-for-computers-and-humans/">blog post</a> about code that&#39;s easy to understand for humans.</p></blockquote>
-
-<p>The understandability of a piece of code can be measured by how much time one needs to grasp its behavior. Less cognitive load usually means easier, and therefore faster, to understand.</p>
-
-<p>Tony argues that the verbose version of the code (<code>isNaN(defaultValue) ? NaN : defaultValue;</code>) is better than the optimized version (<code>defaultValue;</code>) because it proves that the author has thought of the possible sideeffect.</p>
-
-<p>However, I personally think this is in fact bad code. Although the code is <strong>trying</strong> to make obvious what it&#39;s doing, Tony had to pause and think about why it&#39;s written this way. This probably interrupted their flow of work, which is highly undesired. A short comment should have the same effect while keeping the reader in their flow. This is a perfect example for the &quot;<a href="https://www.jackfranklin.co.uk/blog/code-comments-why-not-how/">comment the why, now the how</a>&quot; mantra.</p>
-
-<p>I really enjoyed Tony&#39;s post. It does a great job emphasizing that we should be curious about the code we read and write.</p>
-
-<hr/>
-
-<p>This is post 086 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

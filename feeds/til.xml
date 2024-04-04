@@ -14,8 +14,56 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 30 Jan 2024 00:00:00 +0000
+            Thu, 04 Apr 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Pandoc: Convert links to footnotes (the easy way)
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-04-04-pandoc-convert-links-to-footnotes-the-easy-way
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-04-04-pandoc-convert-links-to-footnotes-the-easy-way?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 04 Apr 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Pandoc has <a href="https://pandoc.org/MANUAL.html#links">a feature</a> to covert links to footnotes. Unfortunately, this only applies to LaTeX documents. Since I want to stay away from LaTeX for reasons of bloat, I was looking for a more universal approach.</p>
+
+<p>First, I encountered <a href="https://stackoverflow.com/questions/33900067/pandoc-filter-to-add-footnotes-to-links">this</a> thread suggesting to use a regular <a href="https://pandoc.org/filters.html">Pandoc filter</a>. This has one downside though: you need a Haskell toolchain on your system. So I moved on ... </p>
+
+<p>I eventually stumbled across <a href="https://github.com/jgm/pandoc/discussions/9415">this</a> thread, explaining how to do the same thing but with a Lua filter instead of Haskell. Since Lua is embedded into Pandoc, you don&#39;t need to install anything. Hooray for embeddable languages!</p>
+
+<p>Simply place the following snippet into file (<code>/filters/link-to-footnote.lua</code> for example):</p>
+
+<p><code>lua
+function Link(link)
+    link.content:insert(pandoc.Note(link.target))
+    return link.content
+end
+</code></p>
+
+<blockquote><p><em>Note</em>: If you want to keep the original hyperlink in tact, replace the <code>return link.content</code> with <code>return link</code>.</p></blockquote>
+
+<p>And add the following flag to your Pandoc build command:</p>
+
+<p><code></code>`sh</p>
+
+<h1>!/bin/sh</h1>
+
+<p>pandoc text.md
+    -o book.epub \
+    --lua-filter=filters/link-to-footnote.lua \ # &lt;-- This one
+    --metadata-file metadata.yaml \
+    --standalone \
+    # ...
+<code></code>`</p>
+
+<p>After compiling the document, you should now see that each link has a footnote with the link text.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 To prove something is true, try disproving it first
@@ -414,48 +462,6 @@ git config diff.sqlite3.textconv &quot;echo .dump | sqlite3&quot;
 <hr/>
 
 <p>This is post 064 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                TIL about CSS Insets
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-02-19-til-about-css-insets
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-02-19-til-about-css-insets?utm_source=rss
-            </link>
-            <pubDate>
-                Sun, 19 Feb 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Just a quick tip that I thought is worth sharing. Instead of declaring:</p>
-
-<p><code>css
-.foo { 
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-</code></p>
-
-<p>you can just use:</p>
-
-<p><code>css
-.foo {
-  inset: 0;
-}
-</code></p>
-
-<p>It&#39;s supported everywhere computers are sold!</p>
-
-<p>MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/inset</p>
-
-<p>Source: https://front-end.social/@estelle/109878532782943511</p>
-
-<p>This is post 047 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

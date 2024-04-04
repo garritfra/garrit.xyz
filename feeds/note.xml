@@ -14,8 +14,56 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 02 Apr 2024 00:00:00 +0000
+            Thu, 04 Apr 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Pandoc: Convert links to footnotes (the easy way)
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-04-04-pandoc-convert-links-to-footnotes-the-easy-way
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-04-04-pandoc-convert-links-to-footnotes-the-easy-way?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 04 Apr 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Pandoc has <a href="https://pandoc.org/MANUAL.html#links">a feature</a> to covert links to footnotes. Unfortunately, this only applies to LaTeX documents. Since I want to stay away from LaTeX for reasons of bloat, I was looking for a more universal approach.</p>
+
+<p>First, I encountered <a href="https://stackoverflow.com/questions/33900067/pandoc-filter-to-add-footnotes-to-links">this</a> thread suggesting to use a regular <a href="https://pandoc.org/filters.html">Pandoc filter</a>. This has one downside though: you need a Haskell toolchain on your system. So I moved on ... </p>
+
+<p>I eventually stumbled across <a href="https://github.com/jgm/pandoc/discussions/9415">this</a> thread, explaining how to do the same thing but with a Lua filter instead of Haskell. Since Lua is embedded into Pandoc, you don&#39;t need to install anything. Hooray for embeddable languages!</p>
+
+<p>Simply place the following snippet into file (<code>/filters/link-to-footnote.lua</code> for example):</p>
+
+<p><code>lua
+function Link(link)
+    link.content:insert(pandoc.Note(link.target))
+    return link.content
+end
+</code></p>
+
+<blockquote><p><em>Note</em>: If you want to keep the original hyperlink in tact, replace the <code>return link.content</code> with <code>return link</code>.</p></blockquote>
+
+<p>And add the following flag to your Pandoc build command:</p>
+
+<p><code></code>`sh</p>
+
+<h1>!/bin/sh</h1>
+
+<p>pandoc text.md
+    -o book.epub \
+    --lua-filter=filters/link-to-footnote.lua \ # &lt;-- This one
+    --metadata-file metadata.yaml \
+    --standalone \
+    # ...
+<code></code>`</p>
+
+<p>After compiling the document, you should now see that each link has a footnote with the link text.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Fuck trees, use tags
@@ -391,28 +439,6 @@ jobs:
 <p>Greg is a good software developer. Be like Greg.</p>
 
 <p><img alt="Greg is a good software developer" src="/assets/posts/2024-01-05-greg-the-developer/greg-okay.svg"/></p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Temporal vs. fundamental content
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-01-02-temporal-vs-fundamental-content
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-01-02-temporal-vs-fundamental-content?utm_source=rss
-            </link>
-            <pubDate>
-                Tue, 02 Jan 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I just read <a href="https://news.ycombinator.com/item?id=38829907">this comment</a> on a thread on HackerNews which resonated with me:</p>
-
-<blockquote><p>I&#39;m trying to read less temporal (things that matter now) and more fundamental (stuff that mattered 1+ year ago and will still matter in 1+ year, with even wider intervals for non-tech content).
-This does result in missing ~important things occasionally (e.g. I still don&#39;t know what happened with SamA at OpenAI, and yes, I am curious), but that&#39;s a small price to pay for greater intellectual sanctity and an increased attention budget to distribute across important tasks or funnel into something hyper focussed.</p></blockquote>
-
-<p>Is this news important <em>now</em> or do I benefit from it in the long term? Our time is the most precious resource we have, and we should be careful how we spend it.</p>]]>
             </description>
         </item>
     </channel>
