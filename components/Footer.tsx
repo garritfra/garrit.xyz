@@ -6,7 +6,7 @@ export default function Footer() {
 			<div className="notice">
 				<p>
 					I invite you to read my new book{" "}
-					<a target="_blank" href="https://www.buymeacoffee.com/garrit/extras">
+					<a target="_blank" href="https://www.buymeacoffee.com/garrit/e/233695">
 						Five Years of Blogging: Ideas, Opinions and Guides written 2019 to
 						2024
 					</a>
