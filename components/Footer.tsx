@@ -3,13 +3,37 @@ export default function Footer() {
 
 	return (
 		<footer className="footer">
+			<div className="notice">
+				<p>
+					I invite you to read my new book{" "}
+					<a target="_blank" href="https://www.buymeacoffee.com/garrit/e/233695">
+						Five Years of Blogging: Ideas, Opinions and Guides written 2019 to
+						2024
+					</a>
+					. Becoming a member on{" "}
+					<a target="_blank" href="https://www.buymeacoffee.com/garrit">
+						Buy Me a Coffee
+					</a>{" "}
+					will grant you free access to the book!
+				</p>
+				<a href="https://www.buymeacoffee.com/garrit/extras">
+					<img
+						src="/assets/five-years-of-blogging-cover-3d.png"
+						alt="Cover of Five Years of Blogging"
+						loading="lazy"
+					/>
+				</a>
+			</div>
+
 			<div className="footer__content">
 				<h3>Links of Interest</h3>
 				<a href="/rss.xml">RSS Feed</a>
 				<br />
 				<a href="/todo">Todo List</a>
 				<br />
-				<a href="https://keys.openpgp.org/vks/v1/by-fingerprint/2218337E54AA1DBE207B404DBB54AF7EB0939F3D">PGP Key</a>
+				<a href="https://keys.openpgp.org/vks/v1/by-fingerprint/2218337E54AA1DBE207B404DBB54AF7EB0939F3D">
+					PGP Key
+				</a>
 				<br />
 				<a href="/guestbook">Guestbook</a>
 				<br />
@@ -33,7 +57,10 @@ export default function Footer() {
 			</a>
 
 			<p>
-				👻 Proud member of <a target="_blank" href="https://darktheme.club/">darktheme.club</a>{" "}
+				👻 Proud member of{" "}
+				<a target="_blank" href="https://darktheme.club/">
+					darktheme.club
+				</a>{" "}
 				👻
 			</p>
 
@@ -41,7 +68,9 @@ export default function Footer() {
 				© 2018-{currentYear} Garrit Franke
 				<br />
 				<a href="/privacy">Privacy</a> |{" "}
-				<a target="_blank" href="https://github.com/garritfra/garrit.xyz">Source Code</a>
+				<a target="_blank" href="https://github.com/garritfra/garrit.xyz">
+					Source Code
+				</a>
 			</p>
 		</footer>
 	);

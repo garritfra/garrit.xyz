@@ -104,6 +104,14 @@ li > p {
 	margin-bottom: calc(1.45rem / 2);
 }
 
+.notice {
+	background: var(--accent-bg);
+	border: 2px solid var(--border);
+	border-radius: var(--standard-border-radius);
+	padding: 1.5rem;
+	margin: 2rem 0;
+}
+
 @media (prefers-color-scheme: dark) {
 	html {
 		scrollbar-color: #dbd7db #161618 !important;
