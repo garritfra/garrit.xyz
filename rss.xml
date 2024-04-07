@@ -14,8 +14,35 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 04 Apr 2024 00:00:00 +0000
+            Sun, 07 Apr 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Five Years of Blogging
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-04-07-five-years-of-blogging
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-04-07-five-years-of-blogging?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 07 Apr 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>My blog just turned five years old! 🎉</p>
+
+<p>To celebrate this unique occasion, I want to announce something I&#39;ve been secretly working on: I wrote a book!</p>
+
+<p><img alt="The cover of Five Years of Blogging" src="/assets/five-years-of-blogging-cover-3d.png"/></p>
+
+<p><a href="https://www.buymeacoffee.com/garrit/e/233695"><em>Five Years of Blogging: Ideas, Opinions and Guides written 2019 to 2024</em></a> serves as a memoir for the first five years of this blog. It&#39;s a collection of not all, but my most valuable blog posts capturing my ideas, opinions and the lessons I learned. The book is quite messy, but that&#39;s by design. I want to preserve all posts in the state that they have originally been written in. Where necessary, you may find introductory paragraphs or footnotes to explain something in more detail, but the original posts have all been left untouched.</p>
+
+<p>Getting a copy of this book is the best way to support my writing. You can either <a href="https://www.buymeacoffee.com/garrit/extras">buy the book directly on Buy Me a Coffee</a>, or you can <a href="https://www.buymeacoffee.com/garrit/membership">become a monthly supporter</a>, which grants you a free copy after signing up.</p>
+
+<p>I&#39;m extremely grateful for the journey this blog has taken me on, and the people I met along the way. Who knows, maybe there will be a &quot;Ten Years of Blogging&quot; book in the future?</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Pandoc: Convert links to footnotes (the easy way)
@@ -396,49 +423,6 @@ jobs:
 <h2>Conclusion</h2>
 
 <p>Using this workflow, I can pump out ideas whenever and whereever I feel like it. It drastically reduced the time from idea to written article, which helps me organize my thoughts a lot better. I also frequently create drafts for things I want to write about but is not fully fleshed out yet.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Greg, the Developer
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-01-05-greg-the-developer
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-01-05-greg-the-developer?utm_source=rss
-            </link>
-            <pubDate>
-                Fri, 05 Jan 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>This is Greg. Greg loves to play with his computer and create amazing things.</p>
-
-<p><img alt="Greg" src="/assets/posts/2024-01-05-greg-the-developer/greg.svg"/></p>
-
-<p>Greg has many friends. He listens to his friends and helps them. Greg knows that teamwork is very important.</p>
-
-<p><img alt="Greg and his friends" src="/assets/posts/2024-01-05-greg-the-developer/greg-friends.svg"/></p>
-
-<p>Greg is curious about what his friends do. Greg learned how they help everyone create amazing things. Greg was happy that he learned something new.</p>
-
-<p><img alt="Greg learns from his friends" src="/assets/posts/2024-01-05-greg-the-developer/greg-learning.svg"/></p>
-
-<p>One day, Greg has an idea. Greg shares his idea with his friends. They try it, and it works! Everyone is happy that Greg shared his idea.</p>
-
-<p><img alt="Greg has an idea" src="/assets/posts/2024-01-05-greg-the-developer/greg-idea.svg"/></p>
-
-<p>When Greg learns something new about computers, he writes it down and shows it to his friends. This helps everyone learn how computers work.</p>
-
-<p><img alt="Greg writes down what he learned" src="/assets/posts/2024-01-05-greg-the-developer/greg-documentation.svg"/></p>
-
-<p>Sometimes Greg and his friends make a mistake, but Greg knows that&#39;s okay. Everyone makes mistakes, even Greg. He says that everyone can learn from mistakes. This makes them better and happier.</p>
-
-<p><img alt="It&#39;s okay to make mistakes" src="/assets/posts/2024-01-05-greg-the-developer/greg-mistake.svg"/></p>
-
-<p>Greg is a good software developer. Be like Greg.</p>
-
-<p><img alt="Greg is a good software developer" src="/assets/posts/2024-01-05-greg-the-developer/greg-okay.svg"/></p>]]>
             </description>
         </item>
     </channel>
