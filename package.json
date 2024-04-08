@@ -29,7 +29,7 @@
 		"rfc822-date": "0.0.3",
 		"sass": "1.72.0",
 		"ts-node": "10.9.2",
-		"typescript": "^5.4.3",
+		"typescript": "^5.4.4",
 		"xml-formatter": "^3.6.2"
 	}
 }
