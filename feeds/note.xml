@@ -14,8 +14,47 @@
             en
         </language>
         <lastBuildDate>
-            Sun, 07 Apr 2024 00:00:00 +0000
+            Wed, 10 Apr 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Beating Elden Ring
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-04-10-beating-elden-ring
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-04-10-beating-elden-ring?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 10 Apr 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<blockquote><p><strong>⚠️ WARNING ⚠️</strong>: This post contains a lot of spoilers for the game Elden Ring.</p></blockquote>
+
+<p>So, I just beat Elden Ring. It took me 120 hours and, coincidentally, I was level 120 when I beat the final boss. That damn final boss... but more on that later.</p>
+
+<p>Elden Ring won me over instantly, even though I&#39;ve never played any of the other Souls games. After beating <a href="https://de.wikipedia.org/wiki/The_Legend_of_Zelda:_Breath_of_the_Wild">Breath of the Wild</a>, I called it my favorite game. I just needed more games like this. When Elden Ring came out, people compared The Lands Between to the open world of Hyrule, and I quickly agreed. The freedom these games give you is absolutely unbeaten. You almost never really get &quot;stuck&quot; on something. You can always wonder off and explore until you&#39;re ready to take on the fight.</p>
+
+<p>After about 50 hours into playing Elden Ring, I kind of lost my focus and stopped playing for a while. It was too huge of a game to beat at the time, so I gave up.</p>
+
+<p>But then, <a href="https://de.wikipedia.org/wiki/The_Legend_of_Zelda:_Tears_of_the_Kingdom">Tears of the Kingdom</a> came out and doubled up on the world of Hyrule. I absolutely adored this game. I spent day and night playing until I finally beat it. This game also motivated me to beat Elden Ring one more time. Despite failing over and over, each play session gave me a feeling of progression. I might not have beaten a boss yet, but there was always something happening the side that got me closer to beating it. Be it exploring and getting better gear or learning as much as I can about a boss to find ways to deal damange, I always got a small step closer to my goal. I&#39;d go as far as to say I never felt so determined to reach a goal ever before in my life.</p>
+
+<p>The boss fights in Elden Ring are obviously extremely difficult, but they&#39;re always fair. The bosses in this game never make mistakes, you&#39;re the one that screwed up. You just keep failing and failing, but with each run, you learn something new about the fight that makes it easier in the next run. And when you finally overcoming this challenge gives you a feeling of accomplishment like nothing else could.</p>
+
+<p>What I didn&#39;t realize in the beginning of my playthough is how extremely well rounded the world and the lore of this game is. I spent days and nights indulging myself in the lore through numerous YouTube videos, guides and Wikis. Only then did I begin to understand the scale of this game. Every action of each character, every building and every item fits in the grand scheme of the world.</p>
+
+<p>Going out of this, the biggest thing that stuck with me is the determination. Failing is part of your life, and that is okay. No matter how daunting a task is, there&#39;s <strong>always</strong> a way to overcome it. The Elden Beast is the final boss of the game, and it&#39;s also where I spent about a quarter of my playtime. This thing has absurd attacks, immense health, and did I mention that you have to beat it after beating another extremely difficult boss, without being able to top up your health? This fight is ridiculous. I spent multiple weeks trying to beat it. I was really close to giving up, but as I mentioned earlier, each run gets you a tiny bit closer to the finish line, so I pushed through. I refined my build, I leveled up my stats and I learned how to dance with the beast. Eventually, I won the fight not by luck, but by determination. I now feel like I understand every attack well enough to dodge it. My mind was on autopilot when I beat it.</p>
+
+<p>Knowing this much about a game didn&#39;t teach me any practical skills. There&#39;s nothing I can do now that I couldn&#39;t do before I knew that Rykard (Lord of Blasphemy), son of Rennala and Radagon (also known as Queen Marika), chose to go against the Erdtree and eventually fed himself to a serpent to devour the entire world (which you prevented). But there&#39;s something about this game that left me craving for more. It&#39;s truly a masterpiece.</p>
+
+<h2>Bonus</h2>
+
+<p>In case you&#39;re interested, I uploaded some of the bossfights during my playthrough in this YouTube playlist:</p>
+
+<p>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/videoseries?si=j1Ue2lrrLy1JTOM9&amp;amp;list=PLS8TKBZz1x5S6ojf24SMF1h_HYb4AyTxc&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen&gt;&lt;/iframe&gt;</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Five Years of Blogging
@@ -311,118 +350,6 @@ end
 <p>What if we made &quot;Cost per request&quot; a key metric in our observability strategy, alongside &quot;Requests per second&quot;?</p>
 
 <p>If we follow that path even further, we could derive a standard for how much a request should cost for x% of uptime, across the entire industry. This way, we should be able to identify how much we&#39;re overspending for our infrastructure compared to other companies or products.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                A better publishing workflow for static blogs
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-01-06-a-better-publishing-workflow-for-static-blogs
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-01-06-a-better-publishing-workflow-for-static-blogs?utm_source=rss
-            </link>
-            <pubDate>
-                Sat, 06 Jan 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>In my <a href="/posts/2023-12-23-100daystooffload-i-made-it">post</a> celebrating the completion of my <code>#100DaysToOffload</code> challenge, I teased that &quot;I built myself a handy script that turns the contents of a GitHub issue into a pull request, ready to be merged as a blog post&quot;. I didn&#39;t believe this was such a big deal, but a couple of readers actually reached out to me to ask about this.</p>
-
-<p>First, some background. My site is built using a static site generator (not that it matters, but I use <a href="https://nextjs.org/">Next.js</a>). The beauty of using a SSG is that every blog post is literally just a markdown file in <a href="https://github.com/garritfra/garrit.xyz/tree/main/content/posts">a directory</a>. </p>
-
-<h2>The story so far</h2>
-
-<p>Before coming up with an automation, I had to</p>
-
-<ol><li>Copy an older post to a new file</li><li>Rename the file</li><li>Fix the metadata/frontmatter</li><li>Delete the contents of the post</li><li><strong>Write the actual post</strong></li><li>Commit the file</li></ol>
-
-<p>Putting out content on my blog involved quite a bit of friction. I felt like there was a barrier between my thoughts and the blog.</p>
-
-<h2>The solution</h2>
-
-<p>I&#39;ve been looking into how I could solve this issue for quite some time. I even had thoughts to build a custom blogging backend that would commit files to the <a href="https://github.com/garritfra/garrit.xyz">repository</a>, which is of course quite silly.</p>
-
-<p>But then it struck me: GitHub issues fully support markdown! The idea was born:</p>
-
-<ol><li>Open an issue in the repository of this blog</li><li>Write the post</li><li>Kick off an automation that takes the content of the issue and dumps it in a new file</li><li>Create a pull request to generate a preview of the post</li><li>Merge the PR once I&#39;m done reviewing the post</li></ol>
-
-<h2>So, how does the automation work?</h2>
-
-<p>The magic lies in <a href="https://github.com/garritfra/garrit.xyz/blob/main/.github/workflows/publish_via_issue.yaml">this GitHub Action</a>. It is kicked off whenever the <code>action:publish</code> label is added to an issue.</p>
-
-<p>If for some reason this link will not be there anymore in the future, this is the action as of the time of writing:</p>
-
-<p>&lt;details&gt;
-&lt;summary&gt;Expand me!&lt;/summary&gt;</p>
-
-<p><code></code>`yaml
-on:
-  issues:
-    types: [labeled]</p>
-
-<p>name: Publish issue as post
-jobs:
-  publish-issue:
-    if: github.event.label.name == &#39;action:publish&#39;
-    runs-on: ubuntu-latest
-    env:
-      POST<em>BODY: &#39;${{ github.event.issue.body }}&#39;
-    steps:
-      - uses: actions/checkout@v4
-      - name: Create commits
-        run: |
-          export POST</em>DATE=$(date +&quot;%Y-%m-%d&quot;)
-          export POST<em>TITLE=&quot;${{ github.event.issue.title }}&quot;
-          export POST</em>TAGS=$(echo &quot;${{ join(github.event.issue.labels.<em>.name, &#39;, &#39;) }}&quot; | grep -o &#39;tag:[^,]</em>&#39; | cut -d: -f2- | paste -sd &quot; &quot; - | sed &#39;s/ /, /g&#39;)
-          export FILE<em>TITLE=$(printf &quot;$POST</em>TITLE&quot; | tr -cs &#39;[:alnum:]&#39; &#39;-&#39; | tr &#39;A-Z&#39; &#39;a-z&#39; | sed &#39;s/--/-/g&#39; | sed &#39;s/^-\|-$//g&#39;)
-          export FILE<em>NAME=&quot;$POST</em>DATE-$FILE<em>TITLE.md&quot;
-          export FULL</em>PATH=&quot;content/posts/$FILE_NAME&quot;
-          git config user.name &#39;Publish Bot&#39;
-          git config user.email &#39;publish-bot@github.com&#39;</p>
-
-<pre><code>      cat &lt;&lt; EOF &gt; $FULL_PATH
-      ---
-      title: &quot;$POST_TITLE&quot;
-      date: &quot;$POST_DATE&quot;
-      tags: &quot;$POST_TAGS&quot;
-      ---
-
-      EOF
-
-      echo &quot;$POST_BODY&quot; &gt;&gt; $FULL_PATH
-
-      git add $FULL_PATH
-      git commit -m &quot;Publish $POST_TITLE&quot;
-
-  - name: Create Pull Request
-    uses: peter-evans/create-pull-request@v5
-    with:
-      title: &quot;New Post: ${{ github.event.issue.title }}&quot;
-      body: &quot;Closes #${{ github.event.issue.number }}.\n\n This PR has been generated automatically.&quot;
-  - uses: actions-ecosystem/action-remove-labels@v1
-    with:
-      labels: action:publish</code></pre>
-
-<p><code></code>`</p>
-
-<p>&lt;/details&gt;</p>
-
-<p>So, when I&#39;m done writing the post, I simply label the issue as <code>action:publish</code>, and the action turns it into a new file, commits it and ultimately opens a PR for me to review. You can see this in action by looking at <a href="https://github.com/garritfra/garrit.xyz/issues/432">the issue for this post</a>. The action also handles tags for blog posts. You can see that there are a bunch of labels on the issues that correspond to the tags of this post.</p>
-
-<p>One additional benefit of using a static site generator is that I can generate a preview site for each pull request. So, once I&#39;m done writing and the pull request is generated, I can just wait for Netlify to build the preview to read the blog post as if it is published to the site! This is very helpful for spotting typos or formatting issues, especially if I&#39;m writing a post on my phone.</p>
-
-<h2>Further improvements</h2>
-
-<p>There are two things the current setup is lacking:</p>
-
-<p>Firstly, GitHub doesn&#39;t really highlight typos when writing an issue. I&#39;m sure there are ways to address this post-publish, I just didn&#39;t get around to doing that yet.</p>
-
-<p>Secondly, there&#39;s no sustainable way to add images to the repository this way. I have an <a href="https://github.com/garritfra/garrit.xyz/tree/main/public/assets">assets directory</a> where I put all my images for blog posts. You can paste images directly into the issue, which is really handy, but that generates a permalink on a GitHub CDN, somewhere that I don&#39;t control. For the future, it would be nice to teach the GH action to take these images and dump them into the asset directory.</p>
-
-<h2>Conclusion</h2>
-
-<p>Using this workflow, I can pump out ideas whenever and whereever I feel like it. It drastically reduced the time from idea to written article, which helps me organize my thoughts a lot better. I also frequently create drafts for things I want to write about but is not fully fleshed out yet.</p>]]>
             </description>
         </item>
     </channel>
