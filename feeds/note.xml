@@ -14,8 +14,45 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 10 Apr 2024 00:00:00 +0000
+            Thu, 11 Apr 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                A simple search bar
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-04-11-a-simple-search-bar
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-04-11-a-simple-search-bar?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 11 Apr 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just added a simple search bar to my <a href="/links">&quot;More ...&quot;</a> page. It just redirects to a <a href="https://duckduckgo.com">DuckDuckGo</a> search with your search term and limits it to my site. Simple, yet effective!</p>
+
+<p>Here&#39;s the snippet, feel free to steal it for your own site:</p>
+
+<p><code>jsx
+&lt;form className=&quot;search&quot; method=&quot;get&quot; action=&quot;https://duckduckgo.com/&quot; target=&quot;_blank&quot;&gt;
+    &lt;input id=&quot;search&quot; type=&quot;search&quot; name=&quot;q&quot; placeholder=&quot;Search via DDG&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;sites&quot; value=&quot;garrit.xyz&quot; /&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Search&quot; /&gt;
+&lt;/form&gt;
+</code></p>
+
+<h2>Try it out</h2>
+
+<p>Try searching for anything!</p>
+
+<p>&lt;form className=&quot;search&quot; method=&quot;get&quot; action=&quot;https://duckduckgo.com/&quot; target=&quot;_blank&quot;&gt;
+    &lt;input id=&quot;search&quot; type=&quot;search&quot; name=&quot;q&quot; placeholder=&quot;Search via DDG&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;sites&quot; value=&quot;garrit.xyz&quot; /&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Search&quot; /&gt;
+&lt;/form&gt;</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Beating Elden Ring
@@ -327,29 +364,6 @@ end
 <h2>Source</h2>
 
 <p>&lt;iframe src=&quot;https://www.youtube.com/embed/vKA4w2O61Xo?si=2dtApWo8JmHOwqff&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen&gt;&lt;/iframe&gt;</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Cost per Request
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-01-18-cost-per-request
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-01-18-cost-per-request?utm_source=rss
-            </link>
-            <pubDate>
-                Thu, 18 Jan 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>When monitoring infrastructure, we often use metrics like &quot;Requests per second&quot; or &quot;Time per request&quot;.</p>
-
-<p>Contrary to that, when monitoring the cost of our infrastructure, we often only review the cloud bill at the end of the month and tell ourselves that those costs are justified for our product.</p>
-
-<p>What if we made &quot;Cost per request&quot; a key metric in our observability strategy, alongside &quot;Requests per second&quot;?</p>
-
-<p>If we follow that path even further, we could derive a standard for how much a request should cost for x% of uptime, across the entire industry. This way, we should be able to identify how much we&#39;re overspending for our infrastructure compared to other companies or products.</p>]]>
             </description>
         </item>
     </channel>

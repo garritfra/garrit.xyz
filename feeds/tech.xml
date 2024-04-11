@@ -14,8 +14,45 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 04 Apr 2024 00:00:00 +0000
+            Thu, 11 Apr 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                A simple search bar
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-04-11-a-simple-search-bar
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-04-11-a-simple-search-bar?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 11 Apr 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just added a simple search bar to my <a href="/links">&quot;More ...&quot;</a> page. It just redirects to a <a href="https://duckduckgo.com">DuckDuckGo</a> search with your search term and limits it to my site. Simple, yet effective!</p>
+
+<p>Here&#39;s the snippet, feel free to steal it for your own site:</p>
+
+<p><code>jsx
+&lt;form className=&quot;search&quot; method=&quot;get&quot; action=&quot;https://duckduckgo.com/&quot; target=&quot;_blank&quot;&gt;
+    &lt;input id=&quot;search&quot; type=&quot;search&quot; name=&quot;q&quot; placeholder=&quot;Search via DDG&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;sites&quot; value=&quot;garrit.xyz&quot; /&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Search&quot; /&gt;
+&lt;/form&gt;
+</code></p>
+
+<h2>Try it out</h2>
+
+<p>Try searching for anything!</p>
+
+<p>&lt;form className=&quot;search&quot; method=&quot;get&quot; action=&quot;https://duckduckgo.com/&quot; target=&quot;_blank&quot;&gt;
+    &lt;input id=&quot;search&quot; type=&quot;search&quot; name=&quot;q&quot; placeholder=&quot;Search via DDG&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;sites&quot; value=&quot;garrit.xyz&quot; /&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Search&quot; /&gt;
+&lt;/form&gt;</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Pandoc: Convert links to footnotes (the easy way)
@@ -395,53 +432,6 @@ jobs:
 <hr/>
 
 <p>This is post 089 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                A Positive Hacker News RSS Feed
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-11-24-positive-hackernews
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-11-24-positive-hackernews?utm_source=rss
-            </link>
-            <pubDate>
-                Fri, 24 Nov 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Tech news can often be overwhelmingly negative. Scrolling through <a href="https://news.ycombinator.com">HackerNews</a>, I often feel myself getting angrier at the state of the industry with each headline I read.</p>
-
-<p>I don&#39;t want to give up on the amazing content I&#39;m discovering every day on this platform, so I built an alternative RSS feed for HackerNews. It selectively presents stories that have a positive sentiment, making my news-reading experience more enjoyable and less stressful. Here&#39;s a link to the feed:</p>
-
-<p>https://garritfra.github.io/positive_hackernews/feed.xml</p>
-
-<p>It&#39;s not a pretty link, but who looks at the link of an RSS feed anyway? ;)</p>
-
-<h2>Comparison</h2>
-
-<p>Here&#39;s an example of the HackerNews feed provided by <a href="https://hnrss.github.io/">hnrss.github.io</a>:</p>
-
-<p><img alt="Before" src="/assets/posts/2023-11-24-positive-hackernews/before.png"/></p>
-
-<p>And here&#39;s the filtered, positive-only feed:</p>
-
-<p><img alt="After" src="/assets/posts/2023-11-24-positive-hackernews/after.png"/></p>
-
-<p>I don&#39;t want to urge anyone to stop reading HackerNews, but if you also struggle with seeing the bright side of tech, this could be a nice alternative.</p>
-
-<h2>Contributing</h2>
-
-<p>The source code behind this project can be found on <a href="https://github.com/garritfra/positive_hackernews">GitHub</a>. It&#39;s licensed as <a href="https://github.com/garritfra/positive_hackernews/blob/main/LICENSE">MIT</a>, so feel free to fork and build your own feed. Happy hacking!</p>
-
-<h2>Responses</h2>
-
-<ul><li><a href="https://cosmicqbit.dev/positive-hacker-news-feed/">cosmicqbit.dev</a></li></ul>
-
-<hr/>
-
-<p>This is post 087 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

@@ -14,8 +14,45 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 04 Apr 2024 00:00:00 +0000
+            Thu, 11 Apr 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                A simple search bar
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-04-11-a-simple-search-bar
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-04-11-a-simple-search-bar?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 11 Apr 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just added a simple search bar to my <a href="/links">&quot;More ...&quot;</a> page. It just redirects to a <a href="https://duckduckgo.com">DuckDuckGo</a> search with your search term and limits it to my site. Simple, yet effective!</p>
+
+<p>Here&#39;s the snippet, feel free to steal it for your own site:</p>
+
+<p><code>jsx
+&lt;form className=&quot;search&quot; method=&quot;get&quot; action=&quot;https://duckduckgo.com/&quot; target=&quot;_blank&quot;&gt;
+    &lt;input id=&quot;search&quot; type=&quot;search&quot; name=&quot;q&quot; placeholder=&quot;Search via DDG&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;sites&quot; value=&quot;garrit.xyz&quot; /&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Search&quot; /&gt;
+&lt;/form&gt;
+</code></p>
+
+<h2>Try it out</h2>
+
+<p>Try searching for anything!</p>
+
+<p>&lt;form className=&quot;search&quot; method=&quot;get&quot; action=&quot;https://duckduckgo.com/&quot; target=&quot;_blank&quot;&gt;
+    &lt;input id=&quot;search&quot; type=&quot;search&quot; name=&quot;q&quot; placeholder=&quot;Search via DDG&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;sites&quot; value=&quot;garrit.xyz&quot; /&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Search&quot; /&gt;
+&lt;/form&gt;</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Pandoc: Convert links to footnotes (the easy way)
@@ -508,40 +545,6 @@ git config diff.sqlite3.textconv &quot;echo .dump | sqlite3&quot;
 <hr/>
 
 <p>This is post 061 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Fullscreen Terminals in VSCode
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-03-23-fullscreen-terminals-in-vscode
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-03-23-fullscreen-terminals-in-vscode?utm_source=rss
-            </link>
-            <pubDate>
-                Thu, 23 Mar 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I often find myself using a &quot;real&quot; terminal alongside my VSCode setup, because for some tasks the built-in terminal, due to its small size, is quite flimsy to use. <em>But</em>! I just found out there&#39;s a a way to switch the terminal into fullscreen mode, using the &quot;View: Toggle Maximized Panel&quot; command.</p>
-
-<p>You can bind it to a shortcut, which makes switching between editor and terminal a breeze! Simply add this to your <code>keybindings.json</code> (also accessible via the <a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">command palette</a>):</p>
-
-<p><code>
-    {
-        &quot;key&quot;: &quot;cmd+alt+m&quot;,
-        &quot;command&quot;: &quot;workbench.action.toggleMaximizedPanel&quot;
-    }
-</code></p>
-
-<h3>References</h3>
-
-<ul><li><a href="https://stackoverflow.com/a/48512128/9046809">Original StackOverflow answer</a></li></ul>
-
-<hr/>
-
-<p>This is post 059 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
