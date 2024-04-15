@@ -6,10 +6,9 @@ tags: "guide, note, learnings, web, til, tech, programming"
 
 I just encountered a fun little bug that I thought is worth sharing.
 
-**TL;DR**: Here's the commit that fixes the issue:
+**TL;DR**: the base64 util breaks lines after a certain number of columns. Use a [flag](https://www.man7.org/linux/man-pages/man1/base64.1.html) to specify "don't break". Here's the commit that fixes the issue:
 
 <img width="1588" alt="image (3)" src="https://github.com/garritfra/garrit.xyz/assets/32395585/dba76692-c89f-44da-b70a-f6732a406d75">
-
 
 It started when we noticed that a cronjob that used wget to regularly call an endpoint failed on one specific environment. The endpoint uses [Basic Auth](https://en.wikipedia.org/wiki/Basic_access_authentication), which is essentially a header with a [Base64](https://en.wikipedia.org/wiki/Base64) encoded representation of a username and password. [Curl](https://curl.se/) has this functionality [built in](https://curl.se/docs/manpage.html#-u), but to keep the attack surface as small as possible, we decided to stick to [wget](https://www.gnu.org/software/wget/), which is part of busybox, to keep the container image size under 1 MB (!). After all, all we want to do is ping an endpoint.
 
