@@ -14,8 +14,69 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 11 Apr 2024 00:00:00 +0000
+            Mon, 15 Apr 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Beware of base64 encoded strings
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-04-15-beware-of-base64-encoded-strings
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-04-15-beware-of-base64-encoded-strings?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 15 Apr 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just encountered a fun little bug that I thought is worth sharing.</p>
+
+<p><strong>TL;DR</strong>: Here&#39;s the commit that fixes the issue:</p>
+
+<p>&lt;img width=&quot;1588&quot; alt=&quot;image (3)&quot; src=&quot;https://github.com/garritfra/garrit.xyz/assets/32395585/dba76692-c89f-44da-b70a-f6732a406d75&quot;&gt;</p>
+
+<p>It started when we noticed that a cronjob that used wget to regularly call an endpoint failed on one specific environment. The endpoint uses <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic Auth</a>, which is essentially a header with a <a href="https://en.wikipedia.org/wiki/Base64">Base64</a> encoded representation of a username and password. <a href="https://curl.se/">Curl</a> has this functionality <a href="https://curl.se/docs/manpage.html#-u">built in</a>, but to keep the attack surface as small as possible, we decided to stick to <a href="https://www.gnu.org/software/wget/">wget</a>, which is part of busybox, to keep the container image size under 1 MB (!). After all, all we want to do is ping an endpoint.</p>
+
+<p>This is the command we used up to this point:</p>
+
+<p><code>
+wget --post-data=&quot;&quot; -O - --header=&quot;Authorization: Basic $(echo -n $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD | base64)&quot; http://endpoint:8080/v1/cache
+</code></p>
+
+<p>We noticed that the request worked fine on non-prod environments, but it failed on production with the following error:</p>
+
+<p><code>
+The HTTP header line [b2verlk1rwjsnutbcapkjh==] does not conform to RFC 7230. The request has been rejected.
+</code></p>
+
+<p>After digging around for a while and separating out the individual pieces of the commands, I noticed that the subcommand to build the header value (<code>echo -n $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD | base64</code>) behaved differently on prod vs. non-prod. The password on prod is way longer compared to the other environments. Let&#39;s run this command with a short input:</p>
+
+<p><code>sh
+/ $ echo -n someuser:somepassword | base64
+c29tZXVzZXI6c29tZXBhc3N3b3Jk
+/ $
+</code></p>
+
+<p>And again with a long input:</p>
+
+<p><code>sh
+/ $ echo -n someuser:somepasswordthatswaylongerthanthefirstonebutalsoverysecureandsafe | base64
+c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNv
+dmVyeXNlY3VyZWFuZHNhZmU=
+/ $
+</code></p>
+
+<p>Bingo! There&#39;s a rogue newline character in the output of <code>base64</code>. The fix is very straight-forward. Using the <code>-w0</code> <a href="https://www.man7.org/linux/man-pages/man1/base64.1.html">flag for base64</a>, we can force the output to be on the same line:</p>
+
+<p><code>
+/ $ echo -n someuser:somepasswordthatswaylongerthanthefirstonebutalsoverysecureandsafe | base64 -w0
+c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNvdmVyeXNlY3VyZWFuZHNhZmU=
+</code></p>
+
+<p>This eventually fixed the issue. Not something I would&#39;ve ever thought of!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 A simple search bar
@@ -410,62 +471,6 @@ nevertheless!</p>
 <hr/>
 
 <p>This is post 026 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Quick tip! React useToggle Hook
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2021-12-21-usetoggle-react-hook
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2021-12-21-usetoggle-react-hook?utm_source=rss
-            </link>
-            <pubDate>
-                Tue, 21 Dec 2021 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Here&#39;s a useful react hook for situations where you have to keep track of the
-state of a dialog, popup, etc.:</p>
-
-<p><code></code>`js
-import { useState } from &quot;react&quot;;</p>
-
-<p>export default (value) =&gt; {
-	const [state, setState] = useState(value);</p>
-
-<pre><code>const setStateActive = () =&gt; {
-	setState(true);
-};
-
-const setStateInactive = () =&gt; {
-	setState(false);
-};
-
-return [state, setStateActive, setStateInactive];</code></pre>
-
-<p>};
-<code></code>`</p>
-
-<p>Usage:</p>
-
-<p><code></code>`js
-const SomeComponent = () =&gt; {
-	const [isDeleteDialogOpen, openDeleteDialog, closeDeleteDialog] =
-		useToggle(false);</p>
-
-<pre><code>return (
-	&lt;&gt;
-		&lt;Button onClick={openDeleteDialog}&gt;Open Delete Dialog&lt;/Button&gt;
-		&lt;Dialog isOpen={isDeleteDialogOpen} onClose={closeDeleteDialog}&gt;&lt;/Dialog&gt;
-	&lt;/&gt;
-);</code></pre>
-
-<p>};
-<code></code>`</p>
-
-<p>This is post 021 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

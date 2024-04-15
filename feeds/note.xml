@@ -14,8 +14,69 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 11 Apr 2024 00:00:00 +0000
+            Mon, 15 Apr 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Beware of base64 encoded strings
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-04-15-beware-of-base64-encoded-strings
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-04-15-beware-of-base64-encoded-strings?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 15 Apr 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just encountered a fun little bug that I thought is worth sharing.</p>
+
+<p><strong>TL;DR</strong>: Here&#39;s the commit that fixes the issue:</p>
+
+<p>&lt;img width=&quot;1588&quot; alt=&quot;image (3)&quot; src=&quot;https://github.com/garritfra/garrit.xyz/assets/32395585/dba76692-c89f-44da-b70a-f6732a406d75&quot;&gt;</p>
+
+<p>It started when we noticed that a cronjob that used wget to regularly call an endpoint failed on one specific environment. The endpoint uses <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic Auth</a>, which is essentially a header with a <a href="https://en.wikipedia.org/wiki/Base64">Base64</a> encoded representation of a username and password. <a href="https://curl.se/">Curl</a> has this functionality <a href="https://curl.se/docs/manpage.html#-u">built in</a>, but to keep the attack surface as small as possible, we decided to stick to <a href="https://www.gnu.org/software/wget/">wget</a>, which is part of busybox, to keep the container image size under 1 MB (!). After all, all we want to do is ping an endpoint.</p>
+
+<p>This is the command we used up to this point:</p>
+
+<p><code>
+wget --post-data=&quot;&quot; -O - --header=&quot;Authorization: Basic $(echo -n $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD | base64)&quot; http://endpoint:8080/v1/cache
+</code></p>
+
+<p>We noticed that the request worked fine on non-prod environments, but it failed on production with the following error:</p>
+
+<p><code>
+The HTTP header line [b2verlk1rwjsnutbcapkjh==] does not conform to RFC 7230. The request has been rejected.
+</code></p>
+
+<p>After digging around for a while and separating out the individual pieces of the commands, I noticed that the subcommand to build the header value (<code>echo -n $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD | base64</code>) behaved differently on prod vs. non-prod. The password on prod is way longer compared to the other environments. Let&#39;s run this command with a short input:</p>
+
+<p><code>sh
+/ $ echo -n someuser:somepassword | base64
+c29tZXVzZXI6c29tZXBhc3N3b3Jk
+/ $
+</code></p>
+
+<p>And again with a long input:</p>
+
+<p><code>sh
+/ $ echo -n someuser:somepasswordthatswaylongerthanthefirstonebutalsoverysecureandsafe | base64
+c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNv
+dmVyeXNlY3VyZWFuZHNhZmU=
+/ $
+</code></p>
+
+<p>Bingo! There&#39;s a rogue newline character in the output of <code>base64</code>. The fix is very straight-forward. Using the <code>-w0</code> <a href="https://www.man7.org/linux/man-pages/man1/base64.1.html">flag for base64</a>, we can force the output to be on the same line:</p>
+
+<p><code>
+/ $ echo -n someuser:somepasswordthatswaylongerthanthefirstonebutalsoverysecureandsafe | base64 -w0
+c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNvdmVyeXNlY3VyZWFuZHNhZmU=
+</code></p>
+
+<p>This eventually fixed the issue. Not something I would&#39;ve ever thought of!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 A simple search bar
@@ -339,31 +400,6 @@ end
                 <![CDATA[<blockquote><p>&quot;The nethermost caverns are not for the fathoming of eyes that see; for their marvels are strange and terrific. Cursed the ground where dead thoughts live new and oddly bodied, and evil the mind that is held by no head.&quot;</p><p>— H.P. Lovecraft</p></blockquote>
 
 <p>I loved reading <a href="https://www.hplovecraft.com/writings/texts/fiction/f.aspx">The Festival</a> by H.P. Lovecraft, especially this quote by &quot;the mad Arab&quot; at the end of the story. The Festival is one of Lovecrafts first short stories in the <a href="https://en.m.wikipedia.org/wiki/Cthulhu_Mythos">Cthulhu Mythos</a>. The quote excellently shows the unique style of Lovecrafts short stories. Each story is a grotesque depiction of horrors that are beyond our imagination. I recently tried to replicate this style of writing in  &quot;<a href="/posts/2023-09-10-short-story-haunted-memories">Haunted Memories</a>&quot;, a short story about digital media. I&#39;m just getting started with reading Lovecrafts stories, but the ones I read so far absolutely blew me away.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                To prove something is true, try disproving it first
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-01-30-to-prove-something-is-true-try-disproving-it-first
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-01-30-to-prove-something-is-true-try-disproving-it-first?utm_source=rss
-            </link>
-            <pubDate>
-                Tue, 30 Jan 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>We&#39;ve been taught that, to prove that a thing is true, we should point out what&#39;s true about it.</p>
-
-<p>However, we can learn much more about why something is true by trying to <strong>disprove</strong> it first. If you think something is true, try as hard as you can to prove that it&#39;s false.</p>
-
-<p>Disproving a theory is core to the <a href="https://en.wikipedia.org/wiki/Scientific_method">scientific method</a>. Only when we validate that something cannot be false, we come closer to proving that it&#39;s true.</p>
-
-<h2>Source</h2>
-
-<p>&lt;iframe src=&quot;https://www.youtube.com/embed/vKA4w2O61Xo?si=2dtApWo8JmHOwqff&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen&gt;&lt;/iframe&gt;</p>]]>
             </description>
         </item>
     </channel>

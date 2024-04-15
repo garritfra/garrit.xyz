@@ -14,8 +14,69 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 11 Apr 2024 00:00:00 +0000
+            Mon, 15 Apr 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Beware of base64 encoded strings
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-04-15-beware-of-base64-encoded-strings
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-04-15-beware-of-base64-encoded-strings?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 15 Apr 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just encountered a fun little bug that I thought is worth sharing.</p>
+
+<p><strong>TL;DR</strong>: Here&#39;s the commit that fixes the issue:</p>
+
+<p>&lt;img width=&quot;1588&quot; alt=&quot;image (3)&quot; src=&quot;https://github.com/garritfra/garrit.xyz/assets/32395585/dba76692-c89f-44da-b70a-f6732a406d75&quot;&gt;</p>
+
+<p>It started when we noticed that a cronjob that used wget to regularly call an endpoint failed on one specific environment. The endpoint uses <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic Auth</a>, which is essentially a header with a <a href="https://en.wikipedia.org/wiki/Base64">Base64</a> encoded representation of a username and password. <a href="https://curl.se/">Curl</a> has this functionality <a href="https://curl.se/docs/manpage.html#-u">built in</a>, but to keep the attack surface as small as possible, we decided to stick to <a href="https://www.gnu.org/software/wget/">wget</a>, which is part of busybox, to keep the container image size under 1 MB (!). After all, all we want to do is ping an endpoint.</p>
+
+<p>This is the command we used up to this point:</p>
+
+<p><code>
+wget --post-data=&quot;&quot; -O - --header=&quot;Authorization: Basic $(echo -n $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD | base64)&quot; http://endpoint:8080/v1/cache
+</code></p>
+
+<p>We noticed that the request worked fine on non-prod environments, but it failed on production with the following error:</p>
+
+<p><code>
+The HTTP header line [b2verlk1rwjsnutbcapkjh==] does not conform to RFC 7230. The request has been rejected.
+</code></p>
+
+<p>After digging around for a while and separating out the individual pieces of the commands, I noticed that the subcommand to build the header value (<code>echo -n $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD | base64</code>) behaved differently on prod vs. non-prod. The password on prod is way longer compared to the other environments. Let&#39;s run this command with a short input:</p>
+
+<p><code>sh
+/ $ echo -n someuser:somepassword | base64
+c29tZXVzZXI6c29tZXBhc3N3b3Jk
+/ $
+</code></p>
+
+<p>And again with a long input:</p>
+
+<p><code>sh
+/ $ echo -n someuser:somepasswordthatswaylongerthanthefirstonebutalsoverysecureandsafe | base64
+c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNv
+dmVyeXNlY3VyZWFuZHNhZmU=
+/ $
+</code></p>
+
+<p>Bingo! There&#39;s a rogue newline character in the output of <code>base64</code>. The fix is very straight-forward. Using the <code>-w0</code> <a href="https://www.man7.org/linux/man-pages/man1/base64.1.html">flag for base64</a>, we can force the output to be on the same line:</p>
+
+<p><code>
+/ $ echo -n someuser:somepasswordthatswaylongerthanthefirstonebutalsoverysecureandsafe | base64 -w0
+c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNvdmVyeXNlY3VyZWFuZHNhZmU=
+</code></p>
+
+<p>This eventually fixed the issue. Not something I would&#39;ve ever thought of!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 A simple search bar
@@ -514,37 +575,6 @@ git config diff.sqlite3.textconv &quot;echo .dump | sqlite3&quot;
 <hr/>
 
 <p>This is post 064 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Designing resilient cloud infrastructure
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-03-30-designing-resilient-cloud-infrastructure
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-03-30-designing-resilient-cloud-infrastructure?utm_source=rss
-            </link>
-            <pubDate>
-                Thu, 30 Mar 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>As mentioned in a <a href="/posts/2023-03-16-terraform-project-learnings">previous post</a>, I&#39;m currently finishing up building my first cloud infrastructure on AWS for a client at work. During the development, I learned a lot about designing components to be resilient and scalable. Here are some key takeaways.</p>
-
-<p>One of the most critical components of a resilient infrastructure is redundancy. On AWS, you place your components inside a &quot;region&quot;. This could be <code>eu-central-1</code> (Frankfurt) or <code>us-east-1</code> (North Virgina), etc. To further reduce the risk of an outage, each region is divided into multiple <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Availability Zones</a> (AZs). The AZs of a region are usually located some distance apart from each other. In case of a flood, a fire or a bomb detonating near one AZ, the other AZs should in most cases still be intact. You should have at least two, preferably three replicas of each component across multiple availability zones in a region. By having replicas of your components in different availability zones, you reduce the risk of downtime caused by an outage in a single availability zone.</p>
-
-<p>Another way to ensure scalability and resilience for your database is to use <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Aurora Serverless v2</a>. This database service is specifically designed for scalable, on-demand, and cost-effective performance. The database scales itself up or down based on the workload, which allows you to automatically and dynamically adjust the database capacity to meet the demand of your application, ensuring that your application is responsive and performs well without the need for manual intervention. Adding Serverless instances to an existing RDS cluster is also a seemless proccess.</p>
-
-<p>In addition to switching to Aurora Serverless v2, using read replicas for cache and database in a separate availability zone can act as a hot standby without extra configuration. Keep in mind that read replicas are only utilized by explicitly using the read-only endpoint of a cluster. But even if you&#39;re only using the &quot;main&quot; cluster endpoint (and therefore just the primary instance), a read replica can promote itself to the primary instance in case of a fail over, which drastically reduces downtime.</p>
-
-<p>When using Amazon Elastic Container Service (ECS), use Fargate as opposed to EC2 instances. Fargate is a serverless compute engine for containers that allows you to run containers without having to manage the underlying infrastructure. It smartly locates instances across availability zones, ensuring that your application is always available.</p>
-
-<p>In conclusion, you should always ensure that there are more than one instance of a component in your infrastructure. There are also services on AWS that abstract away the physical infrastructure (Fargate, S3, Lambda) and use a multi-AZ pattern by default.</p>
-
-<hr/>
-
-<p>This is post 061 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
