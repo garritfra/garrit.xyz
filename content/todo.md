@@ -39,7 +39,8 @@
 - A game that teaches the principles of DevOps through a Kanban-style UI
 - A frontend for GnuCash geared towards Freelancers
 - "Git For Babies" book
-- A printable compilation of my blog posts
+- [A printable compilation of my blog posts](/posts/2024-04-07-five-years-of-blogging)
+- An mobile "TIL" app that asks for one thing you've learned every day
 
 ## Website Roadmap
 
