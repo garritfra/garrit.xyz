@@ -32,7 +32,7 @@
             <description>
                 <![CDATA[<p>I just encountered a fun little bug that I thought is worth sharing.</p>
 
-<p><strong>TL;DR</strong>: Here&#39;s the commit that fixes the issue:</p>
+<p><strong>TL;DR</strong>: the base64 util breaks lines after a certain number of columns. Use a <a href="https://www.man7.org/linux/man-pages/man1/base64.1.html">flag</a> to specify &quot;don&#39;t break&quot;. Here&#39;s the commit that fixes the issue:</p>
 
 <p>&lt;img width=&quot;1588&quot; alt=&quot;image (3)&quot; src=&quot;https://github.com/garritfra/garrit.xyz/assets/32395585/dba76692-c89f-44da-b70a-f6732a406d75&quot;&gt;</p>
 
