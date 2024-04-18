@@ -41,6 +41,7 @@
 - "Git For Babies" book
 - [A printable compilation of my blog posts](/posts/2024-04-07-five-years-of-blogging)
 - An mobile "TIL" app that asks for one thing you've learned every day
+- A "When will it break?" website that shows how often a software introduces a breaking change based on the major version number
 
 ## Website Roadmap
 
