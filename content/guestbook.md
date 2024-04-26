@@ -10,6 +10,12 @@ get redirected to the page editor.
 
 ---
 
+### tianheg, on 2024-04-26:
+
+Added "." hotkey on my site like you, maybe you can add some limits([my way](https://github.com/tianheg/blog/blob/fda2c49264ff762bade6a5a32ddb4a4c8d271d54/assets/js/keyboard.js)) to it, so that only on posts will be effective
+
+-- [tianheg](https://tianheg.co/)
+
 ### Adam, on 2024-01-11:
 
 Cool site! I'll have to give the CTF a go when I get a chance.
