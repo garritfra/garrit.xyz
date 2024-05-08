@@ -14,8 +14,39 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 10 Apr 2024 00:00:00 +0000
+            Wed, 08 May 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                I sold my car
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-05-08-i-sold-my-car
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-05-08-i-sold-my-car?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 08 May 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I grew up in the countryside, where busses only came once an hour, but only until 7 PM. And on the weekend, you <strong>really</strong> had to plan ahead. Living without a car was almost unthinkable.</p>
+
+<p><img alt="My car" src="/assets/posts/2024-05-08-i-sold-my-car/my-car.jpeg"/></p>
+
+<p>After moving to the city in 2020, I found that I used my car less and less. My commute to work was easier with the bike (if I wasn&#39;t working from home), and for anything else, busses and trams were the way to go. The occasional family visit was the only excuse to use my car.</p>
+
+<p>Owning a car doesn&#39;t &quot;feel&quot; expensive. Sure, gas is expensive, but simply owning one doesn&#39;t feel like a huge burden on your wallet. Just to get a rough estimate, I jotted down all running costs.</p>
+
+<p><img alt="Running costs" src="/assets/posts/2024-05-08-i-sold-my-car/running-costs.jpeg"/></p>
+
+<p>My car costs <strong>over 1000€ per year</strong>, or about 85€ per month, just to be moved about twice a month! So, a few weeks ago, I decided to sell it.</p>
+
+<p>I created a posting on <a href="https://www.kleinanzeigen.de/">Kleinanzeigen</a> (a german descendant of - and previously owned by - eBay), and after about two weeks, the car had a new owner. I hope that it&#39;s in better hands now and lives on to be a happy and frequently used car.</p>
+
+<p>Going forward, I&#39;m not worried about my mobility at all. My partner still owns her car and has the option to take the bus to work. So, if we&#39;re not on the road together, I can always fall back to using her car. And if she needs her car and I&#39;m desperate to go somewhere afar, there&#39;s also multiple ride-sharing options available in my town. They are a bit expensive to use, but spending 40€ for a day trip to my family every two months is still way less than paying 85€ a month for a car that&#39;s sitting there idle.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Beating Elden Ring
@@ -347,31 +378,6 @@ This does result in missing ~important things occasionally (e.g. I still don&#39
 <hr/>
 
 <p>This is post 091 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                My App Defaults (Late 2023)
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-11-07-app-defaults
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-11-07-app-defaults?utm_source=rss
-            </link>
-            <pubDate>
-                Tue, 07 Nov 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Apparently there&#39;s currently a thing where people share their preferred apps. If you like this format, check out Robb Knight&#39;s <a href="https://defaults.rknight.me/">list of App Defaults blog posts</a>.</p>
-
-<p>Without further ado, here&#39;s my list:</p>
-
-<ul><li>📨 Mail Client: Thunderbird</li><li>📮 Mail Server: Purelymail</li><li>📝 Notes: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a></li><li>✅ To-Do: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a></li><li>🟦 Photo Management: Google Photos</li><li>📆 Calendar: Google Calendar</li><li>📁 Cloud File Storage: Google Drive</li><li>📖 RSS: Miniflux</li><li>🙍🏻‍♂️ Contacts: Google Contacts</li><li>🌐 Browser: Firefox</li><li>💬 Chat: WhatsApp</li><li>🔖 Bookmarks: Firefox</li><li>📑 Read It Later: Pocket</li><li>📜 Word Processing: Markdown, Google Docs</li><li>📈 Spreadsheets: Google Sheets</li><li>📊 Presentations: Google Slides</li><li>🛒 Shopping Lists: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a></li><li>🍴 Meal Planning: <a href="/posts/2023-09-09-everyday-carry-notebooks">Pen &amp; Paper</a></li><li>💰 Budgeting and Personal Finance: GnuCash</li><li>📰 News: Mostly HackerNews via Miniflux</li><li>🎵 Music: Spotify</li><li>🎤 Podcasts: AntennaPod</li><li>🔐 Password Management: Bitwarden</li></ul>
-
-<hr/>
-
-<p>This is post 085 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

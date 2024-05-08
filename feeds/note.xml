@@ -14,8 +14,39 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 15 Apr 2024 00:00:00 +0000
+            Wed, 08 May 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                I sold my car
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-05-08-i-sold-my-car
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-05-08-i-sold-my-car?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 08 May 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I grew up in the countryside, where busses only came once an hour, but only until 7 PM. And on the weekend, you <strong>really</strong> had to plan ahead. Living without a car was almost unthinkable.</p>
+
+<p><img alt="My car" src="/assets/posts/2024-05-08-i-sold-my-car/my-car.jpeg"/></p>
+
+<p>After moving to the city in 2020, I found that I used my car less and less. My commute to work was easier with the bike (if I wasn&#39;t working from home), and for anything else, busses and trams were the way to go. The occasional family visit was the only excuse to use my car.</p>
+
+<p>Owning a car doesn&#39;t &quot;feel&quot; expensive. Sure, gas is expensive, but simply owning one doesn&#39;t feel like a huge burden on your wallet. Just to get a rough estimate, I jotted down all running costs.</p>
+
+<p><img alt="Running costs" src="/assets/posts/2024-05-08-i-sold-my-car/running-costs.jpeg"/></p>
+
+<p>My car costs <strong>over 1000€ per year</strong>, or about 85€ per month, just to be moved about twice a month! So, a few weeks ago, I decided to sell it.</p>
+
+<p>I created a posting on <a href="https://www.kleinanzeigen.de/">Kleinanzeigen</a> (a german descendant of - and previously owned by - eBay), and after about two weeks, the car had a new owner. I hope that it&#39;s in better hands now and lives on to be a happy and frequently used car.</p>
+
+<p>Going forward, I&#39;m not worried about my mobility at all. My partner still owns her car and has the option to take the bus to work. So, if we&#39;re not on the road together, I can always fall back to using her car. And if she needs her car and I&#39;m desperate to go somewhere afar, there&#39;s also multiple ride-sharing options available in my town. They are a bit expensive to use, but spending 40€ for a day trip to my family every two months is still way less than paying 85€ a month for a car that&#39;s sitting there idle.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Beware of base64 encoded strings
@@ -381,25 +412,6 @@ end
 <p><img alt="P2170733 - Kopie.JPG" src="https://github.com/garritfra/garrit.xyz/assets/32395585/d44f52a2-2228-4a3e-801d-930f0eddf975"/></p>
 
 <p>After Phuket, we went to Vietnam where we&#39;re currently also on a lot of fun diving trips. But I&#39;ll save that for another dive log post.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Cosmic Horror: The Festival
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-02-10-cosmic-horror-the-festival
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-02-10-cosmic-horror-the-festival?utm_source=rss
-            </link>
-            <pubDate>
-                Sat, 10 Feb 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<blockquote><p>&quot;The nethermost caverns are not for the fathoming of eyes that see; for their marvels are strange and terrific. Cursed the ground where dead thoughts live new and oddly bodied, and evil the mind that is held by no head.&quot;</p><p>— H.P. Lovecraft</p></blockquote>
-
-<p>I loved reading <a href="https://www.hplovecraft.com/writings/texts/fiction/f.aspx">The Festival</a> by H.P. Lovecraft, especially this quote by &quot;the mad Arab&quot; at the end of the story. The Festival is one of Lovecrafts first short stories in the <a href="https://en.m.wikipedia.org/wiki/Cthulhu_Mythos">Cthulhu Mythos</a>. The quote excellently shows the unique style of Lovecrafts short stories. Each story is a grotesque depiction of horrors that are beyond our imagination. I recently tried to replicate this style of writing in  &quot;<a href="/posts/2023-09-10-short-story-haunted-memories">Haunted Memories</a>&quot;, a short story about digital media. I&#39;m just getting started with reading Lovecrafts stories, but the ones I read so far absolutely blew me away.</p>]]>
             </description>
         </item>
     </channel>
