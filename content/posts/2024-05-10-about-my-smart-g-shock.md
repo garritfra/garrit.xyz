@@ -1,5 +1,5 @@
 ---
-title: "About my smart G-Shock"
+title: "About my 'smart' G-Shock"
 date: "2024-05-10"
 tags: "note, life, review, watches"
 ---
