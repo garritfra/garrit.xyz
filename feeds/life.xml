@@ -14,8 +14,77 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 08 May 2024 00:00:00 +0000
+            Fri, 10 May 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                About my 'smart' G-Shock
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-05-10-about-my-smart-g-shock
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-05-10-about-my-smart-g-shock?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 10 May 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>About two weeks ago, I got myself my very first G-Shock. My entry ticket to the <a href="https://mastodon.social/tags/CasioCult">#CasioCult</a>! Since I didn&#39;t want to miss out on any fitness features, I went with the <a href="https://www.casio.com/de/watches/gshock/product.DW-H5600-1/">G-Shock GW-H5600</a>, which comes with heart rate monitoring, step tracking and some other nice to have features.</p>
+
+<p><img alt="A G-Shock DW-H5600" src="https://github.com/garritfra/garrit.xyz/assets/32395585/ab17acee-5997-4a3d-8536-c8c8243d72d2"/></p>
+
+<p>Having read every review I could find, I knew that the watch had some quirks, but I ultimately loved the look of it. But two weeks later, I&#39;m forced to return the watch. Let me first go over what I liked and dislike about this watch.</p>
+
+<h2>Pros</h2>
+
+<p><strong>It&#39;s a G-Shock</strong></p>
+
+<p>I love the look and feel of a G-Shock and other Casio watches. This is my first G-Shock, but I&#39;ve had an eye on this brand for quite some time. It&#39;s tough, sturdy, waterproof and probably also bullet proof.</p>
+
+<p><strong>The display</strong></p>
+
+<p>Oh, the display! It&#39;s gorgeous. Many people are complaining why this MIP display hasn&#39;t found its way to the rest of the G-Shock lineup. But I&#39;m sure they will retrofit other models soon.</p>
+
+<p><strong>Proper paper manual</strong></p>
+
+<p>My first impression after the unboxing was &quot;holy sheers, the manual is a <strong>book</strong>&quot;! And I mean that in the best way possible. Every little feature of the watch is explained in extreme detail in the manual. You rarely see this in other watches or gadgets these days.</p>
+
+<h2>Cons</h2>
+
+<p><strong>Questionable UI and UX decisions</strong></p>
+
+<p>G-Shocks are known for user interfaces that &quot;just work&quot;. In this watch however, there are a few things that really make the watch frustrating to operate. Just to name a few quirks:</p>
+
+<ul><li>There&#39;s only &quot;forward&quot;. If you scrolled passed something, you have to go aaaaall the way through the menu.</li><li>The timer can only be increased in 30 second steps. The UI is quite laggy, so setting a 10 minute timer takes about 1 minute of mashing buttons. There&#39;s also no press and hold.</li><li>The stopwatch only counts in seconds. No milliseconds.</li><li>You&#39;re locked to one task at a time. If you have a timer running, you can&#39;t go out of the menu. If you&#39;re recording a workout, you can&#39;t change the settings. And my favorite: You have to be on the home screen to sync settings from your phone to your watch. Just ... why?!</li><li>With a more or less recent update, the light now always turns on when you press any button. This makes the &quot;light&quot; button on the top right completely obsolete.</li><li>Unspecific battery indicator. You have four bars in the battery icon, that&#39;s it. The watch is solar powered, but it&#39;s to top up the battery at best. Don&#39;t expect to run fully off solar with this watch.</li></ul>
+
+<p><strong>A bit thick</strong></p>
+
+<p>Below the already thick bezel of the G-Shock sits the heart rate monitor, which is obnoxiously huge. I personally didn&#39;t feel like it irritated my skin, but it does add to the thickness.</p>
+
+<p><strong>Fitness Features</strong></p>
+
+<p>This is a two-edged sword. I originally wanted to list this as a pro. Features like run tracking, cardio status and sleep analysis are there, and they work fine. The step tracking and heart rate monitoring can be a bit off from time to time, but it&#39;s fine for the occasional run.</p>
+
+<p>What&#39;s really bothering me is the mediocre implementation. There&#39;s no workout detection, the autopause feature barely works and you&#39;re limited to running, walking, gym workout and interval training. I also want to log my bike rides, which will always show up as a running activity in my app.</p>
+
+<p>They recently added Strava integration, which sort of works. The data is all there, but for some reason the pace and moving time that Strava computes are completely off. For example, I ran 55 minutes straight with an average pace of 9 minutes / km. But with the data the watch sends, Strava thinks I only moved for 26 minutes with a pace of 4 minutes / km. If that were true, I could compete in the olympics! 😅</p>
+
+<p><strong>Notifications barely work</strong></p>
+
+<p>During the time I owned the watch, there was only one random day where the watch received notifications from my phone. I can&#39;t explain why, but I just didn&#39;t get this to work properly.</p>
+
+<p><strong>Case is not screwed in. Could fall off</strong></p>
+
+<p>This is just a minor thing if you really care about durability. All G-Shock squares so far had screwed in bezels. On this model, you can pull off the bezel with enough force. I&#39;ve never done it, but losing the bezel might be a concern.</p>
+
+<h2>What&#39;s next?</h2>
+
+<p>I enjoyed my time with this watch, but I filed a return. As pretty as the watch is, it is just too frustrating to use. Smart watches aren&#39;t a core part of Casio&#39;s business, and you can feel that in the lack of quality of the software. The app was likely developed as a one-off contract by some random agency, and once the contract ends, the watch won&#39;t ever be improved again.</p>
+
+<p>I&#39;ve now ordered the <a href="https://www.garmin.com/de-DE/p/741462">Garmin Instinct 2S Solar</a>, which is very similar in terms of specs. MIP display, top-up solar charging, long-lasting battery and fitness features. But on top of that, it has features like music control, GPS, contactless payment and a compass. Contrary to Casio, Smartwatches are a core part of Garmin&#39;s business, which makes me believe that they go out of their way to develop the best possible watch they can. I will likely follow up with how this new watch compares to my G-Shock.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 I sold my car
@@ -337,47 +406,6 @@ This does result in missing ~important things occasionally (e.g. I still don&#39
 <hr/>
 
 <p>This is post 094 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Field Notes #3
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-12-01-field-notes-3
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-12-01-field-notes-3?utm_source=rss
-            </link>
-            <pubDate>
-                Fri, 01 Dec 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Hooray! I just finished my third pocket notebook. If you have no idea what I mean, check out my <a href="/posts/2023-09-09-everyday-carry-notebooks">About My Pocket Notebook</a> post.</p>
-
-<p>This notebook lasted from 2023-10-09 to 2023-12-01, which is a bit longer than my last two notebooks. I believe my inner hype around this topic slowly but surely fades into the background, which is a good thing. Instead of writing almost every single day, I only write in it when I feel that something is important.</p>
-
-<p><img alt="Field Notes #3" src="/assets/posts/2023-12-01-field-notes-3/field_notes_3.jpeg"/></p>
-
-<p>It aged quite well for a white notebook. You can clearly tell that I got some brand new pairs of jeans, looking at the color [before I used it](/posts/2023-10-09-field-notes-2#what&#39;s-next?) vs. now. Just like last time, I used this notebook for all sorts of things. Todo lists, bill calculations, random thoughts and sketches for blog posts.</p>
-
-<p>What&#39;s different this time is that I started the book off with some &quot;meta pages&quot;. The first two pages serve as an index for the book. I ripped this idea stright from the <a href="https://bulletjournal.com/">Bullet Journal</a> movement, but that&#39;s about the only thing I stole from BuJos.</p>
-
-<p><img alt="Field Notes #3 Index" src="/assets/posts/2023-12-01-field-notes-3/field_notes_3_index.jpeg"/></p>
-
-<p>I also dedicated one page to a general purpose packing list, which I used multiple times to check if I forgot anything for an overnight stay. This page served me very well, so I&#39;m transfering it into my new notebook.</p>
-
-<h2>What&#39;s next?</h2>
-
-<p>My next notebook will once again be a FIELD NOTES. I just love the size, the feel and the quality of them. This time, I&#39;m using the &quot;National Parks&quot; edition, or more specifically the &quot;Glacier National Park&quot; notebook from a set. It started to snow, so this is an obvious choice.</p>
-
-<p><img alt="Field Notes #4" src="/assets/posts/2023-12-01-field-notes-3/field_notes_4.jpeg"/></p>
-
-<p>Thanks for sticking with me through this weird and awesome hobby!</p>
-
-<hr/>
-
-<p>This is post 091 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
