@@ -11,8 +11,13 @@
 
 ## Life Goals
 
-- ~~Run a half marathon~~ (March 18, 2018)
-- Run a marathon
 - Get Married
 - Buy a house
 - Visit every continent (4 / 5)
+
+## Fitness Goals
+
+- ~~Run a half marathon~~ (March 18, 2018)
+- Run a marathon
+- Finish a sprint triathlon
+- Finish the [Iron Lake Challenge](https://rockyourgoal.de/en/iron-lake-challenge) (in my state)
