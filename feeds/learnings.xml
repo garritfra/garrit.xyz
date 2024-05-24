@@ -14,8 +14,31 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 15 Apr 2024 00:00:00 +0000
+            Fri, 24 May 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Going from self hosted to managed software
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-05-24-going-from-self-hosted-to-managed-software
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-05-24-going-from-self-hosted-to-managed-software?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 24 May 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Some time ago I was heavily into <a href="https://garrit.xyz/posts/2022-09-26-self-hosted-software-im-thankful-for">self hosting my own software</a>. Over time though, it became apparent that maintaining these services is a huge burden. I either abandoned most of the services or found a replacement that suits my needs and saves me time that&#39;s better spent on other things in life.</p>
+
+<p>Today, I finally pulled the plug on <a href="https://miniflux.app/">Miniflux</a>, the last service I used to self host (not counting House Assistant on a Pi, which I use to automate some stuff at home). The Hetzner server it ran on cost me ~4€ a month. The maintainer of Miniflux offers a managed hosting solution for 15$ a year, so to save money and time, and to support the project, I decided to switch from self-hosted to managed.</p>
+
+<h2>Will I ever self host again?</h2>
+
+<p>I really don&#39;t know. Some services (Miniflux included) required very little maintenance to keep running, so I could see myself spinning up a server again if I really wanted to run some software that doesn&#39;t have managed hosting. For now though, I&#39;m planning on using managed services wherever I can. Nevertheless I&#39;m proud of the things I learned during my time of self hosting my software. I think it gave me a huge boost both in terms of know how and my career, and I&#39;d encourage everyone to dip a toe into self hosting.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Beware of base64 encoded strings
@@ -354,120 +377,6 @@ c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNvdmVy
 <hr/>
 
 <p>This is post 061 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Terraform project learnings
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-03-16-terraform-project-learnings
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-03-16-terraform-project-learnings?utm_source=rss
-            </link>
-            <pubDate>
-                Thu, 16 Mar 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I just finished my first ever infrastructure project for a client. My Terraform skills are good enough to be dangerous, but during the development of this project I learned a lot that I would do differently next time.</p>
-
-<h2>Project structure</h2>
-
-<p>Having worked with semi-professional Terraform code before, I applied what I knew to my new project. That was mainly that we have a shared base and an overlay directory for each environment. I went with a single Terraform module for the shared infrastructure, and variables for each environment. Naively, roughly every service had their own file.</p>
-
-<p><code>
-.
-├── modules
-│   └── infrastructure
-│       ├── alb.tf
-│       ├── cache.tf
-│       ├── database.tf
-│       ├── dns.tf
-│       ├── ecr.tf
-│       ├── ecs.tf
-│       ├── iam.tf
-│       ├── logs.tf
-│       ├── main.tf
-│       ├── network.tf
-│       ├── secrets.tf
-│       ├── security.tf
-│       ├── ssl.tf
-│       ├── state.tf
-│       └── variables.tf
-├── production
-│   ├── main.tf
-│   └── secrets.tf
-└── staging
-    ├── main.tf
-    └── secrets.tf
-</code></p>
-
-<p>This works very well, but I already started running into issues extending this setup. For my next project, I would probably find individual components and turn them into smaller reusable submodules. If I were to rewrite the project above, I would probably structure it like this (not a complete project, but I think you get the idea):</p>
-
-<p><code>
-.
-├── modules
-│   └── infrastructure
-│       ├── main.tf
-│       ├── modules
-│       │   ├── database
-│       │   │   ├── iam.tf
-│       │   │   ├── logs.tf
-│       │   │   ├── main.tf
-│       │   │   ├── outputs.tf
-│       │   │   ├── rds.tf
-│       │   │   └── variables.tf
-│       │   ├── loadbalancer
-│       │   │   ├── alb.tf
-│       │   │   ├── logs.tf
-│       │   │   ├── main.tf
-│       │   │   ├── outputs.tf
-│       │   │   └── variables.tf
-│       │   ├── network
-│       │   │   ├── dns.tf
-│       │   │   ├── logs.tf
-│       │   │   ├── main.tf
-│       │   │   ├── outputs.tf
-│       │   │   ├── ssl.tf
-│       │   │   ├── variables.tf
-│       │   │   └── vpc.tf
-│       │   ├── service
-│       │   │   ├── ecr.tf
-│       │   │   ├── ecs.tf
-│       │   │   ├── iam.tf
-│       │   │   ├── logs.tf
-│       │   │   ├── main.tf
-│       │   │   ├── outputs.tf
-│       │   │   └── variables.tf
-│       │   └── state
-│       │       ├── locks.tf
-│       │       ├── main.tf
-│       │       ├── outputs.tf
-│       │       ├── s3.tf
-│       │       └── variables.tf
-│       ├── main.tf
-│       ├── outputs.tf
-│       └── variables.tf
-├── production
-│   ├── main.tf
-│   └── secrets.tf
-└── staging
-    ├── main.tf
-    └── secrets.tf
-</code></p>
-
-<h2>Secrets</h2>
-
-<p>I decided to use <a href="https://github.com/AGWA/git-crypt">git-crypt</a> to manage secrets, but that was only before I learned about <a href="https://github.com/mozilla/sops">SOPS</a>. It&#39;s too late to migrate now, but if I could, I would choose SOPS for secrets any day of the week for upcoming projects. It even has a <a href="https://registry.terraform.io/providers/carlpett/sops/latest/docs">Terraform provider</a>, so there&#39;s no excuse not to use it. ;)</p>
-
-<h2>Conclusion</h2>
-
-<p>Overall I&#39;m pretty happy with how the project turned out, but there are some things that I learned during this project that will pay off later.</p>
-
-<hr/>
-
-<p>This is post 057 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

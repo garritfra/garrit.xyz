@@ -14,8 +14,31 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 15 Apr 2024 00:00:00 +0000
+            Fri, 24 May 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Going from self hosted to managed software
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-05-24-going-from-self-hosted-to-managed-software
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-05-24-going-from-self-hosted-to-managed-software?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 24 May 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Some time ago I was heavily into <a href="https://garrit.xyz/posts/2022-09-26-self-hosted-software-im-thankful-for">self hosting my own software</a>. Over time though, it became apparent that maintaining these services is a huge burden. I either abandoned most of the services or found a replacement that suits my needs and saves me time that&#39;s better spent on other things in life.</p>
+
+<p>Today, I finally pulled the plug on <a href="https://miniflux.app/">Miniflux</a>, the last service I used to self host (not counting House Assistant on a Pi, which I use to automate some stuff at home). The Hetzner server it ran on cost me ~4€ a month. The maintainer of Miniflux offers a managed hosting solution for 15$ a year, so to save money and time, and to support the project, I decided to switch from self-hosted to managed.</p>
+
+<h2>Will I ever self host again?</h2>
+
+<p>I really don&#39;t know. Some services (Miniflux included) required very little maintenance to keep running, so I could see myself spinning up a server again if I really wanted to run some software that doesn&#39;t have managed hosting. For now though, I&#39;m planning on using managed services wherever I can. Nevertheless I&#39;m proud of the things I learned during my time of self hosting my software. I think it gave me a huge boost both in terms of know how and my career, and I&#39;d encourage everyone to dip a toe into self hosting.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Beware of base64 encoded strings
@@ -435,35 +458,6 @@ jobs:
 <hr/>
 
 <p>This is post 099 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Notes on "Immutability Changes Everything"
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-12-21-notes-on-immutability
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-12-21-notes-on-immutability?utm_source=rss
-            </link>
-            <pubDate>
-                Thu, 21 Dec 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<blockquote><p>Published books are immutable. Accountants don&#39;t use erasers or they go to jail.</p></blockquote>
-
-<p>The paper <a href="https://www.cidrdb.org/cidr2015/Papers/CIDR15_Paper16.pdf">Immutability Changes Everything</a> by Pat Helland talks about the trend towards immutability in data storage thoughout all layers of the stack. From append-only apps (Record changes, then derive the current state), down to how bits are stored on a hard drive (e.g. Copy on Write).</p>
-
-<p>I stumbled upon this paper through the <a href="https://paperswelove.org/">Papers We Love</a> collection. I was specifically looking for a paper that&#39;s short and easy to comprehend, since I don&#39;t have much experience in reading scientific papers. This is absolutely both short and easy to comprehend. If you&#39;re a beginner like me, I can highly recommend this one to you.</p>
-
-<p>Key takeaways:</p>
-
-<ul><li>Immutability enables clean replication</li><li>Change logs (e.g. <a href="https://en.wikipedia.org/wiki/Write-ahead_logging">write-ahead logs</a>) are the source of truth. The database is a cache of a subset of those change logs</li><li>It&#39;s okay to consider violating <a href="https://en.wikipedia.org/wiki/Database_normalization">normalization</a> rules to trade storage cost for read speed</li><li>Modern SSDs minimize wear by storing new versions of data to other blocks instead of mutating the data in place</li><li>The cost of immutability is increased storage</li></ul>
-
-<hr/>
-
-<p>This is post 098 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

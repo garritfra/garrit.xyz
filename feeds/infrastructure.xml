@@ -14,8 +14,31 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 18 Jan 2024 00:00:00 +0000
+            Fri, 24 May 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Going from self hosted to managed software
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-05-24-going-from-self-hosted-to-managed-software
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-05-24-going-from-self-hosted-to-managed-software?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 24 May 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Some time ago I was heavily into <a href="https://garrit.xyz/posts/2022-09-26-self-hosted-software-im-thankful-for">self hosting my own software</a>. Over time though, it became apparent that maintaining these services is a huge burden. I either abandoned most of the services or found a replacement that suits my needs and saves me time that&#39;s better spent on other things in life.</p>
+
+<p>Today, I finally pulled the plug on <a href="https://miniflux.app/">Miniflux</a>, the last service I used to self host (not counting House Assistant on a Pi, which I use to automate some stuff at home). The Hetzner server it ran on cost me ~4€ a month. The maintainer of Miniflux offers a managed hosting solution for 15$ a year, so to save money and time, and to support the project, I decided to switch from self-hosted to managed.</p>
+
+<h2>Will I ever self host again?</h2>
+
+<p>I really don&#39;t know. Some services (Miniflux included) required very little maintenance to keep running, so I could see myself spinning up a server again if I really wanted to run some software that doesn&#39;t have managed hosting. For now though, I&#39;m planning on using managed services wherever I can. Nevertheless I&#39;m proud of the things I learned during my time of self hosting my software. I think it gave me a huge boost both in terms of know how and my career, and I&#39;d encourage everyone to dip a toe into self hosting.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Cost per Request
@@ -468,45 +491,6 @@ WORKDIR /var/www/html</p>
 <hr/>
 
 <p>This is post 052 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                What's next for modern infrastructure?
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-02-21-what's-next-for-modern-infrastructure
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-02-21-what's-next-for-modern-infrastructure?utm_source=rss
-            </link>
-            <pubDate>
-                Tue, 21 Feb 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Modern infrastructure is incredibly complex. I identified 4 main &quot;levels&quot; of infrastructure abstraction:</p>
-
-<h2>Level 1: A website on a server</h2>
-
-<p>This is the most straight forward way to host a website. A webserver hosted on bare metal or a VM.</p>
-
-<h2>Level 2: Multiple servers behind a load balancer</h2>
-
-<p>At this stage, you start treating servers as cattle rather than pets. Servers may be spun up and down at will without influencing the availability of the application.</p>
-
-<h2>Level 3: An orchestrated cluster of servers</h2>
-
-<p>Instead of a server serving a specific purpose (e.g. webserver, DB server, etc.), a server becomes a worker for arbitrary workloads (see Kubernetes, ECS).</p>
-
-<h2>Level 4: Multicluster service mesh</h2>
-
-<p>If an organization manages multiple clusters (e.g. multiple application teams), they can be tied together into a <a href="https://istio.io/latest/docs/reference/glossary/#service-mesh">service mesh</a> to better optimize communication and observability.</p>
-
-<h2>Level 5: ???</h2>
-
-<p>History shows that we never stop abstracting. Multicluster service meshes are about the most abstract concept many people (including myself) can comprehend, but I doubt that this is the end of this journey. So, what&#39;s next for modern infrastructure?</p>
-
-<p>This is post 049 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
