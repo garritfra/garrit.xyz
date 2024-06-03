@@ -4,6 +4,8 @@ date: "2024-06-03"
 tags: "guide, note, tech"
 ---
 
+> **EDIT**: This trick will probably not be as effective on your system as it was on my system. After writing this post I realized that I had the `HOMEBREW_NO_INSTALL_CLEANUP=1` flag enabled on my system.
+
 My system (MacOS) is getting more cluttered the more I use it. I'm sure you can relate. If you're using [Brew](https://brew.sh/) as your package manager (which you should 😉), you might want to consider running the following command:
 
 ```
