@@ -30,7 +30,9 @@
                 Mon, 03 Jun 2024 00:00:00 +0000
             </pubDate>
             <description>
-                <![CDATA[<p>My system (MacOS) is getting more cluttered the more I use it. I&#39;m sure you can relate. If you&#39;re using <a href="https://brew.sh/">Brew</a> as your package manager (which you should 😉), you might want to consider running the following command:</p>
+                <![CDATA[<blockquote><p><strong>EDIT</strong>: This trick will probably not be as effective on your system as it was on my system. After writing this post I realized that I had the <code>HOMEBREW_NO_INSTALL_CLEANUP=1</code> flag enabled on my system.</p></blockquote>
+
+<p>My system (MacOS) is getting more cluttered the more I use it. I&#39;m sure you can relate. If you&#39;re using <a href="https://brew.sh/">Brew</a> as your package manager (which you should 😉), you might want to consider running the following command:</p>
 
 <p><code>
 brew cleanup -s
