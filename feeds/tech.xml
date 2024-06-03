@@ -14,8 +14,31 @@
             en
         </language>
         <lastBuildDate>
-            Fri, 24 May 2024 00:00:00 +0000
+            Mon, 03 Jun 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                I just cleaned up 40 GB of Brew caches
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-06-03-i-just-cleaned-up-40-gb-of-brew-caches
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-06-03-i-just-cleaned-up-40-gb-of-brew-caches?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 03 Jun 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>My system (MacOS) is getting more cluttered the more I use it. I&#39;m sure you can relate. If you&#39;re using <a href="https://brew.sh/">Brew</a> as your package manager (which you should 😉), you might want to consider running the following command:</p>
+
+<p><code>
+brew cleanup -s
+</code></p>
+
+<p>For some reason this failed after some time with a &quot;directory not found&quot; error, but you can just run it again and it will continue cleaning up old caches. Once it was done, this freed up <strong>40 GB of disk space</strong> on my system. It might make sense to run this as a cronjob? Either way, I just wanted to jot this down before I enevitably forget this, as usual.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Going from self hosted to managed software
@@ -427,37 +450,6 @@ jobs:
                 <![CDATA[<p>A while back <a href="/posts/2023-09-11-linkdump-software-development">I did a linkdump</a> to get some links out of my system that deserve some special attention. Since my &quot;to read&quot; list is filling up once again, I decided to do another link dump. I hope you find these articles as interesting as I do!</p>
 
 <ul><li><a href="https://dubroy.com/blog/cold-blooded-software/">Cold-blooded software</a> - On maintainability and simplicity</li><li><a href="https://www.industriallogic.com/blog/discovery-trees/">Working With Discovery Trees</a> - An interesting alternative to the Kanban-Board</li><li><a href="https://www.berkansasmaz.com/every-programmer-should-know-idempotency/">Every Programmer Should Know #1: Idempotency</a> - The title says it all</li><li><a href="https://blog.alexewerlof.com/p/broken-ownership">6 Archetypes of Broken Ownership</a> - Responsibilities in a DevOps environment</li><li><a href="https://read.engineerscodex.com/p/how-pinterest-scaled-to-11-million">How Pinterest scaled to 11 million users with only 6 engineers</a> - On going from simple, to complex, and back to simple</li><li><a href="https://iximiuz.com/en/posts/on-software-design-and-good-writing/">On Software Design... and Good Writing</a> - Essentially <a href="https://spacecraft.ssl.umd.edu/akins_laws.html">this amazing post</a> with additional notes for software developers</li><li><a href="https://andreasjhkarlsson.github.io//jekyll/update/2023/12/27/4-billion-if-statements.html">4 billion if statements</a> - A fun analysis of a silly solution to a simple problem. Teaches critical thinking</li></ul>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                10.000 Hours
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-12-22-10-000-hours
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-12-22-10-000-hours?utm_source=rss
-            </link>
-            <pubDate>
-                Fri, 22 Dec 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>In his book <a href="https://en.m.wikipedia.org/wiki/Outliers_(book)">Outliers</a>, Malcolm Gladwell popularized the idea that it takes 10.000 hours of concentrated practice to master a skill.</p>
-
-<p>According to my <a href="https://wakatime.com">WakaTime</a> stats, I spent 2.384 hours writing code in an editor (December 2023). If you&#39;re reading this post in the future, this is my current record:</p>
-
-<p><a href="https://wakatime.com/@811525e7-5cc5-4eef-9e29-3cece3a03847"><img alt="wakatime" src="https://wakatime.com/badge/user/811525e7-5cc5-4eef-9e29-3cece3a03847.svg"/></a></p>
-
-<p>This time is the time actually spent writing code. It doesn&#39;t track the time reading or thinking about it, nor the time spent in editors without the WakaTime plugin. It&#39;s hard to say how much time I spent engulfed in code, but this number is a good indicator as to how far I&#39;ve come in my programming journey.</p>
-
-<p>I believe we should never say that we&#39;ve &quot;mastered&quot; a craft, even after spending 10.000 hours practicing it. There are always so many things to learn, so many novel ideas to catch up with.</p>
-
-<p>So far, each of my 7 years of working as a software developer has advanced me tremendously. I&#39;m curious to see where I am once I reach 10.000 hours of practice.</p>
-
-<hr/>
-
-<p>This is post 099 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

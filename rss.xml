@@ -14,8 +14,31 @@
             en
         </language>
         <lastBuildDate>
-            Fri, 24 May 2024 00:00:00 +0000
+            Mon, 03 Jun 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                I just cleaned up 40 GB of Brew caches
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-06-03-i-just-cleaned-up-40-gb-of-brew-caches
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-06-03-i-just-cleaned-up-40-gb-of-brew-caches?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 03 Jun 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>My system (MacOS) is getting more cluttered the more I use it. I&#39;m sure you can relate. If you&#39;re using <a href="https://brew.sh/">Brew</a> as your package manager (which you should 😉), you might want to consider running the following command:</p>
+
+<p><code>
+brew cleanup -s
+</code></p>
+
+<p>For some reason this failed after some time with a &quot;directory not found&quot; error, but you can just run it again and it will continue cleaning up old caches. Once it was done, this freed up <strong>40 GB of disk space</strong> on my system. It might make sense to run this as a cronjob? Either way, I just wanted to jot this down before I enevitably forget this, as usual.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Going from self hosted to managed software
@@ -396,27 +419,6 @@ end
 <h2>Discussion</h2>
 
 <p>This post has spark some interesting discussion on <a href="https://lobste.rs/s/pssbmx/fuck_trees_use_tags">Lobsters</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Toil
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-04-01-toil
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-04-01-toil?utm_source=rss
-            </link>
-            <pubDate>
-                Mon, 01 Apr 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>After cheating death himself, <a href="https://en.m.wikipedia.org/wiki/Sisyphus">Sisyphus</a> was punished to push a large boulder up a steep hill for eternity. Every time he reached the top, the boulder would roll back down and Sisyphus had to start over.</p>
-
-<p>Our life is full of such toil. Mowing the lawn, cleaning the dishes and doing our taxes are examples of toil that prevents us from doing sustainable work. We should always seek to minimize toil where possible. We have dishwashers and spam filters to help us fight toil, but there are some reoccurring tasks that cannot be automated.</p>
-
-<p>Sisyphus eventually found peace with his fate. Instead of seeing his punishment as an eternal burden, he saw it as his life&#39;s purpose. Maybe those comparatively small annoyances in our life are worth enjoying. They&#39;re part of what makes us human.</p>]]>
             </description>
         </item>
     </channel>
