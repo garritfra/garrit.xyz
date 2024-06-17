@@ -14,8 +14,55 @@
             en
         </language>
         <lastBuildDate>
-            Fri, 24 May 2024 00:00:00 +0000
+            Mon, 17 Jun 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Host your own LLM
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-06-17-host-your-own-llm
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-06-17-host-your-own-llm?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 17 Jun 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;m currently dipping my toes into Large Language Models (LLMs, or &quot;AI&quot;) and what you can do with them. It&#39;s a fascinating topic, so expect some more posts on this in the coming days and weeks.</p>
+
+<p>For starters, I wanted to document how I got my first LLM running on my local machine (a 2022 MacBook Pro). <a href="https://ollama.com/">Ollama</a> makes this process super easy. You just install it (<code>brew install ollama</code> in my case) and then run the model:</p>
+
+<p><code>
+ollama run llama3
+</code></p>
+
+<p>This will download the model and open a prompt, so you can start chatting right away!</p>
+
+<p>You can think of Ollama as the <a href="https://www.docker.com/">Docker</a> CLI but for LLMs. There&#39;s a <a href="https://ollama.com/library">directory of LLMs</a>, and if a model has multiple different sizes, you can use it like you would pull a different docker tag:</p>
+
+<p><code>
+ollama pull llama3:8b
+ollama pull llama3:70b
+</code></p>
+
+<p>The best thing about ollama is that it also exposes a web server for you to integrate the LLM into your application. As an example, here&#39;s how you would curl your local LLM:</p>
+
+<p><code>
+curl http://localhost:11434/api/chat -d &#39;{
+    &quot;model&quot;: &quot;llama3&quot;,      
+    &quot;messages&quot;: [{ &quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Are you a robot?&quot; }],
+    &quot;stream&quot;: false
+}&#39;
+{&quot;model&quot;:&quot;llama3&quot;,&quot;created_at&quot;:&quot;2024-06-17T11:19:23.510588Z&quot;,&quot;message&quot;:{&quot;role&quot;:&quot;assistant&quot;,&quot;content&quot;:&quot;I am not a human, but I&#39;m also not a traditional robot. I&#39;m an artificial intelligence language model designed to simulate conversation and answer questions to the best of my ability. My \&quot;brain\&quot; is a complex algorithm that processes natural language inputs and generates responses based on patterns and associations learned from large datasets.\n\nWhile I don&#39;t have a physical body or consciousness like humans do, I&#39;m designed to interact with humans in a way that feels natural and conversational. I can understand and respond to questions, make suggestions, and even tell jokes (though my humor may be a bit... algorithmic).\n\nSo, while I&#39;m not a human or a traditional robot, I exist at the intersection of technology and language, designed to assist and communicate with humans in a helpful way!&quot;},&quot;done_reason&quot;:&quot;stop&quot;,&quot;done&quot;:true,&quot;total_duration&quot;:12565842250,&quot;load_duration&quot;:7059262291,&quot;prompt_eval_count&quot;:15,&quot;prompt_eval_duration&quot;:331275000,&quot;eval_count&quot;:156,&quot;eval_duration&quot;:5172858000}
+</code></p>
+
+<p>If your local machine is not beefy enough and you want to try out a large LLM on a rented server (AWS has <code>g5.2xlarge</code>, which gave me good results for <code>mixtral 8x7b</code>), you also have to set <code>OLLAMA_HOST=0.0.0.0</code> in your environment variables to be able to reach the remote server. <strong>This exposes the LLM to the public internet, so be careful when chosing your deployment strategy.</strong></p>
+
+<p>And there you go! You just deployed your very own LLM. Pretty cool, huh?</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Going from self hosted to managed software
@@ -397,100 +444,6 @@ aws ecs execute-command --cluster westfalen --task &lt;task-id-or-arn&gt; --cont
 <hr/>
 
 <p>This is post 053 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Notes on containerizing PHP applications
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-03-03-notes-on-containerizing-php-applications
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-03-03-notes-on-containerizing-php-applications?utm_source=rss
-            </link>
-            <pubDate>
-                Fri, 03 Mar 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I was recently tasked with building a rudimentary infrastructure for a PHP application. Coming from a Node.js-driven world where every human and their grandmother has a blog post about containerizing your application, it was very interesting to see where PHP differs to other applications.</p>
-
-<p>One major gotcha for me was that PHP code is executed on <strong>request-time</strong>, meaning a new process is spawned for each incoming request. Most other languages have dedicated runtimes that handle incoming requests. This unique approach is very flexible and scalable, but it comes with the implication that there is a <strong>separate webserver</strong> that calls into the PHP interpreter when it needs to.</p>
-
-<p>In Node.js (and most other languages), you can &quot;just run the app&quot;, as demonstrated by this Dockerfile:</p>
-
-<p><code></code>`dockerfile
-FROM node:18.14.2-alpine3.17 AS build</p>
-
-<p>WORKDIR /usr/src/app</p>
-
-<p>COPY package*.json ./</p>
-
-<p>RUN npm ci</p>
-
-<p>COPY . .</p>
-
-<p>EXPOSE 3000</p>
-
-<p>CMD [ &quot;node&quot;, &quot;server.js&quot; ]
-<code></code>`</p>
-
-<p>PHP on the other side is rarely used on its own. Most of the time, it needs a webserver alongside it:</p>
-
-<p><code></code>`dockerfile
-FROM php:8.1-apache-bullseye</p>
-
-<h1>&lt;snip&gt;</h1>
-
-<p>COPY . /var/www/html
-WORKDIR /var/www/html</p>
-
-<h1>&lt;snip&gt;</h1>
-
-<p><code></code>`</p>
-
-<p>As you can see, I&#39;m using the official PHP docker image. The PHP maintainers know that adding a webserver alongside PHP is a very common pattern, so most of the variants of the image ship with a webserver. In this example I&#39;m using Apache, but we might as well use NGINX or some other webserver. There&#39;s also the option to use <a href="https://www.php.net/manual/de/install.fpm.php">FPM</a> as a FastCGI implementation and a webserver in a <strong>separate</strong> container.</p>
-
-<p>Grasping this took me some time, but after it clicked it made many things a lot clearer.</p>
-
-<h2>More complete Dockerfile example</h2>
-
-<p>The Dockerfile above is meant to demonstrate how PHP applications differ from other languages. The following is a more complete example you can use to containerize your PHP application. In this case it’s a Laravel app, so your mileage may vary.</p>
-
-<p><code></code>`dockerfile
-FROM php:8.1-apache-bullseye</p>
-
-<p>RUN apt-get clean &amp;&amp; \
-    apt-get update &amp;&amp; \
-    apt-get install --fix-missing -y \
-        zip &amp;&amp; \
-    docker-php-ext-install \
-        pdo \
-        pdo_mysql \
-        bcmath</p>
-
-<p>COPY --from=composer:2 /usr/bin/composer /usr/bin/composer</p>
-
-<p>COPY . /var/www/html
-WORKDIR /var/www/html</p>
-
-<p>ENV APACHE<em>DOCUMENT</em>ROOT /var/www/html/public</p>
-
-<p>RUN composer install --no-dev --optimize-autoloader --no-interaction &amp;&amp; \
-    sed -ri -e &#39;s!/var/www/html!${APACHE<em>DOCUMENT</em>ROOT}!g&#39; /etc/apache2/sites-available/*.conf &amp;&amp; \
-    sed -ri -e &#39;s!/var/www/!${APACHE<em>DOCUMENT</em>ROOT}!g&#39; /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf &amp;&amp; \
-    php artisan config:cache &amp;&amp; \
-    php artisan view:cache &amp;&amp; \
-    php artisan route:cache &amp;&amp; \
-    php artisan storage:link &amp;&amp; \
-    chmod 777 -R /var/www/html/storage/ &amp;&amp; \
-    chown -R www-data:www-data /var/www/ &amp;&amp; \
-    a2enmod rewrite
-<code></code>`</p>
-
-<hr/>
-
-<p>This is post 052 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

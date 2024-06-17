@@ -14,8 +14,55 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 03 Jun 2024 00:00:00 +0000
+            Mon, 17 Jun 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Host your own LLM
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-06-17-host-your-own-llm
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-06-17-host-your-own-llm?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 17 Jun 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;m currently dipping my toes into Large Language Models (LLMs, or &quot;AI&quot;) and what you can do with them. It&#39;s a fascinating topic, so expect some more posts on this in the coming days and weeks.</p>
+
+<p>For starters, I wanted to document how I got my first LLM running on my local machine (a 2022 MacBook Pro). <a href="https://ollama.com/">Ollama</a> makes this process super easy. You just install it (<code>brew install ollama</code> in my case) and then run the model:</p>
+
+<p><code>
+ollama run llama3
+</code></p>
+
+<p>This will download the model and open a prompt, so you can start chatting right away!</p>
+
+<p>You can think of Ollama as the <a href="https://www.docker.com/">Docker</a> CLI but for LLMs. There&#39;s a <a href="https://ollama.com/library">directory of LLMs</a>, and if a model has multiple different sizes, you can use it like you would pull a different docker tag:</p>
+
+<p><code>
+ollama pull llama3:8b
+ollama pull llama3:70b
+</code></p>
+
+<p>The best thing about ollama is that it also exposes a web server for you to integrate the LLM into your application. As an example, here&#39;s how you would curl your local LLM:</p>
+
+<p><code>
+curl http://localhost:11434/api/chat -d &#39;{
+    &quot;model&quot;: &quot;llama3&quot;,      
+    &quot;messages&quot;: [{ &quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Are you a robot?&quot; }],
+    &quot;stream&quot;: false
+}&#39;
+{&quot;model&quot;:&quot;llama3&quot;,&quot;created_at&quot;:&quot;2024-06-17T11:19:23.510588Z&quot;,&quot;message&quot;:{&quot;role&quot;:&quot;assistant&quot;,&quot;content&quot;:&quot;I am not a human, but I&#39;m also not a traditional robot. I&#39;m an artificial intelligence language model designed to simulate conversation and answer questions to the best of my ability. My \&quot;brain\&quot; is a complex algorithm that processes natural language inputs and generates responses based on patterns and associations learned from large datasets.\n\nWhile I don&#39;t have a physical body or consciousness like humans do, I&#39;m designed to interact with humans in a way that feels natural and conversational. I can understand and respond to questions, make suggestions, and even tell jokes (though my humor may be a bit... algorithmic).\n\nSo, while I&#39;m not a human or a traditional robot, I exist at the intersection of technology and language, designed to assist and communicate with humans in a helpful way!&quot;},&quot;done_reason&quot;:&quot;stop&quot;,&quot;done&quot;:true,&quot;total_duration&quot;:12565842250,&quot;load_duration&quot;:7059262291,&quot;prompt_eval_count&quot;:15,&quot;prompt_eval_duration&quot;:331275000,&quot;eval_count&quot;:156,&quot;eval_duration&quot;:5172858000}
+</code></p>
+
+<p>If your local machine is not beefy enough and you want to try out a large LLM on a rented server (AWS has <code>g5.2xlarge</code>, which gave me good results for <code>mixtral 8x7b</code>), you also have to set <code>OLLAMA_HOST=0.0.0.0</code> in your environment variables to be able to reach the remote server. <strong>This exposes the LLM to the public internet, so be careful when chosing your deployment strategy.</strong></p>
+
+<p>And there you go! You just deployed your very own LLM. Pretty cool, huh?</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 I just cleaned up 40 GB of Brew caches
@@ -374,53 +421,6 @@ end
 <code></code>`</p>
 
 <p>After compiling the document, you should now see that each link has a footnote with the link text.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Fuck trees, use tags
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-04-02-fuck-trees-use-tags
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-04-02-fuck-trees-use-tags?utm_source=rss
-            </link>
-            <pubDate>
-                Tue, 02 Apr 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>We&#39;ve been trained to organize our files into a tree-like structure. A file can only exist once in the entire tree. It may have multiple contexts, but it can only exist once. Here&#39;s an example: you get a really important invoice for your car that you have to keep for your taxes. Where do you store this invoice alongside your other files?</p>
-
-<ul><li>Maybe organized by type:<code>/invoices/important_invoice.pdf</code>?</li><li>Or <code>/tax/2024/important_invoice.pdf</code> since that&#39;s where you will probably need it next?</li><li>But it&#39;s an invoice for my car! So <code>/vehicles/&lt;licenseplate&gt;/important_invoice.pdf</code>?</li></ul>
-
-<p>Whatever strategy you choose, there are probably times where you wish to have used a different directory structure. Sure, you can put the file in one directory and then create a shortcut or link in the other directories, but the original file will only ever exist in one place.</p>
-
-<p>I believe that these tree-like directory structures are inherently flawed, and that tagging systems are superior in almost every way.</p>
-
-<p>What I mean by tags is to organize files/entities/whatever into a flat structure and add meaningful tags/labels to add context. To revise the example above: our <code>important_invoice.pdf</code> could have the following tags:</p>
-
-<ul><li><code>invoice</code></li><li><code>vehicles/&lt;licenseplate&gt;</code></li><li><code>tax/2024</code></li></ul>
-
-<p>One could argue that <code>vehicles</code> and <code>tax</code> could be their own tags, but I specifically choose these tags to prove an important point:</p>
-
-<h2>Tags can mimic trees</h2>
-
-<p>If you think about it, a file path in a sense is just a reference to some location. Files on a physical hard drive aren&#39;t organized in trees. They&#39;re a bunch of ones and zeros slapped together in a pool of other files. A file path is just an abstraction for the user to reference a specific location in this pool of files. A file path is a tag!</p>
-
-<p>Unfortunately, most systems are designed to only allow one path per file. This creates the hierarchical structure we so often use. But as I mentioned above, we could simply assign multiple tags or paths to a single file to organize it in multiple ways. The <code>important_invoice.pdf</code> has little to do with <code>tax</code> or <code>2024</code> as standalone terms, but assigning the tag <code>tax/2024</code>  gives it a similar meaning as a path to a file in a directory. The term <code>invoice</code> is enough to infer that everything using this tag is an invoice. It&#39;s equivalent to having a directory named <code>invoices</code> with multiple files inside.</p>
-
-<p>So, we have established that tags are easily superior to trees. Why are we not using them?</p>
-
-<h2>Tags have bad UX</h2>
-
-<p>There have been many attempts at giving users the possibility to organize their stuff using tags. Your Gmail mails can be labeled, you can use tags for files in MacOS and there are apparently even efforts to create <a href="https://relfs.sourceforge.net/">tag-based filesystems</a>. But none of them were good enough to change the game.</p>
-
-<p>Our brains seem to be so used to the idea of a piece of information only existing at one location at a time that it&#39;s really hard to adapt at this point. I&#39;m sure there are some power users out there who make the most of the limited tagging features of their systems, but what I would really like to see is a real shift in how we store and retrieve information.</p>
-
-<h2>Discussion</h2>
-
-<p>This post has spark some interesting discussion on <a href="https://lobste.rs/s/pssbmx/fuck_trees_use_tags">Lobsters</a>.</p>]]>
             </description>
         </item>
     </channel>

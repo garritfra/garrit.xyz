@@ -14,8 +14,55 @@
             en
         </language>
         <lastBuildDate>
-            Fri, 24 May 2024 00:00:00 +0000
+            Mon, 17 Jun 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Host your own LLM
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-06-17-host-your-own-llm
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-06-17-host-your-own-llm?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 17 Jun 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I&#39;m currently dipping my toes into Large Language Models (LLMs, or &quot;AI&quot;) and what you can do with them. It&#39;s a fascinating topic, so expect some more posts on this in the coming days and weeks.</p>
+
+<p>For starters, I wanted to document how I got my first LLM running on my local machine (a 2022 MacBook Pro). <a href="https://ollama.com/">Ollama</a> makes this process super easy. You just install it (<code>brew install ollama</code> in my case) and then run the model:</p>
+
+<p><code>
+ollama run llama3
+</code></p>
+
+<p>This will download the model and open a prompt, so you can start chatting right away!</p>
+
+<p>You can think of Ollama as the <a href="https://www.docker.com/">Docker</a> CLI but for LLMs. There&#39;s a <a href="https://ollama.com/library">directory of LLMs</a>, and if a model has multiple different sizes, you can use it like you would pull a different docker tag:</p>
+
+<p><code>
+ollama pull llama3:8b
+ollama pull llama3:70b
+</code></p>
+
+<p>The best thing about ollama is that it also exposes a web server for you to integrate the LLM into your application. As an example, here&#39;s how you would curl your local LLM:</p>
+
+<p><code>
+curl http://localhost:11434/api/chat -d &#39;{
+    &quot;model&quot;: &quot;llama3&quot;,      
+    &quot;messages&quot;: [{ &quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Are you a robot?&quot; }],
+    &quot;stream&quot;: false
+}&#39;
+{&quot;model&quot;:&quot;llama3&quot;,&quot;created_at&quot;:&quot;2024-06-17T11:19:23.510588Z&quot;,&quot;message&quot;:{&quot;role&quot;:&quot;assistant&quot;,&quot;content&quot;:&quot;I am not a human, but I&#39;m also not a traditional robot. I&#39;m an artificial intelligence language model designed to simulate conversation and answer questions to the best of my ability. My \&quot;brain\&quot; is a complex algorithm that processes natural language inputs and generates responses based on patterns and associations learned from large datasets.\n\nWhile I don&#39;t have a physical body or consciousness like humans do, I&#39;m designed to interact with humans in a way that feels natural and conversational. I can understand and respond to questions, make suggestions, and even tell jokes (though my humor may be a bit... algorithmic).\n\nSo, while I&#39;m not a human or a traditional robot, I exist at the intersection of technology and language, designed to assist and communicate with humans in a helpful way!&quot;},&quot;done_reason&quot;:&quot;stop&quot;,&quot;done&quot;:true,&quot;total_duration&quot;:12565842250,&quot;load_duration&quot;:7059262291,&quot;prompt_eval_count&quot;:15,&quot;prompt_eval_duration&quot;:331275000,&quot;eval_count&quot;:156,&quot;eval_duration&quot;:5172858000}
+</code></p>
+
+<p>If your local machine is not beefy enough and you want to try out a large LLM on a rented server (AWS has <code>g5.2xlarge</code>, which gave me good results for <code>mixtral 8x7b</code>), you also have to set <code>OLLAMA_HOST=0.0.0.0</code> in your environment variables to be able to reach the remote server. <strong>This exposes the LLM to the public internet, so be careful when chosing your deployment strategy.</strong></p>
+
+<p>And there you go! You just deployed your very own LLM. Pretty cool, huh?</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Going from self hosted to managed software
@@ -599,103 +646,6 @@ via Matrix or email!</p>
 <ul><li>A Raspberry Pi 4 as a main host and an older Raspberry Pi 3 for offsite backup, both running Raspberry Pi OS</li><li>Two external harddrives in a RAID 1 (mirrored) configuration, running on an external USB3 hub</li><li>A single internal HDD that served no purpose in my old PC, now serving as backup storage</li><li>All drives are using BTRFS</li><li>WireGuard tunnels between main and remote host, as well as most access devices</li><li>Nextcloud on main host, accessible over TLS (if I need to access data from outside the secure tunnel-network)</li><li>SMB share accessible from within the tunnel-network</li><li>Circa 4.5 terabyte total disk size; 1.5 terabyte of usable storage</li><li>Snapper for local incremental backups on main host; BTRBK for remote incremental backups</li><li>Cron jobs for regular backups and repairs (scrub/rebalance)</li></ul>
 
 <p>This is post 010 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Quick Tip! Setting up a lightweight Server-Client VPN with wireguard
-            </title>
-            <guid>
-                https://garrit.xyz/posts/lightweight-vpn-with-wireguard
-            </guid>
-            <link>
-                https://garrit.xyz/posts/lightweight-vpn-with-wireguard?utm_source=rss
-            </link>
-            <pubDate>
-                Wed, 19 Aug 2020 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>This blog post has been taken over from my <a href="https://garrit.xyz/til">collection of &quot;Today I Learned&quot; articles</a>.</p>
-
-<p>You can easily set up a private network of your devices. This way you can &quot;talk&quot; to your phone, raspberry pi etc. over an <strong>encrypted</strong> network, with simple IP-addresses.</p>
-
-<p><img alt="" src="https://images.unsplash.com/photo-1505659903052-f379347d056f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80"/></p>
-
-<p>Firstly, install wireguard on all of your systems. Simply install the <code>wireguard</code> package from your package manager respectively. Check out <a href="https://www.wireguard.com/install/">the official installation guide</a> if you can&#39;t find the package. If you&#39;re on debian, try <a href="https://wiki.debian.org/WireGuard?action=show&amp;redirect=Wireguard">this</a> guide. There&#39;s also an app for Android, iOS and MacOS.</p>
-
-<p>Every participent (Client and server) needs a key-pair. To generate this, run this command first on the server, and on all clients:</p>
-
-<p><code>bash
-wg genkey | tee wg-private.key | wg pubkey &gt; wg-public.key
-</code></p>
-
-<p>It might make sense to do this as root. This way you don&#39;t have to type <code>sudo</code> with every command.</p>
-
-<h2>Server Configuration</h2>
-
-<p>You will need to create a configuration for the server. Save this template at <code>/etc/wireguard/wg0.conf</code>, and replace the fields where needed:</p>
-
-<p><code></code>`conf
-[Interface]
-PrivateKey = &lt;Server private key from wg-private.key&gt;
-Address = 10.0.0.1/24 # IP Address of the server. Using this IP Address, you can assign IPs ranging from 10.0.0.2 - 10.0.0.254 to your clients
-ListenPort = 51820 # This is the standard port for wireguard</p>
-
-<h1>The following fields will take care of routing</h1>
-
-<p>PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE</p>
-
-<h1>Laptop</h1>
-
-<p>[Peer]
-PublicKey = &lt;Public Key of Laptop Client&gt;
-AllowedIPs = 10.0.0.2/32 # The client will be reachable at this address</p>
-
-<h1>Android Phone</h1>
-
-<p>[Peer]
-PublicKey = &lt;Public Key of Phone Client&gt;
-AllowedIPs = 10.0.0.3/32</p>
-
-<h1>...</h1>
-
-<p><code></code>`</p>
-
-<p>Then run <code>wg-quick up wg0</code> to start the wireguard interface with the configuration from <code>/etc/wireguard/wg0</code>.</p>
-
-<h2>Setting up clients</h2>
-
-<p>Setting up clients is very similar to the server setup process. Generate a keypair on each client, save the following config to <code>/etc/wireguard/wg0.conf</code> and replace the nessessary fields:</p>
-
-<p><code></code>`conf
-[Interface]
-PrivateKey = &lt;Client Private Key from wg-private.key&gt;
-Address = 10.0.0.2/32 # The fixed address of the client. Needs to be specified in the server config as well</p>
-
-<p>[Peer]
-PublicKey = &lt;Server Public key&gt;
-AllowedIPs = 10.0.0.0/24 # Routes all traffic in this subnet to the server. If you want to tunnel all traffic through the wireguard connection, use 0.0.0.0/0 here instead
-Endpoint = &lt;Public Server IP&gt;:51820
-PersistentKeepalive = 25 # Optional. Will ping the server every 25 seconds to remain connected.
-<code></code>`</p>
-
-<p>On every client, run <code>wg-quick up wg0</code> to start the interface using the config at <code>/etc/wireguard/wg0.conf</code>.</p>
-
-<p>This whole proccess might be easier on GUIs like Android or MacOS.</p>
-
-<p>Now, try to ping your phone from your laptop:</p>
-
-<p><code>
-ping 10.0.0.3
-PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
-64 bytes from 10.0.0.3: icmp_seq=1 ttl=64 time=5382 ms
-64 bytes from 10.0.0.3: icmp_seq=2 ttl=64 time=4364 ms
-</code></p>
-
-<h3>References</h3>
-
-<ul><li><a href="https://www.wireguard.com/">Official Documentation</a></li><li><a href="https://www.stavros.io/posts/how-to-configure-wireguard/">https://www.stavros.io/posts/how-to-configure-wireguard/</a></li></ul>]]>
             </description>
         </item>
     </channel>
