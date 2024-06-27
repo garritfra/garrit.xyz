@@ -14,8 +14,63 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 17 Jun 2024 00:00:00 +0000
+            Thu, 27 Jun 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Testing SMTP connections
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-06-27-testing-smtp-connections
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-06-27-testing-smtp-connections?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 27 Jun 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Just a quick note to my future self on how to test a SMTP connection with nothing but a tiny busybox container.</p>
+
+<p>In my case specifically, I tested the connection from inside a Kubernetes cluster. Here&#39;s the quickest way to get a temporary pod up and running:</p>
+
+<p><code>
+kubectl run -n backend -i --tty --rm debug --image=busybox --restart=Never
+</code></p>
+
+<p>Busybox comes with telnet installed, which we can use to establish a connection to the server:</p>
+
+<p><code>
+/ # telnet smtp.mydomain.com 25
+Connected to smtp.mydomain.com
+220 mail.mydomain.com ESMTP Postfix (SMTP)
+</code></p>
+
+<p>Next, we can issue the SMTP commands through the open TCP connection to send a test mail. Lines beginning with a status code are server responses:</p>
+
+<p><code></code>`
+HELO smtp.mydomain.com
+250 smtp.mydomain.com
+MAIL FROM:<a href="mailto:noreply@mydomain.com">noreply@mydomain.com</a>                       <br/>250 2.1.0 Ok
+RCPT TO:<a href="mailto:receiver@foo.com">receiver@foo.com</a>
+250 2.1.5 Ok
+DATA<br/>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;
+From: [noreply] <a href="mailto:noreply@mydomain.com">noreply@mydomain.com</a>
+To: [Receiver] <a href="mailto:receiver@foo.com">receiver@foo.com</a>
+Date: Thu, 27 Jun 2024 10:08:26 -0200
+Subject: Test Message</p>
+
+<p>This is a test message.</p>
+
+<p>.
+250 2.0.0 Ok: queued as 2478B7F135
+<code></code>`</p>
+
+<p>In case there&#39;s a firewall issue, you might not be able to establish a connection in the first place, or you won&#39;t get a reply to your TCP commands. In our case, everything worked fine.</p>
+
+<p>I hope this is useful!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Host your own LLM
@@ -552,37 +607,6 @@ git config diff.sqlite3.textconv &quot;echo .dump | sqlite3&quot;
 <hr/>
 
 <p>This is post 083 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Single Page Applications on GitHub Pages
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-06-01-single-page-applications-on-github-pages
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-06-01-single-page-applications-on-github-pages?utm_source=rss
-            </link>
-            <pubDate>
-                Thu, 01 Jun 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>My latest project, <a href="https://sendpasswords.net/">sendpasswords.net</a> is a <a href="https://developer.mozilla.org/en-US/docs/Glossary/SPA">Single Page Application</a> deployed on GitHub Pages.</p>
-
-<p>GitHub Pages is configured in a way to host static HTML files without any bells and whistles. This means that if you try to fetch a document that&#39;s <em>not</em> the index, for example <code>/foo</code>, the server will try to load the file with that name. </p>
-
-<p>By nature, SPAs only consist of a single HTML entry point (<code>index.html</code> in most cases). It&#39;s responsible for routing the user to the correct page if there are multiple paths. And here&#39;s the crux: if the user tries to load <code>/foo</code>, he will not land at the SPA entry point. Instead, he will see a <code>404</code> error.</p>
-
-<h2>The solution</h2>
-
-<p>A <code>404</code> response will automatically return a file called <code>404.html</code>, which we can use to our advantage. After building the application, simply copy the <code>index.html</code> to <code>404.html</code>, as demonstrated by <a href="https://github.com/garritfra/sendpasswords.net/commit/66bdb68c229a3ac3386f7816a746155e658eb586">this commit</a>. This will use <code>index.html</code> to serve the application on the root level, and <code>404.html</code> to load <em>the same app</em> if the page doesn&#39;t exist as a file. Whether the <code>index.html</code> is needed if there&#39;s already a <code>404.html</code> is up to you. I left it in to make clear that this is just a workaround.</p>
-
-<p>This is a <a href="https://stackoverflow.com/a/69308662/9046809">well known</a> workaround, but I wanted to bring some extra awareness to it, since it&#39;s a problem I ran into a couple of times so far. Happy SPAing!</p>
-
-<hr/>
-
-<p>This is post 069 (nice) of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

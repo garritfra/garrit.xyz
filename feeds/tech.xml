@@ -14,8 +14,63 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 17 Jun 2024 00:00:00 +0000
+            Thu, 27 Jun 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Testing SMTP connections
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-06-27-testing-smtp-connections
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-06-27-testing-smtp-connections?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 27 Jun 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Just a quick note to my future self on how to test a SMTP connection with nothing but a tiny busybox container.</p>
+
+<p>In my case specifically, I tested the connection from inside a Kubernetes cluster. Here&#39;s the quickest way to get a temporary pod up and running:</p>
+
+<p><code>
+kubectl run -n backend -i --tty --rm debug --image=busybox --restart=Never
+</code></p>
+
+<p>Busybox comes with telnet installed, which we can use to establish a connection to the server:</p>
+
+<p><code>
+/ # telnet smtp.mydomain.com 25
+Connected to smtp.mydomain.com
+220 mail.mydomain.com ESMTP Postfix (SMTP)
+</code></p>
+
+<p>Next, we can issue the SMTP commands through the open TCP connection to send a test mail. Lines beginning with a status code are server responses:</p>
+
+<p><code></code>`
+HELO smtp.mydomain.com
+250 smtp.mydomain.com
+MAIL FROM:<a href="mailto:noreply@mydomain.com">noreply@mydomain.com</a>                       <br/>250 2.1.0 Ok
+RCPT TO:<a href="mailto:receiver@foo.com">receiver@foo.com</a>
+250 2.1.5 Ok
+DATA<br/>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;
+From: [noreply] <a href="mailto:noreply@mydomain.com">noreply@mydomain.com</a>
+To: [Receiver] <a href="mailto:receiver@foo.com">receiver@foo.com</a>
+Date: Thu, 27 Jun 2024 10:08:26 -0200
+Subject: Test Message</p>
+
+<p>This is a test message.</p>
+
+<p>.
+250 2.0.0 Ok: queued as 2478B7F135
+<code></code>`</p>
+
+<p>In case there&#39;s a firewall issue, you might not be able to establish a connection in the first place, or you won&#39;t get a reply to your TCP commands. In our case, everything worked fine.</p>
+
+<p>I hope this is useful!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Host your own LLM
@@ -437,49 +492,6 @@ jobs:
 <h2>Conclusion</h2>
 
 <p>Using this workflow, I can pump out ideas whenever and whereever I feel like it. It drastically reduced the time from idea to written article, which helps me organize my thoughts a lot better. I also frequently create drafts for things I want to write about but is not fully fleshed out yet.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Greg, the Developer
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-01-05-greg-the-developer
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-01-05-greg-the-developer?utm_source=rss
-            </link>
-            <pubDate>
-                Fri, 05 Jan 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>This is Greg. Greg loves to play with his computer and create amazing things.</p>
-
-<p><img alt="Greg" src="/assets/posts/2024-01-05-greg-the-developer/greg.svg"/></p>
-
-<p>Greg has many friends. He listens to his friends and helps them. Greg knows that teamwork is very important.</p>
-
-<p><img alt="Greg and his friends" src="/assets/posts/2024-01-05-greg-the-developer/greg-friends.svg"/></p>
-
-<p>Greg is curious about what his friends do. Greg learned how they help everyone create amazing things. Greg was happy that he learned something new.</p>
-
-<p><img alt="Greg learns from his friends" src="/assets/posts/2024-01-05-greg-the-developer/greg-learning.svg"/></p>
-
-<p>One day, Greg has an idea. Greg shares his idea with his friends. They try it, and it works! Everyone is happy that Greg shared his idea.</p>
-
-<p><img alt="Greg has an idea" src="/assets/posts/2024-01-05-greg-the-developer/greg-idea.svg"/></p>
-
-<p>When Greg learns something new about computers, he writes it down and shows it to his friends. This helps everyone learn how computers work.</p>
-
-<p><img alt="Greg writes down what he learned" src="/assets/posts/2024-01-05-greg-the-developer/greg-documentation.svg"/></p>
-
-<p>Sometimes Greg and his friends make a mistake, but Greg knows that&#39;s okay. Everyone makes mistakes, even Greg. He says that everyone can learn from mistakes. This makes them better and happier.</p>
-
-<p><img alt="It&#39;s okay to make mistakes" src="/assets/posts/2024-01-05-greg-the-developer/greg-mistake.svg"/></p>
-
-<p>Greg is a good software developer. Be like Greg.</p>
-
-<p><img alt="Greg is a good software developer" src="/assets/posts/2024-01-05-greg-the-developer/greg-okay.svg"/></p>]]>
             </description>
         </item>
     </channel>

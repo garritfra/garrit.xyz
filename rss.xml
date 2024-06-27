@@ -14,8 +14,63 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 17 Jun 2024 00:00:00 +0000
+            Thu, 27 Jun 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Testing SMTP connections
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-06-27-testing-smtp-connections
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-06-27-testing-smtp-connections?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 27 Jun 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Just a quick note to my future self on how to test a SMTP connection with nothing but a tiny busybox container.</p>
+
+<p>In my case specifically, I tested the connection from inside a Kubernetes cluster. Here&#39;s the quickest way to get a temporary pod up and running:</p>
+
+<p><code>
+kubectl run -n backend -i --tty --rm debug --image=busybox --restart=Never
+</code></p>
+
+<p>Busybox comes with telnet installed, which we can use to establish a connection to the server:</p>
+
+<p><code>
+/ # telnet smtp.mydomain.com 25
+Connected to smtp.mydomain.com
+220 mail.mydomain.com ESMTP Postfix (SMTP)
+</code></p>
+
+<p>Next, we can issue the SMTP commands through the open TCP connection to send a test mail. Lines beginning with a status code are server responses:</p>
+
+<p><code></code>`
+HELO smtp.mydomain.com
+250 smtp.mydomain.com
+MAIL FROM:<a href="mailto:noreply@mydomain.com">noreply@mydomain.com</a>                       <br/>250 2.1.0 Ok
+RCPT TO:<a href="mailto:receiver@foo.com">receiver@foo.com</a>
+250 2.1.5 Ok
+DATA<br/>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;
+From: [noreply] <a href="mailto:noreply@mydomain.com">noreply@mydomain.com</a>
+To: [Receiver] <a href="mailto:receiver@foo.com">receiver@foo.com</a>
+Date: Thu, 27 Jun 2024 10:08:26 -0200
+Subject: Test Message</p>
+
+<p>This is a test message.</p>
+
+<p>.
+250 2.0.0 Ok: queued as 2478B7F135
+<code></code>`</p>
+
+<p>In case there&#39;s a firewall issue, you might not be able to establish a connection in the first place, or you won&#39;t get a reply to your TCP commands. In our case, everything worked fine.</p>
+
+<p>I hope this is useful!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Host your own LLM
@@ -373,54 +428,6 @@ c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNvdmVy
 <p>Getting a copy of this book is the best way to support my writing. You can either <a href="https://www.buymeacoffee.com/garrit/extras">buy the book directly on Buy Me a Coffee</a>, or you can <a href="https://www.buymeacoffee.com/garrit/membership">become a monthly supporter</a>, which grants you a free copy after signing up.</p>
 
 <p>I&#39;m extremely grateful for the journey this blog has taken me on, and the people I met along the way. Who knows, maybe there will be a &quot;Ten Years of Blogging&quot; book in the future?</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Pandoc: Convert links to footnotes (the easy way)
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-04-04-pandoc-convert-links-to-footnotes-the-easy-way
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-04-04-pandoc-convert-links-to-footnotes-the-easy-way?utm_source=rss
-            </link>
-            <pubDate>
-                Thu, 04 Apr 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Pandoc has <a href="https://pandoc.org/MANUAL.html#links">a feature</a> to covert links to footnotes. Unfortunately, this only applies to LaTeX documents. Since I want to stay away from LaTeX for reasons of bloat, I was looking for a more universal approach.</p>
-
-<p>First, I encountered <a href="https://stackoverflow.com/questions/33900067/pandoc-filter-to-add-footnotes-to-links">this</a> thread suggesting to use a regular <a href="https://pandoc.org/filters.html">Pandoc filter</a>. This has one downside though: you need a Haskell toolchain on your system. So I moved on ... </p>
-
-<p>I eventually stumbled across <a href="https://github.com/jgm/pandoc/discussions/9415">this</a> thread, explaining how to do the same thing but with a Lua filter instead of Haskell. Since Lua is embedded into Pandoc, you don&#39;t need to install anything. Hooray for embeddable languages!</p>
-
-<p>Simply place the following snippet into file (<code>/filters/link-to-footnote.lua</code> for example):</p>
-
-<p><code>lua
-function Link(link)
-    link.content:insert(pandoc.Note(link.target))
-    return link.content
-end
-</code></p>
-
-<blockquote><p><em>Note</em>: If you want to keep the original hyperlink in tact, replace the <code>return link.content</code> with <code>return link</code>.</p></blockquote>
-
-<p>And add the following flag to your Pandoc build command:</p>
-
-<p><code></code>`sh</p>
-
-<h1>!/bin/sh</h1>
-
-<p>pandoc text.md
-    -o book.epub \
-    --lua-filter=filters/link-to-footnote.lua \ # &lt;-- This one
-    --metadata-file metadata.yaml \
-    --standalone \
-    # ...
-<code></code>`</p>
-
-<p>After compiling the document, you should now see that each link has a footnote with the link text.</p>]]>
             </description>
         </item>
     </channel>

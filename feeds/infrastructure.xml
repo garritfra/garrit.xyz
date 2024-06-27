@@ -14,8 +14,63 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 17 Jun 2024 00:00:00 +0000
+            Thu, 27 Jun 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Testing SMTP connections
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-06-27-testing-smtp-connections
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-06-27-testing-smtp-connections?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 27 Jun 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Just a quick note to my future self on how to test a SMTP connection with nothing but a tiny busybox container.</p>
+
+<p>In my case specifically, I tested the connection from inside a Kubernetes cluster. Here&#39;s the quickest way to get a temporary pod up and running:</p>
+
+<p><code>
+kubectl run -n backend -i --tty --rm debug --image=busybox --restart=Never
+</code></p>
+
+<p>Busybox comes with telnet installed, which we can use to establish a connection to the server:</p>
+
+<p><code>
+/ # telnet smtp.mydomain.com 25
+Connected to smtp.mydomain.com
+220 mail.mydomain.com ESMTP Postfix (SMTP)
+</code></p>
+
+<p>Next, we can issue the SMTP commands through the open TCP connection to send a test mail. Lines beginning with a status code are server responses:</p>
+
+<p><code></code>`
+HELO smtp.mydomain.com
+250 smtp.mydomain.com
+MAIL FROM:<a href="mailto:noreply@mydomain.com">noreply@mydomain.com</a>                       <br/>250 2.1.0 Ok
+RCPT TO:<a href="mailto:receiver@foo.com">receiver@foo.com</a>
+250 2.1.5 Ok
+DATA<br/>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;
+From: [noreply] <a href="mailto:noreply@mydomain.com">noreply@mydomain.com</a>
+To: [Receiver] <a href="mailto:receiver@foo.com">receiver@foo.com</a>
+Date: Thu, 27 Jun 2024 10:08:26 -0200
+Subject: Test Message</p>
+
+<p>This is a test message.</p>
+
+<p>.
+250 2.0.0 Ok: queued as 2478B7F135
+<code></code>`</p>
+
+<p>In case there&#39;s a firewall issue, you might not be able to establish a connection in the first place, or you won&#39;t get a reply to your TCP commands. In our case, everything worked fine.</p>
+
+<p>I hope this is useful!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Host your own LLM
@@ -417,33 +472,6 @@ aws ecs execute-command --cluster westfalen --task &lt;task-id-or-arn&gt; --cont
 <hr/>
 
 <p>This is post 054 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Pods vs. Containers
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-03-04-pods-vs.-containers
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-03-04-pods-vs.-containers?utm_source=rss
-            </link>
-            <pubDate>
-                Sat, 04 Mar 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>In Kubernetes, pods and containers are often confused. I found a <a href="https://iximiuz.com/en/posts/containers-vs-pods/">great article</a> going over the differences of the two terms.</p>
-
-<blockquote><p>Containers and Pods are alike. Under the hood, they heavily rely on Linux namespaces and cgroups. However, Pods aren&#39;t just groups of containers. A Pod is a self-sufficient higher-level construct. All pod&#39;s containers run on the same machine (cluster node), their lifecycle is synchronized, and mutual isolation is weakened to simplify the inter-container communication. This makes Pods much closer to traditional VMs, <a href="https://www.mirantis.com/blog/multi-container-pods-and-container-communication-in-kubernetes/">bringing back the familiar deployment patterns like sidecar or reverse proxy</a>.</p></blockquote>
-
-<p>In my own words: Containers are made up of Linux namespaces and cgroups. Pods can be thought of as a cgroup of cgroups (though not really), mimicing the behavior of a virtual machine that runs multiple containers with a synchronized lifecycle. The containers in a pod are losely isolated, making it easy to communicate between each other. Containers in a pod can however set individual resource requests, enabled by Linux namespaces.</p>
-
-<p>I&#39;d highly encourage you to check out <a href="https://iximiuz.com/en/posts/containers-vs-pods/">the original article</a> if you want to learn more about this topic.</p>
-
-<hr/>
-
-<p>This is post 053 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
