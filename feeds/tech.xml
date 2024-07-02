@@ -14,8 +14,45 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 27 Jun 2024 00:00:00 +0000
+            Tue, 02 Jul 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                🔗 Linkdump: LLMs
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-07-02-linkdump-llms
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-07-02-linkdump-llms?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 02 Jul 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>The more I&#39;m getting into large language models (LLMs), the more I&#39;m fascinated about what you can do with them. To &quot;digest&quot; my reading list of cool articles and projects regarding LLMs, I assembled the following list. If you&#39;re also interested but haven&#39;t started your journey into this neverending rabbit hole, these may contain some good pointers:</p>
+
+<h2>Running LLMs</h2>
+
+<ul><li><a href="https://ollama.com/">Ollama</a> - Host different LLMs locally (extremely easy!)</li><li><a href="https://docs.vllm.ai">vLLM</a> - Like Ollama but more scalable and production-ready</li><li><a href="https://github.com/Mozilla-Ocho/llamafile">llamafile</a> - LLMs as a single, portable binary</li></ul>
+
+<h2>Building Chatbots &amp; Applications</h2>
+
+<ul><li><a href="https://www.llamaindex.ai/">LlamaIndex</a> - Framework for building LLM applications</li><li><a href="https://github.com/run-llama/create-llama/">create-llama</a> - LlamaIndex template generator (perfect for if you don&#39;t know how to structure your app)</li><li><a href="https://www.langchain.com/">LangChain</a> - Like LlamaIndex with a less clean interface IMO</li><li><a href="https://haystack.deepset.ai/overview/intro">Haystack</a> - Another LLM framework. Haven&#39;t tested it though</li><li><a href="https://sdk.vercel.ai/docs/introduction">Vercel AI SDK</a> - For integrating your LLM app into a web frontend</li></ul>
+
+<h2>Training and finetuning</h2>
+
+<ul><li><a href="https://huggingface.co/">HuggingFace</a> - GitHub but for LLMs</li><li><a href="https://medium.com/data-science-in-your-pocket/lora-for-fine-tuning-llms-explained-with-codes-and-example-62a7ac5a3578">LoRA for Fine-Tuning LLMs explained with codes and example</a> - Great LoRA Primer</li><li><a href="https://huggingface.co/autotrain">AutoTrain</a> - NoCode LLM finetuning</li><li><a href="https://github.com/georgian-io/LLM-Finetuning-Toolkit">llm-toolkit</a> - Another finetuning framework</li><li><a href="https://mlflow.org/">MLFlow</a> - End to End platform for LLM training</li></ul>
+
+<h2>Miscellaneous projects</h2>
+
+<ul><li><a href="https://github.com/iyaja/llama-fs">llama-fs</a> - Self-organinizing filesystem</li><li><a href="https://github.com/ask-fini/paramount">paramount</a> - Measure agent accuracy</li></ul>
+
+<h2>Blogs</h2>
+
+<ul><li><a href="https://simonwillison.net/tags/llms/">Simon Willison</a> - Awesome posts from a LLM enthusiast</li><li><a href="https://matt-rickard.com/tags/ai">Matt Richard</a> - Matt is currently inactive, but his blog is a treasure trove</li></ul>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Testing SMTP connections
@@ -380,118 +417,6 @@ end
 <p>What if we made &quot;Cost per request&quot; a key metric in our observability strategy, alongside &quot;Requests per second&quot;?</p>
 
 <p>If we follow that path even further, we could derive a standard for how much a request should cost for x% of uptime, across the entire industry. This way, we should be able to identify how much we&#39;re overspending for our infrastructure compared to other companies or products.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                A better publishing workflow for static blogs
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-01-06-a-better-publishing-workflow-for-static-blogs
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-01-06-a-better-publishing-workflow-for-static-blogs?utm_source=rss
-            </link>
-            <pubDate>
-                Sat, 06 Jan 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>In my <a href="/posts/2023-12-23-100daystooffload-i-made-it">post</a> celebrating the completion of my <code>#100DaysToOffload</code> challenge, I teased that &quot;I built myself a handy script that turns the contents of a GitHub issue into a pull request, ready to be merged as a blog post&quot;. I didn&#39;t believe this was such a big deal, but a couple of readers actually reached out to me to ask about this.</p>
-
-<p>First, some background. My site is built using a static site generator (not that it matters, but I use <a href="https://nextjs.org/">Next.js</a>). The beauty of using a SSG is that every blog post is literally just a markdown file in <a href="https://github.com/garritfra/garrit.xyz/tree/main/content/posts">a directory</a>. </p>
-
-<h2>The story so far</h2>
-
-<p>Before coming up with an automation, I had to</p>
-
-<ol><li>Copy an older post to a new file</li><li>Rename the file</li><li>Fix the metadata/frontmatter</li><li>Delete the contents of the post</li><li><strong>Write the actual post</strong></li><li>Commit the file</li></ol>
-
-<p>Putting out content on my blog involved quite a bit of friction. I felt like there was a barrier between my thoughts and the blog.</p>
-
-<h2>The solution</h2>
-
-<p>I&#39;ve been looking into how I could solve this issue for quite some time. I even had thoughts to build a custom blogging backend that would commit files to the <a href="https://github.com/garritfra/garrit.xyz">repository</a>, which is of course quite silly.</p>
-
-<p>But then it struck me: GitHub issues fully support markdown! The idea was born:</p>
-
-<ol><li>Open an issue in the repository of this blog</li><li>Write the post</li><li>Kick off an automation that takes the content of the issue and dumps it in a new file</li><li>Create a pull request to generate a preview of the post</li><li>Merge the PR once I&#39;m done reviewing the post</li></ol>
-
-<h2>So, how does the automation work?</h2>
-
-<p>The magic lies in <a href="https://github.com/garritfra/garrit.xyz/blob/main/.github/workflows/publish_via_issue.yaml">this GitHub Action</a>. It is kicked off whenever the <code>action:publish</code> label is added to an issue.</p>
-
-<p>If for some reason this link will not be there anymore in the future, this is the action as of the time of writing:</p>
-
-<p>&lt;details&gt;
-&lt;summary&gt;Expand me!&lt;/summary&gt;</p>
-
-<p><code></code>`yaml
-on:
-  issues:
-    types: [labeled]</p>
-
-<p>name: Publish issue as post
-jobs:
-  publish-issue:
-    if: github.event.label.name == &#39;action:publish&#39;
-    runs-on: ubuntu-latest
-    env:
-      POST<em>BODY: &#39;${{ github.event.issue.body }}&#39;
-    steps:
-      - uses: actions/checkout@v4
-      - name: Create commits
-        run: |
-          export POST</em>DATE=$(date +&quot;%Y-%m-%d&quot;)
-          export POST<em>TITLE=&quot;${{ github.event.issue.title }}&quot;
-          export POST</em>TAGS=$(echo &quot;${{ join(github.event.issue.labels.<em>.name, &#39;, &#39;) }}&quot; | grep -o &#39;tag:[^,]</em>&#39; | cut -d: -f2- | paste -sd &quot; &quot; - | sed &#39;s/ /, /g&#39;)
-          export FILE<em>TITLE=$(printf &quot;$POST</em>TITLE&quot; | tr -cs &#39;[:alnum:]&#39; &#39;-&#39; | tr &#39;A-Z&#39; &#39;a-z&#39; | sed &#39;s/--/-/g&#39; | sed &#39;s/^-\|-$//g&#39;)
-          export FILE<em>NAME=&quot;$POST</em>DATE-$FILE<em>TITLE.md&quot;
-          export FULL</em>PATH=&quot;content/posts/$FILE_NAME&quot;
-          git config user.name &#39;Publish Bot&#39;
-          git config user.email &#39;publish-bot@github.com&#39;</p>
-
-<pre><code>      cat &lt;&lt; EOF &gt; $FULL_PATH
-      ---
-      title: &quot;$POST_TITLE&quot;
-      date: &quot;$POST_DATE&quot;
-      tags: &quot;$POST_TAGS&quot;
-      ---
-
-      EOF
-
-      echo &quot;$POST_BODY&quot; &gt;&gt; $FULL_PATH
-
-      git add $FULL_PATH
-      git commit -m &quot;Publish $POST_TITLE&quot;
-
-  - name: Create Pull Request
-    uses: peter-evans/create-pull-request@v5
-    with:
-      title: &quot;New Post: ${{ github.event.issue.title }}&quot;
-      body: &quot;Closes #${{ github.event.issue.number }}.\n\n This PR has been generated automatically.&quot;
-  - uses: actions-ecosystem/action-remove-labels@v1
-    with:
-      labels: action:publish</code></pre>
-
-<p><code></code>`</p>
-
-<p>&lt;/details&gt;</p>
-
-<p>So, when I&#39;m done writing the post, I simply label the issue as <code>action:publish</code>, and the action turns it into a new file, commits it and ultimately opens a PR for me to review. You can see this in action by looking at <a href="https://github.com/garritfra/garrit.xyz/issues/432">the issue for this post</a>. The action also handles tags for blog posts. You can see that there are a bunch of labels on the issues that correspond to the tags of this post.</p>
-
-<p>One additional benefit of using a static site generator is that I can generate a preview site for each pull request. So, once I&#39;m done writing and the pull request is generated, I can just wait for Netlify to build the preview to read the blog post as if it is published to the site! This is very helpful for spotting typos or formatting issues, especially if I&#39;m writing a post on my phone.</p>
-
-<h2>Further improvements</h2>
-
-<p>There are two things the current setup is lacking:</p>
-
-<p>Firstly, GitHub doesn&#39;t really highlight typos when writing an issue. I&#39;m sure there are ways to address this post-publish, I just didn&#39;t get around to doing that yet.</p>
-
-<p>Secondly, there&#39;s no sustainable way to add images to the repository this way. I have an <a href="https://github.com/garritfra/garrit.xyz/tree/main/public/assets">assets directory</a> where I put all my images for blog posts. You can paste images directly into the issue, which is really handy, but that generates a permalink on a GitHub CDN, somewhere that I don&#39;t control. For the future, it would be nice to teach the GH action to take these images and dump them into the asset directory.</p>
-
-<h2>Conclusion</h2>
-
-<p>Using this workflow, I can pump out ideas whenever and whereever I feel like it. It drastically reduced the time from idea to written article, which helps me organize my thoughts a lot better. I also frequently create drafts for things I want to write about but is not fully fleshed out yet.</p>]]>
             </description>
         </item>
     </channel>

@@ -14,8 +14,45 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 17 Jun 2024 00:00:00 +0000
+            Tue, 02 Jul 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                🔗 Linkdump: LLMs
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-07-02-linkdump-llms
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-07-02-linkdump-llms?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 02 Jul 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>The more I&#39;m getting into large language models (LLMs), the more I&#39;m fascinated about what you can do with them. To &quot;digest&quot; my reading list of cool articles and projects regarding LLMs, I assembled the following list. If you&#39;re also interested but haven&#39;t started your journey into this neverending rabbit hole, these may contain some good pointers:</p>
+
+<h2>Running LLMs</h2>
+
+<ul><li><a href="https://ollama.com/">Ollama</a> - Host different LLMs locally (extremely easy!)</li><li><a href="https://docs.vllm.ai">vLLM</a> - Like Ollama but more scalable and production-ready</li><li><a href="https://github.com/Mozilla-Ocho/llamafile">llamafile</a> - LLMs as a single, portable binary</li></ul>
+
+<h2>Building Chatbots &amp; Applications</h2>
+
+<ul><li><a href="https://www.llamaindex.ai/">LlamaIndex</a> - Framework for building LLM applications</li><li><a href="https://github.com/run-llama/create-llama/">create-llama</a> - LlamaIndex template generator (perfect for if you don&#39;t know how to structure your app)</li><li><a href="https://www.langchain.com/">LangChain</a> - Like LlamaIndex with a less clean interface IMO</li><li><a href="https://haystack.deepset.ai/overview/intro">Haystack</a> - Another LLM framework. Haven&#39;t tested it though</li><li><a href="https://sdk.vercel.ai/docs/introduction">Vercel AI SDK</a> - For integrating your LLM app into a web frontend</li></ul>
+
+<h2>Training and finetuning</h2>
+
+<ul><li><a href="https://huggingface.co/">HuggingFace</a> - GitHub but for LLMs</li><li><a href="https://medium.com/data-science-in-your-pocket/lora-for-fine-tuning-llms-explained-with-codes-and-example-62a7ac5a3578">LoRA for Fine-Tuning LLMs explained with codes and example</a> - Great LoRA Primer</li><li><a href="https://huggingface.co/autotrain">AutoTrain</a> - NoCode LLM finetuning</li><li><a href="https://github.com/georgian-io/LLM-Finetuning-Toolkit">llm-toolkit</a> - Another finetuning framework</li><li><a href="https://mlflow.org/">MLFlow</a> - End to End platform for LLM training</li></ul>
+
+<h2>Miscellaneous projects</h2>
+
+<ul><li><a href="https://github.com/iyaja/llama-fs">llama-fs</a> - Self-organinizing filesystem</li><li><a href="https://github.com/ask-fini/paramount">paramount</a> - Measure agent accuracy</li></ul>
+
+<h2>Blogs</h2>
+
+<ul><li><a href="https://simonwillison.net/tags/llms/">Simon Willison</a> - Awesome posts from a LLM enthusiast</li><li><a href="https://matt-rickard.com/tags/ai">Matt Richard</a> - Matt is currently inactive, but his blog is a treasure trove</li></ul>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Host your own LLM

@@ -14,8 +14,45 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 27 Jun 2024 00:00:00 +0000
+            Tue, 02 Jul 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                🔗 Linkdump: LLMs
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-07-02-linkdump-llms
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-07-02-linkdump-llms?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 02 Jul 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>The more I&#39;m getting into large language models (LLMs), the more I&#39;m fascinated about what you can do with them. To &quot;digest&quot; my reading list of cool articles and projects regarding LLMs, I assembled the following list. If you&#39;re also interested but haven&#39;t started your journey into this neverending rabbit hole, these may contain some good pointers:</p>
+
+<h2>Running LLMs</h2>
+
+<ul><li><a href="https://ollama.com/">Ollama</a> - Host different LLMs locally (extremely easy!)</li><li><a href="https://docs.vllm.ai">vLLM</a> - Like Ollama but more scalable and production-ready</li><li><a href="https://github.com/Mozilla-Ocho/llamafile">llamafile</a> - LLMs as a single, portable binary</li></ul>
+
+<h2>Building Chatbots &amp; Applications</h2>
+
+<ul><li><a href="https://www.llamaindex.ai/">LlamaIndex</a> - Framework for building LLM applications</li><li><a href="https://github.com/run-llama/create-llama/">create-llama</a> - LlamaIndex template generator (perfect for if you don&#39;t know how to structure your app)</li><li><a href="https://www.langchain.com/">LangChain</a> - Like LlamaIndex with a less clean interface IMO</li><li><a href="https://haystack.deepset.ai/overview/intro">Haystack</a> - Another LLM framework. Haven&#39;t tested it though</li><li><a href="https://sdk.vercel.ai/docs/introduction">Vercel AI SDK</a> - For integrating your LLM app into a web frontend</li></ul>
+
+<h2>Training and finetuning</h2>
+
+<ul><li><a href="https://huggingface.co/">HuggingFace</a> - GitHub but for LLMs</li><li><a href="https://medium.com/data-science-in-your-pocket/lora-for-fine-tuning-llms-explained-with-codes-and-example-62a7ac5a3578">LoRA for Fine-Tuning LLMs explained with codes and example</a> - Great LoRA Primer</li><li><a href="https://huggingface.co/autotrain">AutoTrain</a> - NoCode LLM finetuning</li><li><a href="https://github.com/georgian-io/LLM-Finetuning-Toolkit">llm-toolkit</a> - Another finetuning framework</li><li><a href="https://mlflow.org/">MLFlow</a> - End to End platform for LLM training</li></ul>
+
+<h2>Miscellaneous projects</h2>
+
+<ul><li><a href="https://github.com/iyaja/llama-fs">llama-fs</a> - Self-organinizing filesystem</li><li><a href="https://github.com/ask-fini/paramount">paramount</a> - Measure agent accuracy</li></ul>
+
+<h2>Blogs</h2>
+
+<ul><li><a href="https://simonwillison.net/tags/llms/">Simon Willison</a> - Awesome posts from a LLM enthusiast</li><li><a href="https://matt-rickard.com/tags/ai">Matt Richard</a> - Matt is currently inactive, but his blog is a treasure trove</li></ul>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Testing SMTP connections
@@ -401,33 +438,6 @@ c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNvdmVy
 <p>In case you&#39;re interested, I uploaded some of the bossfights during my playthrough in this YouTube playlist:</p>
 
 <p>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/videoseries?si=j1Ue2lrrLy1JTOM9&amp;amp;list=PLS8TKBZz1x5S6ojf24SMF1h_HYb4AyTxc&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen&gt;&lt;/iframe&gt;</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Five Years of Blogging
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-04-07-five-years-of-blogging
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-04-07-five-years-of-blogging?utm_source=rss
-            </link>
-            <pubDate>
-                Sun, 07 Apr 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>My blog just turned five years old! 🎉</p>
-
-<p>To celebrate this unique occasion, I want to announce something I&#39;ve been secretly working on: I wrote a book!</p>
-
-<p><img alt="The cover of Five Years of Blogging" src="/assets/five-years-of-blogging-cover-3d.png"/></p>
-
-<p><a href="https://www.buymeacoffee.com/garrit/e/233695"><em>Five Years of Blogging: Ideas, Opinions and Guides written 2019 to 2024</em></a> serves as a memoir for the first five years of this blog. It&#39;s a collection of not all, but my most valuable blog posts capturing my ideas, opinions and the lessons I learned. The book is quite messy, but that&#39;s by design. I want to preserve all posts in the state that they have originally been written in. Where necessary, you may find introductory paragraphs or footnotes to explain something in more detail, but the original posts have all been left untouched.</p>
-
-<p>Getting a copy of this book is the best way to support my writing. You can either <a href="https://www.buymeacoffee.com/garrit/extras">buy the book directly on Buy Me a Coffee</a>, or you can <a href="https://www.buymeacoffee.com/garrit/membership">become a monthly supporter</a>, which grants you a free copy after signing up.</p>
-
-<p>I&#39;m extremely grateful for the journey this blog has taken me on, and the people I met along the way. Who knows, maybe there will be a &quot;Ten Years of Blogging&quot; book in the future?</p>]]>
             </description>
         </item>
     </channel>
