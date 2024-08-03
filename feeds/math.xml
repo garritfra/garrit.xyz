@@ -14,8 +14,71 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 19 Dec 2023 00:00:00 +0000
+            Sat, 03 Aug 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                How embedding models encode semantic meaning
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-08-03-how-embedding-models-encode-semantic-meaning
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-08-03-how-embedding-models-encode-semantic-meaning?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 03 Aug 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Embedding models have long been a daunting concept for me. But what are they? And why are they so useful? Let&#39;s break it down in simple terms.</p>
+
+<h2>What&#39;s an embedding?</h2>
+
+<p>An embedding is basically a numerical representation of a piece of information - it could be text, audio, an image, or even a video. Think of it as a way to capture the essence or meaning of that information in a list of numbers.</p>
+
+<p>For example, let&#39;s say we have this text: &quot;show me a list of ground transportation at boston airport&quot;. An embedding model might turn that into something like this:</p>
+
+<p><code>
+[0.03793335, -0.008010864, -0.002319336, -0.0110321045, -0.019882202, -0.023864746, 0.011428833, -0.030349731, -0.044830322, 0.028289795, -0.02810669, -0.0032749176, -0.04208374, -0.0077705383, -0.0033798218, -0.06335449, ... ]
+</code></p>
+
+<p>At first, thus looks like a jumble of numbers. But each of these numbers points to a specific area within the embedding model&#39;s &quot;space&quot;, where similar words or concepts might be located.</p>
+
+<h2>Visualizing embeddings</h2>
+
+<p>To help wrap our heads around this, let&#39;s look at a visualization. This beautiful image shows the entirety of the <a href="https://huggingface.co/nomic-ai/nomic-embed-text-v1.5">nomic-embed-text-v1.5</a> embedding model:</p>
+
+<p><img alt="images.jpeg" src="https://github.com/user-attachments/assets/72c81f15-c2e8-4ee9-b2ac-c28445de61af"/></p>
+
+<p>Now, if we take our example text about Boston airport transportation and plot its embeddings on this map, we&#39;d see them clustered around areas where similar terms about &quot;roads&quot; and &quot;transportation&quot; are located. It looks something like this:</p>
+
+<p><img alt="Screenshot_20240803-114914.png" src="https://github.com/user-attachments/assets/cf4c9fb9-8d69-4a9d-87cc-e9257b04b4bf"/></p>
+
+<p>In a nutshell, embedding models are able to group terms that are related to each other.</p>
+
+<h2>Why should we care about embeddings?</h2>
+
+<p>Encoding meaning in text has tons of different use cases. One that I&#39;m particularly excited about is building RAG applications. RAG stands for Retrieval-Augmented Generation and refers to a method for Large Language Models (LLMs), where, given a question, you enrich the original question with relevant bits of information before answering it.</p>
+
+<p>Here&#39;s how embeddings are useful for RAG:</p>
+
+<ol><li>You have a bunch of documents in your data source.</li><li>You use an embedding model to turn each document into a list of numbers (like we saw earlier).</li><li>When someone asks a question, you also turn that question into a list of numbers.</li><li>Then, you find the documents whose number lists are most similar to your question&#39;s number list.</li><li>Voila! You&#39;ve found the most relevant documents to answer the question.</li></ol>
+
+<p>This method is way better than previously used techniques like just searching for exact words in the documents. It&#39;s like the difference between having a librarian who only looks at book titles, and one who actually understands what the books are about.</p>
+
+<h2>Other things you can do with embeddings</h2>
+
+<p>Beyond RAG applications, embeddings are super useful for all sorts of things:</p>
+
+<ol><li><strong>Smarter searches</strong>: Find related stuff even if the exact words don&#39;t match.</li><li><strong>Better recommendations</strong>: &quot;You liked this? You might also like these similar things!&quot;</li><li><strong>Language translation</strong>: Help computers understand that &quot;dog&quot; in English and &quot;perro&quot; in Spanish mean the same thing.</li><li><strong>Sentiment analysis</strong>: Figure out if someone&#39;s happy or grumpy based on their tweet.</li></ol>
+
+<h2>Wrapping it up</h2>
+
+<p>Embeddings are a clever way to turn words (or images, or sounds) into numbers that computers can understand and compare. By doing this, we can make emerging AI technologies a whole lot smarter at understanding language and finding connections between ideas.</p>
+
+<p>Next time you&#39;re chatting with an AI or getting scarily accurate recommendations online, you can nod knowingly and think, &quot;Ah yes, embeddings at work!&quot;</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Another reason why you can't divide by zero

@@ -14,8 +14,71 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 02 Jul 2024 00:00:00 +0000
+            Sat, 03 Aug 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                How embedding models encode semantic meaning
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-08-03-how-embedding-models-encode-semantic-meaning
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-08-03-how-embedding-models-encode-semantic-meaning?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 03 Aug 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Embedding models have long been a daunting concept for me. But what are they? And why are they so useful? Let&#39;s break it down in simple terms.</p>
+
+<h2>What&#39;s an embedding?</h2>
+
+<p>An embedding is basically a numerical representation of a piece of information - it could be text, audio, an image, or even a video. Think of it as a way to capture the essence or meaning of that information in a list of numbers.</p>
+
+<p>For example, let&#39;s say we have this text: &quot;show me a list of ground transportation at boston airport&quot;. An embedding model might turn that into something like this:</p>
+
+<p><code>
+[0.03793335, -0.008010864, -0.002319336, -0.0110321045, -0.019882202, -0.023864746, 0.011428833, -0.030349731, -0.044830322, 0.028289795, -0.02810669, -0.0032749176, -0.04208374, -0.0077705383, -0.0033798218, -0.06335449, ... ]
+</code></p>
+
+<p>At first, thus looks like a jumble of numbers. But each of these numbers points to a specific area within the embedding model&#39;s &quot;space&quot;, where similar words or concepts might be located.</p>
+
+<h2>Visualizing embeddings</h2>
+
+<p>To help wrap our heads around this, let&#39;s look at a visualization. This beautiful image shows the entirety of the <a href="https://huggingface.co/nomic-ai/nomic-embed-text-v1.5">nomic-embed-text-v1.5</a> embedding model:</p>
+
+<p><img alt="images.jpeg" src="https://github.com/user-attachments/assets/72c81f15-c2e8-4ee9-b2ac-c28445de61af"/></p>
+
+<p>Now, if we take our example text about Boston airport transportation and plot its embeddings on this map, we&#39;d see them clustered around areas where similar terms about &quot;roads&quot; and &quot;transportation&quot; are located. It looks something like this:</p>
+
+<p><img alt="Screenshot_20240803-114914.png" src="https://github.com/user-attachments/assets/cf4c9fb9-8d69-4a9d-87cc-e9257b04b4bf"/></p>
+
+<p>In a nutshell, embedding models are able to group terms that are related to each other.</p>
+
+<h2>Why should we care about embeddings?</h2>
+
+<p>Encoding meaning in text has tons of different use cases. One that I&#39;m particularly excited about is building RAG applications. RAG stands for Retrieval-Augmented Generation and refers to a method for Large Language Models (LLMs), where, given a question, you enrich the original question with relevant bits of information before answering it.</p>
+
+<p>Here&#39;s how embeddings are useful for RAG:</p>
+
+<ol><li>You have a bunch of documents in your data source.</li><li>You use an embedding model to turn each document into a list of numbers (like we saw earlier).</li><li>When someone asks a question, you also turn that question into a list of numbers.</li><li>Then, you find the documents whose number lists are most similar to your question&#39;s number list.</li><li>Voila! You&#39;ve found the most relevant documents to answer the question.</li></ol>
+
+<p>This method is way better than previously used techniques like just searching for exact words in the documents. It&#39;s like the difference between having a librarian who only looks at book titles, and one who actually understands what the books are about.</p>
+
+<h2>Other things you can do with embeddings</h2>
+
+<p>Beyond RAG applications, embeddings are super useful for all sorts of things:</p>
+
+<ol><li><strong>Smarter searches</strong>: Find related stuff even if the exact words don&#39;t match.</li><li><strong>Better recommendations</strong>: &quot;You liked this? You might also like these similar things!&quot;</li><li><strong>Language translation</strong>: Help computers understand that &quot;dog&quot; in English and &quot;perro&quot; in Spanish mean the same thing.</li><li><strong>Sentiment analysis</strong>: Figure out if someone&#39;s happy or grumpy based on their tweet.</li></ol>
+
+<h2>Wrapping it up</h2>
+
+<p>Embeddings are a clever way to turn words (or images, or sounds) into numbers that computers can understand and compare. By doing this, we can make emerging AI technologies a whole lot smarter at understanding language and finding connections between ideas.</p>
+
+<p>Next time you&#39;re chatting with an AI or getting scarily accurate recommendations online, you can nod knowingly and think, &quot;Ah yes, embeddings at work!&quot;</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 🔗 Linkdump: LLMs
@@ -399,45 +462,6 @@ c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNvdmVy
     &lt;input type=&quot;hidden&quot; name=&quot;sites&quot; value=&quot;garrit.xyz&quot; /&gt;
     &lt;input type=&quot;submit&quot; value=&quot;Search&quot; /&gt;
 &lt;/form&gt;</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Beating Elden Ring
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-04-10-beating-elden-ring
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-04-10-beating-elden-ring?utm_source=rss
-            </link>
-            <pubDate>
-                Wed, 10 Apr 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<blockquote><p><strong>⚠️ WARNING ⚠️</strong>: This post contains a lot of spoilers for the game Elden Ring.</p></blockquote>
-
-<p>So, I just beat Elden Ring. It took me 120 hours and, coincidentally, I was level 120 when I beat the final boss. That damn final boss... but more on that later.</p>
-
-<p>Elden Ring won me over instantly, even though I&#39;ve never played any of the other Souls games. After beating <a href="https://de.wikipedia.org/wiki/The_Legend_of_Zelda:_Breath_of_the_Wild">Breath of the Wild</a>, I called it my favorite game. I just needed more games like this. When Elden Ring came out, people compared The Lands Between to the open world of Hyrule, and I quickly agreed. The freedom these games give you is absolutely unbeaten. You almost never really get &quot;stuck&quot; on something. You can always wonder off and explore until you&#39;re ready to take on the fight.</p>
-
-<p>After about 50 hours into playing Elden Ring, I kind of lost my focus and stopped playing for a while. It was too huge of a game to beat at the time, so I gave up.</p>
-
-<p>But then, <a href="https://de.wikipedia.org/wiki/The_Legend_of_Zelda:_Tears_of_the_Kingdom">Tears of the Kingdom</a> came out and doubled up on the world of Hyrule. I absolutely adored this game. I spent day and night playing until I finally beat it. This game also motivated me to beat Elden Ring one more time. Despite failing over and over, each play session gave me a feeling of progression. I might not have beaten a boss yet, but there was always something happening the side that got me closer to beating it. Be it exploring and getting better gear or learning as much as I can about a boss to find ways to deal damange, I always got a small step closer to my goal. I&#39;d go as far as to say I never felt so determined to reach a goal ever before in my life.</p>
-
-<p>The boss fights in Elden Ring are obviously extremely difficult, but they&#39;re always fair. The bosses in this game never make mistakes, you&#39;re the one that screwed up. You just keep failing and failing, but with each run, you learn something new about the fight that makes it easier in the next run. And when you finally overcoming this challenge gives you a feeling of accomplishment like nothing else could.</p>
-
-<p>What I didn&#39;t realize in the beginning of my playthough is how extremely well rounded the world and the lore of this game is. I spent days and nights indulging myself in the lore through numerous YouTube videos, guides and Wikis. Only then did I begin to understand the scale of this game. Every action of each character, every building and every item fits in the grand scheme of the world.</p>
-
-<p>Going out of this, the biggest thing that stuck with me is the determination. Failing is part of your life, and that is okay. No matter how daunting a task is, there&#39;s <strong>always</strong> a way to overcome it. The Elden Beast is the final boss of the game, and it&#39;s also where I spent about a quarter of my playtime. This thing has absurd attacks, immense health, and did I mention that you have to beat it after beating another extremely difficult boss, without being able to top up your health? This fight is ridiculous. I spent multiple weeks trying to beat it. I was really close to giving up, but as I mentioned earlier, each run gets you a tiny bit closer to the finish line, so I pushed through. I refined my build, I leveled up my stats and I learned how to dance with the beast. Eventually, I won the fight not by luck, but by determination. I now feel like I understand every attack well enough to dodge it. My mind was on autopilot when I beat it.</p>
-
-<p>Knowing this much about a game didn&#39;t teach me any practical skills. There&#39;s nothing I can do now that I couldn&#39;t do before I knew that Rykard (Lord of Blasphemy), son of Rennala and Radagon (also known as Queen Marika), chose to go against the Erdtree and eventually fed himself to a serpent to devour the entire world (which you prevented). But there&#39;s something about this game that left me craving for more. It&#39;s truly a masterpiece.</p>
-
-<h2>Bonus</h2>
-
-<p>In case you&#39;re interested, I uploaded some of the bossfights during my playthrough in this YouTube playlist:</p>
-
-<p>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/videoseries?si=j1Ue2lrrLy1JTOM9&amp;amp;list=PLS8TKBZz1x5S6ojf24SMF1h_HYb4AyTxc&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen&gt;&lt;/iframe&gt;</p>]]>
             </description>
         </item>
     </channel>
