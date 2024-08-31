@@ -17,8 +17,21 @@ nav {
 		padding: 0;
 		text-align: center;
 		align-items: center;
+
 		li {
-			padding: 24px;
+			padding: 0 24px; /* Adjusted padding for better balance */
+
+			a {
+				color: var(--text);
+				text-decoration: none;
+				font-size: 1rem;
+				font-weight: 500;
+				transition: color 0.3s ease, text-decoration 0.3s ease;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
 		}
 	}
 
@@ -28,9 +41,14 @@ nav {
 
 		&__logo {
 			margin: 0;
-			color: var(--text);
-			font-weight: 400;
-			font-size: 24px;
+			font-weight: 700;
+			font-size: 2rem;
+			text-decoration: none;
+			transition: color 0.3s ease, text-decoration 0.3s ease;
+
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 }
