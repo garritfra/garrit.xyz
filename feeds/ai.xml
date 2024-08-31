@@ -14,8 +14,32 @@
             en
         </language>
         <lastBuildDate>
-            Sat, 03 Aug 2024 00:00:00 +0000
+            Sat, 31 Aug 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Sentiment analysis using ML models
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-08-31-sentiment-analysis-using-ml-models
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-08-31-sentiment-analysis-using-ml-models?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 31 Aug 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just rewrote parts of my <a href="https://github.com/garritfra/positive_hackernews">Positive Hacker News RSS Feed</a> project to use an ML model to filter out any negative news from the Hacker News timeline. This method is far more reliable than the previous method of using a <a href="https://www.nltk.org/api/nltk.sentiment.vader.html">rule-based sentiment analyzer</a> through NLTK.</p>
+
+<p>I&#39;m using the model <a href="https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest?text=Messer-Angreiferin+verletzt+f%C3%BCnf+Menschen+in+einem+Bus">cardiffnlp/twitter-roberta-base-sentiment-latest</a>, which was trained on a huge amount of tweets. It&#39;s really tiny (~500 MB) and easily runs inside the existing GitHub Actions workflows. You can try out the model yourself on the HuggingFace model card.</p>
+
+<p>&lt;img width=&quot;522&quot; alt=&quot;grafik&quot; src=&quot;https://github.com/user-attachments/assets/06f42df6-624a-4108-ada8-d0d37a53e693&quot;&gt;</p>
+
+<p>If you want to subscribe to more positive tech news, simply replace your Hacker News feed of your RSS reader with this one (or add it if you haven&#39;t already):
+https://garritfra.github.io/positive_hackernews/feed.xml</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 How embedding models encode semantic meaning
