@@ -14,8 +14,35 @@
             en
         </language>
         <lastBuildDate>
-            Sat, 31 Aug 2024 00:00:00 +0000
+            Sun, 01 Sep 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Mental AI Fog and how to cure it
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-09-01-AI-fog
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-09-01-AI-fog?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 01 Sep 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>The term &quot;AI Slop&quot; is currently on the rise. It describes all the AI generated images and texts we see on the internet. I&#39;d like to propose a term that basically describes the opposite of AI Slop: <strong>Mental AI Fog</strong>.</p>
+
+<p>Instead of <em>consuming</em> too much AI generated content (which also applies), AI Fog describes the inability to <em>produce</em> content without the help of AI. We&#39;re surrounded by flowery written articles and resources that we think that it&#39;s not worth it to put in the effort to write a text ourselves. This is comparable to how computer keyboards, spellchecking and autocorrection have rendered my generation and the ones to come incapable of comfortably writing longform text.</p>
+
+<p>I&#39;m currently strongly suffering from AI fog. I&#39;m so used to letting some LLM flesh out a quick and dirty prompt nowadays that it&#39;s hard for me to write this text, get the point across and not feel insecure about my style of writing. This site is supposed to be a way to persist my thoughts whenever I want to, but are they still <em>my</em> thoughts if they have been proofread and corrected by a computer?</p>
+
+<p>As a result, all these thoughts are piling up in my head. Where I previously braindumped thoughts on a piece of paper, I now only come up with a couple of words and let the AI elaborate. <strong>I&#39;m consuming what are supposed to be my own thoughts</strong>, which perpetuates the cycle.</p>
+
+<p>This needs to stop. I need to get back <strong>creating</strong> things myself. I decided to abandon the use of LLMs for most content on this site. And where AI has been used, it will be clearly mentioned. I&#39;m contemplating adding some sort of &quot;Backed by AI&quot; label for certain pages to make it harder for myself to fall back to a helping hand. I will likely still be using LLMs, but making it obvious will force me to mindfully choose where it will be used.</p>
+
+<p>Is this something you can relate to? Is AI fog even a fitting term for this? I don&#39;t know. And if it isn&#39;t, that&#39;s okay because I came up with it myself.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Sentiment analysis using ML models
@@ -392,67 +419,6 @@ brew cleanup -s
 <p>I created a posting on <a href="https://www.kleinanzeigen.de/">Kleinanzeigen</a> (a german descendant of - and previously owned by - eBay), and after about two weeks, the car had a new owner. I hope that it&#39;s in better hands now and lives on to be a happy and frequently used car.</p>
 
 <p>Going forward, I&#39;m not worried about my mobility at all. My partner still owns her car and has the option to take the bus to work. So, if we&#39;re not on the road together, I can always fall back to using her car. And if she needs her car and I&#39;m desperate to go somewhere afar, there&#39;s also multiple ride-sharing options available in my town. They are a bit expensive to use, but spending 40€ for a day trip to my family every two months is still way less than paying 85€ a month for a car that&#39;s sitting there idle.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Beware of base64 encoded strings
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-04-15-beware-of-base64-encoded-strings
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-04-15-beware-of-base64-encoded-strings?utm_source=rss
-            </link>
-            <pubDate>
-                Mon, 15 Apr 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I just encountered a fun little bug that I thought is worth sharing.</p>
-
-<p><strong>TL;DR</strong>: the base64 util breaks lines after a certain number of columns. Use a <a href="https://www.man7.org/linux/man-pages/man1/base64.1.html">flag</a> to specify &quot;don&#39;t break&quot;. Here&#39;s the commit that fixes the issue:</p>
-
-<p>&lt;img width=&quot;1588&quot; alt=&quot;image (3)&quot; src=&quot;https://github.com/garritfra/garrit.xyz/assets/32395585/dba76692-c89f-44da-b70a-f6732a406d75&quot;&gt;</p>
-
-<p>It started when we noticed that a cronjob that used wget to regularly call an endpoint failed on one specific environment. The endpoint uses <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic Auth</a>, which is essentially a header with a <a href="https://en.wikipedia.org/wiki/Base64">Base64</a> encoded representation of a username and password. <a href="https://curl.se/">Curl</a> has this functionality <a href="https://curl.se/docs/manpage.html#-u">built in</a>, but to keep the attack surface as small as possible, we decided to stick to <a href="https://www.gnu.org/software/wget/">wget</a>, which is part of busybox, to keep the container image size under 1 MB (!). After all, all we want to do is ping an endpoint.</p>
-
-<p>This is the command we used up to this point:</p>
-
-<p><code>
-wget --post-data=&quot;&quot; -O - --header=&quot;Authorization: Basic $(echo -n $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD | base64)&quot; http://endpoint:8080/v1/cache
-</code></p>
-
-<p>We noticed that the request worked fine on non-prod environments, but it failed on production with the following error:</p>
-
-<p><code>
-The HTTP header line [b2verlk1rwjsnutbcapkjh==] does not conform to RFC 7230. The request has been rejected.
-</code></p>
-
-<p>After digging around for a while and separating out the individual pieces of the commands, I noticed that the subcommand to build the header value (<code>echo -n $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD | base64</code>) behaved differently on prod vs. non-prod. The password on prod is way longer compared to the other environments. Let&#39;s run this command with a short input:</p>
-
-<p><code>sh
-/ $ echo -n someuser:somepassword | base64
-c29tZXVzZXI6c29tZXBhc3N3b3Jk
-/ $
-</code></p>
-
-<p>And again with a long input:</p>
-
-<p><code>sh
-/ $ echo -n someuser:somepasswordthatswaylongerthanthefirstonebutalsoverysecureandsafe | base64
-c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNv
-dmVyeXNlY3VyZWFuZHNhZmU=
-/ $
-</code></p>
-
-<p>Bingo! There&#39;s a rogue newline character in the output of <code>base64</code>. The fix is very straight-forward. Using the <code>-w0</code> <a href="https://www.man7.org/linux/man-pages/man1/base64.1.html">flag for base64</a>, we can force the output to be on the same line:</p>
-
-<p><code>
-/ $ echo -n someuser:somepasswordthatswaylongerthanthefirstonebutalsoverysecureandsafe | base64 -w0
-c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNvdmVyeXNlY3VyZWFuZHNhZmU=
-</code></p>
-
-<p>This eventually fixed the issue. Not something I would&#39;ve ever thought of!</p>]]>
             </description>
         </item>
     </channel>
