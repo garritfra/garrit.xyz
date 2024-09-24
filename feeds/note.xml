@@ -14,8 +14,101 @@
             en
         </language>
         <lastBuildDate>
-            Sun, 01 Sep 2024 00:00:00 +0000
+            Tue, 24 Sep 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Installing MSSQL Client Drivers for a PHP Application
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-09-24-installing-mssql-client-drivers-for-a-php-application
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-09-24-installing-mssql-client-drivers-for-a-php-application?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 24 Sep 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just had the pleasure (<em>cough</em>) to connect an <a href="https://de.wikipedia.org/wiki/Microsoft_SQL_Server">MSSQL</a> database to a <a href="https://laravel.com/">Laravel</a> application at work. Because the process was <em>super</em> tedious, I wanted to quickly jot this down so I will never have to go through this again.</p>
+
+<h2>Our setup</h2>
+
+<p>We&#39;re building a Laravel application with <a href="https://ddev.com/">DDEV</a>. DDEV essentially moves all development tools into Docker containers and adds some nice features like local database management.</p>
+
+<h2>The process</h2>
+
+<p>Laravel comes with the boilerplate to use MSSQL out of the box. In your app, just set the database config to use <code>sqlsrv</code>:</p>
+
+<p><code>php
+    &#39;connections&#39; =&gt; [
+        &#39;sqlsrv&#39; =&gt; [
+            &#39;driver&#39; =&gt; &#39;sqlsrv&#39;,
+            &#39;url&#39; =&gt; env(&#39;DB_URL&#39;),
+            &#39;host&#39; =&gt; env(&#39;DB_HOST&#39;, &#39;127.0.0.1&#39;),
+            &#39;port&#39; =&gt; env(&#39;DB_PORT&#39;, &#39;1433&#39;),
+            &#39;database&#39; =&gt; env(&#39;DB_DATABASE&#39;, &#39;laravel&#39;),
+            &#39;username&#39; =&gt; env(&#39;DB_USERNAME&#39;, &#39;root&#39;),
+            &#39;password&#39; =&gt; env(&#39;DB_PASSWORD&#39;, &#39;&#39;),
+            &#39;unix_socket&#39; =&gt; env(&#39;DB_SOCKET&#39;, &#39;&#39;),
+            &#39;charset&#39; =&gt; env(&#39;DB_CHARSET&#39;, &#39;utf8&#39;),
+            &#39;prefix&#39; =&gt; &#39;&#39;,
+            &#39;prefix_indexes&#39; =&gt; true,
+            // &#39;encrypt&#39; =&gt; env(&#39;DB_ENCRYPT&#39;, &#39;yes&#39;),
+            // &#39;trust_server_certificate&#39; =&gt; env(&#39;DB_TRUST_SERVER_CERTIFICATE&#39;, &#39;false&#39;),
+        ],
+    ],
+</code></p>
+
+<p>You will see errors when starting your app, because you need to install the corresponding drivers first. Instead of adding them through <a href="https://getcomposer.org/">Composer</a> (a widely adopted package manager for PHP), you have to install the ODBC drivers <strong>through the system package manager</strong>, because Microsoft doesn&#39;t maintain a PHP package. Furthermore, you also have to install the driver repository because <strong>Microsoft doesn&#39;t even maintain packages for the major Linux distributions</strong>. In our setup with DDEV, this has to be done by amending the Dockerfile used for the application container. Create a file at <code>.ddev/web-build/Dockerfile</code> and add the following contents:</p>
+
+<p><code></code>`dockerfile</p>
+
+<h1>https://ddev.readthedocs.io/en/stable/users/extend/customizing-images/#adding-extra-dockerfiles-for-webimage-and-dbimage</h1>
+
+<h1>https://stackoverflow.com/questions/58086933/how-to-install-the-sql-server-php-drivers-in-ddev-local#new-answer</h1>
+
+<p>ARG BASE<em>IMAGE
+FROM $BASE</em>IMAGE</p>
+
+<p>RUN npm install --global forever
+RUN echo &quot;Built on $(date)&quot; &gt; /build-date.txt</p>
+
+<h1>RUN curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -</h1>
+
+<h1>RUN curl https://packages.microsoft.com/config/debian/11/prod.list &gt; /etc/apt/sources.list.d/mssql-release.list</h1>
+
+<p>RUN curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft-prod.gpg
+RUN curl https://packages.microsoft.com/config/debian/12/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list</p>
+
+<p>RUN apt-get update
+RUN apt-get --allow-downgrades -y install libssl-dev
+RUN apt-get -y update &amp;&amp; yes | ACCEPT<em>EULA=Y apt-get -y install php8.3-dev php-pear unixodbc-dev htop
+RUN ACCEPT</em>EULA=Y apt-get -y install msodbcsql18 mssql-tools18
+RUN sudo pecl channel-update pecl.php.net
+RUN sudo pecl install sqlsrv
+RUN sudo pecl install pdo_sqlsrv</p>
+
+<p>RUN sudo printf &quot;; priority=20\nextension=sqlsrv.so\n&quot; &gt; /etc/php/8.3/mods-available/sqlsrv.ini
+RUN sudo printf &quot;; priority=30\nextension=pdo<em>sqlsrv.so\n&quot; &gt; /etc/php/8.3/mods-available/pdo</em>sqlsrv.ini
+RUN sudo phpenmod -v 8.3 -s cli sqlsrv pdo<em>sqlsrv
+RUN sudo phpenmod -v 8.3 -s fpm sqlsrv pdo</em>sqlsrv
+RUN sudo phpenmod -v 8.3 -s apache2 sqlsrv pdo_sqlsrv</p>
+
+<p>RUN sudo printf &quot;; priority=20\nextension=sqlsrv.so\n&quot; &gt; /etc/php/8.3/mods-available/sqlsrv.ini
+RUN sudo printf &quot;; priority=30\nextension=pdo<em>sqlsrv.so\n&quot; &gt; /etc/php/8.3/mods-available/pdo</em>sqlsrv.ini
+RUN sudo phpenmod -v 8.3 -s cli sqlsrv pdo<em>sqlsrv
+RUN sudo phpenmod -v 8.3 -s fpm sqlsrv pdo</em>sqlsrv
+RUN sudo phpenmod -v 8.3 -s apache2 sqlsrv pdo_sqlsrv</p>
+
+<p>RUN echo &#39;export PATH=&quot;$PATH:/opt/mssql-tools/bin&quot;&#39; &gt;&gt; ~/.bash_profile
+<code></code>`</p>
+
+<p>If you&#39;re reading this in the future and Microsoft may have released a new version of the ODBC drivers, you may have to follow the new <a href="https://learn.microsoft.com/de-de/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver16&amp;tabs=debian18-install%2Calpine17-install%2Cdebian8-install%2Credhat7-13-install%2Crhel7-offline#18">installation instructions from their documentation</a>. It took me a while to realize that I couldn&#39;t install version 17 of the driver because I was using the installation instructions for version 18. They are apparently incompatible with each other.</p>
+
+<p>I hope that you&#39;ll never have to touch the shithole that is MSSQL, but if you do, I hope that this guide will be of value to you.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Mental AI Fog and how to cure it
@@ -388,37 +481,6 @@ brew cleanup -s
 <p>I enjoyed my time with this watch, but I filed a return. As pretty as the watch is, it is just too frustrating to use. Smart watches aren&#39;t a core part of Casio&#39;s business, and you can feel that in the lack of quality of the software. The app was likely developed as a one-off contract by some random agency, and once the contract ends, the watch won&#39;t ever be improved again.</p>
 
 <p>I&#39;ve now ordered the <a href="https://www.garmin.com/de-DE/p/741462">Garmin Instinct 2S Solar</a>, which is very similar in terms of specs. MIP display, top-up solar charging, long-lasting battery and fitness features. But on top of that, it has features like music control, GPS, contactless payment and a compass. Contrary to Casio, Smartwatches are a core part of Garmin&#39;s business, which makes me believe that they go out of their way to develop the best possible watch they can. I will likely follow up with how this new watch compares to my G-Shock.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                I sold my car
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-05-08-i-sold-my-car
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-05-08-i-sold-my-car?utm_source=rss
-            </link>
-            <pubDate>
-                Wed, 08 May 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I grew up in the countryside, where busses only came once an hour, but only until 7 PM. And on the weekend, you <strong>really</strong> had to plan ahead. Living without a car was almost unthinkable.</p>
-
-<p><img alt="My car" src="/assets/posts/2024-05-08-i-sold-my-car/my-car.jpeg"/></p>
-
-<p>After moving to the city in 2020, I found that I used my car less and less. My commute to work was easier with the bike (if I wasn&#39;t working from home), and for anything else, busses and trams were the way to go. The occasional family visit was the only excuse to use my car.</p>
-
-<p>Owning a car doesn&#39;t &quot;feel&quot; expensive. Sure, gas is expensive, but simply owning one doesn&#39;t feel like a huge burden on your wallet. Just to get a rough estimate, I jotted down all running costs.</p>
-
-<p><img alt="Running costs" src="/assets/posts/2024-05-08-i-sold-my-car/running-costs.jpeg"/></p>
-
-<p>My car costs <strong>over 1000€ per year</strong>, or about 85€ per month, just to be moved about twice a month! So, a few weeks ago, I decided to sell it.</p>
-
-<p>I created a posting on <a href="https://www.kleinanzeigen.de/">Kleinanzeigen</a> (a german descendant of - and previously owned by - eBay), and after about two weeks, the car had a new owner. I hope that it&#39;s in better hands now and lives on to be a happy and frequently used car.</p>
-
-<p>Going forward, I&#39;m not worried about my mobility at all. My partner still owns her car and has the option to take the bus to work. So, if we&#39;re not on the road together, I can always fall back to using her car. And if she needs her car and I&#39;m desperate to go somewhere afar, there&#39;s also multiple ride-sharing options available in my town. They are a bit expensive to use, but spending 40€ for a day trip to my family every two months is still way less than paying 85€ a month for a car that&#39;s sitting there idle.</p>]]>
             </description>
         </item>
     </channel>
