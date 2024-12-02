@@ -57,11 +57,6 @@ export default function Meta(props) {
 					href="https://webmention.io/garrit.xyz/webmention"
 				/>
 				<link rel="pingback" href="https://webmention.io/garrit.xyz/xmlrpc" />
-				<script
-					async
-					src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3136576448658438"
-					crossOrigin="anonymous"
-				></script>
 			</Head>
 		</>
 	);
