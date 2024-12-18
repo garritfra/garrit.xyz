@@ -12,7 +12,7 @@
 ## Life Goals
 
 - Get Married
-- Buy a house
+- ~~Buy a house~~ (October 2024)
 - Visit every continent (4 / 5)
 
 ## Fitness Goals
