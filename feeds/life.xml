@@ -14,8 +14,85 @@
             en
         </language>
         <lastBuildDate>
-            Sun, 01 Sep 2024 00:00:00 +0000
+            Sun, 29 Dec 2024 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                2024 in Review
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2024-12-29-2024-in-review
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2024-12-29-2024-in-review?utm_source=rss
+            </link>
+            <pubDate>
+                Sun, 29 Dec 2024 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>It&#39;s super exciting looking back at 2024. So much has happened! I haven&#39;t been very active on this blog lately, mainly because I&#39;ve been super busy in other areas of life.</p>
+
+<p>The biggest change for me this year is one that I can cross off of my <a href="/impossible">impossible list</a>: We bought a house! I&#39;ve been wanting to write post about this for a few weeks, and now that things are settling in, I might have the time to do that. In short: We moved from Brunswick (Germany) back to a more rural town just outside Brunswick. It&#39;s closer to my girlfriends workplace, closer to my family and overall way cheaper than properties in Brunswick. We&#39;re super happy about the house and have yet to find any major annoyances. The neighbors are nice, and the community is incredibly wholesome.</p>
+
+<p>As for other personal projects, there hasn’t been as much traction as there used to be. My interests have partially shifted to hobbies that don’t involve a computer, which I’m grateful for. I still love building software projects – especially now that it’s become so easy to get started with a project using an AI brainstorming companion – I just do it less often. I picked up running as a hobby (more on that later), gather with friends to play Dungeons &amp; Dragons and work on stuff in my new basement.</p>
+
+<h2>Goal Results</h2>
+
+<p>These are the goals <a href="https://garrit.xyz/posts/2023-12-30-2023-in-review">I set myself for 2024</a>:</p>
+
+<blockquote><p>Build a side project that generated at least 100€ of value</p></blockquote>
+
+<p>That’s a bust. As mentioned, I haven’t really spent a lot of time building side projects. And the ones I did build, I consider tools rather than an income stream.</p>
+
+<blockquote><p>Get a scuba diving license</p></blockquote>
+
+<p>I’m a certified PADI Open Water Diver! You can see some impressions <a href="https://garrit.xyz/posts/2024-02-26-dive-log-phuket">here</a> and <a href="https://garrit.xyz/posts/2024-03-12-dive-log-vietnam">here</a>.</p>
+
+<blockquote><p>Do a 10 km run (I really need to start moving again)</p></blockquote>
+
+<p>I ran three 10k runs this year. <a href="https://www.strava.com/activities/11416831567">The first in May</a>, then in <a href="https://www.strava.com/activities/11768631707">June</a> and finally, <a href="https://strava.app.link/P0Ulu4L1IPb">in September</a>, I improved my 2018 personal best by a few minutes!</p>
+
+<blockquote><p>Sell my car</p></blockquote>
+
+<p>Check. More infos <a href="https://garrit.xyz/posts/2024-05-08-i-sold-my-car">here</a>.</p>
+
+<blockquote><p>Write at least 50 blog posts</p></blockquote>
+
+<p>I didn’t reach this goal, but I’m also not disappointed by it. <a href="https://garrit.xyz/posts/2023-04-01-quality-vs.-quantity">The frequency of my posts varies</a>, and this year it was just lower than before.</p>
+
+<h2>2025 Goals</h2>
+
+<p>Here are some new goals for this year:</p>
+
+<ul><li>Build a side project that generated at least 100€ of value (I’m keeping this goal until I reach it!)</li><li>Run a half marathon (and optionally <a href="https://www.strava.com/activities/985747064">beat my PB</a>)</li><li>Learn woodworking and build something that takes at least 3 days to complete</li></ul>
+
+<h2>Prediction Results</h2>
+
+<p>The results for <a href="https://garrit.xyz/posts/2023-12-30-2023-in-review">last years predictions</a>:</p>
+
+<blockquote><p>Bitcoin will at last reach a value of 100,000$, following the<a href="https://www.nicehash.com/countdown/btc-halving-2024-05-10-12-00"> halving</a> likely happening in 2024</p></blockquote>
+
+<p><a href="https://www.nbcnews.com/business/markets/bitcoin-100000-rcna181008">Bitcoin did reach 100,000$</a>, though not following the halving event. Still, I’d call this a pass!</p>
+
+<blockquote><p>SpaceX will use a <a href="https://www.spacex.com/vehicles/starship/">Starship</a> prototype to launch Starlink satellites into orbit</p></blockquote>
+
+<p>Nope, they didn’t. But they made incredible leaps.</p>
+
+<blockquote><p>Tesla cars a still not fully self driving (<a href="https://motherfrunker.ca/fsd/">reference</a>)</p></blockquote>
+
+<p>They claim to launch it in Europe <a href="https://www.euronews.com/next/2024/09/05/tesla-says-full-self-driving-car-expected-in-europe-early-next-year-pending-regulatory-app">earlier next year</a>. It’s currently in closed testing. Still, I wouldn’t give it a pass.</p>
+
+<blockquote><p>Google will replace their main search with an AI chat bot (see<a href="https://bard.google.com/"> Bard</a>)</p></blockquote>
+
+<p>Not sure if I’d call Gemini a full replacement, but it does have a wrapper around their traditional search engine. The product is shit compared to Anthropic and OpenAI, but I would call this a pass, since you can use Gemini instead of Google Search.</p>
+
+<h2>2025 Predictions</h2>
+
+<ul><li>Apple will not ship a successor to the Apple Vision Pro</li><li>At least one country will mandate AI watermarking for all AI-generated content used in commercial applications</li><li>Russia and Ukraine will come to a consensus and end the war. Ukraine will have lost territory</li></ul>
+
+<p>And that&#39;s a wrap. I hope you all had a wonderful Christmas (if celebrated), and are as excited as I am for the new year!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Mental AI Fog and how to cure it
@@ -369,39 +446,6 @@ This does result in missing ~important things occasionally (e.g. I still don&#39
 <ul><li>Bitcoin will at last reach a value of 100,000$, following the <a href="https://www.nicehash.com/countdown/btc-halving-2024-05-10-12-00">halving</a> likely happening in 2024</li><li>SpaceX will use a <a href="https://www.spacex.com/vehicles/starship/">Starship</a> prototype to launch Starlink satellites into orbit</li><li>Tesla cars a still not fully self driving (<a href="https://motherfrunker.ca/fsd/">reference</a>)</li><li>Google will replace their main search with an AI chat bot (see <a href="https://bard.google.com">Bard</a>)</li></ul>
 
 <p>Let&#39;s see what 2024 brings to the table!</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Overcoming "air hunger"
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-12-18-overcoming-air-hunger
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-12-18-overcoming-air-hunger?utm_source=rss
-            </link>
-            <pubDate>
-                Mon, 18 Dec 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>For as long as I can remember, I often had the feeling of not being able to get a full breath. I&#39;m taking deep breaths and sometimes forcing a yawn to overcome this feeling, sometimes successful, sometimes failing and trying again. This feeling gets worse the more I focus on my breath.</p>
-
-<p>I always felt like this is somewhat uncommon, since none of my friends and family can relate to this feeling, but it wasn&#39;t worse enough to justify consulting a doctor about it either.</p>
-
-<p>Doing some research, it seems like this phenomenon is called <a href="https://en.m.wikipedia.org/wiki/Shortness_of_breath">dyspnea</a>, or &quot;air hunger&quot;. Some guy even made <a href="https://airhunger.org/">a website</a> about it. In a nutshell, it is caused by your body not being able to regulate carbon levels in your blood, which leads to an urge to breath unnaturally.</p>
-
-<p>In a <a href="https://m.youtube.com/watch?v=XliOGg8Tl98">video</a>, the author points out that this might be caused by irregular breathing patterns. Indeed, I often find myself breathing through the mouth or sitting in awkward positions with a humpback when the symptoms are at its worst. In fact, what led me to look this up was because I was annoyed by the feeling while I&#39;m laying in bed staring down at my screen, which is a very unnatural position.</p>
-
-<p>A simple trick to get into a more regular breathing pattern is apparently to force yourself to breathe through the nose. Mouth breathing lets your body take in way more air than you need, which throws off the balance of the carbon levels in your lungs.</p>
-
-<p>It seems like nose breathing does work very well. Where I&#39;ve just been struggling with air hunger, once I forced myself to nose breathe, the urge to breathe doesn&#39;t come nearly as often anymore.</p>
-
-<p>These are just my results after some quick research. The topic of short breathing seems to be quite broad. Perhaps you&#39;re struggling with this as well. In that case, I hope this post was helpful to you!</p>
-
-<hr/>
-
-<p>This is post 095 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
