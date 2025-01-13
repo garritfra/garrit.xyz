@@ -44,6 +44,7 @@
 - A "When will it break?" website that shows how often a software introduces a breaking change based on the major version number
 - A doom-scrollable HackerNews/wikipedia/blog feed (to battle my IG reel addiction)
 - A life quest generator (inspired by [this post](https://www.raptitude.com/2024/08/do-quests-not-goals/))
+- A website that can "reset" a dependency lockfile (e.g. `requirements.txt`, `package-lock.json`, ...) to a given date. All versions will be pinned to the latest available version at that time. Useful to recreate a development environment after a long time has passed
 
 ## Website Roadmap
 
