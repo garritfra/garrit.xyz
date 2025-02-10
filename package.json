@@ -18,7 +18,7 @@
 		"react-snowfall": "^1.2.1",
 		"react-web-share": "^2.0.2",
 		"rehype-raw": "7.0.0",
-		"remark-gfm": "4.0.0"
+		"remark-gfm": "4.0.1"
 	},
 	"devDependencies": {
 		"glob": "11.0.1",
