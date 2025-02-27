@@ -14,8 +14,37 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 24 Sep 2024 00:00:00 +0000
+            Thu, 27 Feb 2025 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                A trick to manage frequently used prompts in Claude/ChatGPT
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2025-02-27-a-trick-to-manage-frequently-used-prompts-in-claude-chatgpt
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2025-02-27-a-trick-to-manage-frequently-used-prompts-in-claude-chatgpt?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 27 Feb 2025 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>So far, whenever I wanted to recycle a prompt from another context in <a href="https://www.anthropic.com/claude">Claude</a> (though this also applies to ChatGPT and some other LLMs), I went back in my conversation history, copied the prompt, pasted it in a new chat and adjusted the context. But I recently discovered that <a href="https://www.anthropic.com/news/projects">Claude Projects</a> can be misused as &quot;prompt templates&quot;, which makes it way easier to handle repetitive tasks.</p>
+
+<p>In Projects, you can set a system prompt that will be applied to all conversations in the project. I guess it&#39;s supposed to be used for relevant information about whatever you want to work on, but I like to think about a project more as a prompt template, rather than a project. For example, here&#39;s a project prompt that I use to brainstorm project ideas:</p>
+
+<blockquote><p>Ask me one question at a time so we can develop a thorough, step-by-step spec for this idea. Each question should build on my previous answers, and our end goal is to have a detailed specification I can hand off to a developer. Let’s do this iteratively and dig into every relevant detail. Remember, only one question at a time.</p></blockquote>
+
+<p>(Stolen from <a href="https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/">this</a> great blog post)</p>
+
+<p>While you could copy and paste this from a text file into every new conversation, Claude&#39;s projects make it super easy to save this as a template.</p>
+
+<p>I guess this is an obvious feature for some people, but to me, it was a huge help once I found this out.</p>
+
+<p>Got any other neat tricks for working with LLMs? I&#39;d love to hear them!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Installing MSSQL Client Drivers for a PHP Application
@@ -525,101 +554,6 @@ jobs:
 <hr/>
 
 <p>This is post 095 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Tracking SQLite Database Changes in Git
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-11-01-tracking-sqlite-database-changes-in-git
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-11-01-tracking-sqlite-database-changes-in-git?utm_source=rss
-            </link>
-            <pubDate>
-                Wed, 01 Nov 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<blockquote><p><strong>Note</strong>: This post stirred up some interesting discussions on <a href="https://news.ycombinator.com/item?id=38110286">HackerNews</a> and <a href="https://lobste.rs/s/gnv9ho/tracking_sqlite_database_changes_git">Lobste.rs</a>.</p></blockquote>
-
-<p>SQLite stores data in binary. If you run <code>cat mydb.sqlite</code>, you&#39;ll see a bunch of gibberish that doesn&#39;t resemble structured data at all. If you want to track changes and updates to a database using Git, you won&#39;t be able to see full diffs by default. You&#39;ll see that the file has changed, but not what changed exactly:</p>
-
-<p><code>diff
-diff --git a/mydb.sqlite b/mydb.sqlite
-index f412c72..8f49ea5 100644
-Binary files a/mydb.sqlite and b/mydb.sqlite differ
-</code></p>
-
-<p>So, is there a way around that? Turns out: there is! Here&#39;s a diff between two states of the SQLite database of <a href="https://www.gnucash.org/index.phtml">GnuCash</a>, which I&#39;m currently trying out to manage my finances. I&#39;ll explain how I got this diff afterwards:</p>
-
-<p><code>diff
-diff --git a/garritfranke.gnucash b/garritfranke.gnucash
-index f412c72..8f49ea5 100644
---- a/garritfranke.gnucash
-+++ b/garritfranke.gnucash
-@@ -100,18 +100,22 @@ INSERT INTO accounts VALUES(&#39;ca11987c1c804da4b47b70d0fda87f10&#39;,&#39;Strom&#39;,&#39;EXPENSE&#39;
- INSERT INTO accounts VALUES(&#39;b1674455d6ec495c8898bcfb65ef100c&#39;,&#39;Template Root&#39;,&#39;ROOT&#39;,NULL,0,0,NULL,&#39;&#39;,&#39;&#39;,0,0);
-+INSERT INTO accounts VALUES(&#39;9d2959ea65fc4f29b02dbc593fa9598a&#39;,&#39;Ausgleichskonto-EUR&#39;,&#39;BANK&#39;,&#39;26cc1292cf3e4f9584c71e7b3ec28479&#39;,100,0,&#39;39e1c61538e24572abfcf0f3f72022ac&#39;,&#39;&#39;,&#39;&#39;,0,0);
- CREATE TABLE budgets(guid text(32) PRIMARY KEY NOT NULL, name text(2048) NOT NULL, description text(2048), num_periods integer NOT NULL);
- CREATE TABLE prices(guid text(32) PRIMARY KEY NOT NULL, commodity_guid text(32) NOT NULL, currency_guid text(32) NOT NULL, date text(19) NOT NULL, source text(2048), type text(2048), value_num bigint NOT NULL, value_denom bigint NOT NULL);
- CREATE TABLE transactions(guid text(32) PRIMARY KEY NOT NULL, currency_guid text(32) NOT NULL, num text(2048) NOT NULL, post_date text(19), enter_date text(19), description text(2048));
-+INSERT INTO transactions VALUES(&#39;db9eff5ec00145f293c85391becbefa8&#39;,&#39;26cc1292cf3e4f9584c71e7b3ec28479&#39;,&#39;&#39;,&#39;2023-11-01 10:59:00&#39;,&#39;2023-11-01 11:36:23&#39;,&#39;TEST&#39;);
- INSERT INTO splits VALUES(&#39;e45aeb0ac0274c6483f8deb2e7ad3743&#39;,&#39;10cecb081ac24ab5a369c93f96d293da&#39;,&#39;d229160352064f8c80090e0a10a57d9c&#39;,&#39;&#39;,&#39;Rechnung&#39;,&#39;n&#39;,&#39;1970-01-01 00:00:00&#39;,0,100,0,100,NULL);
- INSERT INTO splits VALUES(&#39;bb9d2818bdc14be9bb916f3efd82e77d&#39;,&#39;10cecb081ac24ab5a369c93f96d293da&#39;,&#39;1d93d1e67aed4320bb228c16f4e28092&#39;,&#39;&#39;,&#39;Rechnung&#39;,&#39;n&#39;,&#39;1970-01-01 00:00:00&#39;,25000,100,25000,100,&#39;b94c643ddcda48bcb7fc58626452e825&#39;);
- INSERT INTO splits VALUES(&#39;62747f45556740fe836c9f2180fe70c9&#39;,&#39;10cecb081ac24ab5a369c93f96d293da&#39;,&#39;4d6616d8c6524ead86641559539caf50&#39;,&#39;&#39;,&#39;Rechnung&#39;,&#39;n&#39;,&#39;1970-01-01 00:00:00&#39;,-25000,100,-25000,100,NULL);
-+INSERT INTO splits VALUES(&#39;029f58c4d85c497c8e06ad4e52090033&#39;,&#39;db9eff5ec00145f293c85391becbefa8&#39;,&#39;a0f46eb546e34555ab4d0d3cc32c320f&#39;,&#39;&#39;,&#39;&#39;,&#39;n&#39;,&#39;1970-01-01 00:00:00&#39;,-10000,100,-10000,100,NULL);
-+INSERT INTO splits VALUES(&#39;433a48cfdd314c94a105b5db9e7839de&#39;,&#39;db9eff5ec00145f293c85391becbefa8&#39;,&#39;9d2959ea65fc4f29b02dbc593fa9598a&#39;,&#39;&#39;,&#39;&#39;,&#39;n&#39;,&#39;1970-01-01 00:00:00&#39;,10000,100,10000,100,NULL);
- CREATE TABLE slots(id integer PRIMARY KEY AUTOINCREMENT NOT NULL, obj_guid text(32) NOT NULL, name text(4096) NOT NULL, slot_type integer NOT NULL, int64_val bigint, string_val text(4096), 
- INSERT INTO slots VALUES(84,&#39;d9d25d75a993434597d988baa65670bb&#39;,&#39;job-rate&#39;,3,0,NULL,NULL,&#39;1970-01-01 00:00:00&#39;,NULL,250,1,NULL);
- INSERT INTO slots VALUES(85,&#39;38cde72240424e8b9e3ab5d4852c9cf0&#39;,&#39;job-rate&#39;,3,0,NULL,NULL,&#39;1970-01-01 00:00:00&#39;,NULL,100,1,NULL);
-+INSERT INTO slots VALUES(88,&#39;db9eff5ec00145f293c85391becbefa8&#39;,&#39;date-posted&#39;,10,0,NULL,NULL,&#39;1970-01-01 00:00:00&#39;,NULL,0,1,&#39;20231101&#39;);
- CREATE TABLE recurrences(id integer PRIMARY KEY AUTOINCREMENT NOT NULL, obj_guid text(32) NOT NULL, recurrence_mult integer NOT NULL, recurrence_period_type text(2048) NOT NULL, recurrence_period_start text(8) NOT NULL, recurrence_weekend_adjust text(2048) NOT NULL);
- CREATE TABLE schedxactions(guid text(32) PRIMARY KEY NOT NULL, name text(2048), enabled integer NOT NULL, start_date text(8), end_date text(8), last_occur text(8), num_occur integer NOT NULL, rem_occur integer NOT NULL, auto_create integer NOT NULL, auto_notify integer NOT NULL, adv_creation integer NOT NULL, adv_notify integer NOT NULL, instance_count integer NOT NULL, template_act_guid text(32) NOT NULL);
- CREATE TABLE lots(guid text(32) PRIMARY KEY NOT NULL, account_guid text(32), is_closed integer NOT NULL);
-@@ -234,7 +239,7 @@ INSERT INTO taxtable_entries VALUES(3,&#39;1d459b285fca4de3bb4659744dc0cec5&#39;,&#39;d22916
- INSERT INTO taxtable_entries VALUES(5,&#39;6def0d3a788d414b818ecdb29ba3dcd1&#39;,&#39;d229160352064f8c80090e0a10a57d9c&#39;,0,100000,2);
- CREATE TABLE vendors(guid text(32) PRIMARY KEY NOT NULL, name text(2048) NOT NULL, id text(2048) NOT NULL, notes text(2048) NOT NULL, currency text(32) NOT NULL, active integer NOT NULL, tax_override integer NOT NULL, addr_name text(1024), addr_addr1 text(1024), addr_addr2 text(1024), addr_addr3 text(1024), addr_addr4 text(1024), addr_phone text(128), addr_fax text(128), addr_email text(256), terms text(32), tax_inc text(2048), tax_table text(32));
- DELETE FROM sqlite_sequence;
--INSERT INTO sqlite_sequence VALUES(&#39;slots&#39;,87);
-+INSERT INTO sqlite_sequence VALUES(&#39;slots&#39;,88);
- INSERT INTO sqlite_sequence VALUES(&#39;taxtable_entries&#39;,5);
- CREATE INDEX tx_post_date_index ON transactions(post_date);
- CREATE INDEX splits_tx_guid_index ON splits(tx_guid);
-</code></p>
-
-<p>First, add a diff type called &quot;sqlite3&quot; to your config. The simplest way is to just run these commands:</p>
-
-<p><code>shell
-git config diff.sqlite3.binary true
-git config diff.sqlite3.textconv &quot;echo .dump | sqlite3&quot;
-</code></p>
-
-<p>Alternatively, you can add this snippet to your <code>~/.gitconfig</code> or <code>.git/config</code> in your repository:</p>
-
-<p><code>gitconfig
-[diff &quot;sqlite3&quot;]
-        binary = true
-        textconv = &quot;echo .dump | sqlite3&quot;
-</code></p>
-
-<p>Next, create a file called <code>.gitattributes</code> if it&#39;s not already present and add this line:</p>
-
-<p><code>gitattributes
-*.sqlite diff=sqlite3
-</code></p>
-
-<blockquote><p>Note that the filename (<code>*.sqlite</code>) may differ from your setup. In my case for example, it should match files with <code>*.gnucash</code>.</p></blockquote>
-
-<p>And that&#39;s about it! The next time you run <code>git diff</code> or any other command that produces a diff on a sqlite file, you&#39;ll see a nicely formatted diff of the changes.</p>
-
-<h3>Source</h3>
-
-<p>https://stackoverflow.com/a/21789167</p>
-
-<hr/>
-
-<p>This is post 084 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

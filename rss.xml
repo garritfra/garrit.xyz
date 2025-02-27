@@ -14,8 +14,37 @@
             en
         </language>
         <lastBuildDate>
-            Sun, 29 Dec 2024 00:00:00 +0000
+            Thu, 27 Feb 2025 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                A trick to manage frequently used prompts in Claude/ChatGPT
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2025-02-27-a-trick-to-manage-frequently-used-prompts-in-claude-chatgpt
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2025-02-27-a-trick-to-manage-frequently-used-prompts-in-claude-chatgpt?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 27 Feb 2025 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>So far, whenever I wanted to recycle a prompt from another context in <a href="https://www.anthropic.com/claude">Claude</a> (though this also applies to ChatGPT and some other LLMs), I went back in my conversation history, copied the prompt, pasted it in a new chat and adjusted the context. But I recently discovered that <a href="https://www.anthropic.com/news/projects">Claude Projects</a> can be misused as &quot;prompt templates&quot;, which makes it way easier to handle repetitive tasks.</p>
+
+<p>In Projects, you can set a system prompt that will be applied to all conversations in the project. I guess it&#39;s supposed to be used for relevant information about whatever you want to work on, but I like to think about a project more as a prompt template, rather than a project. For example, here&#39;s a project prompt that I use to brainstorm project ideas:</p>
+
+<blockquote><p>Ask me one question at a time so we can develop a thorough, step-by-step spec for this idea. Each question should build on my previous answers, and our end goal is to have a detailed specification I can hand off to a developer. Let’s do this iteratively and dig into every relevant detail. Remember, only one question at a time.</p></blockquote>
+
+<p>(Stolen from <a href="https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/">this</a> great blog post)</p>
+
+<p>While you could copy and paste this from a text file into every new conversation, Claude&#39;s projects make it super easy to save this as a template.</p>
+
+<p>I guess this is an obvious feature for some people, but to me, it was a huge help once I found this out.</p>
+
+<p>Got any other neat tricks for working with LLMs? I&#39;d love to hear them!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 2024 in Review
@@ -466,29 +495,6 @@ brew cleanup -s
 </code></p>
 
 <p>For some reason this failed after some time with a &quot;directory not found&quot; error, but you can just run it again and it will continue cleaning up old caches. Once it was done, this freed up <strong>40 GB of disk space</strong> on my system. It might make sense to run this as a cronjob? Either way, I just wanted to jot this down before I enevitably forget this, as usual.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Going from self hosted to managed software
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-05-24-going-from-self-hosted-to-managed-software
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-05-24-going-from-self-hosted-to-managed-software?utm_source=rss
-            </link>
-            <pubDate>
-                Fri, 24 May 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Some time ago I was heavily into <a href="https://garrit.xyz/posts/2022-09-26-self-hosted-software-im-thankful-for">self hosting my own software</a>. Over time though, it became apparent that maintaining these services is a huge burden. I either abandoned most of the services or found a replacement that suits my needs and saves me time that&#39;s better spent on other things in life.</p>
-
-<p>Today, I finally pulled the plug on <a href="https://miniflux.app/">Miniflux</a>, the last service I used to self host (not counting House Assistant on a Pi, which I use to automate some stuff at home). The Hetzner server it ran on cost me ~4€ a month. The maintainer of Miniflux offers a managed hosting solution for 15$ a year, so to save money and time, and to support the project, I decided to switch from self-hosted to managed.</p>
-
-<h2>Will I ever self host again?</h2>
-
-<p>I really don&#39;t know. Some services (Miniflux included) required very little maintenance to keep running, so I could see myself spinning up a server again if I really wanted to run some software that doesn&#39;t have managed hosting. For now though, I&#39;m planning on using managed services wherever I can. Nevertheless I&#39;m proud of the things I learned during my time of self hosting my software. I think it gave me a huge boost both in terms of know how and my career, and I&#39;d encourage everyone to dip a toe into self hosting.</p>]]>
             </description>
         </item>
     </channel>
