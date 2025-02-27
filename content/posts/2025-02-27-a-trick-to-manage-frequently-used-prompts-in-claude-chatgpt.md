@@ -8,9 +8,7 @@ So far, whenever I wanted to recycle a prompt from another context in [Claude](h
 
 In Projects, you can set a system prompt that will be applied to all conversations in the project. I guess it's supposed to be used for relevant information about whatever you want to work on, but I like to think about a project more as a prompt template, rather than a project. For example, here's a project prompt that I use to brainstorm project ideas:
 
-```
-Ask me one question at a time so we can develop a thorough, step-by-step spec for this idea. Each question should build on my previous answers, and our end goal is to have a detailed specification I can hand off to a developer. Let’s do this iteratively and dig into every relevant detail. Remember, only one question at a time.
-```
+> Ask me one question at a time so we can develop a thorough, step-by-step spec for this idea. Each question should build on my previous answers, and our end goal is to have a detailed specification I can hand off to a developer. Let’s do this iteratively and dig into every relevant detail. Remember, only one question at a time.
 
 (Stolen from [this](https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/) great blog post)
 
