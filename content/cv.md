@@ -11,7 +11,7 @@ Mobile Software Developer (Traineeship); 2017 - 2020
 
 ## Experience
 
-### appmotion GmbH
+### SHAPE DACH GmbH
 
 _**DevOps Engineer, February 2023 - present**_
 
