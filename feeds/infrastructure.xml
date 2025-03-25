@@ -18,7 +18,7 @@
         </lastBuildDate>
         <item>
             <title>
-                Container Interfaces
+                About Container Interfaces
             </title>
             <guid>
                 https://garrit.xyz/posts/2025-03-25-container-interfaces
@@ -30,7 +30,7 @@
                 Tue, 25 Mar 2025 00:00:00 +0000
             </pubDate>
             <description>
-                <![CDATA[<p>There are a couple of interfaces that container orchestration systems (like <a href="https://kubernetes.io">Kubernetes</a>) implement to expose certain behavior to their container workloads. I will only be talking about Kubernetes in this post since it&#39;s the orchestrator I&#39;m most comfortable with, but some interfaces are also implemented in other orchestrators (like <a href="https://www.nomadproject.io/">HashiCorp Nomad</a>) too, which makes the interfaces cross-plattform.</p>
+                <![CDATA[<p>There are a couple of interfaces that container orchestration systems (like <a href="https://kubernetes.io">Kubernetes</a>) implement to expose certain behavior to their container workloads. I will only be talking about Kubernetes in this post since it&#39;s the orchestrator I&#39;m most comfortable with, but some interfaces are also implemented in other orchestrators (like <a href="https://www.nomadproject.io/">HashiCorp Nomad</a>) too, which makes the interfaces cross-platform.</p>
 
 <h2>Container Storage Interface (CSI)</h2>
 
