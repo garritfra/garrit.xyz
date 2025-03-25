@@ -14,8 +14,63 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 27 Feb 2025 00:00:00 +0000
+            Tue, 25 Mar 2025 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Container Interfaces
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2025-03-25-container-interfaces
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2025-03-25-container-interfaces?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 25 Mar 2025 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>There are a couple of interfaces that container orchestration systems (like <a href="https://kubernetes.io">Kubernetes</a>) implement to expose certain behavior to their container workloads. I will only be talking about Kubernetes in this post since it&#39;s the orchestrator I&#39;m most comfortable with, but some interfaces are also implemented in other orchestrators (like <a href="https://www.nomadproject.io/">HashiCorp Nomad</a>) too, which makes the interfaces cross-plattform.</p>
+
+<h2>Container Storage Interface (CSI)</h2>
+
+<p>Storage behavior used to be built into Kubernetes. The <a href="https://github.com/container-storage-interface/spec/blob/master/spec.md">container storage interface (CSI)</a> defines a unified interface to manage storage volumes, regardless of the orchestrator (as long as they implement the CSI). This makes it way easier for third-party storage providers to expose data to Kubernetes. If a storage provider implements this interface, orchestrators can use it to provision volumes to containers. Notable storage providers are:</p>
+
+<ul><li><a href="https://github.com/kubernetes-csi/csi-driver-nfs">NFS</a></li><li><a href="https://github.com/kubernetes/cloud-provider-openstack/tree/master/pkg/csi/cinder">Cinder (Openstack)</a></li><li><a href="https://github.com/ceph/ceph-csi">Ceph</a></li><li><a href="https://github.com/kubernetes-sigs/aws-ebs-csi-driver">AWS EBS</a></li></ul>
+
+<p>A full list of CSI drivers can be found <a href="https://kubernetes-csi.github.io/docs/drivers.html">here</a>.</p>
+
+<h2>Container Runtime Interface (CRI)</h2>
+
+<p>The <a href="https://github.com/kubernetes/cri-api">Container Runtime Interface (CRI)</a> is an API that allows Kubernetes to use different container runtimes without needing to recompile the entire Kubernetes codebase. Before CRI, Kubernetes had a direct integration with Docker, making it difficult to use alternative container runtimes.</p>
+
+<p>CRI defines the API between Kubernetes components (specifically kubelet) and container runtimes. This abstraction allows Kubernetes to support multiple container runtimes simultaneously, giving users the flexibility to choose the runtime that best fits their needs. Some popular container runtimes that implement the CRI include:</p>
+
+<ul><li><a href="https://containerd.io/">containerd</a> - The industry-standard container runtime that powers Docker and is maintained by the CNCF</li><li><a href="https://cri-o.io/">CRI-O</a> - A lightweight runtime specifically designed for Kubernetes</li><li><a href="https://katacontainers.io/">Kata Containers</a> - A secure container runtime that uses hardware virtualization for stronger isolation</li></ul>
+
+<p>With CRI, switching between different runtimes becomes more straightforward, allowing operators to optimize for security, performance, or compatibility based on their specific requirements.</p>
+
+<h2>Container Network Interface (CNI)</h2>
+
+<p>The <a href="https://github.com/containernetworking/cni">Container Network Interface (CNI)</a> defines a standard for configuring network interfaces for Linux containers. Similar to CSI and CRI, the CNI was created to decouple Kubernetes from specific networking implementations, allowing for a pluggable architecture.</p>
+
+<p>CNI plugins are responsible for allocating IP addresses to pods and ensuring proper network connectivity between pods, nodes, and external networks. They implement features like network policies, load balancing, and network security. Some popular CNI plugins include:</p>
+
+<ul><li><a href="https://www.tigera.io/project-calico/">Calico</a> - Known for its performance, flexibility, and strong network policy support</li><li><a href="https://cilium.io/">Cilium</a> - Uses eBPF for high-performance networking and security</li><li><a href="https://github.com/flannel-io/flannel">Flannel</a> - Simple overlay network focused on ease of use</li><li><a href="https://github.com/aws/amazon-vpc-cni-k8s">AWS VPC CNI</a> - Integrates pods directly with Amazon VPC networking</li></ul>
+
+<p>Each CNI plugin has its strengths and is suitable for different use cases. For example, Calico excels at enforcing network policies, Cilium is optimized for performance and observability, while Flannel is valued for its simplicity.</p>
+
+<h2>Wrapping Up</h2>
+
+<p>One thing I&#39;ve always admired about Kubernetes is its pluggable architecture. These standardized interfaces (CSI, CRI, and CNI) showcase how well-designed the system really is. Instead of building everything into the core, the Kubernetes team made the smart decision to create extension points that allow the community to innovate without touching the core codebase.</p>
+
+<p>The great news? You don&#39;t <em>have</em> to swap out all these components or even understand them deeply to use Kubernetes effectively. While the array of options might seem daunting at first glance, most Kubernetes distributions (like EKS, GKE, AKS, or Rancher) come with sane defaults that work well out of the box. They&#39;ve already made sensible choices about which storage, runtime, and networking components to include.</p>
+
+<p>This pluggability is what makes Kubernetes so powerful for those who need it. Need a specific storage solution? Plug in a CSI driver. Want a more secure container runtime? Swap in a different CRI implementation. But for everyone else, the defaults will serve you just fine.</p>
+
+<p>The beauty of this approach is that it gives you room to grow. Start with the defaults, and when you have specific requirements, the extension points are there waiting for you. That&#39;s the real magic of Kubernetes – it works great out of the box but doesn&#39;t limit your options as your needs evolve.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 A trick to manage frequently used prompts in Claude/ChatGPT
@@ -414,67 +469,6 @@ brew cleanup -s
 <h2>Will I ever self host again?</h2>
 
 <p>I really don&#39;t know. Some services (Miniflux included) required very little maintenance to keep running, so I could see myself spinning up a server again if I really wanted to run some software that doesn&#39;t have managed hosting. For now though, I&#39;m planning on using managed services wherever I can. Nevertheless I&#39;m proud of the things I learned during my time of self hosting my software. I think it gave me a huge boost both in terms of know how and my career, and I&#39;d encourage everyone to dip a toe into self hosting.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Beware of base64 encoded strings
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-04-15-beware-of-base64-encoded-strings
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-04-15-beware-of-base64-encoded-strings?utm_source=rss
-            </link>
-            <pubDate>
-                Mon, 15 Apr 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I just encountered a fun little bug that I thought is worth sharing.</p>
-
-<p><strong>TL;DR</strong>: the base64 util breaks lines after a certain number of columns. Use a <a href="https://www.man7.org/linux/man-pages/man1/base64.1.html">flag</a> to specify &quot;don&#39;t break&quot;. Here&#39;s the commit that fixes the issue:</p>
-
-<p>&lt;img width=&quot;1588&quot; alt=&quot;image (3)&quot; src=&quot;https://github.com/garritfra/garrit.xyz/assets/32395585/dba76692-c89f-44da-b70a-f6732a406d75&quot;&gt;</p>
-
-<p>It started when we noticed that a cronjob that used wget to regularly call an endpoint failed on one specific environment. The endpoint uses <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic Auth</a>, which is essentially a header with a <a href="https://en.wikipedia.org/wiki/Base64">Base64</a> encoded representation of a username and password. <a href="https://curl.se/">Curl</a> has this functionality <a href="https://curl.se/docs/manpage.html#-u">built in</a>, but to keep the attack surface as small as possible, we decided to stick to <a href="https://www.gnu.org/software/wget/">wget</a>, which is part of busybox, to keep the container image size under 1 MB (!). After all, all we want to do is ping an endpoint.</p>
-
-<p>This is the command we used up to this point:</p>
-
-<p><code>
-wget --post-data=&quot;&quot; -O - --header=&quot;Authorization: Basic $(echo -n $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD | base64)&quot; http://endpoint:8080/v1/cache
-</code></p>
-
-<p>We noticed that the request worked fine on non-prod environments, but it failed on production with the following error:</p>
-
-<p><code>
-The HTTP header line [b2verlk1rwjsnutbcapkjh==] does not conform to RFC 7230. The request has been rejected.
-</code></p>
-
-<p>After digging around for a while and separating out the individual pieces of the commands, I noticed that the subcommand to build the header value (<code>echo -n $BASIC_AUTH_USERNAME:$BASIC_AUTH_PASSWORD | base64</code>) behaved differently on prod vs. non-prod. The password on prod is way longer compared to the other environments. Let&#39;s run this command with a short input:</p>
-
-<p><code>sh
-/ $ echo -n someuser:somepassword | base64
-c29tZXVzZXI6c29tZXBhc3N3b3Jk
-/ $
-</code></p>
-
-<p>And again with a long input:</p>
-
-<p><code>sh
-/ $ echo -n someuser:somepasswordthatswaylongerthanthefirstonebutalsoverysecureandsafe | base64
-c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNv
-dmVyeXNlY3VyZWFuZHNhZmU=
-/ $
-</code></p>
-
-<p>Bingo! There&#39;s a rogue newline character in the output of <code>base64</code>. The fix is very straight-forward. Using the <code>-w0</code> <a href="https://www.man7.org/linux/man-pages/man1/base64.1.html">flag for base64</a>, we can force the output to be on the same line:</p>
-
-<p><code>
-/ $ echo -n someuser:somepasswordthatswaylongerthanthefirstonebutalsoverysecureandsafe | base64 -w0
-c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNvdmVyeXNlY3VyZWFuZHNhZmU=
-</code></p>
-
-<p>This eventually fixed the issue. Not something I would&#39;ve ever thought of!</p>]]>
             </description>
         </item>
     </channel>

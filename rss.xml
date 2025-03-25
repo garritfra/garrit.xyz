@@ -14,8 +14,63 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 27 Feb 2025 00:00:00 +0000
+            Tue, 25 Mar 2025 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Container Interfaces
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2025-03-25-container-interfaces
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2025-03-25-container-interfaces?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 25 Mar 2025 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>There are a couple of interfaces that container orchestration systems (like <a href="https://kubernetes.io">Kubernetes</a>) implement to expose certain behavior to their container workloads. I will only be talking about Kubernetes in this post since it&#39;s the orchestrator I&#39;m most comfortable with, but some interfaces are also implemented in other orchestrators (like <a href="https://www.nomadproject.io/">HashiCorp Nomad</a>) too, which makes the interfaces cross-plattform.</p>
+
+<h2>Container Storage Interface (CSI)</h2>
+
+<p>Storage behavior used to be built into Kubernetes. The <a href="https://github.com/container-storage-interface/spec/blob/master/spec.md">container storage interface (CSI)</a> defines a unified interface to manage storage volumes, regardless of the orchestrator (as long as they implement the CSI). This makes it way easier for third-party storage providers to expose data to Kubernetes. If a storage provider implements this interface, orchestrators can use it to provision volumes to containers. Notable storage providers are:</p>
+
+<ul><li><a href="https://github.com/kubernetes-csi/csi-driver-nfs">NFS</a></li><li><a href="https://github.com/kubernetes/cloud-provider-openstack/tree/master/pkg/csi/cinder">Cinder (Openstack)</a></li><li><a href="https://github.com/ceph/ceph-csi">Ceph</a></li><li><a href="https://github.com/kubernetes-sigs/aws-ebs-csi-driver">AWS EBS</a></li></ul>
+
+<p>A full list of CSI drivers can be found <a href="https://kubernetes-csi.github.io/docs/drivers.html">here</a>.</p>
+
+<h2>Container Runtime Interface (CRI)</h2>
+
+<p>The <a href="https://github.com/kubernetes/cri-api">Container Runtime Interface (CRI)</a> is an API that allows Kubernetes to use different container runtimes without needing to recompile the entire Kubernetes codebase. Before CRI, Kubernetes had a direct integration with Docker, making it difficult to use alternative container runtimes.</p>
+
+<p>CRI defines the API between Kubernetes components (specifically kubelet) and container runtimes. This abstraction allows Kubernetes to support multiple container runtimes simultaneously, giving users the flexibility to choose the runtime that best fits their needs. Some popular container runtimes that implement the CRI include:</p>
+
+<ul><li><a href="https://containerd.io/">containerd</a> - The industry-standard container runtime that powers Docker and is maintained by the CNCF</li><li><a href="https://cri-o.io/">CRI-O</a> - A lightweight runtime specifically designed for Kubernetes</li><li><a href="https://katacontainers.io/">Kata Containers</a> - A secure container runtime that uses hardware virtualization for stronger isolation</li></ul>
+
+<p>With CRI, switching between different runtimes becomes more straightforward, allowing operators to optimize for security, performance, or compatibility based on their specific requirements.</p>
+
+<h2>Container Network Interface (CNI)</h2>
+
+<p>The <a href="https://github.com/containernetworking/cni">Container Network Interface (CNI)</a> defines a standard for configuring network interfaces for Linux containers. Similar to CSI and CRI, the CNI was created to decouple Kubernetes from specific networking implementations, allowing for a pluggable architecture.</p>
+
+<p>CNI plugins are responsible for allocating IP addresses to pods and ensuring proper network connectivity between pods, nodes, and external networks. They implement features like network policies, load balancing, and network security. Some popular CNI plugins include:</p>
+
+<ul><li><a href="https://www.tigera.io/project-calico/">Calico</a> - Known for its performance, flexibility, and strong network policy support</li><li><a href="https://cilium.io/">Cilium</a> - Uses eBPF for high-performance networking and security</li><li><a href="https://github.com/flannel-io/flannel">Flannel</a> - Simple overlay network focused on ease of use</li><li><a href="https://github.com/aws/amazon-vpc-cni-k8s">AWS VPC CNI</a> - Integrates pods directly with Amazon VPC networking</li></ul>
+
+<p>Each CNI plugin has its strengths and is suitable for different use cases. For example, Calico excels at enforcing network policies, Cilium is optimized for performance and observability, while Flannel is valued for its simplicity.</p>
+
+<h2>Wrapping Up</h2>
+
+<p>One thing I&#39;ve always admired about Kubernetes is its pluggable architecture. These standardized interfaces (CSI, CRI, and CNI) showcase how well-designed the system really is. Instead of building everything into the core, the Kubernetes team made the smart decision to create extension points that allow the community to innovate without touching the core codebase.</p>
+
+<p>The great news? You don&#39;t <em>have</em> to swap out all these components or even understand them deeply to use Kubernetes effectively. While the array of options might seem daunting at first glance, most Kubernetes distributions (like EKS, GKE, AKS, or Rancher) come with sane defaults that work well out of the box. They&#39;ve already made sensible choices about which storage, runtime, and networking components to include.</p>
+
+<p>This pluggability is what makes Kubernetes so powerful for those who need it. Need a specific storage solution? Plug in a CSI driver. Want a more secure container runtime? Swap in a different CRI implementation. But for everyone else, the defaults will serve you just fine.</p>
+
+<p>The beauty of this approach is that it gives you room to grow. Start with the defaults, and when you have specific requirements, the extension points are there waiting for you. That&#39;s the real magic of Kubernetes – it works great out of the box but doesn&#39;t limit your options as your needs evolve.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 A trick to manage frequently used prompts in Claude/ChatGPT
@@ -470,31 +525,6 @@ curl http://localhost:11434/api/chat -d &#39;{
 <p>If your local machine is not beefy enough and you want to try out a large LLM on a rented server (AWS has <code>g5.2xlarge</code>, which gave me good results for <code>mixtral 8x7b</code>), you also have to set <code>OLLAMA_HOST=0.0.0.0</code> in your environment variables to be able to reach the remote server. <strong>This exposes the LLM to the public internet, so be careful when chosing your deployment strategy.</strong></p>
 
 <p>And there you go! You just deployed your very own LLM. Pretty cool, huh?</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                I just cleaned up 40 GB of Brew caches
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-06-03-i-just-cleaned-up-40-gb-of-brew-caches
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-06-03-i-just-cleaned-up-40-gb-of-brew-caches?utm_source=rss
-            </link>
-            <pubDate>
-                Mon, 03 Jun 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<blockquote><p><strong>EDIT</strong>: This trick will probably not be as effective on your system as it was on my system. After writing this post I realized that I had the <code>HOMEBREW_NO_INSTALL_CLEANUP=1</code> flag enabled on my system.</p></blockquote>
-
-<p>My system (MacOS) is getting more cluttered the more I use it. I&#39;m sure you can relate. If you&#39;re using <a href="https://brew.sh/">Brew</a> as your package manager (which you should 😉), you might want to consider running the following command:</p>
-
-<p><code>
-brew cleanup -s
-</code></p>
-
-<p>For some reason this failed after some time with a &quot;directory not found&quot; error, but you can just run it again and it will continue cleaning up old caches. Once it was done, this freed up <strong>40 GB of disk space</strong> on my system. It might make sense to run this as a cronjob? Either way, I just wanted to jot this down before I enevitably forget this, as usual.</p>]]>
             </description>
         </item>
     </channel>
