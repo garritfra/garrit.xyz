@@ -1,10 +1,10 @@
 ---
-title: "Container Interfaces"
+title: "About Container Interfaces"
 date: "2025-03-25"
 tags: "infrastructure, note, tech"
 ---
 
-There are a couple of interfaces that container orchestration systems (like [Kubernetes](https://kubernetes.io)) implement to expose certain behavior to their container workloads. I will only be talking about Kubernetes in this post since it's the orchestrator I'm most comfortable with, but some interfaces are also implemented in other orchestrators (like [HashiCorp Nomad](https://www.nomadproject.io/)) too, which makes the interfaces cross-plattform.
+There are a couple of interfaces that container orchestration systems (like [Kubernetes](https://kubernetes.io)) implement to expose certain behavior to their container workloads. I will only be talking about Kubernetes in this post since it's the orchestrator I'm most comfortable with, but some interfaces are also implemented in other orchestrators (like [HashiCorp Nomad](https://www.nomadproject.io/)) too, which makes the interfaces cross-platform.
 
 ## Container Storage Interface (CSI)
 
