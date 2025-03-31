@@ -30,6 +30,6 @@
 		"sass": "1.85.1",
 		"ts-node": "10.9.2",
 		"typescript": "^5.8.2",
-		"xml-formatter": "^3.6.4"
+		"xml-formatter": "^3.6.5"
 	}
 }
