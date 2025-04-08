@@ -8,6 +8,10 @@ siteTitle: "Garrit's CV"
 - **Advanced Technical Certificate**, 2015 - 2017
 - **Mobile Software Developer** (Traineeship), 2017 - 2020
 
+## Certifications
+
+- **Kubernetes and Cloud Native Associate** | Cloud Native Computing Foundation | July 2023
+
 ## Professional Experience
 
 ### SHAPE DACH GmbH
