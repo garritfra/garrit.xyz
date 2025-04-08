@@ -8,6 +8,10 @@ siteTitle: "Garrit's CV"
 - **Advanced Technical Certificate**, 2015 - 2017
 - **Mobile Software Developer** (Traineeship), 2017 - 2020
 
+## Certifications
+
+- **Kubernetes and Cloud Native Associate** | Cloud Native Computing Foundation | July 2023
+
 ## Professional Experience
 
 ### SHAPE DACH GmbH
@@ -22,7 +26,23 @@ siteTitle: "Garrit's CV"
   - Provisioning and management of clusters using OpenStack
   - End-to-end monitoring with Prometheus and Grafana
 
-**Software Developer** | March 2021 - March 2023
+**Software Developer** | March 2021 - Present
+
+- Precision face measurement application:
+  - iOS Developer
+  - Created solution for custom medical magnification Glasses
+
+- Medical AI Chatbot:
+  - Cross-Platform Developer using Flutter
+  - AI Engineer implementing RAG
+	- Provided evidence-based guidance to Healthcare Professionals
+  - Streamlined clinical decision-making
+ 
+- Web-based Loyalty Platform:
+  - Architect and Full Stack Developer
+  - Seamlessly integrated with a Mobile Fueling and Charging Application
+  - Used Laravel and React to drive user retention
+ 
 - HBBTV media library for public television:
   - Designed and implemented BFF (backend for frontend) using Nest.js
   - Designed and implemented device configuration microservice
@@ -31,7 +51,7 @@ siteTitle: "Garrit's CV"
   - Developed Flutter-based mobile application
   - Integrated platform-dependent features for background tasks and microphone usage
 
-- Web-based convention application:
+- Immersive virtual trade fair platform:
   - Developed APIs using Node.js and GraphQL
   - Built content management system with React and Material Design
   - Implemented performance optimizations:
