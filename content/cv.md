@@ -26,7 +26,7 @@ siteTitle: "Garrit's CV"
   - Provisioning and management of clusters using OpenStack
   - End-to-end monitoring with Prometheus and Grafana
 
-**Software Developer** | March 2021 - March 2023
+**Software Developer** | March 2021 - Present
 
 - Precision face measurement application:
   - iOS Developer
