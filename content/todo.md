@@ -46,6 +46,7 @@
 - A life quest generator (inspired by [this post](https://www.raptitude.com/2024/08/do-quests-not-goals/))
 - A website that can "reset" a dependency lockfile (e.g. `requirements.txt`, `package-lock.json`, ...) to a given date. All versions will be pinned to the latest available version at that time. Useful to recreate a development environment after a long time has passed
 - Tamagotchi/Clippy-like pet for your code editor - you have to take care of it while you code
+- A [MCP](https://modelcontextprotocol.io) server for [Dwarf Fortress](https://www.bay12games.com/dwarves/)
 
 ## Website Roadmap
 
