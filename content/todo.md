@@ -47,6 +47,7 @@
 - A website that can "reset" a dependency lockfile (e.g. `requirements.txt`, `package-lock.json`, ...) to a given date. All versions will be pinned to the latest available version at that time. Useful to recreate a development environment after a long time has passed
 - Tamagotchi/Clippy-like pet for your code editor - you have to take care of it while you code
 - A [MCP](https://modelcontextprotocol.io) server for [Dwarf Fortress](https://www.bay12games.com/dwarves/)
+- A VSCode plugin that highlights frequently changed lines of a project - helps brings awareness to avoid merge conflicts 
 
 ## Website Roadmap
 
