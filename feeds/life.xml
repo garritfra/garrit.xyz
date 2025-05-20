@@ -14,8 +14,33 @@
             en
         </language>
         <lastBuildDate>
-            Sun, 29 Dec 2024 00:00:00 +0000
+            Tue, 20 May 2025 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                No matter what you do, always leave a breadcrumb
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2025-05-20-no-matter-what-you-do-always-leave-a-breadcrumb
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2025-05-20-no-matter-what-you-do-always-leave-a-breadcrumb?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 20 May 2025 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>This applies to work tasks just as much as it applies to hobbies. No matter what you do, always create some sort of breadcrumb that you or someone else can pick up down the line.</p>
+
+<p>If you build a feature into your app, you&#39;ve generated an output, and therefore value. But what if you bang your head against the wall and don&#39;t make any progress? Write about it. Write about your challenges, document what you&#39;ve learned and share it with your peers. Not reaching a set goal doesn&#39;t mean failure. It&#39;s an opportunity to create value in a way you didn&#39;t anticipate.</p>
+
+<p>If you&#39;re out on a run and a thought pops into your head, record a memo on your phone, or better yet: <a href="https://garrit.xyz/posts/2023-09-09-everyday-carry-notebooks">keep a tiny notebook with you at all times</a>. Thoughts slip in and out of our heads at a very rapid pace. Capturing thoughts, even if you don&#39;t share them with anyone else, is a great way to generate value out of thin air.</p>
+
+<p>If you&#39;re into crafty hobbies like woodworking, painting or baking, you likely know how important it is to finish a project. No matter how good or bad the outcome is, every finished project is an artifact that you can look back at later and see the progress you&#39;ve made.</p>
+
+<p>Output always means value, even if it&#39;s not immediately apparent. Just keep on laying down those breadcrumbs.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 2024 in Review
@@ -387,65 +412,6 @@
 This does result in missing ~important things occasionally (e.g. I still don&#39;t know what happened with SamA at OpenAI, and yes, I am curious), but that&#39;s a small price to pay for greater intellectual sanctity and an increased attention budget to distribute across important tasks or funnel into something hyper focussed.</p></blockquote>
 
 <p>Is this news important <em>now</em> or do I benefit from it in the long term? Our time is the most precious resource we have, and we should be careful how we spend it.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                2023 in Review
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-12-30-2023-in-review
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-12-30-2023-in-review?utm_source=rss
-            </link>
-            <pubDate>
-                Sat, 30 Dec 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>That&#39;s a wrap! 2023 was an exciting year for me. I started my new role as a <a href="/posts/2023-04-22-the-role-of-a-devops-engineer">DevOps Engineer</a> at my current company, I got <a href="https://www.golem.de/news/open-source-der-patch-basierte-git-workflow-soll-bleiben-2302-171585.html">two</a> <a href="https://www.golem.de/news/wertestrom-in-devops-das-projekt-am-laufen-halten-2312-180174.html">articles</a> published on a prominent German news site and finally finished my <a href="https://100daystooffload.com/">#100DaysToOffload</a> challenge!</p>
-
-<p>This year, I launched two projects: <a href="https://sendpasswords.net/">sendpasswords.net</a> and <a href="https://github.com/garritfra/positive_hackernews">Positive Hacker News</a>.</p>
-
-<p>In <a href="/posts/2023-01-02-welcome-2023">last year&#39;s review</a>, I said I wanted to launch <a href="https://github.com/garritfra/fling">Fling</a>, my household management app. Fling is currently in open alpha, so you can try it out <a href="https://play.google.com/store/apps/details?id=de.garritfra.fling">on Android</a> or via the <a href="https://fling-list.web.app">hosted website</a> to give feedback! I&#39;m planning a public release very soon.</p>
-
-<p>Furthermore, I wanted to launch <a href="https://docs.kubinity.com/">Kubinity</a>. This was a very ambitious project, and although it technically works, it&#39;s very hard to maintain due to high running costs, which I&#39;m not ready to pay yet.</p>
-
-<p>I have some more drafts for projects in private repositories. One project that I&#39;m feeling comfortable to release next year is a website for the #10ShittyProjects (working title) hashtag. More on that hopefully later!</p>
-
-<h2>Goals for 2024</h2>
-
-<p>Here are some personal goals that I want to set myself for the upcoming year. Some of them are already defined on my <a href="/impossible">impossible list</a>.</p>
-
-<ul><li>Build a side project that generated at least 100€ of value</li><li>Get a scuba diving license</li><li>Do a 10 km run (I really need to start moving again)</li><li>Sell my car</li><li>Write at least 50 blog posts</li></ul>
-
-<h2>Prediction results</h2>
-
-<p><strong>&quot;Meta will change course (again), and kill the &quot;Metaverse&quot;&quot;</strong></p>
-
-<p>A <a href="https://labs.sogeti.com/the-metaverse-is-dead/#:~:text=The%20Real%20Promise%20of%20VR%2FAR%20Lies%20in%20Training%20Simulations&amp;text=Yet%2C%20as%20of%202023%2C%20we,Reality%20(AR)%20has%20diminished.">quick Google search</a> reveals that the metaverse as originally imagined is not dead, but it&#39;s focus shifted to a more enterprise-y approach. I must admit that this prediction was quite vague. Depending on whom you ask, the metaverse is <a href="https://en.m.wikipedia.org/wiki/Schr%C3%B6dinger%27s_cat">both alive and dead at the same time</a>.</p>
-
-<p><strong>&quot;Cheap matter devices will enter the market. As a reference point: I predict that there will be a matter-ready smart plug for under 20€ on Amazon&quot;</strong></p>
-
-<p>I found <a href="https://amzn.eu/d/iA9ZBQf">this</a> matter-enabled smart plug on Amazon for 19,54€. If this is a real product, I&#39;d say my prediction is a pass!</p>
-
-<p><strong>&quot;AI generated content will be regulated in some way&quot;</strong></p>
-
-<p>Also a pass! On December 9th, the European union agreed on the <a href="https://www.europarl.europa.eu/news/en/headlines/society/20230601STO93804/eu-ai-act-first-regulation-on-artificial-intelligence">EU AI Act</a> and will now become EU law.</p>
-
-<p><strong>&quot;Twitter is still around, but it&#39;s still not profitable&quot;</strong></p>
-
-<p>Twitter is in fact <a href="https://www.businessofapps.com/data/twitter-statistics/#:~:text=Twitter%20generated%20%244.4%20billion%20revenue%20in%202022%2C%20a%2011%25%20decrease,a%20loss%20of%20advertising%20revenue.">still not profitable</a>. I&#39;ll leave the &quot;Twitter is still around&quot; part up for debate, as it&#39;s now called X.</p>
-
-<p><strong>&quot;I still won&#39;t have finished my #100DaysToOffload challenge from 2021&quot;</strong></p>
-
-<p>Wrong!! In early December, I decided to push through and whip out one post a day. I <a href="https://garrit.xyz/posts/2023-12-23-100daystooffload-i-made-it">finished the challenge</a>!</p>
-
-<h2>2024 Predictions</h2>
-
-<ul><li>Bitcoin will at last reach a value of 100,000$, following the <a href="https://www.nicehash.com/countdown/btc-halving-2024-05-10-12-00">halving</a> likely happening in 2024</li><li>SpaceX will use a <a href="https://www.spacex.com/vehicles/starship/">Starship</a> prototype to launch Starlink satellites into orbit</li><li>Tesla cars a still not fully self driving (<a href="https://motherfrunker.ca/fsd/">reference</a>)</li><li>Google will replace their main search with an AI chat bot (see <a href="https://bard.google.com">Bard</a>)</li></ul>
-
-<p>Let&#39;s see what 2024 brings to the table!</p>]]>
             </description>
         </item>
     </channel>

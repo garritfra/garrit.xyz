@@ -14,8 +14,33 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 25 Mar 2025 00:00:00 +0000
+            Tue, 20 May 2025 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                No matter what you do, always leave a breadcrumb
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2025-05-20-no-matter-what-you-do-always-leave-a-breadcrumb
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2025-05-20-no-matter-what-you-do-always-leave-a-breadcrumb?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 20 May 2025 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>This applies to work tasks just as much as it applies to hobbies. No matter what you do, always create some sort of breadcrumb that you or someone else can pick up down the line.</p>
+
+<p>If you build a feature into your app, you&#39;ve generated an output, and therefore value. But what if you bang your head against the wall and don&#39;t make any progress? Write about it. Write about your challenges, document what you&#39;ve learned and share it with your peers. Not reaching a set goal doesn&#39;t mean failure. It&#39;s an opportunity to create value in a way you didn&#39;t anticipate.</p>
+
+<p>If you&#39;re out on a run and a thought pops into your head, record a memo on your phone, or better yet: <a href="https://garrit.xyz/posts/2023-09-09-everyday-carry-notebooks">keep a tiny notebook with you at all times</a>. Thoughts slip in and out of our heads at a very rapid pace. Capturing thoughts, even if you don&#39;t share them with anyone else, is a great way to generate value out of thin air.</p>
+
+<p>If you&#39;re into crafty hobbies like woodworking, painting or baking, you likely know how important it is to finish a project. No matter how good or bad the outcome is, every finished project is an artifact that you can look back at later and see the progress you&#39;ve made.</p>
+
+<p>Output always means value, even if it&#39;s not immediately apparent. Just keep on laying down those breadcrumbs.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 About Container Interfaces
@@ -446,29 +471,6 @@ brew cleanup -s
 </code></p>
 
 <p>For some reason this failed after some time with a &quot;directory not found&quot; error, but you can just run it again and it will continue cleaning up old caches. Once it was done, this freed up <strong>40 GB of disk space</strong> on my system. It might make sense to run this as a cronjob? Either way, I just wanted to jot this down before I enevitably forget this, as usual.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Going from self hosted to managed software
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-05-24-going-from-self-hosted-to-managed-software
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-05-24-going-from-self-hosted-to-managed-software?utm_source=rss
-            </link>
-            <pubDate>
-                Fri, 24 May 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Some time ago I was heavily into <a href="https://garrit.xyz/posts/2022-09-26-self-hosted-software-im-thankful-for">self hosting my own software</a>. Over time though, it became apparent that maintaining these services is a huge burden. I either abandoned most of the services or found a replacement that suits my needs and saves me time that&#39;s better spent on other things in life.</p>
-
-<p>Today, I finally pulled the plug on <a href="https://miniflux.app/">Miniflux</a>, the last service I used to self host (not counting House Assistant on a Pi, which I use to automate some stuff at home). The Hetzner server it ran on cost me ~4€ a month. The maintainer of Miniflux offers a managed hosting solution for 15$ a year, so to save money and time, and to support the project, I decided to switch from self-hosted to managed.</p>
-
-<h2>Will I ever self host again?</h2>
-
-<p>I really don&#39;t know. Some services (Miniflux included) required very little maintenance to keep running, so I could see myself spinning up a server again if I really wanted to run some software that doesn&#39;t have managed hosting. For now though, I&#39;m planning on using managed services wherever I can. Nevertheless I&#39;m proud of the things I learned during my time of self hosting my software. I think it gave me a huge boost both in terms of know how and my career, and I&#39;d encourage everyone to dip a toe into self hosting.</p>]]>
             </description>
         </item>
     </channel>
