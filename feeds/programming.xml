@@ -14,8 +14,101 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 24 Sep 2024 00:00:00 +0000
+            Wed, 11 Jun 2025 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                git diff --ignore-all-space makes code reviews way easier
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2025-06-11-git-diff-ignore-all-space-makes-code-reviews-way-easier
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2025-06-11-git-diff-ignore-all-space-makes-code-reviews-way-easier?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 11 Jun 2025 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just learned a cool trick that I want to share. Let&#39;s review the diff of a file using <code>git diff</code>. I redacted most of it, but you probably found yourself in the situation of extremely long changes before:</p>
+
+<p><code></code>`
+diff --git a/lib/ui/screens/detail/components/body/event<em>body.dart b/lib/ui/screens/detail/components/body/event</em>body.dart
+index d19d70a..1a61380 100644
+--- a/lib/ui/screens/detail/components/body/event<em>body.dart
++++ b/lib/ui/screens/detail/components/body/event</em>body.dart
+@@ -3,6 +3,7 @@
+ class EventBody extends StatelessWidget {
+   final EventDetails details;
+@@ -18,35 +19,43 @@ class EventBody extends StatelessWidget {</p>
+
+<p>   @override
+   Widget build(BuildContext context) =&gt; Column(
+-        crossAxisAlignment: CrossAxisAlignment.stretch,
+-        children: [
+-          EventInfoView(
+-            location: details.location,
+-            start: details.start,
+-            end: details.end,
+-            certified: details.certified,
+-            paid: details.paid,
+-            points: null, // Already shown in app bar
++    crossAxisAlignment: CrossAxisAlignment.stretch,
++    children: [
++      EventInfoView(
++        location: details.location,
++        start: details.start,
++        end: details.end,
++        certified: details.certified,
++        paid: details.paid,
++        points: null, // Already shown in app bar
++      ),
++      const SizedBox(height: 24),
++      Html(
++        data: details.description,
++        style: {
++          &#39;body&#39;: Style(
++            margin: Margins.zero,
+...
+ }
+<code></code>`</p>
+
+<p>But do you spot what has ACTUALLY been changed? In a real world scenario, it probably took you a while before you realised that it&#39;s the result of formatting the entire file. Nobody cares about whitespace when reviewing code. Or rather, your brain should not take the burden of having to care about that. That&#39;s what linters are for!</p>
+
+<p>Let&#39;s look at the same diff with the <code>--ignore-all-space</code> (shorthand <code>-w</code>) flag activated:</p>
+
+<p><code>
+diff --git a/lib/ui/screens/detail/components/body/event_body.dart b/lib/ui/screens/detail/components/body/event_body.dart
+index d19d70a..1a61380 100644
+--- a/lib/ui/screens/detail/components/body/event_body.dart
++++ b/lib/ui/screens/detail/components/body/event_body.dart
+@@ -3,6 +3,7 @@
+ class EventBody extends StatelessWidget {
+   final EventDetails details;
+@@ -29,6 +30,14 @@ class EventBody extends StatelessWidget {
+         points: null, // Already shown in app bar
+       ),
+       const SizedBox(height: 24),
++      Html(
++        data: details.description,
++        style: {
++          &#39;body&#39;: Style(
++            margin: Margins.zero,
++          ),
++        },
++      ),
+       Text(details.description, style: context.theme.textTheme.body2Regular),
+       if (details.registrationUrl != null || details.programUrl != null) const SizedBox(height: 16),
+       if (details.registrationUrl != null) ...[
+</code></p>
+
+<p>Huh, so it&#39;s NOT just a formatted file. All whitespace changes have been stripped out, and you only see the changes that are relevant for the review. Neat!</p>
+
+<p>Many tools also support ignoring whitespace. GitLab let&#39;s you disable <code>Show whitespace changes</code> in the merge request diff viewer. VSCode has the <code>diffEditor.ignoreTrimWhitespace</code> setting. So, if you want to make this the default in your tools, chances are there&#39;s an option for only showing relevant changes.</p>
+
+<p>A bit of a sloppy post, but I hope this is useful to someone. Happy code reviewing!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Installing MSSQL Client Drivers for a PHP Application
@@ -447,70 +540,6 @@ working</strong> step, inspect the filesystem, and execute the failing command m
 <p>That&#39;s all!</p>
 
 <p>This is post 039 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                The only true answer to 'tabs vs spaces'
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2022-06-29-the-only-true-answer-to-tabs-vs-spaces
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2022-06-29-the-only-true-answer-to-tabs-vs-spaces?utm_source=rss
-            </link>
-            <pubDate>
-                Wed, 29 Jun 2022 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I recently dove into a new project at work. We&#39;re starting from a blank page,
-so of course this classic question came up:</p>
-
-<blockquote><p>&quot;So should we use tabs or spaces for our formatting?&quot;</p></blockquote>
-
-<p>One of my teammates explained to us why the only logical answer to this is
-&quot;Tabs&quot;, and you&#39;ll soon know why.</p>
-
-<h2>The problem</h2>
-
-<p>Most formatters, by default, use either two or four spaces for indentation by
-default. The <a href="https://prettier.io/">Prettier</a> formatter does this, and it
-somewhat became the norm for JavaScript projects. This has one huge downside
-though: everyone on the team has to agree, or live with this standard.</p>
-
-<p>Nowadays, almost all editors come with the ability to change the preferred
-indentation settings, which will be overridden by the settings of the
-formatter. I prefer an indentation of 4 spaces, which is reflected in all of my
-code. If I&#39;m working on a project that uses an indentation of 2 spaces via
-prettier, my preference will be overridden when formatting the code.</p>
-
-<h2>Just use tabs</h2>
-
-<p>The solution to this problem is simple: Create a <code>.editorconfig</code> file and set
-the indentation style to tab, without a width:</p>
-
-<p><code></code>`editorconfig
-root = true</p>
-
-<p>[*]
-end<em>of</em>line = lf
-charset = utf-8
-indent_style = tab
-<code></code>`</p>
-
-<p>Almost all editors will be able to pick this file up and configure some
-project-wide settings. If your editor is configured to use a indent width of 4,
-this setting will be respected. If you&#39;re a maniac that indents their code with
-8 spaces, you&#39;ll be pleased to see that you can finally use this style in your
-code, without forcing anyone else to do as you do.</p>
-
-<p>Even GitHub, GitLab and friends are able to respect this setting, giving
-everyone the opportunity to view code in their preferred style.</p>
-
-<p>I hope you now know why using a single tab of indentation makes the most sense if
-you&#39;re working in a team. Let me know your thoughts!</p>
-
-<p>This is post 035 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

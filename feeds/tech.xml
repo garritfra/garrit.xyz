@@ -14,8 +14,101 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 20 May 2025 00:00:00 +0000
+            Wed, 11 Jun 2025 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                git diff --ignore-all-space makes code reviews way easier
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2025-06-11-git-diff-ignore-all-space-makes-code-reviews-way-easier
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2025-06-11-git-diff-ignore-all-space-makes-code-reviews-way-easier?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 11 Jun 2025 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I just learned a cool trick that I want to share. Let&#39;s review the diff of a file using <code>git diff</code>. I redacted most of it, but you probably found yourself in the situation of extremely long changes before:</p>
+
+<p><code></code>`
+diff --git a/lib/ui/screens/detail/components/body/event<em>body.dart b/lib/ui/screens/detail/components/body/event</em>body.dart
+index d19d70a..1a61380 100644
+--- a/lib/ui/screens/detail/components/body/event<em>body.dart
++++ b/lib/ui/screens/detail/components/body/event</em>body.dart
+@@ -3,6 +3,7 @@
+ class EventBody extends StatelessWidget {
+   final EventDetails details;
+@@ -18,35 +19,43 @@ class EventBody extends StatelessWidget {</p>
+
+<p>   @override
+   Widget build(BuildContext context) =&gt; Column(
+-        crossAxisAlignment: CrossAxisAlignment.stretch,
+-        children: [
+-          EventInfoView(
+-            location: details.location,
+-            start: details.start,
+-            end: details.end,
+-            certified: details.certified,
+-            paid: details.paid,
+-            points: null, // Already shown in app bar
++    crossAxisAlignment: CrossAxisAlignment.stretch,
++    children: [
++      EventInfoView(
++        location: details.location,
++        start: details.start,
++        end: details.end,
++        certified: details.certified,
++        paid: details.paid,
++        points: null, // Already shown in app bar
++      ),
++      const SizedBox(height: 24),
++      Html(
++        data: details.description,
++        style: {
++          &#39;body&#39;: Style(
++            margin: Margins.zero,
+...
+ }
+<code></code>`</p>
+
+<p>But do you spot what has ACTUALLY been changed? In a real world scenario, it probably took you a while before you realised that it&#39;s the result of formatting the entire file. Nobody cares about whitespace when reviewing code. Or rather, your brain should not take the burden of having to care about that. That&#39;s what linters are for!</p>
+
+<p>Let&#39;s look at the same diff with the <code>--ignore-all-space</code> (shorthand <code>-w</code>) flag activated:</p>
+
+<p><code>
+diff --git a/lib/ui/screens/detail/components/body/event_body.dart b/lib/ui/screens/detail/components/body/event_body.dart
+index d19d70a..1a61380 100644
+--- a/lib/ui/screens/detail/components/body/event_body.dart
++++ b/lib/ui/screens/detail/components/body/event_body.dart
+@@ -3,6 +3,7 @@
+ class EventBody extends StatelessWidget {
+   final EventDetails details;
+@@ -29,6 +30,14 @@ class EventBody extends StatelessWidget {
+         points: null, // Already shown in app bar
+       ),
+       const SizedBox(height: 24),
++      Html(
++        data: details.description,
++        style: {
++          &#39;body&#39;: Style(
++            margin: Margins.zero,
++          ),
++        },
++      ),
+       Text(details.description, style: context.theme.textTheme.body2Regular),
+       if (details.registrationUrl != null || details.programUrl != null) const SizedBox(height: 16),
+       if (details.registrationUrl != null) ...[
+</code></p>
+
+<p>Huh, so it&#39;s NOT just a formatted file. All whitespace changes have been stripped out, and you only see the changes that are relevant for the review. Neat!</p>
+
+<p>Many tools also support ignoring whitespace. GitLab let&#39;s you disable <code>Show whitespace changes</code> in the merge request diff viewer. VSCode has the <code>diffEditor.ignoreTrimWhitespace</code> setting. So, if you want to make this the default in your tools, chances are there&#39;s an option for only showing relevant changes.</p>
+
+<p>A bit of a sloppy post, but I hope this is useful to someone. Happy code reviewing!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 No matter what you do, always leave a breadcrumb
@@ -446,31 +539,6 @@ curl http://localhost:11434/api/chat -d &#39;{
 <p>If your local machine is not beefy enough and you want to try out a large LLM on a rented server (AWS has <code>g5.2xlarge</code>, which gave me good results for <code>mixtral 8x7b</code>), you also have to set <code>OLLAMA_HOST=0.0.0.0</code> in your environment variables to be able to reach the remote server. <strong>This exposes the LLM to the public internet, so be careful when chosing your deployment strategy.</strong></p>
 
 <p>And there you go! You just deployed your very own LLM. Pretty cool, huh?</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                I just cleaned up 40 GB of Brew caches
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-06-03-i-just-cleaned-up-40-gb-of-brew-caches
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-06-03-i-just-cleaned-up-40-gb-of-brew-caches?utm_source=rss
-            </link>
-            <pubDate>
-                Mon, 03 Jun 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<blockquote><p><strong>EDIT</strong>: This trick will probably not be as effective on your system as it was on my system. After writing this post I realized that I had the <code>HOMEBREW_NO_INSTALL_CLEANUP=1</code> flag enabled on my system.</p></blockquote>
-
-<p>My system (MacOS) is getting more cluttered the more I use it. I&#39;m sure you can relate. If you&#39;re using <a href="https://brew.sh/">Brew</a> as your package manager (which you should 😉), you might want to consider running the following command:</p>
-
-<p><code>
-brew cleanup -s
-</code></p>
-
-<p>For some reason this failed after some time with a &quot;directory not found&quot; error, but you can just run it again and it will continue cleaning up old caches. Once it was done, this freed up <strong>40 GB of disk space</strong> on my system. It might make sense to run this as a cronjob? Either way, I just wanted to jot this down before I enevitably forget this, as usual.</p>]]>
             </description>
         </item>
     </channel>
