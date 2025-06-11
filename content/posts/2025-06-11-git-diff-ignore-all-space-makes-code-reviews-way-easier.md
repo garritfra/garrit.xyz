@@ -1,5 +1,5 @@
 ---
-title: "git diff --ignore-all-space makes code reviews way easier"
+title: "git diff --ignore-all-space makes code review way easier"
 date: "2025-06-11"
 tags: "guide, note, til, git, tech, programming"
 ---
