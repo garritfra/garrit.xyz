@@ -27,7 +27,7 @@
 		"raw-loader": "4.0.2",
 		"react-syntax-highlighter": "^15.6.1",
 		"rfc822-date": "0.0.3",
-		"sass": "1.89.1",
+		"sass": "1.89.2",
 		"ts-node": "10.9.2",
 		"typescript": "^5.8.3",
 		"xml-formatter": "^3.6.6"
