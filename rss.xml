@@ -14,8 +14,41 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 11 Jun 2025 00:00:00 +0000
+            Mon, 15 Sep 2025 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Making family IT support effortless (and free)
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2025-09-15-making-family-it-support-effortless-and-free
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2025-09-15-making-family-it-support-effortless-and-free?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 15 Sep 2025 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Yesterday was one of those days where a family member had an issue with their computer. &quot;It doesn&#39;t open when I click it&quot; was all the information I had going into it. Debugging that through the telephone is just not happening.</p>
+
+<p>I always stayed away from TeamViewer, because I was never really sure if that had a free plan, and the possibility of finding out mid-session that they don&#39;t have one was reason enough to save the hassle of yelling the installation instructions through the phone.</p>
+
+<p>I remember hearing about <a href="https://rustdesk.com/">RustDesk</a> in a podcast a couple of years ago. The host claimed it to be a hassle-free open source replacement for TeamViewer, but by the time the next IT-support session arrived, I already forgot about it. Until yesterday!</p>
+
+<p>Yesterday, I just didn&#39;t get enough information to be useful. I just needed a way to remotely access the computer, and that&#39;s then I remembered the promise of RustDesk. Going in blind, I quickly installed the client on my laptop and sent a mail with the instructions to my family member:</p>
+
+<ol><li>Click here (a download link to the executable file)</li><li>Press the windows key</li><li>Type &quot;rust&quot; (to search for the file)</li><li>Press enter</li><li>Tell me the ID and the onetime password on the screen</li></ol>
+
+<p>These instructions are fool-proof! And sure enough, they worked. I logged in and debugged the issue. No paywall, no corporate bullsh**, just a simple client that just works as intended out of the box. I was delighted to see that the plan has worked out. Going forward, Rustdesk will be my primary choice for remote IT support.</p>
+
+<p>If you&#39;re interested: for some reason the browser window on their screen was resized to a tiny box near the edge of the screen, so whenever they clicked a bookmarked link on their desktop, instead of &quot;nothing happening&quot;, they just didn&#39;t see the page opening in the browser.</p>
+
+<h2>TL;DR</h2>
+
+<p>Use <a href="https://rustdesk.com/">RustDesk</a> instead of TeamViewer for a free and easy way to access your family&#39;s computer remotely.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 git diff --ignore-all-space makes code review way easier
@@ -504,43 +537,6 @@ https://garritfra.github.io/positive_hackernews/feed.xml</p>]]>
 <p>Embeddings are a clever way to turn words (or images, or sounds) into numbers that computers can understand and compare. By doing this, we can make emerging AI technologies a whole lot smarter at understanding language and finding connections between ideas.</p>
 
 <p>Next time you&#39;re chatting with an AI or getting scarily accurate recommendations online, you can nod knowingly and think, &quot;Ah yes, embeddings at work!&quot;</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                🔗 Linkdump: LLMs
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-07-02-linkdump-llms
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-07-02-linkdump-llms?utm_source=rss
-            </link>
-            <pubDate>
-                Tue, 02 Jul 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>The more I&#39;m getting into large language models (LLMs), the more I&#39;m fascinated about what you can do with them. To &quot;digest&quot; my reading list of cool articles and projects regarding LLMs, I assembled the following list. If you&#39;re also interested but haven&#39;t started your journey into this neverending rabbit hole, these may contain some good pointers:</p>
-
-<h2>Running LLMs</h2>
-
-<ul><li><a href="https://ollama.com/">Ollama</a> - Host different LLMs locally (extremely easy!)</li><li><a href="https://docs.vllm.ai">vLLM</a> - Like Ollama but more scalable and production-ready</li><li><a href="https://github.com/Mozilla-Ocho/llamafile">llamafile</a> - LLMs as a single, portable binary</li></ul>
-
-<h2>Building Chatbots &amp; Applications</h2>
-
-<ul><li><a href="https://www.llamaindex.ai/">LlamaIndex</a> - Framework for building LLM applications</li><li><a href="https://github.com/run-llama/create-llama/">create-llama</a> - LlamaIndex template generator (perfect for if you don&#39;t know how to structure your app)</li><li><a href="https://www.langchain.com/">LangChain</a> - Like LlamaIndex with a less clean interface IMO</li><li><a href="https://haystack.deepset.ai/overview/intro">Haystack</a> - Another LLM framework. Haven&#39;t tested it though</li><li><a href="https://sdk.vercel.ai/docs/introduction">Vercel AI SDK</a> - For integrating your LLM app into a web frontend</li></ul>
-
-<h2>Training and finetuning</h2>
-
-<ul><li><a href="https://huggingface.co/">HuggingFace</a> - GitHub but for LLMs</li><li><a href="https://medium.com/data-science-in-your-pocket/lora-for-fine-tuning-llms-explained-with-codes-and-example-62a7ac5a3578">LoRA for Fine-Tuning LLMs explained with codes and example</a> - Great LoRA Primer</li><li><a href="https://huggingface.co/autotrain">AutoTrain</a> - NoCode LLM finetuning</li><li><a href="https://github.com/georgian-io/LLM-Finetuning-Toolkit">llm-toolkit</a> - Another finetuning framework</li><li><a href="https://mlflow.org/">MLFlow</a> - End to End platform for LLM training</li></ul>
-
-<h2>Miscellaneous projects</h2>
-
-<ul><li><a href="https://github.com/iyaja/llama-fs">llama-fs</a> - Self-organinizing filesystem</li><li><a href="https://github.com/ask-fini/paramount">paramount</a> - Measure agent accuracy</li></ul>
-
-<h2>Blogs</h2>
-
-<ul><li><a href="https://simonwillison.net/tags/llms/">Simon Willison</a> - Awesome posts from a LLM enthusiast</li><li><a href="https://matt-rickard.com/tags/ai">Matt Richard</a> - Matt is currently inactive, but his blog is a treasure trove</li></ul>]]>
             </description>
         </item>
     </channel>

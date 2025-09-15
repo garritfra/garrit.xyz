@@ -14,8 +14,41 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 20 May 2025 00:00:00 +0000
+            Mon, 15 Sep 2025 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Making family IT support effortless (and free)
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2025-09-15-making-family-it-support-effortless-and-free
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2025-09-15-making-family-it-support-effortless-and-free?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 15 Sep 2025 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Yesterday was one of those days where a family member had an issue with their computer. &quot;It doesn&#39;t open when I click it&quot; was all the information I had going into it. Debugging that through the telephone is just not happening.</p>
+
+<p>I always stayed away from TeamViewer, because I was never really sure if that had a free plan, and the possibility of finding out mid-session that they don&#39;t have one was reason enough to save the hassle of yelling the installation instructions through the phone.</p>
+
+<p>I remember hearing about <a href="https://rustdesk.com/">RustDesk</a> in a podcast a couple of years ago. The host claimed it to be a hassle-free open source replacement for TeamViewer, but by the time the next IT-support session arrived, I already forgot about it. Until yesterday!</p>
+
+<p>Yesterday, I just didn&#39;t get enough information to be useful. I just needed a way to remotely access the computer, and that&#39;s then I remembered the promise of RustDesk. Going in blind, I quickly installed the client on my laptop and sent a mail with the instructions to my family member:</p>
+
+<ol><li>Click here (a download link to the executable file)</li><li>Press the windows key</li><li>Type &quot;rust&quot; (to search for the file)</li><li>Press enter</li><li>Tell me the ID and the onetime password on the screen</li></ol>
+
+<p>These instructions are fool-proof! And sure enough, they worked. I logged in and debugged the issue. No paywall, no corporate bullsh**, just a simple client that just works as intended out of the box. I was delighted to see that the plan has worked out. Going forward, Rustdesk will be my primary choice for remote IT support.</p>
+
+<p>If you&#39;re interested: for some reason the browser window on their screen was resized to a tiny box near the edge of the screen, so whenever they clicked a bookmarked link on their desktop, instead of &quot;nothing happening&quot;, they just didn&#39;t see the page opening in the browser.</p>
+
+<h2>TL;DR</h2>
+
+<p>Use <a href="https://rustdesk.com/">RustDesk</a> instead of TeamViewer for a free and easy way to access your family&#39;s computer remotely.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 No matter what you do, always leave a breadcrumb
@@ -390,28 +423,6 @@
 <p><img alt="P2170733 - Kopie.JPG" src="https://github.com/garritfra/garrit.xyz/assets/32395585/d44f52a2-2228-4a3e-801d-930f0eddf975"/></p>
 
 <p>After Phuket, we went to Vietnam where we&#39;re currently also on a lot of fun diving trips. But I&#39;ll save that for another dive log post.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Temporal vs. fundamental content
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-01-02-temporal-vs-fundamental-content
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-01-02-temporal-vs-fundamental-content?utm_source=rss
-            </link>
-            <pubDate>
-                Tue, 02 Jan 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I just read <a href="https://news.ycombinator.com/item?id=38829907">this comment</a> on a thread on HackerNews which resonated with me:</p>
-
-<blockquote><p>I&#39;m trying to read less temporal (things that matter now) and more fundamental (stuff that mattered 1+ year ago and will still matter in 1+ year, with even wider intervals for non-tech content).
-This does result in missing ~important things occasionally (e.g. I still don&#39;t know what happened with SamA at OpenAI, and yes, I am curious), but that&#39;s a small price to pay for greater intellectual sanctity and an increased attention budget to distribute across important tasks or funnel into something hyper focussed.</p></blockquote>
-
-<p>Is this news important <em>now</em> or do I benefit from it in the long term? Our time is the most precious resource we have, and we should be careful how we spend it.</p>]]>
             </description>
         </item>
     </channel>

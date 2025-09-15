@@ -14,8 +14,41 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 11 Jun 2025 00:00:00 +0000
+            Mon, 15 Sep 2025 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Making family IT support effortless (and free)
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2025-09-15-making-family-it-support-effortless-and-free
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2025-09-15-making-family-it-support-effortless-and-free?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 15 Sep 2025 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Yesterday was one of those days where a family member had an issue with their computer. &quot;It doesn&#39;t open when I click it&quot; was all the information I had going into it. Debugging that through the telephone is just not happening.</p>
+
+<p>I always stayed away from TeamViewer, because I was never really sure if that had a free plan, and the possibility of finding out mid-session that they don&#39;t have one was reason enough to save the hassle of yelling the installation instructions through the phone.</p>
+
+<p>I remember hearing about <a href="https://rustdesk.com/">RustDesk</a> in a podcast a couple of years ago. The host claimed it to be a hassle-free open source replacement for TeamViewer, but by the time the next IT-support session arrived, I already forgot about it. Until yesterday!</p>
+
+<p>Yesterday, I just didn&#39;t get enough information to be useful. I just needed a way to remotely access the computer, and that&#39;s then I remembered the promise of RustDesk. Going in blind, I quickly installed the client on my laptop and sent a mail with the instructions to my family member:</p>
+
+<ol><li>Click here (a download link to the executable file)</li><li>Press the windows key</li><li>Type &quot;rust&quot; (to search for the file)</li><li>Press enter</li><li>Tell me the ID and the onetime password on the screen</li></ol>
+
+<p>These instructions are fool-proof! And sure enough, they worked. I logged in and debugged the issue. No paywall, no corporate bullsh**, just a simple client that just works as intended out of the box. I was delighted to see that the plan has worked out. Going forward, Rustdesk will be my primary choice for remote IT support.</p>
+
+<p>If you&#39;re interested: for some reason the browser window on their screen was resized to a tiny box near the edge of the screen, so whenever they clicked a bookmarked link on their desktop, instead of &quot;nothing happening&quot;, they just didn&#39;t see the page opening in the browser.</p>
+
+<h2>TL;DR</h2>
+
+<p>Use <a href="https://rustdesk.com/">RustDesk</a> instead of TeamViewer for a free and easy way to access your family&#39;s computer remotely.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 git diff --ignore-all-space makes code review way easier
@@ -492,53 +525,6 @@ Subject: Test Message</p>
 <p>In case there&#39;s a firewall issue, you might not be able to establish a connection in the first place, or you won&#39;t get a reply to your TCP commands. In our case, everything worked fine.</p>
 
 <p>I hope this is useful!</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Host your own LLM
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-06-17-host-your-own-llm
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-06-17-host-your-own-llm?utm_source=rss
-            </link>
-            <pubDate>
-                Mon, 17 Jun 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I&#39;m currently dipping my toes into Large Language Models (LLMs, or &quot;AI&quot;) and what you can do with them. It&#39;s a fascinating topic, so expect some more posts on this in the coming days and weeks.</p>
-
-<p>For starters, I wanted to document how I got my first LLM running on my local machine (a 2022 MacBook Pro). <a href="https://ollama.com/">Ollama</a> makes this process super easy. You just install it (<code>brew install ollama</code> in my case) and then run the model:</p>
-
-<p><code>
-ollama run llama3
-</code></p>
-
-<p>This will download the model and open a prompt, so you can start chatting right away!</p>
-
-<p>You can think of Ollama as the <a href="https://www.docker.com/">Docker</a> CLI but for LLMs. There&#39;s a <a href="https://ollama.com/library">directory of LLMs</a>, and if a model has multiple different sizes, you can use it like you would pull a different docker tag:</p>
-
-<p><code>
-ollama pull llama3:8b
-ollama pull llama3:70b
-</code></p>
-
-<p>The best thing about ollama is that it also exposes a web server for you to integrate the LLM into your application. As an example, here&#39;s how you would curl your local LLM:</p>
-
-<p><code>
-curl http://localhost:11434/api/chat -d &#39;{
-    &quot;model&quot;: &quot;llama3&quot;,      
-    &quot;messages&quot;: [{ &quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Are you a robot?&quot; }],
-    &quot;stream&quot;: false
-}&#39;
-{&quot;model&quot;:&quot;llama3&quot;,&quot;created_at&quot;:&quot;2024-06-17T11:19:23.510588Z&quot;,&quot;message&quot;:{&quot;role&quot;:&quot;assistant&quot;,&quot;content&quot;:&quot;I am not a human, but I&#39;m also not a traditional robot. I&#39;m an artificial intelligence language model designed to simulate conversation and answer questions to the best of my ability. My \&quot;brain\&quot; is a complex algorithm that processes natural language inputs and generates responses based on patterns and associations learned from large datasets.\n\nWhile I don&#39;t have a physical body or consciousness like humans do, I&#39;m designed to interact with humans in a way that feels natural and conversational. I can understand and respond to questions, make suggestions, and even tell jokes (though my humor may be a bit... algorithmic).\n\nSo, while I&#39;m not a human or a traditional robot, I exist at the intersection of technology and language, designed to assist and communicate with humans in a helpful way!&quot;},&quot;done_reason&quot;:&quot;stop&quot;,&quot;done&quot;:true,&quot;total_duration&quot;:12565842250,&quot;load_duration&quot;:7059262291,&quot;prompt_eval_count&quot;:15,&quot;prompt_eval_duration&quot;:331275000,&quot;eval_count&quot;:156,&quot;eval_duration&quot;:5172858000}
-</code></p>
-
-<p>If your local machine is not beefy enough and you want to try out a large LLM on a rented server (AWS has <code>g5.2xlarge</code>, which gave me good results for <code>mixtral 8x7b</code>), you also have to set <code>OLLAMA_HOST=0.0.0.0</code> in your environment variables to be able to reach the remote server. <strong>This exposes the LLM to the public internet, so be careful when chosing your deployment strategy.</strong></p>
-
-<p>And there you go! You just deployed your very own LLM. Pretty cool, huh?</p>]]>
             </description>
         </item>
     </channel>
