@@ -11,6 +11,7 @@ siteTitle: "Garrit's CV"
 ## Certifications
 
 - **Kubernetes and Cloud Native Associate** | Cloud Native Computing Foundation | July 2023
+- **AWS Certified AI Practitioner** | Amazon Web Services | April 2025
 
 ## Professional Experience
 
