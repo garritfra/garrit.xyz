@@ -1,10 +1,11 @@
-# I'm Garrit, a generalist DevOps Engineer
+# I'm Garrit, a generalist Software Engineer
 
 My interests include...
 
-- Scalable Infrastructure
-- DevOps Practices
 - Fullstack Development
+- Scalable Infrastructure
+- AI Engineering
+- DevOps Practices
 - Minimalist Software
 - Free Software
 
