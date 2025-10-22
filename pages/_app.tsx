@@ -1,17 +1,7 @@
-import PlausibleProvider from "next-plausible";
 import "../styles/index.scss";
 
 function MyApp({ Component, pageProps }) {
-	return (
-		<PlausibleProvider
-			domain="garrit.xyz"
-			customDomain="https://analytics.slashdev.space"
-			selfHosted
-			trackOutboundLinks
-		>
-			<Component {...pageProps} />
-		</PlausibleProvider>
-	);
+	return <Component {...pageProps} />;
 }
 
 export default MyApp;

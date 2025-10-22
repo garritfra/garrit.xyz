@@ -57,6 +57,11 @@ export default function Meta(props) {
 					href="https://webmention.io/garrit.xyz/webmention"
 				/>
 				<link rel="pingback" href="https://webmention.io/garrit.xyz/xmlrpc" />
+				<script
+					defer
+					data-domain="garrit.xyz"
+					src="https://analytics.slashdev.space/js/plausible.js"
+				></script>
 			</Head>
 		</>
 	);

@@ -1,9 +1,6 @@
-import { usePlausible } from "next-plausible";
 import { Post } from "../lib/posts";
 
 const BlogList = ({ posts }) => {
-	const plausible = usePlausible();
-
 	const isPublicPost = (post: Post) => !post.slug.startsWith("_");
 	const publicPosts = posts.filter(isPublicPost);
 
@@ -26,9 +23,7 @@ const BlogList = ({ posts }) => {
 		<>
 			<div>
 				{publicPosts.length > 0 &&
-					publicPosts
-						.filter(isPublicPost)
-						.map(renderPost)}
+					publicPosts.filter(isPublicPost).map(renderPost)}
 			</div>
 		</>
 	);
