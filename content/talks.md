@@ -4,10 +4,12 @@ This is a collection of slides for talks I've given over the years.
 
 ### EN
 
+- [2025-01-16 - AI-Agents under the hood](/talks/2025-01-16_en_ai_agents.pdf)
 - [2021-02-04 - Compiler Internals](/talks/2021-02-04_en_compiler_internals.pdf)
 
 ### DE
 
+- [2023-03-28 - Git Tech Talk](/talks/2023-03-28_de_git_tech_talk.pdf)
 - [2022-03-08 - Go Tech Talk](/talks/2022-03-08_de_golang_tech_talk.pdf)
 - [2022-01-25 - Node.js Tech Talk](/talks/2022-01-25_de_nodejs_tech_talk.pdf)
 - [2021-11-18 - The Art of Bonsai](/talks/2021-11-18_de_the_art_of_bonsai.pdf)
