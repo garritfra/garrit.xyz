@@ -45,3 +45,27 @@ used by compilers for code generation.
 **[Antimony Programming language](https://github.com/antimony-lang/antimony)**
 
 A bullshit-free programming language that compiles to JavaScript.
+
+## Writing
+
+A selection of articles I've (co-)authored on sources other than my [blog](/posts):
+
+[KI Deep Dive: So verbindet MCP Daten und Agenten](https://shape.agency/insights/ki-deep-dive-mcp) - SHAPE, Apr 2025
+
+[AI Agents: Deep Dive](https://shape.agency/insights/ai-agents-deep-dive) - SHAPE, Dec 2024
+
+[DevOps: Mit häufigen Releases Burn-outs im Team reduzieren](https://www.golem.de/news/devops-mit-haeufigen-releases-burn-outs-im-team-reduzieren-2409-187373.html) - Golem.de, Sep 2024
+
+[KI Chatbots - Dein Guide](https://shape.agency/insights/ki-chatbots-dein-guide) - SHAPE, Sep 2024
+
+[DevOps: Mit Vertrauen zum Erfolg](https://shape.agency/insights/devops-mit-vertrauen-zum-erfolg) - SHAPE, Sep 2024
+
+[Datenschutzkonforme KI-Modelle](https://shape.agency/insights/datenschutzkonforme-ki-modelle) - SHAPE, Mar 2024
+
+[Wertestrom in DevOps: Das Projekt am Laufen halten](https://www.golem.de/news/wertestrom-in-devops-das-projekt-am-laufen-halten-2312-180174.html) - Golem.de, Dec 2023
+
+[Prinzipien von DevOps: Der Wertestrom](https://shape.agency/insights/prinzipien-von-devops-der-wertestrom) - SHAPE, Nov 2023
+
+[Automatische Dependency Updates - Dein Guide](https://shape.agency/insights/automatische-dependency-updates) - SHAPE, Jun 2023
+
+[Open Source: Der Patch-basierte Git-Workflow soll bleiben](https://www.golem.de/news/open-source-der-patch-basierte-git-workflow-soll-bleiben-2302-171585.html) - Golem.de, Feb 2023
