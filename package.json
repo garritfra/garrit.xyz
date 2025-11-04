@@ -24,7 +24,7 @@
 		"gray-matter": "4.0.3",
 		"next-sitemap": "4.2.3",
 		"raw-loader": "4.0.2",
-		"react-syntax-highlighter": "^15.6.6",
+		"react-syntax-highlighter": "^16.1.0",
 		"rfc822-date": "0.0.3",
 		"sass": "1.93.3",
 		"ts-node": "10.9.2",
