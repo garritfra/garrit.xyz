@@ -14,8 +14,46 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 17 Jun 2024 00:00:00 +0000
+            Thu, 11 Dec 2025 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Custom Entities in Home Assistant
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2025-12-11-custom-entities-in-home-assistant
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2025-12-11-custom-entities-in-home-assistant?utm_source=rss
+            </link>
+            <pubDate>
+                Thu, 11 Dec 2025 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>My local gym has a gauge on their website that shows an approximation of how many people are currently there. Being an avid <a href="https://www.home-assistant.io/">Home Assistant</a> user, of course I had to pipe that data into my dashboard somehow. For that, I created a simple <a href="https://n8n.io/">n8n</a> workflow that scrapes the data off the gym&#39;s site and dumps it into a custom entity.</p>
+
+<p>Because creating a custom entity was not quite so straight forward as I&#39;d hoped, I wanted to share how I did it.</p>
+
+<p>I ended up using the <code>input_number</code> integration (which seems to come with Home Assistant) and defined an entity that I could reference through the API:</p>
+
+<p><code></code>`yaml</p>
+
+<h1>configuration.yaml</h1>
+
+<p>input<em>number:
+  easyfitness</em>auslastung:
+    name: EasyFitness Auslastung
+    initial: 0
+    min: 0
+    max: 100
+    step: 1
+<code></code>`</p>
+
+<p>After reloading the configuration, the entity was ready to be written to.</p>
+
+<p>As mentioned, I&#39;m using a self-hosted instance of n8n on a Raspberry Pi to automate this. Using their <a href="https://n8n.io/integrations/home-assistant/">Home Assistant Integration</a>, you can simply address the new entity and update its state. And just like that, I was able to add a new Gauge to my dashboard!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Host your own LLM
@@ -593,59 +631,6 @@ healthchecks to my servers cronfiles and its backup-commands.</p>
 via Matrix or email!</p>
 
 <p>This is post 017 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                My storage setup (Feburary 2021)
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2021-02-07-storage-setup
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2021-02-07-storage-setup?utm_source=rss
-            </link>
-            <pubDate>
-                Sun, 07 Feb 2021 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I used to rely on Google Drive and Photos to store my entire data. Now, that <a href="https://blog.google/products/photos/storage-changes/">Google has decided to ditch unlimited photo storage in the near future</a> and Google basically being the devil himself, I decided to step up my game and get my hands dirty on a DIY storage solution.</p>
-
-<h2>The goal</h2>
-
-<p>Before I got started, I thought about the expectations I have towards a system like this. It boils down to these four points (in this order): I want my solution to be <strong>resiliant</strong>, <strong>scalable</strong>, <strong>easy to maintain</strong> and <strong>easy to access</strong>. Looking back, I think I met all of these requirements fairly well. Let me walk you through how I managed to do that.</p>
-
-<h2>Data resiliance</h2>
-
-<p>Keeping data on a single device is obviously a really bad idea. Drives eventually fail, which means that your data will be lost. Heck, even my house could burn down, which means that any number of local copies could burn to ashes. To prevent data loss, I strictly adhere to the <a href="https://www.backblaze.com/blog/the-3-2-1-backup-strategy/">3-2-1 backup strategy</a>. A 3-2-1 strategy means having <strong>at least three total copies of your data, two of which are local but on different mediums (read: devices), and at least one copy off-site</strong>. If a drive fails, I can replace it. If my house burns down, I get two new drives and clone my offsite backup to them.</p>
-
-<p>To get an offsite backup, I set up a spare Raspberry Pi with a single large HDD and instructed it to do daily backups of my entire data. I asked a family member if they would be willing to have a tiny computer plugged in to their router 24/7, and they kindly agreed. A Pi and a HDD are very efficient in terms of power, so there is not a lot to worry about.</p>
-
-<h2>Scalability</h2>
-
-<p>I currently don&#39;t have a huge amount of data. If that were to change (i.e. if I continue to shoot a lot of high-res photos and shove them into my setup), I need a way to simply attach more drives, or ones with more capacity. I looked at different file-systems that allowed to easy extendability while also being resiliant.</p>
-
-<p>An obvious candidate was <strong>ZFS</strong>, but there are a couple of reasons I ditched this idea. First of all, it is really hard to get up and running on Raspberry Pi running Linux, since it&#39;s not natively supported by all distributions. This increases the complexity of the setup. Another reason is that I don&#39;t like the way it scales. Please correct me if I&#39;m wrong here, since I only did limited research on this. From what I know though, ZFS can only be extended by shoving a large amount of drives in the setup to achieve perfect redundancy.</p>
-
-<p>In the end, I settled on <strong>BTRFS</strong>. For me, it scratches all the itches that ZFS has. It is baked into the linux kernel, which makes it really easy to install on most distributions, and I can scale it to any number of drives I want. If I find a spare drive somewhere with any storage capacity, I can plug it into the system and it will just work, without having to think about balancing or redundancy shenanigans.</p>
-
-<h2>Maintainability</h2>
-
-<p>I need my setup to be easy to maintain. If a drive fails, I want to be able to replace it within a matter of minutes, not hours. If my host (a Raspberry Pi) bursts into flames, I want to be able to swap in a new one and still access my data. If I&#39;m out and about and something goes south, I want to be able to fix it remotely. BTRFS helps a lot here. It&#39;s really the foundation for all the key points mentioned here. It gives me a simple interface to maintain the data on the drives, and tries to fix issues itself whenever possible.</p>
-
-<p>Exposing random ports to the general public is a huge security risk. To still be able to access the Pi remotely, I set up <strong>an encrypted WireGuard tunnel</strong>. This way, I only have to expose a single port for WireGuard to talk to the device as if I&#39;m sitting next to it.</p>
-
-<h2>Accessibility</h2>
-
-<p>Since the data needs to be accessed frequently, I need a simple interface for it that can be used on any device. I decided to host a <strong>Nextcloud</strong> instance and mount the drive as external storage. Why external storage? Because Nextcloud does some weird thing with the data it stores. If I decide to ditch Nextcloud at some point, I have the data on the disks &quot;as is&quot;, without some sort of abstraction on top of it. This also has the benefit of allowing access from multiple sources. I don&#39;t have to use Nextcloud, but instead can mount the volume as a FTP, SMB or NFS share and do whatever I want with it. From the nextcloud perspective, this has some drawbacks like inefficient caching or file detection, but I&#39;m willing to make that tradeoff.</p>
-
-<h2>In a nutshell</h2>
-
-<p>This entire setup cost me about 150€ in total. Some components were scraped from old PC parts. So, what does the solution look like? Here is the gist:</p>
-
-<ul><li>A Raspberry Pi 4 as a main host and an older Raspberry Pi 3 for offsite backup, both running Raspberry Pi OS</li><li>Two external harddrives in a RAID 1 (mirrored) configuration, running on an external USB3 hub</li><li>A single internal HDD that served no purpose in my old PC, now serving as backup storage</li><li>All drives are using BTRFS</li><li>WireGuard tunnels between main and remote host, as well as most access devices</li><li>Nextcloud on main host, accessible over TLS (if I need to access data from outside the secure tunnel-network)</li><li>SMB share accessible from within the tunnel-network</li><li>Circa 4.5 terabyte total disk size; 1.5 terabyte of usable storage</li><li>Snapper for local incremental backups on main host; BTRBK for remote incremental backups</li><li>Cron jobs for regular backups and repairs (scrub/rebalance)</li></ul>
-
-<p>This is post 010 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
