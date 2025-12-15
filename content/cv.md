@@ -25,6 +25,7 @@ siteTitle: "Garrit's CV"
 
 **Software Developer** | March 2021 - Present
 
+- Developed agentic conversational experience for a large German automotive manufacturer, integrating online car configurator and stock car market into a unified AI-powered platform
 - Built iOS precision face measurement application for custom medical magnification glasses
 - Developed cross-platform medical AI chatbot using Flutter and LlamaIndex, providing evidence-based clinical guidance to healthcare professionals
 - Architected full-stack loyalty platform (Laravel/React) integrated with mobile fueling and charging application
