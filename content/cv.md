@@ -25,12 +25,13 @@ siteTitle: "Garrit's CV"
 
 **Software Developer** | March 2021 - Present
 
-- Developed agentic conversational experience for a large German automotive manufacturer, integrating online car configurator and stock car market into a unified AI-powered platform
-- Built iOS precision face measurement application for custom medical magnification glasses
-- Developed cross-platform medical AI chatbot using Flutter and LlamaIndex, providing evidence-based clinical guidance to healthcare professionals
-- Architected full-stack loyalty platform (Laravel/React) integrated with mobile fueling and charging application
-- Designed and implemented BFF microservice (Nest.js) and device configuration service for a HBBTV media library
-- Developed immersive virtual trade fair platform with Node.js/GraphQL APIs, React CMS, and optimized performance (Redis caching, AWS Serverless Components, incremental rendering)
+* Developed agentic conversational experience for a large German automotive manufacturer, integrating online configurator and stock car market into a unified AI-powered platform
+* Developed and maintained internal multi-tenant AI platform for privacy-aware enterprise use, featuring collaborative tools and multi-provider architecture supporting various LLM backends
+* Built iOS precision face measurement application for custom medical magnification glasses
+* Developed cross-platform medical AI chatbot using Flutter and LlamaIndex, providing evidence-based clinical guidance to healthcare professionals
+* Architected full-stack loyalty platform (Laravel/React) integrated with mobile fueling and charging application
+* Designed and implemented BFF microservice (Nest.js) and device configuration service for a HBBTV media library
+* Developed immersive virtual trade fair platform with Node.js/GraphQL APIs, React CMS, and optimized performance (Redis caching, AWS Serverless Components, incremental rendering)
 
 ### CGI Germany
 
