@@ -385,7 +385,7 @@ jobs:
                 Mon, 20 Nov 2023 00:00:00 +0000
             </pubDate>
             <description>
-                <![CDATA[<blockquote><p>This is a reply to Tony Mottaz&#39; <a href="https://www.tonymottaz.com/code-for-computers-and-humans/">blog post</a> about code that&#39;s easy to understand for humans.</p></blockquote>
+                <![CDATA[<blockquote><p>This is a reply to Tony Mottaz&#39; <a href="https://www.tonymottaz.com/blog/code-for-computers-and-humans/">blog post</a> about code that&#39;s easy to understand for humans.</p></blockquote>
 
 <p>The understandability of a piece of code can be measured by how much time one needs to grasp its behavior. Less cognitive load usually means easier, and therefore faster, to understand.</p>
 
