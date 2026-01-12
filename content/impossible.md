@@ -20,4 +20,6 @@
 - ~~Run a half marathon~~ (March 18, 2018)
 - Run a marathon
 - Finish a sprint triathlon
+- Finish an Ironman 70.3
+- Finish an Ironman
 - Finish the [Iron Lake Challenge](https://rockyourgoal.de/en/iron-lake-challenge) (in my state)
