@@ -14,8 +14,27 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 20 May 2025 00:00:00 +0000
+            Mon, 02 Feb 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                The Cult of Done Manifesto
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-02-02-the-cult-of-done-manifesto
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-02-02-the-cult-of-done-manifesto?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 02 Feb 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p><a href="https://medium.com/@bre/the-cult-of-done-manifesto-724ca1c2ff13">The Cult of Done Manifesto</a> is a fascinating way of embracing a chaotic mind. I copied the 13 golden rules into my very first <a href="https://garrit.xyz/posts/2023-09-09-everyday-carry-notebooks">pocket notebook</a> and stumble upon them from time to time.</p>
+
+<blockquote><ol><li>There are three states of being. Not knowing, action and completion.</li><li>Accept that everything is a draft. It helps to get it done.</li><li>There is no editing stage.</li><li>Pretending you know what you’re doing is almost the same as knowing what you are doing, so just accept that you know what you’re doing even if you don’t and do it.</li><li>Banish procrastination. If you wait more than a week to get an idea done, abandon it.</li><li>The point of being done is not to finish but to get other things done.</li><li>Once you’re done you can throw it away.</li><li>Laugh at perfection. It’s boring and keeps you from being done.</li><li>People without dirty hands are wrong. Doing something makes you right.</li><li>Failure counts as done. So do mistakes.</li><li>Destruction is a variant of done.</li><li>If you have an idea and publish it on the internet, that counts as a ghost of done.</li><li>Done is the engine of more.</li></ol></blockquote>]]>
+            </description>
+        </item>
         <item>
             <title>
                 No matter what you do, always leave a breadcrumb
@@ -334,68 +353,6 @@
 <hr/>
 
 <p>This is post 060 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                A software requirements checklist
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-03-11-a-software-requirements-checklist
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-03-11-a-software-requirements-checklist?utm_source=rss
-            </link>
-            <pubDate>
-                Sat, 11 Mar 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I just found a <a href="https://www.etsy.com/codeascraft/a-checklist-manifetsy">great post</a> on the Etsy Engineering blog suggesting a possible checklist for new product requirements. In reality, this checklist is very hard to fulfill, but it&#39;s a nice reminder of what a well thought out requirement could look like.</p>
-
-<h3>Scope</h3>
-
-<ul><li>Is the feature meant to be very polished and finished or are we just trying to get user feedback as an MVP?</li><li>If we are running a MVP, is the current feature a true MVP? How can we simplify or cut scope?</li></ul>
-
-<h3>Eligibility</h3>
-
-<ul><li>What populations should be included or excluded from the experiment? When should users see this feature? (Which pages, signed in/signed out, mobile, desktop, etc.)
-Where/when should bucketing occur?</li><li>Will the experiment conflict with any other experiments? Do the experiments need to run exclusively?</li><li>What countries should the experiment run in (can impact translations)?</li></ul>
-
-<h3>A11Y</h3>
-
-<ul><li>Is there any special accessibility work this feature will require? If extra work is anticipated, check in early with our a11y team.</li><li>When testing and developing we should keep two users in mind - a keyboard user and a voice over user, do we need to add other code for these users?</li></ul>
-
-<h3>Translations</h3>
-
-<ul><li>Are there any strings to be translated that should be submitted ASAP?</li><li>Do we need to translate any labels for a11y?</li></ul>
-
-<h3>Observability</h3>
-
-<ul><li>How will we know that the feature is working? Are there existing graphs we can use or do we need new ones?</li><li>Should any of these metrics have a threshold or alerting?</li><li>Are we missing any key events to obtain user feedback?</li><li>How will we compare our control and variant?</li></ul>
-
-<h3>Performance</h3>
-
-<ul><li>Is there anything in my experiment that could degrade performance of the site?</li><li>Do I need an operational experiment to verify that I’m not impacting performance?</li></ul>
-
-<h3>Error States</h3>
-
-<ul><li>Do we have designs for loading states?</li><li>Do we have designs for unsuccessful requests and error handling?</li><li>Do we have informative logging when there are errors?</li></ul>
-
-<h3>QA</h3>
-
-<ul><li>What set of browsers and devices should we test our new feature against?</li><li>Which user perspectives do we need to test?</li></ul>
-
-<h3>Ramping</h3>
-
-<ul><li>What will our ramping strategy be?</li></ul>
-
-<hr/>
-
-<p>Check out the <a href="https://www.etsy.com/codeascraft/a-checklist-manifetsy">original post</a> for a full writeup and the intentions behind this checklist.</p>
-
-<hr/>
-
-<p>This is post 056 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
