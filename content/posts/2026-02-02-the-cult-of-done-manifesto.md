@@ -1,7 +1,7 @@
 ---
 title: "The Cult of Done Manifesto"
 date: "2026-02-02"
-tags: "note, practices, writing, life"
+tags: "note, practices, writing, life, quote"
 ---
 
 [The Cult of Done Manifesto](https://medium.com/@bre/the-cult-of-done-manifesto-724ca1c2ff13) is a fascinating way of embracing a chaotic mind. I copied the 13 golden rules into my very first [pocket notebook](https://garrit.xyz/posts/2023-09-09-everyday-carry-notebooks) and stumble upon them from time to time.
