@@ -4,7 +4,7 @@ date: "2023-09-09"
 tags: "100DaysToOffload, note, life, notebooks"
 ---
 
-Since about a month, I've been carrying a tiny pocket notebook with me wherever
+Since about a month ago, I've been carrying a tiny pocket notebook with me wherever
 I go. It's small enough to fit in every pocket imaginable. It doesn't need to
 be recharged, it doesn't care if it gets wet. It's just right there whenever I
 need it.
@@ -40,5 +40,6 @@ Notebooks and other so called "EDC" (everyday carry) items are a true rabbit hol
 ---
 
 This is post 075 of [#100DaysToOffload](https://100daystooffload.com/).
+
 
 
