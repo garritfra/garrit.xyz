@@ -22,4 +22,4 @@
 - Finish a sprint triathlon
 - Finish an Ironman 70.3
 - Finish an Ironman
-- Finish the [Iron Lake Challenge](https://rockyourgoal.de/en/iron-lake-challenge) (in my state)
+- Finish the [Iron Lake Challenge](https://rockyourgoal.de/en/iron-lake-challenge) (in my state) (4 / 10)
