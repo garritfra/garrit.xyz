@@ -14,8 +14,31 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 02 Feb 2026 00:00:00 +0000
+            Tue, 03 Feb 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                The Scientific Method
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-02-03-the-scientific-method
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-02-03-the-scientific-method?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 03 Feb 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p><a href="https://en.wikipedia.org/wiki/Scientific_method">The Scientific Method</a> is widely accepted among researchers and academics to be the de facto standard of establishing truth.</p>
+
+<p>Lately, I was wandering if parts of the scientific method could more often be applied to every day life. There are <a href="https://www.sciencebuddies.org/science-fair-projects/science-fair/steps-of-the-scientific-method">many</a> <a href="https://www.khanacademy.org/science/biology/intro-to-biology/science-of-biology/a/the-science-of-biology">different</a> <a href="https://extension.unr.edu/publication.aspx?PubID=4239">resources</a> out there explaining the scientific method, often with examples of how to apply it outside of an academic environment. The core method is always the same (in this case, taken from <a href="https://www.sciencebuddies.org/science-fair-projects/science-fair/steps-of-the-scientific-method">sciencebuddies.org</a>):</p>
+
+<blockquote><ol><li>Ask a Question</li><li>Do Background Research</li><li>Construct a Hypothesis</li><li>Test Your Hypothesis by Doing an Experiment</li><li>Analyze Your Data and Draw a Conclusion</li><li>Communicate Your Results</li></ol></blockquote>
+
+<p>Related: <a href="https://garrit.xyz/posts/2024-01-30-to-prove-something-is-true-try-disproving-it-first">To prove something is true, try disproving it first</a></p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 The Cult of Done Manifesto
@@ -328,31 +351,6 @@
 <hr/>
 
 <p>This is post 065 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Software is not defined by the language it's written in
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-03-26-software-is-not-defined-by-the-language-it's-written-in
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-03-26-software-is-not-defined-by-the-language-it's-written-in?utm_source=rss
-            </link>
-            <pubDate>
-                Sun, 26 Mar 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Rust is not just a programming language, it&#39;s also a status symbol. By now, it kind of became a meme that people writing programs in Rust have to make explicit that &quot;X is written in Rust&quot;.</p>
-
-<p>How fast or safe the language is doesn&#39;t define how good the software is. Software in TypeScript can be just as good as software written in C, if written by the right people.</p>
-
-<p>When starting a new project, try to focus on the domain of the problem and pick a language based on that. Don&#39;t decide on the language before you know what problem you&#39;re trying to solve. If the answer to this is always one option (like Rust), <a href="https://seths.blog/2023/03/the-answer-to-every-question/">you might be in a bubble</a>.</p>
-
-<hr/>
-
-<p>This is post 060 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>

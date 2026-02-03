@@ -14,8 +14,31 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 02 Feb 2026 00:00:00 +0000
+            Tue, 03 Feb 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                The Scientific Method
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-02-03-the-scientific-method
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-02-03-the-scientific-method?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 03 Feb 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p><a href="https://en.wikipedia.org/wiki/Scientific_method">The Scientific Method</a> is widely accepted among researchers and academics to be the de facto standard of establishing truth.</p>
+
+<p>Lately, I was wandering if parts of the scientific method could more often be applied to every day life. There are <a href="https://www.sciencebuddies.org/science-fair-projects/science-fair/steps-of-the-scientific-method">many</a> <a href="https://www.khanacademy.org/science/biology/intro-to-biology/science-of-biology/a/the-science-of-biology">different</a> <a href="https://extension.unr.edu/publication.aspx?PubID=4239">resources</a> out there explaining the scientific method, often with examples of how to apply it outside of an academic environment. The core method is always the same (in this case, taken from <a href="https://www.sciencebuddies.org/science-fair-projects/science-fair/steps-of-the-scientific-method">sciencebuddies.org</a>):</p>
+
+<blockquote><ol><li>Ask a Question</li><li>Do Background Research</li><li>Construct a Hypothesis</li><li>Test Your Hypothesis by Doing an Experiment</li><li>Analyze Your Data and Draw a Conclusion</li><li>Communicate Your Results</li></ol></blockquote>
+
+<p>Related: <a href="https://garrit.xyz/posts/2024-01-30-to-prove-something-is-true-try-disproving-it-first">To prove something is true, try disproving it first</a></p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 The Cult of Done Manifesto
@@ -355,34 +378,6 @@
 <p>Our life is full of such toil. Mowing the lawn, cleaning the dishes and doing our taxes are examples of toil that prevents us from doing sustainable work. We should always seek to minimize toil where possible. We have dishwashers and spam filters to help us fight toil, but there are some reoccurring tasks that cannot be automated.</p>
 
 <p>Sisyphus eventually found peace with his fate. Instead of seeing his punishment as an eternal burden, he saw it as his life&#39;s purpose. Maybe those comparatively small annoyances in our life are worth enjoying. They&#39;re part of what makes us human.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Dive Log: Vietnam
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-03-12-dive-log-vietnam
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-03-12-dive-log-vietnam?utm_source=rss
-            </link>
-            <pubDate>
-                Tue, 12 Mar 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>So, after our <a href="/posts/2024-02-26-dive-log-phuket">adventures in Phuket</a>, we journeyed on to Nha Trang in Vietnam, where we also went diving.</p>
-
-<p>Unfortunately the visibility was average, and the wildlife in Nha Trang wasn&#39;t as diverse as in Phuket, but that only made the hermit crabs or the occasional lionfish feel just that much more special.</p>
-
-<p>In total, we did 4 dives in Nha Trang. Here&#39;s a full list, taken from my logbook:</p>
-
-<p>| Title       | Date       | Site       | Depth (m) | Time (min) | Highlights                   |
-| ----------- | ---------- | ---------- | --------- | ---------- | ---------------------------- |
-| Nha Trang 1 | 2024-02-25 | Dam Bay    | 12        | 45         | Cold water and sandy bottom  |
-| Nha Trang 2 | 2024-02-25 | Mot Island | 13.5      | 45         | Squids and lots of anemones  |
-| Nha Trang 3 | 2024-02-26 | Tam Island | 11.2      | 37         | Playing around with bouyancy |
-| Nha Trang 4 | 2024-02-26 | Tam Island | 10        | 46         | Hermit crabs                 |</p>]]>
             </description>
         </item>
     </channel>

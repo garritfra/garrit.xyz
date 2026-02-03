@@ -14,8 +14,31 @@
             en
         </language>
         <lastBuildDate>
-            Mon, 02 Feb 2026 00:00:00 +0000
+            Tue, 03 Feb 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                The Scientific Method
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-02-03-the-scientific-method
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-02-03-the-scientific-method?utm_source=rss
+            </link>
+            <pubDate>
+                Tue, 03 Feb 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p><a href="https://en.wikipedia.org/wiki/Scientific_method">The Scientific Method</a> is widely accepted among researchers and academics to be the de facto standard of establishing truth.</p>
+
+<p>Lately, I was wandering if parts of the scientific method could more often be applied to every day life. There are <a href="https://www.sciencebuddies.org/science-fair-projects/science-fair/steps-of-the-scientific-method">many</a> <a href="https://www.khanacademy.org/science/biology/intro-to-biology/science-of-biology/a/the-science-of-biology">different</a> <a href="https://extension.unr.edu/publication.aspx?PubID=4239">resources</a> out there explaining the scientific method, often with examples of how to apply it outside of an academic environment. The core method is always the same (in this case, taken from <a href="https://www.sciencebuddies.org/science-fair-projects/science-fair/steps-of-the-scientific-method">sciencebuddies.org</a>):</p>
+
+<blockquote><ol><li>Ask a Question</li><li>Do Background Research</li><li>Construct a Hypothesis</li><li>Test Your Hypothesis by Doing an Experiment</li><li>Analyze Your Data and Draw a Conclusion</li><li>Communicate Your Results</li></ol></blockquote>
+
+<p>Related: <a href="https://garrit.xyz/posts/2024-01-30-to-prove-something-is-true-try-disproving-it-first">To prove something is true, try disproving it first</a></p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 The Cult of Done Manifesto
@@ -476,33 +499,6 @@ RUN sudo phpenmod -v 8.3 -s apache2 sqlsrv pdo_sqlsrv</p>
 <p>If you&#39;re reading this in the future and Microsoft may have released a new version of the ODBC drivers, you may have to follow the new <a href="https://learn.microsoft.com/de-de/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver16&amp;tabs=debian18-install%2Calpine17-install%2Cdebian8-install%2Credhat7-13-install%2Crhel7-offline#18">installation instructions from their documentation</a>. It took me a while to realize that I couldn&#39;t install version 17 of the driver because I was using the installation instructions for version 18. They are apparently incompatible with each other.</p>
 
 <p>I hope that you&#39;ll never have to touch the shithole that is MSSQL, but if you do, I hope that this guide will be of value to you.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Mental AI Fog and how to cure it
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-09-01-AI-fog
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-09-01-AI-fog?utm_source=rss
-            </link>
-            <pubDate>
-                Sun, 01 Sep 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>The term &quot;AI Slop&quot; is currently on the rise. It describes all the AI generated images and texts we see on the internet. I&#39;d like to propose a term that basically describes reverse AI Slop: <strong>Mental AI Fog</strong>.</p>
-
-<p>Instead of <em>consuming</em> too much AI generated content (which also applies), AI Fog describes the inability to <em>produce</em> content without the help of AI. We&#39;re surrounded by flowery written articles and resources that we think that it&#39;s not worth it to put in the effort to write a text ourselves. This is comparable to how computer keyboards, spellchecking and autocorrection have rendered my generation and the ones to come incapable of comfortably writing longform text.</p>
-
-<p>I&#39;m currently strongly suffering from AI fog. I&#39;m so used to letting some LLM flesh out a quick and dirty prompt nowadays that it&#39;s hard for me to write this text, get the point across and not feel insecure about my style of writing. This site is supposed to be a way to persist my thoughts whenever I want to, but are they still <em>my</em> thoughts if they have been proofread and corrected by a computer?</p>
-
-<p>As a result, all these thoughts are piling up in my head. Where I previously braindumped thoughts on a piece of paper, I now only come up with a couple of words and let the AI elaborate. <strong>I&#39;m consuming what are supposed to be my own thoughts</strong>, which perpetuates the cycle.</p>
-
-<p>This needs to stop. I need to get back <strong>creating</strong> things myself. I decided to abandon the use of LLMs for most content on this site. And where AI has been used, it will be clearly mentioned. I&#39;m contemplating adding some sort of &quot;Backed by AI&quot; label for certain pages to make it harder for myself to fall back to a helping hand. I will likely still be using LLMs, but making it obvious will force me to mindfully choose where it will be used.</p>
-
-<p>Is this something you can relate to? Is AI fog even a fitting term for this? I don&#39;t know. And if it isn&#39;t, that&#39;s okay because I came up with it myself.</p>]]>
             </description>
         </item>
     </channel>
