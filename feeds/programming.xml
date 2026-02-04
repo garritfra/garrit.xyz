@@ -14,8 +14,47 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 11 Dec 2025 00:00:00 +0000
+            Wed, 04 Feb 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                A fix for long-pressing movement keys in VSCode with Vim-Mode
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-02-04-a-fix-for-long-pressing-movement-keys-in-vscode-with-vim-mode
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-02-04-a-fix-for-long-pressing-movement-keys-in-vscode-with-vim-mode?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 04 Feb 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<h2>The Setup</h2>
+
+<ul><li>MacOS</li><li>VSCode</li><li>Vim Extension</li></ul>
+
+<h2>The Issue</h2>
+
+<p>Long-pressing <code>j</code> or <code>k</code> (think &quot;down&quot; or &quot;up&quot; in Vim) only results in one down or up action, instead of continuous scrolling.</p>
+
+<h2>The Fix</h2>
+
+<p>In a terminal, run the following command:</p>
+
+<p><code>
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+</code></p>
+
+<p>Original post: https://stackoverflow.com/a/44010683</p>
+
+<h2>Additional tip</h2>
+
+<p>In the MacOS settings, set &quot;Key Repeat Rate&quot; and &quot;Delay Until Repeat&quot; to the highest setting to be able to scroll much faster.</p>
+
+<p>&lt;img width=&quot;478&quot; height=&quot;92&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/7bf85853-377d-4727-a5c8-2766f2794e8a&quot; /&gt;</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Custom Entities in Home Assistant
@@ -477,29 +516,6 @@ end
 <hr/>
 
 <p>This is post 099 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                🔗 Linkdump: Software Development
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-09-11-linkdump-software-development
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-09-11-linkdump-software-development?utm_source=rss
-            </link>
-            <pubDate>
-                Mon, 11 Sep 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Today, my feed is full of super interesting links. Here&#39;s a bunch of them, in no particular order. Some of them might be a bit older, but just as interesting:</p>
-
-<ul><li><a href="https://henrikwarne.com/2023/09/10/what-i-have-changed-my-mind-about-in-software-development/">What I Have Changed My Mind About in Software Development</a></li><li><a href="https://littleblah.com/post/2019-09-01-senior-engineer-checklist/">A Senior Engineer&#39;s CheckList</a></li><li><a href="https://thoughtshrapnel.com/2023/09/11/the-burnout-curve/">The burnout curve</a></li><li><a href="https://staysaasy.com/engineering/2023/06/18/how-to-be-an-engineer-pms-down-hate.html">How To Be An Engineer That PMs Don&#39;t Hate</a></li><li><a href="https://www.allthingsdistributed.com/2023/07/building-and-operating-a-pretty-big-storage-system.html">Building and operating a pretty big storage system called S3</a></li><li><a href="https://pdx.su/blog/2023-07-26-tailwind-and-the-death-of-craftsmanship/">Tailwind, and the death of web craftsmanship</a></li><li><a href="https://taylor.town/entire-career">Man Spends Entire Career Mastering Crappy Codebase</a></li><li><a href="https://lukeplant.me.uk/blog/posts/no-one-actually-wants-simplicity/">No one actually wants simplicity</a></li></ul>
-
-<hr/>
-
-<p>This is post 077 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
