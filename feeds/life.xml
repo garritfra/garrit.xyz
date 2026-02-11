@@ -14,8 +14,35 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 03 Feb 2026 00:00:00 +0000
+            Wed, 11 Feb 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                On Seeking Order in Chaos
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-02-11-on-seeking-order-in-chaos
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-02-11-on-seeking-order-in-chaos?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 11 Feb 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>From my <a href="https://garrit.xyz/posts/2023-09-09-everyday-carry-notebooks">notebook</a>:</p>
+
+<blockquote><p>Brains are pattern recognition machines.</p><p>I seek structure, sometimes meta-structure.</p><p>I try to structure how I structure things.</p><p>Projects, stories and adventures often only become apparent when they are in the past.</p><p>They evolve naturally, organically. Starting a project can result in something completely different. Is there a structure in that?</p><p>I am trying to find structure again.</p><p>Life is chaotic, and that&#39;s okay.</p></blockquote>
+
+<p>I had this on my mind for quite some time. I&#39;m trying to cope with chaos in my life. I <em>like</em> chaos, and I like turning chaos into order. But often, that does not work and I get frustrated.</p>
+
+<p>Projects - no matter if programming, writing, planning an event or woodworking - are inherently chaotic. There is no structure in the concept of a &quot;project&quot;. I want to think of a project as the sum of threads of actions towards a goal, and life is the sum of every project you ever started. I try to find a way to capture and grasp these &quot;threads&quot; - like commits on different branches of a code repository. On projects other than programming, this utterly fails.</p>
+
+<p>I have to keep telling myself to be fine with the fact that life does not follow a structure. My personal takeaway is learning to recognize when I am seeking structure as a response to anxiety vs. when I&#39;m doing it because it&#39;s actually useful.</p>
+
+<p>Am I alone with this? Does this resonate with anyone out there? I&#39;d love to hear from you.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 The Scientific Method
@@ -357,27 +384,6 @@
 <p>In case you&#39;re interested, I uploaded some of the bossfights during my playthrough in this YouTube playlist:</p>
 
 <p>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/videoseries?si=j1Ue2lrrLy1JTOM9&amp;amp;list=PLS8TKBZz1x5S6ojf24SMF1h_HYb4AyTxc&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen&gt;&lt;/iframe&gt;</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Toil
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-04-01-toil
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-04-01-toil?utm_source=rss
-            </link>
-            <pubDate>
-                Mon, 01 Apr 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>After cheating death himself, <a href="https://en.m.wikipedia.org/wiki/Sisyphus">Sisyphus</a> was punished to push a large boulder up a steep hill for eternity. Every time he reached the top, the boulder would roll back down and Sisyphus had to start over.</p>
-
-<p>Our life is full of such toil. Mowing the lawn, cleaning the dishes and doing our taxes are examples of toil that prevents us from doing sustainable work. We should always seek to minimize toil where possible. We have dishwashers and spam filters to help us fight toil, but there are some reoccurring tasks that cannot be automated.</p>
-
-<p>Sisyphus eventually found peace with his fate. Instead of seeing his punishment as an eternal burden, he saw it as his life&#39;s purpose. Maybe those comparatively small annoyances in our life are worth enjoying. They&#39;re part of what makes us human.</p>]]>
             </description>
         </item>
     </channel>

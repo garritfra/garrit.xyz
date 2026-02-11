@@ -14,8 +14,35 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 04 Feb 2026 00:00:00 +0000
+            Wed, 11 Feb 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                On Seeking Order in Chaos
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-02-11-on-seeking-order-in-chaos
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-02-11-on-seeking-order-in-chaos?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 11 Feb 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>From my <a href="https://garrit.xyz/posts/2023-09-09-everyday-carry-notebooks">notebook</a>:</p>
+
+<blockquote><p>Brains are pattern recognition machines.</p><p>I seek structure, sometimes meta-structure.</p><p>I try to structure how I structure things.</p><p>Projects, stories and adventures often only become apparent when they are in the past.</p><p>They evolve naturally, organically. Starting a project can result in something completely different. Is there a structure in that?</p><p>I am trying to find structure again.</p><p>Life is chaotic, and that&#39;s okay.</p></blockquote>
+
+<p>I had this on my mind for quite some time. I&#39;m trying to cope with chaos in my life. I <em>like</em> chaos, and I like turning chaos into order. But often, that does not work and I get frustrated.</p>
+
+<p>Projects - no matter if programming, writing, planning an event or woodworking - are inherently chaotic. There is no structure in the concept of a &quot;project&quot;. I want to think of a project as the sum of threads of actions towards a goal, and life is the sum of every project you ever started. I try to find a way to capture and grasp these &quot;threads&quot; - like commits on different branches of a code repository. On projects other than programming, this utterly fails.</p>
+
+<p>I have to keep telling myself to be fine with the fact that life does not follow a structure. My personal takeaway is learning to recognize when I am seeking structure as a response to anxiety vs. when I&#39;m doing it because it&#39;s actually useful.</p>
+
+<p>Am I alone with this? Does this resonate with anyone out there? I&#39;d love to hear from you.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 A fix for long-pressing movement keys in VSCode with Vim-Mode
@@ -368,83 +395,6 @@ index d19d70a..1a61380 100644
 <p>I guess this is an obvious feature for some people, but to me, it was a huge help once I found this out.</p>
 
 <p>Got any other neat tricks for working with LLMs? I&#39;d love to hear them!</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                2024 in Review
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-12-29-2024-in-review
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-12-29-2024-in-review?utm_source=rss
-            </link>
-            <pubDate>
-                Sun, 29 Dec 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>It&#39;s super exciting looking back at 2024. So much has happened! I haven&#39;t been very active on this blog lately, mainly because I&#39;ve been super busy in other areas of life.</p>
-
-<p>The biggest change for me this year is one that I can cross off of my <a href="/impossible">impossible list</a>: We bought a house! I&#39;ve been wanting to write post about this for a few weeks, and now that things are settling in, I might have the time to do that. In short: We moved from Brunswick (Germany) back to a more rural town just outside Brunswick. It&#39;s closer to my girlfriends workplace, closer to my family and overall way cheaper than properties in Brunswick. We&#39;re super happy about the house and have yet to find any major annoyances. The neighbors are nice, and the community is incredibly wholesome.</p>
-
-<p>As for other personal projects, there hasn’t been as much traction as there used to be. My interests have partially shifted to hobbies that don’t involve a computer, which I’m grateful for. I still love building software projects – especially now that it’s become so easy to get started with a project using an AI brainstorming companion – I just do it less often. I picked up running as a hobby (more on that later), gather with friends to play Dungeons &amp; Dragons and work on stuff in my new basement.</p>
-
-<h2>Goal Results</h2>
-
-<p>These are the goals <a href="https://garrit.xyz/posts/2023-12-30-2023-in-review">I set myself for 2024</a>:</p>
-
-<blockquote><p>Build a side project that generated at least 100€ of value</p></blockquote>
-
-<p>That’s a bust. As mentioned, I haven’t really spent a lot of time building side projects. And the ones I did build, I consider tools rather than an income stream.</p>
-
-<blockquote><p>Get a scuba diving license</p></blockquote>
-
-<p>I’m a certified PADI Open Water Diver! You can see some impressions <a href="https://garrit.xyz/posts/2024-02-26-dive-log-phuket">here</a> and <a href="https://garrit.xyz/posts/2024-03-12-dive-log-vietnam">here</a>.</p>
-
-<blockquote><p>Do a 10 km run (I really need to start moving again)</p></blockquote>
-
-<p>I ran three 10k runs this year. <a href="https://www.strava.com/activities/11416831567">The first in May</a>, then in <a href="https://www.strava.com/activities/11768631707">June</a> and finally, <a href="https://strava.app.link/P0Ulu4L1IPb">in September</a>, I improved my 2018 personal best by a few minutes!</p>
-
-<blockquote><p>Sell my car</p></blockquote>
-
-<p>Check. More infos <a href="https://garrit.xyz/posts/2024-05-08-i-sold-my-car">here</a>.</p>
-
-<blockquote><p>Write at least 50 blog posts</p></blockquote>
-
-<p>I didn’t reach this goal, but I’m also not disappointed by it. <a href="https://garrit.xyz/posts/2023-04-01-quality-vs.-quantity">The frequency of my posts varies</a>, and this year it was just lower than before.</p>
-
-<h2>2025 Goals</h2>
-
-<p>Here are some new goals for this year:</p>
-
-<ul><li>Build a side project that generated at least 100€ of value (I’m keeping this goal until I reach it!)</li><li>Run a half marathon (and optionally <a href="https://www.strava.com/activities/985747064">beat my PB</a>)</li><li>Learn woodworking and build something that takes at least 3 days to complete</li></ul>
-
-<h2>Prediction Results</h2>
-
-<p>The results for <a href="https://garrit.xyz/posts/2023-12-30-2023-in-review">last years predictions</a>:</p>
-
-<blockquote><p>Bitcoin will at last reach a value of 100,000$, following the<a href="https://www.nicehash.com/countdown/btc-halving-2024-05-10-12-00"> halving</a> likely happening in 2024</p></blockquote>
-
-<p><a href="https://www.nbcnews.com/business/markets/bitcoin-100000-rcna181008">Bitcoin did reach 100,000$</a>, though not following the halving event. Still, I’d call this a pass!</p>
-
-<blockquote><p>SpaceX will use a <a href="https://www.spacex.com/vehicles/starship/">Starship</a> prototype to launch Starlink satellites into orbit</p></blockquote>
-
-<p>Nope, they didn’t. But they made incredible leaps.</p>
-
-<blockquote><p>Tesla cars a still not fully self driving (<a href="https://motherfrunker.ca/fsd/">reference</a>)</p></blockquote>
-
-<p>They claim to launch it in Europe <a href="https://www.euronews.com/next/2024/09/05/tesla-says-full-self-driving-car-expected-in-europe-early-next-year-pending-regulatory-app">earlier next year</a>. It’s currently in closed testing. Still, I wouldn’t give it a pass.</p>
-
-<blockquote><p>Google will replace their main search with an AI chat bot (see<a href="https://bard.google.com/"> Bard</a>)</p></blockquote>
-
-<p>Not sure if I’d call Gemini a full replacement, but it does have a wrapper around their traditional search engine. The product is shit compared to Anthropic and OpenAI, but I would call this a pass, since you can use Gemini instead of Google Search.</p>
-
-<h2>2025 Predictions</h2>
-
-<ul><li>Apple will not ship a successor to the Apple Vision Pro</li><li>At least one country will mandate AI watermarking for all AI-generated content used in commercial applications</li><li>Russia and Ukraine will come to a consensus and end the war. Ukraine will have lost territory</li></ul>
-
-<p>And that&#39;s a wrap. I hope you all had a wonderful Christmas (if celebrated), and are as excited as I am for the new year!</p>]]>
             </description>
         </item>
     </channel>

@@ -14,8 +14,35 @@
             en
         </language>
         <lastBuildDate>
-            Thu, 27 Jun 2024 00:00:00 +0000
+            Wed, 11 Feb 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                On Seeking Order in Chaos
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-02-11-on-seeking-order-in-chaos
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-02-11-on-seeking-order-in-chaos?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 11 Feb 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>From my <a href="https://garrit.xyz/posts/2023-09-09-everyday-carry-notebooks">notebook</a>:</p>
+
+<blockquote><p>Brains are pattern recognition machines.</p><p>I seek structure, sometimes meta-structure.</p><p>I try to structure how I structure things.</p><p>Projects, stories and adventures often only become apparent when they are in the past.</p><p>They evolve naturally, organically. Starting a project can result in something completely different. Is there a structure in that?</p><p>I am trying to find structure again.</p><p>Life is chaotic, and that&#39;s okay.</p></blockquote>
+
+<p>I had this on my mind for quite some time. I&#39;m trying to cope with chaos in my life. I <em>like</em> chaos, and I like turning chaos into order. But often, that does not work and I get frustrated.</p>
+
+<p>Projects - no matter if programming, writing, planning an event or woodworking - are inherently chaotic. There is no structure in the concept of a &quot;project&quot;. I want to think of a project as the sum of threads of actions towards a goal, and life is the sum of every project you ever started. I try to find a way to capture and grasp these &quot;threads&quot; - like commits on different branches of a code repository. On projects other than programming, this utterly fails.</p>
+
+<p>I have to keep telling myself to be fine with the fact that life does not follow a structure. My personal takeaway is learning to recognize when I am seeking structure as a response to anxiety vs. when I&#39;m doing it because it&#39;s actually useful.</p>
+
+<p>Am I alone with this? Does this resonate with anyone out there? I&#39;d love to hear from you.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Testing SMTP connections
@@ -370,37 +397,6 @@ c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNvdmVy
 <hr/>
 
 <p>This is post 067 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Instant dark theme
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-04-12-instant-dark-theme
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-04-12-instant-dark-theme?utm_source=rss
-            </link>
-            <pubDate>
-                Wed, 12 Apr 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Thanks to <a href="https://jacksonchen666.com/">Jacksons</a> <a href="https://github.com/garritfra/darktheme.club/pull/79">update to darktheme.club</a>, I just came across a neat little <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme">CSS property</a> that turns a mostly CSS-free document into a pleasantly dark site:</p>
-
-<p><code>css
-:root {
-  color-scheme: light dark;
-}
-</code></p>
-
-<p>This will adjust all elements on the page to the color scheme preferred by the user - without any other custom styles! 🤯 It is also <a href="https://caniuse.com/mdn-css_properties_color-scheme">widely supported</a> by browsers.</p>
-
-<p>I&#39;ve always been quite dependent on CSS-frameworks for any project I&#39;m starting. Going forward, I&#39;d be interested to see how framework-less sites would feel using this property. If all else fails, there&#39;s always the awesome <a href="https://simplecss.org/">simple.css</a> library, which you can slap on top of a raw document to make it pretty (and dark, if preferred) without using custom classes.</p>
-
-<hr/>
-
-<p>This is post 064 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
