@@ -1,7 +1,7 @@
 ---
 title: "n8n-nodes-open5e: n8n community node that lets you access D&D 5th edition SRD content"
 date: "2026-02-13"
-tags: "note, tech, programming, n8n, automation"
+tags: "note, tech, programming, n8n, automation, ttrpg"
 ---
 
 [n8n-nodes-open5e](https://github.com/garritfra/n8n-nodes-open5e) is an n8n community node that lets you access [D&D 5th edition SRD content](https://www.dndbeyond.com/srd) from the [Open5e API](https://api.open5e.com) in your n8n workflows.
