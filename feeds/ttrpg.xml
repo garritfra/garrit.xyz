@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>
+            garrit.xyz
+        </title>
+        <link>
+            https://garrit.xyz
+        </link>
+        <description>
+            Garrit Franke
+        </description>
+        <language>
+            en
+        </language>
+        <lastBuildDate>
+            Fri, 13 Feb 2026 00:00:00 +0000
+        </lastBuildDate>
+        <item>
+            <title>
+                n8n-nodes-open5e: n8n community node that lets you access D&D 5th edition SRD content
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-02-13-n8n-nodes-open5e-n8n-community-node-that-lets-you-access-d-d-5th-edition-srd-content
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-02-13-n8n-nodes-open5e-n8n-community-node-that-lets-you-access-d-d-5th-edition-srd-content?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 13 Feb 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p><a href="https://github.com/garritfra/n8n-nodes-open5e">n8n-nodes-open5e</a> is an n8n community node that lets you access <a href="https://www.dndbeyond.com/srd">D&amp;D 5th edition SRD content</a> from the <a href="https://api.open5e.com">Open5e API</a> in your n8n workflows.</p>
+
+<p>The Open5e node provides access to 12 different D&amp;D 5e resources through the Open5e API. Each resource supports three operations:</p>
+
+<ul><li><strong>Get Many</strong>: Retrieve multiple items with optional filters and pagination</li><li><strong>Get</strong>: Retrieve a single item by its identifier (slug or key)</li><li><strong>Search</strong>: Search for items by name or description</li></ul>
+
+<h2>Example Workflows</h2>
+
+<h3>1. Random Encounter Generator</h3>
+
+<p>Create random encounters by fetching monsters filtered by challenge rating:</p>
+
+<ol><li>Add an Open5e node to your workflow</li><li>Select Resource: <strong>Monster</strong></li><li>Select Operation: <strong>Get Many</strong></li><li>In <strong>Filters</strong>, add:<ul><li>Challenge Rating: <code>5</code></li><li>Document Source: <code>wotc-srd</code></li></ul></li><li>Toggle <strong>Return All</strong> ON to get all matching monsters</li><li>Connect to a Function node to randomly select 3-5 monsters</li><li>Format the output as needed (Discord message, email, etc.)</li></ol>
+
+<h3>2. Spell Lookup Bot</h3>
+
+<p>Build a Discord bot that looks up spell information:</p>
+
+<ol><li>Use a Discord Trigger node to listen for commands</li><li>Add a Function node to extract the spell name from the command</li><li>Add an Open5e node:<ul><li>Resource: <strong>Spell</strong></li><li>Operation: <strong>Search</strong></li><li>Search Term: <code>={{ $json.spellName }}</code></li></ul></li><li>Add a Function node to format the spell details</li><li>Send the formatted spell info back to Discord</li></ol>
+
+<h3>3. Item Database Search</h3>
+
+<p>Search for magic items and weapons by name:</p>
+
+<ol><li>Add an HTTP Request trigger or Form trigger to accept search queries</li><li>Add an Open5e node:<ul><li>Resource: <strong>Magic Item</strong> (or <strong>Weapon</strong>)</li><li>Operation: <strong>Search</strong></li><li>Search Term: <code>={{ $json.query }}</code></li><li>Limit: <code>10</code></li></ul></li><li>Format and return the results</li></ol>
+
+<h2>Contributing</h2>
+
+<p>This is my first n8n community node. Contributions are welcome! Please feel free to submit a Pull Request or <a href="https://github.com/garritfra/n8n-nodes-open5e/issues">open an issue</a> if you encounter any issues.</p>]]>
+            </description>
+        </item>
+    </channel>
+</rss>
