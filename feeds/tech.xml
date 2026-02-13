@@ -14,8 +14,53 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 04 Feb 2026 00:00:00 +0000
+            Fri, 13 Feb 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                n8n-nodes-open5e: n8n community node that lets you access D&D 5th edition SRD content
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-02-13-n8n-nodes-open5e-n8n-community-node-that-lets-you-access-d-d-5th-edition-srd-content
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-02-13-n8n-nodes-open5e-n8n-community-node-that-lets-you-access-d-d-5th-edition-srd-content?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 13 Feb 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p><a href="https://github.com/garritfra/n8n-nodes-open5e">n8n-nodes-open5e</a> is an n8n community node that lets you access <a href="https://www.dndbeyond.com/srd">D&amp;D 5th edition SRD content</a> from the <a href="https://api.open5e.com">Open5e API</a> in your n8n workflows.</p>
+
+<p>The Open5e node provides access to 12 different D&amp;D 5e resources through the Open5e API. Each resource supports three operations:</p>
+
+<ul><li><strong>Get Many</strong>: Retrieve multiple items with optional filters and pagination</li><li><strong>Get</strong>: Retrieve a single item by its identifier (slug or key)</li><li><strong>Search</strong>: Search for items by name or description</li></ul>
+
+<h2>Example Workflows</h2>
+
+<h3>1. Random Encounter Generator</h3>
+
+<p>Create random encounters by fetching monsters filtered by challenge rating:</p>
+
+<ol><li>Add an Open5e node to your workflow</li><li>Select Resource: <strong>Monster</strong></li><li>Select Operation: <strong>Get Many</strong></li><li>In <strong>Filters</strong>, add:<ul><li>Challenge Rating: <code>5</code></li><li>Document Source: <code>wotc-srd</code></li></ul></li><li>Toggle <strong>Return All</strong> ON to get all matching monsters</li><li>Connect to a Function node to randomly select 3-5 monsters</li><li>Format the output as needed (Discord message, email, etc.)</li></ol>
+
+<h3>2. Spell Lookup Bot</h3>
+
+<p>Build a Discord bot that looks up spell information:</p>
+
+<ol><li>Use a Discord Trigger node to listen for commands</li><li>Add a Function node to extract the spell name from the command</li><li>Add an Open5e node:<ul><li>Resource: <strong>Spell</strong></li><li>Operation: <strong>Search</strong></li><li>Search Term: <code>={{ $json.spellName }}</code></li></ul></li><li>Add a Function node to format the spell details</li><li>Send the formatted spell info back to Discord</li></ol>
+
+<h3>3. Item Database Search</h3>
+
+<p>Search for magic items and weapons by name:</p>
+
+<ol><li>Add an HTTP Request trigger or Form trigger to accept search queries</li><li>Add an Open5e node:<ul><li>Resource: <strong>Magic Item</strong> (or <strong>Weapon</strong>)</li><li>Operation: <strong>Search</strong></li><li>Search Term: <code>={{ $json.query }}</code></li><li>Limit: <code>10</code></li></ul></li><li>Format and return the results</li></ol>
+
+<h2>Contributing</h2>
+
+<p>This is my first n8n community node. Contributions are welcome! Please feel free to submit a Pull Request or <a href="https://github.com/garritfra/n8n-nodes-open5e/issues">open an issue</a> if you encounter any issues.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 A fix for long-pressing movement keys in VSCode with Vim-Mode
@@ -443,73 +488,6 @@ RUN sudo phpenmod -v 8.3 -s apache2 sqlsrv pdo_sqlsrv</p>
 
 <p>If you want to subscribe to more positive tech news, simply replace your Hacker News feed of your RSS reader with this one (or add it if you haven&#39;t already):
 https://garritfra.github.io/positive_hackernews/feed.xml</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                How embedding models encode semantic meaning
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-08-03-how-embedding-models-encode-semantic-meaning
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-08-03-how-embedding-models-encode-semantic-meaning?utm_source=rss
-            </link>
-            <pubDate>
-                Sat, 03 Aug 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Embedding models have long been a daunting concept for me. But what are they? And why are they so useful? Let&#39;s break it down in simple terms.</p>
-
-<h2>What&#39;s an embedding?</h2>
-
-<p>An embedding is basically a numerical representation of a piece of information - it could be text, audio, an image, or even a video. Think of it as a way to capture the essence or meaning of that information in a list of numbers.</p>
-
-<p>For example, let&#39;s say we have this text: &quot;show me a list of ground transportation at boston airport&quot;. An embedding model might turn that into something like this:</p>
-
-<p><code>
-[0.03793335, -0.008010864, -0.002319336, -0.0110321045, -0.019882202, -0.023864746, 0.011428833, -0.030349731, -0.044830322, 0.028289795, -0.02810669, -0.0032749176, -0.04208374, -0.0077705383, -0.0033798218, -0.06335449, ... ]
-</code></p>
-
-<p>At first, thus looks like a jumble of numbers. But each of these numbers points to a specific area within the embedding model&#39;s &quot;space&quot;, where similar words or concepts might be located.</p>
-
-<h2>Visualizing embeddings</h2>
-
-<p>To help wrap our heads around this, let&#39;s look at a visualization. This beautiful image shows the entirety of the <a href="https://huggingface.co/nomic-ai/nomic-embed-text-v1.5">nomic-embed-text-v1.5</a> embedding model, as generated by <a href="https://atlas.nomic.ai/map/nomic-text-embed-v1-5m-sample">this visualization tool</a>:</p>
-
-<p><img alt="nomic-embed-text-v1.5-full" src="/assets/posts/2024-08-03-how-embedding-models-encode-semantic-meaning/nomic-embed-text-v1.5-full.jpeg"/></p>
-
-<p>Now, if we take our example text about Boston airport transportation and plot its embeddings on this map, we&#39;d see that some clusters are lit up, especially around &quot;transportation&quot;. This means that the model has figured out that the topic of the query must be related to transportation in some way.</p>
-
-<p><img alt="nomic-embed-text-v1.5-query" src="/assets/posts/2024-08-03-how-embedding-models-encode-semantic-meaning/nomic-embed-text-v1.5-query.jpeg"/></p>
-
-<p>Zooming into this image, we can see more specific topics around transportation, like &quot;Airport&quot;, &quot;Travel&quot; or &quot;Highways&quot; are lit up, which more closely matches our query.</p>
-
-<p><img alt="nomic-embed-text-v1.5-transportation" src="/assets/posts/2024-08-03-how-embedding-models-encode-semantic-meaning/nomic-embed-text-v1.5-transportation.jpeg"/></p>
-
-<p>In a nutshell, embedding models are able to group terms by topics that are related to each other.</p>
-
-<h2>Why should we care about embeddings?</h2>
-
-<p>Encoding meaning in text has tons of different use cases. One that I&#39;m particularly excited about is building RAG applications. RAG stands for Retrieval-Augmented Generation and refers to a method for Large Language Models (LLMs), where, given a question, you enrich the original question with relevant bits of information before answering it.</p>
-
-<p>Here&#39;s how embeddings are useful for RAG:</p>
-
-<ol><li>You have a bunch of documents in your data source.</li><li>You use an embedding model to turn each document into a list of numbers (like we saw earlier).</li><li>When someone asks a question, you also turn that question into a list of numbers.</li><li>Then, you find the documents whose number lists are most similar to your question&#39;s number list.</li><li>Voila! You&#39;ve found the most relevant documents to answer the question.</li></ol>
-
-<p>This method is way better than previously used techniques like just searching for exact words in the documents. It&#39;s like the difference between having a librarian who only looks at book titles, and one who actually understands what the books are about.</p>
-
-<h2>Other things you can do with embeddings</h2>
-
-<p>Beyond RAG applications, embeddings are super useful for all sorts of things:</p>
-
-<ol><li><strong>Smarter searches</strong>: Find related stuff even if the exact words don&#39;t match.</li><li><strong>Better recommendations</strong>: &quot;You liked this? You might also like these similar things!&quot;</li><li><strong>Language translation</strong>: Help computers understand that &quot;dog&quot; in English and &quot;perro&quot; in Spanish mean the same thing.</li><li><strong>Sentiment analysis</strong>: Figure out if someone&#39;s happy or grumpy based on their tweet.</li></ol>
-
-<h2>Wrapping it up</h2>
-
-<p>Embeddings are a clever way to turn words (or images, or sounds) into numbers that computers can understand and compare. By doing this, we can make emerging AI technologies a whole lot smarter at understanding language and finding connections between ideas.</p>
-
-<p>Next time you&#39;re chatting with an AI or getting scarily accurate recommendations online, you can nod knowingly and think, &quot;Ah yes, embeddings at work!&quot;</p>]]>
             </description>
         </item>
     </channel>

@@ -14,8 +14,53 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 04 Feb 2026 00:00:00 +0000
+            Fri, 13 Feb 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                n8n-nodes-open5e: n8n community node that lets you access D&D 5th edition SRD content
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-02-13-n8n-nodes-open5e-n8n-community-node-that-lets-you-access-d-d-5th-edition-srd-content
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-02-13-n8n-nodes-open5e-n8n-community-node-that-lets-you-access-d-d-5th-edition-srd-content?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 13 Feb 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p><a href="https://github.com/garritfra/n8n-nodes-open5e">n8n-nodes-open5e</a> is an n8n community node that lets you access <a href="https://www.dndbeyond.com/srd">D&amp;D 5th edition SRD content</a> from the <a href="https://api.open5e.com">Open5e API</a> in your n8n workflows.</p>
+
+<p>The Open5e node provides access to 12 different D&amp;D 5e resources through the Open5e API. Each resource supports three operations:</p>
+
+<ul><li><strong>Get Many</strong>: Retrieve multiple items with optional filters and pagination</li><li><strong>Get</strong>: Retrieve a single item by its identifier (slug or key)</li><li><strong>Search</strong>: Search for items by name or description</li></ul>
+
+<h2>Example Workflows</h2>
+
+<h3>1. Random Encounter Generator</h3>
+
+<p>Create random encounters by fetching monsters filtered by challenge rating:</p>
+
+<ol><li>Add an Open5e node to your workflow</li><li>Select Resource: <strong>Monster</strong></li><li>Select Operation: <strong>Get Many</strong></li><li>In <strong>Filters</strong>, add:<ul><li>Challenge Rating: <code>5</code></li><li>Document Source: <code>wotc-srd</code></li></ul></li><li>Toggle <strong>Return All</strong> ON to get all matching monsters</li><li>Connect to a Function node to randomly select 3-5 monsters</li><li>Format the output as needed (Discord message, email, etc.)</li></ol>
+
+<h3>2. Spell Lookup Bot</h3>
+
+<p>Build a Discord bot that looks up spell information:</p>
+
+<ol><li>Use a Discord Trigger node to listen for commands</li><li>Add a Function node to extract the spell name from the command</li><li>Add an Open5e node:<ul><li>Resource: <strong>Spell</strong></li><li>Operation: <strong>Search</strong></li><li>Search Term: <code>={{ $json.spellName }}</code></li></ul></li><li>Add a Function node to format the spell details</li><li>Send the formatted spell info back to Discord</li></ol>
+
+<h3>3. Item Database Search</h3>
+
+<p>Search for magic items and weapons by name:</p>
+
+<ol><li>Add an HTTP Request trigger or Form trigger to accept search queries</li><li>Add an Open5e node:<ul><li>Resource: <strong>Magic Item</strong> (or <strong>Weapon</strong>)</li><li>Operation: <strong>Search</strong></li><li>Search Term: <code>={{ $json.query }}</code></li><li>Limit: <code>10</code></li></ul></li><li>Format and return the results</li></ol>
+
+<h2>Contributing</h2>
+
+<p>This is my first n8n community node. Contributions are welcome! Please feel free to submit a Pull Request or <a href="https://github.com/garritfra/n8n-nodes-open5e/issues">open an issue</a> if you encounter any issues.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 A fix for long-pressing movement keys in VSCode with Vim-Mode
@@ -485,37 +530,6 @@ end
                 <![CDATA[<p>A while back <a href="/posts/2023-09-11-linkdump-software-development">I did a linkdump</a> to get some links out of my system that deserve some special attention. Since my &quot;to read&quot; list is filling up once again, I decided to do another link dump. I hope you find these articles as interesting as I do!</p>
 
 <ul><li><a href="https://dubroy.com/blog/cold-blooded-software/">Cold-blooded software</a> - On maintainability and simplicity</li><li><a href="https://www.industriallogic.com/blog/discovery-trees/">Working With Discovery Trees</a> - An interesting alternative to the Kanban-Board</li><li><a href="https://www.berkansasmaz.com/every-programmer-should-know-idempotency/">Every Programmer Should Know #1: Idempotency</a> - The title says it all</li><li><a href="https://blog.alexewerlof.com/p/broken-ownership">6 Archetypes of Broken Ownership</a> - Responsibilities in a DevOps environment</li><li><a href="https://read.engineerscodex.com/p/how-pinterest-scaled-to-11-million">How Pinterest scaled to 11 million users with only 6 engineers</a> - On going from simple, to complex, and back to simple</li><li><a href="https://iximiuz.com/en/posts/on-software-design-and-good-writing/">On Software Design... and Good Writing</a> - Essentially <a href="https://spacecraft.ssl.umd.edu/akins_laws.html">this amazing post</a> with additional notes for software developers</li><li><a href="https://andreasjhkarlsson.github.io//jekyll/update/2023/12/27/4-billion-if-statements.html">4 billion if statements</a> - A fun analysis of a silly solution to a simple problem. Teaches critical thinking</li></ul>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                10.000 Hours
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2023-12-22-10-000-hours
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2023-12-22-10-000-hours?utm_source=rss
-            </link>
-            <pubDate>
-                Fri, 22 Dec 2023 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>In his book <a href="https://en.m.wikipedia.org/wiki/Outliers_(book)">Outliers</a>, Malcolm Gladwell popularized the idea that it takes 10.000 hours of concentrated practice to master a skill.</p>
-
-<p>According to my <a href="https://wakatime.com">WakaTime</a> stats, I spent 2.384 hours writing code in an editor (December 2023). If you&#39;re reading this post in the future, this is my current record:</p>
-
-<p><a href="https://wakatime.com/@811525e7-5cc5-4eef-9e29-3cece3a03847"><img alt="wakatime" src="https://wakatime.com/badge/user/811525e7-5cc5-4eef-9e29-3cece3a03847.svg"/></a></p>
-
-<p>This time is the time actually spent writing code. It doesn&#39;t track the time reading or thinking about it, nor the time spent in editors without the WakaTime plugin. It&#39;s hard to say how much time I spent engulfed in code, but this number is a good indicator as to how far I&#39;ve come in my programming journey.</p>
-
-<p>I believe we should never say that we&#39;ve &quot;mastered&quot; a craft, even after spending 10.000 hours practicing it. There are always so many things to learn, so many novel ideas to catch up with.</p>
-
-<p>So far, each of my 7 years of working as a software developer has advanced me tremendously. I&#39;m curious to see where I am once I reach 10.000 hours of practice.</p>
-
-<hr/>
-
-<p>This is post 099 of <a href="https://100daystooffload.com/">#100DaysToOffload</a>.</p>]]>
             </description>
         </item>
     </channel>
