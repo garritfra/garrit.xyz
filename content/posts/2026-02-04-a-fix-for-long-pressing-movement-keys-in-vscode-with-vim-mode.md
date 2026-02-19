@@ -1,7 +1,7 @@
 ---
 title: "A fix for long-pressing movement keys in VSCode with Vim-Mode"
 date: "2026-02-04"
-tags: "guide, note, editors, tech, programming"
+tags: "guide, note, editors, tech, programming, vim"
 ---
 
 ## The Setup
