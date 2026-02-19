@@ -14,8 +14,47 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 23 Feb 2021 00:00:00 +0000
+            Wed, 04 Feb 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                A fix for long-pressing movement keys in VSCode with Vim-Mode
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-02-04-a-fix-for-long-pressing-movement-keys-in-vscode-with-vim-mode
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-02-04-a-fix-for-long-pressing-movement-keys-in-vscode-with-vim-mode?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 04 Feb 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<h2>The Setup</h2>
+
+<ul><li>MacOS</li><li>VSCode</li><li>Vim Extension</li></ul>
+
+<h2>The Issue</h2>
+
+<p>Long-pressing <code>j</code> or <code>k</code> (think &quot;down&quot; or &quot;up&quot; in Vim) only results in one down or up action, instead of continuous scrolling.</p>
+
+<h2>The Fix</h2>
+
+<p>In a terminal, run the following command:</p>
+
+<p><code>
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+</code></p>
+
+<p>Original post: https://stackoverflow.com/a/44010683</p>
+
+<h2>Additional tip</h2>
+
+<p>In the MacOS settings, set &quot;Key Repeat Rate&quot; and &quot;Delay Until Repeat&quot; to the highest setting to be able to scroll much faster.</p>
+
+<p>&lt;img width=&quot;478&quot; height=&quot;92&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/7bf85853-377d-4727-a5c8-2766f2794e8a&quot; /&gt;</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Strategies to use a terminal alongside (Neo)Vim
