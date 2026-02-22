@@ -11,6 +11,14 @@ import { getAllTags } from "./tags";
 
 const NUMBER_OF_POSTS_PER_FEED = 10;
 
+const escapeXml = (str: string) =>
+	str
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&apos;");
+
 const buildRss = async () => {
 	const posts = await getPublishedPosts(true);
 
@@ -41,7 +49,7 @@ const buildRss = async () => {
 			}
 			rssItemsXml += `
 <item>
-	<title>${post.frontmatter.title}</title>
+	<title>${escapeXml(post.frontmatter.title)}</title>
 	<guid>https://garrit.xyz/posts/${post.slug}</guid>
 	<link>https://garrit.xyz/posts/${post.slug}?utm_source=rss</link>
 	<pubDate>${rfc822Date(new Date(postDate))}</pubDate>
