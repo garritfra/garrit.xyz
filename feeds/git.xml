@@ -286,7 +286,7 @@ git config diff.sqlite3.textconv &quot;echo .dump | sqlite3&quot;
         </item>
         <item>
             <title>
-                Git's built-in lifesaver
+                Git&apos;s built-in lifesaver
             </title>
             <guid>
                 https://garrit.xyz/posts/2021-03-13-git-builtin-lifesaver
