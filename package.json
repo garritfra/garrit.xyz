@@ -29,6 +29,6 @@
 		"sass": "1.97.3",
 		"ts-node": "10.9.2",
 		"typescript": "^5.9.3",
-		"xml-formatter": "^3.6.7"
+		"xml-formatter": "^3.7.0"
 	}
 }
