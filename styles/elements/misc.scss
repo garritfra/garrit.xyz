@@ -1,0 +1,115 @@
+aside,
+details,
+pre,
+progress {
+	background-color: var(--accent-bg);
+	border: 1px solid var(--border);
+	border-radius: 5px;
+	margin-bottom: 1rem;
+}
+
+aside {
+	font-size: 1rem;
+	width: 30%;
+	padding: 0 15px;
+	margin-left: 15px;
+	float: right;
+}
+
+@media only screen and (max-width: 720px) {
+	aside {
+		width: 100%;
+		float: none;
+		margin-left: 0;
+	}
+}
+
+section {
+	border-top: 1px solid var(--border);
+	border-bottom: 1px solid var(--border);
+	padding: 2rem 1rem;
+	margin: 3rem 0;
+}
+
+section + section,
+section:first-child {
+	border-top: 0;
+	padding-top: 0;
+}
+
+section:last-child {
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+
+details {
+	padding: 0.7rem 1rem;
+}
+
+summary {
+	cursor: pointer;
+	font-weight: bold;
+	padding: 0.7rem 1rem;
+	margin: -0.7rem -1rem;
+	word-break: break-all;
+}
+
+details[open] > summary + * {
+	margin-top: 0;
+}
+
+details[open] > summary {
+	margin-bottom: 0.5rem;
+}
+
+details[open] > :last-child {
+	margin-bottom: 0;
+}
+
+hr {
+	border: none;
+	height: 1px;
+	background: var(--border);
+	margin: 1rem auto;
+}
+
+mark {
+	padding: 2px 5px;
+	border-radius: 4px;
+	background-color: var(--marked);
+}
+
+abbr[title] {
+	cursor: help;
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+}
+
+progress {
+	width: 100%;
+}
+
+progress:indeterminate {
+	background-color: var(--accent-bg);
+}
+
+progress::-webkit-progress-bar {
+	border-radius: 5px;
+	background-color: var(--accent-bg);
+}
+
+progress::-webkit-progress-value {
+	border-radius: 5px;
+	background-color: var(--accent);
+}
+
+progress::-moz-progress-bar {
+	border-radius: 5px;
+	background-color: var(--accent);
+	transition-property: width;
+	transition-duration: 0.3s;
+}
+
+progress:indeterminate::-moz-progress-bar {
+	background-color: var(--accent-bg);
+}
