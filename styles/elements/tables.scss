@@ -1,0 +1,28 @@
+table {
+	border-collapse: collapse;
+	display: block;
+	margin: 1.5rem 0;
+	overflow: auto;
+	width: 100%;
+}
+
+td,
+th {
+	border: 1px solid var(--border);
+	text-align: left;
+	padding: 0.5rem;
+}
+
+th {
+	background-color: var(--accent-bg);
+	font-weight: bold;
+}
+
+tr:nth-child(even) {
+	background-color: var(--accent-bg);
+}
+
+table caption {
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+}
