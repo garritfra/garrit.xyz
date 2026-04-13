@@ -1,24 +1,24 @@
 self.__BUILD_MANIFEST = {
   "/": [
-    "static/chunks/0rgf1vyhejxig.js"
+    "static/chunks/124l6r0w_l0xz.js"
   ],
   "/404": [
-    "static/chunks/0a_m-lfuhkmlc.js"
+    "static/chunks/0ynb3zf.h~saz.js"
   ],
   "/[page]": [
-    "static/chunks/16uuoi2ukn_o0.js"
+    "static/chunks/17o~94nya_c_1.js"
   ],
   "/_error": [
-    "static/chunks/07et1af9lwal8.js"
+    "static/chunks/0~-3v1em6re4v.js"
   ],
   "/posts": [
-    "static/chunks/0snyi830_3-cz.js"
+    "static/chunks/0t7.dkalwpxb1.js"
   ],
   "/posts/[post]": [
-    "static/chunks/0zc3w~05pki2i.js"
+    "static/chunks/0_gdlt3~lmm42.js"
   ],
   "/tags": [
-    "static/chunks/0nykued2klab8.js"
+    "static/chunks/16cwtlwtbboeh.js"
   ],
   "__rewrites": {
     "afterFiles": [],
