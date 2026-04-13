@@ -1,0 +1,35 @@
+img,
+video {
+	max-width: 100%;
+	height: auto;
+	border-radius: 5px;
+}
+
+figure {
+	margin: 0;
+	text-align: center;
+}
+
+figcaption {
+	font-size: 0.9rem;
+	color: var(--text-light);
+	margin-bottom: 1rem;
+}
+
+blockquote {
+	margin: 2rem 0;
+	padding: 0.4rem 0.8rem;
+	border-left: 0.35rem solid var(--accent);
+	color: var(--text-light);
+	font-style: italic;
+}
+
+cite {
+	font-size: 0.9rem;
+	color: var(--text-light);
+	font-style: normal;
+}
+
+dt {
+	color: var(--text-light);
+}
