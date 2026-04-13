@@ -1,0 +1,20 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+textarea,
+select,
+input,
+progress {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+@media (prefers-reduced-motion) {
+	* {
+		transition: none !important;
+	}
+}
