@@ -1,0 +1,151 @@
+button,
+[role="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+label[type="button"] {
+	border: none;
+	border-radius: 5px;
+	background-color: var(--accent);
+	font-size: 1rem;
+	color: var(--bg);
+	padding: 0.7rem 0.9rem;
+	margin: 0.5rem 0;
+}
+
+button[disabled],
+[role="button"][aria-disabled="true"],
+input[type="submit"][disabled],
+input[type="reset"][disabled],
+input[type="button"][disabled],
+input[type="checkbox"][disabled],
+input[type="radio"][disabled],
+select[disabled] {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+	cursor: not-allowed;
+	background-color: var(--disabled);
+}
+
+input[type="range"] {
+	padding: 0;
+}
+
+button:focus,
+button:enabled:hover,
+[role="button"]:focus,
+[role="button"]:not([aria-disabled="true"]):hover,
+input[type="submit"]:focus,
+input[type="submit"]:enabled:hover,
+input[type="reset"]:focus,
+input[type="reset"]:enabled:hover,
+input[type="button"]:focus,
+input[type="button"]:enabled:hover,
+label[type="button"]:focus,
+label[type="button"]:hover {
+	filter: brightness(1.4);
+	cursor: pointer;
+}
+
+textarea,
+select,
+input {
+	font-size: inherit;
+	font-family: inherit;
+	padding: 0.5rem;
+	margin-bottom: 0.5rem;
+	color: var(--text);
+	background-color: var(--bg);
+	border: 1px solid var(--border);
+	border-radius: 5px;
+	box-shadow: none;
+	max-width: 100%;
+	display: inline-block;
+}
+
+label {
+	display: block;
+}
+
+textarea:not([cols]) {
+	width: 100%;
+}
+
+select:not([multiple]) {
+	background-image: linear-gradient(45deg, transparent 49%, var(--text) 51%),
+		linear-gradient(135deg, var(--text) 51%, transparent 49%);
+	background-position: calc(100% - 15px), calc(100% - 10px);
+	background-size: 5px 5px, 5px 5px;
+	background-repeat: no-repeat;
+	padding-right: 25px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	vertical-align: middle;
+	position: relative;
+	width: min-content;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+	display: inline-block;
+}
+
+input[type="radio"] {
+	border-radius: 100%;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+	background-color: var(--accent);
+}
+
+input[type="checkbox"]:checked::after {
+	content: " ";
+	width: 0.18em;
+	height: 0.32em;
+	border-radius: 0;
+	position: absolute;
+	top: 0.05em;
+	left: 0.17em;
+	background-color: transparent;
+	border-right: solid var(--bg) 0.08em;
+	border-bottom: solid var(--bg) 0.08em;
+	font-size: 1.8em;
+	transform: rotate(45deg);
+}
+
+input[type="radio"]:checked::after {
+	content: " ";
+	width: 0.25em;
+	height: 0.25em;
+	border-radius: 100%;
+	position: absolute;
+	top: 0.125em;
+	background-color: var(--bg);
+	left: 0.125em;
+	font-size: 32px;
+}
+
+@media only screen and (max-width: 720px) {
+	textarea,
+	select,
+	input {
+		width: 100%;
+	}
+}
+
+input[type="color"] {
+	height: 2.5rem;
+	padding: 0.2rem;
+}
+
+input[type="file"] {
+	border: 0;
+}
