@@ -1,0 +1,10 @@
+.search {
+	input[type="search"],
+	input[type="submit"] {
+		height: 2.5rem;
+		vertical-align: middle;
+	}
+	input[type="search"] {
+		margin-bottom: 0;
+	}
+}
