@@ -14,8 +14,37 @@
             en
         </language>
         <lastBuildDate>
-            Fri, 13 Feb 2026 00:00:00 +0000
+            Wed, 06 May 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Don&apos;t trust large context windows
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-05-06-dont-trust-large-context-windows
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-05-06-dont-trust-large-context-windows?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 06 May 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I recently watched <a href="https://youtu.be/-QFHIoCo-Ko">a video</a> that put a name on something I&#39;d been feeling. The author splits an LLM&#39;s context window into two zones. There&#39;s the <strong>smart zone</strong>, where the model is sharp, and the <strong>dumb zone</strong>, where attention drops off and the model starts forgetting what you told it five minutes ago. The cutoff sits somewhere around 100k tokens. It doesn&#39;t matter how big the advertised context window is.</p>
+
+<p>This matters because coding agents will happily walk you straight into the dumb zone. A modern agent burns through tokens fast. A few file reads, a long debug session, a sprawling test run, and you&#39;re at 100k before lunch. Meanwhile vendors keep advertising windows of 200k, 1M, even 2M, as if those numbers represented a usable working set. They don&#39;t. Studies like <a href="https://arxiv.org/abs/2404.06654">RULER</a> and <a href="https://research.trychroma.com/context-rot">Chroma&#39;s report on context rot</a> show that effective context is a fraction of the advertised number, and that performance degrades gradually as you fill the window.</p>
+
+<p>Large context windows are mostly a marketing number. The architectures behind them work, but they paper over a problem the underlying attention mechanism doesn&#39;t really solve. The number on the box gets bigger every release. The usable part doesn&#39;t keep up.</p>
+
+<p>Modern agents are getting smart about this. Tools like Claude Code now auto-compact: when the session gets long, the agent summarizes the history and starts fresh. That helps. But auto-compaction kicks in after you&#39;ve already spent time in the dumb zone, and the summary is itself produced by a model that&#39;s already degraded. Better than nothing, but I&#39;d rather avoid the situation altogether.</p>
+
+<p>What I do is open a new session and pass it a spec I wrote myself. That&#39;s a much higher signal handoff than any automated summary, because I get to decide what matters going forward. It&#39;s the <a href="https://garrit.xyz/posts/2025-05-20-no-matter-what-you-do-always-leave-a-breadcrumb">breadcrumb</a> approach applied to agents. Leave an artifact that the next session, or the next person, can pick up cleanly.</p>
+
+<p>You can take this further. Projects like <a href="https://github.com/obra/superpowers">obra/superpowers</a> and <a href="https://github.com/mattpocock/skills">mattpocock/skills</a> structure entire agent workflows around small, named artifacts. PRDs, plans, skills, sub-agent handoffs. Each one is a way to keep the working session in the smart zone by deliberately moving information out of the session into something the next session can read.</p>
+
+<p>So I treat my context window like a budget. I assume only the first chunk is really working for me, and everything I can move out of the live session and into a written artifact is one less thing for attention to fight over.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 n8n-nodes-open5e: n8n community node that lets you access D&amp;D 5th edition SRD content
@@ -464,30 +493,6 @@ RUN sudo phpenmod -v 8.3 -s apache2 sqlsrv pdo_sqlsrv</p>
 <p>If you&#39;re reading this in the future and Microsoft may have released a new version of the ODBC drivers, you may have to follow the new <a href="https://learn.microsoft.com/de-de/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver16&amp;tabs=debian18-install%2Calpine17-install%2Cdebian8-install%2Credhat7-13-install%2Crhel7-offline#18">installation instructions from their documentation</a>. It took me a while to realize that I couldn&#39;t install version 17 of the driver because I was using the installation instructions for version 18. They are apparently incompatible with each other.</p>
 
 <p>I hope that you&#39;ll never have to touch the shithole that is MSSQL, but if you do, I hope that this guide will be of value to you.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Sentiment analysis using ML models
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-08-31-sentiment-analysis-using-ml-models
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-08-31-sentiment-analysis-using-ml-models?utm_source=rss
-            </link>
-            <pubDate>
-                Sat, 31 Aug 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I just rewrote parts of my <a href="https://github.com/garritfra/positive_hackernews">Positive Hacker News RSS Feed</a> project to use an ML model to filter out any negative news from the Hacker News timeline. This method is far more reliable than the previous method of using a <a href="https://www.nltk.org/api/nltk.sentiment.vader.html">rule-based sentiment analyzer</a> through NLTK.</p>
-
-<p>I&#39;m using the model <a href="https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest?text=Messer-Angreiferin+verletzt+f%C3%BCnf+Menschen+in+einem+Bus">cardiffnlp/twitter-roberta-base-sentiment-latest</a>, which was trained on a huge amount of tweets. It&#39;s really tiny (~500 MB) and easily runs inside the existing GitHub Actions workflows. You can try out the model yourself on the HuggingFace model card.</p>
-
-<p>&lt;img width=&quot;522&quot; alt=&quot;grafik&quot; src=&quot;https://github.com/user-attachments/assets/06f42df6-624a-4108-ada8-d0d37a53e693&quot;&gt;</p>
-
-<p>If you want to subscribe to more positive tech news, simply replace your Hacker News feed of your RSS reader with this one (or add it if you haven&#39;t already):
-https://garritfra.github.io/positive_hackernews/feed.xml</p>]]>
             </description>
         </item>
     </channel>
