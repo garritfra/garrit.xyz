@@ -96,5 +96,29 @@ Restart, re-run the `SELECT`, confirm the line is boring again.
 
 <img width="3422" height="1786" alt="Image" src="https://github.com/user-attachments/assets/12775462-3ed8-4399-885c-f26e6ea24af8" />
 
-Two gotchas. If the bad hour is younger than ~10 days it also lives in `statistics_short_term`, which re-aggregates into your clean data every hour — fix both tables or wait for it to purge. And skip the Developer Tools → Statistics "Adjust" button for anything big: it edits deltas, not absolutes, so zeroing a spike just writes the negative back in the next hour.
+### UPDATE, some hours later
 
+I told you it was one `UPDATE`. I was wrong, and the next morning the dashboard told me so. The -4,500 bar was back. The 862 kWh spike was back. Same size, new date: today.
+
+Nothing new had broken. My own fix had bounced back.
+
+Here's what I'd missed. `statistics` isn't the only table. There's a second one — `statistics_short_term`, five-minute rows that HA rolls up into the hourly `statistics` table once an hour. And it still held the *old*, pre-fix cumulative sums. So every hour, HA dutifully re-aggregated the garbage and clobbered my correction, dumping the difference straight into the current hour. I wasn't fixing the data. I was fixing a cache while the source of truth quietly overwrote me.
+
+Worse: HA was *running* the whole time. The recorder keeps short-term state in memory and flushes it on shutdown — so even my careful edits got stomped the moment it wrote back. Editing a database underneath a live application is like editing a file in `vim` while another process truncates it. Whoever writes last wins, and it isn't you.
+
+So the boring line I buried up top — *stop HA first* — turned out to be the whole game. Not a footnote. The rule.
+
+Stop the core properly. On HAOS that's `ha core stop` — and do it over real SSH, not the browser terminal, which is served through the frontend, dies with it, and locks you out. (Ask me how I know.) Then fix *both* tables:
+
+```sql
+UPDATE statistics            SET sum = sum - 862.271 WHERE metadata_id = 142 AND id >= 2643402;
+UPDATE statistics_short_term SET sum = sum - 862.271 WHERE metadata_id = 142;
+```
+
+Before you start HA back up, check the seam: the highest `sum` in short-term should land right where your latest `statistics` row sits, with no cliff between them.
+
+```sql
+SELECT MIN(sum), MAX(sum) FROM statistics_short_term WHERE metadata_id = 142;
+```
+
+One nuance that explains why the first pass *looked* fine: short-term only keeps the recent stuff, ~10 days. If the hour you're editing is older than that, it's already purged and `statistics` is all you need. My April gap was ancient enough to ignore it. The recent spikes weren't — and that's exactly what came back to bite me.
