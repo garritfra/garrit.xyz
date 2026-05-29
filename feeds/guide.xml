@@ -14,8 +14,117 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 04 Feb 2026 00:00:00 +0000
+            Fri, 29 May 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Fixing corrupted Home Assistant energy statistics
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-05-29-fixing-corrupted-home-assistant-energy-statistics
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-05-29-fixing-corrupted-home-assistant-energy-statistics?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 29 May 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<blockquote><p><strong>TL;DR:</strong> My meter dropped offline for ~13 days. Home Assistant&#39;s long-term stats came back wrong — a -4,500 kWh bar, a phantom 862 kWh solar spike. The dashboard is a <em>view</em>. The truth is in the <code>statistics</code> table. You fix it with one <code>SELECT</code> to find the damage and one <code>UPDATE</code> to undo it.</p></blockquote>
+
+<p>For a while now, my <a href="https://www.home-assistant.io/docs/energy/">energy dashboard in Home Assistant</a> reports that my house had produced <strong>negative 4,500 kWh</strong> in April. It was finally time to fix that.</p>
+
+<p>&lt;img width=&quot;1080&quot; height=&quot;1527&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/01335840-93b5-4d80-ae45-1bb972650269&quot; /&gt;</p>
+
+<p>Each sensor stores two values per hour in the <code>statistics</code> table. <code>state</code> is the raw meter reading. <code>sum</code> is HA&#39;s cumulative total, computed from the deltas between readings. When a <code>total_increasing</code> sensor blinks out and back, <code>sum</code> gets corrupted — but <code>state</code> is almost always still fine. So you trust <code>state</code> and rebuild <code>sum</code> to match.</p>
+
+<p>Stop HA and back up the DB first — you&#39;re editing prod. Then: find the broken row, read its numbers, plug them into the fix.</p>
+
+<h3>1. Find it</h3>
+
+<p>Get the <code>metadata_id</code>, then dump the rows around the glitch. Select <code>start_ts</code> too — those raw unix timestamps are what you&#39;ll paste into the fix:</p>
+
+<p><code></code>`sql
+SELECT id, statistic<em>id FROM statistics</em>meta WHERE statistic_id LIKE &#39;%balkonkraftwerk%&#39;;
+-- -&gt; 142</p>
+
+<p>SELECT id, start<em>ts, datetime(start</em>ts,&#39;unixepoch&#39;,&#39;localtime&#39;) AS t, state, sum
+FROM statistics
+WHERE metadata<em>id = 142
+  AND start</em>ts BETWEEN strftime(&#39;%s&#39;,&#39;2026-05-04&#39;) AND strftime(&#39;%s&#39;,&#39;2026-05-05&#39;)
+ORDER BY start_ts;
+<code></code>`</p>
+
+<p>You&#39;re hunting for the row where the story breaks. There are two shapes it takes, and they want different fixes.</p>
+
+<h3>Fix A — phantom spike (<code>state</code> flat, <code>sum</code> jumps)</h3>
+
+<p>The output:</p>
+
+<p><code>
+id        start_ts     t                     state     sum
+...
+2643324   1777917600   2026-05-04 20:00:00   862.271   1031.552   &lt;- last sane row
+2643402   1777921200   2026-05-04 21:00:00   862.271   1893.823   &lt;- sum leapt, state didn&#39;t
+</code></p>
+
+<p><code>state</code> is identical across both rows, so no energy was actually produced. The damage is the jump in <code>sum</code>:</p>
+
+<p><code>
+phantom = 1893.823 - 1031.552 = 862.271   (the bad delta)
+from id = 2643402                          (first row carrying it)
+</code></p>
+
+<p><code>sum</code> is cumulative, so that 862.271 rides along in <em>every</em> later row too. Subtract it once, from the bad row onward:</p>
+
+<p><code>sql
+UPDATE statistics SET sum = sum - 862.271
+WHERE metadata_id = 142 AND id &gt;= 2643402;
+</code></p>
+
+<h3>Fix B — gap + reset (<code>state</code> advanced, <code>sum</code> restarted at 0)</h3>
+
+<p>Same <code>SELECT</code>, different sensor (155, the grid meter), around the outage:</p>
+
+<p><code>
+start_ts     t                     state      sum
+1775044800   2026-04-01 14:00:00   4922.912   4792.995   &lt;- last reading before the gap
+1776171600   2026-04-14 15:00:00   5127.167   0.382      &lt;- meter&#39;s back, sum reset to ~0
+</code></p>
+
+<p>Two things broke: <code>sum</code> fell off a cliff to 0.382, and the 13 days between are simply missing. But <code>state</code> kept counting through the outage, so it tells you the truth. Derive everything from those two rows:</p>
+
+<p><code>
+real consumption during gap = state_after - state_before = 5127.167 - 4922.912 = 204.255
+where sum SHOULD be at 14.04 = sum_before + that      = 4792.995 + 204.255 = 4997.250
+offset to re-base later rows  = should_be - actual     = 4997.250 - 0.382  = 4996.868
+</code></p>
+
+<p>Step one, lift every post-reset row back onto the real baseline (using the gap&#39;s <em>end</em> timestamp, <code>1776171600</code>):</p>
+
+<p><code>sql
+UPDATE statistics SET sum = sum + 4996.868
+WHERE metadata_id = 155 AND start_ts &gt;= 1776171600;
+</code></p>
+
+<p>Step two, draw a straight line across the empty gap. The CTE just holds the two endpoints — start (<code>t0=1775044800</code>, <code>s0=4792.995</code>) and the now-corrected end (<code>t1=1776171600</code>, <code>s1=4997.250</code>) — and fills an hourly row for each step between:</p>
+
+<p><code>sql
+WITH RECURSIVE v(t0,t1,s0,s1) AS (SELECT 1775044800,1776171600,4792.995,4997.250),
+hours(ts) AS (SELECT t0+3600 FROM v
+  UNION ALL SELECT ts+3600 FROM hours,v WHERE ts+3600 &lt; v.t1)
+INSERT INTO statistics (metadata_id, created_ts, start_ts, sum)
+SELECT 155, h.ts, h.ts, v.s0 + (v.s1-v.s0)*(h.ts-v.t0)*1.0/(v.t1-v.t0)
+FROM hours h, v;
+</code></p>
+
+<p>Restart, re-run the <code>SELECT</code>, confirm the line is boring again.</p>
+
+<p>&lt;img width=&quot;3422&quot; height=&quot;1786&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/12775462-3ed8-4399-885c-f26e6ea24af8&quot; /&gt;</p>
+
+<p>Two gotchas. If the bad hour is younger than ~10 days it also lives in <code>statistics_short_term</code>, which re-aggregates into your clean data every hour — fix both tables or wait for it to purge. And skip the Developer Tools → Statistics &quot;Adjust&quot; button for anything big: it edits deltas, not absolutes, so zeroing a spike just writes the negative back in the next hour.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 A fix for long-pressing movement keys in VSCode with Vim-Mode
@@ -494,43 +603,6 @@ c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNvdmVy
 </code></p>
 
 <p>This eventually fixed the issue. Not something I would&#39;ve ever thought of!</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                A simple search bar
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-04-11-a-simple-search-bar
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-04-11-a-simple-search-bar?utm_source=rss
-            </link>
-            <pubDate>
-                Thu, 11 Apr 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I just added a simple search bar to my <a href="/links">&quot;More ...&quot;</a> page. It just redirects to a <a href="https://duckduckgo.com">DuckDuckGo</a> search with your search term and limits it to my site. Simple, yet effective!</p>
-
-<p>The inspiration for this feature came from <a href="https://smeso.it/">Salvatore Mesoraca</a>&#39;s site. Here&#39;s the snippet, feel free to steal it:</p>
-
-<p><code>jsx
-&lt;form className=&quot;search&quot; method=&quot;get&quot; action=&quot;https://duckduckgo.com/&quot; target=&quot;_blank&quot;&gt;
-    &lt;input id=&quot;search&quot; type=&quot;search&quot; name=&quot;q&quot; placeholder=&quot;Search via DDG&quot; /&gt;
-    &lt;input type=&quot;hidden&quot; name=&quot;sites&quot; value=&quot;garrit.xyz&quot; /&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;Search&quot; /&gt;
-&lt;/form&gt;
-</code></p>
-
-<h2>Try it out</h2>
-
-<p>Try searching for anything!</p>
-
-<p>&lt;form className=&quot;search&quot; method=&quot;get&quot; action=&quot;https://duckduckgo.com/&quot; target=&quot;_blank&quot;&gt;
-    &lt;input id=&quot;search&quot; type=&quot;search&quot; name=&quot;q&quot; placeholder=&quot;Search via DDG&quot; /&gt;
-    &lt;input type=&quot;hidden&quot; name=&quot;sites&quot; value=&quot;garrit.xyz&quot; /&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;Search&quot; /&gt;
-&lt;/form&gt;</p>]]>
             </description>
         </item>
     </channel>

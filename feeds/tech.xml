@@ -14,8 +14,117 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 06 May 2026 00:00:00 +0000
+            Fri, 29 May 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Fixing corrupted Home Assistant energy statistics
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-05-29-fixing-corrupted-home-assistant-energy-statistics
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-05-29-fixing-corrupted-home-assistant-energy-statistics?utm_source=rss
+            </link>
+            <pubDate>
+                Fri, 29 May 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<blockquote><p><strong>TL;DR:</strong> My meter dropped offline for ~13 days. Home Assistant&#39;s long-term stats came back wrong — a -4,500 kWh bar, a phantom 862 kWh solar spike. The dashboard is a <em>view</em>. The truth is in the <code>statistics</code> table. You fix it with one <code>SELECT</code> to find the damage and one <code>UPDATE</code> to undo it.</p></blockquote>
+
+<p>For a while now, my <a href="https://www.home-assistant.io/docs/energy/">energy dashboard in Home Assistant</a> reports that my house had produced <strong>negative 4,500 kWh</strong> in April. It was finally time to fix that.</p>
+
+<p>&lt;img width=&quot;1080&quot; height=&quot;1527&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/01335840-93b5-4d80-ae45-1bb972650269&quot; /&gt;</p>
+
+<p>Each sensor stores two values per hour in the <code>statistics</code> table. <code>state</code> is the raw meter reading. <code>sum</code> is HA&#39;s cumulative total, computed from the deltas between readings. When a <code>total_increasing</code> sensor blinks out and back, <code>sum</code> gets corrupted — but <code>state</code> is almost always still fine. So you trust <code>state</code> and rebuild <code>sum</code> to match.</p>
+
+<p>Stop HA and back up the DB first — you&#39;re editing prod. Then: find the broken row, read its numbers, plug them into the fix.</p>
+
+<h3>1. Find it</h3>
+
+<p>Get the <code>metadata_id</code>, then dump the rows around the glitch. Select <code>start_ts</code> too — those raw unix timestamps are what you&#39;ll paste into the fix:</p>
+
+<p><code></code>`sql
+SELECT id, statistic<em>id FROM statistics</em>meta WHERE statistic_id LIKE &#39;%balkonkraftwerk%&#39;;
+-- -&gt; 142</p>
+
+<p>SELECT id, start<em>ts, datetime(start</em>ts,&#39;unixepoch&#39;,&#39;localtime&#39;) AS t, state, sum
+FROM statistics
+WHERE metadata<em>id = 142
+  AND start</em>ts BETWEEN strftime(&#39;%s&#39;,&#39;2026-05-04&#39;) AND strftime(&#39;%s&#39;,&#39;2026-05-05&#39;)
+ORDER BY start_ts;
+<code></code>`</p>
+
+<p>You&#39;re hunting for the row where the story breaks. There are two shapes it takes, and they want different fixes.</p>
+
+<h3>Fix A — phantom spike (<code>state</code> flat, <code>sum</code> jumps)</h3>
+
+<p>The output:</p>
+
+<p><code>
+id        start_ts     t                     state     sum
+...
+2643324   1777917600   2026-05-04 20:00:00   862.271   1031.552   &lt;- last sane row
+2643402   1777921200   2026-05-04 21:00:00   862.271   1893.823   &lt;- sum leapt, state didn&#39;t
+</code></p>
+
+<p><code>state</code> is identical across both rows, so no energy was actually produced. The damage is the jump in <code>sum</code>:</p>
+
+<p><code>
+phantom = 1893.823 - 1031.552 = 862.271   (the bad delta)
+from id = 2643402                          (first row carrying it)
+</code></p>
+
+<p><code>sum</code> is cumulative, so that 862.271 rides along in <em>every</em> later row too. Subtract it once, from the bad row onward:</p>
+
+<p><code>sql
+UPDATE statistics SET sum = sum - 862.271
+WHERE metadata_id = 142 AND id &gt;= 2643402;
+</code></p>
+
+<h3>Fix B — gap + reset (<code>state</code> advanced, <code>sum</code> restarted at 0)</h3>
+
+<p>Same <code>SELECT</code>, different sensor (155, the grid meter), around the outage:</p>
+
+<p><code>
+start_ts     t                     state      sum
+1775044800   2026-04-01 14:00:00   4922.912   4792.995   &lt;- last reading before the gap
+1776171600   2026-04-14 15:00:00   5127.167   0.382      &lt;- meter&#39;s back, sum reset to ~0
+</code></p>
+
+<p>Two things broke: <code>sum</code> fell off a cliff to 0.382, and the 13 days between are simply missing. But <code>state</code> kept counting through the outage, so it tells you the truth. Derive everything from those two rows:</p>
+
+<p><code>
+real consumption during gap = state_after - state_before = 5127.167 - 4922.912 = 204.255
+where sum SHOULD be at 14.04 = sum_before + that      = 4792.995 + 204.255 = 4997.250
+offset to re-base later rows  = should_be - actual     = 4997.250 - 0.382  = 4996.868
+</code></p>
+
+<p>Step one, lift every post-reset row back onto the real baseline (using the gap&#39;s <em>end</em> timestamp, <code>1776171600</code>):</p>
+
+<p><code>sql
+UPDATE statistics SET sum = sum + 4996.868
+WHERE metadata_id = 155 AND start_ts &gt;= 1776171600;
+</code></p>
+
+<p>Step two, draw a straight line across the empty gap. The CTE just holds the two endpoints — start (<code>t0=1775044800</code>, <code>s0=4792.995</code>) and the now-corrected end (<code>t1=1776171600</code>, <code>s1=4997.250</code>) — and fills an hourly row for each step between:</p>
+
+<p><code>sql
+WITH RECURSIVE v(t0,t1,s0,s1) AS (SELECT 1775044800,1776171600,4792.995,4997.250),
+hours(ts) AS (SELECT t0+3600 FROM v
+  UNION ALL SELECT ts+3600 FROM hours,v WHERE ts+3600 &lt; v.t1)
+INSERT INTO statistics (metadata_id, created_ts, start_ts, sum)
+SELECT 155, h.ts, h.ts, v.s0 + (v.s1-v.s0)*(h.ts-v.t0)*1.0/(v.t1-v.t0)
+FROM hours h, v;
+</code></p>
+
+<p>Restart, re-run the <code>SELECT</code>, confirm the line is boring again.</p>
+
+<p>&lt;img width=&quot;3422&quot; height=&quot;1786&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/12775462-3ed8-4399-885c-f26e6ea24af8&quot; /&gt;</p>
+
+<p>Two gotchas. If the bad hour is younger than ~10 days it also lives in <code>statistics_short_term</code>, which re-aggregates into your clean data every hour — fix both tables or wait for it to purge. And skip the Developer Tools → Statistics &quot;Adjust&quot; button for anything big: it edits deltas, not absolutes, so zeroing a spike just writes the negative back in the next hour.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Don&apos;t trust large context windows
@@ -400,99 +509,6 @@ index d19d70a..1a61380 100644
 <p>I guess this is an obvious feature for some people, but to me, it was a huge help once I found this out.</p>
 
 <p>Got any other neat tricks for working with LLMs? I&#39;d love to hear them!</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Installing MSSQL Client Drivers for a PHP Application
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-09-24-installing-mssql-client-drivers-for-a-php-application
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-09-24-installing-mssql-client-drivers-for-a-php-application?utm_source=rss
-            </link>
-            <pubDate>
-                Tue, 24 Sep 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>I just had the pleasure (<em>cough</em>) to connect an <a href="https://de.wikipedia.org/wiki/Microsoft_SQL_Server">MSSQL</a> database to a <a href="https://laravel.com/">Laravel</a> application at work. Because the process was <em>super</em> tedious, I wanted to quickly jot this down so I will never have to go through this again.</p>
-
-<h2>Our setup</h2>
-
-<p>We&#39;re building a Laravel application with <a href="https://ddev.com/">DDEV</a>. DDEV essentially moves all development tools into Docker containers and adds some nice features like local database management.</p>
-
-<h2>The process</h2>
-
-<p>Laravel comes with the boilerplate to use MSSQL out of the box. In your app, just set the database config to use <code>sqlsrv</code>:</p>
-
-<p><code>php
-    &#39;connections&#39; =&gt; [
-        &#39;sqlsrv&#39; =&gt; [
-            &#39;driver&#39; =&gt; &#39;sqlsrv&#39;,
-            &#39;url&#39; =&gt; env(&#39;DB_URL&#39;),
-            &#39;host&#39; =&gt; env(&#39;DB_HOST&#39;, &#39;127.0.0.1&#39;),
-            &#39;port&#39; =&gt; env(&#39;DB_PORT&#39;, &#39;1433&#39;),
-            &#39;database&#39; =&gt; env(&#39;DB_DATABASE&#39;, &#39;laravel&#39;),
-            &#39;username&#39; =&gt; env(&#39;DB_USERNAME&#39;, &#39;root&#39;),
-            &#39;password&#39; =&gt; env(&#39;DB_PASSWORD&#39;, &#39;&#39;),
-            &#39;unix_socket&#39; =&gt; env(&#39;DB_SOCKET&#39;, &#39;&#39;),
-            &#39;charset&#39; =&gt; env(&#39;DB_CHARSET&#39;, &#39;utf8&#39;),
-            &#39;prefix&#39; =&gt; &#39;&#39;,
-            &#39;prefix_indexes&#39; =&gt; true,
-            // &#39;encrypt&#39; =&gt; env(&#39;DB_ENCRYPT&#39;, &#39;yes&#39;),
-            // &#39;trust_server_certificate&#39; =&gt; env(&#39;DB_TRUST_SERVER_CERTIFICATE&#39;, &#39;false&#39;),
-        ],
-    ],
-</code></p>
-
-<p>You will see errors when starting your app, because you need to install the corresponding drivers first. Instead of adding them through <a href="https://getcomposer.org/">Composer</a> (a widely adopted package manager for PHP), you have to install the ODBC drivers <strong>through the system package manager</strong>, because Microsoft doesn&#39;t maintain a PHP package. Furthermore, you also have to install the driver repository because <strong>Microsoft doesn&#39;t even maintain packages for the major Linux distributions</strong>. In our setup with DDEV, this has to be done by amending the Dockerfile used for the application container. Create a file at <code>.ddev/web-build/Dockerfile</code> and add the following contents:</p>
-
-<p><code></code>`dockerfile</p>
-
-<h1>https://ddev.readthedocs.io/en/stable/users/extend/customizing-images/#adding-extra-dockerfiles-for-webimage-and-dbimage</h1>
-
-<h1>https://stackoverflow.com/questions/58086933/how-to-install-the-sql-server-php-drivers-in-ddev-local#new-answer</h1>
-
-<p>ARG BASE<em>IMAGE
-FROM $BASE</em>IMAGE</p>
-
-<p>RUN npm install --global forever
-RUN echo &quot;Built on $(date)&quot; &gt; /build-date.txt</p>
-
-<h1>RUN curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -</h1>
-
-<h1>RUN curl https://packages.microsoft.com/config/debian/11/prod.list &gt; /etc/apt/sources.list.d/mssql-release.list</h1>
-
-<p>RUN curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft-prod.gpg
-RUN curl https://packages.microsoft.com/config/debian/12/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list</p>
-
-<p>RUN apt-get update
-RUN apt-get --allow-downgrades -y install libssl-dev
-RUN apt-get -y update &amp;&amp; yes | ACCEPT<em>EULA=Y apt-get -y install php8.3-dev php-pear unixodbc-dev htop
-RUN ACCEPT</em>EULA=Y apt-get -y install msodbcsql18 mssql-tools18
-RUN sudo pecl channel-update pecl.php.net
-RUN sudo pecl install sqlsrv
-RUN sudo pecl install pdo_sqlsrv</p>
-
-<p>RUN sudo printf &quot;; priority=20\nextension=sqlsrv.so\n&quot; &gt; /etc/php/8.3/mods-available/sqlsrv.ini
-RUN sudo printf &quot;; priority=30\nextension=pdo<em>sqlsrv.so\n&quot; &gt; /etc/php/8.3/mods-available/pdo</em>sqlsrv.ini
-RUN sudo phpenmod -v 8.3 -s cli sqlsrv pdo<em>sqlsrv
-RUN sudo phpenmod -v 8.3 -s fpm sqlsrv pdo</em>sqlsrv
-RUN sudo phpenmod -v 8.3 -s apache2 sqlsrv pdo_sqlsrv</p>
-
-<p>RUN sudo printf &quot;; priority=20\nextension=sqlsrv.so\n&quot; &gt; /etc/php/8.3/mods-available/sqlsrv.ini
-RUN sudo printf &quot;; priority=30\nextension=pdo<em>sqlsrv.so\n&quot; &gt; /etc/php/8.3/mods-available/pdo</em>sqlsrv.ini
-RUN sudo phpenmod -v 8.3 -s cli sqlsrv pdo<em>sqlsrv
-RUN sudo phpenmod -v 8.3 -s fpm sqlsrv pdo</em>sqlsrv
-RUN sudo phpenmod -v 8.3 -s apache2 sqlsrv pdo_sqlsrv</p>
-
-<p>RUN echo &#39;export PATH=&quot;$PATH:/opt/mssql-tools/bin&quot;&#39; &gt;&gt; ~/.bash_profile
-<code></code>`</p>
-
-<p>If you&#39;re reading this in the future and Microsoft may have released a new version of the ODBC drivers, you may have to follow the new <a href="https://learn.microsoft.com/de-de/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver16&amp;tabs=debian18-install%2Calpine17-install%2Cdebian8-install%2Credhat7-13-install%2Crhel7-offline#18">installation instructions from their documentation</a>. It took me a while to realize that I couldn&#39;t install version 17 of the driver because I was using the installation instructions for version 18. They are apparently incompatible with each other.</p>
-
-<p>I hope that you&#39;ll never have to touch the shithole that is MSSQL, but if you do, I hope that this guide will be of value to you.</p>]]>
             </description>
         </item>
     </channel>
