@@ -11,7 +11,7 @@
 
 ## Life Goals
 
-- Get Married
+- ~~Get Married~~ (May 2026)
 - ~~Buy a house~~ (October 2024)
 - Visit every continent (4 / 5)
 
