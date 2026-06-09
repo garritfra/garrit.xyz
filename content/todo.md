@@ -12,7 +12,7 @@
 - A farming simulator ([Gemini](https://gemini.circumlunar.space/) or FUSE frontend?)
 - Template Engine for Gemini applications
 - [~~A platform for abandoned projects to find new maintainers~~](https://seeking-maintainers.net/)
-- Terminal-based spreadsheet program
+- [~~Terminal-based spreadsheet program~~](https://github.com/garritfra/cell)
 - A web-based kernel and graphical operating system
 - A compliant redis server implementation
 - A website that calls out bloated technology/websites
