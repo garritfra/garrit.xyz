@@ -14,8 +14,31 @@
             en
         </language>
         <lastBuildDate>
-            Tue, 12 Dec 2023 00:00:00 +0000
+            Sat, 13 Jun 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Pac-Man, but you&apos;re the ghost
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-06-13-pac-man-but-you-re-the-ghost
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-06-13-pac-man-but-you-re-the-ghost?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 13 Jun 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I always felt a little bad for the ghosts in Pac-Man. They patrol the maze, they corner the guy, and then he eats a glowing pellet and suddenly they&#39;re the ones running for their lives. So I built a small game where you finally get to play the other side.</p>
+
+<p>Pac-Man has its own AI, and your job is to catch him before he clears the maze. The twist is the same one that always ruined my day as a ghost: if he eats a power pellet, the tables flip and he hunts you for a few seconds. Then you run.</p>
+
+<p>You can play the game <a href="https://garritfra.github.io/pac-hunt/">here</a>. Have fun!</p>
+
+<p>&lt;img width=&quot;676&quot; height=&quot;867&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/80319217-7cd2-432e-8006-01ff5cefef06&quot; /&gt;</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Roast my Site!

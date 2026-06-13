@@ -14,8 +14,31 @@
             en
         </language>
         <lastBuildDate>
-            Fri, 29 May 2026 00:00:00 +0000
+            Sat, 13 Jun 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                Pac-Man, but you&apos;re the ghost
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-06-13-pac-man-but-you-re-the-ghost
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-06-13-pac-man-but-you-re-the-ghost?utm_source=rss
+            </link>
+            <pubDate>
+                Sat, 13 Jun 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>I always felt a little bad for the ghosts in Pac-Man. They patrol the maze, they corner the guy, and then he eats a glowing pellet and suddenly they&#39;re the ones running for their lives. So I built a small game where you finally get to play the other side.</p>
+
+<p>Pac-Man has its own AI, and your job is to catch him before he clears the maze. The twist is the same one that always ruined my day as a ghost: if he eats a power pellet, the tables flip and he hunts you for a few seconds. Then you run.</p>
+
+<p>You can play the game <a href="https://garritfra.github.io/pac-hunt/">here</a>. Have fun!</p>
+
+<p>&lt;img width=&quot;676&quot; height=&quot;867&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/80319217-7cd2-432e-8006-01ff5cefef06&quot; /&gt;</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Fixing corrupted Home Assistant energy statistics
@@ -505,35 +528,6 @@ index d19d70a..1a61380 100644
 <p>This pluggability is what makes Kubernetes so powerful for those who need it. Need a specific storage solution? Plug in a CSI driver. Want a more secure container runtime? Swap in a different CRI implementation. But for everyone else, the defaults will serve you just fine.</p>
 
 <p>The beauty of this approach is that it gives you room to grow. Start with the defaults, and when you have specific requirements, the extension points are there waiting for you. That&#39;s the real magic of Kubernetes – it works great out of the box but doesn&#39;t limit your options as your needs evolve.</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                A trick to manage frequently used prompts in Claude/ChatGPT
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2025-02-27-a-trick-to-manage-frequently-used-prompts-in-claude-chatgpt
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2025-02-27-a-trick-to-manage-frequently-used-prompts-in-claude-chatgpt?utm_source=rss
-            </link>
-            <pubDate>
-                Thu, 27 Feb 2025 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>So far, whenever I wanted to recycle a prompt from another context in <a href="https://www.anthropic.com/claude">Claude</a> (though this also applies to ChatGPT and some other LLMs), I went back in my conversation history, copied the prompt, pasted it in a new chat and adjusted the context. But I recently discovered that <a href="https://www.anthropic.com/news/projects">Claude Projects</a> can be misused as &quot;prompt templates&quot;, which makes it way easier to handle repetitive tasks.</p>
-
-<p>In Projects, you can set a system prompt that will be applied to all conversations in the project. I guess it&#39;s supposed to be used for relevant information about whatever you want to work on, but I like to think about a project more as a prompt template, rather than a project. For example, here&#39;s a project prompt that I use to brainstorm project ideas:</p>
-
-<blockquote><p>Ask me one question at a time so we can develop a thorough, step-by-step spec for this idea. Each question should build on my previous answers, and our end goal is to have a detailed specification I can hand off to a developer. Let’s do this iteratively and dig into every relevant detail. Remember, only one question at a time.</p></blockquote>
-
-<p>(Stolen from <a href="https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/">this</a> great blog post)</p>
-
-<p>While you could copy and paste this from a text file into every new conversation, Claude&#39;s projects make it super easy to save this as a template.</p>
-
-<p>I guess this is an obvious feature for some people, but to me, it was a huge help once I found this out.</p>
-
-<p>Got any other neat tricks for working with LLMs? I&#39;d love to hear them!</p>]]>
             </description>
         </item>
     </channel>
