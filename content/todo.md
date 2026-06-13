@@ -34,7 +34,6 @@
 - A game that teaches the principles of DevOps through a Kanban-style UI
 - A frontend for GnuCash geared towards Freelancers
 - "Git For Babies" book
-- [A printable compilation of my blog posts](/posts/2024-04-07-five-years-of-blogging)
 - An mobile "TIL" app that asks for one thing you've learned every day
 - A "When will it break?" website that shows how often a software introduces a breaking change based on the major version number
 - A doom-scrollable HackerNews/wikipedia/blog feed (to battle my IG reel addiction)
@@ -47,12 +46,12 @@
 
 # Things I built
 
-- [~~A platform for abandoned projects to find new maintainers~~](https://seeking-maintainers.net/)
-- [~~Terminal-based spreadsheet program~~](https://github.com/garritfra/cell)
-- [~~Pacman but you're the ghost~~](https://garritfra.github.io/pac-hunt/)
-- [~~an easy to understand webapp for sending and receiving sensitive data using twmporary PGP keys~~](https://sendpasswords.net)
-- [~~A filtered version of HackerNews that only shows positive news~~](https://github.com/garritfra/positive_hackernews)
-
+- [A platform for abandoned projects to find new maintainers](https://seeking-maintainers.net/)
+- [Terminal-based spreadsheet program](https://github.com/garritfra/cell)
+- [Pacman but you're the ghost](https://garritfra.github.io/pac-hunt/)
+- [an easy to understand webapp for sending and receiving sensitive data using twmporary PGP keys](https://sendpasswords.net)
+- [A filtered version of HackerNews that only shows positive news](https://github.com/garritfra/positive_hackernews)
+- [A printable compilation of my blog posts](/posts/2024-04-07-five-years-of-blogging)
 
 
 ## Website Roadmap
