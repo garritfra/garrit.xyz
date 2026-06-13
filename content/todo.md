@@ -11,15 +11,12 @@
 - A Vim-like editor
 - A farming simulator ([Gemini](https://gemini.circumlunar.space/) or FUSE frontend?)
 - Template Engine for Gemini applications
-- [~~A platform for abandoned projects to find new maintainers~~](https://seeking-maintainers.net/)
-- [~~Terminal-based spreadsheet program~~](https://github.com/garritfra/cell)
 - A web-based kernel and graphical operating system
 - A compliant redis server implementation
 - A website that calls out bloated technology/websites
 - A transpiled JavaScript dialect for German syntax
 - A newsletter/feed that aggregates news from outlets covering the entire political spectrum
 - A Typescript library that mimics some safety features of Rust
-- Pacman but you're the ghost
 - A community-forum where users can post "nuggets" of interesting information. Inspired by HackerNews, Reddit and Twitter
 - A gameboy/nes emulator
 - A HackerNews CLI
@@ -30,10 +27,8 @@
 - A simple service for managing arbitrary web redirects. Used to prevent old links from dying.
 - A browser extension that restricts the amount of tabs
 - A solo roleplaying app
-- [~~an easy to understand webapp for sending and receiving sensitive data using twmporary PGP keys~~](https://sendpasswords.net)
 - a virtual pet
 - a game where you learn to build a common language with an alien
-- [~~A filtered version of HackerNews that only shows positive news~~](https://github.com/garritfra/positive_hackernews)
 - An RSS proxy that filters out negative content
 - A JSON parser
 - A game that teaches the principles of DevOps through a Kanban-style UI
@@ -49,6 +44,16 @@
 - A [MCP](https://modelcontextprotocol.io) server for [Dwarf Fortress](https://www.bay12games.com/dwarves/)
 - A VSCode plugin that highlights frequently changed lines of a project - helps brings awareness to avoid merge conflicts
 - Build a satellite ground station (through a [SDR](https://www.rtl-sdr.com/))
+
+# Things I built
+
+- [~~A platform for abandoned projects to find new maintainers~~](https://seeking-maintainers.net/)
+- [~~Terminal-based spreadsheet program~~](https://github.com/garritfra/cell)
+- [~~Pacman but you're the ghost~~](https://garritfra.github.io/pac-hunt/)
+- [~~an easy to understand webapp for sending and receiving sensitive data using twmporary PGP keys~~](https://sendpasswords.net)
+- [~~A filtered version of HackerNews that only shows positive news~~](https://github.com/garritfra/positive_hackernews)
+
+
 
 ## Website Roadmap
 
