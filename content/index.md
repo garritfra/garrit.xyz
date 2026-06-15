@@ -46,6 +46,14 @@ used by compilers for code generation.
 
 A bullshit-free programming language that compiles to JavaScript.
 
+**[Cell](https://github.com/garritfra/cell)**
+
+A fast terminal spreadsheet editor with Vim keybindings.
+
+**[Pac-Hunt](https://github.com/garritfra/pac-hunt)**
+
+It's Pac-Man, but you're the ghost!
+
 ## Writing
 
 A selection of articles I've (co-)authored on sources other than my [blog](/posts):
