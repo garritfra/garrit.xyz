@@ -10,7 +10,7 @@ jobs:
   build-jurassic-park-image:
     runs-on: "ubuntu-22.04"
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: elgohr/Publish-Docker-Github-Action@v5
         name: Build & push Docker image
         with:
