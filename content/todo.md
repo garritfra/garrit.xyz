@@ -43,6 +43,7 @@
 - A [MCP](https://modelcontextprotocol.io) server for [Dwarf Fortress](https://www.bay12games.com/dwarves/)
 - A VSCode plugin that highlights frequently changed lines of a project - helps brings awareness to avoid merge conflicts
 - Build a satellite ground station (through a [SDR](https://www.rtl-sdr.com/))
+- Public Amazon Wishlist but for arbitrary online shops
 
 # Things I built
 
