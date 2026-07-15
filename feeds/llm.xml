@@ -14,8 +14,51 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 06 May 2026 00:00:00 +0000
+            Wed, 15 Jul 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                You should be using a meta harness for agents
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-07-15-you-should-be-using-a-meta-harness-for-agents
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-07-15-you-should-be-using-a-meta-harness-for-agents?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 15 Jul 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>So you&#39;ve been using an agent harness like <a href="https://code.claude.com/docs/de/overview">Claude Code</a>, <a href="https://openai.com/de-DE/codex/">Codex</a>, <a href="https://pi.dev/">Pi</a> or one of the many others on the market. This is great! It&#39;s incredible how quickly these projects are evolving.</p>
+
+<p>After talking to some coworkers, reading articles on various blogs and seeing countless memes, it seems like many developers are still stuck in the habit of using &quot;an agent&quot; to aid their work - meaning they use one or at most two agent sessions at once. This is often accompanied by phrases like &quot;I&#39;m scrolling on my phone while I wait for the agent to finish&quot;. This worked fine 6 months ago, but frankly, we&#39;re past that point now.</p>
+
+<p>Recently, there has been an influx of what I&#39;d call &quot;meta harnesses&quot;. I don&#39;t know if this is an official term for these products (yet), but I think it&#39;s quite fitting.</p>
+
+<p>The idea of a meta harness is an environment to manage the lifecycle of many parallel agents. You can spin up sessions on demand (optionally in a new Git worktree), kick off your usual agent tasks and be notified if it needs input or once is done with its tasks. In the meantime, you can spin up multiple other agents to work on other parts of the codebase, or even other codebases too.</p>
+
+<p>Gone are the days of working on a single bug for half a day before moving to the next issue. With a meta harness, you can work on 5+ open issues at the same time! Just hook up your issue tracker to the agent (through MCP or CLI, whatever makes more sense for you), paste a link to the issue into the prompt and off it goes. No need to babysit every action. In fact, in the past couple of months, meta harnesses have almost entirely replaced my always-open IDE (VSCode in my case), a shift that I wouldn&#39;t have imagined a year ago.</p>
+
+<h2>Which meta harness should I choose?</h2>
+
+<p>These are the three meta harnesses that I&#39;ve worked with extensively and that I am confident in recommending:</p>
+
+<p><strong><a href="https://www.conductor.build/">Conductor</a></strong> was the first meta harness that I&#39;ve tried. It&#39;s very polished, has a clear and intuitive UI and is compatable with Claude Code and Codex. If you&#39;ve been using one of these two agents, all your skills, commands and MCPs are automatically picked up. Choose this if you </p>
+
+<p><strong><a href="https://cursor.com/">Cursor</a></strong> recently made a huge shift away from &quot;AI IDE&quot; by overhauling the entire application. Cursor has arguably the best user experience of all harnesses I&#39;ve tried. It&#39;s not really a &quot;meta harness&quot;, but rather a way to manage multiple parallel Cursor sessions at the same time. The user experience remains very similar.</p>
+
+<p><strong><a href="https://superset.sh/">Superset</a></strong> is by far the most flexible meta harness I&#39;ve tried, and it&#39;s the one I&#39;m currently using the most. Their approach is raw terminal sessions with whatever harness you like the most, instead of wrapping the session in a fancy UI. Superset still provides all the same features as the other harnesses, like Git worktrees, GitHub integration and agent notifications. It supports the most harnesses out there, and you can customize it extremely well to your liking.</p>
+
+<h2>When not to use a meta harness</h2>
+
+<p>Using many parallel agents through a meta harness does come with the tradeoff of heavy context switching. A rule of thumb I found for myself is that meta harnesses work really well for <strong>quick tasks</strong> like fixing bugs and implementing smaller features. For larger endeavours like proper features or refactorings, I sometimes still resort to opening an IDE and using a single, focused agent session with proper code navigation support just to be sure that I&#39;m the right headspace. I believe over time this ratio will shift more and more towards using meta harnesses as agent capabilities become better and better.</p>
+
+<h2>Conclusion</h2>
+
+<p>If you haven&#39;t used a meta harnesses yet, I highly recommend you try one out for your next coding tasks. I genuinly believe that it will change the way you develop software. And if you&#39;ve just started using them or have experience in other meta harnesses, I&#39;d be greatful to hear from you!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Don&apos;t trust large context windows

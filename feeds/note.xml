@@ -14,8 +14,51 @@
             en
         </language>
         <lastBuildDate>
-            Sat, 13 Jun 2026 00:00:00 +0000
+            Wed, 15 Jul 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                You should be using a meta harness for agents
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-07-15-you-should-be-using-a-meta-harness-for-agents
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-07-15-you-should-be-using-a-meta-harness-for-agents?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 15 Jul 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>So you&#39;ve been using an agent harness like <a href="https://code.claude.com/docs/de/overview">Claude Code</a>, <a href="https://openai.com/de-DE/codex/">Codex</a>, <a href="https://pi.dev/">Pi</a> or one of the many others on the market. This is great! It&#39;s incredible how quickly these projects are evolving.</p>
+
+<p>After talking to some coworkers, reading articles on various blogs and seeing countless memes, it seems like many developers are still stuck in the habit of using &quot;an agent&quot; to aid their work - meaning they use one or at most two agent sessions at once. This is often accompanied by phrases like &quot;I&#39;m scrolling on my phone while I wait for the agent to finish&quot;. This worked fine 6 months ago, but frankly, we&#39;re past that point now.</p>
+
+<p>Recently, there has been an influx of what I&#39;d call &quot;meta harnesses&quot;. I don&#39;t know if this is an official term for these products (yet), but I think it&#39;s quite fitting.</p>
+
+<p>The idea of a meta harness is an environment to manage the lifecycle of many parallel agents. You can spin up sessions on demand (optionally in a new Git worktree), kick off your usual agent tasks and be notified if it needs input or once is done with its tasks. In the meantime, you can spin up multiple other agents to work on other parts of the codebase, or even other codebases too.</p>
+
+<p>Gone are the days of working on a single bug for half a day before moving to the next issue. With a meta harness, you can work on 5+ open issues at the same time! Just hook up your issue tracker to the agent (through MCP or CLI, whatever makes more sense for you), paste a link to the issue into the prompt and off it goes. No need to babysit every action. In fact, in the past couple of months, meta harnesses have almost entirely replaced my always-open IDE (VSCode in my case), a shift that I wouldn&#39;t have imagined a year ago.</p>
+
+<h2>Which meta harness should I choose?</h2>
+
+<p>These are the three meta harnesses that I&#39;ve worked with extensively and that I am confident in recommending:</p>
+
+<p><strong><a href="https://www.conductor.build/">Conductor</a></strong> was the first meta harness that I&#39;ve tried. It&#39;s very polished, has a clear and intuitive UI and is compatable with Claude Code and Codex. If you&#39;ve been using one of these two agents, all your skills, commands and MCPs are automatically picked up. Choose this if you </p>
+
+<p><strong><a href="https://cursor.com/">Cursor</a></strong> recently made a huge shift away from &quot;AI IDE&quot; by overhauling the entire application. Cursor has arguably the best user experience of all harnesses I&#39;ve tried. It&#39;s not really a &quot;meta harness&quot;, but rather a way to manage multiple parallel Cursor sessions at the same time. The user experience remains very similar.</p>
+
+<p><strong><a href="https://superset.sh/">Superset</a></strong> is by far the most flexible meta harness I&#39;ve tried, and it&#39;s the one I&#39;m currently using the most. Their approach is raw terminal sessions with whatever harness you like the most, instead of wrapping the session in a fancy UI. Superset still provides all the same features as the other harnesses, like Git worktrees, GitHub integration and agent notifications. It supports the most harnesses out there, and you can customize it extremely well to your liking.</p>
+
+<h2>When not to use a meta harness</h2>
+
+<p>Using many parallel agents through a meta harness does come with the tradeoff of heavy context switching. A rule of thumb I found for myself is that meta harnesses work really well for <strong>quick tasks</strong> like fixing bugs and implementing smaller features. For larger endeavours like proper features or refactorings, I sometimes still resort to opening an IDE and using a single, focused agent session with proper code navigation support just to be sure that I&#39;m the right headspace. I believe over time this ratio will shift more and more towards using meta harnesses as agent capabilities become better and better.</p>
+
+<h2>Conclusion</h2>
+
+<p>If you haven&#39;t used a meta harnesses yet, I highly recommend you try one out for your next coding tasks. I genuinly believe that it will change the way you develop software. And if you&#39;ve just started using them or have experience in other meta harnesses, I&#39;d be greatful to hear from you!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 Pac-Man, but you&apos;re the ghost
@@ -391,39 +434,6 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 <p>After reloading the configuration, the entity was ready to be written to.</p>
 
 <p>As mentioned, I&#39;m using a self-hosted instance of n8n on a Raspberry Pi to automate this. Using their <a href="https://n8n.io/integrations/home-assistant/">Home Assistant Integration</a>, you can simply address the new entity and update its state. And just like that, I was able to add a new Gauge to my dashboard!</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Making family IT support effortless (and free)
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2025-09-15-making-family-it-support-effortless-and-free
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2025-09-15-making-family-it-support-effortless-and-free?utm_source=rss
-            </link>
-            <pubDate>
-                Mon, 15 Sep 2025 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Yesterday was one of those days where a family member had an issue with their computer. &quot;It doesn&#39;t open when I click it&quot; was all the information I had going into it. Debugging that through the telephone is just not happening.</p>
-
-<p>I always stayed away from TeamViewer, because I was never really sure if that had a free plan, and the possibility of finding out mid-session that they don&#39;t have one was reason enough to save the hassle of yelling the installation instructions through the phone.</p>
-
-<p>I remember hearing about <a href="https://rustdesk.com/">RustDesk</a> in a podcast a couple of years ago. The host claimed it to be a hassle-free open source replacement for TeamViewer, but by the time the next IT-support session arrived, I already forgot about it. Until yesterday!</p>
-
-<p>Yesterday, I just didn&#39;t get enough information to be useful. I just needed a way to remotely access the computer, and that&#39;s then I remembered the promise of RustDesk. Going in blind, I quickly installed the client on my laptop and sent a mail with the instructions to my family member:</p>
-
-<ol><li>Click here (a download link to the executable file)</li><li>Press the windows key</li><li>Type &quot;rust&quot; (to search for the file)</li><li>Press enter</li><li>Tell me the ID and the onetime password on the screen</li></ol>
-
-<p>These instructions are fool-proof! And sure enough, they worked. I logged in and debugged the issue. No paywall, no corporate bullsh**, just a simple client that just works as intended out of the box. I was delighted to see that the plan has worked out. Going forward, Rustdesk will be my primary choice for remote IT support.</p>
-
-<p>If you&#39;re interested: for some reason the browser window on their screen was resized to a tiny box near the edge of the screen, so whenever they clicked a bookmarked link on their desktop, instead of &quot;nothing happening&quot;, they just didn&#39;t see the page opening in the browser.</p>
-
-<h2>TL;DR</h2>
-
-<p>Use <a href="https://rustdesk.com/">RustDesk</a> instead of TeamViewer for a free and easy way to access your family&#39;s computer remotely.</p>]]>
             </description>
         </item>
     </channel>
