@@ -14,8 +14,192 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 15 Jul 2026 00:00:00 +0000
+            Mon, 10 Aug 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                ASCII art of a dolphin looking into a mirror
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-08-10-ascii-art-of-a-dolphin-looking-into-a-mirror
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-08-10-ascii-art-of-a-dolphin-looking-into-a-mirror?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 10 Aug 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Simon Willison has an amazing <a href="https://simonwillison.net/tags/pelican-riding-a-bicycle/">personal benchmark</a> that he uses on any new AI model that comes out:</p>
+
+<blockquote><p>&quot;Generate an SVG of a pelican riding a bicycle&quot;</p></blockquote>
+
+<p>The outputs are as funny as they are informative about the AI model. The pelican is very saturated on the internet by now, so it&#39;s hard to tell if an AI is particularly trained against this prompt.</p>
+
+<p>So, for the longest time, I wanted to have my own similar personal benchmark that I can throw at new models to see how they perform. And I think I finally have it:</p>
+
+<blockquote><p>&quot;ASCII art of a dolphin looking into a mirror&quot;</p></blockquote>
+
+<p>As you might imagine, most AIs are neither specifically trained on ASCII art, nor the appearance of a dolphin, nor building asymmetric reflections of said subject. The results so far are very... promising:</p>
+
+<h2>Claude Sonnet 5 (Medium)</h2>
+
+<p>What even is that?</p>
+
+<p><code>
+,-&#39;`-.
+                          ,-&#39;::::::::::`-.
+                     _.--:::::::::::::::::`--.__
+                _.-&#39;`   :::::::::::::::::::::::`-.
+             .-&#39;      ,::::::::::::::::::::::::::`.
+           .&#39;       ,&#39;::::::::::::::::::::::::::::`.
+          /       ,&#39;::::::::::::::::,--._::::::::::\
+         /      ,&#39;::::::::::::::::,&#39;     `-._:::::::\
+        |      /::::::::::::::::,&#39;          _)::::::::\
+        |     /:::::::::::,--&#39;``            `.::::::::|
+        |    |:::::::,--&#39;`    ⚬              |::::::::|
+        |    |::::::/                        /::::::::|
+        |    |:::::|         mirror         /:::::::::|
+         \    \:::::\                      /::::::::::/
+          \    \:::::`-._               ,-&#39;::::::::::/
+           `.   `-:::::::`--.._____..--&#39;:::::::::::.&#39;
+             `-._  `-:::::::::::::::::::::::::::_.-&#39;
+                 `--._``--:::::::::::::::--&#39;&#39;_.-&#39;
+                       ``--..________..--&#39;&#39;
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+                    (reflection, same shape)
+</code></p>
+
+<h2>Claude Opus 5 (High)</h2>
+
+<p>This one is my favorite so far!</p>
+
+<p><code>
+                               .------------------------------.
+                               |                              |
+                      __       |      __                      |
+        /\         _-&#39;  `-.    |   .-&#39;  `-_         /\        |
+       /  \     _-&#39;    o   `.  | .&#39;   o    `-_     /  \       |
+   ___/    \_-&#39;             _) |(_             `-_/    \___   |
+  /                      _-&#39;   |  `-_                      \  |
+  \_                __--&#39;      |     `--__                _/  |
+    `--..______..--&#39;           |          `--..______..--&#39;    |
+                               |                              |
+                               &#39;------------------------------&#39;
+</code></p>
+
+<h2>Claude Fable 5 (High)</h2>
+
+<p><code></code>`</p>
+
+<hr/>
+
+<pre><code>    ___                      |  _______  |
+ .-&#39;   &#39;-.        _         | |   _..-&#39; |
+/  o      \___..-&#39; \        | | &#39;-.._ o |
+\             __.--&#39;        | |--.__    |
+ &#39;-.____..--&#39;&#39;    \         | | /       |
+     \/  \    \    \        | |  /  \/  |
+          \    &#39;.___\       | |_/       |
+           &#39;--&#39;             |  ~~~~~~~  |
+                            |___________|
+          dolphin              mirror</code></pre>
+
+<p><code></code>`</p>
+
+<h2>Claude Fable 5 (Extra)</h2>
+
+<p>Response Suffix: &quot;Fin-tastic reflection, if I may say so.&quot;</p>
+
+<p><code>
+                             .----------------------.
+                             |                      |
+           __                |          __          |
+     _____/  \______         |   ______/  \_____    |
+   =&lt;    _      o   &gt;        |  &lt;   o      _    &gt;=  |
+     \_____________/         |   \_____________/    |
+        o   ..               |                      |
+      o    .                 &#39;----------------------&#39;
+                                       |  |
+                                    ___|__|___
+                                   (__________)
+</code></p>
+
+<h2>GPT-5.6 Sol (Extra High)</h2>
+
+<p><code></code><code>
+                 __
+             ___/  \___
+        ____/          \____
+      _/                    \__
+     /     _..---.._            </code>-.
+    /   .-&#39;         <code>-.            \
+   /   /      __       \            |
+  |   |     .&#39;  </code>.      |           |
+   \   \    _<strong><em>/     /           /
+    <code>-. </code>-.</em>        <em>.-&#39;       </em>.-&#39;
+       <code>---.</code>------&#39;       _.-&#39;
+            \           .-&#39;
+             \   </strong>_   /
+              _/   _/
+                \   /
+                 _/</p>
+
+<pre><code>                  ||  MIRROR  ||
+                  ||          ||
+                  ||    __    ||
+                  || __/  \__ ||
+                  ||/        \||
+                  ||\        /||
+                  || `-.__.-&#39; ||
+                  ||    \/    ||
+                  ||          ||
+                  ||__________||</code></pre>
+
+<p><code></code>`</p>
+
+<h2>Gemini 3.1 Pro</h2>
+
+<p><code>
+_                   _
+           ,&#39; `.      .-.      .&#39; `.
+         ,&#39;     `--.  | |  .--&#39;     `.
+       ,&#39;           `-| |-&#39;           `.
+     ,&#39;               | |               `.
+    /                 | |                 \
+   |         O    _.-.| |.-._    O         |
+   |             (____| |____)             |
+    \          ,&#39;     | |     `.          /
+     `--------&#39;       &#39;-&#39;       `--------&#39;
+         o                           o
+      o     o                     o     o
+~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
+</code></p>
+
+<h2>Gemini 3.6 Thinking</h2>
+
+<p><code></code>`</p>
+
+<hr/>
+
+<pre><code> .-&#39;     `-.                     .----.                 .-&#39;     `-.</code></pre>
+
+<p>   .&#39;   o       \                    | || |                /       o   &#39;.
+  /      <em>       \                   | || |               /       </em>      \
+ /     /&#39; \       \                  | || |              /       / &#39;\     \
+/    /<code>    )       \________         | || |         ________/       (    </code>\    \
+|    |     /                 \       | || |        /                 \     |    |
+|    |    &#39;-----.             \      | || |       /             .----&#39;     |    |
+ \    \          <code>----.        \     | || |      /        .----&#39;          /    /
+  &#39;.   &#39;-------------&#39;          \    | || |     /          &#39;-------------&#39;   .&#39;
+    &#39;---------------------------&#39;    &#39;----&#39;     &#39;---------------------------&#39;
+</code><code></code></p>
+
+<h1>Conclusion</h1>
+
+<p>AIs seem to really struggle with this. Some more than others. I believe this will be a fun benchmark in the future, so expect more of where that came from!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 You should be using a meta harness for agents

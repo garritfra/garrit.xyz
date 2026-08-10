@@ -14,8 +14,192 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 15 Jul 2026 00:00:00 +0000
+            Mon, 10 Aug 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                ASCII art of a dolphin looking into a mirror
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-08-10-ascii-art-of-a-dolphin-looking-into-a-mirror
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-08-10-ascii-art-of-a-dolphin-looking-into-a-mirror?utm_source=rss
+            </link>
+            <pubDate>
+                Mon, 10 Aug 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<p>Simon Willison has an amazing <a href="https://simonwillison.net/tags/pelican-riding-a-bicycle/">personal benchmark</a> that he uses on any new AI model that comes out:</p>
+
+<blockquote><p>&quot;Generate an SVG of a pelican riding a bicycle&quot;</p></blockquote>
+
+<p>The outputs are as funny as they are informative about the AI model. The pelican is very saturated on the internet by now, so it&#39;s hard to tell if an AI is particularly trained against this prompt.</p>
+
+<p>So, for the longest time, I wanted to have my own similar personal benchmark that I can throw at new models to see how they perform. And I think I finally have it:</p>
+
+<blockquote><p>&quot;ASCII art of a dolphin looking into a mirror&quot;</p></blockquote>
+
+<p>As you might imagine, most AIs are neither specifically trained on ASCII art, nor the appearance of a dolphin, nor building asymmetric reflections of said subject. The results so far are very... promising:</p>
+
+<h2>Claude Sonnet 5 (Medium)</h2>
+
+<p>What even is that?</p>
+
+<p><code>
+,-&#39;`-.
+                          ,-&#39;::::::::::`-.
+                     _.--:::::::::::::::::`--.__
+                _.-&#39;`   :::::::::::::::::::::::`-.
+             .-&#39;      ,::::::::::::::::::::::::::`.
+           .&#39;       ,&#39;::::::::::::::::::::::::::::`.
+          /       ,&#39;::::::::::::::::,--._::::::::::\
+         /      ,&#39;::::::::::::::::,&#39;     `-._:::::::\
+        |      /::::::::::::::::,&#39;          _)::::::::\
+        |     /:::::::::::,--&#39;``            `.::::::::|
+        |    |:::::::,--&#39;`    ⚬              |::::::::|
+        |    |::::::/                        /::::::::|
+        |    |:::::|         mirror         /:::::::::|
+         \    \:::::\                      /::::::::::/
+          \    \:::::`-._               ,-&#39;::::::::::/
+           `.   `-:::::::`--.._____..--&#39;:::::::::::.&#39;
+             `-._  `-:::::::::::::::::::::::::::_.-&#39;
+                 `--._``--:::::::::::::::--&#39;&#39;_.-&#39;
+                       ``--..________..--&#39;&#39;
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+                    (reflection, same shape)
+</code></p>
+
+<h2>Claude Opus 5 (High)</h2>
+
+<p>This one is my favorite so far!</p>
+
+<p><code>
+                               .------------------------------.
+                               |                              |
+                      __       |      __                      |
+        /\         _-&#39;  `-.    |   .-&#39;  `-_         /\        |
+       /  \     _-&#39;    o   `.  | .&#39;   o    `-_     /  \       |
+   ___/    \_-&#39;             _) |(_             `-_/    \___   |
+  /                      _-&#39;   |  `-_                      \  |
+  \_                __--&#39;      |     `--__                _/  |
+    `--..______..--&#39;           |          `--..______..--&#39;    |
+                               |                              |
+                               &#39;------------------------------&#39;
+</code></p>
+
+<h2>Claude Fable 5 (High)</h2>
+
+<p><code></code>`</p>
+
+<hr/>
+
+<pre><code>    ___                      |  _______  |
+ .-&#39;   &#39;-.        _         | |   _..-&#39; |
+/  o      \___..-&#39; \        | | &#39;-.._ o |
+\             __.--&#39;        | |--.__    |
+ &#39;-.____..--&#39;&#39;    \         | | /       |
+     \/  \    \    \        | |  /  \/  |
+          \    &#39;.___\       | |_/       |
+           &#39;--&#39;             |  ~~~~~~~  |
+                            |___________|
+          dolphin              mirror</code></pre>
+
+<p><code></code>`</p>
+
+<h2>Claude Fable 5 (Extra)</h2>
+
+<p>Response Suffix: &quot;Fin-tastic reflection, if I may say so.&quot;</p>
+
+<p><code>
+                             .----------------------.
+                             |                      |
+           __                |          __          |
+     _____/  \______         |   ______/  \_____    |
+   =&lt;    _      o   &gt;        |  &lt;   o      _    &gt;=  |
+     \_____________/         |   \_____________/    |
+        o   ..               |                      |
+      o    .                 &#39;----------------------&#39;
+                                       |  |
+                                    ___|__|___
+                                   (__________)
+</code></p>
+
+<h2>GPT-5.6 Sol (Extra High)</h2>
+
+<p><code></code><code>
+                 __
+             ___/  \___
+        ____/          \____
+      _/                    \__
+     /     _..---.._            </code>-.
+    /   .-&#39;         <code>-.            \
+   /   /      __       \            |
+  |   |     .&#39;  </code>.      |           |
+   \   \    _<strong><em>/     /           /
+    <code>-. </code>-.</em>        <em>.-&#39;       </em>.-&#39;
+       <code>---.</code>------&#39;       _.-&#39;
+            \           .-&#39;
+             \   </strong>_   /
+              _/   _/
+                \   /
+                 _/</p>
+
+<pre><code>                  ||  MIRROR  ||
+                  ||          ||
+                  ||    __    ||
+                  || __/  \__ ||
+                  ||/        \||
+                  ||\        /||
+                  || `-.__.-&#39; ||
+                  ||    \/    ||
+                  ||          ||
+                  ||__________||</code></pre>
+
+<p><code></code>`</p>
+
+<h2>Gemini 3.1 Pro</h2>
+
+<p><code>
+_                   _
+           ,&#39; `.      .-.      .&#39; `.
+         ,&#39;     `--.  | |  .--&#39;     `.
+       ,&#39;           `-| |-&#39;           `.
+     ,&#39;               | |               `.
+    /                 | |                 \
+   |         O    _.-.| |.-._    O         |
+   |             (____| |____)             |
+    \          ,&#39;     | |     `.          /
+     `--------&#39;       &#39;-&#39;       `--------&#39;
+         o                           o
+      o     o                     o     o
+~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
+</code></p>
+
+<h2>Gemini 3.6 Thinking</h2>
+
+<p><code></code>`</p>
+
+<hr/>
+
+<pre><code> .-&#39;     `-.                     .----.                 .-&#39;     `-.</code></pre>
+
+<p>   .&#39;   o       \                    | || |                /       o   &#39;.
+  /      <em>       \                   | || |               /       </em>      \
+ /     /&#39; \       \                  | || |              /       / &#39;\     \
+/    /<code>    )       \________         | || |         ________/       (    </code>\    \
+|    |     /                 \       | || |        /                 \     |    |
+|    |    &#39;-----.             \      | || |       /             .----&#39;     |    |
+ \    \          <code>----.        \     | || |      /        .----&#39;          /    /
+  &#39;.   &#39;-------------&#39;          \    | || |     /          &#39;-------------&#39;   .&#39;
+    &#39;---------------------------&#39;    &#39;----&#39;     &#39;---------------------------&#39;
+</code><code></code></p>
+
+<h1>Conclusion</h1>
+
+<p>AIs seem to really struggle with this. Some more than others. I believe this will be a fun benchmark in the future, so expect more of where that came from!</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 You should be using a meta harness for agents
@@ -396,44 +580,6 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
                 <![CDATA[<p><a href="https://medium.com/@bre/the-cult-of-done-manifesto-724ca1c2ff13">The Cult of Done Manifesto</a> is a fascinating way of embracing a chaotic mind. I copied the 13 golden rules into my very first <a href="https://garrit.xyz/posts/2023-09-09-everyday-carry-notebooks">pocket notebook</a> and stumble upon them from time to time.</p>
 
 <blockquote><ol><li>There are three states of being. Not knowing, action and completion.</li><li>Accept that everything is a draft. It helps to get it done.</li><li>There is no editing stage.</li><li>Pretending you know what you’re doing is almost the same as knowing what you are doing, so just accept that you know what you’re doing even if you don’t and do it.</li><li>Banish procrastination. If you wait more than a week to get an idea done, abandon it.</li><li>The point of being done is not to finish but to get other things done.</li><li>Once you’re done you can throw it away.</li><li>Laugh at perfection. It’s boring and keeps you from being done.</li><li>People without dirty hands are wrong. Doing something makes you right.</li><li>Failure counts as done. So do mistakes.</li><li>Destruction is a variant of done.</li><li>If you have an idea and publish it on the internet, that counts as a ghost of done.</li><li>Done is the engine of more.</li></ol></blockquote>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Custom Entities in Home Assistant
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2025-12-11-custom-entities-in-home-assistant
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2025-12-11-custom-entities-in-home-assistant?utm_source=rss
-            </link>
-            <pubDate>
-                Thu, 11 Dec 2025 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>My local gym has a gauge on their website that shows an approximation of how many people are currently there. Being an avid <a href="https://www.home-assistant.io/">Home Assistant</a> user, of course I had to pipe that data into my dashboard somehow. For that, I created a simple <a href="https://n8n.io/">n8n</a> workflow that scrapes the data off the gym&#39;s site and dumps it into a custom entity.</p>
-
-<p>Because creating a custom entity was not quite so straight forward as I&#39;d hoped, I wanted to share how I did it.</p>
-
-<p>I ended up using the <code>input_number</code> integration (which seems to come with Home Assistant) and defined an entity that I could reference through the API:</p>
-
-<p><code></code>`yaml</p>
-
-<h1>configuration.yaml</h1>
-
-<p>input<em>number:
-  easyfitness</em>auslastung:
-    name: EasyFitness Auslastung
-    initial: 0
-    min: 0
-    max: 100
-    step: 1
-<code></code>`</p>
-
-<p>After reloading the configuration, the entity was ready to be written to.</p>
-
-<p>As mentioned, I&#39;m using a self-hosted instance of n8n on a Raspberry Pi to automate this. Using their <a href="https://n8n.io/integrations/home-assistant/">Home Assistant Integration</a>, you can simply address the new entity and update its state. And just like that, I was able to add a new Gauge to my dashboard!</p>]]>
             </description>
         </item>
     </channel>
