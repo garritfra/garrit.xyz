@@ -45,6 +45,7 @@
 - Build a satellite ground station (through a [SDR](https://www.rtl-sdr.com/))
 - Public Amazon Wishlist but for arbitrary online shops
 - What would Git for AI agents look like?
+- A native MacOS application that helps you run regular tasks (e.g. keep brew up to date) with tooling around it
 
 # Things I built
 
