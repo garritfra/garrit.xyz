@@ -19,7 +19,7 @@
 
 - ~~Run a half marathon~~ (March 18, 2018)
 - Run a marathon
-- Finish a sprint triathlon
-- Finish an Ironman 70.3
+- ~~[Finish a sprint triathlon](https://www.strava.com/activities/18915452122)~~ (June 14, 2026)
+- ~~[Finish an Ironman 70.3](https://www.strava.com/activities/20158189868)~~ (September 13, 2026)
 - Finish an Ironman
 - Finish the [Iron Lake Challenge](https://rockyourgoal.de/en/iron-lake-challenge) (in my state) (4 / 10)
