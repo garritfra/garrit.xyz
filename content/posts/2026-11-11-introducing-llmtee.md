@@ -1,5 +1,5 @@
 ---
-title: "Introducing llmtee: see what your LLM calls cost"
+title: "llmtee: an emergency brake for agents that loop"
 date: "2026-11-11"
 tags: "note, tech, programming, ai, llm, homelab, infrastructure"
 ---
