@@ -1,5 +1,5 @@
 ---
-title: "llmtee: an emergency brake for agents that loop"
+title: "llmtee: A lightweight LLM proxy"
 date: "2026-11-11"
 tags: "note, tech, programming, ai, llm, homelab, infrastructure"
 ---
