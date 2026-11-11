@@ -14,8 +14,89 @@
             en
         </language>
         <lastBuildDate>
-            Wed, 15 Jul 2026 00:00:00 +0000
+            Wed, 11 Nov 2026 00:00:00 +0000
         </lastBuildDate>
+        <item>
+            <title>
+                llmtee: A lightweight LLM proxy
+            </title>
+            <guid>
+                https://garrit.xyz/posts/2026-11-11-introducing-llmtee
+            </guid>
+            <link>
+                https://garrit.xyz/posts/2026-11-11-introducing-llmtee?utm_source=rss
+            </link>
+            <pubDate>
+                Wed, 11 Nov 2026 00:00:00 +0000
+            </pubDate>
+            <description>
+                <![CDATA[<blockquote><p><strong>TL;DR:</strong> <a href="https://github.com/garritfra/llmtee">llmtee</a> is a self-hosted proxy for the OpenAI and Anthropic APIs, plus any OpenAI-compatible provider. Change one base URL, and every request gets logged with tokens, cost, latency and time to first token. It&#39;s a single Go binary with a SQLite file.</p></blockquote>
+
+<p>I use LLMs in a lot of places by now. Coding agents, a few n8n workflows, some scripts, and local models running on <a href="https://garrit.xyz/posts/2024-06-17-host-your-own-llm">Ollama</a>. What I didn&#39;t have was a single place to see what all of that actually costs. Each provider has its own dashboard, they all slice the data differently, and local models don&#39;t show up in any of them.</p>
+
+<p>The existing tools didn&#39;t fit what I wanted. <a href="https://langfuse.com">Langfuse</a> wants an SDK and a stack of Postgres, ClickHouse, Redis and S3. <a href="https://github.com/BerriAI/litellm">LiteLLM</a> is a full gateway with routing and fallbacks across 100+ providers. <a href="https://www.helicone.ai">Helicone</a> was the closest match, but it&#39;s been in <a href="https://www.mintlify.com/blog/mintlify-acquires-helicone">maintenance mode</a> since March. All I wanted was to answer &quot;what did this cost, and where did it go?&quot;, and to stop a runaway agent before it burns through my monthly budget.</p>
+
+<p>So I built llmtee.</p>
+
+<p><img alt="llmtee overview" src="/assets/posts/2026-11-11-introducing-llmtee/screenshot-overview.png"/></p>
+
+<h2>How it works</h2>
+
+<p>The name comes from the Unix <code>tee</code>. llmtee passes each response through to your client unchanged and keeps a copy for itself. You point your client&#39;s base URL at it, and that&#39;s the whole integration:</p>
+
+<p><code></code>`sh
+docker run -d --name llmtee -p 8080:8080 -v llmtee-data:/data \
+  -e LLMTEE<em>ADMIN</em>PASSWORD=change-me ghcr.io/garritfra/llmtee</p>
+
+<p>export OPENAI<em>BASE</em>URL=http://localhost:8080/openai/v1
+export ANTHROPIC<em>BASE</em>URL=http://localhost:8080/anthropic
+<code></code>`</p>
+
+<p>Any client that lets you set a base URL works without code changes. That includes the official SDKs, Claude Code, Codex and n8n. Send a request, open <code>http://localhost:8080</code>, and it shows up with its tokens and cost. OpenRouter has its own route, and you can add any other upstream (Ollama, vLLM, Groq, ...) with an environment variable like <code>LLMTEE_UPSTREAM_OLLAMA=http://localhost:11434</code>.</p>
+
+<p>A proxy that sits in the request path must not get in the way. Only routing, auth and the budget check happen while the client waits. Streamed chunks are flushed to the client as soon as they arrive, and a copy goes to a usage parser. Pricing, metrics and database writes happen in the background, in batches. If the database is slow or down, llmtee keeps forwarding and drops the log events instead. Golden tests replay recorded OpenAI and Anthropic streams through the proxy and require byte-identical output.</p>
+
+<p>On my M4 Pro, at 200 requests per second against a local fake upstream, llmtee added 0.14 ms at p50 and used about 33 MB of memory. You can reproduce that with <code>make loadtest</code>.</p>
+
+<h2>Budgets</h2>
+
+<p>This is the feature I wanted most. Each key can have a daily and a monthly budget. Once a key hits its limit, llmtee answers with a <code>429</code> in the provider&#39;s error format and doesn&#39;t forward the request.</p>
+
+<p>You can use your provider key as usual, and llmtee will only store a hash of it. Or you can hand out llmtee keys instead. llmtee then swaps in the real provider key on the way out, so your agents and teammates never see it:</p>
+
+<p><code>sh
+llmtee keys create hermes-agent --budget-day 5 --budget-month 60
+</code></p>
+
+<p>One caveat: llmtee only knows what a request cost after the response arrives. The request that crosses the limit still completes, so a key can overshoot by exactly one request.</p>
+
+<h2>Honest numbers</h2>
+
+<p>llmtee never estimates tokens. It reads them from the provider&#39;s response. If a response contains no usage, the request is marked as &quot;usage unknown&quot;. For OpenAI streams, it adds <code>stream_options.include_usage</code> if the client didn&#39;t, so streams report usage too.</p>
+
+<p>Prices come from <a href="https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json">LiteLLM&#39;s price table</a>, embedded at build time. The cost is stored with each request, so a price change next month doesn&#39;t rewrite your history.</p>
+
+<h2>Getting your data out</h2>
+
+<ul><li>A web UI with spend per day and month, a cost chart you can split by model, key, user or upstream, and a request list with full bodies. It&#39;s server-rendered with Go templates and htmx.</li><li>CSV export, from the UI or with <code>llmtee export --range 30d</code>.</li><li>Prometheus metrics at <code>/metrics</code>.</li><li>An MCP server at <code>/mcp</code>, so you can ask your agent what it has been spending.</li></ul>
+
+<p>Body logging is on by default with 30-day retention, because seeing the exact prompt behind an expensive request is half the point. You can turn it off globally, per upstream or per request, and redact specific JSON fields before they&#39;re stored. llmtee sends no telemetry.</p>
+
+<h2>What it isn&#39;t</h2>
+
+<p>llmtee is built for individuals and small teams. It has no evals, prompt management, caching, routing, fallbacks or SSO, and that&#39;s on purpose. My rule while building it was: if a feature would need a second service, leave it out or offer an export. If you need any of these, LiteLLM or Langfuse are great choices.</p>
+
+<p>It also sits in your request path. If llmtee is down, your LLM calls fail. Monitor <code>/healthz</code> and keep the provider&#39;s direct URL at hand.</p>
+
+<p>The native Gemini, Azure OpenAI and Bedrock APIs aren&#39;t supported yet, but their OpenAI-compatible endpoints work. The current release is 0.x, so configuration may still change.</p>
+
+<h2>Try it</h2>
+
+<p>The code is on <a href="https://github.com/garritfra/llmtee">GitHub</a> under Apache-2.0. Binaries for Linux, macOS and Windows are on the <a href="https://github.com/garritfra/llmtee/releases">releases page</a>, and there are guides for the SDKs, Claude Code, Codex, Ollama, OpenRouter, vLLM and n8n in the <a href="https://github.com/garritfra/llmtee/blob/main/docs/integrations.md">docs</a>. If you&#39;re coming from Helicone, there&#39;s a <a href="https://github.com/garritfra/llmtee/blob/main/docs/migrating-from-helicone.md">migration guide</a> too.</p>
+
+<p>If you try it, I&#39;d love to hear how it goes. <a href="https://github.com/garritfra/llmtee/issues">Open an issue</a> or <a href="/contact">drop me a line</a>.</p>]]>
+            </description>
+        </item>
         <item>
             <title>
                 You should be using a meta harness for agents
@@ -597,54 +678,6 @@ c29tZXVzZXI6c29tZXBhc3N3b3JkdGhhdHN3YXlsb25nZXJ0aGFudGhlZmlyc3RvbmVidXRhbHNvdmVy
     &lt;input type=&quot;hidden&quot; name=&quot;sites&quot; value=&quot;garrit.xyz&quot; /&gt;
     &lt;input type=&quot;submit&quot; value=&quot;Search&quot; /&gt;
 &lt;/form&gt;</p>]]>
-            </description>
-        </item>
-        <item>
-            <title>
-                Pandoc: Convert links to footnotes (the easy way)
-            </title>
-            <guid>
-                https://garrit.xyz/posts/2024-04-04-pandoc-convert-links-to-footnotes-the-easy-way
-            </guid>
-            <link>
-                https://garrit.xyz/posts/2024-04-04-pandoc-convert-links-to-footnotes-the-easy-way?utm_source=rss
-            </link>
-            <pubDate>
-                Thu, 04 Apr 2024 00:00:00 +0000
-            </pubDate>
-            <description>
-                <![CDATA[<p>Pandoc has <a href="https://pandoc.org/MANUAL.html#links">a feature</a> to covert links to footnotes. Unfortunately, this only applies to LaTeX documents. Since I want to stay away from LaTeX for reasons of bloat, I was looking for a more universal approach.</p>
-
-<p>First, I encountered <a href="https://stackoverflow.com/questions/33900067/pandoc-filter-to-add-footnotes-to-links">this</a> thread suggesting to use a regular <a href="https://pandoc.org/filters.html">Pandoc filter</a>. This has one downside though: you need a Haskell toolchain on your system. So I moved on ... </p>
-
-<p>I eventually stumbled across <a href="https://github.com/jgm/pandoc/discussions/9415">this</a> thread, explaining how to do the same thing but with a Lua filter instead of Haskell. Since Lua is embedded into Pandoc, you don&#39;t need to install anything. Hooray for embeddable languages!</p>
-
-<p>Simply place the following snippet into file (<code>/filters/link-to-footnote.lua</code> for example):</p>
-
-<p><code>lua
-function Link(link)
-    link.content:insert(pandoc.Note(link.target))
-    return link.content
-end
-</code></p>
-
-<blockquote><p><em>Note</em>: If you want to keep the original hyperlink in tact, replace the <code>return link.content</code> with <code>return link</code>.</p></blockquote>
-
-<p>And add the following flag to your Pandoc build command:</p>
-
-<p><code></code>`sh</p>
-
-<h1>!/bin/sh</h1>
-
-<p>pandoc text.md
-    -o book.epub \
-    --lua-filter=filters/link-to-footnote.lua \ # &lt;-- This one
-    --metadata-file metadata.yaml \
-    --standalone \
-    # ...
-<code></code>`</p>
-
-<p>After compiling the document, you should now see that each link has a footnote with the link text.</p>]]>
             </description>
         </item>
     </channel>
