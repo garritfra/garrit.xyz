@@ -12,7 +12,7 @@ The existing tools didn't fit what I wanted. [Langfuse](https://langfuse.com) wa
 
 So I built llmtee.
 
-![llmtee overview](https://github.com/garritfra/llmtee/raw/main/docs/screenshot-overview.png)
+![llmtee overview](/assets/posts/2026-11-11-introducing-llmtee/screenshot-overview.png)
 
 ## How it works
 
